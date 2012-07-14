@@ -1,0 +1,62 @@
+<Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvase" xmlns:p1="clr-namespace:org.elsoft.component" xmlns:p2="clr-namespace:org.eclipse.wb.elsoft.components">
+	<Composite.layout>
+		<GridLayout/>
+	</Composite.layout>
+	<Composite>
+		<Composite.layout>
+			<GridLayout numColumns="4"/>
+		</Composite.layout>
+		<p2:MetaAction text="Search" expressionProperty="DepartmentLnk.search"/>
+		<p2:MetaAction text="Query" expressionProperty="DepartmentLnk.query"/>
+		<p2:MetaAction text="Commit" expressionProperty="DepartmentLnk.commit"/>
+		<p2:MetaAction text="RallBack" expressionProperty="DepartmentLnk.rallback"/>
+	</Composite>
+	<Composite>
+		<Composite.layoutData>
+			<GridData widthHint="376"/>
+		</Composite.layoutData>
+		<Composite.layout>
+			<GridLayout numColumns="2"/>
+		</Composite.layout>
+		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DepartmentLnk">
+			<p2:MetaTableColumn text="Departments Id" width="111">
+				<p2:MetaInputText x:Style="BORDER" sourceProperty="departmentId"/>
+			</p2:MetaTableColumn>
+			<p2:MetaTableColumn text="Departments name" width="139">
+				<p2:MetaInputText x:Style="BORDER" sourceProperty="departmentName"/>
+			</p2:MetaTableColumn>
+		</p2:MetaTable>
+		<Composite>
+			<Composite.layout>
+				<GridLayout numColumns="2"/>
+			</Composite.layout>
+			<Label/>
+			<p2:MetaAction text="Create" expressionProperty="DepartmentLnk.create"/>
+			<Label/>
+			<p2:MetaAction text="Remove" expressionProperty="DepartmentLnk.remove"/>
+		</Composite>
+	</Composite>
+	<Composite>
+		<Composite.layout>
+			<GridLayout/>
+		</Composite.layout>
+		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="EmployeesLnk">
+			<p2:MetaTable.layoutData>
+				<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
+			</p2:MetaTable.layoutData>
+			<p2:MetaTableColumn text="Emploee Id" width="100">
+				<p2:MetaInputText x:Style="BORDER" sourceProperty="employeeId"/>
+			</p2:MetaTableColumn>
+			<p2:MetaTableColumn text="First name" width="100">
+				<p2:MetaInputText x:Style="BORDER" sourceProperty="firstName"/>
+			</p2:MetaTableColumn>
+			<p2:MetaTableColumn text="Last name" width="100">
+				<p2:MetaInputText x:Style="BORDER" sourceProperty="lastName"/>
+			</p2:MetaTableColumn>
+			<p2:MetaTableColumn text="Email" width="100">
+				<p2:MetaInputText x:Style="BORDER" sourceProperty="email"/>
+			</p2:MetaTableColumn>
+		</p2:MetaTable>
+	</Composite>
+	<p2:ViewPort viewPortName="ViewPort2" canvasName="DetailCanvas"/>
+</Composite>

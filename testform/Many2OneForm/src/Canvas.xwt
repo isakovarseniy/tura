@@ -1,0 +1,54 @@
+<Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<Composite.layout>
+		<GridLayout/>
+	</Composite.layout>
+	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DepartmentLnk">
+		<p1:MetaTable.layoutData>
+			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
+		</p1:MetaTable.layoutData>
+		<p1:MetaTableColumn text="Department Id" width="178">
+			<p1:MetaInputText x:Style="BORDER" sourceProperty="departmentId"/>
+		</p1:MetaTableColumn>
+		<p1:MetaTableColumn text="Department name" width="100">
+			<p1:MetaInputText x:Style="BORDER" sourceProperty="departmentName"/>
+		</p1:MetaTableColumn>
+	</p1:MetaTable>
+	<Composite>
+		<Composite.layout>
+			<GridLayout numColumns="4"/>
+		</Composite.layout>
+		<Composite.layoutData>
+			<GridData widthHint="430"/>
+		</Composite.layoutData>
+		<p1:MetaInputText x:Style="BORDER" text="Emploee ID" iteratorProperty="EmployeesLnk" sourceProperty="objId">
+			<p1:MetaInputText.layoutData>
+				<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" widthHint="46"/>
+			</p1:MetaInputText.layoutData>
+		</p1:MetaInputText>
+		<p1:MetaInputText x:Style="BORDER" text="First name" iteratorProperty="EmployeesLnk" sourceProperty="firstName">
+			<p1:MetaInputText.layoutData>
+				<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+			</p1:MetaInputText.layoutData>
+		</p1:MetaInputText>
+		<p1:MetaInputText x:Style="BORDER" text="Last name" iteratorProperty="EmployeesLnk" sourceProperty="lastName">
+			<p1:MetaInputText.layoutData>
+				<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+			</p1:MetaInputText.layoutData>
+		</p1:MetaInputText>
+		<p1:MetaInputText x:Style="BORDER" text="Email" iteratorProperty="EmployeesLnk" sourceProperty="email">
+			<p1:MetaInputText.layoutData>
+				<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+			</p1:MetaInputText.layoutData>
+		</p1:MetaInputText>
+	</Composite>
+	<Composite>
+		<Composite.layout>
+			<GridLayout numColumns="2"/>
+		</Composite.layout>
+		<Composite.layoutData>
+			<GridData widthHint="437"/>
+		</Composite.layoutData>
+		<p1:MetaAction text="Prev Record" expressionProperty="EmployeesLnk.prevRecord"/>
+		<p1:MetaAction text="Next Record" expressionProperty="EmployeesLnk.nextRecord"/>
+	</Composite>
+</Composite>

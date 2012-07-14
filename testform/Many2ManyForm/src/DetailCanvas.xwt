@@ -1,0 +1,45 @@
+<Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="DetailCanvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<Composite.layout>
+		<GridLayout/>
+	</Composite.layout>
+	<TabFolder>
+		<TabItem text="Tab1">
+			<TabItem.control>
+				<Composite>
+					<Composite.layout>
+						<GridLayout numColumns="2"/>
+					</Composite.layout>
+					<p1:MetaInputText x:Style="BORDER" text="Phone Number" iteratorProperty="EmployeesLnk" sourceProperty="phoneNumber">
+						<p1:MetaInputText.layoutData>
+							<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+						</p1:MetaInputText.layoutData>
+					</p1:MetaInputText>
+					<p1:MetaInputText x:Style="BORDER" text="Salary" iteratorProperty="EmployeesLnk" sourceProperty="salary">
+						<p1:MetaInputText.layoutData>
+							<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+						</p1:MetaInputText.layoutData>
+					</p1:MetaInputText>
+				</Composite>
+			</TabItem.control>
+		</TabItem>
+		<TabItem text="Tab2">
+			<TabItem.control>
+				<Composite>
+					<Composite.layout>
+						<GridLayout numColumns="2"/>
+					</Composite.layout>
+					<p1:MetaInputText x:Style="BORDER" text="CompositionPST" iteratorProperty="EmployeesLnk" sourceProperty="commissionPct">
+						<p1:MetaInputText.layoutData>
+							<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+						</p1:MetaInputText.layoutData>
+					</p1:MetaInputText>
+					<p1:MetaInputText x:Style="BORDER" text="Department ID" iteratorProperty="EmployeesLnk" sourceProperty="departmentId">
+						<p1:MetaInputText.layoutData>
+							<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+						</p1:MetaInputText.layoutData>
+					</p1:MetaInputText>
+				</Composite>
+			</TabItem.control>
+		</TabItem>
+	</TabFolder>
+</Composite>

@@ -1,0 +1,39 @@
+<Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<Composite.layout>
+		<GridLayout/>
+	</Composite.layout>
+	<Composite>
+			<Composite.layout>
+				<GridLayout numColumns="2"/>
+			</Composite.layout>
+			<p1:MetaInputText x:Style="BORDER" text="Departments Id" iteratorProperty="DepartmentLnk" sourceProperty="departmentId">
+				<p1:MetaInputText.layoutData>
+					<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+				</p1:MetaInputText.layoutData>
+			</p1:MetaInputText>
+			<p1:MetaInputText x:Style="BORDER" text="Department name" iteratorProperty="DepartmentLnk" sourceProperty="departmentName">
+				<p1:MetaInputText.layoutData>
+					<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+				</p1:MetaInputText.layoutData>
+			</p1:MetaInputText>
+			<p1:MetaAction text="Prev Record" expressionProperty="DepartmentLnk.prevRecord"/>
+			<p1:MetaAction text="Next Record" expressionProperty="DepartmentLnk.nextRecord"/>
+		</Composite>
+	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="EmployeesLnk">
+		<p1:MetaTable.layoutData>
+			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
+		</p1:MetaTable.layoutData>
+		<p1:MetaTableColumn text="Employee Id" width="100">
+			<p1:MetaInputText x:Style="BORDER" sourceProperty="employeeId"/>
+		</p1:MetaTableColumn>
+		<p1:MetaTableColumn text="First Name" width="100">
+			<p1:MetaInputText x:Style="BORDER" sourceProperty="firstName"/>
+		</p1:MetaTableColumn>
+		<p1:MetaTableColumn text="Last Name" width="100">
+			<p1:MetaInputText x:Style="BORDER" sourceProperty="lastName"/>
+		</p1:MetaTableColumn>
+		<p1:MetaTableColumn text="Email" width="100">
+			<p1:MetaInputText x:Style="BORDER" sourceProperty="email"/>
+		</p1:MetaTableColumn>
+	</p1:MetaTable>
+</Composite>
