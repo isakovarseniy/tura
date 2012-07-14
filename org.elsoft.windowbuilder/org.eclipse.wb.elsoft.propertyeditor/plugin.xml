@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<!-- ======================================================== -->
+	<!-- PropertyEditor -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.xml.propertyEditors">
+   		<editor type="org.eclipse.e4.xwt.elsoft.types.BusinessObjectProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.BusinessObjectPropertyEditor"/>
+
+   		<editor type="org.eclipse.e4.xwt.elsoft.types.DestinationDataControlProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.DestinationDataControlPropertyEditor"/>
+
+   		<editor type="org.eclipse.e4.xwt.elsoft.types.LinkFieldProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.LinkFieldPropertyEditor"/>
+
+   		<editor type="org.eclipse.e4.xwt.elsoft.types.TriggerProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.TriggerPropertyEditor"/>
+
+  		<editor type="org.eclipse.e4.xwt.elsoft.types.FieldsProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.FieldsPropertyEditor"/>
+
+  		<editor type="org.eclipse.e4.xwt.elsoft.types.AscDescProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.AscDescPropertyEditor"/>
+
+  		<editor type="org.eclipse.e4.xwt.elsoft.types.ExpressionProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.ExpressionPropertyEditor"/>
+
+  		<editor type="org.eclipse.e4.xwt.elsoft.types.IteratorProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.IteratorPropertyEditor"/>
+
+  		<editor type="org.eclipse.e4.xwt.elsoft.types.SourceProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.SourcePropertyEditor"/>
+
+  		<editor type="org.eclipse.e4.xwt.elsoft.types.OptionFieldProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.OptionFieldPropertyEditor"/>
+
+  		<editor type="org.eclipse.e4.xwt.elsoft.types.TriggerType"
+			class="org.eclipse.wb.elsoft.propertyeditor.TriggerTypePropertyEditor"/>
+
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.ServiceProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.ServicesPropertyEditor"/>
+
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.MethodProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.MethodPropertyEditor"/>
+
+   </extension>
+
+
+</plugin>

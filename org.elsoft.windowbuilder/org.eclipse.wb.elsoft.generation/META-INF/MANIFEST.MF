@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generation
+Bundle-SymbolicName: org.eclipse.wb.elsoft.generation;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.wb.elsoft.generation.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.wb.core;bundle-version="0.0.0",
+ org.eclipse.ui.console;bundle-version="3.5.100",
+ org.eclipse.wb.elsoft.propertyeditor;bundle-version="1.0.0",
+ org.eclipse.wb.elsoft.common_lib;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

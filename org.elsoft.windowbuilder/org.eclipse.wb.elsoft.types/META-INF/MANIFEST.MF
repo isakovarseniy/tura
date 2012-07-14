@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Types
+Bundle-SymbolicName: org.eclipse.wb.elsoft.types
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.wb.elsoft.types.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipse.e4.xwt.elsoft.types

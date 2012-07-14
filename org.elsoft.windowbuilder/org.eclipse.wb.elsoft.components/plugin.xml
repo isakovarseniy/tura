@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.wb.core.toolkits">
+		<toolkit id="org.eclipse.wb.rcp">
+        <classLoader-bundle
+              bundle="org.eclipse.wb.elsoft.components"
+              namespaces="org.eclipse.wb.elsoft.components.">
+        </classLoader-bundle>		
+			<resourcePrefixes>
+				<resourcePrefix>org.eclipse.wb.elsoft.components.</resourcePrefix>
+			</resourcePrefixes>
+			<palette>
+				<category id="org.eclipse.wb.elsoft.components" name="ELsoft" description="ELsoft components">
+					<component class="org.eclipse.wb.elsoft.components.DataDefinition"/>
+					<component class="org.eclipse.wb.elsoft.components.Relation"/>
+					<component class="org.eclipse.wb.elsoft.components.DataControl"/>
+					<component class="org.eclipse.wb.elsoft.components.Link"/>
+					<component class="org.eclipse.wb.elsoft.components.DefaultOrderBy"/>
+					<component class="org.eclipse.wb.elsoft.components.DefaultSearch"/>
+					<component class="org.eclipse.wb.elsoft.components.Trigger"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaTable"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaTableColumn"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaInputText"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaTree"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaTreeColumn"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaDropDown"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaAction"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaLOV"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaButton" creationId="check"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaButton" creationId="radio"/>
+					<component class="org.eclipse.wb.elsoft.components.ViewPort"/>
+					<component class="org.eclipse.swt.widgets.Label"/>
+					<component class="org.eclipse.wb.elsoft.components.LovDisplayField"/>
+					<component class="org.eclipse.wb.elsoft.components.LovReturnField"/>
+				</category>
+			</palette>
+		</toolkit>
+     </extension>
+</plugin>
