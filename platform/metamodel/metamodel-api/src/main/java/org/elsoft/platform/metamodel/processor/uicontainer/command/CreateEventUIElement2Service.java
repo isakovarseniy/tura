@@ -2,7 +2,6 @@ package org.elsoft.platform.metamodel.processor.uicontainer.command;
 
 import java.util.HashMap;
 
-import org.apache.commons.lang.StringUtils;
 import org.elsoft.platform.datacontrol.DataControl;
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
@@ -45,11 +44,10 @@ public class CreateEventUIElement2Service {
 		lnk.addRemoteUIEventMethods(rmi);
 
 		element.setDataSrcLnk(lnk);
-		String methodName = command.getDomain() + "_"
-				+ command.getFunctionalDomain() + "_"
-				+ command.getApplication() + "_" + command.getMethodType();
-		element.setTriggerName("get"
-				+ StringUtils.capitalize(methodName.toLowerCase()));
+		String methodName = command.getDomain().toLowerCase() + "_"
+				+ command.getFunctionalDomain().toLowerCase() + "_"
+				+ command.getApplication().toLowerCase() + "_"+command.getTypeName().toLowerCase() +"_" + command.getMethodName().toLowerCase();
+		element.setTriggerName(methodName.toLowerCase());
 		element.setUiElement2ServiceEvent(command);
 
 		return Processor.COMMAND_COMPLITED;
