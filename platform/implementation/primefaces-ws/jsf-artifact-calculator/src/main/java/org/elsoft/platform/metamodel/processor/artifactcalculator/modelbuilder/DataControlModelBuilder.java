@@ -67,7 +67,7 @@ public class DataControlModelBuilder {
 			rmi.setProxy(new MappedType(rmi.getProxy().getTypedao(), domain,
 					functionalDomain, application, level, rf));
 		}
-		
+
 		itr = dataLink.getRemoteMethods().iterator();
 		while (itr.hasNext()) {
 			RemoteMethod rmi = itr.next();
@@ -94,8 +94,6 @@ public class DataControlModelBuilder {
 					functionalDomain, application, level, rf));
 		}
 
-		
-		
 		if (dataLink.getAnnotation() != null) {
 			Iterator<Annotation> itrAnt = dataLink.getAnnotation().iterator();
 			ArrayList<Annotation> arr = new ArrayList<Annotation>();
@@ -139,7 +137,6 @@ public class DataControlModelBuilder {
 			this.dataLink = dataLink;
 			this.setUicontainer(frm.getName());
 
-
 			Iterator<DataLink> itrDL = frm.getDatalinks().iterator();
 			while (itrDL.hasNext()) {
 				listOfDataLink
@@ -162,17 +159,17 @@ public class DataControlModelBuilder {
 				proxy.put(tp.resPackageName + tp.resTypeName, tp);
 
 			}
-			
-			itrRem = dataLink.getRemoteMethods()
-					.iterator();
+
+			itrRem = dataLink.getRemoteUIEventMethods().iterator();
 			while (itrRem.hasNext()) {
 
 				RemoteMethod rmi = itrRem.next();
 				MappedType tp = (MappedType) rmi.getProxy();
-				dependecy.put(tp.groupName+tp.artifactName+tp.artifactVersion, tp);
+				dependecy.put(tp.groupName + tp.artifactName
+						+ tp.artifactVersion, tp);
 
 			}
-			
+
 			@SuppressWarnings("unchecked")
 			List<DisplayField> ls = (List<DisplayField>) dataLink
 					.getTriggerPropery().get(
@@ -216,8 +213,7 @@ public class DataControlModelBuilder {
 		public HashMap<String, MappedType> getDependensiesHash() {
 			return dependecy;
 		}
-		
-		
+
 		public DataLink getDataLink() {
 			return dataLink;
 		}
@@ -312,7 +308,6 @@ public class DataControlModelBuilder {
 		private String artifactName;
 		private String groupName;
 		private String artifactVersion;
-		
 
 		public MappedType(TypeDAO type, String domain, String functionalDomain,
 				String application, MetamodelPlatformLevel level,

@@ -62,6 +62,8 @@ public class TriggerReader extends Reader {
 					.getName());
 			lnk2serv.setParentUUID(((DataControlReader) parent)
 					.getDatacontrolUid());
+			
+			program.add(lnk2serv);
 		}
 		if (parent instanceof ButtonReader) {
 
