@@ -160,6 +160,17 @@ public class DataControlModelBuilder {
 
 			}
 
+			itrRem = dataLink.getRemoteMethods().iterator();
+			while (itrRem.hasNext()) {
+
+				RemoteMethod rmi = itrRem.next();
+				MappedType tp = (MappedType) rmi.getProxy();
+				dependecy.put(tp.groupName + tp.artifactName
+						+ tp.artifactVersion, tp);
+
+			}
+
+			
 			itrRem = dataLink.getRemoteUIEventMethods().iterator();
 			while (itrRem.hasNext()) {
 
