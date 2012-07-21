@@ -35,6 +35,7 @@
 		<module>metamodel-ejbs</module>
 		<module>metamodel-ear</module>
 		<module>metamodel-api</module>
+		<module>artifact-generator</module>
 	</modules>
 
 
