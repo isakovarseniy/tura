@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
-import org.elsoft.platform.metamodel.general.CreateUITreeDAO;
-import org.elsoft.platform.metamodel.general.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUITreeDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetTreeRoot;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUITree;

@@ -22,8 +22,8 @@ import javax.xml.stream.XMLStreamReader;
 
 import org.elsoft.platform.metamodel.MetamodelObjectType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.CommandDAO;
-import org.elsoft.platform.metamodel.general.CreateUICanvasDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUICanvasDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUICanvas;
 
 public class CanvasCheater extends Reader {

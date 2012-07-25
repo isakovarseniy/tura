@@ -17,7 +17,7 @@ package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
 import java.util.HashMap;
 
-import org.elsoft.platform.metamodel.general.CreateUIButtonDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIButtonDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventTrigger;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Service;

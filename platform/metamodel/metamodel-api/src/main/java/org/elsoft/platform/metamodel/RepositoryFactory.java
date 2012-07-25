@@ -15,41 +15,47 @@
  ******************************************************************************/
 package org.elsoft.platform.metamodel;
 
-import java.util.logging.Logger;
+import javax.transaction.TransactionManager;
 
 import org.elsoft.platform.PlatformConfig;
 import org.elsoft.platform.Reflection;
 import org.elsoft.platform.datacontrol.ELResolver;
 import org.elsoft.platform.datacontrol.RootModeSwitch;
 import org.elsoft.platform.datacontrol.StructureControl;
-import org.elsoft.platform.datacontrol.TransactionResolver;
 import org.elsoft.platform.datacontrol.annotations.FactoryDataControl;
 import org.elsoft.platform.metamodel.suite.DomainServiceDC;
 import org.elsoft.platform.metamodel.context.MetadataStructureControl;
+import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
 import org.elsoft.platform.metamodel.types.TypeDefinitionHandler;
 import org.elsoft.platform.metamodel.types.TypeMappingHandler;
 import org.elsoft.platform.metamodel.types.transformation.ArtifactTypeHandler;
 
 public class RepositoryFactory {
 
-	private static Logger logger = Logger.getLogger(RepositoryFactory.class
-			.getName());
 	private StructureControl sc = null;
 	private DomainServiceDC domainService;
 	private TypeDefinitionHandler typeDefinition;
 	private TypeMappingHandler typeMapping;
 	private ArtifactTypeHandler artifactType;
 
-	public RepositoryFactory() {
-		init(PlatformConfig.TRANSACTION_SERVICE);
+	public RepositoryFactory() throws Exception{
+		TransactionManager trx = (TransactionManagerImpl) Class.forName(
+				PlatformConfig.TRANSACTION_SERVICE).newInstance();
+		init(trx);
 	}
 
-	public RepositoryFactory(String transactionService) {
-		init(transactionService);
+	public RepositoryFactory(String transactionService) throws Exception {
+		TransactionManager trx = (TransactionManagerImpl) Class.forName(
+				transactionService).newInstance();
+		init(trx);
 	}
 
-	public void init(String transactionService) {
-		try {
+	public RepositoryFactory(TransactionManager trx) throws Exception {
+		init(trx);
+	}
+	
+	
+	public void init(TransactionManager trx) throws Exception {
 
 			sc = new StructureControl();
 			StructureControl metasc = (StructureControl) MetadataStructureControl
@@ -59,8 +65,6 @@ public class RepositoryFactory {
 					.call(metasc, "getWrapper");
 			w.setObj(sc);
 
-			TransactionResolver trx = (TransactionResolver) Class.forName(
-					transactionService).newInstance();
 			sc.setTrx(trx);
 
 			ELResolver elResolver = new ELResolverImpl();
@@ -81,9 +85,6 @@ public class RepositoryFactory {
 			artifactType = (ArtifactTypeHandler) factory
 					.newRootInstance(ArtifactTypeHandler.class);
 
-		} catch (Exception e) {
-			logger.log(PlatformConfig.LOGGER_LEVEL, e.getMessage(), e);
-		}
 
 	}
 

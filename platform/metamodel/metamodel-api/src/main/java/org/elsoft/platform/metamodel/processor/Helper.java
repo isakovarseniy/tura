@@ -15,8 +15,8 @@
  ******************************************************************************/
 package org.elsoft.platform.metamodel.processor;
 
-import org.elsoft.platform.metamodel.general.BusinessObjectDAO;
-import org.elsoft.platform.metamodel.general.TypeDAO;
+import org.elsoft.platform.metamodel.objects.type.BusinessObjectDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
 import org.elsoft.platform.metamodel.suite.FunctionalDomainHandler;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 

@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
-import org.elsoft.platform.metamodel.general.CreateUIGridDAO;
-import org.elsoft.platform.metamodel.general.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIGridDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetList;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIGrid;

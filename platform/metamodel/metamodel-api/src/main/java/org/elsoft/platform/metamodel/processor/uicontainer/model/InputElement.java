@@ -18,7 +18,7 @@ package org.elsoft.platform.metamodel.processor.uicontainer.model;
 import java.util.HashMap;
 
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
-import org.elsoft.platform.metamodel.general.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.datasource.model.Field;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetCurrentRow;

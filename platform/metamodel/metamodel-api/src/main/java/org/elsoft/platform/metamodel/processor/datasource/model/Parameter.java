@@ -15,8 +15,9 @@
  ******************************************************************************/
 package org.elsoft.platform.metamodel.processor.datasource.model;
 
-import org.elsoft.platform.metamodel.general.ParameterDAO;
-import org.elsoft.platform.metamodel.general.TypeDAO;
+import org.elsoft.platform.metamodel.objects.type.ParameterDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
+
 
 
 public class Parameter {
@@ -32,7 +33,7 @@ public class Parameter {
        name = param.getParameterName();
        expression = param.getDefaultExpression();
        value = param.getDefaultValue();
-       overwitten = param.isOverwritten();
+       overwitten = param.getOverwritten();
 	}
 
 	public IndependentType getType() {

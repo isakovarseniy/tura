@@ -21,8 +21,8 @@ import java.util.List;
 import javax.xml.stream.XMLStreamReader;
 
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.CommandDAO;
-import org.elsoft.platform.metamodel.general.CreateUIWindowDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIWindowDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIWindow;
 
 public class ShellReader extends Reader {

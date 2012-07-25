@@ -21,8 +21,8 @@ import java.util.List;
 import javax.xml.stream.XMLStreamReader;
 
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.CommandDAO;
-import org.elsoft.platform.metamodel.general.CreateUILabelDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUILabelDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUILabel;
 
 public class LabelReader  extends Reader{

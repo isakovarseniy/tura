@@ -21,9 +21,9 @@ import java.util.List;
 import javax.xml.stream.XMLStreamReader;
 
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.CommandDAO;
-import org.elsoft.platform.metamodel.general.CreateUIButtonDAO;
-import org.elsoft.platform.metamodel.general.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIButtonDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventTrigger;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIButton;
 

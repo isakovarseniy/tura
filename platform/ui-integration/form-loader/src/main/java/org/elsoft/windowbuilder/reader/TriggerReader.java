@@ -22,10 +22,10 @@ import javax.xml.stream.XMLStreamReader;
 
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.CommandDAO;
-import org.elsoft.platform.metamodel.general.CreateDataLink2ServiceMethodDAO;
-import org.elsoft.platform.metamodel.general.CreateEventUIElement2ServiceDAO;
-import org.elsoft.platform.metamodel.general.MethodDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateEventUIElement2ServiceDAO;
+import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2ServiceMethodDAO;
+import org.elsoft.platform.metamodel.objects.type.MethodDAO;
 import org.elsoft.platform.metamodel.processor.Helper;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2ServiceMethod;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Service;

@@ -22,11 +22,11 @@ import org.elsoft.platform.datacontrol.DataControl;
 import org.elsoft.platform.metamodel.types.TypeDefinitionHandler;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.context.SessionContext;
-import org.elsoft.platform.metamodel.general.BusinessObjectDAO;
-import org.elsoft.platform.metamodel.general.CommandDAO;
-import org.elsoft.platform.metamodel.general.CreateDataLink2BusinessObjectDAO;
-import org.elsoft.platform.metamodel.general.PropertyDAO;
-import org.elsoft.platform.metamodel.general.TypeDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2BusinessObjectDAO;
+import org.elsoft.platform.metamodel.objects.type.BusinessObjectDAO;
+import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.Helper;
 import org.elsoft.platform.metamodel.processor.Processor;
@@ -65,12 +65,12 @@ public class CreateDataLink2BusinessObject {
 						.getTypeDefinitionHandler().getObject();
 				lnk.addField(new Field(prop, type,context,lnk.getUuid()));
 				
-				Object j = prop.isPrimaryKey();
-				if (( j != null)&&(prop.isPrimaryKey() ))
+				Object j = prop.getPrimaryKey();
+				if (( j != null)&&(prop.getPrimaryKey() ))
 					lnk.addAnnotation(new PrimaryKey(prop.getPropertyName()));
 
-				j=prop.isOptLock();
-				if (( j != null)&&(prop.isOptLock() ))
+				j=prop.getOptLock();
+				if (( j != null)&&(prop.getOptLock() ))
 					lnk.addAnnotation(new Version(prop.getPropertyName()));
 			}
 		}

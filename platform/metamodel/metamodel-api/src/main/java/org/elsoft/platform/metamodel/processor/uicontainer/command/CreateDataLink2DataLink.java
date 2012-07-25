@@ -20,8 +20,8 @@ import java.util.HashMap;
 import org.elsoft.platform.datacontrol.DataControl;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.context.SessionContext;
-import org.elsoft.platform.metamodel.general.CommandDAO;
-import org.elsoft.platform.metamodel.general.CreateDataLink2DataLinkDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2DataLinkDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.Processor;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.DataLink;
@@ -43,7 +43,7 @@ public class CreateDataLink2DataLink {
 				command.getDetailField());
 
 		masterLnk.addRelation(command.getRelationName(), f2f, masterLnk,
-				detailLnk,command.isTreeRelation());
+				detailLnk,command.getTreeRelation());
 
 		return Processor.COMMAND_COMPLITED;
 	}

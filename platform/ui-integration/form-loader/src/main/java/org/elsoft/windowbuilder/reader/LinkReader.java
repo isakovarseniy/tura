@@ -22,8 +22,8 @@ import java.util.UUID;
 import javax.xml.stream.XMLStreamReader;
 
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.CommandDAO;
-import org.elsoft.platform.metamodel.general.CreateDataLink2DataLinkDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2DataLinkDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2DataLink;
 
 public class LinkReader extends Reader {

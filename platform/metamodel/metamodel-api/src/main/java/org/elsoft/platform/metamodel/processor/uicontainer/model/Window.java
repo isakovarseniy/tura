@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-import org.elsoft.platform.metamodel.general.CreateUIWindowDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIWindowDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIWindow;
 

@@ -15,7 +15,7 @@
  ******************************************************************************/
 package org.elsoft.platform.metamodel.processor.infrastructure.model;
 
-import org.elsoft.platform.metamodel.general.CreateAppServerDefinitionDAO;
+import org.elsoft.platform.metamodel.objects.command.infrastructure.CreateAppServerDefinitionDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.infrastructure.command.CreateAppServerDefinition;
 

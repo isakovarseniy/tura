@@ -33,10 +33,10 @@ import org.elsoft.platform.datacontrol.annotations.UpdateTrigger;
 import org.elsoft.platform.datacontrol.annotations.VersionField;
 import org.elsoft.platform.datacontrol.extender.Handler;
 import org.elsoft.platform.metamodel.context.SessionContext;
-import org.elsoft.platform.metamodel.general.ArtifactTypeDAO;
-import org.elsoft.platform.metamodel.general.ELsoftObject;
-import org.elsoft.platform.metamodel.general.impl.GeneralService;
-import org.elsoft.platform.metamodel.general.impl.GeneralService_Service;
+import org.elsoft.platform.metamodel.general.GeneralService;
+import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
+import org.elsoft.platform.metamodel.objects.ELsoftObject;
+import org.elsoft.platform.metamodel.objects.transformation.ArtifactTypeDAO;
 
 @TriggerOutput(expression = SessionContext.RESULT_EXPRESSION)
 @Base(clazz = ArtifactTypeDAO.class)
@@ -106,11 +106,11 @@ public class ArtifactTypeHandler extends
 	}
 
 	public ArtifactTypeHandler() {
-		GeneralService_Service srv1 = new GeneralService_Service();
-		generalService = srv1.getGeneralServiceImplPort();
 	}
 
 	public Object getGeneralService() {
+		if (generalService == null)
+		    generalService = new GeneralService(TransactionManagerImpl.getInstance());
 		return generalService;
 	}
 

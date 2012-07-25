@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 import org.apache.commons.lang.WordUtils;
-import org.elsoft.platform.metamodel.general.CreateUIViewPortDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIViewPortDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIViewPort;

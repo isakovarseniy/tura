@@ -20,9 +20,9 @@ import java.util.Iterator;
 import java.util.UUID;
 
 import org.elsoft.platform.metamodel.PersistentInterface;
-import org.elsoft.platform.metamodel.general.MethodDAO;
-import org.elsoft.platform.metamodel.general.PropertyDAO;
-import org.elsoft.platform.metamodel.general.TypeDAO;
+import org.elsoft.platform.metamodel.objects.type.MethodDAO;
+import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.datasource.command.CreateDataSource;
 import org.elsoft.platform.metamodel.types.MethodHandler;

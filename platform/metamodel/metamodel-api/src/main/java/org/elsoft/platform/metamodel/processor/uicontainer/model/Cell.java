@@ -18,7 +18,7 @@ package org.elsoft.platform.metamodel.processor.uicontainer.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.elsoft.platform.metamodel.general.CreateUICellDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUICellDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUICell;
 

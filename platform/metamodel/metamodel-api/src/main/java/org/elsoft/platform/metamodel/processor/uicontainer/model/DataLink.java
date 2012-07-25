@@ -22,8 +22,8 @@ import java.util.Iterator;
 import java.util.UUID;
 
 import org.elsoft.platform.metamodel.PersistentInterface;
-import org.elsoft.platform.metamodel.general.CreateDataLinkDAO;
-import org.elsoft.platform.metamodel.general.TypeDAO;
+import org.elsoft.platform.metamodel.objects.command.form.datasource.CreateDataLinkDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.datasource.model.Field;
 import org.elsoft.platform.metamodel.processor.datasource.model.IndependentType;

@@ -19,7 +19,7 @@ import java.util.UUID;
 
 import org.elsoft.platform.metamodel.MetamodelTypeOfTypes;
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.CreateDefaultSearchDAO;
+import org.elsoft.platform.metamodel.objects.command.form.datasource.CreateDefaultSearchDAO;
 import org.elsoft.platform.metamodel.processor.datasource.model.IndependentType;
 import org.elsoft.platform.metamodel.types.TypeDefinitionHandler;
 

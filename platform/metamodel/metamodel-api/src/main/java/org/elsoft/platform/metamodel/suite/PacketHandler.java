@@ -38,10 +38,10 @@ import org.elsoft.platform.datacontrol.extender.Handler;
 import org.elsoft.platform.metamodel.MetamodelPlatformLevel;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.context.SessionContext;
-import org.elsoft.platform.metamodel.general.ELsoftObject;
-import org.elsoft.platform.metamodel.general.PacketDAO;
-import org.elsoft.platform.metamodel.general.impl.GeneralService;
-import org.elsoft.platform.metamodel.general.impl.GeneralService_Service;
+import org.elsoft.platform.metamodel.general.GeneralService;
+import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
+import org.elsoft.platform.metamodel.objects.ELsoftObject;
+import org.elsoft.platform.metamodel.objects.recipe.PacketDAO;
 
 @TriggerOutput(expression = SessionContext.RESULT_EXPRESSION)
 @Base(clazz = PacketDAO.class)
@@ -114,11 +114,11 @@ public class PacketHandler extends Handler<PacketHandler, PacketDAO> {
 	}
 
 	public PacketHandler() {
-		GeneralService_Service srv1 = new GeneralService_Service();
-		generalService = srv1.getGeneralServiceImplPort();
 	}
 
 	public Object getGeneralService() {
+		if (generalService == null)
+		    generalService = new GeneralService(TransactionManagerImpl.getInstance());
 		return generalService;
 	}
 

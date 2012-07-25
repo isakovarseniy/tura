@@ -18,8 +18,8 @@ package org.elsoft.platform.metamodel.processor.datasource.model;
 import java.util.HashMap;
 import java.util.UUID;
 
-import org.elsoft.platform.metamodel.general.PropertyDAO;
-import org.elsoft.platform.metamodel.general.TypeDAO;
+import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
 import org.elsoft.platform.metamodel.types.PropertyHandler;
 
 public class Field {
@@ -52,12 +52,12 @@ public class Field {
 		name=property.getPropertyName();
 		uuid=datalinkUUID+"."+property.getPropertyName();
 
-		Object j = property.isPrimaryKey();
-		if (( j != null)&&(property.isPrimaryKey() ))
+		Object j = property.getPrimaryKey();
+		if (( j != null)&&(property.getPrimaryKey() ))
 			this.setPk(true);
 
-		j=property.isOptLock();
-		if (( j != null)&&(property.isOptLock() ))
+		j=property.getOptLock();
+		if (( j != null)&&(property.getOptLock() ))
 			this.setOptLock(true);
 		
 		context.put(uuid, this);
@@ -66,12 +66,12 @@ public class Field {
 	public Field(PropertyHandler ph, PropertyDAO property) {
 		type = new IndependentType(ph.getTypeDefinitionHandler());
         name = property.getPropertyName();
-		Object j = property.isPrimaryKey();
-		if (( j != null)&&(property.isPrimaryKey() ))
+		Object j = property.getPrimaryKey();
+		if (( j != null)&&(property.getPrimaryKey() ))
 			this.setPk(true);
 
-		j=property.isOptLock();
-		if (( j != null)&&(property.isOptLock() ))
+		j=property.getOptLock();
+		if (( j != null)&&(property.getOptLock() ))
 			this.setOptLock(true);
         
 	}

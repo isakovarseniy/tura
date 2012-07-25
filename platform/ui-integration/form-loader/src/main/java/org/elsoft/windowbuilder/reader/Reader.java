@@ -26,7 +26,7 @@ import javax.xml.stream.XMLStreamReader;
 
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 
 public abstract class Reader {
 

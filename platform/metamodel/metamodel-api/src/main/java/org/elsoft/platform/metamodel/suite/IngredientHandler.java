@@ -38,10 +38,10 @@ import org.elsoft.platform.datacontrol.extender.Handler;
 import org.elsoft.platform.metamodel.MetamodelPlatformLevel;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.context.SessionContext;
-import org.elsoft.platform.metamodel.general.ELsoftObject;
-import org.elsoft.platform.metamodel.general.IngredientDAO;
-import org.elsoft.platform.metamodel.general.impl.GeneralService;
-import org.elsoft.platform.metamodel.general.impl.GeneralService_Service;
+import org.elsoft.platform.metamodel.general.GeneralService;
+import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
+import org.elsoft.platform.metamodel.objects.ELsoftObject;
+import org.elsoft.platform.metamodel.objects.recipe.IngredientDAO;
 
 @TriggerOutput(expression = SessionContext.RESULT_EXPRESSION)
 @Base(clazz = IngredientDAO.class)
@@ -73,11 +73,11 @@ public class IngredientHandler extends
 	private PacketHandler packetHandler;
 
 	public IngredientHandler() {
-		GeneralService_Service srv1 = new GeneralService_Service();
-		generalService = srv1.getGeneralServiceImplPort();
 	}
 
 	public Object getGeneralService() {
+		if (generalService == null)
+		    generalService = new GeneralService(TransactionManagerImpl.getInstance());
 		return generalService;
 	}
 

@@ -21,11 +21,11 @@ import java.util.List;
 
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.CreateUIGridDAO;
-import org.elsoft.platform.metamodel.general.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIGridDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetList;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIGrid;
-import org.elsoft.platform.metamodel.general.CommandDAO;
 
 public class TableReader extends ItemReader {
 

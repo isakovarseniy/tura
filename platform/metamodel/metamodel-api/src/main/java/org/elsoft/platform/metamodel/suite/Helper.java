@@ -21,8 +21,8 @@ import java.util.Iterator;
 import org.elsoft.platform.PlatformConfig;
 import org.elsoft.platform.metamodel.MetamodelPlatformLevel;
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.ModelMappingDAO;
-import org.elsoft.platform.metamodel.general.PacketDAO;
+import org.elsoft.platform.metamodel.objects.recipe.ModelMappingDAO;
+import org.elsoft.platform.metamodel.objects.recipe.PacketDAO;
 
 public class Helper {
 
@@ -49,7 +49,7 @@ public class Helper {
 			while (itr.hasNext()) {
 				ModelMappingDAO modelMapping = itr.next();
 				HashMap<String, Object> outputContext = packetHandler.getModelMappingHandler().generate(
-						modelMapping, inputContext);
+						modelMapping, inputContext,rf);
 				context.putAll(outputContext);
 				inputContext.putAll(outputContext);
 			}

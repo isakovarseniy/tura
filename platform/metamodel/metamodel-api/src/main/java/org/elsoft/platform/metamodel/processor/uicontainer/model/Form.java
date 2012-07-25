@@ -16,7 +16,7 @@
 package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
 import org.elsoft.platform.metamodel.PersistentInterface;
-import org.elsoft.platform.metamodel.general.CreateFormDAO;
+import org.elsoft.platform.metamodel.objects.command.form.CreateFormDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateForm;
 

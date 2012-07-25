@@ -21,12 +21,12 @@ import java.util.UUID;
 
 
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.CreateUIInputTextDAO;
-import org.elsoft.platform.metamodel.general.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIInputTextDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetCurrentRow;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Field;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIInputText;
-import org.elsoft.platform.metamodel.general.CommandDAO;
 
 public class TextReader extends ItemReader {
 

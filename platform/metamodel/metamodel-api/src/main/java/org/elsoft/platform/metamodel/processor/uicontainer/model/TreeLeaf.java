@@ -17,7 +17,7 @@ package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
 import java.util.HashMap;
 
-import org.elsoft.platform.metamodel.general.CreateUITreeLeafDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUITreeLeafDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUITreeLeaf;
 

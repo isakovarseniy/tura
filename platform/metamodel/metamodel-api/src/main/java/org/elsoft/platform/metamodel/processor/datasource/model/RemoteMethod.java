@@ -20,10 +20,10 @@ import java.util.Iterator;
 import java.util.UUID;
 
 import org.elsoft.platform.OrderType;
-import org.elsoft.platform.metamodel.general.MethodDAO;
-import org.elsoft.platform.metamodel.general.ParameterDAO;
+import org.elsoft.platform.metamodel.objects.type.MethodDAO;
+import org.elsoft.platform.metamodel.objects.type.ParameterDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
 import org.elsoft.platform.metamodel.types.MethodHandler;
-import org.elsoft.platform.metamodel.general.TypeDAO;
 
 public class RemoteMethod {
 

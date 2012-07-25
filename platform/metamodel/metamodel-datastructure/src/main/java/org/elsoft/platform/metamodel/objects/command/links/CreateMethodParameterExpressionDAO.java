@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 
 @Entity(name = "CreateMethodParameterExpression")
-@Table(name = "datalink2businessobject")
+@Table(name = "methodparameterexpression")
 @DiscriminatorValue("CREATEMETHODPARAMETEREXPRESSION")
 @XmlRootElement
 

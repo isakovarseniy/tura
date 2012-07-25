@@ -22,8 +22,8 @@ import javax.xml.stream.XMLStreamReader;
 
 import org.apache.commons.lang.StringUtils;
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.CommandDAO;
-import org.elsoft.platform.metamodel.general.CreateOptionDescriptorDAO;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateOptionDescriptorDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateResultFieldSpecifier;
 
 public class LovReturnFieldReader extends Reader {

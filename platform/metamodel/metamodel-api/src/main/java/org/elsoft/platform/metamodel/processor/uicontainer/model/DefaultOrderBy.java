@@ -17,7 +17,8 @@ package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
 import java.util.UUID;
 
-import org.elsoft.platform.metamodel.general.CreateDefaultOrderByDAO;
+import org.elsoft.platform.metamodel.objects.command.form.datasource.CreateDefaultOrderByDAO;
+
 
 
 public class DefaultOrderBy {

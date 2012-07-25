@@ -21,7 +21,7 @@ import java.util.List;
 
 import org.elsoft.platform.PlatformConfig;
 import org.elsoft.platform.metamodel.MetamodelArtifactType;
-import org.elsoft.platform.metamodel.general.ArtifactTypeDAO;
+import org.elsoft.platform.metamodel.objects.transformation.ArtifactTypeDAO;
 import org.elsoft.platform.metamodel.suite.ScriptRunner;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 

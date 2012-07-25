@@ -37,22 +37,22 @@ import org.elsoft.platform.datacontrol.annotations.UpdateTrigger;
 import org.elsoft.platform.datacontrol.annotations.VersionField;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.context.SessionContext;
-import org.elsoft.platform.metamodel.general.CommandDAO;
-import org.elsoft.platform.metamodel.general.ELsoftObject;
-import org.elsoft.platform.metamodel.general.UiContainerDAO;
-import org.elsoft.platform.metamodel.general.impl.GeneralService;
-import org.elsoft.platform.metamodel.general.impl.GeneralService_Service;
+import org.elsoft.platform.metamodel.general.GeneralService;
+import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
+import org.elsoft.platform.metamodel.objects.ELsoftObject;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.ui.UIContainerDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.Processor;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Form;
 import org.elsoft.platform.datacontrol.extender.Handler;
 
 @TriggerOutput(expression = SessionContext.RESULT_EXPRESSION)
-@Base(clazz = UiContainerDAO.class)
+@Base(clazz = UIContainerDAO.class)
 @VersionField(field = "version")
 @IdField(field = "objId")
 public class UiContainerHandler extends
-		Handler<UiContainerHandler, UiContainerDAO> {
+		Handler<UiContainerHandler, UIContainerDAO> {
 
 	@Proxy(name = "generalService")
 	private GeneralService generalService;
@@ -72,7 +72,7 @@ public class UiContainerHandler extends
 			@Variable(value = "org.elsoft.platform.metamodel.objects.ui.UIContainerDAO", type = String.class) }), object = "generalService")
 	private Method search;
 	@GetMode
-	private Mode<UiContainerDAO> mode;
+	private Mode<UIContainerDAO> mode;
 	@Connection(links = { @Link(field1 = "objId", field2 = "parentId") }, connectedObject = CommandHandler.class, connectionName = "UIContainer2Command")
 	private CommandHandler commandHandler;
 
@@ -117,29 +117,29 @@ public class UiContainerHandler extends
 	}
 
 	public UiContainerHandler() {
-		GeneralService_Service srv1 = new GeneralService_Service();
-		generalService = srv1.getGeneralServiceImplPort();
 	}
 
 	public Object getGeneralService() {
+		if (generalService == null)
+		    generalService = new GeneralService(TransactionManagerImpl.getInstance());
 		return generalService;
 	}
 
-	public Mode<UiContainerDAO> getMode() {
+	public Mode<UIContainerDAO> getMode() {
 		return mode;
 	}
 
-	public UiContainerDAO addUIContainer(String appName) throws Exception {
-		UiContainerDAO obj = getMode().getControl().createObject();
+	public UIContainerDAO addUIContainer(String appName) throws Exception {
+		UIContainerDAO obj = getMode().getControl().createObject();
 		obj.setUiContainerName(appName);
 		// For tree testing
 		obj.setName(appName);
 		return obj;
 	}
 
-	public void saveUIContainer(UiContainerDAO container, Form form)
+	public void saveUIContainer(UIContainerDAO container, Form form)
 			throws Exception {
-		UiContainerDAO frm = (UiContainerDAO) this.clean()
+		UIContainerDAO frm = (UIContainerDAO) this.clean()
 				.searchLong("objId", container.getObjId()).getObject();
 		if (frm != null) {
 			Method m = form.getClass().getDeclaredMethod("serialize",
