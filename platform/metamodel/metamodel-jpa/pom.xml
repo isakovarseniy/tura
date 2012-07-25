@@ -57,12 +57,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.elsoft.platform</groupId>
-			<artifactId>dataviewcontrol-rt</artifactId>
-			<version>1.0</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.elsoft.platform.metamodel</groupId>
 			<artifactId>metamodel-datastructure</artifactId>
 			<version>1.0</version>
