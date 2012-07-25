@@ -17,6 +17,7 @@
 
 		<jta-data-source>jdbc/MetamodelDS</jta-data-source>
 		<jar-file>commons-platform-ejb-1.0.jar</jar-file>
+		<jar-file>metamodel-datastructure-1.0.jar</jar-file>
 		<class>org.elsoft.platform.persistence.ObjectsID</class>
 
 
