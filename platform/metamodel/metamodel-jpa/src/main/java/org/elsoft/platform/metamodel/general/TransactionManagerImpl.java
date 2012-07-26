@@ -104,6 +104,7 @@ public class TransactionManagerImpl implements TransactionManager {
 			HeuristicRollbackException, SecurityException,
 			IllegalStateException, SystemException {
 		session.getTransaction().commit();
+		session.clear();
 
 	}
 

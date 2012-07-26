@@ -37,7 +37,6 @@
 		<module>metamodel-api</module>
 		<module>metamodel-datastructure</module>
 		<module>metamodel-jpa</module>
-		<module>artifact-generator</module>
 	</modules>
 
 
