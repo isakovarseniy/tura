@@ -30,9 +30,9 @@ import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.wb.elsoft.propertyeditor.Activator;
-import org.elsoft.platform.metamodel.general.CommandDAO;
-import org.elsoft.platform.metamodel.general.UiContainerDAO;
 import org.elsoft.platform.metamodel.layers.uicontainer.UiContainerHandler;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.ui.UIContainerDAO;
 import org.elsoft.platform.metamodel.processor.Processor;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Form;
 import org.elsoft.windowbuilder.CanvasParser;
@@ -104,7 +104,7 @@ public class SaveFormJob implements Runnable {
 						.getApplicationHandler().clean()
 						.searchString("applicationName", frm.getApplication()).seek().getUILayer()
 						.clean().searchString("uiContainerName", frm.getName()).seek();
-				UiContainerDAO uic = uiContHand.getObject();
+				UIContainerDAO uic = uiContHand.getObject();
 				if (uic == null){
 					System.out.println("!!!!!!!!!!!!   -> No form header -----> !!!");
 				}else{

@@ -35,7 +35,7 @@ import org.eclipse.wb.internal.core.utils.ui.DrawUtils;
 import org.eclipse.wb.internal.core.xml.model.clipboard.IClipboardSourceProvider;
 import org.eclipse.wb.internal.core.xml.model.property.GenericProperty;
 import org.elsoft.platform.metamodel.MetamodelTypeOfTypes;
-import org.elsoft.platform.metamodel.general.TypeDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
 import org.elsoft.platform.metamodel.types.TypeDefinitionHandler;
 
 public class ServicesPropertyEditor extends PropertyEditor implements

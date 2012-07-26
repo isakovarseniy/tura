@@ -44,7 +44,7 @@ import org.eclipse.wb.internal.core.xml.model.clipboard.IClipboardSourceProvider
 import org.eclipse.wb.internal.core.xml.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.xml.model.property.GenericPropertyImpl;
 import org.elsoft.platform.datacontrol.DCMetaInfo;
-import org.elsoft.platform.metamodel.general.MethodDAO;
+import org.elsoft.platform.metamodel.objects.type.MethodDAO;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;

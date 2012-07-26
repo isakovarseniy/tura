@@ -46,9 +46,9 @@ import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.wb.elsoft.propertyeditor.TriggerPropertyEditor.CallLeaf;
 import org.eclipse.wb.elsoft.propertyeditor.TriggerPropertyEditor.ParameterLeaf;
 import org.eclipse.wb.elsoft.propertyeditor.TriggerPropertyEditor.TriggerLeaf;
-import org.elsoft.platform.metamodel.general.MethodDAO;
-import org.elsoft.platform.metamodel.general.MethodReferenceDAO;
-import org.elsoft.platform.metamodel.general.ParameterDAO;
+import org.elsoft.platform.metamodel.objects.type.MethodDAO;
+import org.elsoft.platform.metamodel.objects.type.MethodReferenceDAO;
+import org.elsoft.platform.metamodel.objects.type.ParameterDAO;
 import org.elsoft.platform.metamodel.types.MethodHandler;
 import org.elsoft.platform.metamodel.types.MethodReferenceHandler;
 import org.json.simple.JSONArray;
@@ -251,7 +251,7 @@ public class TriggetPropertyDialog2 extends ElementTreeSelectionDialog {
 			String expression = param.getDefaultExpression();
 			String value = param.getDefaultValue();
 
-			if (param.isOverwritten()) {
+			if (param.getOverwritten()) {
 				JSONArray array = null;
 				if (obj != null)
 					array = (JSONArray) obj.get(leaf.nodeName);
@@ -261,9 +261,9 @@ public class TriggetPropertyDialog2 extends ElementTreeSelectionDialog {
 				}
 			}
 			ExpressionLeaf ex = new ExpressionLeaf("Expression", leaf, expression);
-			ex.overwriten = param.isOverwritten();
+			ex.overwriten = param.getOverwritten();
 			ValueLeaf val = new ValueLeaf("Value", leaf, value);
-			val.overwriten = param.isOverwritten();
+			val.overwriten = param.getOverwritten();
 		}
 		return root;
 	}

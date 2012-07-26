@@ -43,7 +43,7 @@ import org.eclipse.wb.internal.core.utils.ui.DrawUtils;
 import org.eclipse.wb.internal.core.xml.model.clipboard.IClipboardSourceProvider;
 import org.eclipse.wb.internal.core.xml.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.xml.model.property.GenericPropertyImpl;
-import org.elsoft.platform.metamodel.general.PropertyDAO;
+import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
 
 public class OptionFieldPropertyEditor extends PropertyEditor implements
 		IClipboardSourceProvider {

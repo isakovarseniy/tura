@@ -36,8 +36,8 @@ import org.eclipse.wb.internal.core.model.property.table.PropertyTable;
 import org.eclipse.wb.internal.core.utils.ui.DrawUtils;
 import org.eclipse.wb.internal.core.xml.model.clipboard.IClipboardSourceProvider;
 import org.eclipse.wb.internal.core.xml.model.property.GenericProperty;
-import org.elsoft.platform.metamodel.general.PropertyDAO;
-import org.elsoft.platform.metamodel.general.TypeDAO;
+import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
 import org.elsoft.platform.metamodel.types.PropertyHandler;
 
 public class FieldsPropertyEditor extends PropertyEditor implements

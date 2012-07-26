@@ -24,7 +24,7 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.wb.elsoft.components.ControlHelper;
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
-import org.elsoft.platform.metamodel.general.PropertyDAO;
+import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
 
 public class DataControlTreeSelector {
 

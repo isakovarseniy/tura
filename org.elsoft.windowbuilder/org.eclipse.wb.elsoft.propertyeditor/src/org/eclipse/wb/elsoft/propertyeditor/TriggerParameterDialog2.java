@@ -38,7 +38,7 @@ import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.wb.elsoft.propertyeditor.TriggerPropertyEditor.ParameterLeaf;
 import org.eclipse.wb.elsoft.propertyeditor.ExpressionLeaf;
 import org.eclipse.wb.elsoft.propertyeditor.ValueLeaf;
-import org.elsoft.platform.metamodel.general.MethodDAO;
+import org.elsoft.platform.metamodel.objects.type.MethodDAO;
 
 public class TriggerParameterDialog2 extends ElementTreeSelectionDialog {
 	protected Composite dialogComposite;
