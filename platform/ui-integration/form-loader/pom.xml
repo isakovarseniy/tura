@@ -30,7 +30,7 @@
 	<name>ELsoft :: Platform :: UI Integration :: WindowBuilder :: Form Loader</name>
 	<dependencies>
 		<dependency>
-			<groupId>com.elsoft.platform</groupId>
+			<groupId>org.elsoft.platform</groupId>
 			<artifactId>commons-platform</artifactId>
 			<version>1.0</version>
 		</dependency>

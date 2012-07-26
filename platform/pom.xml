@@ -19,6 +19,9 @@
 	<name>ELsoft :: Platform</name>
 
 	<modules>
+		<module>commons-platform</module>
+		<module>commons-platform-ejb</module>
+		<module>commons-platform-datastructure</module>
 		<module>metamodel</module>
 		<module>implementation</module>
 		<module>ui-integration</module>
