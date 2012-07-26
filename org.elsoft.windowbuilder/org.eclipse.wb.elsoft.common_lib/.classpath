@@ -24,7 +24,7 @@
 	<classpathentry exported="true" kind="lib" path="dom4j-1.6.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="form-loader-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="hibernate-commons-annotations-3.2.0.Final.jar"/>
-	<classpathentry exported="true" kind="lib" path="hibernate-core-3.6.3.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernate-core-3.6.3.Final.jar" sourcepath="/home/platform/Downloads/hibernate-core-3.6.3.Final-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
 	<classpathentry exported="true" kind="lib" path="jackrabbit-jcr-commons-2.2.8.jar"/>
 	<classpathentry exported="true" kind="lib" path="jackrabbit-jcr-rmi-2.2.8.jar"/>

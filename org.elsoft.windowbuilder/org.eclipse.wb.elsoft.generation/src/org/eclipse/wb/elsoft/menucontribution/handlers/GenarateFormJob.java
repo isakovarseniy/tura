@@ -15,13 +15,15 @@
  ******************************************************************************/
 package org.eclipse.wb.elsoft.menucontribution.handlers;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.HashMap;
 
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
+import org.eclipse.wb.elsoft.propertyeditor.Activator;
+import org.elsoft.platform.metamodel.MetamodelPlatformLevel;
+import org.elsoft.platform.metamodel.suite.ApplicationHandler;
+import org.elsoft.platform.metamodel.suite.RecipeHandler;
 
 public class GenarateFormJob implements Runnable {
 
@@ -44,41 +46,28 @@ public class GenarateFormJob implements Runnable {
 		System.setErr(new PrintStream(out));
 
 		try {
-			Runtime runtime = Runtime.getRuntime();
+			
+			ApplicationHandler ah = Activator.rf.getRoot().clean()
+					.searchString("domainName", domain).seek()
+					.getFunctionalDomain().clean()
+					.searchString("functionalDomainName", functionalDomain)
+					.seek().getApplicationHandler().clean()
+					.searchString("applicationName", application).seek();
+			
+			HashMap<String, Object> infrastructureContext = ah
+					.getInfrastructureLayer().clean()
+					.searchString("zoneName", infrastructure).seek()
+					.loadProperties(Activator.rf);
 
-			System.out
-					.println("mvn -f /home/platform/GITRepo/tura/platform/metamodel/artifact-generator/pom.xml exec:java -Dexec.args=\""
-							+ domain
-							+ " "
-							+ functionalDomain
-							+ " "
-							+ application
-							+ " '"
-							+ infrastructure
-							+ "'"
-							+ " '"
-							+ recipe + "'" + " UI_CONTAINER UI_CONTAINER\"");
+			RecipeHandler rh = ah.getRecipeHandler()
+					.searchString("recipeName", recipe).seek();
 
-			String[] cmd = new String[] {
-					"mvn",
-					"-f",
-					"/home/platform/GITRepo/tura/platform/metamodel/artifact-generator/pom.xml",
-					"exec:java",
-					"-Dexec.args=" + domain + " " + functionalDomain + " "
-							+ application + " '" + infrastructure + "'" + " '"
-							+ recipe + "'" + " UI_CONTAINER UI_CONTAINER\"" };
-
-			Process process = runtime.exec(cmd);
-
-			InputStream is = process.getInputStream();
-			InputStreamReader isr = new InputStreamReader(is);
-			BufferedReader br = new BufferedReader(isr);
-			String line;
-
-			while ((line = br.readLine()) != null) {
-				System.out.println(line);
-			}
-
+			rh.buildRecipe(Activator.rf, infrastructureContext,
+					MetamodelPlatformLevel.UI_CONTAINER,
+					MetamodelPlatformLevel.UI_CONTAINER, domain,
+					functionalDomain, application);
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
