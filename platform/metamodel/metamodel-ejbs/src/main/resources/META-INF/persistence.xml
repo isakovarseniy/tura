@@ -8,7 +8,7 @@
 	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
 	the specific language governing permissions and limitations under the License. -->
 
-<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+<!--  persistence xmlns="http://java.sun.com/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
 
 	<persistence-unit name="metamodel">
@@ -32,18 +32,19 @@
 		</properties>
 
 	</persistence-unit>
-</persistence>
+</persistence-->
 
 
-<!--  persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
   <persistence-unit name="metamodel">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <jta-data-source>jdbc/MetamodelDS</jta-data-source>
     <jar-file>commons-platform-ejb-1.0.jar</jar-file>
+    <jar-file>metamodel-datastructure-1.0.jar</jar-file>
     <class>org.elsoft.platform.persistence.ObjectsID</class>
     <properties>
       <property value="org.hibernate.dialect.PostgreSQLDialect" name="hibernate.dialect"></property>
-      <property value="create" name="hibernate.hbm2ddl.auto"></property>
+      <!--  property value="create" name="hibernate.hbm2ddl.auto"></property-->
     </properties>
   </persistence-unit>
-</persistence-->
+</persistence>
