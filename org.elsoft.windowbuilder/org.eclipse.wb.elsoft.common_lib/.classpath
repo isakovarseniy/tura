@@ -20,7 +20,6 @@
 	<classpathentry exported="true" kind="lib" path="commons-platform-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="commons-platform-datastructure-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="dataviewcontrol-1.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="dataviewcontrol-api-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="dom4j-1.6.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="form-loader-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="hibernate-commons-annotations-3.2.0.Final.jar"/>
