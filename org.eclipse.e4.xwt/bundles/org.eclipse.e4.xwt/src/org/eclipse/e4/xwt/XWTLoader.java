@@ -72,6 +72,7 @@ import org.eclipse.e4.xwt.converters.ObjectToISelection;
 import org.eclipse.e4.xwt.converters.ObjectToString;
 import org.eclipse.e4.xwt.converters.SelectionToBoolean;
 import org.eclipse.e4.xwt.converters.SetToIObservableCollection;
+import org.eclipse.e4.xwt.converters.String2VisualDependencyProperty;
 import org.eclipse.e4.xwt.converters.StringToAscDescProperty;
 import org.eclipse.e4.xwt.converters.StringToBoolean;
 import org.eclipse.e4.xwt.converters.StringToBusinessObject;
@@ -83,6 +84,7 @@ import org.eclipse.e4.xwt.converters.StringToExpression;
 import org.eclipse.e4.xwt.converters.StringToFieldsProperty;
 import org.eclipse.e4.xwt.converters.StringToFont;
 import org.eclipse.e4.xwt.converters.StringToFormAttachment;
+import org.eclipse.e4.xwt.converters.StringToIDProperty;
 import org.eclipse.e4.xwt.converters.StringToIValidationRule;
 import org.eclipse.e4.xwt.converters.StringToIValueConverter;
 import org.eclipse.e4.xwt.converters.StringToImage;
@@ -1507,7 +1509,7 @@ public class XWTLoader implements IXWTLoader {
 		registerConvertor(StringToColor.instance);
 		registerConvertor(StringToSourceProperty.instance);
 		registerConvertor(StringToTriggerType.instance);
-
+		registerConvertor(String2VisualDependencyProperty.instance);
 		registerConvertor(StringToBusinessObject.instance);
 		registerConvertor(StringToDestinationDataControlProperty.instance);
 		registerConvertor(StringToLinkFieldProperty.instance);
@@ -1519,6 +1521,7 @@ public class XWTLoader implements IXWTLoader {
 		registerConvertor(StringToOptionFieldProperty.instance);
 		registerConvertor(StringToServiceProperty.instance);
 		registerConvertor(StringToMethodProperty.instance);
+		registerConvertor(StringToIDProperty.instance);
 		
 		registerConvertor(StringToFont.instance);
 		registerConvertor(StringToImage.instance);

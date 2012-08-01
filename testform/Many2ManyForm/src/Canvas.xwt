@@ -18,7 +18,7 @@
 		<Composite.layout>
 			<GridLayout numColumns="2"/>
 		</Composite.layout>
-		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DepartmentLnk">
+		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DepartmentLnk" idObject="dep_table" x:Name="wwwwww" dependency="qwerrtty">
 			<p2:MetaTableColumn text="Departments Id" width="111">
 				<p2:MetaInputText x:Style="BORDER" sourceProperty="departmentId"/>
 			</p2:MetaTableColumn>
@@ -40,7 +40,7 @@
 		<Composite.layout>
 			<GridLayout/>
 		</Composite.layout>
-		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="EmployeesLnk">
+		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="EmployeesLnk" x:Name="Employees" idObject="qwerrtty">
 			<p2:MetaTable.layoutData>
 				<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
 			</p2:MetaTable.layoutData>

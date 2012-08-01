@@ -6,7 +6,7 @@
 		<Composite.layout>
 			<GridLayout numColumns="2"/>
 		</Composite.layout>
-		<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="OrganizationsLnk">
+		<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="OrganizationsLnk" iD="hbkjkjbjkhjk">
 		<p1:MetaTableColumn text="Organization Name" width="188">
 			<p1:MetaInputText x:Style="BORDER" sourceProperty="organization"/>
 		</p1:MetaTableColumn>

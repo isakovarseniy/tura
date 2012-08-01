@@ -15,7 +15,9 @@
  ******************************************************************************/
 package org.eclipse.wb.elsoft.components;
 
+import org.eclipse.e4.xwt.elsoft.types.IDProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
+import org.eclipse.e4.xwt.elsoft.types.VisualDependencyProperty;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 
@@ -23,6 +25,8 @@ public class MetaTable extends Table {
 	private IteratorProperty iteratorProperty;
 	private String cssStyle;
 	private String cssStyleClass;
+	private IDProperty idObject;
+	private VisualDependencyProperty dependency;
 
 	public String getCssStyle() {
 		return cssStyle;
@@ -54,5 +58,23 @@ public class MetaTable extends Table {
 	public void setIteratorProperty(IteratorProperty iteratorProperty) {
 		this.iteratorProperty = iteratorProperty;
 	}
+
+	public IDProperty getIdObject() {
+		return idObject;
+	}
+
+	public void setIdObject(IDProperty idObject) {
+		this.idObject = idObject;
+	}
+
+	public VisualDependencyProperty getDependency() {
+		return dependency;
+	}
+
+	public void setDependency(VisualDependencyProperty dependency) {
+		this.dependency = dependency;
+	}
+
+
 
 }

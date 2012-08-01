@@ -53,7 +53,7 @@ public class DataControlTreeSelector {
 
 	private TreeModel buildModel() {
 
-		Properties properties = (new ControlHelper()).load();
+		Properties properties = (new ControlHelper()).load(ControlHelper.DATACONTROL_FILE_NAME);
 		Enumeration<Object> enumerator = properties.keys();
 		TreeModel root = new TreeModel("root", null);
 		while (enumerator.hasMoreElements()) {

@@ -131,7 +131,7 @@ public class BusinessObjectPropertyEditor extends PropertyEditor implements
 
 			genericProperty.setExpression(expression, Property.UNKNOWN_VALUE);
 
-			new ControlHelper().addDataControl(dcName, expression);
+			new ControlHelper().addDataControl(dcName, expression,ControlHelper.DATACONTROL_FILE_NAME);
 
 		}
 

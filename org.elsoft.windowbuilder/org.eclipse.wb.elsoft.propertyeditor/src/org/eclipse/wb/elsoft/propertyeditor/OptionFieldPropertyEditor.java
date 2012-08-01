@@ -73,7 +73,7 @@ public class OptionFieldPropertyEditor extends PropertyEditor implements
 		Shell shell = new Shell(display);
 		shell.setLayout(new FillLayout());
 
-		Properties properties = (new ControlHelper()).load();
+		Properties properties = (new ControlHelper()).load(ControlHelper.DATACONTROL_FILE_NAME);
 
 		ObjectInfo objInf = genericProperty.getObject();
 		String dcName = null;

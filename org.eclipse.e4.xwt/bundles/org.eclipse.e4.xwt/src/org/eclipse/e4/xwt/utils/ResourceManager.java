@@ -21,11 +21,13 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.eclipse.e4.xwt.XWTMaps;
+import org.eclipse.e4.xwt.converters.StringToIDProperty;
 import org.eclipse.e4.xwt.elsoft.types.AscDescProperty;
 import org.eclipse.e4.xwt.elsoft.types.BusinessObjectProperty;
 import org.eclipse.e4.xwt.elsoft.types.DestinationDataControlProperty;
 import org.eclipse.e4.xwt.elsoft.types.ExpressionProperty;
 import org.eclipse.e4.xwt.elsoft.types.FieldsProperty;
+import org.eclipse.e4.xwt.elsoft.types.IDProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.LinkFieldProperty;
 import org.eclipse.e4.xwt.elsoft.types.MethodProperty;
@@ -34,6 +36,7 @@ import org.eclipse.e4.xwt.elsoft.types.ServiceProperty;
 import org.eclipse.e4.xwt.elsoft.types.SourceProperty;
 import org.eclipse.e4.xwt.elsoft.types.TriggerProperty;
 import org.eclipse.e4.xwt.elsoft.types.TriggerType;
+import org.eclipse.e4.xwt.elsoft.types.VisualDependencyProperty;
 import org.eclipse.e4.xwt.internal.utils.ObjectUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
@@ -149,6 +152,15 @@ public class ResourceManager {
 	public AscDescProperty getAscDescProperty(String order){
 		return new AscDescProperty(order);
 	}
+	public IDProperty getStringToIDProperty(String prop){
+		return new IDProperty(prop);
+		
+	}
+	
+	public VisualDependencyProperty getVisualDependencyProperty(String prop){
+		return new VisualDependencyProperty(prop);
+	}
+	
 	public synchronized void dispose() {
 		// dispose colors.
 		Collection<Color> colors = key2Colors.values();

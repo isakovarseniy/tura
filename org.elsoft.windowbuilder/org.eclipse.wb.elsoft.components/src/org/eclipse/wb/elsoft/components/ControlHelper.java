@@ -32,30 +32,32 @@ import org.eclipse.ui.PlatformUI;
 public class ControlHelper {
 
 	public static String DATACONTROL_FILE_NAME = "form.jad";
+	public static String ID_FILE_NAME = "id.jad";
 
-	public void addDataControl(String name, String businessObject) {
+	
+	public void addDataControl(String name, String businessObject,String propertiesFileName) {
 
 		try {
-			Properties properties = load();
+			Properties properties = load(propertiesFileName);
 			properties.put(name, businessObject);
-			save(properties);
+			save(properties,propertiesFileName);
 
 		} catch (Exception e) {
 		}
 	}
 
-	public void removeDataControl(String name, String businessObject) {
+	public void removeDataControl(String name, String businessObject,String propertiesFileName) {
 
 		try {
-			Properties properties = load();
+			Properties properties = load(propertiesFileName);
 			properties.remove(name);
-			save(properties);
+			save(properties,propertiesFileName);
 
 		} catch (Exception e) {
 		}
 	}
 
-	public Properties load() {
+	public Properties load( String propertiesFileName) {
 		Properties properties = new Properties();
 		try {
 
@@ -68,7 +70,7 @@ public class ControlHelper {
 					.getEditorInput();
 			IFile file = input.getFile();
 			IProject project = file.getProject();
-			String filename = "/src/" + DATACONTROL_FILE_NAME;
+			String filename = "/src/" + propertiesFileName;
 			file = project.getFile(filename);
 
 			properties.load(file.getContents());
@@ -77,7 +79,7 @@ public class ControlHelper {
 		return properties;
 	}
 
-	private void save(Properties properties) {
+	private void save(Properties properties,String propertiesFileName) {
 
 		try {
 
@@ -100,7 +102,7 @@ public class ControlHelper {
 			IFolder srcFolder = project.getFolder("src");
 			if (srcFolder.exists()) {
 				// create a new file
-				IFile newLogo = srcFolder.getFile(DATACONTROL_FILE_NAME);
+				IFile newLogo = srcFolder.getFile(propertiesFileName);
 				if (!newLogo.exists())
 					newLogo.create(in, true, null);
 				else {

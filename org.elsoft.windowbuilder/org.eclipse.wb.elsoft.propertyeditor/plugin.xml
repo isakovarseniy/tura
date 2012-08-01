@@ -44,6 +44,12 @@
  		<editor type="org.eclipse.e4.xwt.elsoft.types.MethodProperty"
 			class="org.eclipse.wb.elsoft.propertyeditor.MethodPropertyEditor"/>
 
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.IDProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.IDPropertyEditor"/>
+
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.VisualDependencyProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.VisualDependencyPropertyEditor"/>
+
    </extension>
 
 
