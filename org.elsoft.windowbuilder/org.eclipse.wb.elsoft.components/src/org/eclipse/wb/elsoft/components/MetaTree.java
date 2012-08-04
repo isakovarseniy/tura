@@ -15,7 +15,9 @@
  ******************************************************************************/
 package org.eclipse.wb.elsoft.components;
 
+import org.eclipse.e4.xwt.elsoft.types.IDProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
+import org.eclipse.e4.xwt.elsoft.types.VisualDependencyProperty;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Tree;
 
@@ -23,6 +25,8 @@ public class MetaTree extends Tree {
 	private IteratorProperty iteratorProperty;
 	private String cssStyle;
 	private String cssStyleClass;
+	private IDProperty idObject;
+	private VisualDependencyProperty updateOnRawSelect;
 
 	public String getCssStyle() {
 		return cssStyle;
@@ -53,6 +57,22 @@ public class MetaTree extends Tree {
 
 	public void setIteratorProperty(IteratorProperty iteratorProperty) {
 		this.iteratorProperty = iteratorProperty;
+	}
+
+	public VisualDependencyProperty getUpdateOnRawSelect() {
+		return updateOnRawSelect;
+	}
+
+	public void setUpdateOnRawSelect(VisualDependencyProperty updateOnRawSelect) {
+		this.updateOnRawSelect = updateOnRawSelect;
+	}
+
+	public IDProperty getIdObject() {
+		return idObject;
+	}
+
+	public void setIdObject(IDProperty idObject) {
+		this.idObject = idObject;
 	}
 
 }

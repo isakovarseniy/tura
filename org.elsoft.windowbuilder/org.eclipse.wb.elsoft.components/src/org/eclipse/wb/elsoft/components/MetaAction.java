@@ -16,6 +16,8 @@
 package org.eclipse.wb.elsoft.components;
 
 import org.eclipse.e4.xwt.elsoft.types.ExpressionProperty;
+import org.eclipse.e4.xwt.elsoft.types.IDProperty;
+import org.eclipse.e4.xwt.elsoft.types.VisualDependencyProperty;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
@@ -24,6 +26,8 @@ public class MetaAction extends Button {
 	private ExpressionProperty expressionProperty;
 	private String cssStyle;
 	private String cssStyleClass;
+	private IDProperty idObject;
+	private VisualDependencyProperty updateOnButtonPressed;
 
 	public String getCssStyle() {
 		return cssStyle;
@@ -54,6 +58,22 @@ public class MetaAction extends Button {
 
 	public void setExpressionProperty(ExpressionProperty expressionProperty) {
 		this.expressionProperty = expressionProperty;
+	}
+
+	public IDProperty getIdObject() {
+		return idObject;
+	}
+
+	public void setIdObject(IDProperty idObject) {
+		this.idObject = idObject;
+	}
+
+	public VisualDependencyProperty getUpdateOnButtonPressed() {
+		return updateOnButtonPressed;
+	}
+
+	public void setUpdateOnButtonPressed(VisualDependencyProperty updateOnButtonPressed) {
+		this.updateOnButtonPressed = updateOnButtonPressed;
 	}
 
 

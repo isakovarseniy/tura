@@ -26,7 +26,7 @@ public class MetaTable extends Table {
 	private String cssStyle;
 	private String cssStyleClass;
 	private IDProperty idObject;
-	private VisualDependencyProperty dependency;
+	private VisualDependencyProperty updateOnRawSelect;
 
 	public String getCssStyle() {
 		return cssStyle;
@@ -67,13 +67,14 @@ public class MetaTable extends Table {
 		this.idObject = idObject;
 	}
 
-	public VisualDependencyProperty getDependency() {
-		return dependency;
+	public VisualDependencyProperty getUpdateOnRawSelect() {
+		return updateOnRawSelect;
 	}
 
-	public void setDependency(VisualDependencyProperty dependency) {
-		this.dependency = dependency;
+	public void setUpdateOnRawSelect(VisualDependencyProperty updateOnRawSelect) {
+		this.updateOnRawSelect = updateOnRawSelect;
 	}
+
 
 
 

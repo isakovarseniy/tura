@@ -33,6 +33,7 @@
 					<component class="org.eclipse.swt.widgets.Label"/>
 					<component class="org.eclipse.wb.elsoft.components.LovDisplayField"/>
 					<component class="org.eclipse.wb.elsoft.components.LovReturnField"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaFieldSet"/>
 				</category>
 			</palette>
 		</toolkit>

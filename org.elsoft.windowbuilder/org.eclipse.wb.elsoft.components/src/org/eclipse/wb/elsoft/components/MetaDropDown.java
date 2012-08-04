@@ -15,9 +15,11 @@
  ******************************************************************************/
 package org.eclipse.wb.elsoft.components;
 
+import org.eclipse.e4.xwt.elsoft.types.IDProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.OptionFieldProperty;
 import org.eclipse.e4.xwt.elsoft.types.SourceProperty;
+import org.eclipse.e4.xwt.elsoft.types.VisualDependencyProperty;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 
@@ -29,8 +31,27 @@ public class MetaDropDown extends Combo{
 	private OptionFieldProperty optionValue;
 	private String cssStyle;
 	private String cssStyleClass;
+	private IDProperty idObject;
+	private VisualDependencyProperty updateOnValueChanged;
 	
 
+
+	public IDProperty getIdObject() {
+		return idObject;
+	}
+
+	public void setIdObject(IDProperty idObject) {
+		this.idObject = idObject;
+	}
+
+	public VisualDependencyProperty getUpdateOnValueChanged() {
+		return updateOnValueChanged;
+	}
+
+	public void setUpdateOnValueChanged(
+			VisualDependencyProperty updateOnValueChanged) {
+		this.updateOnValueChanged = updateOnValueChanged;
+	}
 
 	public String getCssStyle() {
 		return cssStyle;
