@@ -34,7 +34,11 @@ public enum MetamodelTriggerEventsType {
 	CreateEventSetCurrentRow("SetCurrentRow"),
 	CreateEventUIElement2Field("na"), 
 	CreateEventGetOptionsList("GetOptionsList"),
-	CreateEventUIElement2ServiceMethod("na");
+	CreateEventUIElement2ServiceMethod("na"),
+	
+	OnButtonPressed("na"),
+	OnValueChanged("na"),
+	OnRawSelect("na");
 	
 	
 

@@ -43,7 +43,8 @@ public enum ElementBuilder {
 	MetaLOV(org.elsoft.windowbuilder.reader.LOVReader.class),
 	LovDisplayField(org.elsoft.windowbuilder.reader.LovDisplayFieldReader.class),
 	LovReturnField(org.elsoft.windowbuilder.reader.LovReturnFieldReader.class),
-	Trigger(org.elsoft.windowbuilder.reader.TriggerReader.class);
+	Trigger(org.elsoft.windowbuilder.reader.TriggerReader.class),
+	MetaFieldSet(org.elsoft.windowbuilder.reader.FieldSetReader.class);
 	
 	Class<?> clazz; 
 	ElementBuilder(Class<?> clazz){

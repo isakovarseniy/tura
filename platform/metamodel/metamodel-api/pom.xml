@@ -53,11 +53,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>commons-jelly</groupId>
-			<artifactId>commons-jelly</artifactId>
-			<version>SNAPHSOT</version>
-		</dependency>
-		<dependency>
 			<groupId>dom4j</groupId>
 			<artifactId>dom4j</artifactId>
 			<version>1.6.1</version>
@@ -84,21 +79,49 @@
 		</dependency>
 
 		<dependency>
-			<groupId>commons-jelly</groupId>
-			<artifactId>commons-jelly-tags-ant</artifactId>
-			<version>20040902.071105</version>
+			<groupId>org.jenkins-ci</groupId>
+			<artifactId>commons-jelly</artifactId>
+			<version>1.1-jenkins-20110627</version>
 		</dependency>
 
 		<dependency>
 			<groupId>commons-jelly</groupId>
-			<artifactId>commons-jelly-tags-junit</artifactId>
-			<version>20040902.070920</version>
+			<artifactId>commons-jelly-tags-ant</artifactId>
+			<version>1.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>commons-jelly</groupId>
 			<artifactId>commons-jelly-tags-util</artifactId>
-			<version>20040902.071012</version>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-jelly</groupId>
+			<artifactId>commons-jelly-tags-xml</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.1-beta-2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-grant</groupId>
+			<artifactId>commons-grant</artifactId>
+			<version>1.0-beta-5</version>
+		</dependency>
+		<dependency>
+			<groupId>ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.6.5</version>
+		</dependency>
+		<dependency>
+			<groupId>ant</groupId>
+			<artifactId>ant-junit</artifactId>
+			<version>1.6.5</version>
 		</dependency>
 
 		<dependency>
@@ -106,6 +129,7 @@
 			<artifactId>metamodel-jpa</artifactId>
 			<version>1.0</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>de.odysseus.juel</groupId>

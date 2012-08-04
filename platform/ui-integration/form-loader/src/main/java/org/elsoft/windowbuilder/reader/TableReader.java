@@ -17,6 +17,9 @@ package org.elsoft.windowbuilder.reader;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.StringTokenizer;
+
+import javax.xml.stream.XMLStreamReader;
 
 
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
@@ -25,6 +28,7 @@ import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIGridDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetList;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIGrid;
 
 public class TableReader extends ItemReader {
@@ -32,10 +36,22 @@ public class TableReader extends ItemReader {
 	private int columnNumber;
 	private int rowNumber;
 	private String label;
+	private String updateOnRawSelect;
 
+	@Override
+	public Reader reader(XMLStreamReader xmlReader, Reader parent) {
+		super.reader(xmlReader, parent);
+		setUpdateOnRawSelect(xmlReader.getAttributeValue(null, "updateOnRawSelect"));
+		return this;
+	}	
+	
 	@Override
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent,List<CommandDAO> program) throws Exception {
+
+		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
+			setUuid (getIdObject());
+		}
 
 		CreateUIGridDAO createUIGrid = new CreateUIGridDAO();
 		createUIGrid.setCommandExecutor(CreateUIGrid.class.getName());
@@ -58,6 +74,22 @@ public class TableReader extends ItemReader {
 		event.setEventType(MetamodelTriggerEventsType.CreateEventGetList.name());
 		program.add(event);
 
+		if (updateOnRawSelect != null) {
+			StringTokenizer tokenizer = new StringTokenizer(
+					updateOnRawSelect);
+			while (tokenizer.hasMoreElements()) {
+				String dst = tokenizer.nextToken();
+				event = new EventDAO();
+				event.setCommandExecutor(CreateEventUIElement2UIElement.class
+						.getName());
+				event.setParentUUID(createUIGrid.getUUID());
+				event.setDstUUID(dst);
+				event.setEventType(MetamodelTriggerEventsType.OnRawSelect
+						.name());
+				program.add(event);
+			}
+		}
+
 	}
 
 	protected void inc() {
@@ -69,6 +101,14 @@ public class TableReader extends ItemReader {
 			RepositoryFactory rf, Reader parent, List<CommandDAO> program)
 			throws Exception {
 		return true;
+	}
+
+	public String getUpdateOnRawSelect() {
+		return updateOnRawSelect;
+	}
+
+	public void setUpdateOnRawSelect(String updateOnRawSelect) {
+		this.updateOnRawSelect = updateOnRawSelect;
 	}
 
 }

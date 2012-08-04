@@ -17,17 +17,20 @@ package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIGridDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetList;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIGrid;
 
-public class Grid extends ExternalIterator implements ChildrenOwner {
+public class Grid extends ExternalIterator implements ChildrenOwner, PointerElement {
 	private Integer columnNumber;
 	private Integer rowNumber;
+	private ArrayList<EventDAO> updateOnRawSelect = new ArrayList<EventDAO>();
 
 	public Grid(CreateUIGridDAO command, HashMap<String, Object> context) {
 		this.setCss(command.getCss());
@@ -39,6 +42,9 @@ public class Grid extends ExternalIterator implements ChildrenOwner {
 		setLabel(command.getLabel());
 	}
 
+	public ArrayList<EventDAO> getUpdateOnRawSelect() {
+		return updateOnRawSelect;
+	}
 
 	public Integer getColumnNumber() {
 		return columnNumber;
@@ -93,12 +99,24 @@ public class Grid extends ExternalIterator implements ChildrenOwner {
 		CreateUIGrid.save(ch, getParentUuid(), this);
 		CreateEventGetList.save(ch, getUuid(), this);
 		super.serialize(ch);
+		
+        Iterator<EventDAO> itr = updateOnRawSelect.iterator();
+		while (itr.hasNext())
+			CreateEventUIElement2UIElement
+					.save(ch, getUuid(), itr.next());
+		
 	}
 
 
 	@Override
 	public String getUiElementType() {
 		return "Grid";
+	}
+	@Override
+	public void addReference(EventDAO event, HashMap<String, Object> context) {
+        if (event.getEventType().equals(MetamodelTriggerEventsType.OnRawSelect.name())){
+        	updateOnRawSelect.add(event);
+        }
 	}
 
 }

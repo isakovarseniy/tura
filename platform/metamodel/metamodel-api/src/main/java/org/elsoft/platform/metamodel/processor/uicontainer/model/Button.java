@@ -15,15 +15,21 @@
  ******************************************************************************/
 package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
+import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIButtonDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventTrigger;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Service;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIButton;
 
-public class Button extends ActionElement {
+public class Button extends ActionElement implements PointerElement {
+	private ArrayList<EventDAO> updateOnButtonPressed = new ArrayList<EventDAO>();
 
 	public Button(CreateUIButtonDAO command, HashMap<String, Object> context) {
 		this.setCss(command.getCss());
@@ -41,11 +47,30 @@ public class Button extends ActionElement {
 		else
 			CreateEventUIElement2Service.save(ch, this);
 		super.serialize(ch);
+
+		Iterator<EventDAO> itr = updateOnButtonPressed.iterator();
+		while (itr.hasNext())
+			CreateEventUIElement2UIElement
+					.save(ch, getUuid(), itr.next());
+
 	}
 
 	@Override
 	public String getUiElementType() {
 		return "Button";
+	}
+
+	@Override
+	public void addReference(EventDAO event, HashMap<String, Object> context) {
+		if (event.getEventType().equals(
+				MetamodelTriggerEventsType.OnButtonPressed.name())) {
+			updateOnButtonPressed.add(event);
+		}
+
+	}
+
+	public ArrayList<EventDAO> getUpdateOnButtonPressed() {
+		return updateOnButtonPressed;
 	}
 
 }

@@ -17,10 +17,11 @@ package org.elsoft.windowbuilder.reader;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
+import java.util.StringTokenizer;
 
 import javax.xml.stream.XMLStreamReader;
 
+import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
@@ -30,6 +31,7 @@ import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDisplay
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetCurrentRow;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetOptionsList;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Field;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIDropDownList;
 
 public class DropDownReader extends ItemReader {
@@ -41,6 +43,7 @@ public class DropDownReader extends ItemReader {
 	private boolean tableContext = false;
 	private String cssStyle;
 	private String cssStyleClass;
+	private String updateOnValueChanged;
 
 	@Override
 	public Reader reader(XMLStreamReader xmlReader, Reader parent) {
@@ -50,13 +53,17 @@ public class DropDownReader extends ItemReader {
 		optionDataControlId = Reader.idMAP.get(iterator);
 		labelField = xmlReader.getAttributeValue(null, "optionLabel");
 		valueField = xmlReader.getAttributeValue(null, "optionValue");
-
+		setUpdateOnValueChanged(xmlReader.getAttributeValue(null, "updateOnValueChanged"));
 		return this;
 	}
 
 	@Override
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
+
+		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
+			setUuid( getIdObject() );
+		}
 
 		EventDAO event = null;
 		if (parent instanceof TableColumnReader) {
@@ -70,7 +77,7 @@ public class DropDownReader extends ItemReader {
 		createUIDropDownList.setCommandExecutor(CreateUIDropDownList.class.getName());
 		createUIDropDownList.setParentUUID(parent.getUuid());
 		createUIDropDownList.setLabel(label);
-		createUIDropDownList.setUUID(UUID.randomUUID().toString());
+		createUIDropDownList.setUUID(getUuid());
 		createUIDropDownList.setCss(cssStyle);
 		createUIDropDownList.setCssClass(cssStyleClass);
 		program.add(createUIDropDownList);
@@ -101,6 +108,22 @@ public class DropDownReader extends ItemReader {
 		dispOption.setParentUUID(createUIDropDownList.getUUID());
 		program.add(dispOption);
 
+		if (updateOnValueChanged != null) {
+			StringTokenizer tokenizer = new StringTokenizer(
+					updateOnValueChanged);
+			while (tokenizer.hasMoreElements()) {
+				String dst = tokenizer.nextToken();
+				event = new EventDAO();
+				event.setCommandExecutor(CreateEventUIElement2UIElement.class
+						.getName());
+				event.setParentUUID(createUIDropDownList.getUUID());
+				event.setDstUUID(dst);
+				event.setEventType(MetamodelTriggerEventsType.OnValueChanged
+						.name());
+				program.add(event);
+			}
+		}
+
 	}
 
 	@Override
@@ -108,6 +131,14 @@ public class DropDownReader extends ItemReader {
 			RepositoryFactory rf, Reader parent, List<CommandDAO> program)
 			throws Exception {
 		return true;
+	}
+
+	public String getUpdateOnValueChanged() {
+		return updateOnValueChanged;
+	}
+
+	public void setUpdateOnValueChanged(String updateOnValueChanged) {
+		this.updateOnValueChanged = updateOnValueChanged;
 	}
 
 }

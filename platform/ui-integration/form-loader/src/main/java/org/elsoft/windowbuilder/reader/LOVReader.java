@@ -17,9 +17,11 @@ package org.elsoft.windowbuilder.reader;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.xml.stream.XMLStreamReader;
 
+import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
@@ -27,6 +29,7 @@ import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUILovDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetCurrentRow;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetOptionsList;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Field;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUILov;
 
 public class LOVReader extends ItemReader {
@@ -34,12 +37,14 @@ public class LOVReader extends ItemReader {
 	private String optionDataControlId;
 	private String label;
 	private boolean tableContext = false;
+	private String updateOnValueChanged;
 
 	@Override
 	public Reader reader(XMLStreamReader xmlReader, Reader parent) {
 		super.reader(xmlReader, parent);
 
 		String iterator = xmlReader.getAttributeValue(null, "optionIterator");
+		setUpdateOnValueChanged(xmlReader.getAttributeValue(null, "updateOnValueChanged"));
 		optionDataControlId = Reader.idMAP.get(iterator);
 
 		return this;
@@ -48,6 +53,10 @@ public class LOVReader extends ItemReader {
 	@Override
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
+
+		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
+			setUuid( getIdObject());
+		}
 
 		EventDAO event = null;
 		if (parent instanceof TableColumnReader) {
@@ -63,7 +72,6 @@ public class LOVReader extends ItemReader {
 		createUILov.setUUID(getUuid());
 		createUILov.setCss(getCssStyle());
 		createUILov.setCssClass(getCssStyleClass());
-		
 		program.add(createUILov);
 
 		event = new EventDAO();
@@ -85,6 +93,22 @@ public class LOVReader extends ItemReader {
 		event.setDstUUID(optionDataControlId);
 		program.add(event);
 
+		if (updateOnValueChanged != null) {
+			StringTokenizer tokenizer = new StringTokenizer(
+					updateOnValueChanged);
+			while (tokenizer.hasMoreElements()) {
+				String dst = tokenizer.nextToken();
+				event = new EventDAO();
+				event.setCommandExecutor(CreateEventUIElement2UIElement.class
+						.getName());
+				event.setParentUUID(createUILov.getUUID());
+				event.setDstUUID(dst);
+				event.setEventType(MetamodelTriggerEventsType.OnValueChanged
+						.name());
+				program.add(event);
+			}
+		}
+
 	}
 
 	@Override
@@ -92,6 +116,14 @@ public class LOVReader extends ItemReader {
 			RepositoryFactory rf, Reader parent, List<CommandDAO> program)
 			throws Exception {
 		return true;
+	}
+
+	public String getUpdateOnValueChanged() {
+		return updateOnValueChanged;
+	}
+
+	public void setUpdateOnValueChanged(String updateOnValueChanged) {
+		this.updateOnValueChanged = updateOnValueChanged;
 	}
 
 }

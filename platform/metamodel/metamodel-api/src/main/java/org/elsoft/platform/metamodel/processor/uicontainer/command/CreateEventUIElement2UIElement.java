@@ -18,7 +18,6 @@ package org.elsoft.platform.metamodel.processor.uicontainer.command;
 import java.util.HashMap;
 
 import org.elsoft.platform.datacontrol.DataControl;
-import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.context.SessionContext;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
@@ -43,14 +42,14 @@ public class CreateEventUIElement2UIElement {
 		if ((pointer == null) || (element == null))
 			return Processor.COMMAND_POSTPONE;
 
-		pointer.setReference(element);
+		pointer.addReference(command, context);
 
 		return Processor.COMMAND_COMPLITED;
 
 	}
 
 	public static void save(CommandHandler ch, String parentUUID,
-			PointerElement element) {
+			 EventDAO event) {
 		ch.getMode()
 				.getElResolver()
 				.setValue(SessionContext.COMMAND_TYPE,
@@ -58,9 +57,8 @@ public class CreateEventUIElement2UIElement {
 		DataControl<CommandDAO> dc = ch.getMode().getControl();
 		EventDAO obj = (EventDAO) dc.createObject();
 		obj.setParentUUID(parentUUID);
-		obj.setDstUUID(element.getReference().getUuid());
-		obj.setEventType(MetamodelTriggerEventsType.CreateEventUIElement2Field
-				.name());
+		obj.setDstUUID(event.getDstUUID());
+		obj.setEventType(event.getEventType());
 		obj.setCommandExecutor(CreateEventUIElement2UIElement.class.getName());
 	}
 

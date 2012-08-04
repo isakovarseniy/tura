@@ -15,14 +15,21 @@
  ******************************************************************************/
 package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
+import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIDropDownListDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIDropDownList;
 
-public class DropDownList extends OptionsInputElement{
+public class DropDownList extends OptionsInputElement implements PointerElement{
 
+	private ArrayList<EventDAO> updateOnValueChanged = new ArrayList<EventDAO> ();
+	
 	public DropDownList(CreateUIDropDownListDAO command,
 			HashMap<String, Object> context) {
 		this.setCss(command.getCss());
@@ -41,6 +48,19 @@ public class DropDownList extends OptionsInputElement{
 	protected void serialize(CommandHandler ch) throws Exception {
 		CreateUIDropDownList.save(ch, getParentUuid(), this);		
         super.serialize(ch);  
+
+        Iterator<EventDAO> itr = updateOnValueChanged.iterator();
+		while (itr.hasNext())
+			CreateEventUIElement2UIElement
+					.save(ch, getUuid(), itr.next());
+       
+	}
+
+	@Override
+	public void addReference(EventDAO event, HashMap<String, Object> context) {
+        if (event.getEventType().equals(MetamodelTriggerEventsType.OnValueChanged.name())){
+        	updateOnValueChanged.add(event);
+        }
 	}
 
 }

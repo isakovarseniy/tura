@@ -135,7 +135,7 @@ public class FactoryBeanModelBuilder {
 		}
 
 		public ViewPortDescriptor(ViewPort port) {
-			canvasName = ((Canvas) port.getReference()).getCanvasName();
+			canvasName = ((Canvas) port.getCanvas()).getCanvasName();
 			viewPortName = port.getViewPortName();
 			capViewPortName = WordUtils.capitalize(viewPortName);
 		}

@@ -17,15 +17,20 @@ package org.elsoft.platform.metamodel.processor.artifactcalculator.modelbuilder;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
+import org.elsoft.platform.metamodel.processor.uicontainer.model.Button;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Canvas;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ChildrenOwner;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ExternalIterator;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Form;
+import org.elsoft.platform.metamodel.processor.uicontainer.model.Grid;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.InputElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Lov;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.OptionsInputElement;
+import org.elsoft.platform.metamodel.processor.uicontainer.model.PointerElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ViewPort;
 
@@ -40,7 +45,7 @@ public class JSPXModeBuilder {
 		cloner.setDumpClonedClasses(false);
 		cloner.dontClone(org.elsoft.platform.datacontrol.ins.InsModeDataControl.class);
 		cloner.dontClone(org.elsoft.platform.datacontrol.ins.InsModeBeanWrapper.class);
-		
+
 		UIElement el = cloner.deepClone(element);
 
 		model.setElement(el);
@@ -57,7 +62,8 @@ public class JSPXModeBuilder {
 	private void viewPortFinder(UIElement element) {
 		if (element instanceof ViewPort) {
 			String name = ((ViewPort) element).getViewPortName();
-			((ViewPort) element).setViewPortName(StringUtils.uncapitalize(name));
+			((ViewPort) element)
+					.setViewPortName(StringUtils.uncapitalize(name));
 		}
 
 		if (element instanceof ExternalIterator) {
@@ -95,6 +101,29 @@ public class JSPXModeBuilder {
 			}
 		}
 
+		if (element instanceof PointerElement) {
+			if (element instanceof Button) {
+				element.getPropertiesExtender().put("OnButtonPressed",  dependeniesBuilder(((Button) element)
+						.getUpdateOnButtonPressed()));
+			}
+			if (element instanceof Grid) {
+				element.getPropertiesExtender().put("OnRawSelect",  dependeniesBuilder(((Grid) element)
+						.getUpdateOnRawSelect()));
+			}
+		}
+	}
+
+	private String dependeniesBuilder(List<EventDAO> ls) {
+		if (ls == null) return "";
+		if (ls.size() == 0) return "";
+
+		Iterator<EventDAO> itr = ls.iterator();
+		String result ="";
+		while(itr.hasNext()){
+			EventDAO event = itr.next();
+			result = result + " :window:tura"+event.getDstUUID();
+		}
+		return result.substring(1);
 	}
 
 	private void lovFinder(UIElement element) {

@@ -24,6 +24,7 @@ public abstract class ItemReader extends Reader {
 	private String field;
 	private String cssStyle;
 	private String cssStyleClass;
+	private String idObject;
 
 	public String getCssStyle() {
 		return cssStyle;
@@ -63,6 +64,7 @@ public abstract class ItemReader extends Reader {
 		
 		cssStyle = xmlReader.getAttributeValue(null, "cssStyle");
 		cssStyleClass = xmlReader.getAttributeValue(null, "cssStyleClass");
+		idObject = xmlReader.getAttributeValue(null, "idObject");
 
 		String iterator = xmlReader.getAttributeValue(null, "iteratorProperty");
 		dataControlId = Reader.idMAP.get(iterator);
@@ -70,6 +72,14 @@ public abstract class ItemReader extends Reader {
 		field = xmlReader.getAttributeValue(null, "sourceProperty");
 		
 		return this;
+	}
+
+	public String getIdObject() {
+		return idObject;
+	}
+
+	public void setIdObject(String idObject) {
+		this.idObject = idObject;
 	}
 
 }

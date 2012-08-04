@@ -17,15 +17,19 @@ package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUITreeDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetTreeRoot;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUITree;
 
-public class Tree extends ExternalIterator implements ChildrenOwner{
+public class Tree extends ExternalIterator implements ChildrenOwner,PointerElement{
+
+	private ArrayList<EventDAO> updateOnRawSelect = new ArrayList<EventDAO>();
 
 	public Tree(CreateUITreeDAO command, HashMap<String, Object> context) {
 		this.setCss(command.getCss());
@@ -39,6 +43,12 @@ public class Tree extends ExternalIterator implements ChildrenOwner{
 		CreateUITree.save(ch, getParentUuid(), this);
         CreateEventGetTreeRoot.save(ch, getUuid(), this) ;  
 		super.serialize(ch);
+
+        Iterator<EventDAO> itr = updateOnRawSelect.iterator();
+		while (itr.hasNext())
+			CreateEventUIElement2UIElement
+					.save(ch, getUuid(), itr.next());
+	
 	}
 
 
@@ -63,6 +73,12 @@ public class Tree extends ExternalIterator implements ChildrenOwner{
 	@Override
 	public String getUiElementType() {
 		return "Tree";
+	}
+	@Override
+	public void addReference(EventDAO event, HashMap<String, Object> context) {
+        if (event.getEventType().equals(MetamodelTriggerEventsType.OnValueChanged.name())){
+        	updateOnRawSelect.add(event);
+        }
 	}
 
 }

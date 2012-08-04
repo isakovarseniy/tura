@@ -19,19 +19,22 @@ import java.util.HashMap;
 import java.util.UUID;
 
 import org.apache.commons.lang.WordUtils;
+import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIViewPortDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIViewPort;
 
-public class ViewPort  extends UIElement implements PointerElement{
+public class ViewPort extends UIElement implements PointerElement {
 
 	private String uuid = UUID.randomUUID().toString();
 	private Canvas canvas;
 	private String viewPortName;
 	private String uncapViewPortName;
-	
-	public ViewPort(CreateUIViewPortDAO command,HashMap<String, Object> context){
+	private EventDAO canvasPointer;
+
+	public ViewPort(CreateUIViewPortDAO command, HashMap<String, Object> context) {
 		this.setCss(command.getCss());
 		this.setCssClass(command.getCssClass());
 		setUuid(command.getUUID());
@@ -42,9 +45,9 @@ public class ViewPort  extends UIElement implements PointerElement{
 
 	@Override
 	protected void serialize(CommandHandler ch) throws Exception {
-		CreateUIViewPort.save(ch, getParentUuid(), this);	
-		CreateEventUIElement2UIElement.save(ch, this.getUuid(), this);
-        super.serialize(ch);  
+		CreateUIViewPort.save(ch, getParentUuid(), this);
+		CreateEventUIElement2UIElement.save(ch, this.getUuid(), canvasPointer );
+		super.serialize(ch);
 	}
 
 	public String getUuid() {
@@ -55,16 +58,15 @@ public class ViewPort  extends UIElement implements PointerElement{
 		this.uuid = uuid;
 	}
 
-
 	@Override
-	public void setReference(UIElement element) {
-		canvas = (Canvas) element;
-		
-	}
-
-	@Override
-	public UIElement getReference() {
-		return canvas;
+	public void addReference(EventDAO element, HashMap<String, Object> context) {
+		if (element.getEventType().equals(
+				MetamodelTriggerEventsType.CreateEventUIElement2UIElement
+						.name())) {
+			
+			setCanvas((Canvas) context.get(element.getDstUUID()));
+			canvasPointer = element;
+		}
 	}
 
 	public String getViewPortName() {
@@ -86,6 +88,14 @@ public class ViewPort  extends UIElement implements PointerElement{
 
 	public void setUncapViewPortName(String uncapViewPortName) {
 		this.uncapViewPortName = uncapViewPortName;
+	}
+
+	public Canvas getCanvas() {
+		return canvas;
+	}
+
+	public void setCanvas(Canvas canvas) {
+		this.canvas = canvas;
 	}
 
 }

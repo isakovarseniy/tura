@@ -15,8 +15,11 @@
  ******************************************************************************/
 package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
+import java.util.HashMap;
+
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
+
+
 public interface PointerElement {
-    public void setReference(UIElement element);
-    public UIElement getReference();
-    
+    public void addReference(EventDAO event,HashMap<String, Object> context);
 }

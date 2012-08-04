@@ -17,14 +17,17 @@ package org.elsoft.windowbuilder.reader;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.xml.stream.XMLStreamReader;
 
+import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIButtonDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventTrigger;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIButton;
 
 public class ButtonReader extends ItemReader {
@@ -32,12 +35,15 @@ public class ButtonReader extends ItemReader {
 	private String label;
 	private String cssStyle;
 	private String cssStyleClass;
+	private String updateOnButtonPressed;
 
 	@Override
 	public Reader reader(XMLStreamReader xmlReader, Reader parent) {
 
 		cssStyle = xmlReader.getAttributeValue(null, "cssStyle");
 		cssStyleClass = xmlReader.getAttributeValue(null, "cssStyleClass");
+		updateOnButtonPressed = xmlReader.getAttributeValue(null,
+				"updateOnButtonPressed");
 
 		String dataSrcField = xmlReader.getAttributeValue(null,
 				"expressionProperty");
@@ -51,6 +57,10 @@ public class ButtonReader extends ItemReader {
 	@Override
 	public void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
+
+		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
+			setUuid( getIdObject());
+		}
 
 		CreateUIButtonDAO createUIButton = new CreateUIButtonDAO();
 		createUIButton.setCommandExecutor(CreateUIButton.class.getName());
@@ -69,6 +79,23 @@ public class ButtonReader extends ItemReader {
 			event.setEventType(eventConverter.get(getField()).name());
 			program.add(event);
 		}
+		if (updateOnButtonPressed != null) {
+			StringTokenizer tokenizer = new StringTokenizer(
+					updateOnButtonPressed);
+			while (tokenizer.hasMoreElements()) {
+				String dst = tokenizer.nextToken();
+				EventDAO event = new EventDAO();
+				event.setCommandExecutor(CreateEventUIElement2UIElement.class
+						.getName());
+				event.setParentUUID(createUIButton.getUUID());
+				event.setDstUUID(dst);
+				event.setEventType(MetamodelTriggerEventsType.OnButtonPressed
+						.name());
+				program.add(event);
+			}
+
+		}
+
 	}
 
 	@Override

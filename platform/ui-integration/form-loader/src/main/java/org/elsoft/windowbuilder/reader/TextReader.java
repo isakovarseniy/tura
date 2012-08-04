@@ -17,7 +17,6 @@ package org.elsoft.windowbuilder.reader;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 
 import org.elsoft.platform.metamodel.RepositoryFactory;
@@ -36,6 +35,11 @@ public class TextReader extends ItemReader {
 	@Override
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
+
+		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
+			setUuid( getIdObject());
+		}
+		
 		EventDAO event = null;
 		if (parent instanceof TableColumnReader) {
 			label = ((TableColumnReader) parent).getLabel();
@@ -55,7 +59,7 @@ public class TextReader extends ItemReader {
 		CreateUIInputTextDAO createUIInputText = new CreateUIInputTextDAO();
 		createUIInputText.setCommandExecutor(CreateUIInputText.class.getName());
 		createUIInputText.setParentUUID(parent.getUuid());
-		createUIInputText.setUUID(UUID.randomUUID().toString());
+		createUIInputText.setUUID(getUuid());
 		createUIInputText.setLabel(label);
 		createUIInputText.setCss(getCssStyle());
 		createUIInputText.setCssClass(getCssStyleClass());
