@@ -24,6 +24,7 @@ import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Button;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Canvas;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ChildrenOwner;
+import org.elsoft.platform.metamodel.processor.uicontainer.model.DropDownList;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ExternalIterator;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Form;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Grid;
@@ -110,6 +111,12 @@ public class JSPXModeBuilder {
 				element.getPropertiesExtender().put("OnRawSelect",  dependeniesBuilder(((Grid) element)
 						.getUpdateOnRawSelect()));
 			}
+			if (element instanceof DropDownList) {
+				element.getPropertiesExtender().put("OnValueChanged",  dependeniesBuilder(((DropDownList) element)
+						.getUpdateOnValueChanged()));
+			}
+
+		
 		}
 	}
 

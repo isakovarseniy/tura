@@ -56,6 +56,10 @@ public class DropDownList extends OptionsInputElement implements PointerElement{
        
 	}
 
+	public ArrayList<EventDAO> getUpdateOnValueChanged() {
+		return updateOnValueChanged;
+	}
+
 	@Override
 	public void addReference(EventDAO event, HashMap<String, Object> context) {
         if (event.getEventType().equals(MetamodelTriggerEventsType.OnValueChanged.name())){

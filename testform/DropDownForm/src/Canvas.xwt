@@ -1,17 +1,16 @@
 <Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
 	<Composite.layout>
-		<GridLayout numColumns="2"/>
+		<GridLayout/>
 	</Composite.layout>
-	<Label text="Departments name"/>
-	<Label text="Employee name"/>
-	<p1:MetaDropDown iteratorProperty="DropDownLnk" sourceProperty="departmentId" optionIterator="DepartmentLnk" optionLabel="departmentName" optionValue="objId" >
-		<p1:MetaDropDown.layoutData>
-			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
-		</p1:MetaDropDown.layoutData>
-	</p1:MetaDropDown>
-	<p1:MetaDropDown iteratorProperty="DropDownLnk" sourceProperty="employeeId" optionIterator="EmployeeLnk" optionLabel="lastName" optionValue="objId">
-		<p1:MetaDropDown.layoutData>
-			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
-		</p1:MetaDropDown.layoutData>
-	</p1:MetaDropDown>
+	<p1:MetaFieldSet idObject="data_set">
+		<Composite size="393, 61">
+		<Composite.layout>
+			<GridLayout numColumns="2"/>
+		</Composite.layout>
+		<Label text="Departments name" size="126, 17"/>
+		<Label text="Employee name" size="106, 17"/>
+		<p1:MetaDropDown iteratorProperty="DropDownLnk" sourceProperty="departmentId" optionIterator="DepartmentLnk" optionLabel="departmentName" optionValue="objId" updateOnValueChanged="data_set" size="189, 29" />
+		<p1:MetaDropDown iteratorProperty="DropDownLnk" sourceProperty="employeeId" optionIterator="EmployeeLnk" optionLabel="lastName" optionValue="objId" updateOnValueChanged="data_set" size="189, 29"/>
+	</Composite>
+	</p1:MetaFieldSet>
 </Composite>
