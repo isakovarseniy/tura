@@ -2,7 +2,7 @@
 	<Composite.layout>
 		<GridLayout/>
 	</Composite.layout>
-	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DepartmentLnk">
+	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DepartmentLnk" updateOnRawSelect="emp_det">
 		<p1:MetaTable.layoutData>
 			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
 		</p1:MetaTable.layoutData>
@@ -13,13 +13,11 @@
 			<p1:MetaInputText x:Style="BORDER" sourceProperty="departmentName"/>
 		</p1:MetaTableColumn>
 	</p1:MetaTable>
-	<Composite>
+	<p1:MetaFieldSet idObject="emp_det">
+		<Composite size="430, 37">
 		<Composite.layout>
 			<GridLayout numColumns="4"/>
 		</Composite.layout>
-		<Composite.layoutData>
-			<GridData widthHint="430"/>
-		</Composite.layoutData>
 		<p1:MetaInputText x:Style="BORDER" text="Emploee ID" iteratorProperty="EmployeesLnk" sourceProperty="objId">
 			<p1:MetaInputText.layoutData>
 				<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" widthHint="46"/>
@@ -41,6 +39,7 @@
 			</p1:MetaInputText.layoutData>
 		</p1:MetaInputText>
 	</Composite>
+	</p1:MetaFieldSet>
 	<Composite>
 		<Composite.layout>
 			<GridLayout numColumns="2"/>
@@ -48,7 +47,7 @@
 		<Composite.layoutData>
 			<GridData widthHint="437"/>
 		</Composite.layoutData>
-		<p1:MetaAction text="Prev Record" expressionProperty="EmployeesLnk.prevRecord"/>
-		<p1:MetaAction text="Next Record" expressionProperty="EmployeesLnk.nextRecord"/>
+		<p1:MetaAction text="Prev Record" expressionProperty="EmployeesLnk.prevRecord" updateOnButtonPressed="emp_det"/>
+		<p1:MetaAction text="Next Record" expressionProperty="EmployeesLnk.nextRecord" updateOnButtonPressed="emp_det"/>
 	</Composite>
 </Composite>

@@ -34,30 +34,36 @@ public class ControlHelper {
 	public static String DATACONTROL_FILE_NAME = "form.jad";
 	public static String ID_FILE_NAME = "id.jad";
 
-	
-	public void addDataControl(String name, String businessObject,String propertiesFileName) {
+	public void addDataControl(String name, String businessObject,
+			String propertiesFileName) {
 
-		try {
-			Properties properties = load(propertiesFileName);
-			properties.put(name, businessObject);
-			save(properties,propertiesFileName);
+		Properties properties = load(propertiesFileName);
+		properties.put(name, businessObject);
+		save(properties, propertiesFileName);
 
-		} catch (Exception e) {
-		}
 	}
 
-	public void removeDataControl(String name, String businessObject,String propertiesFileName) {
+	public boolean isExists(String name, String propertiesFileName) {
+		Properties properties = load(propertiesFileName);
+		if (properties.get(name) != null)
+			return true;
+		else
+			return false;
+	}
+
+	public void removeDataControl(String name, String businessObject,
+			String propertiesFileName) {
 
 		try {
 			Properties properties = load(propertiesFileName);
 			properties.remove(name);
-			save(properties,propertiesFileName);
+			save(properties, propertiesFileName);
 
 		} catch (Exception e) {
 		}
 	}
 
-	public Properties load( String propertiesFileName) {
+	public Properties load(String propertiesFileName) {
 		Properties properties = new Properties();
 		try {
 
@@ -79,7 +85,7 @@ public class ControlHelper {
 		return properties;
 	}
 
-	private void save(Properties properties,String propertiesFileName) {
+	private void save(Properties properties, String propertiesFileName) {
 
 		try {
 

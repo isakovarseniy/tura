@@ -16,10 +16,10 @@
 					<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
 				</p1:MetaInputText.layoutData>
 			</p1:MetaInputText>
-			<p1:MetaAction text="Prev Record" expressionProperty="DepartmentLnk.prevRecord"/>
-			<p1:MetaAction text="Next Record" expressionProperty="DepartmentLnk.nextRecord"/>
+			<p1:MetaAction text="Prev Record" expressionProperty="DepartmentLnk.prevRecord" updateOnButtonPressed="emp_table"/>
+			<p1:MetaAction text="Next Record" expressionProperty="DepartmentLnk.nextRecord" updateOnButtonPressed="emp_table"/>
 		</Composite>
-	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="EmployeesLnk">
+	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="EmployeesLnk" idObject="emp_table">
 		<p1:MetaTable.layoutData>
 			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
 		</p1:MetaTable.layoutData>

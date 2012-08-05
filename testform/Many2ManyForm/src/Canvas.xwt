@@ -6,10 +6,10 @@
 		<Composite.layout>
 			<GridLayout numColumns="4"/>
 		</Composite.layout>
-		<p2:MetaAction text="Search" expressionProperty="DepartmentLnk.search"/>
-		<p2:MetaAction text="Query" expressionProperty="DepartmentLnk.query"/>
-		<p2:MetaAction text="Commit" expressionProperty="DepartmentLnk.commit"/>
-		<p2:MetaAction text="RallBack" expressionProperty="DepartmentLnk.rallback"/>
+		<p2:MetaAction text="Search" expressionProperty="DepartmentLnk.search" updateOnButtonPressed="dep_table emp_table emp_detale"/>
+		<p2:MetaAction text="Query" expressionProperty="DepartmentLnk.query" updateOnButtonPressed="dep_table emp_table emp_detale"/>
+		<p2:MetaAction text="Commit" expressionProperty="DepartmentLnk.commit" updateOnButtonPressed="dep_table emp_table emp_detale"/>
+		<p2:MetaAction text="RallBack" expressionProperty="DepartmentLnk.rallback" updateOnButtonPressed="dep_table emp_table emp_detale"/>
 	</Composite>
 	<Composite>
 		<Composite.layoutData>
@@ -18,7 +18,7 @@
 		<Composite.layout>
 			<GridLayout numColumns="2"/>
 		</Composite.layout>
-		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DepartmentLnk" idObject="dep_table" x:Name="wwwwww" dependency="qwerrtty">
+		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DepartmentLnk" idObject="dep_table" updateOnRawSelect="emp_table emp_detale" >
 			<p2:MetaTableColumn text="Departments Id" width="111">
 				<p2:MetaInputText x:Style="BORDER" sourceProperty="departmentId"/>
 			</p2:MetaTableColumn>
@@ -31,16 +31,16 @@
 				<GridLayout numColumns="2"/>
 			</Composite.layout>
 			<Label/>
-			<p2:MetaAction text="Create" expressionProperty="DepartmentLnk.create"/>
+			<p2:MetaAction text="Create" expressionProperty="DepartmentLnk.create" updateOnButtonPressed="dep_table emp_table emp_detale"/>
 			<Label/>
-			<p2:MetaAction text="Remove" expressionProperty="DepartmentLnk.remove"/>
+			<p2:MetaAction text="Remove" expressionProperty="DepartmentLnk.remove" updateOnButtonPressed="dep_table emp_table emp_detale"/>
 		</Composite>
 	</Composite>
 	<Composite>
 		<Composite.layout>
 			<GridLayout/>
 		</Composite.layout>
-		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="EmployeesLnk" x:Name="Employees" idObject="qwerrtty">
+		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="EmployeesLnk" idObject="emp_table" updateOnRawSelect="emp_detale" >
 			<p2:MetaTable.layoutData>
 				<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
 			</p2:MetaTable.layoutData>
@@ -58,5 +58,7 @@
 			</p2:MetaTableColumn>
 		</p2:MetaTable>
 	</Composite>
-	<p2:ViewPort viewPortName="ViewPort2" canvasName="DetailCanvas"/>
+	<p2:MetaFieldSet idObject="emp_detale">
+		<p2:ViewPort viewPortName="ViewPort2" canvasName="DetailCanvas" size="64, 64"/>
+	</p2:MetaFieldSet>
 </Composite>

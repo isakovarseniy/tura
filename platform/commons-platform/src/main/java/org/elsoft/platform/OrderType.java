@@ -16,7 +16,7 @@
 package org.elsoft.platform;
 
 public enum OrderType {
-	ASC("asc"), DESC("desc");
+	ASC("ASC"), DESC("DESC");
 
 	final String ord;
 

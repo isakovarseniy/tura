@@ -1,48 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry exported="true" kind="lib" path="ant-1.5.3-1.jar"/>
-	<classpathentry exported="true" kind="lib" path="ant-optional-1.5.3-1.jar"/>
-	<classpathentry exported="true" kind="lib" path="antlr-2.7.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="ant-1.6.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="ant-junit-1.6.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="antlr-2.7.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="asm-3.3.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="cglib-2.2.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="cloning-1.7.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="commons-beanutils-1.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="commons-cli-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="commons-collections-3.2.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="commons-grant-1.0-beta-4.jar"/>
-	<classpathentry exported="true" kind="lib" path="commons-jelly-SNAPHSOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="commons-jelly-tags-ant-20040902.071105.jar"/>
-	<classpathentry exported="true" kind="lib" path="commons-jelly-tags-junit-20040902.070920.jar"/>
-	<classpathentry exported="true" kind="lib" path="commons-jelly-tags-util-20040902.071012.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-discovery-20030211.213356.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-grant-1.0-beta-5.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-jelly-1.1-jenkins-20110627.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-jelly-tags-ant-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-jelly-tags-junit-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-jelly-tags-util-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-jelly-tags-xml-1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="commons-jexl-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-jexl-1.1-jenkins-20111212.jar"/>
 	<classpathentry exported="true" kind="lib" path="commons-lang-2.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="commons-logging-1.0.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="commons-platform-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="commons-platform-datastructure-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="dataviewcontrol-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="dom4j-1.6.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="forehead-1.0-beta-5.jar"/>
 	<classpathentry exported="true" kind="lib" path="form-loader-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="hamcrest-core-1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="hibernate-commons-annotations-3.2.0.Final.jar"/>
-	<classpathentry exported="true" kind="lib" path="hibernate-core-3.6.3.Final.jar" sourcepath="/home/platform/Downloads/hibernate-core-3.6.3.Final-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernate-core-3.6.3.Final.jar"/>
 	<classpathentry exported="true" kind="lib" path="hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
 	<classpathentry exported="true" kind="lib" path="jackrabbit-jcr-commons-2.2.8.jar"/>
 	<classpathentry exported="true" kind="lib" path="jackrabbit-jcr-rmi-2.2.8.jar"/>
 	<classpathentry exported="true" kind="lib" path="javassist-3.12.1.GA.jar"/>
+	<classpathentry exported="true" kind="lib" path="jaxen-1.1-beta-2.jar"/>
 	<classpathentry exported="true" kind="lib" path="jcr-2.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="jsf-artifact-calculator-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="json-simple-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="jstl-1.0.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="jta-1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="juel-2.1.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="junit-3.8.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="junit-4.10.jar"/>
 	<classpathentry exported="true" kind="lib" path="metamodel-api-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="metamodel-datastructure-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="metamodel-jpa-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="objenesis-1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="postgresql-9.1-901.jdbc4.jar"/>
+	<classpathentry exported="true" kind="lib" path="servlet-api-2.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="slf4j-api-1.5.11.jar"/>
 	<classpathentry exported="true" kind="lib" path="slf4j-simple-1.5.11.jar"/>
 	<classpathentry exported="true" kind="lib" path="transformator-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="ws-ejb-artifact-calculator-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="xalan-2.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="xercesImpl-2.2.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="xml-apis-1.0.b2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>

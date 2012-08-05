@@ -12,6 +12,6 @@ public class IDLabelProvider extends BaseLabelProvider implements
 	}
 
 	public String getText(Object element) {
-		return ((Pair) element).name+" - "+((Pair) element).value;
+		return ((Pair) element).name;
 	}
 }

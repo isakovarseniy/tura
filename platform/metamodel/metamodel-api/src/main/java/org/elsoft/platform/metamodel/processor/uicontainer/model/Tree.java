@@ -76,7 +76,7 @@ public class Tree extends ExternalIterator implements ChildrenOwner,PointerEleme
 	}
 	@Override
 	public void addReference(EventDAO event, HashMap<String, Object> context) {
-        if (event.getEventType().equals(MetamodelTriggerEventsType.OnValueChanged.name())){
+        if (event.getEventType().equals(MetamodelTriggerEventsType.OnRawSelect.name())){
         	updateOnRawSelect.add(event);
         }
 	}
