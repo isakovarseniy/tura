@@ -28,8 +28,10 @@ import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUILov;
 
 public class Lov extends OptionsInputElement  implements PointerElement{
 
+
 	private ArrayList<EventDAO> updateOnValueChanged = new ArrayList<EventDAO> ();
 	
+
 	public Lov(CreateUILovDAO command,HashMap<String, Object> context){
 		this.setCss(command.getCss());
 		this.setCssClass(command.getCssClass());
@@ -38,6 +40,10 @@ public class Lov extends OptionsInputElement  implements PointerElement{
 		context.put(command.getUUID(), this);
 	}
 
+	public ArrayList<EventDAO> getUpdateOnValueChanged() {
+		return updateOnValueChanged;
+	}
+	
 	@Override
 	protected void serialize(CommandHandler ch) throws Exception {
 		CreateUILov.save(ch, getParentUuid(), this);		

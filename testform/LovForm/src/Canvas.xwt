@@ -1,20 +1,28 @@
 <Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
 	<Composite.layout>
-		<GridLayout numColumns="2"/>
+		<GridLayout/>
 	</Composite.layout>
-	<Label text="Department ID"/>
-	<Label text="Employee ID"/>
-	<p1:MetaLOV iteratorProperty="DropDownLnk" optionIterator="DepartmentLnk" sourceProperty="departmentId">
+	<p1:MetaFieldSet idObject="data_set">
+		<p1:MetaFieldSet.layoutData>
+			<GridData heightHint="287" widthHint="632"/>
+		</p1:MetaFieldSet.layoutData>
+		<Composite bounds="0, 0, 634, 287">
+			<Composite.layout>
+				<GridLayout numColumns="2"/>
+			</Composite.layout>
+			<Label text="Department ID" size="96, 17"/>
+			<Label text="Employee ID" size="83, 17"/>
+			<p1:MetaLOV iteratorProperty="DropDownLnk" optionIterator="DepartmentLnk" sourceProperty="departmentId" size="276, 61" updateOnValueChanged="data_set">
 		<p1:LovDisplayField x:Style="BORDER" fieldLabel="Department ID" displayField="departmentId"/>
 		<p1:LovDisplayField x:Style="BORDER" displayField="departmentName" fieldLabel="Department name"/>
 		<p1:LovReturnField x:Style="BORDER" displayField="objId" returnIterator="DropDownLnk" returnField="departmentId"/>
 	</p1:MetaLOV>
-	<p1:MetaLOV optionIterator="EmployeeLnk" iteratorProperty="DropDownLnk" sourceProperty="employeeId">
+			<p1:MetaLOV optionIterator="EmployeeLnk" iteratorProperty="DropDownLnk" sourceProperty="employeeId" size="276, 61" updateOnValueChanged="data_set">
 		<p1:LovDisplayField x:Style="BORDER" displayField="firstName" fieldLabel="First name"/>
 		<p1:LovDisplayField x:Style="BORDER" displayField="lastName" fieldLabel="Last name"/>
 		<p1:LovReturnField x:Style="BORDER" displayField="objId" returnIterator="DropDownLnk" returnField="employeeId"/>
 		<p1:LovDisplayField x:Style="BORDER" displayField="email" fieldLabel="Email"/>
 	</p1:MetaLOV>
-	<Label/>
-	<Label/>
+		</Composite>
+	</p1:MetaFieldSet>
 </Composite>

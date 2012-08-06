@@ -116,6 +116,11 @@ public class JSPXModeBuilder {
 						.getUpdateOnValueChanged()));
 			}
 
+			if (element instanceof Lov) {
+				element.getPropertiesExtender().put("OnValueChanged",  dependeniesBuilder(((Lov) element)
+						.getUpdateOnValueChanged()));
+			}
+
 		
 		}
 	}
