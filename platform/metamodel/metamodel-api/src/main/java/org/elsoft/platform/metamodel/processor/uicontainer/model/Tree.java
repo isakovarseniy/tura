@@ -81,4 +81,8 @@ public class Tree extends ExternalIterator implements ChildrenOwner,PointerEleme
         }
 	}
 
+	public ArrayList<EventDAO> getUpdateOnRawSelect() {
+		return updateOnRawSelect;
+	}
+
 }

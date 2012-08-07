@@ -16,10 +16,13 @@
 package org.elsoft.platform.metamodel.processor.artifactcalculator.modelbuilder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.elsoft.platform.metamodel.MetamodelObjectType;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Button;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Canvas;
@@ -32,6 +35,7 @@ import org.elsoft.platform.metamodel.processor.uicontainer.model.InputElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Lov;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.OptionsInputElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.PointerElement;
+import org.elsoft.platform.metamodel.processor.uicontainer.model.Tree;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ViewPort;
 
@@ -51,16 +55,39 @@ public class JSPXModeBuilder {
 
 		model.setElement(el);
 		model.setUicontainer(frm.getName());
+		
+		
+		HashMap<String,String> keyMap = new HashMap<String,String>();
+		String path = ":window";
+		pathCalulator(el,keyMap,path);
 
 		if (el instanceof Canvas)
 			lovFinder(el);
 
-		viewPortFinder(el);
+		viewPortFinder(el,keyMap);
 
 		return model;
 	}
 
-	private void viewPortFinder(UIElement element) {
+	
+	private void  pathCalulator(UIElement element,Map<String,String> pathMap, String path){
+        
+		pathMap.put(((UIElement)element).getUuid(), path+":tura"+ ((UIElement)element).getUuid());
+		
+		if ((element instanceof Canvas)&&(((Canvas)element).getCanvasType().equals(MetamodelObjectType.TabCanvas.name()))) 
+		    path=path+":tura"+ ((Canvas)element).getUuid();   
+		
+		if (element instanceof ChildrenOwner) {
+			Iterator<UIElement> itr = ((ChildrenOwner) element).getChildrens()
+					.iterator();
+			while (itr.hasNext()) {
+				pathCalulator(itr.next(),pathMap,path);
+			}
+		}
+	}
+	
+	
+	private void viewPortFinder(UIElement element, HashMap<String,String> keyMap) {
 		if (element instanceof ViewPort) {
 			String name = ((ViewPort) element).getViewPortName();
 			((ViewPort) element)
@@ -98,34 +125,39 @@ public class JSPXModeBuilder {
 			Iterator<UIElement> itr = ((ChildrenOwner) element).getChildrens()
 					.iterator();
 			while (itr.hasNext()) {
-				viewPortFinder(itr.next());
+				viewPortFinder(itr.next(),keyMap);
 			}
 		}
 
 		if (element instanceof PointerElement) {
 			if (element instanceof Button) {
 				element.getPropertiesExtender().put("OnButtonPressed",  dependeniesBuilder(((Button) element)
-						.getUpdateOnButtonPressed()));
+						.getUpdateOnButtonPressed(),keyMap));
 			}
 			if (element instanceof Grid) {
 				element.getPropertiesExtender().put("OnRawSelect",  dependeniesBuilder(((Grid) element)
-						.getUpdateOnRawSelect()));
+						.getUpdateOnRawSelect(),keyMap));
 			}
+			if (element instanceof Tree) {
+				element.getPropertiesExtender().put("OnRawSelect",  dependeniesBuilder(((Tree) element)
+						.getUpdateOnRawSelect(),keyMap));
+			}
+
 			if (element instanceof DropDownList) {
 				element.getPropertiesExtender().put("OnValueChanged",  dependeniesBuilder(((DropDownList) element)
-						.getUpdateOnValueChanged()));
+						.getUpdateOnValueChanged(),keyMap));
 			}
 
 			if (element instanceof Lov) {
 				element.getPropertiesExtender().put("OnValueChanged",  dependeniesBuilder(((Lov) element)
-						.getUpdateOnValueChanged()));
+						.getUpdateOnValueChanged(),keyMap));
 			}
 
 		
 		}
 	}
 
-	private String dependeniesBuilder(List<EventDAO> ls) {
+	private String dependeniesBuilder(List<EventDAO> ls, Map<String,String> keyMap) {
 		if (ls == null) return "";
 		if (ls.size() == 0) return "";
 
@@ -133,7 +165,7 @@ public class JSPXModeBuilder {
 		String result ="";
 		while(itr.hasNext()){
 			EventDAO event = itr.next();
-			result = result + " :window:tura"+event.getDstUUID();
+			result = result +" "+ keyMap.get(event.getDstUUID());
 		}
 		return result.substring(1);
 	}

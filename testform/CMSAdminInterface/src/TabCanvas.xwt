@@ -35,10 +35,10 @@
 							<Composite.layoutData>
 								<GridData widthHint="395" heightHint="40"/>
 							</Composite.layoutData>
-							<p1:MetaAction text="Search" size="88, 29" expressionProperty="AvailableFeaturesLnk.search"/>
-							<p1:MetaAction text="Query" bounds="0, 0, 88, 29" expressionProperty="AvailableFeaturesLnk.query"/>
+							<p1:MetaAction text="Search" size="88, 29" expressionProperty="AvailableFeaturesLnk.search" updateOnButtonPressed="av_feat"/>
+							<p1:MetaAction text="Query" bounds="0, 0, 88, 29" expressionProperty="AvailableFeaturesLnk.query" updateOnButtonPressed="av_feat"/>
 						</Composite>
-						<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="AvailableFeaturesLnk">
+						<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="AvailableFeaturesLnk" idObject="av_feat">
 						<p1:MetaTableColumn text="Feature group" width="100">
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureGroup"/>
 						</p1:MetaTableColumn>
@@ -69,10 +69,10 @@
 							<Composite.layoutData>
 								<GridData widthHint="323"/>
 							</Composite.layoutData>
-							<p1:MetaAction text="Search" bounds="0, 0, 88, 29" SelectionEvent="onSelection" expressionProperty="InstalledFeaturesLnk.search"/>
-							<p1:MetaAction text="Query" size="88, 29" expressionProperty="InstalledFeaturesLnk.query"/>
+							<p1:MetaAction text="Search" bounds="0, 0, 88, 29" SelectionEvent="onSelection" expressionProperty="InstalledFeaturesLnk.search" updateOnButtonPressed="ins_feat"/>
+							<p1:MetaAction text="Query" size="88, 29" expressionProperty="InstalledFeaturesLnk.query" updateOnButtonPressed="ins_feat"/>
 						</Composite>
-						<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="InstalledFeaturesLnk">
+						<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="InstalledFeaturesLnk" idObject="ins_feat">
 						<p1:MetaTableColumn text="Feature group" width="100">
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureGroup"/>
 						</p1:MetaTableColumn>
@@ -106,11 +106,11 @@
 						<Composite.layout>
 							<GridLayout numColumns="2"/>
 						</Composite.layout>
-						<p1:MetaAction text="Search" expressionProperty="InstalledFeaturesLnk.search"/>
-						<p1:MetaAction text="Query" expressionProperty="InstalledFeaturesLnk.query"/>
+						<p1:MetaAction text="Search" expressionProperty="InstalledFeaturesLnk.search" updateOnButtonPressed="already_inst"/>
+						<p1:MetaAction text="Query" expressionProperty="InstalledFeaturesLnk.query" updateOnButtonPressed="already_inst"/>
 					</Composite>
 					<Label/>
-					<p1:MetaTable headerVisible="true" linesVisible="true" x:Style="BORDER | FULL_SELECTION" iteratorProperty="InstalledFeaturesLnk">
+					<p1:MetaTable headerVisible="true" linesVisible="true" x:Style="BORDER | FULL_SELECTION" iteratorProperty="InstalledFeaturesLnk" idObject="already_inst">
 						<p1:MetaTableColumn text="Feature group" width="100">
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureGroup"/>
 						</p1:MetaTableColumn>

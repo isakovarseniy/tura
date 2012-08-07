@@ -2,7 +2,8 @@
 	<Composite.layout>
 		<GridLayout/>
 	</Composite.layout>
-	<Composite>
+	<p1:MetaFieldSet idObject="field_set">
+		<Composite size="257, 71">
 			<Composite.layout>
 				<GridLayout numColumns="2"/>
 			</Composite.layout>
@@ -16,9 +17,10 @@
 					<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
 				</p1:MetaInputText.layoutData>
 			</p1:MetaInputText>
-			<p1:MetaAction text="Prev Record" expressionProperty="DepartmentLnk.prevRecord" updateOnButtonPressed="emp_table"/>
-			<p1:MetaAction text="Next Record" expressionProperty="DepartmentLnk.nextRecord" updateOnButtonPressed="emp_table"/>
+			<p1:MetaAction text="Prev Record" expressionProperty="DepartmentLnk.prevRecord" updateOnButtonPressed="emp_table field_set"/>
+			<p1:MetaAction text="Next Record" expressionProperty="DepartmentLnk.nextRecord" updateOnButtonPressed="emp_table field_set"/>
 		</Composite>
+	</p1:MetaFieldSet>
 	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="EmployeesLnk" idObject="emp_table">
 		<p1:MetaTable.layoutData>
 			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
