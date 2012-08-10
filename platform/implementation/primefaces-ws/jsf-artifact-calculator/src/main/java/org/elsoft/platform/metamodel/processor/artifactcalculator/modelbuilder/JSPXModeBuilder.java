@@ -23,7 +23,9 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.elsoft.platform.metamodel.MetamodelObjectType;
+import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
+import org.elsoft.platform.metamodel.processor.uicontainer.model.ActionElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Button;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Canvas;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ChildrenOwner;
@@ -129,6 +131,19 @@ public class JSPXModeBuilder {
 			}
 		}
 
+		if (element instanceof ActionElement){
+		   if ((((ActionElement)element).getTriggerType() != null) &&
+		     (
+				   (((ActionElement)element).getTriggerType().equals(MetamodelTriggerEventsType.CreateEventSearch.name()))
+				   ||
+				   (((ActionElement)element).getTriggerType().equals(MetamodelTriggerEventsType.CreateEventQuery.name()))
+				   ||
+				   (((ActionElement)element).getTriggerType().equals(MetamodelTriggerEventsType.CreateEventRallback.name()))
+			  )  
+			)
+				element.getPropertiesExtender().put("immediate","true" );
+		}
+		
 		if (element instanceof PointerElement) {
 			if (element instanceof Button) {
 				element.getPropertiesExtender().put("OnButtonPressed",  dependeniesBuilder(((Button) element)
