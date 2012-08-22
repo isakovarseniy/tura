@@ -37,6 +37,7 @@ import org.elsoft.platform.metamodel.processor.uicontainer.model.Window;
 public class JSFArtifactCalculator extends ArtifactCalculator {
 	public static String PROXY_LIST = "ProxyList";
 	public static String DEPENDENIES_LIST = "DependenciesList";
+	public static String MODULES_LIST="ModulesList";
 	
 
 	@Override
@@ -74,6 +75,11 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 		if (dependenciesMap == null)
 			dependenciesMap = new HashMap<String, Object>();
 		
+		@SuppressWarnings("unchecked")
+		ArrayList<String> modulesList = (ArrayList<String>) context
+				.get(MODULES_LIST);
+		if (modulesList == null)
+			modulesList = new ArrayList<String>();
 		
 		Iterator<DataLink> itrLink = frm.getDatalinks().iterator();
 		while (itrLink.hasNext()) {
@@ -101,8 +107,11 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 			
 			list.add(artifact);
 		}
+		modulesList.add(frm.getName());
+
 		outputContext.put(PROXY_LIST, proxyMap);
 		outputContext.put(DEPENDENIES_LIST, dependenciesMap);
+		outputContext.put(MODULES_LIST, modulesList);
 		
 
 		list.add(new Artifact(MetamodelArtifactType.FactoryBeanFile,
