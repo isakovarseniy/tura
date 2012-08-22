@@ -153,7 +153,7 @@ public class GenerateFormHandler extends AbstractHandler {
 					}
 
 					TreeModel recipe = new TreeModel("recipe", applicationNode);
-					RecipeHandler rh = aph.getRecipeHandler();
+					RecipeHandler rh = aph.getRecipeHandler().clean();
 					Iterator<RecipeDAO> itrRH = rh.getList();
 					while (itrRH.hasNext()) {
 						RecipeDAO sz = itrRH.next();
