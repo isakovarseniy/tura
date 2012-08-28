@@ -68,6 +68,7 @@ public class Grid extends ExternalIterator implements ChildrenOwner, PointerElem
 
 	public void addChild(UIElement child) {
 		child.setParentUuid(getUuid());
+		child.setParent(this);
 		this.getChildrens().add(child);
 	}
 

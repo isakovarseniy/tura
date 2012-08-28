@@ -41,8 +41,7 @@ public class Reflection {
 
 
 	@SuppressWarnings("rawtypes")
-	public static Object callTyped(Object obj, String method, Object... args) {
-		try {
+	public static Object callTyped(Object obj, String method, Object... args) throws Exception {
 
 			Class[] classes = new Class[args.length/2];
 			for (int i = 0,j=0; i < args.length; i+=2,j++) {
@@ -59,11 +58,6 @@ public class Reflection {
 			
 			return m.invoke(obj, objects);
 
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-
-		}
 
 	}
 

@@ -30,7 +30,9 @@ public abstract class UIElement extends PersistentInterface {
 	private ArrayList<UIElement> childrens = new ArrayList<UIElement>();
 	private String uuid = UUID.randomUUID().toString();
 	private HashMap<String,String> propertiesExtender = new HashMap<String,String>();
+	private UIElement parent; 
 
+	
 	public abstract String getUiElementType();
 	
 	public String getCss() {
@@ -51,10 +53,6 @@ public abstract class UIElement extends PersistentInterface {
 
 	protected ArrayList<UIElement> getChildrens() {
 		return childrens;
-	}
-
-	protected void addChild(UIElement child) {
-		this.childrens.add(child);
 	}
 
 	@Override
@@ -81,6 +79,14 @@ public abstract class UIElement extends PersistentInterface {
 
 	public void setPropertiesExtender(HashMap<String,String> propertiesExtender) {
 		this.propertiesExtender = propertiesExtender;
+	}
+
+	public UIElement getParent() {
+		return parent;
+	}
+
+	public void setParent(UIElement parent) {
+		this.parent = parent;
 	}
 
 	

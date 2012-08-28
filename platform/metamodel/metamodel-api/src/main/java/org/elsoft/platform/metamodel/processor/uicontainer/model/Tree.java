@@ -66,6 +66,7 @@ public class Tree extends ExternalIterator implements ChildrenOwner,PointerEleme
 
 	public void addChild(UIElement child) {
 		child.setParentUuid(getUuid());
+		child.setParent(this);
 		this.getChildrens().add(child);
 	}
 	

@@ -57,39 +57,41 @@ public class JSPXModeBuilder {
 
 		model.setElement(el);
 		model.setUicontainer(frm.getName());
-		
-		
-		HashMap<String,String> keyMap = new HashMap<String,String>();
+
+		HashMap<String, String> keyMap = new HashMap<String, String>();
 		String path = ":window";
-		pathCalulator(el,keyMap,path);
+		pathCalulator(el, keyMap, path);
 
 		if (el instanceof Canvas)
 			lovFinder(el);
 
-		viewPortFinder(el,keyMap);
+		viewPortFinder(el, keyMap);
 
 		return model;
 	}
 
-	
-	private void  pathCalulator(UIElement element,Map<String,String> pathMap, String path){
-        
-		pathMap.put(((UIElement)element).getUuid(), path+":tura"+ ((UIElement)element).getUuid());
-		
-		if ((element instanceof Canvas)&&(((Canvas)element).getCanvasType().equals(MetamodelObjectType.TabCanvas.name()))) 
-		    path=path+":tura"+ ((Canvas)element).getUuid();   
-		
+	private void pathCalulator(UIElement element, Map<String, String> pathMap,
+			String path) {
+
+		pathMap.put(((UIElement) element).getUuid(), path + ":tura"
+				+ ((UIElement) element).getUuid());
+
+		if ((element instanceof Canvas)
+				&& (((Canvas) element).getCanvasType()
+						.equals(MetamodelObjectType.TabCanvas.name())))
+			path = path + ":tura" + ((Canvas) element).getUuid();
+
 		if (element instanceof ChildrenOwner) {
 			Iterator<UIElement> itr = ((ChildrenOwner) element).getChildrens()
 					.iterator();
 			while (itr.hasNext()) {
-				pathCalulator(itr.next(),pathMap,path);
+				pathCalulator(itr.next(), pathMap, path);
 			}
 		}
 	}
-	
-	
-	private void viewPortFinder(UIElement element, HashMap<String,String> keyMap) {
+
+	private void viewPortFinder(UIElement element,
+			HashMap<String, String> keyMap) {
 		if (element instanceof ViewPort) {
 			String name = ((ViewPort) element).getViewPortName();
 			((ViewPort) element)
@@ -111,7 +113,19 @@ public class JSPXModeBuilder {
 						.getName();
 				((InputElement) element).getDataSrcLnk().setName(
 						StringUtils.uncapitalize(name));
+
+				((InputElement) element).getPropertiesExtender().put(
+						"capSrcLnk", StringUtils.capitalize(name));
+
 			}
+			if (((InputElement) element).getDataSrcField() != null) {
+				String name = ((InputElement) element).getDataSrcField()
+						.getName();
+
+				((InputElement) element).getPropertiesExtender().put(
+						"capSrcField", StringUtils.capitalize(name));
+			}
+
 		}
 
 		if (element instanceof OptionsInputElement) {
@@ -127,60 +141,77 @@ public class JSPXModeBuilder {
 			Iterator<UIElement> itr = ((ChildrenOwner) element).getChildrens()
 					.iterator();
 			while (itr.hasNext()) {
-				viewPortFinder(itr.next(),keyMap);
+				viewPortFinder(itr.next(), keyMap);
 			}
 		}
 
-		if (element instanceof ActionElement){
-		   if ((((ActionElement)element).getTriggerType() != null) &&
-		     (
-				   (((ActionElement)element).getTriggerType().equals(MetamodelTriggerEventsType.CreateEventSearch.name()))
-				   ||
-				   (((ActionElement)element).getTriggerType().equals(MetamodelTriggerEventsType.CreateEventQuery.name()))
-				   ||
-				   (((ActionElement)element).getTriggerType().equals(MetamodelTriggerEventsType.CreateEventRallback.name()))
-			  )  
-			)
-				element.getPropertiesExtender().put("immediate","true" );
+		if (element instanceof ActionElement) {
+			if ((((ActionElement) element).getTriggerType() != null)
+					&& ((((ActionElement) element).getTriggerType()
+							.equals(MetamodelTriggerEventsType.CreateEventSearch
+									.name()))
+							|| (((ActionElement) element).getTriggerType()
+									.equals(MetamodelTriggerEventsType.CreateEventQuery
+											.name())) || (((ActionElement) element)
+								.getTriggerType()
+							.equals(MetamodelTriggerEventsType.CreateEventRallback
+									.name()))))
+				element.getPropertiesExtender().put("immediate", "true");
 		}
-		
+
 		if (element instanceof PointerElement) {
 			if (element instanceof Button) {
-				element.getPropertiesExtender().put("OnButtonPressed",  dependeniesBuilder(((Button) element)
-						.getUpdateOnButtonPressed(),keyMap));
+				element.getPropertiesExtender().put(
+						"OnButtonPressed",
+						dependeniesBuilder(
+								((Button) element).getUpdateOnButtonPressed(),
+								keyMap));
 			}
 			if (element instanceof Grid) {
-				element.getPropertiesExtender().put("OnRawSelect",  dependeniesBuilder(((Grid) element)
-						.getUpdateOnRawSelect(),keyMap));
+				element.getPropertiesExtender()
+						.put("OnRawSelect",
+								dependeniesBuilder(
+										((Grid) element).getUpdateOnRawSelect(),
+										keyMap));
 			}
 			if (element instanceof Tree) {
-				element.getPropertiesExtender().put("OnRawSelect",  dependeniesBuilder(((Tree) element)
-						.getUpdateOnRawSelect(),keyMap));
+				element.getPropertiesExtender()
+						.put("OnRawSelect",
+								dependeniesBuilder(
+										((Tree) element).getUpdateOnRawSelect(),
+										keyMap));
 			}
 
 			if (element instanceof DropDownList) {
-				element.getPropertiesExtender().put("OnValueChanged",  dependeniesBuilder(((DropDownList) element)
-						.getUpdateOnValueChanged(),keyMap));
+				element.getPropertiesExtender().put(
+						"OnValueChanged",
+						dependeniesBuilder(((DropDownList) element)
+								.getUpdateOnValueChanged(), keyMap));
 			}
 
 			if (element instanceof Lov) {
-				element.getPropertiesExtender().put("OnValueChanged",  dependeniesBuilder(((Lov) element)
-						.getUpdateOnValueChanged(),keyMap));
+				element.getPropertiesExtender().put(
+						"OnValueChanged",
+						dependeniesBuilder(
+								((Lov) element).getUpdateOnValueChanged(),
+								keyMap));
 			}
 
-		
 		}
 	}
 
-	private String dependeniesBuilder(List<EventDAO> ls, Map<String,String> keyMap) {
-		if (ls == null) return "";
-		if (ls.size() == 0) return "";
+	private String dependeniesBuilder(List<EventDAO> ls,
+			Map<String, String> keyMap) {
+		if (ls == null)
+			return "";
+		if (ls.size() == 0)
+			return "";
 
 		Iterator<EventDAO> itr = ls.iterator();
-		String result ="";
-		while(itr.hasNext()){
+		String result = "";
+		while (itr.hasNext()) {
 			EventDAO event = itr.next();
-			result = result +" "+ keyMap.get(event.getDstUUID());
+			result = result + " " + keyMap.get(event.getDstUUID());
 		}
 		return result.substring(1);
 	}
