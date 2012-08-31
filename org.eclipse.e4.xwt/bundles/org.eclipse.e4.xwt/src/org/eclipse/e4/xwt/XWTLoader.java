@@ -96,7 +96,9 @@ import org.eclipse.e4.xwt.converters.StringToKeyTime;
 import org.eclipse.e4.xwt.converters.StringToLinkFieldProperty;
 import org.eclipse.e4.xwt.converters.StringToMethodProperty;
 import org.eclipse.e4.xwt.converters.StringToOptionFieldProperty;
+import org.eclipse.e4.xwt.converters.StringToOptionIterator;
 import org.eclipse.e4.xwt.converters.StringToPoint;
+import org.eclipse.e4.xwt.converters.StringToPrimitiveType;
 import org.eclipse.e4.xwt.converters.StringToRectangle;
 import org.eclipse.e4.xwt.converters.StringToRepeatBehavior;
 import org.eclipse.e4.xwt.converters.StringToServiceProperty;
@@ -1517,9 +1519,11 @@ public class XWTLoader implements IXWTLoader {
 		registerConvertor(StringToFieldsProperty.instance);
 		registerConvertor(StringToAscDescProperty.instance);
 		registerConvertor(StringToExpression.instance);
+		registerConvertor(StringToOptionIterator.instance);
 		registerConvertor(StringToIterator.instance);
 		registerConvertor(StringToOptionFieldProperty.instance);
 		registerConvertor(StringToServiceProperty.instance);
+		registerConvertor(StringToPrimitiveType.instance);
 		registerConvertor(StringToMethodProperty.instance);
 		registerConvertor(StringToIDProperty.instance);
 		

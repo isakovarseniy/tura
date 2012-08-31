@@ -22,8 +22,8 @@ import java.util.Properties;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.e4.xwt.elsoft.types.BusinessObjectProperty;
-import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.OptionFieldProperty;
+import org.eclipse.e4.xwt.elsoft.types.OptionIteratorProperty;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
@@ -91,7 +91,7 @@ public class OptionFieldPropertyEditor extends PropertyEditor implements
 			return;
 		}
 
-		dcName = ((IteratorProperty) val.getValue()).getIterator();
+		dcName = ((OptionIteratorProperty) val.getValue()).getIterator();
 
 		BusinessObjectProperty bo = new BusinessObjectProperty(
 				(String) properties.get(dcName));

@@ -18,6 +18,7 @@ package org.eclipse.wb.elsoft.components;
 import org.eclipse.e4.xwt.elsoft.types.IDProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.OptionFieldProperty;
+import org.eclipse.e4.xwt.elsoft.types.OptionIteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.SourceProperty;
 import org.eclipse.e4.xwt.elsoft.types.VisualDependencyProperty;
 import org.eclipse.swt.widgets.Combo;
@@ -26,7 +27,7 @@ import org.eclipse.swt.widgets.Composite;
 public class MetaDropDown extends Combo{
 	private IteratorProperty iteratorProperty;
 	private SourceProperty sourceProperty;
-	private IteratorProperty optionIterator;
+	private OptionIteratorProperty optionIterator;
 	private OptionFieldProperty optionLabel;
 	private OptionFieldProperty optionValue;
 	private String cssStyle;
@@ -69,11 +70,11 @@ public class MetaDropDown extends Combo{
 		this.cssStyleClass = cssStyleClass;
 	}
 
-	public IteratorProperty getOptionIterator() {
+	public OptionIteratorProperty getOptionIterator() {
 		return optionIterator;
 	}
 
-	public void setOptionIterator(IteratorProperty optionIterator) {
+	public void setOptionIterator(OptionIteratorProperty optionIterator) {
 		this.optionIterator = optionIterator;
 	}
 

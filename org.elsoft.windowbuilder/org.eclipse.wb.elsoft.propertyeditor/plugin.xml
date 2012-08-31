@@ -29,6 +29,10 @@
   		<editor type="org.eclipse.e4.xwt.elsoft.types.IteratorProperty"
 			class="org.eclipse.wb.elsoft.propertyeditor.IteratorPropertyEditor"/>
 
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.OptionIteratorProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.OptionIteratorPropertyEditor"/>
+
+
   		<editor type="org.eclipse.e4.xwt.elsoft.types.SourceProperty"
 			class="org.eclipse.wb.elsoft.propertyeditor.SourcePropertyEditor"/>
 
@@ -40,6 +44,10 @@
 
  		<editor type="org.eclipse.e4.xwt.elsoft.types.ServiceProperty"
 			class="org.eclipse.wb.elsoft.propertyeditor.ServicesPropertyEditor"/>
+
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.PrimitiveType"
+			class="org.eclipse.wb.elsoft.propertyeditor.PrimitiveTypePropertyEditor"/>
+
 
  		<editor type="org.eclipse.e4.xwt.elsoft.types.MethodProperty"
 			class="org.eclipse.wb.elsoft.propertyeditor.MethodPropertyEditor"/>

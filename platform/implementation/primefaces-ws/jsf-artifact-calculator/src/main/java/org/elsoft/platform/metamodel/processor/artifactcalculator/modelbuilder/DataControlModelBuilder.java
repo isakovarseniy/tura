@@ -31,6 +31,7 @@ import org.elsoft.platform.metamodel.processor.datasource.model.IndependentType;
 import org.elsoft.platform.metamodel.processor.datasource.model.Parameter;
 import org.elsoft.platform.metamodel.processor.datasource.model.RemoteMethod;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Annotation;
+import org.elsoft.platform.metamodel.processor.uicontainer.model.ArtifitialField;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.DataLink;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.DefaultSearch;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.DisplayField;
@@ -92,6 +93,16 @@ public class DataControlModelBuilder {
 
 			rmi.setProxy(new MappedType(rmi.getProxy().getTypedao(), domain,
 					functionalDomain, application, level, rf));
+		}
+
+		if (dataLink.getArtifitialFields() != null) {
+			Iterator<ArtifitialField> itrArtFld = dataLink
+					.getArtifitialFields().iterator();
+			while (itrArtFld.hasNext()) {
+				ArtifitialField artfld = itrArtFld.next();
+				artfld.setType(new MappedType(artfld.getType().getTypedao(),
+						domain, functionalDomain, application, level, rf));
+			}
 		}
 
 		if (dataLink.getAnnotation() != null) {
@@ -170,7 +181,6 @@ public class DataControlModelBuilder {
 
 			}
 
-			
 			itrRem = dataLink.getRemoteUIEventMethods().iterator();
 			while (itrRem.hasNext()) {
 

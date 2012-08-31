@@ -47,7 +47,8 @@ public class IteratorPropertyEditor extends PropertyEditor implements
 		@Override
 		protected void onClick(PropertyTable propertyTable, Property property)
 				throws Exception {
-			openDialog(property);
+			if (check(property))
+				openDialog(property);
 		}
 	};
 
@@ -61,18 +62,17 @@ public class IteratorPropertyEditor extends PropertyEditor implements
 		return m_presentation;
 	}
 
-	private void openDialog(Property property) throws Exception {
+	private boolean check(Property property) throws Exception {
 		GenericProperty genericProperty = (GenericProperty) property;
 
 		ObjectInfo objInf = genericProperty.getObject().getParent();
 		Display display = Display.getDefault();
 		Shell shell = new Shell(display);
 
-		if (
-		   (objInf.getClass().getCanonicalName().equals("org.eclipse.wb.internal.xwt.model.widgets.TableColumnInfo"))||
-		   (objInf.getClass().getCanonicalName().equals("org.eclipse.wb.internal.xwt.model.widgets.TreeColumnInfo"))
-		   )
-		{
+		if ((objInf.getClass().getCanonicalName()
+				.equals("org.eclipse.wb.internal.xwt.model.widgets.TableColumnInfo"))
+				|| (objInf.getClass().getCanonicalName()
+						.equals("org.eclipse.wb.internal.xwt.model.widgets.TreeColumnInfo"))) {
 			IStatus status = new Status(IStatus.ERROR, "Explorer", IStatus.OK,
 					"Iterator defined by parent elemnt", null);
 
@@ -80,13 +80,22 @@ public class IteratorPropertyEditor extends PropertyEditor implements
 					"An unexpectedexception has ocurred.", status,
 					IStatus.ERROR);
 			error.open();
-			return;
+			return false;
 
 		}
+		return true;
+	}
+
+	protected void openDialog(Property property) throws Exception {
+		GenericProperty genericProperty = (GenericProperty) property;
+
+		Display display = Display.getDefault();
+		Shell shell = new Shell(display);
 
 		shell.setLayout(new FillLayout());
 
-		Properties properties = (new ControlHelper()).load(ControlHelper.DATACONTROL_FILE_NAME);
+		Properties properties = (new ControlHelper())
+				.load(ControlHelper.DATACONTROL_FILE_NAME);
 
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(
 				shell, new LabelProvider());

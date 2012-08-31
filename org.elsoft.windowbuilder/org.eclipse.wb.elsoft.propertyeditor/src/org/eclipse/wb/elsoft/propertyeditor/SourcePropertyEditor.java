@@ -16,8 +16,10 @@
 package org.eclipse.wb.elsoft.propertyeditor;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Properties;
+import java.util.StringTokenizer;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -175,6 +177,20 @@ public class SourcePropertyEditor extends PropertyEditor implements
 			array.add(itr.next().getPropertyName());
 		}
 
+		ControlHelper cntFile = new ControlHelper();
+		Properties prop = cntFile.load(ControlHelper.ARTIFICIAL_FIELD_FILE_NAME);
+		Enumeration<Object> enumer = prop.keys();
+		while (enumer.hasMoreElements()){
+			String key = (String) enumer.nextElement();
+			StringTokenizer st = new StringTokenizer(key,".");
+
+			String control = st.nextToken();
+			String artfld = st.nextToken();
+			if (control.equals(dcName))
+				array.add(artfld);
+		}
+		
+		
 		dialog.setElements(array.toArray());
 
 		if (dialog.open() == Window.OK) {

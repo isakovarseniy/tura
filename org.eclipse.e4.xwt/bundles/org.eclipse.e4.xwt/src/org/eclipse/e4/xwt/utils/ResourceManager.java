@@ -21,7 +21,6 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.eclipse.e4.xwt.XWTMaps;
-import org.eclipse.e4.xwt.converters.StringToIDProperty;
 import org.eclipse.e4.xwt.elsoft.types.AscDescProperty;
 import org.eclipse.e4.xwt.elsoft.types.BusinessObjectProperty;
 import org.eclipse.e4.xwt.elsoft.types.DestinationDataControlProperty;
@@ -32,6 +31,8 @@ import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.LinkFieldProperty;
 import org.eclipse.e4.xwt.elsoft.types.MethodProperty;
 import org.eclipse.e4.xwt.elsoft.types.OptionFieldProperty;
+import org.eclipse.e4.xwt.elsoft.types.OptionIteratorProperty;
+import org.eclipse.e4.xwt.elsoft.types.PrimitiveType;
 import org.eclipse.e4.xwt.elsoft.types.ServiceProperty;
 import org.eclipse.e4.xwt.elsoft.types.SourceProperty;
 import org.eclipse.e4.xwt.elsoft.types.TriggerProperty;
@@ -124,6 +125,11 @@ public class ResourceManager {
 		return new IteratorProperty(str);
 	}
 	
+	public OptionIteratorProperty getOptionIterator(String str){
+		return new OptionIteratorProperty(str);
+	}
+
+	
 	public BusinessObjectProperty getBusinessObject(String bo) {
 
 		return new BusinessObjectProperty(bo);
@@ -142,6 +148,12 @@ public class ResourceManager {
 	public ServiceProperty getServiceProperty(String field){
 		return new ServiceProperty(field);
 	}
+
+	public PrimitiveType getPrimitiveType(String field){
+		return new PrimitiveType(field);
+	}
+	
+	
 	public ExpressionProperty getExpressionProperty(String expression){
          return new ExpressionProperty(expression);
 	}

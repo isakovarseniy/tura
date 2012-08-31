@@ -18,6 +18,7 @@ package org.eclipse.wb.elsoft.propertyeditor;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Properties;
+import java.util.StringTokenizer;
 
 import org.eclipse.e4.xwt.elsoft.types.BusinessObjectProperty;
 import org.eclipse.jface.window.Window;
@@ -65,11 +66,27 @@ public class DataControlTreeSelector {
 			TreeModel dc = new TreeModel(key, root);
 			addFields(bo, dc);
 			addTriggers(bo, dc);
+			addArtifitialFields(key,dc);
 		}
 
 		return root;
 	}
 
+	private void addArtifitialFields(String dataControl, TreeModel root){
+
+		ControlHelper cntFile = new ControlHelper();
+		Properties prop = cntFile.load(ControlHelper.ARTIFICIAL_FIELD_FILE_NAME);
+		Enumeration<Object> enumer = prop.keys();
+		while (enumer.hasMoreElements()){
+			String key = (String) enumer.nextElement();
+			StringTokenizer st = new StringTokenizer(key,".");
+
+			String control = st.nextToken();
+			String artfld = st.nextToken();
+			if (control.equals(dataControl))
+				new TreeModel(artfld, root);
+		}
+	}
 	private void addFields(BusinessObjectProperty bo, TreeModel root) {
 
 		Iterator<PropertyDAO> itr = Activator.rf

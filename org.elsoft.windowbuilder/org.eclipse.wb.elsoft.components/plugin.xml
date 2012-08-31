@@ -13,8 +13,10 @@
 			<palette>
 				<category id="org.eclipse.wb.elsoft.components" name="ELsoft" description="ELsoft components">
 					<component class="org.eclipse.wb.elsoft.components.DataDefinition"/>
+					<component class="org.eclipse.wb.elsoft.components.FormParameter"/>
 					<component class="org.eclipse.wb.elsoft.components.Relation"/>
 					<component class="org.eclipse.wb.elsoft.components.DataControl"/>
+					<component class="org.eclipse.wb.elsoft.components.ArtificialField"/>
 					<component class="org.eclipse.wb.elsoft.components.Link"/>
 					<component class="org.eclipse.wb.elsoft.components.DefaultOrderBy"/>
 					<component class="org.eclipse.wb.elsoft.components.DefaultSearch"/>

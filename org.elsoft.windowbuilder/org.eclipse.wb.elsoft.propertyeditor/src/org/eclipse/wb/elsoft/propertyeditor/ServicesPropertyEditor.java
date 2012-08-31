@@ -45,7 +45,7 @@ public class ServicesPropertyEditor extends PropertyEditor implements
 		@Override
 		protected void onClick(PropertyTable propertyTable, Property property)
 				throws Exception {
-			openDialog(property);
+			openDialog(property,MetamodelTypeOfTypes.Service.name());
 		}
 	};
 
@@ -59,7 +59,7 @@ public class ServicesPropertyEditor extends PropertyEditor implements
 		return m_presentation;
 	}
 	
-	private void openDialog(Property property) throws Exception {
+	protected void openDialog(Property property,String  typeoftype) throws Exception {
 		GenericProperty genericProperty = (GenericProperty) property;
 
 		Display display = Display.getDefault();
@@ -69,7 +69,7 @@ public class ServicesPropertyEditor extends PropertyEditor implements
 		TypeDefinitionHandler th = Activator.rf
 				.getTypeDefinitionHandler()
 				.clean()
-				.searchString("typeOfType", MetamodelTypeOfTypes.Service.name())
+				.searchString("typeOfType", typeoftype)
 				.seek();
 
 

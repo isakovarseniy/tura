@@ -33,6 +33,7 @@ public class ControlHelper {
 
 	public static String DATACONTROL_FILE_NAME = "form.jad";
 	public static String ID_FILE_NAME = "id.jad";
+	public static String ARTIFICIAL_FIELD_FILE_NAME = "artificialfield.jad";
 
 	public void addDataControl(String name, String businessObject,
 			String propertiesFileName) {

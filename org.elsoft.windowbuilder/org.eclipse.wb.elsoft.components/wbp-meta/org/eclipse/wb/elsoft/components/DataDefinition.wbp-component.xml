@@ -38,10 +38,10 @@
 		<parameter name="flowContainer.1">true</parameter>
 		<parameter name="flowContainer.1.horizontal">false</parameter>
 		<parameter name="flowContainer.1.component">org.eclipse.wb.elsoft.components.DataControl</parameter>
+
+		<parameter name="flowContainer.2">true</parameter>
+		<parameter name="flowContainer.2.horizontal">false</parameter>
+		<parameter name="flowContainer.2.component">org.eclipse.wb.elsoft.components.FormParameter</parameter>
 	
-		<!-- border -->
-		<parameter name="shouldDrawBorder"><![CDATA[
-			object.getClass().getName().equals('org.eclipse.wb.elsoft.components.DataControl')
-		]]></parameter>
 	</parameters>
 </component>

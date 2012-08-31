@@ -17,6 +17,7 @@ package org.eclipse.wb.elsoft.components;
 
 import org.eclipse.e4.xwt.elsoft.types.IDProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
+import org.eclipse.e4.xwt.elsoft.types.OptionIteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.SourceProperty;
 import org.eclipse.e4.xwt.elsoft.types.VisualDependencyProperty;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -30,7 +31,7 @@ public class MetaLOV extends Button {
 
 	private IteratorProperty iteratorProperty;
 	private SourceProperty sourceProperty;
-	private IteratorProperty optionIterator;
+	private OptionIteratorProperty optionIterator;
 	private String cssStyle;
 	private String cssStyleClass;
 	private IDProperty idObject;
@@ -89,11 +90,11 @@ public class MetaLOV extends Button {
 		this.iteratorProperty = iteratorProperty;
 	}
 
-	public IteratorProperty getOptionIterator() {
+	public OptionIteratorProperty getOptionIterator() {
 		return optionIterator;
 	}
 
-	public void setOptionIterator(IteratorProperty optionIterator) {
+	public void setOptionIterator(OptionIteratorProperty optionIterator) {
 		this.optionIterator = optionIterator;
 	}
 

@@ -55,6 +55,11 @@
 		<parameter name="flowContainer.1">true</parameter>
 		<parameter name="flowContainer.1.horizontal">false</parameter>
 		<parameter name="flowContainer.1.component">org.eclipse.wb.elsoft.components.MetaInputText</parameter>
+
+		<parameter name="flowContainer.2">true</parameter>
+		<parameter name="flowContainer.2.horizontal">false</parameter>
+		<parameter name="flowContainer.2.component">org.eclipse.wb.elsoft.components.MetaDropDown</parameter>
+
 	
 		<parameter name="isColumn">true</parameter>
 	</parameters>

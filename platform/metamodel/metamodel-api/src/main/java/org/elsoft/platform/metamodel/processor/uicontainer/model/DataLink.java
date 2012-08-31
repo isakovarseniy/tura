@@ -28,6 +28,7 @@ import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.datasource.model.Field;
 import org.elsoft.platform.metamodel.processor.datasource.model.IndependentType;
 import org.elsoft.platform.metamodel.processor.datasource.model.RemoteMethod;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateArtifitialFields;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2BusinessObject;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2BusinessObjectMethod;
@@ -49,6 +50,7 @@ public class DataLink extends PersistentInterface {
 	private ArrayList<RemoteMethod> remoteMethods = new ArrayList<RemoteMethod>();
 	private ArrayList<RemoteMethod> remoteUIEventMethods = new ArrayList<RemoteMethod>();
 	private ArrayList<String> triggers = new ArrayList<String>();
+	private ArrayList<ArtifitialField> artifitialFields = new ArrayList<ArtifitialField>();
 	private ArrayList<Annotation> annotations = new ArrayList<Annotation>();
 	private HashMap<String, Relation> relations = new HashMap<String, Relation>();
 	private ArrayList<DefaultSearch> defaultSearch = new ArrayList<DefaultSearch>();
@@ -59,6 +61,10 @@ public class DataLink extends PersistentInterface {
 
 	public HashMap<String, Object> getTriggerPropery() {
 		return triggerPropery;
+	}
+
+	public ArrayList<ArtifitialField> getArtifitialFields() {
+		return artifitialFields;
 	}
 
 	public DataLink(CreateDataLinkDAO command, HashMap<String, Object> context) {
@@ -95,6 +101,10 @@ public class DataLink extends PersistentInterface {
 		this.businessObjectName = businessObjectName;
 	}
 
+	public void addArtifitialField(ArtifitialField artifitialField){
+		artifitialFields.add(artifitialField);
+	}
+	
 	@Override
 	protected void serialize(CommandHandler ch) throws Exception {
 		CreateDataLink.save(ch, getParentUuid(), uuid, name);
@@ -132,7 +142,11 @@ public class DataLink extends PersistentInterface {
 			CreateDefaultOrderBy.save(ch, uuid, dorder);
 		}
 	
-	
+		Iterator<ArtifitialField> itrArt = artifitialFields.iterator();
+		while(itrArt.hasNext()){
+			ArtifitialField artfld = itrArt.next();
+			CreateArtifitialFields.save(ch, uuid, artfld);
+		}
 	}
 
 	public String getUuid() {

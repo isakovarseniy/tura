@@ -18,7 +18,7 @@
 	<description>Instances of this class provide a surface for drawing arbitrary graphics.</description>
 	<!-- CREATION -->
 	<creation>
-		<source><![CDATA[new org.eclipse.wb.elsoft.components.DataControl(%parent%, org.eclipse.swt.SWT.NONE)]]></source>
+		<source><![CDATA[new org.eclipse.wb.elsoft.components.DataDefinition(%parent%, org.eclipse.swt.SWT.NONE)]]></source>
 	</creation>
 	<!-- CONSTRUCTORS -->
 	<constructors>
@@ -33,20 +33,4 @@
 		</constructor>
 	</constructors>
 	<!-- PARAMETERS -->
-	<parameters>
-	
-		<parameter name="flowContainer.1">true</parameter>
-		<parameter name="flowContainer.1.horizontal">false</parameter>
-		<parameter name="flowContainer.1.component">org.eclipse.wb.elsoft.components.Relation</parameter>
-	
-		<parameter name="flowContainer.2">true</parameter>
-		<parameter name="flowContainer.2.horizontal">false</parameter>
-		<parameter name="flowContainer.2.component">org.eclipse.wb.elsoft.components.ArtificialField</parameter>
-
-
-		<!-- border -->
-		<parameter name="shouldDrawBorder"><![CDATA[
-			object.getClass().getName().equals('org.eclipse.wb.elsoft.components.Relation')
-		]]></parameter>
-	</parameters>
 </component>
