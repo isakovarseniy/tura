@@ -1,27 +1,22 @@
 package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
-import org.elsoft.platform.metamodel.PersistentInterface;
-import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.objects.command.form.datasource.CreateArtifitialFieldsDAO;
-import org.elsoft.platform.metamodel.processor.CommandHandler;
-import org.elsoft.platform.metamodel.processor.datasource.model.IndependentType;
-import org.elsoft.platform.metamodel.types.TypeDefinitionHandler;
+import java.util.HashMap;
 
-public class ArtifitialField extends PersistentInterface {
+import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
+import org.elsoft.platform.metamodel.processor.CommandHandler;
+import org.elsoft.platform.metamodel.processor.datasource.model.Field;
+
+public class ArtifitialField extends Field {
 
 	private String artifitialFieldName;
 	private String defaultValue;
-	private IndependentType type;
 
-	public ArtifitialField(CreateArtifitialFieldsDAO command,
-			RepositoryFactory rf) {
-
-		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler().clean()
-				.searchLong("objId", command.getRefType()).seek();
-		type = new IndependentType(tdh.getObject());
-		defaultValue=command.getDefaultValue();
-		artifitialFieldName = command.getArtifitialFieldName();
+	public ArtifitialField(PropertyDAO property, TypeDAO type,
+			HashMap<String, Object> context, String datalinkUUID) {
+		super(property, type, context, datalinkUUID);
 	}
+
 
 	public String getArtifitialFieldName() {
 		return artifitialFieldName;
@@ -39,13 +34,6 @@ public class ArtifitialField extends PersistentInterface {
 		this.defaultValue = defaultValue;
 	}
 
-	public IndependentType getType() {
-		return type;
-	}
-
-	public void setType(IndependentType type) {
-		this.type = type;
-	}
 
 	protected void serialize(CommandHandler ch) throws Exception {
 	}
