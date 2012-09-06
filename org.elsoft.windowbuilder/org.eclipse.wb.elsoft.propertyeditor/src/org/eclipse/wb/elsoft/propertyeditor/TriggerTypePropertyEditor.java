@@ -90,6 +90,10 @@ public class TriggerTypePropertyEditor extends PropertyEditor implements
 			array.add("ONButtonPressed");
 		}
 		
+		if (parent.getDescription().getComponentClass().getName()
+				.equals("org.eclipse.wb.elsoft.components.DrugAndDrop")) {
+			array.add("ONItemDrop");
+		}
 				
 
 		dialog.setElements(array.toArray());

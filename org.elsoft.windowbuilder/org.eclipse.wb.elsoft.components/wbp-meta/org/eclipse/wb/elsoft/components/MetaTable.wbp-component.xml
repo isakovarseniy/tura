@@ -76,9 +76,12 @@
 		<parameter name="layout.has">false</parameter>
 		<parameter name="gridLayout.grabHorizontal">true</parameter>
 		<parameter name="gridLayout.grabVertical">true</parameter>
+
 		<!-- flow container: TableColumn -->
 		<parameter name="flowContainer.1">true</parameter>
 		<parameter name="flowContainer.1.horizontal">true</parameter>
 		<parameter name="flowContainer.1.component">org.eclipse.swt.widgets.TableColumn</parameter>
+
+
 	</parameters>
 </component>

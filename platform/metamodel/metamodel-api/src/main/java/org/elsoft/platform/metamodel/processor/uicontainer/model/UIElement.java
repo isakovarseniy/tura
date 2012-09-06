@@ -30,9 +30,27 @@ public abstract class UIElement extends PersistentInterface {
 	private ArrayList<UIElement> childrens = new ArrayList<UIElement>();
 	private String uuid = UUID.randomUUID().toString();
 	private HashMap<String,String> propertiesExtender = new HashMap<String,String>();
-	private UIElement parent; 
+	private UIElement parent;
+	private boolean drugable = false;
+	private boolean dropable = false;
 
 	
+	public boolean isDrugable() {
+		return drugable;
+	}
+
+	public void setDrugable(boolean drugable) {
+		this.drugable = drugable;
+	}
+
+	public boolean isDropable() {
+		return dropable;
+	}
+
+	public void setDropable(boolean dropable) {
+		this.dropable = dropable;
+	}
+
 	public abstract String getUiElementType();
 	
 	public String getCss() {

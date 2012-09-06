@@ -45,7 +45,8 @@ public enum ElementBuilder {
 	LovReturnField(org.elsoft.windowbuilder.reader.LovReturnFieldReader.class),
 	Trigger(org.elsoft.windowbuilder.reader.TriggerReader.class),
 	MetaFieldSet(org.elsoft.windowbuilder.reader.FieldSetReader.class),
-	ArtificialField(org.elsoft.windowbuilder.reader.ArtifitialFieldReader.class);
+	ArtificialField(org.elsoft.windowbuilder.reader.ArtifitialFieldReader.class),
+	DrugAndDrop(org.elsoft.windowbuilder.reader.DrugAndDropReader.class);
 	
 	Class<?> clazz; 
 	ElementBuilder(Class<?> clazz){

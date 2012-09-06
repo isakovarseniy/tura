@@ -36,9 +36,13 @@ public enum MetamodelTriggerEventsType {
 	CreateEventGetOptionsList("GetOptionsList"),
 	CreateEventUIElement2ServiceMethod("na"),
 	
+	Drugable("na"),
+	Dropable("na"),
+	
 	OnButtonPressed("na"),
 	OnValueChanged("na"),
-	OnRawSelect("na");
+	OnRawSelect("na"),
+	OnItemDrop("na");
 	
 	
 

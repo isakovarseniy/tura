@@ -80,7 +80,11 @@ public class TriggerReader extends Reader {
 			
 			program.add(lnk2serv);
 		}
-		if (parent instanceof ButtonReader) {
+		if ( 
+			 (parent instanceof ButtonReader) ||
+		     (parent instanceof DrugAndDropReader)
+	       )
+		{
 
 			CreateEventUIElement2ServiceDAO ui2serv = new CreateEventUIElement2ServiceDAO();
 			ui2serv.setDomain(service.get(0));
@@ -92,8 +96,8 @@ public class TriggerReader extends Reader {
 			ui2serv.setRefMethod(m.getObjId());
 			ui2serv.setCommandExecutor(CreateEventUIElement2Service.class
 					.getName());
-			ui2serv.setParentUUID(((ButtonReader) parent).getUuid());
-			ui2serv.setDstUUID(((ButtonReader) parent).getDataControlId());
+			ui2serv.setParentUUID( parent.getUuid());
+			ui2serv.setDstUUID(((ItemReader) parent).getDataControlId());
 			ui2serv.setEventType(MetamodelTriggerEventsType.CreateEventUIElement2ServiceMethod
 					.name());
 

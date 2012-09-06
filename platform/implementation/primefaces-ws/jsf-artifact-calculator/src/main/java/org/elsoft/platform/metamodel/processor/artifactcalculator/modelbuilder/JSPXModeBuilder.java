@@ -30,6 +30,7 @@ import org.elsoft.platform.metamodel.processor.uicontainer.model.Button;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Canvas;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ChildrenOwner;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.DropDownList;
+import org.elsoft.platform.metamodel.processor.uicontainer.model.DrugAndDrop;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ExternalIterator;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Form;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Grid;
@@ -189,6 +190,14 @@ public class JSPXModeBuilder {
 								.getUpdateOnValueChanged(), keyMap));
 			}
 
+			if (element instanceof DrugAndDrop) {
+				element.getPropertiesExtender().put(
+						"OnItemDrop",
+						dependeniesBuilder(((DrugAndDrop) element)
+								.getUpdateOnItemDrop(), keyMap));
+			}
+
+			
 			if (element instanceof Lov) {
 				element.getPropertiesExtender().put(
 						"OnValueChanged",
