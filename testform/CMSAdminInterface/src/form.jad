@@ -1,9 +1,11 @@
-#Thu Aug 30 09:16:22 EDT 2012
-InstalledFeaturesLnk=Media.CMS.installedFeature
-OrganizationsLnk=Media.CMS.organization
+#Mon Sep 10 15:41:59 EDT 2012
 EnvType=Media.CMS.options
-AvailableFeaturesLnk=Media.CMS.availableFeature
+AvailablePackageslnk=Media.CMS.packageDescriptor
 LocationsLnk=Media.CMS.location
-NodeTypeOptionsLnk=Media.CMS.options
-OrgStructureLnk=Media.CMS.organization
 Claster=Media.CMS.node
+OrganizationsLnk=Media.CMS.organization
+O2OInstalledPackages=Media.CMS.object2Object
+NodeTypeOptionsLnk=Media.CMS.options
+InstalledPackagesLnk=Media.CMS.packageDescriptor
+OrgStructureLnk=Media.CMS.organization
+O2OAvailablePackages=Media.CMS.object2Object

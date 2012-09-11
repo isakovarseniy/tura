@@ -9,10 +9,6 @@
 		<p1:DataControl x:Name="EnvType" businessObject="Media.CMS.options" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;EnvType.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;EnvType.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;EnvType.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="setName" refType="String" value="EnvType"/>
 		</p1:DataControl>
-		<p1:DataControl x:Name="InstalledFeaturesLnk" businessObject="Media.CMS.installedFeature" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;InstalledFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;InstalledFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;InstalledFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
-			<p1:Trigger bounds="0, 0, 64, 64" triggerType="POSTCreateTrigger" x:Name="POSTCreateTrigger" service="Media.CMS.Admin.AdminTriggersService" method="postCreateInstalledFeatures"/>
-		</p1:DataControl>
-		<p1:DataControl x:Name="AvailableFeaturesLnk" businessObject="Media.CMS.availableFeature" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
 		<p1:DataControl x:Name="OrganizationsLnk" businessObject="Media.CMS.organization" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrganizationsLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrganizationsLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrganizationsLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:Relation dstDataControl="OrgStructureLnk">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="objId"/>
@@ -20,19 +16,43 @@
 			<p1:DefaultSearch size="64, 64" fieldsProperty="orgType" value="TOP" refType="String"/>
 		</p1:DataControl>
 		<p1:DataControl x:Name="OrgStructureLnk" businessObject="Media.CMS.organization" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrgStructureLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrgStructureLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrgStructureLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
-			<p1:Relation dstDataControl="InstalledFeaturesLnk">
-				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="locationId"/>
-			</p1:Relation>
-			<p1:Relation dstDataControl="Claster">
-				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="locationId"/>
-			</p1:Relation>
 			<p1:Relation dstDataControl="OrgStructureLnk" treeRelation="true">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="upperOrg"/>
 			</p1:Relation>
 			<p1:ArtificialField primitiveType="null.null.null.String" x:Name="holder" defaultValue="Development" />
+			<p1:Relation dstDataControl="LocationsLnk">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="upperOrg"/>
+			</p1:Relation>
+		</p1:DataControl>
+		<p1:DataControl x:Name="LocationsLnk" businessObject="Media.CMS.location" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:Relation dstDataControl="Claster">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="locationId"/>
+			</p1:Relation>
+			<p1:Relation dstDataControl="O2OAvailablePackages">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="objectRef1"/>
+			</p1:Relation>
+			<p1:Relation dstDataControl="O2OInstalledPackages">
+				<p1:Link bounds="0, 0, 64, 64" detailField="objectRef1" masterField="objId"/>
+			</p1:Relation>
 		</p1:DataControl>
 		<p1:DataControl x:Name="Claster" businessObject="Media.CMS.node" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Claster.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Claster.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Claster.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:DefaultSearch bounds="0, 0, 64, 64" expressionProperty="OrgStructureLnk.holder" fieldsProperty="infrastructureType" refType="String"/>
 		</p1:DataControl>
+		<p1:DataControl x:Name="O2OAvailablePackages" businessObject="Media.CMS.object2Object" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OAvailablePackages.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OAvailablePackages.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OAvailablePackages.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:DefaultSearch bounds="0, 0, 64, 64" value="availablePackage" fieldsProperty="linkType" refType="String"/>
+			<p1:ArtificialField x:Name="packageName" primitiveType="null.null.null.String"/>
+			<p1:Trigger bounds="0, 0, 64, 64" triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="Media.CMS.Admin.AdminTriggersService" method="PostQueryPackages"/>
+			<p1:ArtificialField x:Name="packageVersion" primitiveType="null.null.null.String"/>
+			<p1:ArtificialField x:Name="description" primitiveType="null.null.null.String"/>
+		</p1:DataControl>
+		<p1:DataControl x:Name="O2OInstalledPackages" businessObject="Media.CMS.object2Object" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OInstalledPackages.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OInstalledPackages.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OInstalledPackages.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="linkType" refType="String" value="installedPackage"/>
+			<p1:ArtificialField x:Name="packageName" primitiveType="null.null.null.String"/>
+			<p1:ArtificialField x:Name="description" primitiveType="null.null.null.String"/>
+			<p1:ArtificialField x:Name="packageVersion" primitiveType="null.null.null.String"/>
+			<p1:Trigger bounds="0, 0, 64, 64" triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="Media.CMS.Admin.AdminTriggersService" method="PostQueryPackages"/>
+		</p1:DataControl>
+		<p1:DataControl x:Name="AvailablePackageslnk" businessObject="Media.CMS.packageDescriptor" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackageslnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackageslnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
+		<p1:DataControl x:Name="InstalledPackagesLnk" businessObject="Media.CMS.packageDescriptor" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;InstalledPackagesLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;InstalledPackagesLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;InstalledPackagesLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
 	</p1:DataDefinition>
 </Composite>
