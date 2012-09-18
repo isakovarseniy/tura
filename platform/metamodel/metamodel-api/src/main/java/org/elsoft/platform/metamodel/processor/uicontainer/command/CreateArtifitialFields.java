@@ -24,7 +24,7 @@ public class CreateArtifitialFields {
 		
 		DataLink lnk = (DataLink) context.get(command.getParentUUID());
 		
-		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler().clean()
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler().cleanSearch()
 				.searchLong("objId", command.getRefType()).seek();
 		TypeDAO type = tdh.getObject();
 		PropertyDAO property = new PropertyDAO();

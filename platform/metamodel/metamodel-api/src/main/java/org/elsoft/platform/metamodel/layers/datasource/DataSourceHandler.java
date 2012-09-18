@@ -98,7 +98,7 @@ public class DataSourceHandler extends
 
 	public void saveDataSource(DataSourceDAO container, IndependentType it)
 			throws Exception {
-		DataSourceDAO frm = (DataSourceDAO) this.clean()
+		DataSourceDAO frm = (DataSourceDAO) this.cleanSearch()
 				.searchLong("objId", container.getObjId()).getObject();
 		if (frm != null) {
 			Method m = it.getClass().getDeclaredMethod("serialize",

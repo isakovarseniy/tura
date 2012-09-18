@@ -61,7 +61,7 @@ public class TriggerReader extends Reader {
 		Helper.findType(rf, service.get(0), service.get(1), service.get(2),
 				service.get(3));
 
-		MethodDAO m = rf.getTypeDefinitionHandler().getMethodHandler().clean()
+		MethodDAO m = rf.getTypeDefinitionHandler().getMethodHandler().cleanSearch()
 				.searchString("method", method).getObject();
 
 		if (parent instanceof DataControlReader) {

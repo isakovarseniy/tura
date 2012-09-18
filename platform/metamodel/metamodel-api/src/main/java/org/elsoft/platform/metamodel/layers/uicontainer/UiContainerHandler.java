@@ -139,7 +139,7 @@ public class UiContainerHandler extends
 
 	public void saveUIContainer(UIContainerDAO container, Form form)
 			throws Exception {
-		UIContainerDAO frm = (UIContainerDAO) this.clean()
+		UIContainerDAO frm = (UIContainerDAO) this.cleanSearch()
 				.searchLong("objId", container.getObjId()).getObject();
 		if (frm != null) {
 			Method m = form.getClass().getDeclaredMethod("serialize",

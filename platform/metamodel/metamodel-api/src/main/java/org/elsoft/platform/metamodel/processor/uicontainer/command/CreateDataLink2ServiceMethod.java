@@ -42,7 +42,7 @@ public class CreateDataLink2ServiceMethod {
 				command.getTypeName());
 
 		MethodDAO method = rf.getTypeDefinitionHandler().getMethodHandler()
-				.clean().searchString("method", command.getMethodName()).getObject();
+				.cleanSearch().searchString("method", command.getMethodName()).getObject();
 
 		
 		

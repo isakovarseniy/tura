@@ -47,7 +47,7 @@ public class CreateEventUIElement2Service {
 				command.getApplication(), command.getTypeName());
 
 		MethodDAO method = rf.getTypeDefinitionHandler().getMethodHandler()
-				.clean().searchString("method", command.getMethodName())
+				.cleanSearch().searchString("method", command.getMethodName())
 				.getObject();
 
 		RemoteMethod rmi = new RemoteMethod(rf.getTypeDefinitionHandler()
@@ -64,6 +64,7 @@ public class CreateEventUIElement2Service {
 				+ command.getApplication().toLowerCase() + "_"+command.getTypeName().toLowerCase() +"_" + command.getMethodName().toLowerCase();
 		element.setTriggerName(methodName.toLowerCase());
 		element.setUiElement2ServiceEvent(command);
+		element.setTriggerType(command.getEventType());
 
 		return Processor.COMMAND_COMPLITED;
 	}

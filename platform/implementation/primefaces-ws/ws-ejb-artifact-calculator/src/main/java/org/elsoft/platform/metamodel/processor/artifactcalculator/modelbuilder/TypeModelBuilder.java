@@ -83,7 +83,7 @@ public class TypeModelBuilder {
 				RepositoryFactory rf) {
 			super(type);
 
-			TypeMappingDAO typemap = rf.getTypeMappingHandler().clean()
+			TypeMappingDAO typemap = rf.getTypeMappingHandler().cleanSearch()
 					.searchString("targetDomain", domain)
 					.searchString("targetFunctionalDomain", functionalDomain)
 					.searchString("targetApplication", application)
@@ -94,7 +94,7 @@ public class TypeModelBuilder {
 				// looking for primitive type
 				typemap = rf
 						.getTypeMappingHandler()
-						.clean()
+						.cleanSearch()
 						.searchString("targetDomain",
 								PlatformPrimetiveTypes.NA.name())
 						.searchString("targetFunctionalDomain",

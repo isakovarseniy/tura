@@ -171,7 +171,7 @@ public class DataControlReader extends Reader {
 				command.getFunctionalDomain(), command.getBusinessObjectName());
 		MethodReferenceHandler mrh = rf.getRoot().getFunctionalDomain()
 				.getBusinessObjectsHandler().getMethodReferenceHandler();
-		Iterator<MethodReferenceDAO> itr = mrh.clean().searchString("methodType", command.getMethodType()).getList();
+		Iterator<MethodReferenceDAO> itr = mrh.cleanSearch().searchString("methodType", command.getMethodType()).getList();
 
 		while (itr.hasNext()) {
 			MethodReferenceDAO refMethod = itr.next();

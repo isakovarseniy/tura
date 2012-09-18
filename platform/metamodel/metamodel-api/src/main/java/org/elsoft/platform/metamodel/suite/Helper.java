@@ -38,7 +38,7 @@ public class Helper {
 		inputContext.put(PlatformConfig.LAYER_PARAMETER, level);
 		inputContext.put(PlatformConfig.REPOSITORYFACTORY_PARAMETER, rf);
 		
-		Iterator<PacketDAO> itrPac = packetHandler.clean().getList();
+		Iterator<PacketDAO> itrPac = packetHandler.cleanSearch().getList();
 		while (itrPac.hasNext()) {
 			PacketDAO packet = itrPac.next();
 			context.putAll(packetHandler.generate(rf, domain,

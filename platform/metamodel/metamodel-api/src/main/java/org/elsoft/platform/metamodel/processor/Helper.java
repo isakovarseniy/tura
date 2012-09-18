@@ -24,15 +24,15 @@ public class Helper {
 	public static BusinessObjectDAO findBusinessObject(RepositoryFactory rf,
 			String domain, String functionalDomain, String businassObjectName) {
 
-		rf.getRoot().clean().searchString("domainName", domain).getObject();
+		rf.getRoot().cleanSearch().searchString("domainName", domain).getObject();
 
 		FunctionalDomainHandler fDomain = rf.getRoot().getFunctionalDomain();
 
-		fDomain.clean().searchString("functionalDomainName", functionalDomain)
+		fDomain.cleanSearch().searchString("functionalDomainName", functionalDomain)
 				.getObject();
 
 		BusinessObjectDAO bo = (BusinessObjectDAO) fDomain
-				.getBusinessObjectsHandler().clean()
+				.getBusinessObjectsHandler().cleanSearch()
 				.searchString("businessObjectTypeName", businassObjectName)
 				.getObject();
 
@@ -42,7 +42,7 @@ public class Helper {
 	public static TypeDAO findType(RepositoryFactory rf, String domain,
 			String functionalDomain, String application, String typeName) {
 
-		return rf.getTypeDefinitionHandler().clean().searchString("domain", domain)
+		return rf.getTypeDefinitionHandler().cleanSearch().searchString("domain", domain)
 				.searchString("functionalDomain", functionalDomain)
 				.searchString("application", application)
 				.searchString("typeName", typeName).getObject();

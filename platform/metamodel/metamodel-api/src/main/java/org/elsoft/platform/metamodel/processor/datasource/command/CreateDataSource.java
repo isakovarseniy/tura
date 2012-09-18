@@ -34,7 +34,7 @@ public class CreateDataSource {
 			HashMap<String, Object> context, CommandDAO cmd) {
 		CreateDataSourceDAO command = (CreateDataSourceDAO) cmd;
 
-		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler().clean().searchLong("objId", command.getRefType()).seek();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler().cleanSearch().searchLong("objId", command.getRefType()).seek();
 		IndependentType it = new IndependentType(tdh);
 		
 		context.put(it.getDomain()+"."+it.getFunctionalDomain()+"."+it.getApplication()+"."+it.getTypeName(),it);

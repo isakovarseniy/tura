@@ -36,7 +36,7 @@ public class DefaultSearch {
 	public DefaultSearch(CreateDefaultSearchDAO command, RepositoryFactory rf) {
 
 		TypeDefinitionHandler tdh = rf
-				.getTypeDefinitionHandler().clean()
+				.getTypeDefinitionHandler().cleanSearch()
 				.searchString("typeOfType",
 						MetamodelTypeOfTypes.Primitive.name())
 				.searchString("typeName", command.getTypeName()).seek();

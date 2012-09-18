@@ -141,7 +141,7 @@ public class ServerZoneHandler extends
 
 	public void saveProperties(ServerZoneDAO server, Object obj)
 			throws Exception {
-		ServerZoneDAO srv = (ServerZoneDAO) this.clean()
+		ServerZoneDAO srv = (ServerZoneDAO) this.cleanSearch()
 				.searchLong("objId", server.getObjId()).getObject();
 		if (srv != null) {
 			Method m = server.getClass().getDeclaredMethod("serialize",

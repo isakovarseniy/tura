@@ -20,7 +20,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Stack;
 
-import org.elsoft.platform.OrderType;
 import org.elsoft.platform.datacontrol.Mode;
 import org.elsoft.platform.datacontrol.annotations.CreateTrigger;
 import org.elsoft.platform.datacontrol.annotations.InsertTrigger;
@@ -124,8 +123,7 @@ public class CommandHandler extends Handler<CommandHandler, CommandDAO> {
 
 	public Collection<CommandDAO> getCommandList() throws Exception {
 		Stack<CommandDAO> stack = new Stack<CommandDAO>();
-		Iterator<CommandDAO> itr = clean().orderBy("objId", OrderType.ASC)
-				.getList();
+		Iterator<CommandDAO> itr = getList();
 		while (itr.hasNext())
 			stack.push(itr.next());
 

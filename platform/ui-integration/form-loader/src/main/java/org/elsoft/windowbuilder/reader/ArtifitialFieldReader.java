@@ -40,7 +40,7 @@ public class ArtifitialFieldReader extends Reader {
 			Reader parent, List<CommandDAO> program) throws Exception {
 
 		TypeDefinitionHandler tdh = rf
-				.getTypeDefinitionHandler().clean()
+				.getTypeDefinitionHandler().cleanSearch()
 				.searchString("typeOfType",
 						MetamodelTypeOfTypes.Primitive.name())
 				.searchString("typeName", typeObject.get(3)).seek();

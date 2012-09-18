@@ -156,7 +156,12 @@ public class JSPXModeBuilder {
 											.name())) || (((ActionElement) element)
 								.getTriggerType()
 							.equals(MetamodelTriggerEventsType.CreateEventRallback
-									.name()))))
+									.name())))
+							|| (((ActionElement) element).getTriggerType()
+									.equals(MetamodelTriggerEventsType.CreateEventUIElement2ServiceMethod
+											.name()))		
+					
+					)
 				element.getPropertiesExtender().put("immediate", "true");
 		}
 

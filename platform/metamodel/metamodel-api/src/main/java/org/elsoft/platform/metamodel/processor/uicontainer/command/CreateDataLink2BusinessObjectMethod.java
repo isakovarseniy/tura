@@ -44,7 +44,7 @@ public class CreateDataLink2BusinessObjectMethod {
 
 		BusinessObjectHandler boh = rf.getRoot().getFunctionalDomain()
 				.getBusinessObjectsHandler();
-		boh.getMethodReferenceHandler().clean()
+		boh.getMethodReferenceHandler().cleanSearch()
 				.searchLong("objId", command.getRefMethod()).getObject();
 
 		MethodDAO method = boh.getMethodReferenceHandler().getMethodHandler()

@@ -70,7 +70,7 @@ public class IndependentType extends PersistentInterface {
 		}
 
 		MethodHandler mh = th.getMethodHandler();
-		Iterator<MethodDAO> itrMeth = mh.clean().getList();
+		Iterator<MethodDAO> itrMeth = mh.cleanSearch().getList();
 		while (itrMeth.hasNext()) {
 			MethodDAO method = itrMeth.next();
 			methods.add(new RemoteMethod(mh,method,null));

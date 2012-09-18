@@ -149,7 +149,7 @@ public class ServerGridHandler extends
 
 	public void saveProperties(ServerGridDAO server, Object obj)
 			throws Exception {
-		ServerGridDAO srv = (ServerGridDAO) this.clean()
+		ServerGridDAO srv = (ServerGridDAO) this.cleanSearch()
 				.searchLong("objId", server.getObjId()).getObject();
 		if (srv != null) {
 			Method m = server.getClass().getDeclaredMethod("serialize",

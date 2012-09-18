@@ -140,7 +140,7 @@ public class ServerClasterHandler extends
 
 	public void saveProperties(ServerClasterDAO server, Object obj)
 			throws Exception {
-		ServerClasterDAO srv = (ServerClasterDAO) this.clean()
+		ServerClasterDAO srv = (ServerClasterDAO) this.cleanSearch()
 				.searchLong("objId", server.getObjId()).getObject();
 		if (srv != null) {
 			Method m = server.getClass().getDeclaredMethod("serialize",

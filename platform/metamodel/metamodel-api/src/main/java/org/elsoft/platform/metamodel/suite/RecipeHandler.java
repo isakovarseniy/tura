@@ -141,7 +141,7 @@ public class RecipeHandler extends Handler<RecipeHandler, RecipeDAO> {
 			throws Exception {
 
 		Iterator<IngredientDAO> itr = getIngredientHandler()
-				.clean()
+				.cleanSearch()
 				.search("level", Integer.class,
 						new Integer(begin.ordinal()).toString(),
 						ComparatorType.GTEQ)

@@ -137,7 +137,7 @@ public class ContainerHandler extends Handler<ContainerHandler, ContainerDAO> {
 
 	public void saveProperties(ContainerDAO server, Object obj)
 			throws Exception {
-		ContainerDAO srv = (ContainerDAO) this.clean()
+		ContainerDAO srv = (ContainerDAO) this.cleanSearch()
 				.searchLong("objId", server.getObjId()).getObject();
 		if (srv != null) {
 			Method m = server.getClass().getDeclaredMethod("serialize",

@@ -39,7 +39,7 @@ public abstract class ArtifactCalculator {
 			inputContext.putAll(context);
 
 			Artifact artifact = itr.next();
-			ArtifactTypeDAO artifactDAO = rf.getArtifactTypeHandler().clean()
+			ArtifactTypeDAO artifactDAO = rf.getArtifactTypeHandler().cleanSearch()
 					.searchString("artifactType", artifact.artifactType.name())
 					.searchString("technology", getTechnology()).getObject();
 

@@ -70,7 +70,7 @@
 					<Composite.layout>
 						<GridLayout numColumns="3"/>
 					</Composite.layout>
-					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="O2OAvailablePackages">
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="O2OAvailablePackages" idObject="O2OAvaGrid">
 						<p1:MetaTableColumn text="Package name" width="100">
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageName"/>
 						</p1:MetaTableColumn>
@@ -85,10 +85,14 @@
 						<Composite.layout>
 							<GridLayout/>
 						</Composite.layout>
-						<p1:MetaAction text="Create" size="55, 29"/>
-						<p1:MetaAction text="Remove" size="65, 29"/>
+						<p1:MetaAction text="Create" size="55, 29" expressionProperty="O2OAvailablePackages.nextRecord" updateOnButtonPressed="O2OInsPack O2OAvaGrid">
+							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="installPackage"/>
+						</p1:MetaAction>
+						<p1:MetaAction text="Remove" size="65, 29" expressionProperty="O2OInstalledPackages.nextRecord" updateOnButtonPressed="O2OInsPack O2OAvaGrid">
+							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="unInstallPackage"/>
+						</p1:MetaAction>
 					</Composite>
-					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="O2OInstalledPackages">
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="O2OInstalledPackages" idObject="O2OInsPack">
 						<p1:MetaTableColumn text="Package name" width="100">
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageName"/>
 						</p1:MetaTableColumn>
