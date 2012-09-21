@@ -60,7 +60,10 @@ public class CreateDisplayFieldSpecifier {
 			ls = new ArrayList<DisplayField>();
 			optionLink.getTriggerPropery().put(eventname + "_DisplayField", ls);
 		}
-		ls.add(new DisplayField(command.getValue1(), command.getValue2()));
+		DisplayField df = new DisplayField(command.getValue1(),
+				command.getValue2());
+		if (!ls.contains(df))
+			ls.add(df);
 
 		return Processor.COMMAND_COMPLITED;
 

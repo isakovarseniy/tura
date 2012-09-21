@@ -67,20 +67,20 @@ public class BusinessObjectPropertyEditor extends PropertyEditor implements
 
 	private TreeModel buildModel() {
 		DomainServiceDC dh = Activator.rf.getRoot();
-		Iterator<DomainDAO> itr = dh.clean().getList();
+		Iterator<DomainDAO> itr = dh.cleanSearch().getList();
 		TreeModel root = new TreeModel("root", null);
 
 		while (itr.hasNext()) {
 			DomainDAO domain = itr.next();
 			TreeModel domainNode = new TreeModel(domain.getDomainName(), root);
 			FunctionalDomainHandler fd = dh.getFunctionalDomain();
-			Iterator<FunctionalDomainDAO> itrFD = fd.clean().getList();
+			Iterator<FunctionalDomainDAO> itrFD = fd.cleanSearch().getList();
 			while (itrFD.hasNext()) {
 				FunctionalDomainDAO functionalDomain = itrFD.next();
 				TreeModel functionalDomainNode = new TreeModel(
 						functionalDomain.getFunctionalDomainName(), domainNode);
 				BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
-				Iterator<BusinessObjectDAO> itrBO = bh.clean().getList();
+				Iterator<BusinessObjectDAO> itrBO = bh.cleanSearch().getList();
 				while (itrBO.hasNext()) {
 					BusinessObjectDAO busObj = itrBO.next();
 					new TreeModel(busObj.getBusinessObjectTypeName(),

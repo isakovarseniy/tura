@@ -46,7 +46,10 @@ public enum ElementBuilder {
 	Trigger(org.elsoft.windowbuilder.reader.TriggerReader.class),
 	MetaFieldSet(org.elsoft.windowbuilder.reader.FieldSetReader.class),
 	ArtificialField(org.elsoft.windowbuilder.reader.ArtifitialFieldReader.class),
-	DrugAndDrop(org.elsoft.windowbuilder.reader.DrugAndDropReader.class);
+	DrugAndDrop(org.elsoft.windowbuilder.reader.DrugAndDropReader.class),
+	MetaImage(org.elsoft.windowbuilder.reader.ImageReader.class),
+	MetaCheckbox(org.elsoft.windowbuilder.reader.CheckboxReader.class)
+	;
 	
 	Class<?> clazz; 
 	ElementBuilder(Class<?> clazz){

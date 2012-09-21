@@ -40,4 +40,16 @@ public class DisplayField {
 		this.displayExpression = displayExpression;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof DisplayField){
+			DisplayField obj = (DisplayField) o;
+			if ( obj.getDisplayLabel().compareTo(getDisplayLabel()) == 0  ){
+				return obj.getDisplayLabel().equals(getDisplayLabel());
+			}
+			return obj.getDisplayLabel().equals(getDisplayLabel());
+		}
+		return false;
+	}
+
 }

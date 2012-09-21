@@ -44,7 +44,7 @@
 					</p1:MetaTable>
 					<Composite bounds="0, 0, 64, 64">
 						<Composite.layout>
-							<GridLayout numColumns="2" />
+							<GridLayout />
 						</Composite.layout>
 						<p1:MetaAction text="Create" expressionProperty="Claster.create"
 							updateOnButtonPressed="claster_table" />
@@ -68,39 +68,122 @@
 			<TabItem.control>
 				<Composite>
 					<Composite.layout>
-						<GridLayout numColumns="3"/>
+						<GridLayout numColumns="2"/>
 					</Composite.layout>
-					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="O2OAvailablePackages" idObject="O2OAvaGrid">
-						<p1:MetaTableColumn text="Package name" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageName"/>
-						</p1:MetaTableColumn>
-						<p1:MetaTableColumn text="Description" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="description"/>
-						</p1:MetaTableColumn>
-						<p1:MetaTableColumn text="Version" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageVersion"/>
-						</p1:MetaTableColumn>
-					</p1:MetaTable>
+					<Label/>
 					<Composite>
+						<Composite.layoutData>
+							<GridData widthHint="416"/>
+						</Composite.layoutData>
 						<Composite.layout>
 							<GridLayout/>
 						</Composite.layout>
-						<p1:MetaAction text="Create" size="55, 29" expressionProperty="O2OAvailablePackages.nextRecord" updateOnButtonPressed="O2OInsPack O2OAvaGrid">
-							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="installPackage"/>
-						</p1:MetaAction>
-						<p1:MetaAction text="Remove" size="65, 29" expressionProperty="O2OInstalledPackages.nextRecord" updateOnButtonPressed="O2OInsPack O2OAvaGrid">
-							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="unInstallPackage"/>
-						</p1:MetaAction>
-					</Composite>
-					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="O2OInstalledPackages" idObject="O2OInsPack">
+						<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 320, 45" iteratorProperty="AvailablePackagesLnk" idObject="O2OAvaGrid">
 						<p1:MetaTableColumn text="Package name" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageName"/>
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="nikName"/>
 						</p1:MetaTableColumn>
 						<p1:MetaTableColumn text="Description" width="100">
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="description"/>
 						</p1:MetaTableColumn>
 						<p1:MetaTableColumn text="Version" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageVersion"/>
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureVersion"/>
+						</p1:MetaTableColumn>
+					</p1:MetaTable>
+					</Composite>
+					<Label/>
+					<Composite>
+						<Composite.layout>
+							<GridLayout numColumns="5"/>
+						</Composite.layout>
+						<Composite.layoutData>
+							<GridData widthHint="385"/>
+						</Composite.layoutData>
+						<Label text="Environment">
+							<Label.layoutData>
+								<GridData horizontalAlignment="RIGHT"/>
+							</Label.layoutData>
+						</Label>
+						<p1:MetaDropDown iteratorProperty="OrgStructureLnk" optionIterator="EnvType" optionLabel="optionName" optionValue="optionValue" sourceProperty="holder" updateOnValueChanged="OperationLab">
+							<p1:MetaDropDown.layoutData>
+								<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+							</p1:MetaDropDown.layoutData>
+						</p1:MetaDropDown>
+						<p1:MetaAction text="Bind" expressionProperty="PackageOperationLnk.nextRecord" updateOnButtonPressed="OperationLab">
+							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="prepareBinding" />
+						</p1:MetaAction>
+						<p1:MetaAction text="Install" expressionProperty="PackageOperationLnk.prevRecord">
+							<p1:Trigger service="Media.CMS.Admin.AdminTriggersService" method="installPackage" triggerType="ONButtonPressed" x:Name="ONButtonPressed"/>
+						</p1:MetaAction>
+						<p1:MetaAction text="Remove" expressionProperty="PackageOperationLnk.prevRecord">
+							<p1:Trigger service="Media.CMS.Admin.AdminTriggersService" method="unInstallPackage" triggerType="ONButtonPressed" x:Name="ONButtonPressed"/>
+						</p1:MetaAction>
+					</Composite>
+					<Label/>
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="PackageOperationLnk" idObject="OperationLab">
+						<p1:MetaTable.layoutData>
+							<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
+						</p1:MetaTable.layoutData>
+						<p1:MetaTableColumn text="Check" width="100">
+							<p1:MetaCheckbox x:Style="CHECK" sourceProperty="selection"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Node name" width="146">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="node"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Pkg status" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageStatus"/>
+						</p1:MetaTableColumn>
+					</p1:MetaTable>
+				</Composite>
+			</TabItem.control>
+		</TabItem>
+		<TabItem text="Available features">
+			<TabItem.control>
+				<Composite>
+					<Composite.layout>
+						<GridLayout/>
+					</Composite.layout>
+					<Composite bounds="0, 0, 64, 64">
+						<Composite.layout>
+							<GridLayout numColumns="2"/>
+						</Composite.layout>
+						<p1:MetaAction text="Search" expressionProperty="AvailableFeaturesLnk.search" updateOnButtonPressed="features featuresOper"/>
+						<p1:MetaAction text="Query" expressionProperty="AvailableFeaturesLnk.query" updateOnButtonPressed="features featuresOper"/>
+					</Composite>
+					<Composite bounds="0, 0, 330, 55">
+						<Composite.layout>
+							<GridLayout/>
+						</Composite.layout>
+						<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="AvailableFeaturesLnk" size="445, 146" idObject="features">
+						<p1:MetaTableColumn text="Feature Group" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureGroup"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Feature name" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureName"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Version" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureVersion"/>
+						</p1:MetaTableColumn>
+					</p1:MetaTable>
+					</Composite>
+					<Composite bounds="0, 0, 64, 64">
+						<Composite.layout>
+							<GridLayout numColumns="5"/>
+						</Composite.layout>
+						<Label text="Environment" bounds="0, 0, 68, 17"/>
+						<p1:MetaDropDown bounds="0, 0, 189, 29" iteratorProperty="OrgStructureLnk" optionIterator="EnvType" optionLabel="optionName" optionValue="optionValue" sourceProperty="holder" updateOnValueChanged="featuresOper"/>
+						<p1:MetaAction text="Bind" bounds="0, 0, 88, 29"/>
+						<p1:MetaAction text="Install" bounds="0, 0, 88, 29"/>
+						<p1:MetaAction text="Remove" bounds="0, 0, 88, 29"/>
+					</Composite>
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="FeatureOperationLnk" idObject="featuresOper">
+						<p1:MetaTableColumn text="Check" width="100">
+							<p1:MetaCheckbox x:Style="CHECK" sourceProperty="selection"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Node name" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="node"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Pkg status" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageStatus"/>
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
 				</Composite>

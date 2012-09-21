@@ -60,7 +60,14 @@
 		<parameter name="flowContainer.2.horizontal">false</parameter>
 		<parameter name="flowContainer.2.component">org.eclipse.wb.elsoft.components.MetaDropDown</parameter>
 
+		<parameter name="flowContainer.3">true</parameter>
+		<parameter name="flowContainer.3.horizontal">false</parameter>
+		<parameter name="flowContainer.3.component">org.eclipse.wb.elsoft.components.MetaCheckbox</parameter>
 	
+		<parameter name="flowContainer.4">true</parameter>
+		<parameter name="flowContainer.4.horizontal">false</parameter>
+		<parameter name="flowContainer.4.component">org.eclipse.wb.elsoft.components.MetaImage</parameter>
+
 		<parameter name="isColumn">true</parameter>
 	</parameters>
 </component>

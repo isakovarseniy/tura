@@ -88,7 +88,7 @@ public class MethodPropertyEditor extends PropertyEditor implements
 
 		TypeDefinitionHandler th = Activator.rf
 				.getTypeDefinitionHandler()
-				.clean()
+				.cleanSearch()
 				.searchString("typeOfType", MetamodelTypeOfTypes.Service.name())
 				.searchString("domain", service.getDomain())
 				.searchString("functionalDomain", service.getFunctionalDomain())
@@ -98,7 +98,7 @@ public class MethodPropertyEditor extends PropertyEditor implements
 		shell.setLayout(new FillLayout());
 
 		
-		Iterator<MethodDAO> itr = th.getMethodHandler().clean().getList();
+		Iterator<MethodDAO> itr = th.getMethodHandler().cleanSearch().getList();
 		
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(
 				shell, new LabelProvider());

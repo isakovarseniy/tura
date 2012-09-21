@@ -97,22 +97,25 @@ public class SaveFormJob implements Runnable {
 
 				Reader.formid = null;
 				Reader.idMAP = null;
-				UiContainerHandler uiContHand = Activator.rf.getRoot().clean()
+				UiContainerHandler uiContHand = Activator.rf.getRoot().cleanSearch()
 						.searchString("domainName", frm.getDomain()).seek()
-						.getFunctionalDomain().clean()
+						.getFunctionalDomain().cleanSearch()
 						.searchString("functionalDomainName", frm.getFunctionalDomain()).seek()
-						.getApplicationHandler().clean()
+						.getApplicationHandler().cleanSearch()
 						.searchString("applicationName", frm.getApplication()).seek().getUILayer()
-						.clean().searchString("uiContainerName", frm.getName()).seek();
+						.cleanSearch().searchString("uiContainerName", frm.getName()).seek();
 				UIContainerDAO uic = uiContHand.getObject();
 				if (uic == null){
 					System.out.println("!!!!!!!!!!!!   -> No form header -----> !!!");
 				}else{
 					uiContHand.getCommandHandler().removeAll();
 					Activator.rf.saveModel();
+
+					uiContHand.getCommandHandler().cleanSearch().seek();
 					uiContHand.getCommandHandler().removeAll();
 					Activator.rf.saveModel();
 
+					uiContHand.getCommandHandler().cleanSearch().seek();
 					uiContHand.saveUIContainer(uic, frm);
 					Activator.rf.saveModel();
 				}

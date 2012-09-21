@@ -123,20 +123,20 @@ public class GenerateFormHandler extends AbstractHandler {
 
 	private TreeModel buildModel() {
 		DomainServiceDC dh = Activator.rf.getRoot();
-		Iterator<DomainDAO> itr = dh.clean().getList();
+		Iterator<DomainDAO> itr = dh.cleanSearch().getList();
 		TreeModel root = new TreeModel("root", null);
 
 		while (itr.hasNext()) {
 			DomainDAO domain = itr.next();
 			TreeModel domainNode = new TreeModel(domain.getDomainName(), root);
 			FunctionalDomainHandler fd = dh.getFunctionalDomain();
-			Iterator<FunctionalDomainDAO> itrFD = fd.clean().getList();
+			Iterator<FunctionalDomainDAO> itrFD = fd.cleanSearch().getList();
 			while (itrFD.hasNext()) {
 				FunctionalDomainDAO functionalDomain = itrFD.next();
 				TreeModel functionalDomainNode = new TreeModel(
 						functionalDomain.getFunctionalDomainName(), domainNode);
 				ApplicationHandler aph = fd.getApplicationHandler();
-				Iterator<ApplicationDAO> itrAO = aph.clean().getList();
+				Iterator<ApplicationDAO> itrAO = aph.cleanSearch().getList();
 				while (itrAO.hasNext()) {
 					ApplicationDAO busObj = itrAO.next();
 					TreeModel applicationNode = new TreeModel(
@@ -153,7 +153,7 @@ public class GenerateFormHandler extends AbstractHandler {
 					}
 
 					TreeModel recipe = new TreeModel("recipe", applicationNode);
-					RecipeHandler rh = aph.getRecipeHandler().clean();
+					RecipeHandler rh = aph.getRecipeHandler().cleanSearch();
 					Iterator<RecipeDAO> itrRH = rh.getList();
 					while (itrRH.hasNext()) {
 						RecipeDAO sz = itrRH.next();

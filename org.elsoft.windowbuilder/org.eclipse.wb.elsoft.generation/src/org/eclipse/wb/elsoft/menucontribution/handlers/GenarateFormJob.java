@@ -47,15 +47,15 @@ public class GenarateFormJob implements Runnable {
 
 		try {
 			
-			ApplicationHandler ah = Activator.rf.getRoot().clean()
+			ApplicationHandler ah = Activator.rf.getRoot().cleanSearch()
 					.searchString("domainName", domain).seek()
-					.getFunctionalDomain().clean()
+					.getFunctionalDomain().cleanSearch()
 					.searchString("functionalDomainName", functionalDomain)
-					.seek().getApplicationHandler().clean()
+					.seek().getApplicationHandler().cleanSearch()
 					.searchString("applicationName", application).seek();
 			
 			HashMap<String, Object> infrastructureContext = ah
-					.getInfrastructureLayer().clean()
+					.getInfrastructureLayer().cleanSearch()
 					.searchString("zoneName", infrastructure).seek()
 					.loadProperties(Activator.rf);
 

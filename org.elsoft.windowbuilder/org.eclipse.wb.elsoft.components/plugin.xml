@@ -29,7 +29,7 @@
 					<component class="org.eclipse.wb.elsoft.components.MetaDropDown"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaAction"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaLOV"/>
-					<component class="org.eclipse.wb.elsoft.components.MetaButton" creationId="check"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaCheckbox"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaButton" creationId="radio"/>
 					<component class="org.eclipse.wb.elsoft.components.ViewPort"/>
 					<component class="org.eclipse.swt.widgets.Label"/>
@@ -37,6 +37,7 @@
 					<component class="org.eclipse.wb.elsoft.components.LovReturnField"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaFieldSet"/>
 					<component class="org.eclipse.wb.elsoft.components.DrugAndDrop"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaImage"/>
 				</category>
 			</palette>
 		</toolkit>

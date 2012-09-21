@@ -115,19 +115,19 @@ public class TriggetPropertyDialog2 extends ElementTreeSelectionDialog {
 				if (element instanceof CallLeaf) {
 					MethodReferenceHandler mrh = Activator.rf
 							.getRoot()
-							.clean()
+							.cleanSearch()
 							.searchString("domainName", bo.getDomain())
 							.seek()
 							.getFunctionalDomain()
-							.clean()
+							.cleanSearch()
 							.searchString("functionalDomainName",
 									bo.getFunctionalDomain())
 							.seek()
 							.getBusinessObjectsHandler()
-							.clean()
+							.cleanSearch()
 							.searchString("businessObjectTypeName",
 									bo.getBusinessObjectName()).seek()
-							.getMethodReferenceHandler().clean();
+							.getMethodReferenceHandler().cleanSearch();
 
 					Iterator<MethodReferenceDAO> itr = mrh.searchString("methodType", ((TreeModel) element).parent.nodeName).getList();
 
@@ -218,20 +218,20 @@ public class TriggetPropertyDialog2 extends ElementTreeSelectionDialog {
 
 		MethodReferenceHandler mr = Activator.rf
 				.getRoot()
-				.clean()
+				.cleanSearch()
 				.searchString("domainName", bo.getDomain())
 				.seek()
 				.getFunctionalDomain()
-				.clean()
+				.cleanSearch()
 				.searchString("functionalDomainName", bo.getFunctionalDomain())
 				.seek()
 				.getBusinessObjectsHandler()
-				.clean()
+				.cleanSearch()
 				.searchString("businessObjectTypeName",
 						bo.getBusinessObjectName()).seek()
 				.getMethodReferenceHandler();
 
-		Iterator<MethodReferenceDAO> itrMref = mr.clean().getList();
+		Iterator<MethodReferenceDAO> itrMref = mr.cleanSearch().getList();
 		MethodHandler methodh = null;
 		while (itrMref.hasNext()) {
 			itrMref.next();
@@ -241,7 +241,7 @@ public class TriggetPropertyDialog2 extends ElementTreeSelectionDialog {
 				break;
 		}
 
-		Iterator<ParameterDAO> itr = methodh.getParameterHandler().clean()
+		Iterator<ParameterDAO> itr = methodh.getParameterHandler().cleanSearch()
 				.getList();
 		while (itr.hasNext()) {
 			ParameterDAO param = itr.next();

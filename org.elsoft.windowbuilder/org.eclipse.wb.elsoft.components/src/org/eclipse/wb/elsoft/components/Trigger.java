@@ -19,8 +19,9 @@ import org.eclipse.e4.xwt.elsoft.types.MethodProperty;
 import org.eclipse.e4.xwt.elsoft.types.ServiceProperty;
 import org.eclipse.e4.xwt.elsoft.types.TriggerType;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Item;
 
-public class Trigger extends Composite{
+public class Trigger extends Item{
 	
 	private TriggerType triggerType;
 	private ServiceProperty service;

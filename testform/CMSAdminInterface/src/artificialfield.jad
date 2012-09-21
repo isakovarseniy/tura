@@ -1,8 +1,10 @@
-#Tue Sep 11 14:25:11 EDT 2012
+#Fri Sep 21 11:53:29 EDT 2012
 O2OInstalledPackages.packageVersion=O2OInstalledPackages.packageVersion
+PackageOperationLnk.selection=PackageOperationLnk.selection
 O2OInstalledPackages.description=O2OInstalledPackages.description
-O2OAvailablePackages.description=O2OAvailablePackages.description
-O2OAvailablePackages.packageVersion=O2OAvailablePackages.packageVersion
-O2OInstalledPackages.packageName=O2OInstalledPackages.packageName
+FeatureOperationLnk.selection=FeatureOperationLnk.selection
 OrgStructureLnk.holder=OrgStructureLnk.holder
+O2OInstalledPackages.packageName=O2OInstalledPackages.packageName
+O2OAvailablePackages.description=O2OAvailablePackages.description
 O2OAvailablePackages.packageName=O2OAvailablePackages.packageName
+O2OAvailablePackages.packageVersion=O2OAvailablePackages.packageVersion

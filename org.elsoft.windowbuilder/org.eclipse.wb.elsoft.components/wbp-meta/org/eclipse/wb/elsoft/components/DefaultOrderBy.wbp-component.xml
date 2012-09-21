@@ -34,5 +34,6 @@
 	</constructors>
 	<!-- PARAMETERS -->
 	<parameters>
+		<parameter name="shouldDrawBorder"><![CDATA[ new Boolean('false')]]></parameter>
 	</parameters>
 </component>

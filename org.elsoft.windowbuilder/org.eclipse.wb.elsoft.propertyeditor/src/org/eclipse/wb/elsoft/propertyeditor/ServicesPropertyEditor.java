@@ -68,7 +68,7 @@ public class ServicesPropertyEditor extends PropertyEditor implements
 
 		TypeDefinitionHandler th = Activator.rf
 				.getTypeDefinitionHandler()
-				.clean()
+				.cleanSearch()
 				.searchString("typeOfType", typeoftype)
 				.seek();
 

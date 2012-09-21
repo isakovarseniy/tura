@@ -67,6 +67,7 @@ public abstract class Reader {
 	public void buildAll(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
 		Reader newParent;
+		
 		if (parent instanceof ShellReader)
 			newParent = parent;
 		else

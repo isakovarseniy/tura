@@ -7,7 +7,7 @@
 			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="setName" refType="String" value="NodeType"/>
 		</p1:DataControl>
 		<p1:DataControl x:Name="EnvType" businessObject="Media.CMS.options" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;EnvType.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;EnvType.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;EnvType.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
-			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="setName" refType="String" value="EnvType"/>
+			<p1:DefaultSearch bounds="0, 0, 0, 0" fieldsProperty="setName" refType="String" value="EnvType"/>
 		</p1:DataControl>
 		<p1:DataControl x:Name="OrganizationsLnk" businessObject="Media.CMS.organization" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrganizationsLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrganizationsLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrganizationsLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:Relation dstDataControl="OrgStructureLnk">
@@ -28,31 +28,37 @@
 			<p1:Relation dstDataControl="Claster">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="locationId"/>
 			</p1:Relation>
-			<p1:Relation dstDataControl="O2OAvailablePackages">
-				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="objectRef1"/>
+			<p1:Relation dstDataControl="AvailablePackagesLnk">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="locationId"/>
 			</p1:Relation>
-			<p1:Relation dstDataControl="O2OInstalledPackages">
-				<p1:Link bounds="0, 0, 64, 64" detailField="objectRef1" masterField="objId"/>
+			<p1:Relation dstDataControl="AvailableFeaturesLnk">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="locationId"/>
 			</p1:Relation>
 		</p1:DataControl>
 		<p1:DataControl x:Name="Claster" businessObject="Media.CMS.node" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Claster.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Claster.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Claster.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:DefaultSearch bounds="0, 0, 64, 64" expressionProperty="OrgStructureLnk.holder" fieldsProperty="infrastructureType" refType="String"/>
 		</p1:DataControl>
-		<p1:DataControl x:Name="O2OAvailablePackages" businessObject="Media.CMS.object2Object" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OAvailablePackages.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OAvailablePackages.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OAvailablePackages.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+		<p1:DataControl x:Name="AvailablePackagesLnk" businessObject="Media.CMS.availableFeatures" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackagesLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackagesLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackagesLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:DefaultSearch bounds="0, 0, 64, 64" value="availablePackage" fieldsProperty="linkType" refType="String"/>
-			<p1:ArtificialField x:Name="packageName" primitiveType="null.null.null.String"/>
-			<p1:Trigger bounds="0, 0, 64, 64" triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="Media.CMS.Admin.AdminTriggersService" method="PostQueryPackages"/>
-			<p1:ArtificialField x:Name="packageVersion" primitiveType="null.null.null.String"/>
-			<p1:ArtificialField x:Name="description" primitiveType="null.null.null.String"/>
+			<p1:Relation dstDataControl="PackageOperationLnk">
+				<p1:Link bounds="0, 0, 64, 64" masterField="featureId" detailField="featureId"/>
+			</p1:Relation>
 		</p1:DataControl>
-		<p1:DataControl x:Name="O2OInstalledPackages" businessObject="Media.CMS.object2Object" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OInstalledPackages.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OInstalledPackages.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;O2OInstalledPackages.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
-			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="linkType" refType="String" value="installedPackage"/>
-			<p1:ArtificialField x:Name="packageName" primitiveType="null.null.null.String"/>
-			<p1:ArtificialField x:Name="description" primitiveType="null.null.null.String"/>
-			<p1:ArtificialField x:Name="packageVersion" primitiveType="null.null.null.String"/>
-			<p1:Trigger bounds="0, 0, 64, 64" triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="Media.CMS.Admin.AdminTriggersService" method="PostQueryPackages"/>
+		<p1:DataControl x:Name="PackageOperationLnk" businessObject="Media.CMS.featureOperation" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;PackageOperationLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;PackageOperationLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;PackageOperationLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="locationId" refType="Long" expressionProperty="LocationsLnk.objId"/>
+			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="infrastructureType" refType="String" expressionProperty="OrgStructureLnk.holder"/>
+			<p1:ArtificialField x:Name="selection" primitiveType="null.null.null.Boolean" defaultValue="true"/>
 		</p1:DataControl>
-		<p1:DataControl x:Name="AvailablePackageslnk" businessObject="Media.CMS.packageDescriptor" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackageslnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackageslnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
-		<p1:DataControl x:Name="InstalledPackagesLnk" businessObject="Media.CMS.packageDescriptor" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;InstalledPackagesLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;InstalledPackagesLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;InstalledPackagesLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
+		<p1:DataControl x:Name="AvailableFeaturesLnk" businessObject="Media.CMS.availableFeatures" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="linkType" refType="String" value="availableFeature"/>
+			<p1:Relation dstDataControl="FeatureOperationLnk">
+				<p1:Link bounds="0, 0, 64, 64" masterField="featureId" detailField="featureId"/>
+			</p1:Relation>
+		</p1:DataControl>
+		<p1:DataControl x:Name="FeatureOperationLnk" businessObject="Media.CMS.featureOperation" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;FeatureOperationLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;FeatureOperationLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;FeatureOperationLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:DefaultSearch bounds="0, 0, 64, 64" expressionProperty="LocationsLnk.objId" fieldsProperty="locationId" refType="Long"/>
+			<p1:DefaultSearch bounds="0, 0, 64, 64" expressionProperty="OrgStructureLnk.holder" fieldsProperty="infrastructureType" refType="String"/>
+			<p1:ArtificialField x:Name="selection" defaultValue="true" primitiveType="null.null.null.Boolean"/>
+		</p1:DataControl>
 	</p1:DataDefinition>
 </Composite>

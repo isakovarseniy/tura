@@ -154,15 +154,15 @@ public class SourcePropertyEditor extends PropertyEditor implements
 
 		Iterator<PropertyDAO> itr = Activator.rf
 				.getRoot()
-				.clean()
+				.cleanSearch()
 				.searchString("domainName", bo.getDomain())
 				.seek()
 				.getFunctionalDomain()
-				.clean()
+				.cleanSearch()
 				.searchString("functionalDomainName", bo.getFunctionalDomain())
 				.seek()
 				.getBusinessObjectsHandler()
-				.clean()
+				.cleanSearch()
 				.searchString("businessObjectTypeName",
 						bo.getBusinessObjectName()).seek()
 				.getTypeDefinitionHandler().getPropertyHandler().getList();
