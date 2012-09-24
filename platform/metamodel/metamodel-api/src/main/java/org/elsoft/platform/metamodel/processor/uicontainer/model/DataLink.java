@@ -35,6 +35,7 @@ import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLin
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2ServiceMethod;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDefaultOrderBy;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDefaultSearch;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDependency;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateMethodParameterExpression;
 
 public class DataLink extends PersistentInterface {
@@ -147,6 +148,14 @@ public class DataLink extends PersistentInterface {
 			ArtifitialField artfld = itrArt.next();
 			CreateArtifitialFields.save(ch, uuid, artfld);
 		}
+
+		Iterator<String> itrDep = dependency.iterator();
+		while(itrDep.hasNext()){
+			String dep = itrDep.next();
+			CreateDependency.save(ch, uuid, dep);
+		}
+	
+	
 	}
 
 	public String getUuid() {
@@ -232,6 +241,7 @@ public class DataLink extends PersistentInterface {
 		defaultSearch.add(rel);
 	}
 
+	
 	public void addDefaultOrderBy(DefaultOrderBy rel) {
 		defaultOrderBy.add(rel);
 	}

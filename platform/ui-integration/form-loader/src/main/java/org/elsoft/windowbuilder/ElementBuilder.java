@@ -48,7 +48,8 @@ public enum ElementBuilder {
 	ArtificialField(org.elsoft.windowbuilder.reader.ArtifitialFieldReader.class),
 	DrugAndDrop(org.elsoft.windowbuilder.reader.DrugAndDropReader.class),
 	MetaImage(org.elsoft.windowbuilder.reader.ImageReader.class),
-	MetaCheckbox(org.elsoft.windowbuilder.reader.CheckboxReader.class)
+	MetaCheckbox(org.elsoft.windowbuilder.reader.CheckboxReader.class),
+	Dependency( org.elsoft.windowbuilder.reader.DependencyReader.class)
 	;
 	
 	Class<?> clazz; 

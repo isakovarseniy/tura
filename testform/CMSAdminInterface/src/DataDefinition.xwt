@@ -60,5 +60,11 @@
 			<p1:DefaultSearch bounds="0, 0, 64, 64" expressionProperty="OrgStructureLnk.holder" fieldsProperty="infrastructureType" refType="String"/>
 			<p1:ArtificialField x:Name="selection" defaultValue="true" primitiveType="null.null.null.Boolean"/>
 		</p1:DataControl>
+		<p1:DataControl x:Name="PackageDescriptor" businessObject="Media.CMS.featureDescriptor" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;PackageDescriptor.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;PackageDescriptor.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;PackageDescriptor.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="featureType" refType="String" value="package"/>
+			<p1:ArtificialField x:Name="enablePackage" primitiveType="null.null.null.Boolean" defaultValue="false"/>
+			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="Media.CMS.Admin.AdminTriggersService" method="postQueryPackages"/>
+			<p1:Dependency expressionProperty="LocationsLnk"/>
+		</p1:DataControl>
 	</p1:DataDefinition>
 </Composite>

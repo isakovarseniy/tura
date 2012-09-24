@@ -38,6 +38,7 @@
 					<component class="org.eclipse.wb.elsoft.components.MetaFieldSet"/>
 					<component class="org.eclipse.wb.elsoft.components.DrugAndDrop"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaImage"/>
+					<component class="org.eclipse.wb.elsoft.components.Dependency"/>
 				</category>
 			</palette>
 		</toolkit>

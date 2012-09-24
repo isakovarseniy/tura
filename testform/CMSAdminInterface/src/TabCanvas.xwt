@@ -2,7 +2,7 @@
 	xmlns:x="http://www.eclipse.org/xwt" x:Class="TabCanvas"
 	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
 	<Composite.layout>
-		<RowLayout />
+		<GridLayout/>
 	</Composite.layout>
 	<TabFolder>
 		<TabItem text="Claster definition">
@@ -186,6 +186,37 @@
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageStatus"/>
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
+				</Composite>
+			</TabItem.control>
+		</TabItem>
+		<TabItem text="Enable package">
+			<TabItem.control>
+				<Composite>
+					<Composite.layout>
+						<GridLayout/>
+					</Composite.layout>
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="PackageDescriptor">
+						<p1:MetaTableColumn text="Package name" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="nikName"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Description" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="description"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Version" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureVersion"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Enable" width="100">
+							<p1:MetaCheckbox x:Style="CHECK" text="Check Button" sourceProperty="enablePackage"/>
+						</p1:MetaTableColumn>
+					</p1:MetaTable>
+					<Composite bounds="0, 0, 64, 64">
+						<Composite.layout>
+							<GridLayout/>
+						</Composite.layout>
+						<p1:MetaAction text="Save" bounds="0, 0, 88, 29" SelectionEvent="onSelection" expressionProperty="PackageDescriptor.search">
+							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="enablePackage"/>
+						</p1:MetaAction>
+					</Composite>
 				</Composite>
 			</TabItem.control>
 		</TabItem>

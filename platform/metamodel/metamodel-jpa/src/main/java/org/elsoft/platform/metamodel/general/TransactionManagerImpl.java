@@ -108,6 +108,7 @@ public class TransactionManagerImpl implements TransactionManager {
 		.addAnnotatedClass(org.elsoft.platform.metamodel.objects.command.form.ui.CreateDrugAndDropDAO.class)
 		.addAnnotatedClass(org.elsoft.platform.metamodel.objects.command.form.ui.CreateUICheckBoxDAO.class)
 		.addAnnotatedClass(org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIImageDAO.class)
+		.addAnnotatedClass(org.elsoft.platform.metamodel.objects.command.form.datasource.CreateDependencyDAO.class)
 		.buildSessionFactory();
 		
 		session = sessionFactory.openSession();
