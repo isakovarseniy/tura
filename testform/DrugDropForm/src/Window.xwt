@@ -1,0 +1,6 @@
+<Shell xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Window" text="XWT Application" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<Shell.layout>
+		<RowLayout/>
+	</Shell.layout>
+	<p1:ViewPort canvasName="Canvas" x:Name="ViewPortA" viewPortName="ViewPortA"/>
+</Shell>
