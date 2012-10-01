@@ -16,6 +16,8 @@
 package org.elsoft.platform.metamodel.suite;
 
 import java.lang.reflect.Method;
+import java.util.Collection;
+import java.util.HashMap;
 
 import org.elsoft.platform.datacontrol.Mode;
 import org.elsoft.platform.datacontrol.annotations.CreateTrigger;
@@ -34,13 +36,17 @@ import org.elsoft.platform.datacontrol.annotations.Base;
 import org.elsoft.platform.datacontrol.annotations.UpdateTrigger;
 import org.elsoft.platform.datacontrol.annotations.VersionField;
 import org.elsoft.platform.datacontrol.extender.Handler;
+import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.context.SessionContext;
 import org.elsoft.platform.metamodel.general.GeneralService;
 import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
 import org.elsoft.platform.metamodel.layers.datasource.DataSourceHandler;
 import org.elsoft.platform.metamodel.layers.uicontainer.UiContainerHandler;
 import org.elsoft.platform.metamodel.objects.ELsoftObject;
+import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.suite.ApplicationDAO;
+import org.elsoft.platform.metamodel.processor.CommandHandler;
+import org.elsoft.platform.metamodel.processor.Processor;
 
 @TriggerOutput(expression = SessionContext.RESULT_EXPRESSION)
 @Base(clazz = ApplicationDAO.class)
@@ -75,6 +81,10 @@ public class ApplicationHandler extends
 	private DataSourceHandler dataSourceHandler;
 	@Connection(links = { @Link(field1 = "objId", field2 = "parentId") }, connectedObject = ServerZoneHandler.class, connectionName = "application2Infrastructure")
 	private ServerZoneHandler infrastructureLayer;
+	@Connection(links = { @Link(field1 = "objId", field2 = "parentId") }, connectedObject = ApplicationRoleHandler.class, connectionName = "application2approle")
+	private ApplicationRoleHandler applicationRole;
+	@Connection(links = { @Link(field1 = "objId", field2 = "parentId") }, connectedObject = CommandHandler.class, connectionName = "application2Command")
+	private CommandHandler commandHandler;
 
 	public Method getInsert() {
 		return insert;
@@ -121,7 +131,8 @@ public class ApplicationHandler extends
 
 	public Object getGeneralService() {
 		if (generalService == null)
-		    generalService = new GeneralService(TransactionManagerImpl.getInstance());
+			generalService = new GeneralService(
+					TransactionManagerImpl.getInstance());
 		return generalService;
 	}
 
@@ -152,6 +163,37 @@ public class ApplicationHandler extends
 	public ServerZoneHandler getInfrastructureLayer() {
 		return infrastructureLayer;
 
+	}
+
+	public void saveRoleMapper(ApplicationDAO app, Object obj)
+			throws Exception {
+		ApplicationDAO srv = (ApplicationDAO) this.cleanSearch()
+				.searchLong("objId", app.getObjId()).getObject();
+		if (srv != null) {
+			Method m = obj.getClass().getDeclaredMethod("serialize",
+					CommandHandler.class);
+			m.setAccessible(true);
+			m.invoke(obj, this.getCommandHandler());
+		} else
+			throw new Exception("Application does not exists");
+	}
+
+	public HashMap<String, Object> loadRoleMapper(RepositoryFactory rf)
+			throws Exception {
+		Collection<CommandDAO> command = getCommandHandler().getCommandList();
+		return new Processor().executor(rf, command.iterator());
+	}
+
+	public ApplicationRoleHandler getApplicationRole() {
+		return applicationRole;
+	}
+
+	public void setApplicationRole(ApplicationRoleHandler applicationRole) {
+		this.applicationRole = applicationRole;
+	}
+
+	public CommandHandler getCommandHandler() throws Exception {
+		return commandHandler;
 	}
 
 }

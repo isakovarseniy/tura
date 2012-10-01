@@ -18,41 +18,37 @@ package org.elsoft.platform.metamodel.suite;
 import java.lang.reflect.Method;
 
 import org.elsoft.platform.datacontrol.Mode;
+import org.elsoft.platform.datacontrol.annotations.Base;
 import org.elsoft.platform.datacontrol.annotations.CreateTrigger;
+import org.elsoft.platform.datacontrol.annotations.GetMode;
+import org.elsoft.platform.datacontrol.annotations.IdField;
 import org.elsoft.platform.datacontrol.annotations.InsertTrigger;
+import org.elsoft.platform.datacontrol.annotations.Proxy;
 import org.elsoft.platform.datacontrol.annotations.RemoveTrigger;
 import org.elsoft.platform.datacontrol.annotations.SearchTrigger;
 import org.elsoft.platform.datacontrol.annotations.TriggerOutput;
-import org.elsoft.platform.datacontrol.annotations.GetMode;
-import org.elsoft.platform.datacontrol.annotations.IdField;
-import org.elsoft.platform.datacontrol.annotations.Link;
+import org.elsoft.platform.datacontrol.annotations.UpdateTrigger;
 import org.elsoft.platform.datacontrol.annotations.Variable;
 import org.elsoft.platform.datacontrol.annotations.Variables;
-import org.elsoft.platform.datacontrol.annotations.Proxy;
-import org.elsoft.platform.datacontrol.annotations.Connection;
-import org.elsoft.platform.datacontrol.annotations.Base;
-import org.elsoft.platform.datacontrol.annotations.UpdateTrigger;
 import org.elsoft.platform.datacontrol.annotations.VersionField;
 import org.elsoft.platform.datacontrol.extender.Handler;
 import org.elsoft.platform.metamodel.context.SessionContext;
 import org.elsoft.platform.metamodel.general.GeneralService;
 import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
 import org.elsoft.platform.metamodel.objects.ELsoftObject;
-import org.elsoft.platform.metamodel.objects.suite.FunctionalDomainDAO;
-import org.elsoft.platform.metamodel.types.BusinessObjectHandler;
+import org.elsoft.platform.metamodel.objects.security.ApplicationRoleDAO;
 
 @TriggerOutput(expression = SessionContext.RESULT_EXPRESSION)
-@Base(clazz = FunctionalDomainDAO.class)
+@Base(clazz = ApplicationRoleDAO.class)
 @VersionField(field = "version")
 @IdField(field = "objId")
-public class FunctionalDomainHandler extends
-		Handler<FunctionalDomainHandler, FunctionalDomainDAO> {
-
+public class ApplicationRoleHandler extends
+		Handler<ApplicationRoleHandler, ApplicationRoleDAO> {
 	@Proxy(name = "generalService")
 	private GeneralService generalService;
 	@InsertTrigger(objectAction = "insert", parameters = @Variables(value = { @Variable(expression = SessionContext.CURRENT_RECORD, type = ELsoftObject.class) }), object = "generalService")
 	private Method insert;
-	@CreateTrigger(objectAction = "create", parameters = @Variables(value = { @Variable(value = "org.elsoft.platform.metamodel.objects.suite.FunctionalDomainDAO", type = String.class) }), object = "generalService")
+	@CreateTrigger(objectAction = "create", parameters = @Variables(value = { @Variable(value = "org.elsoft.platform.metamodel.objects.security.ApplicationRoleDAO", type = String.class) }), object = "generalService")
 	private Method create;
 	@UpdateTrigger(objectAction = "update", parameters = @Variables(value = { @Variable(expression = SessionContext.CURRENT_RECORD, type = ELsoftObject.class) }), object = "generalService")
 	private Method update;
@@ -63,25 +59,10 @@ public class FunctionalDomainHandler extends
 			@Variable(type = java.util.List.class),
 			@Variable(type = java.lang.Integer.class),
 			@Variable(type = java.lang.Integer.class),
-			@Variable(value = "org.elsoft.platform.metamodel.objects.suite.FunctionalDomainDAO", type = String.class) }), object = "generalService")
+			@Variable(value = "org.elsoft.platform.metamodel.objects.security.ApplicationRoleDAO", type = String.class) }), object = "generalService")
 	private Method search;
 	@GetMode
-	private Mode<FunctionalDomainDAO> mode;
-	@Connection(links = { @Link(field1 = "objId", field2 = "parentId") }, connectedObject = ApplicationHandler.class, connectionName = "functionalDomain2application")
-	private ApplicationHandler applicationHandler;
-	@Connection(links = { @Link(field1 = "objId", field2 = "parentId") }, connectedObject = BusinessObjectHandler.class, connectionName = "functionalDomain2BusinessObject")
-	private BusinessObjectHandler businessObjectsHandler;
-	@Connection(links = { @Link(field1 = "objId", field2 = "parentId") }, connectedObject = GlobalRoleHandler.class, connectionName = "functionalDomain2globrole")
-	private GlobalRoleHandler globalRole;
-
-	
-	public GlobalRoleHandler getGlobalRole() {
-		return globalRole;
-	}
-
-	public void setGlobalRole(GlobalRoleHandler globalRole) {
-		this.globalRole = globalRole;
-	}
+	private Mode<ApplicationRoleDAO> mode;
 
 	public Method getInsert() {
 		return insert;
@@ -123,7 +104,7 @@ public class FunctionalDomainHandler extends
 		this.search = search;
 	}
 
-	public FunctionalDomainHandler() {
+	public ApplicationRoleHandler() {
 	}
 
 	public Object getGeneralService() {
@@ -132,26 +113,14 @@ public class FunctionalDomainHandler extends
 		return generalService;
 	}
 
-	public Mode<FunctionalDomainDAO> getMode() {
+	public Mode<ApplicationRoleDAO> getMode() {
 		return mode;
 	}
 
-	public FunctionalDomainDAO addFunctionalDomain(String fdName) {
-
-		FunctionalDomainDAO obj = getMode().getControl().createObject();
-		obj.setFunctionalDomainName(fdName);
-		// For tree testing
-		obj.setName(fdName);
-
+	public ApplicationRoleDAO addApplicationRole(String roleName) {
+		ApplicationRoleDAO obj = getMode().getControl().createObject();
+		obj.setRoleName(roleName);
 		return obj;
-	}
-
-	public ApplicationHandler getApplicationHandler() {
-		return applicationHandler;
-	}
-
-	public BusinessObjectHandler getBusinessObjectsHandler() {
-		return businessObjectsHandler;
 	}
 
 }

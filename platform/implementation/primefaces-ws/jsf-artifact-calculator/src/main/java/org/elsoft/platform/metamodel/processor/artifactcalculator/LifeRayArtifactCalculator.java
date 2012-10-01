@@ -15,8 +15,8 @@ public class LifeRayArtifactCalculator extends ArtifactCalculator{
 		ArrayList<Artifact> list = new ArrayList<Artifact>();
 
 		list.add(new Artifact(MetamodelArtifactType.LIFERAY_DISPLAY,null));
-		list.add(new Artifact(MetamodelArtifactType.LIFERAY_PORTLET,null));
-		list.add(new Artifact(MetamodelArtifactType.PORTLET,null));
+		list.add(new Artifact(MetamodelArtifactType.LIFERAY_PORTLET,model));
+		list.add(new Artifact(MetamodelArtifactType.PORTLET,model));
 		outputContext.putAll(context);
 
 		return list;
