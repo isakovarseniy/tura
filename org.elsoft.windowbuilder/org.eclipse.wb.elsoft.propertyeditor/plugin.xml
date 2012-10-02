@@ -58,6 +58,20 @@
  		<editor type="org.eclipse.e4.xwt.elsoft.types.VisualDependencyProperty"
 			class="org.eclipse.wb.elsoft.propertyeditor.VisualDependencyPropertyEditor"/>
 
+
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.FormNameProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.FormNamePropertyEditor"/>
+
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.RolesProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.RolesPropertyEditor"/>
+
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.OperetionTypeProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.OperetionTypePropertyEditor"/>
+
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.GrantedRoleProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.GrantedRolePropertyEditor"/>
+
+
    </extension>
 
 

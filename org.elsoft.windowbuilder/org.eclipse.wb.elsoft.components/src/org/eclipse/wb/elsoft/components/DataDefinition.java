@@ -15,22 +15,24 @@
  ******************************************************************************/
 package org.eclipse.wb.elsoft.components;
 
+import org.eclipse.e4.xwt.elsoft.types.FormNameProperty;
 import org.eclipse.swt.widgets.Composite;
 
 public class DataDefinition extends Composite {
 
-	private String form;
+	private FormNameProperty form;
 	
 	public DataDefinition(Composite parent, int style) {
 		super(parent, style);
 	}
 
-	public String getForm() {
+	public FormNameProperty getForm() {
 		return form;
 	}
 
-	public void setForm(String form) {
+	public void setForm(FormNameProperty form) {
 		this.form = form;
 	}
+
 
 }
