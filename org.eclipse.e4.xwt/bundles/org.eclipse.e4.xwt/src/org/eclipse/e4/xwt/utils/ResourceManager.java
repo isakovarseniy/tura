@@ -26,13 +26,17 @@ import org.eclipse.e4.xwt.elsoft.types.BusinessObjectProperty;
 import org.eclipse.e4.xwt.elsoft.types.DestinationDataControlProperty;
 import org.eclipse.e4.xwt.elsoft.types.ExpressionProperty;
 import org.eclipse.e4.xwt.elsoft.types.FieldsProperty;
+import org.eclipse.e4.xwt.elsoft.types.FormNameProperty;
+import org.eclipse.e4.xwt.elsoft.types.GrantedRoleProperty;
 import org.eclipse.e4.xwt.elsoft.types.IDProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.LinkFieldProperty;
 import org.eclipse.e4.xwt.elsoft.types.MethodProperty;
+import org.eclipse.e4.xwt.elsoft.types.OperetionTypeProperty;
 import org.eclipse.e4.xwt.elsoft.types.OptionFieldProperty;
 import org.eclipse.e4.xwt.elsoft.types.OptionIteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.PrimitiveType;
+import org.eclipse.e4.xwt.elsoft.types.RolesProperty;
 import org.eclipse.e4.xwt.elsoft.types.ServiceProperty;
 import org.eclipse.e4.xwt.elsoft.types.SourceProperty;
 import org.eclipse.e4.xwt.elsoft.types.TriggerProperty;
@@ -98,81 +102,97 @@ public class ResourceManager {
 		return image;
 	}
 
-	public TriggerProperty getTriggerProperty(String field){
+	public TriggerProperty getTriggerProperty(String field) {
 		return new TriggerProperty(field);
-		
+
 	}
+
 	public LinkFieldProperty getStringToLinkFieldProperty(String field) {
 		return new LinkFieldProperty(field);
 
 	}
-	
-	public TriggerType getTriggerType(String field){
+
+	public TriggerType getTriggerType(String field) {
 		return new TriggerType(field);
-		
+
 	}
 
-	public FieldsProperty getFieldsProperty(String field){
+	public FieldsProperty getFieldsProperty(String field) {
 		return new FieldsProperty(field);
 	}
-	
+
 	public DestinationDataControlProperty getDestinationDataControlProperty(
 			String bo) {
 		return new DestinationDataControlProperty(bo);
 	}
 
-	public IteratorProperty getIterator(String str){
+	public FormNameProperty getStringToFormNameProperty(String frm) {
+		return new FormNameProperty(frm);
+	}
+
+	public IteratorProperty getIterator(String str) {
 		return new IteratorProperty(str);
 	}
-	
-	public OptionIteratorProperty getOptionIterator(String str){
+
+	public OptionIteratorProperty getOptionIterator(String str) {
 		return new OptionIteratorProperty(str);
 	}
 
-	
 	public BusinessObjectProperty getBusinessObject(String bo) {
 
 		return new BusinessObjectProperty(bo);
 
 	}
-	
-	public SourceProperty getSourceProperty(String prop){
+
+	public SourceProperty getSourceProperty(String prop) {
 		return new SourceProperty(prop);
 	}
-	
-	public MethodProperty getMethodProperty(String prop){
+
+	public MethodProperty getMethodProperty(String prop) {
 		return new MethodProperty(prop);
 	}
-	
-	
-	public ServiceProperty getServiceProperty(String field){
+
+	public ServiceProperty getServiceProperty(String field) {
 		return new ServiceProperty(field);
 	}
 
-	public PrimitiveType getPrimitiveType(String field){
+	public PrimitiveType getPrimitiveType(String field) {
 		return new PrimitiveType(field);
 	}
-	
-	
-	public ExpressionProperty getExpressionProperty(String expression){
-         return new ExpressionProperty(expression);
+
+	public ExpressionProperty getExpressionProperty(String expression) {
+		return new ExpressionProperty(expression);
 	}
 
-	public OptionFieldProperty getOptionFieldProperty(String field){
+	public OptionFieldProperty getOptionFieldProperty(String field) {
 		return new OptionFieldProperty(field);
 	}
-	public AscDescProperty getAscDescProperty(String order){
+
+	public AscDescProperty getAscDescProperty(String order) {
 		return new AscDescProperty(order);
 	}
-	public IDProperty getStringToIDProperty(String prop){
+
+	public IDProperty getStringToIDProperty(String prop) {
 		return new IDProperty(prop);
-		
+
 	}
-	
-	public VisualDependencyProperty getVisualDependencyProperty(String prop){
+
+	public GrantedRoleProperty getGrantedRoleProperty(String str) {
+		return new GrantedRoleProperty(str);
+	}
+
+	public RolesProperty getStringToRoleProperty(String prop) {
+		return new RolesProperty(prop);
+	}
+
+	public OperetionTypeProperty getOperetionTypeProperty(String str) {
+		return new OperetionTypeProperty(str);
+	}
+
+	public VisualDependencyProperty getVisualDependencyProperty(String prop) {
 		return new VisualDependencyProperty(prop);
 	}
-	
+
 	public synchronized void dispose() {
 		// dispose colors.
 		Collection<Color> colors = key2Colors.values();

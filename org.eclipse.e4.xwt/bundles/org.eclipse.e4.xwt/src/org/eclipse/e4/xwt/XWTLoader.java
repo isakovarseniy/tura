@@ -84,6 +84,8 @@ import org.eclipse.e4.xwt.converters.StringToExpression;
 import org.eclipse.e4.xwt.converters.StringToFieldsProperty;
 import org.eclipse.e4.xwt.converters.StringToFont;
 import org.eclipse.e4.xwt.converters.StringToFormAttachment;
+import org.eclipse.e4.xwt.converters.StringToFormNameProperty;
+import org.eclipse.e4.xwt.converters.StringToGrantedRoleProperty;
 import org.eclipse.e4.xwt.converters.StringToIDProperty;
 import org.eclipse.e4.xwt.converters.StringToIValidationRule;
 import org.eclipse.e4.xwt.converters.StringToIValueConverter;
@@ -95,12 +97,14 @@ import org.eclipse.e4.xwt.converters.StringToKeySpline;
 import org.eclipse.e4.xwt.converters.StringToKeyTime;
 import org.eclipse.e4.xwt.converters.StringToLinkFieldProperty;
 import org.eclipse.e4.xwt.converters.StringToMethodProperty;
+import org.eclipse.e4.xwt.converters.StringToOperetionTypeProperty;
 import org.eclipse.e4.xwt.converters.StringToOptionFieldProperty;
 import org.eclipse.e4.xwt.converters.StringToOptionIterator;
 import org.eclipse.e4.xwt.converters.StringToPoint;
 import org.eclipse.e4.xwt.converters.StringToPrimitiveType;
 import org.eclipse.e4.xwt.converters.StringToRectangle;
 import org.eclipse.e4.xwt.converters.StringToRepeatBehavior;
+import org.eclipse.e4.xwt.converters.StringToRolesProperty;
 import org.eclipse.e4.xwt.converters.StringToServiceProperty;
 import org.eclipse.e4.xwt.converters.StringToSourceProperty;
 import org.eclipse.e4.xwt.converters.StringToTimeSpan;
@@ -1526,6 +1530,11 @@ public class XWTLoader implements IXWTLoader {
 		registerConvertor(StringToPrimitiveType.instance);
 		registerConvertor(StringToMethodProperty.instance);
 		registerConvertor(StringToIDProperty.instance);
+		registerConvertor(StringToFormNameProperty.instance);
+		registerConvertor(StringToRolesProperty.instance);
+		registerConvertor(StringToGrantedRoleProperty.instance);
+		registerConvertor(StringToOperetionTypeProperty.instance);
+		
 		
 		registerConvertor(StringToFont.instance);
 		registerConvertor(StringToImage.instance);
