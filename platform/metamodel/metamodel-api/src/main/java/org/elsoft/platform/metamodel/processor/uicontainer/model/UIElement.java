@@ -21,7 +21,9 @@ import java.util.Iterator;
 import java.util.UUID;
 
 import org.elsoft.platform.metamodel.PersistentInterface;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateSecurityTriggerDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateSecurityTrigger;
 
 public abstract class UIElement extends PersistentInterface {
 
@@ -33,8 +35,26 @@ public abstract class UIElement extends PersistentInterface {
 	private UIElement parent;
 	private boolean drugable = false;
 	private boolean dropable = false;
+	private CreateSecurityTriggerDAO rendered = null;
+	private CreateSecurityTriggerDAO disable = null;
 
 	
+    public void setSecurityTrigger(CreateSecurityTriggerDAO trigger){
+    	if (trigger.getOperationType().equals("Rendered"))
+    		rendered = trigger;
+    	else
+    		disable = trigger;
+    }
+	
+	public CreateSecurityTriggerDAO getRendered() {
+		return rendered;
+	}
+
+
+	public CreateSecurityTriggerDAO getDisable() {
+		return disable;
+	}
+
 	public boolean isDrugable() {
 		return drugable;
 	}
@@ -75,6 +95,11 @@ public abstract class UIElement extends PersistentInterface {
 
 	@Override
 	protected void serialize(CommandHandler ch) throws Exception {
+		if (rendered != null)
+			CreateSecurityTrigger.save(ch, getUuid(), rendered);
+ 
+		if (disable != null)
+			CreateSecurityTrigger.save(ch, getUuid(), disable);
 
 		Iterator<UIElement> itr = childrens.iterator();
 		while (itr.hasNext()){

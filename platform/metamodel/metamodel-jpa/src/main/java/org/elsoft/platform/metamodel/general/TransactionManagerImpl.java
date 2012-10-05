@@ -113,6 +113,7 @@ public class TransactionManagerImpl implements TransactionManager {
 		.addAnnotatedClass(org.elsoft.platform.metamodel.objects.security.GlobalRoleDAO.class)
 		.addAnnotatedClass(org.elsoft.platform.metamodel.objects.command.security.CreateRoleMapperDAO.class)
 		.addAnnotatedClass(org.elsoft.platform.metamodel.objects.command.security.CreateRoleMapperHolderDAO.class)
+		.addAnnotatedClass(org.elsoft.platform.metamodel.objects.command.form.ui.CreateSecurityTriggerDAO.class)
 		
 		.buildSessionFactory();
 		

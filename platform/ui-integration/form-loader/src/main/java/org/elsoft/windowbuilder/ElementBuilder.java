@@ -27,9 +27,9 @@ public enum ElementBuilder {
 	MetaTableColumn(org.elsoft.windowbuilder.reader.TableColumnReader.class),
 	MetaAction(org.elsoft.windowbuilder.reader.ButtonReader.class),
 	MetaInputText(org.elsoft.windowbuilder.reader.TextReader.class),
-	TabFolder(org.elsoft.windowbuilder.reader.TabFolderReader.class),
-	TabItem(org.elsoft.windowbuilder.reader.TabItemReader.class),
-	TabItem_control(org.elsoft.windowbuilder.reader.TabItemControlReader.class),
+	MetaTabFolder(org.elsoft.windowbuilder.reader.TabFolderReader.class),
+	MetaTabItem(org.elsoft.windowbuilder.reader.TabItemReader.class),
+	MetaTabItem_control(org.elsoft.windowbuilder.reader.TabItemControlReader.class),
 	MetaDropDown(org.elsoft.windowbuilder.reader.DropDownReader.class),
 	Label(org.elsoft.windowbuilder.reader.LabelReader.class),
 	MetaTree(org.elsoft.windowbuilder.reader.TreeReader.class),
@@ -49,7 +49,8 @@ public enum ElementBuilder {
 	DrugAndDrop(org.elsoft.windowbuilder.reader.DrugAndDropReader.class),
 	MetaImage(org.elsoft.windowbuilder.reader.ImageReader.class),
 	MetaCheckbox(org.elsoft.windowbuilder.reader.CheckboxReader.class),
-	Dependency( org.elsoft.windowbuilder.reader.DependencyReader.class)
+	Dependency( org.elsoft.windowbuilder.reader.DependencyReader.class),
+	SecurityTrigger(org.elsoft.windowbuilder.reader.SecurityTriggerReader.class)
 	;
 	
 	Class<?> clazz; 

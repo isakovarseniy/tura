@@ -100,7 +100,7 @@ public class CanvasParser {
 					firstPath = false;
 					Reader parent = stack.peek();
 					if (ElementBuilder.valueOf(objName).equals(
-							ElementBuilder.TabFolder)) {
+							ElementBuilder.MetaTabFolder)) {
 						Reader save = stack.pop();
 						Reader parentOfParent = stack.peek();
 						stack.push(save);

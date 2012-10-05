@@ -4,9 +4,9 @@
 	<Composite.layout>
 		<GridLayout/>
 	</Composite.layout>
-	<TabFolder>
-		<TabItem text="Claster definition">
-			<TabItem.control>
+	<p1:MetaTabFolder>
+		<p1:MetaTabItem text="Claster definition">
+			<p1:MetaTabItem.control>
 				<Composite>
 					<Composite.layout>
 						<GridLayout numColumns="2" />
@@ -62,10 +62,10 @@
 					</Composite>
 					<Label />
 				</Composite>
-			</TabItem.control>
-		</TabItem>
-		<TabItem text="Available packages">
-			<TabItem.control>
+			</p1:MetaTabItem.control>
+		</p1:MetaTabItem>
+		<p1:MetaTabItem text="Available packages">
+			<p1:MetaTabItem.control>
 				<Composite>
 					<Composite.layout>
 						<GridLayout numColumns="2"/>
@@ -134,10 +134,10 @@
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
 				</Composite>
-			</TabItem.control>
-		</TabItem>
-		<TabItem text="Available features">
-			<TabItem.control>
+			</p1:MetaTabItem.control>
+		</p1:MetaTabItem>
+		<p1:MetaTabItem text="Available features">
+			<p1:MetaTabItem.control>
 				<Composite>
 					<Composite.layout>
 						<GridLayout/>
@@ -187,10 +187,11 @@
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
 				</Composite>
-			</TabItem.control>
-		</TabItem>
-		<TabItem text="Enable package">
-			<TabItem.control>
+			</p1:MetaTabItem.control>
+		</p1:MetaTabItem>
+		<p1:MetaTabItem text="Enable package">
+			<p1:MetaTabItem.control>
+				<p1:SecurityTrigger roles="superAdministrator" granted="ifGranted" operation="Rendered"/>
 				<Composite>
 					<Composite.layout>
 						<GridLayout/>
@@ -218,7 +219,7 @@
 						</p1:MetaAction>
 					</Composite>
 				</Composite>
-			</TabItem.control>
-		</TabItem>
-	</TabFolder>
+			</p1:MetaTabItem.control>
+		</p1:MetaTabItem>
+	</p1:MetaTabFolder>
 </Composite>
