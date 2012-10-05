@@ -66,7 +66,7 @@ public class RolesPropertyEditor extends PropertyEditor implements
 				.searchString("functionalDomainName", frmName.getFormName()).seek()
 				.getApplicationHandler().cleanSearch()
 				.searchString("applicationName", frmName.getApplication()).seek();
-		Iterator<ApplicationRoleDAO> itr = apph.getApplicationRole().getList();
+		Iterator<ApplicationRoleDAO> itr = apph.getApplicationRole().cleanSearch().getList();
 
 		
 		ArrayList<Object> array = new ArrayList<Object>();

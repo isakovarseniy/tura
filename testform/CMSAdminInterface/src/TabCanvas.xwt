@@ -191,7 +191,7 @@
 		</p1:MetaTabItem>
 		<p1:MetaTabItem text="Enable package">
 			<p1:MetaTabItem.control>
-				<p1:SecurityTrigger roles="superAdministrator" granted="ifGranted" operation="Rendered"/>
+				<p1:SecurityTrigger roles="superAdministrator" granted="ifNotGranted" operation="Disabled"/>
 				<Composite>
 					<Composite.layout>
 						<GridLayout/>
