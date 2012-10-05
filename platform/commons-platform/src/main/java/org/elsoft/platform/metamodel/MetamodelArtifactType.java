@@ -21,6 +21,7 @@ public enum MetamodelArtifactType {
 	DataControlFile,
 	FactoryBeanFile,
 	WEBXMLFile,
+	FACESCONFIGFile,
 	HelperClasses,
 	MAVENPOMFile,
 	MAVENPOM_JAR,

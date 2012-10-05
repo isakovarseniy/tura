@@ -30,6 +30,7 @@ public class WEBXMLArtifactCalculator extends ArtifactCalculator {
 		ArrayList<Artifact> list = new ArrayList<Artifact>();
 
 		list.add(new Artifact(MetamodelArtifactType.WEBXMLFile,null));
+		list.add(new Artifact(MetamodelArtifactType.FACESCONFIGFile,null));
 
 		return list;
 	}

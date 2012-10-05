@@ -20,11 +20,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import org.apache.commons.lang.StringUtils;
 import org.elsoft.platform.metamodel.MetamodelObjectType;
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateSecurityTriggerDAO;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateSecurityTrigger;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ActionElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Button;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Canvas;
@@ -99,6 +102,16 @@ public class JSPXModeBuilder {
 					.setViewPortName(StringUtils.uncapitalize(name));
 		}
 
+		if (element.getRendered() != null) {
+			element.getPropertiesExtender().put(
+					"rendered_expression", securityConverter(element.getRendered()));            
+		}
+
+		if (element.getDisable() != null) {
+			element.getPropertiesExtender().put(
+					"disable_expression", securityConverter(element.getDisable()));            
+		}
+
 		if (element instanceof ExternalIterator) {
 			if (((ExternalIterator) element).getDataSrcLnk() != null) {
 				String name = ((ExternalIterator) element).getDataSrcLnk()
@@ -157,11 +170,11 @@ public class JSPXModeBuilder {
 								.getTriggerType()
 							.equals(MetamodelTriggerEventsType.CreateEventRallback
 									.name())))
-							|| (((ActionElement) element).getTriggerType()
-									.equals(MetamodelTriggerEventsType.CreateEventUIElement2ServiceMethod
-											.name()))		
-					
-					)
+					|| (((ActionElement) element).getTriggerType()
+							.equals(MetamodelTriggerEventsType.CreateEventUIElement2ServiceMethod
+									.name()))
+
+			)
 				element.getPropertiesExtender().put("immediate", "true");
 		}
 
@@ -198,11 +211,11 @@ public class JSPXModeBuilder {
 			if (element instanceof DrugAndDrop) {
 				element.getPropertiesExtender().put(
 						"OnItemDrop",
-						dependeniesBuilder(((DrugAndDrop) element)
-								.getUpdateOnItemDrop(), keyMap));
+						dependeniesBuilder(
+								((DrugAndDrop) element).getUpdateOnItemDrop(),
+								keyMap));
 			}
 
-			
 			if (element instanceof Lov) {
 				element.getPropertiesExtender().put(
 						"OnValueChanged",
@@ -212,6 +225,24 @@ public class JSPXModeBuilder {
 			}
 
 		}
+	}
+
+	private String securityConverter(CreateSecurityTriggerDAO trigger) {
+		String str = "";
+
+		if (trigger.getGranted().equals("ifNotGranted"))
+			str = "!p:ifGranted";
+		else
+			str = "p:" + trigger.getGranted();
+		String roles = "";
+		StringTokenizer token = new StringTokenizer(trigger.getRoles(), " ");
+		while (token.hasMoreElements()) {
+			roles = roles + ",'" + token.nextToken() + "'";
+		}
+
+		str = str + "(" + roles.substring(1) + ")";
+		return str;
+
 	}
 
 	private String dependeniesBuilder(List<EventDAO> ls,
