@@ -1,10 +1,10 @@
-<Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="DetailCanvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+<Composite xmlns="http1://www.eclipse.org/xwt/presentation" xmlns:x="http1://www.eclipse.org/xwt" x:Class="DetailCanvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
 	<Composite.layout>
 		<GridLayout/>
 	</Composite.layout>
-	<TabFolder>
-		<TabItem text="Tab1">
-			<TabItem.control>
+	<p1:MetaTabFolder>
+		<p1:MetaTabItem text="Tab1">
+			<p1:MetaTabItem.control>
 				<Composite>
 					<Composite.layout>
 						<GridLayout numColumns="2"/>
@@ -20,10 +20,10 @@
 						</p1:MetaInputText.layoutData>
 					</p1:MetaInputText>
 				</Composite>
-			</TabItem.control>
-		</TabItem>
-		<TabItem text="Tab2">
-			<TabItem.control>
+			</p1:MetaTabItem.control>
+		</p1:MetaTabItem>
+		<p1:MetaTabItem text="Tab2">
+			<p1:MetaTabItem.control>
 				<Composite>
 					<Composite.layout>
 						<GridLayout numColumns="2"/>
@@ -39,7 +39,7 @@
 						</p1:MetaInputText.layoutData>
 					</p1:MetaInputText>
 				</Composite>
-			</TabItem.control>
-		</TabItem>
-	</TabFolder>
+			</p1:MetaTabItem.control>
+		</p1:MetaTabItem>
+	</p1:MetaTabFolder>
 </Composite>
