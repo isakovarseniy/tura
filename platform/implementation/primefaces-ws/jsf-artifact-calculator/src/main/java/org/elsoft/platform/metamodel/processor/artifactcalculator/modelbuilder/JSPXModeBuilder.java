@@ -27,7 +27,6 @@ import org.elsoft.platform.metamodel.MetamodelObjectType;
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateSecurityTriggerDAO;
-import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateSecurityTrigger;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ActionElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Button;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Canvas;

@@ -168,6 +168,8 @@ public class DataControlModelBuilder {
 				RemoteMethod rmi = itrRem.next();
 				MappedType tp = (MappedType) rmi.getProxy();
 				proxy.put(tp.resPackageName + tp.resTypeName, tp);
+				dependecy.put(tp.groupName + tp.artifactName
+						+ tp.artifactVersion, tp);
 
 			}
 

@@ -45,7 +45,7 @@ public class Helper {
 					functionalDomain, application,level,inputContext));
 			inputContext.putAll(context);
 
-			Iterator<ModelMappingDAO> itr = packetHandler.getModelMappingHandler().getList();
+			Iterator<ModelMappingDAO> itr = packetHandler.getModelMappingHandler().cleanSearch().getList();
 			while (itr.hasNext()) {
 				ModelMappingDAO modelMapping = itr.next();
 				HashMap<String, Object> outputContext = packetHandler.getModelMappingHandler().generate(

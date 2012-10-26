@@ -1,4 +1,4 @@
-<Composite xmlns="http1://www.eclipse.org/xwt/presentation" xmlns:x="http1://www.eclipse.org/xwt" x:Class="DetailCanvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+<Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http1://www.eclipse.org/xwt" x:Class="DetailCanvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
 	<Composite.layout>
 		<GridLayout/>
 	</Composite.layout>
