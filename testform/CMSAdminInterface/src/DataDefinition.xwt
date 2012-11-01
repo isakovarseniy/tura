@@ -13,9 +13,8 @@
 			<p1:Relation dstDataControl="OrgStructureLnk">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="objId"/>
 			</p1:Relation>
-			<p1:DefaultSearch size="64, 64" fieldsProperty="orgType" value="TOP" refType="String"/>
 		</p1:DataControl>
-		<p1:DataControl x:Name="OrgStructureLnk" businessObject="Media.CMS.organization" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrgStructureLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrgStructureLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OrgStructureLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+		<p1:DataControl x:Name="OrgStructureLnk" businessObject="Media.CMS.organization" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;findSubOrganizations&quot;}}">
 			<p1:Relation dstDataControl="OrgStructureLnk" treeRelation="true">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="upperOrg"/>
 			</p1:Relation>
