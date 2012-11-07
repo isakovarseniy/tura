@@ -21,6 +21,7 @@
 	<modules>
 		<module>commons-platform</module>
 		<module>commons-platform-ejb</module>
+		<module>commons-platform-jpa</module>
 		<module>commons-platform-datastructure</module>
 		<module>metamodel</module>
 		<module>implementation</module>

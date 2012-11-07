@@ -45,6 +45,11 @@
 			<version>1.7.6</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.elsoft.platform.metamodel</groupId>
+			<artifactId>metamodel-datastructure</artifactId>
+			<version>1.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>commons-collections</groupId>
@@ -125,8 +130,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.elsoft.platform.metamodel</groupId>
-			<artifactId>metamodel-jpa</artifactId>
+			<groupId>org.elsoft.platform</groupId>
+			<artifactId>commons-platform-jpa</artifactId>
 			<version>1.0</version>
 		</dependency>
 

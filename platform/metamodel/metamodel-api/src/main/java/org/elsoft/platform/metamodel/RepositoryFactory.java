@@ -25,10 +25,10 @@ import org.elsoft.platform.datacontrol.RootModeSwitch;
 import org.elsoft.platform.datacontrol.StructureControl;
 import org.elsoft.platform.metamodel.suite.DomainServiceDC;
 import org.elsoft.platform.metamodel.context.MetadataStructureControl;
-import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
 import org.elsoft.platform.metamodel.types.TypeDefinitionHandler;
 import org.elsoft.platform.metamodel.types.TypeMappingHandler;
 import org.elsoft.platform.metamodel.types.transformation.ArtifactTypeHandler;
+import org.elsoft.platform.persistence.TransactionManagerImpl;
 
 public class RepositoryFactory {
 

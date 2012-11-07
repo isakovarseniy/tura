@@ -38,8 +38,6 @@ import org.elsoft.platform.datacontrol.annotations.VersionField;
 import org.elsoft.platform.datacontrol.extender.Handler;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.context.SessionContext;
-import org.elsoft.platform.metamodel.general.GeneralService;
-import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
 import org.elsoft.platform.metamodel.layers.datasource.DataSourceHandler;
 import org.elsoft.platform.metamodel.layers.uicontainer.UiContainerHandler;
 import org.elsoft.platform.metamodel.objects.ELsoftObject;
@@ -47,6 +45,8 @@ import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.suite.ApplicationDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.Processor;
+import org.elsoft.platform.persistence.ELsoftJPAEntityService;
+import org.elsoft.platform.persistence.TransactionManagerImpl;
 
 @TriggerOutput(expression = SessionContext.RESULT_EXPRESSION)
 @Base(clazz = ApplicationDAO.class)
@@ -55,7 +55,7 @@ import org.elsoft.platform.metamodel.processor.Processor;
 public class ApplicationHandler extends
 		Handler<ApplicationHandler, ApplicationDAO> {
 	@Proxy(name = "generalService")
-	private GeneralService generalService;
+	private ELsoftJPAEntityService generalService;
 	@InsertTrigger(objectAction = "insert", parameters = @Variables(value = { @Variable(expression = SessionContext.CURRENT_RECORD, type = ELsoftObject.class) }), object = "generalService")
 	private Method insert;
 	@CreateTrigger(objectAction = "create", parameters = @Variables(value = { @Variable(value = "org.elsoft.platform.metamodel.objects.suite.ApplicationDAO", type = String.class) }), object = "generalService")
@@ -131,7 +131,7 @@ public class ApplicationHandler extends
 
 	public Object getGeneralService() {
 		if (generalService == null)
-			generalService = new GeneralService(
+			generalService = new ELsoftJPAEntityService(
 					TransactionManagerImpl.getCurrentInstance());
 		return generalService;
 	}

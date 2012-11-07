@@ -36,7 +36,6 @@
 		<module>metamodel-ear</module>
 		<module>metamodel-api</module>
 		<module>metamodel-datastructure</module>
-		<module>metamodel-jpa</module>
 	</modules>
 
 

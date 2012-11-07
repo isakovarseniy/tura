@@ -38,14 +38,14 @@ import org.elsoft.platform.datacontrol.annotations.UpdateTrigger;
 import org.elsoft.platform.datacontrol.annotations.VersionField;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.context.SessionContext;
-import org.elsoft.platform.metamodel.general.GeneralService;
-import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
 import org.elsoft.platform.metamodel.objects.ELsoftObject;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.datasource.DataSourceDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.Processor;
 import org.elsoft.platform.metamodel.processor.datasource.model.IndependentType;
+import org.elsoft.platform.persistence.ELsoftJPAEntityService;
+import org.elsoft.platform.persistence.TransactionManagerImpl;
 import org.elsoft.platform.datacontrol.extender.Handler;
 
 @TriggerOutput(expression = SessionContext.RESULT_EXPRESSION)
@@ -56,7 +56,7 @@ public class DataSourceHandler extends
 		Handler<DataSourceHandler, DataSourceDAO> {
 
 	@Proxy(name = "generalService")
-	private GeneralService generalService;
+	private ELsoftJPAEntityService generalService;
 	@InsertTrigger(objectAction = "insert", parameters = @Variables(value = { @Variable(expression = SessionContext.CURRENT_RECORD, type = ELsoftObject.class) }), object = "generalService")
 	private Method insert;
 	@CreateTrigger(objectAction = "create", parameters = @Variables(value = { @Variable(value = "org.elsoft.platform.metamodel.objects.datasource.DataSourceDAO", type = String.class) }), object = "generalService")
@@ -82,7 +82,7 @@ public class DataSourceHandler extends
 
 	public Object getGeneralService() {
 		if (generalService == null)
-		    generalService = new GeneralService(TransactionManagerImpl.getCurrentInstance());
+		    generalService = new ELsoftJPAEntityService(TransactionManagerImpl.getCurrentInstance());
 		return generalService;
 	}
 

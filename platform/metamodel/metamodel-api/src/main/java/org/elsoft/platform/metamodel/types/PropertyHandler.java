@@ -35,10 +35,10 @@ import org.elsoft.platform.datacontrol.annotations.UpdateTrigger;
 import org.elsoft.platform.datacontrol.annotations.VersionField;
 import org.elsoft.platform.datacontrol.extender.Handler;
 import org.elsoft.platform.metamodel.context.SessionContext;
-import org.elsoft.platform.metamodel.general.GeneralService;
-import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
 import org.elsoft.platform.metamodel.objects.ELsoftObject;
 import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
+import org.elsoft.platform.persistence.ELsoftJPAEntityService;
+import org.elsoft.platform.persistence.TransactionManagerImpl;
 
 @TriggerOutput(expression = SessionContext.RESULT_EXPRESSION)
 @Base(clazz = PropertyDAO.class)
@@ -47,7 +47,7 @@ import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
 public class PropertyHandler extends Handler<PropertyHandler, PropertyDAO> {
 
 	@Proxy(name = "generalService")
-	private GeneralService generalService;
+	private ELsoftJPAEntityService generalService;
 	@InsertTrigger(objectAction = "insert", parameters = @Variables(value = { @Variable(expression = SessionContext.CURRENT_RECORD, type = ELsoftObject.class) }), object = "generalService")
 	private Method insert;
 	@CreateTrigger(objectAction = "create", parameters = @Variables(value = { @Variable(value = "org.elsoft.platform.metamodel.objects.type.PropertyDAO", type = String.class) }), object = "generalService")
@@ -113,7 +113,7 @@ public class PropertyHandler extends Handler<PropertyHandler, PropertyDAO> {
 
 	public Object getGeneralService() {
 		if (generalService == null)
-		    generalService = new GeneralService(TransactionManagerImpl.getCurrentInstance());
+		    generalService = new ELsoftJPAEntityService(TransactionManagerImpl.getCurrentInstance());
 		return generalService;
 	}
 

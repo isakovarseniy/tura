@@ -37,14 +37,14 @@ import org.elsoft.platform.datacontrol.annotations.UpdateTrigger;
 import org.elsoft.platform.datacontrol.annotations.VersionField;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.context.SessionContext;
-import org.elsoft.platform.metamodel.general.GeneralService;
-import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
 import org.elsoft.platform.metamodel.objects.ELsoftObject;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.ui.UIContainerDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.Processor;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Form;
+import org.elsoft.platform.persistence.ELsoftJPAEntityService;
+import org.elsoft.platform.persistence.TransactionManagerImpl;
 import org.elsoft.platform.datacontrol.extender.Handler;
 
 @TriggerOutput(expression = SessionContext.RESULT_EXPRESSION)
@@ -55,7 +55,7 @@ public class UiContainerHandler extends
 		Handler<UiContainerHandler, UIContainerDAO> {
 
 	@Proxy(name = "generalService")
-	private GeneralService generalService;
+	private ELsoftJPAEntityService generalService;
 	@InsertTrigger(objectAction = "insert", parameters = @Variables(value = { @Variable(expression = SessionContext.CURRENT_RECORD, type = ELsoftObject.class) }), object = "generalService")
 	private Method insert;
 	@CreateTrigger(objectAction = "create", parameters = @Variables(value = { @Variable(value = "org.elsoft.platform.metamodel.objects.ui.UIContainerDAO", type = String.class) }), object = "generalService")
@@ -121,7 +121,7 @@ public class UiContainerHandler extends
 
 	public Object getGeneralService() {
 		if (generalService == null)
-		    generalService = new GeneralService(TransactionManagerImpl.getCurrentInstance());
+		    generalService = new ELsoftJPAEntityService(TransactionManagerImpl.getCurrentInstance());
 		return generalService;
 	}
 
