@@ -132,7 +132,7 @@ public class ApplicationHandler extends
 	public Object getGeneralService() {
 		if (generalService == null)
 			generalService = new GeneralService(
-					TransactionManagerImpl.getInstance());
+					TransactionManagerImpl.getCurrentInstance());
 		return generalService;
 	}
 

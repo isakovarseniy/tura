@@ -109,7 +109,7 @@ public class GlobalRoleHandler extends
 
 	public Object getGeneralService() {
 		if (generalService == null)
-		    generalService = new GeneralService(TransactionManagerImpl.getInstance());
+		    generalService = new GeneralService(TransactionManagerImpl.getCurrentInstance());
 		return generalService;
 	}
 
