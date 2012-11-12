@@ -44,13 +44,8 @@ public class WSEJBMavenProxyArtifactCalculator extends ArtifactCalculator {
 
 			retModel.put(obj.getResPackageName()+obj.getResTypeName(), obj);
 		}
-		list.add(new Artifact(MetamodelArtifactType.MAVENPOMFile, retModel.values()));
+		list.add(new Artifact(MetamodelArtifactType.MAVENPOMFile, retModel.values(),"WS-EJB-Client"));
 		return list;
-	}
-
-	@Override
-	protected String getTechnology() {
-		return "WS-EJB-Client";
 	}
 
 }

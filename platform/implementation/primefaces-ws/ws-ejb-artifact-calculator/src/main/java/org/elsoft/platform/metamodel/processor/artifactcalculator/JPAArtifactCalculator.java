@@ -33,31 +33,27 @@ public class JPAArtifactCalculator extends ArtifactCalculator {
 				(MetamodelPlatformLevel) context
 						.get(PlatformConfig.LAYER_PARAMETER), it);
 
-		if (MetamodelTypeOfTypes.Entity.name().equals(it.getTypeOftype()))
-			list.add(new Artifact(MetamodelArtifactType.ENTITY, it));
+		if (MetamodelTypeOfTypes.Entity.name().equals(it.getTypeOftype())) {
+			list.add(new Artifact(MetamodelArtifactType.ENTITY, it,"JPA"));
 
-		if (MetamodelTypeOfTypes.Service.name().equals(it.getTypeOftype())) {
-			list.add(new Artifact(MetamodelArtifactType.SESSIONBEAN, it));
+			@SuppressWarnings("unchecked")
+			ArrayList<Object> wsClient = (ArrayList<Object>) context
+					.get(JPA_SERVICES);
+			if (wsClient == null)
+				wsClient = new ArrayList<Object>();
+
+			wsClient.add(it);
+
+			outputContext.put(JPA_SERVICES, wsClient);
+
 		}
 
-		@SuppressWarnings("unchecked")
-		ArrayList<Object> wsClient = (ArrayList<Object>) context
-				.get(JPA_SERVICES);
-		if (wsClient == null)
-			wsClient = new ArrayList<Object>();
-
-		wsClient.add(it);
-
-		outputContext.put(JPA_SERVICES, wsClient);
+		if (MetamodelTypeOfTypes.Service.name().equals(it.getTypeOftype())) {
+			list.add(new Artifact(MetamodelArtifactType.SESSIONBEAN, it,"JPA"));
+		}
 
 		return list;
 
-	}
-
-	@Override
-	protected String getTechnology() {
-		// TODO Auto-generated method stub
-		return "JPA";
 	}
 
 }

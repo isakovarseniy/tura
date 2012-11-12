@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
+import org.elsoft.platform.datacontrol.DCMetaInfo;
 import org.elsoft.platform.metamodel.MetamodelPlatformLevel;
 import org.elsoft.platform.metamodel.PlatformPrimetiveTypes;
 import org.elsoft.platform.metamodel.RepositoryFactory;
@@ -64,6 +65,9 @@ public class DataControlModelBuilder {
 				param.setType(new MappedType(param.getType().getTypedao(),
 						domain, functionalDomain, application, level, rf));
 			}
+
+			rmi.setProxy(new MappedType(rmi.getProxy().getTypedao(), domain,
+					functionalDomain, application, level, rf));
 
 			rmi.setProxy(new MappedType(rmi.getProxy().getTypedao(), domain,
 					functionalDomain, application, level, rf));
@@ -142,6 +146,7 @@ public class DataControlModelBuilder {
 		private String uicontainer;
 		private HashMap<String, MappedType> proxy = new HashMap<String, MappedType>();
 		private HashMap<String, MappedType> dependecy = new HashMap<String, MappedType>();
+		private HashMap<String, MappedType> returnTypes = new HashMap<String, MappedType>();
 		private ArrayList<String> listOfDataLink = new ArrayList<String>();
 
 		public DataLinkExtender(DataLink dataLink, Form frm) {
@@ -171,6 +176,10 @@ public class DataControlModelBuilder {
 				dependecy.put(tp.groupName + tp.artifactName
 						+ tp.artifactVersion, tp);
 
+				if (rmi.getMethodType().equals(DCMetaInfo.CreateTrigger.name())){
+					tp = (MappedType) rmi.getReturnType();
+					returnTypes.put(tp.resPackageName + tp.resTypeName, tp);
+				}
 			}
 
 			itrRem = dataLink.getRemoteMethods().iterator();
@@ -257,6 +266,10 @@ public class DataControlModelBuilder {
 			this.uicontainer = uicontainer;
 		}
 
+		public HashMap<String, MappedType> getReturnTypes() {
+			return returnTypes;
+		}
+
 	}
 
 	public class VersionExt extends Version {
@@ -331,6 +344,7 @@ public class DataControlModelBuilder {
 		private String artifactName;
 		private String groupName;
 		private String artifactVersion;
+		private String technology;
 
 		public MappedType(TypeDAO type, String domain, String functionalDomain,
 				String application, MetamodelPlatformLevel level,
@@ -367,6 +381,7 @@ public class DataControlModelBuilder {
 			this.artifactName = typemap.getArtifactName();
 			this.groupName = typemap.getGroupName();
 			this.artifactVersion = typemap.getArtifactVersion();
+			this.setTechnology(typemap.getTechnology());
 
 		}
 
@@ -408,6 +423,14 @@ public class DataControlModelBuilder {
 
 		public void setResTypeName(String resTypeName) {
 			this.resTypeName = resTypeName;
+		}
+
+		public String getTechnology() {
+			return technology;
+		}
+
+		public void setTechnology(String technology) {
+			this.technology = technology;
 		}
 
 	}

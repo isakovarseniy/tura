@@ -14,18 +14,12 @@ public class LifeRayArtifactCalculator extends ArtifactCalculator{
 			HashMap<String, Object> context,HashMap<String, Object> outputContext) {
 		ArrayList<Artifact> list = new ArrayList<Artifact>();
 
-		list.add(new Artifact(MetamodelArtifactType.LIFERAY_DISPLAY,null));
-		list.add(new Artifact(MetamodelArtifactType.LIFERAY_PORTLET,model));
-		list.add(new Artifact(MetamodelArtifactType.PORTLET,model));
+		list.add(new Artifact(MetamodelArtifactType.LIFERAY_DISPLAY,null,"LIFERAY-PORTLET-JSF"));
+		list.add(new Artifact(MetamodelArtifactType.LIFERAY_PORTLET,model,"LIFERAY-PORTLET-JSF"));
+		list.add(new Artifact(MetamodelArtifactType.PORTLET,model,"LIFERAY-PORTLET-JSF"));
 		outputContext.putAll(context);
 
 		return list;
 	}
 
-	@Override
-	protected String getTechnology() {
-		return "LIFERAY-PORTLET-JSF";
-	}
-	
-	
 }

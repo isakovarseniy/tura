@@ -29,15 +29,10 @@ public class WEBXMLArtifactCalculator extends ArtifactCalculator {
 			HashMap<String, Object> context,HashMap<String, Object> outputContext) {
 		ArrayList<Artifact> list = new ArrayList<Artifact>();
 
-		list.add(new Artifact(MetamodelArtifactType.WEBXMLFile,null));
-		list.add(new Artifact(MetamodelArtifactType.FACESCONFIGFile,null));
+		list.add(new Artifact(MetamodelArtifactType.WEBXMLFile,null,"JSF"));
+		list.add(new Artifact(MetamodelArtifactType.FACESCONFIGFile,null,"JSF"));
 
 		return list;
-	}
-
-	@Override
-	protected String getTechnology() {
-		return "JSF";
 	}
 
 }

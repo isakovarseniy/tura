@@ -30,14 +30,9 @@ public class WSEJBPersistentArtifactCalculator extends ArtifactCalculator{
 			HashMap<String, Object> outputContext) {
 		ArrayList<Artifact> list = new ArrayList<Artifact>();
 
-		list.add(new Artifact(MetamodelArtifactType.PERSISTENCEXML, null));
+		list.add(new Artifact(MetamodelArtifactType.PERSISTENCEXML, null,"WS-EJB"));
 
 		return list;
-	}
-
-	@Override
-	protected String getTechnology() {
-		return "WS-EJB";
 	}
 
 }

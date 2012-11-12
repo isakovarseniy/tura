@@ -13,15 +13,12 @@ public class MAVENPOMXMLArtifactCalculatorLiferay extends ArtifactCalculator {
 			HashMap<String, Object> context,HashMap<String, Object> outputContext) {
 		ArrayList<Artifact> list = new ArrayList<Artifact>();
 
-		list.add(new Artifact(MetamodelArtifactType.MAVENPOMFile,null));
+		list.add(new Artifact(MetamodelArtifactType.MAVENPOMFile,null,"LIFERAY-PORTLET-JSF"));
+		list.add(new Artifact(MetamodelArtifactType.TRANSACTIONMANAGER,
+				null,"WS-EJB-JERSEY"));
 		outputContext.putAll(context);
 
 		return list;
-	}
-
-	@Override
-	protected String getTechnology() {
-		return "LIFERAY-PORTLET-JSF";
 	}
 
 }

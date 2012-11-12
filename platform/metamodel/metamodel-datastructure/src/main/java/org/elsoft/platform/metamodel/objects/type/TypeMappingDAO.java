@@ -56,6 +56,8 @@ public class TypeMappingDAO extends ELsoftObject {
 	@Column(name = "ARTIFACT_VERSION")
 	private String artifactVersion;
 
+	@Column(name = "TECHNOLOGY")
+	private String technology;
 
 
 	public String getArtifactName() {
@@ -156,6 +158,16 @@ public class TypeMappingDAO extends ELsoftObject {
 
 	public void setTypeReference(Long typeReference) {
 		this.typeReference = typeReference;
+	}
+
+
+	public String getTechnology() {
+		return technology;
+	}
+
+
+	public void setTechnology(String technology) {
+		this.technology = technology;
 	}
 
 }

@@ -15,14 +15,9 @@ public class HelperClassesArtifactCalculator extends ArtifactCalculator {
 			HashMap<String, Object> context,HashMap<String, Object> outputContext) {
 		ArrayList<Artifact> list = new ArrayList<Artifact>();
 
-		list.add(new Artifact(MetamodelArtifactType.HelperClasses,null));
+		list.add(new Artifact(MetamodelArtifactType.HelperClasses,null,"JSF"));
 
 		return list;
-	}
-
-	@Override
-	protected String getTechnology() {
-		return "JSF";
 	}
 
 }

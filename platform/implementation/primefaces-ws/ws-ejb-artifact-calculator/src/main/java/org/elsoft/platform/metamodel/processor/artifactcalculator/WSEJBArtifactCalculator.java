@@ -48,20 +48,15 @@ public class WSEJBArtifactCalculator extends ArtifactCalculator {
 						.get(PlatformConfig.LAYER_PARAMETER), it);
 
 		if (MetamodelTypeOfTypes.Entity.name().equals(it.getTypeOftype()))
-		   list.add(new Artifact(MetamodelArtifactType.ENTITY, it));
+		   list.add(new Artifact(MetamodelArtifactType.ENTITY, it,"WS-EJB"));
 
 		if (MetamodelTypeOfTypes.Service.name().equals(it.getTypeOftype())){
-			   list.add(new Artifact(MetamodelArtifactType.SESSIONBEAN, it));
-			   list.add(new Artifact(MetamodelArtifactType.REMOTEINTERFACE, it));
+			   list.add(new Artifact(MetamodelArtifactType.SESSIONBEAN, it,"WS-EJB"));
+			   list.add(new Artifact(MetamodelArtifactType.REMOTEINTERFACE, it,"WS-EJB"));
 			
 		}
 		
 		return list;
-	}
-
-	@Override
-	protected String getTechnology() {
-		return "WS-EJB";
 	}
 
 }

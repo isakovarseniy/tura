@@ -43,15 +43,10 @@ public class JPAMavenArtifactCalculator extends ArtifactCalculator {
 
 			retModel.put(obj.getResPackageName() + obj.getResTypeName(), obj);
 		}
-		list.add(new Artifact(MetamodelArtifactType.MAVENPOMFile, null));
-		list.add(new Artifact(MetamodelArtifactType.TRANSACTIONMANAGER, retModel
-				.values()));
+		list.add(new Artifact(MetamodelArtifactType.MAVENPOMFile, null,"JPA"));
+		list.add(new Artifact(MetamodelArtifactType.JPAObject, retModel
+				.values(),"JPA"));
 		return list;
-	}
-
-	@Override
-	protected String getTechnology() {
-		return "JPA";
 	}
 
 }

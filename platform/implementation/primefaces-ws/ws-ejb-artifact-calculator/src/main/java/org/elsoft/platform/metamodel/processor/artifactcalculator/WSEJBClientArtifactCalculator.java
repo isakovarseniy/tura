@@ -29,9 +29,4 @@ public class WSEJBClientArtifactCalculator extends ArtifactCalculator {
 		return new ArrayList<Artifact>();
 	}
 
-	@Override
-	protected String getTechnology() {
-		return "WS-EJB-Client";
-	}
-
 }

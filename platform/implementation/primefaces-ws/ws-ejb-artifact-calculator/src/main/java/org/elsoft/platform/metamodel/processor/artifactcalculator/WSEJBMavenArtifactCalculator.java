@@ -30,16 +30,11 @@ public class WSEJBMavenArtifactCalculator extends ArtifactCalculator {
 			HashMap<String, Object> outputContext) {
 		ArrayList<Artifact> list = new ArrayList<Artifact>();
 
-		list.add(new Artifact(MetamodelArtifactType.MAVENPOM_EAR, null));
-		list.add(new Artifact(MetamodelArtifactType.MAVENPOM_JAR, null));
-		list.add(new Artifact(MetamodelArtifactType.MAVENPOM_HIGHLAVEL, null));
+		list.add(new Artifact(MetamodelArtifactType.MAVENPOM_EAR, null,"WS-EJB"));
+		list.add(new Artifact(MetamodelArtifactType.MAVENPOM_JAR, null,"WS-EJB"));
+		list.add(new Artifact(MetamodelArtifactType.MAVENPOM_HIGHLAVEL, null,"WS-EJB"));
 
 		return list;
-	}
-
-	@Override
-	protected String getTechnology() {
-		return "WS-EJB";
 	}
 
 }

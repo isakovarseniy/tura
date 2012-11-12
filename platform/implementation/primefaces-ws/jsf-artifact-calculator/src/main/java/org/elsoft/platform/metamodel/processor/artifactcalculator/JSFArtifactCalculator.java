@@ -38,6 +38,8 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 	public static String PROXY_LIST = "ProxyList";
 	public static String DEPENDENIES_LIST = "DependenciesList";
 	public static String MODULES_LIST="ModulesList";
+	public static String RETURN_TYPES="returnTypes";
+	
 	
 
 	@Override
@@ -52,14 +54,14 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 		while (itrWin.hasNext()) {
 			Window win = itrWin.next();
 			list.add(new Artifact(MetamodelArtifactType.JSPXFile,
-					(new JSPXModeBuilder()).builder(win, frm)));
+					(new JSPXModeBuilder()).builder(win, frm),"JSF"));
 		}
 
 		Iterator<Canvas> itrCanvas = frm.getCanvases().iterator();
 		while (itrCanvas.hasNext()) {
 			Canvas canvas = itrCanvas.next();
 			list.add(new Artifact(MetamodelArtifactType.JSPXFile,
-					(new JSPXModeBuilder()).builder(canvas, frm)));
+					(new JSPXModeBuilder()).builder(canvas, frm),"JSF"));
 		}
 
 		@SuppressWarnings("unchecked")
@@ -69,6 +71,13 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 			proxyMap = new HashMap<String, Object>();
 
 
+		@SuppressWarnings("unchecked")
+		HashMap<String, Object> returnTypesMap = (HashMap<String, Object>) context
+				.get(RETURN_TYPES);
+		if (returnTypesMap == null)
+			returnTypesMap = new HashMap<String, Object>();
+		
+		
 		@SuppressWarnings("unchecked")
 		HashMap<String, Object> dependenciesMap = (HashMap<String, Object>) context
 				.get(DEPENDENIES_LIST);
@@ -97,13 +106,15 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 							(String) context
 									.get(PlatformConfig.APPLICATION_PARAMETER),
 							(MetamodelPlatformLevel) context
-									.get(PlatformConfig.LAYER_PARAMETER), frm));
+									.get(PlatformConfig.LAYER_PARAMETER), frm),"JSF");
 
 			proxyMap.putAll(((DataLinkExtender) (artifact.getModel()))
 					.getProxyHash());
 
 			dependenciesMap.putAll(((DataLinkExtender) (artifact.getModel()))
 					.getDependensiesHash());
+			returnTypesMap.putAll(((DataLinkExtender) (artifact.getModel()))
+					.getReturnTypes());
 			
 			list.add(artifact);
 		}
@@ -112,17 +123,14 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 		outputContext.put(PROXY_LIST, proxyMap);
 		outputContext.put(DEPENDENIES_LIST, dependenciesMap);
 		outputContext.put(MODULES_LIST, modulesList);
+		outputContext.put(RETURN_TYPES, returnTypesMap);
 		
-
+		Object obj = new FactoryBeanModelBuilder().builder(frm);
+		
 		list.add(new Artifact(MetamodelArtifactType.FactoryBeanFile,
-				(new FactoryBeanModelBuilder()).builder(frm)));
+				obj,"JSF"));
 
 		return list;
-	}
-
-	@Override
-	protected String getTechnology() {
-		return "JSF";
 	}
 
 }

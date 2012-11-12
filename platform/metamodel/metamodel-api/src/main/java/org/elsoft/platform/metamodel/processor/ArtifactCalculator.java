@@ -41,10 +41,10 @@ public abstract class ArtifactCalculator {
 			Artifact artifact = itr.next();
 			ArtifactTypeDAO artifactDAO = rf.getArtifactTypeHandler().cleanSearch()
 					.searchString("artifactType", artifact.artifactType.name())
-					.searchString("technology", getTechnology()).getObject();
+					.searchString("technology", artifact.getTechnology()).getObject();
 
 			inputContext.put(PlatformConfig.MODEL_HOLDER, artifact.getModel());
-
+System.out.println(artifact.artifactType.name()+"+++"+artifact.getTechnology());
 			new ScriptRunner().run(artifactDAO.getTemplatePath(), inputContext);
 		}
 
@@ -55,15 +55,24 @@ public abstract class ArtifactCalculator {
 			HashMap<String, Object> context,
 			HashMap<String, Object> outputContext);
 
-	protected abstract String getTechnology();
 
 	public class Artifact {
 		private Object model;
 		private MetamodelArtifactType artifactType;
+		private String technology;
 
-		public Artifact(MetamodelArtifactType artifactType, Object model) {
+		public String getTechnology() {
+			return technology;
+		}
+
+		public void setTechnology(String technology) {
+			this.technology = technology;
+		}
+
+		public Artifact(MetamodelArtifactType artifactType, Object model , String technology) {
 			this.artifactType = artifactType;
 			this.model = model;
+			this.technology = technology;
 		}
 
 		public Object getModel() {
