@@ -25,7 +25,7 @@ public class PlatformConfig {
 
 	public static String TRANSACTION_SERVICE = "org.elsoft.platform.metamodel.GlassfishTransaction";
 
-	public static String REPOSITORY_URL = "http://localhost:8888/jackrabbit-webapp-2.2.12/rmi";
+	public static String REPOSITORY_URL = "http://localhost:8080/jackrabbit-webapp-2.2.12/rmi";
 
 	public static String PATTERN_WORKSPACE = "PlatformPatternWorkspace";
 

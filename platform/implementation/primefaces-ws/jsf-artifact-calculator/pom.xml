@@ -28,7 +28,7 @@
 	<groupId>org.elsoft.platform.implementation.primefaces-ws</groupId>
 	<artifactId>jsf-artifact-calculator</artifactId>
 
-	<name>ELsoft :: Platform :: Metamodel :: Implementation :: Primefaces-WS :: JSF Artifact Calculator</name>
+	<name>ELsoft :: Platform ::  Implementation :: Primefaces-WS :: JSF Artifact Calculator</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
