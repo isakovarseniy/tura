@@ -49,7 +49,7 @@ public class ELsoftJPAEntityService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<ELsoftObject> find(List<SearchCriteria> search,
+	public List<?> find(List<SearchCriteria> search,
 			List<OrderCriteria> order, Integer startIndex, Integer endIndex,
 			String objectClass) throws Exception {
 
