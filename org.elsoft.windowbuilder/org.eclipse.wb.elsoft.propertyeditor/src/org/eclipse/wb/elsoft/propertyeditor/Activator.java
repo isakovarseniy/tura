@@ -16,8 +16,9 @@
 package org.eclipse.wb.elsoft.propertyeditor;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.elsoft.platform.metamodel.JPAObjects;
 import org.elsoft.platform.metamodel.RepositoryFactory;
-import org.elsoft.platform.metamodel.general.TransactionManagerImpl;
+import org.elsoft.platform.persistence.TransactionManagerImpl;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -74,7 +75,7 @@ public class Activator extends AbstractUIPlugin {
 
 	static {
 		try {
-			rf = new RepositoryFactory(TransactionManagerImpl.getInstance());
+			rf = new RepositoryFactory(new TransactionManagerImpl(JPAObjects.getObjects()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

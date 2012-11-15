@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="commons-platform-jpa-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="ant-1.6.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="ant-junit-1.6.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="antlr-2.7.1.jar"/>
@@ -43,7 +44,6 @@
 	<classpathentry exported="true" kind="lib" path="junit-4.10.jar"/>
 	<classpathentry exported="true" kind="lib" path="metamodel-api-1.0.jar" sourcepath="/home/platform/GITRepo/tura/platform/metamodel/metamodel-api/src/main/java"/>
 	<classpathentry exported="true" kind="lib" path="metamodel-datastructure-1.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="metamodel-jpa-1.0.jar" sourcepath="/home/platform/GITRepo/tura/platform/metamodel/metamodel-api/src/main/java"/>
 	<classpathentry exported="true" kind="lib" path="objenesis-1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="postgresql-9.1-901.jdbc4.jar"/>
 	<classpathentry exported="true" kind="lib" path="servlet-api-2.3.jar"/>
