@@ -15,12 +15,16 @@ public class FieldSetReader extends Reader {
 	private String cssStyle;
 	private String cssStyleClass;
 	private String idObject; 
+	private String label;
+	private String fieldSetType;
 
 	@Override
 	public Reader reader(XMLStreamReader xmlReader, Reader parent) {
 		cssStyle = xmlReader.getAttributeValue(null, "cssStyle");
 		cssStyleClass = xmlReader.getAttributeValue(null, "cssStyleClass");
 		idObject = xmlReader.getAttributeValue(null, "idObject");
+		label = xmlReader.getAttributeValue(null, "label");
+		fieldSetType = xmlReader.getAttributeValue(null, "fieldSet");
 		return this;
 	}
 
@@ -37,6 +41,8 @@ public class FieldSetReader extends Reader {
 		fieldSet.setUUID(getUuid());
 		fieldSet.setCss(cssStyle);
 		fieldSet.setCssClass(cssStyleClass);
+		fieldSet.setLabel(label);
+		fieldSet.setFieldSetType(fieldSetType);
 		program.add(fieldSet);
 	}
 

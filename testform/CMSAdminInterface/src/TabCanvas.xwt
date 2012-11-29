@@ -5,7 +5,7 @@
 		<GridLayout/>
 	</Composite.layout>
 	<p1:MetaTabFolder>
-		<p1:MetaTabItem text="Claster definition">
+		<p1:MetaTabItem text="Server setup">
 			<p1:MetaTabItem.control>
 				<Composite>
 					<Composite.layout>
@@ -64,7 +64,39 @@
 				</Composite>
 			</p1:MetaTabItem.control>
 		</p1:MetaTabItem>
-		<p1:MetaTabItem text="Available packages">
+		<p1:MetaTabItem text="Packages">
+			<p1:MetaTabItem.control>
+				<p1:SecurityTrigger roles="superAdministrator" granted="ifNotGranted" operation="Disabled"/>
+				<Composite>
+					<Composite.layout>
+						<GridLayout/>
+					</Composite.layout>
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="PackageDescriptor">
+						<p1:MetaTableColumn text="Package name" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="nikName"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Description" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="description"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Version" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureVersion"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Enable" width="100">
+							<p1:MetaCheckbox x:Style="CHECK" text="Check Button" sourceProperty="enablePackage"/>
+						</p1:MetaTableColumn>
+					</p1:MetaTable>
+					<Composite bounds="0, 0, 64, 64">
+						<Composite.layout>
+							<GridLayout/>
+						</Composite.layout>
+						<p1:MetaAction text="Save" bounds="0, 0, 88, 29" SelectionEvent="onSelection" expressionProperty="PackageDescriptor.search">
+							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="enablePackage"/>
+						</p1:MetaAction>
+					</Composite>
+				</Composite>
+			</p1:MetaTabItem.control>
+		</p1:MetaTabItem>
+		<p1:MetaTabItem text="Packages setup">
 			<p1:MetaTabItem.control>
 				<Composite>
 					<Composite.layout>
@@ -136,7 +168,7 @@
 				</Composite>
 			</p1:MetaTabItem.control>
 		</p1:MetaTabItem>
-		<p1:MetaTabItem text="Available features">
+		<p1:MetaTabItem text="Features setup">
 			<p1:MetaTabItem.control>
 				<Composite>
 					<Composite.layout>
@@ -186,38 +218,6 @@
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageStatus"/>
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
-				</Composite>
-			</p1:MetaTabItem.control>
-		</p1:MetaTabItem>
-		<p1:MetaTabItem text="Enable package">
-			<p1:MetaTabItem.control>
-				<p1:SecurityTrigger roles="superAdministrator" granted="ifNotGranted" operation="Disabled"/>
-				<Composite>
-					<Composite.layout>
-						<GridLayout/>
-					</Composite.layout>
-					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="PackageDescriptor">
-						<p1:MetaTableColumn text="Package name" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="nikName"/>
-						</p1:MetaTableColumn>
-						<p1:MetaTableColumn text="Description" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="description"/>
-						</p1:MetaTableColumn>
-						<p1:MetaTableColumn text="Version" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureVersion"/>
-						</p1:MetaTableColumn>
-						<p1:MetaTableColumn text="Enable" width="100">
-							<p1:MetaCheckbox x:Style="CHECK" text="Check Button" sourceProperty="enablePackage"/>
-						</p1:MetaTableColumn>
-					</p1:MetaTable>
-					<Composite bounds="0, 0, 64, 64">
-						<Composite.layout>
-							<GridLayout/>
-						</Composite.layout>
-						<p1:MetaAction text="Save" bounds="0, 0, 88, 29" SelectionEvent="onSelection" expressionProperty="PackageDescriptor.search">
-							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="enablePackage"/>
-						</p1:MetaAction>
-					</Composite>
 				</Composite>
 			</p1:MetaTabItem.control>
 		</p1:MetaTabItem>

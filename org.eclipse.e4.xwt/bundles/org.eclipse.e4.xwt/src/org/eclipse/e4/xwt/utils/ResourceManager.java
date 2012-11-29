@@ -26,6 +26,7 @@ import org.eclipse.e4.xwt.elsoft.types.BusinessObjectProperty;
 import org.eclipse.e4.xwt.elsoft.types.DestinationDataControlProperty;
 import org.eclipse.e4.xwt.elsoft.types.ExpressionProperty;
 import org.eclipse.e4.xwt.elsoft.types.FieldsProperty;
+import org.eclipse.e4.xwt.elsoft.types.FieldsSetTypeProperty;
 import org.eclipse.e4.xwt.elsoft.types.FormNameProperty;
 import org.eclipse.e4.xwt.elsoft.types.GrantedRoleProperty;
 import org.eclipse.e4.xwt.elsoft.types.IDProperty;
@@ -160,6 +161,12 @@ public class ResourceManager {
 		return new PrimitiveType(field);
 	}
 
+	public FieldsSetTypeProperty getFieldsSetTypeProperty(String field) {
+		return new FieldsSetTypeProperty(field);
+	}
+
+		
+	
 	public ExpressionProperty getExpressionProperty(String expression) {
 		return new ExpressionProperty(expression);
 	}

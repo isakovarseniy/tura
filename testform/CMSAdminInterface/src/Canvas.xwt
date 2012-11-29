@@ -1,8 +1,15 @@
 <Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
 	<Composite.layout>
-		<GridLayout/>
+		<GridLayout numColumns="2"/>
 	</Composite.layout>
 	<Composite>
+		<Composite.layoutData>
+			<GridData widthHint="437"/>
+		</Composite.layoutData>
+		<Composite.layout>
+			<GridLayout/>
+		</Composite.layout>
+		<Composite size="443, 55">
 		<Composite.layout>
 			<GridLayout numColumns="2"/>
 		</Composite.layout>
@@ -20,7 +27,7 @@
 			</p1:MetaTreeColumn>
 		</p1:MetaTree>
 	</Composite>
-	<Composite>
+		<Composite size="330, 55">
 		<Composite.layout>
 			<GridLayout/>
 		</Composite.layout>
@@ -36,7 +43,10 @@
 			</p1:MetaTableColumn>
 		</p1:MetaTable>
 	</Composite>
-	<p1:MetaFieldSet idObject="loc_detail">
+	</Composite>
+	<Composite>
+		<p1:MetaFieldSet idObject="loc_detail" size="64, 64" fieldSet="FieldSet" >
 		<p1:ViewPort viewPortName="ViewPort2" canvasName="TabCanvas" size="64, 64"/>
 	</p1:MetaFieldSet>
+	</Composite>
 </Composite>

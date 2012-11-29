@@ -71,6 +71,8 @@
  		<editor type="org.eclipse.e4.xwt.elsoft.types.GrantedRoleProperty"
 			class="org.eclipse.wb.elsoft.propertyeditor.GrantedRolePropertyEditor"/>
 
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.FieldsSetTypeProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.FieldsSetTypePropertyEditor"/>
 
    </extension>
 

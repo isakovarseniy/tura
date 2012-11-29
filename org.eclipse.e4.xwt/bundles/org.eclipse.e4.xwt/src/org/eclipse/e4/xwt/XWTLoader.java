@@ -82,6 +82,7 @@ import org.eclipse.e4.xwt.converters.StringToDoubleArray;
 import org.eclipse.e4.xwt.converters.StringToDuration;
 import org.eclipse.e4.xwt.converters.StringToExpression;
 import org.eclipse.e4.xwt.converters.StringToFieldsProperty;
+import org.eclipse.e4.xwt.converters.StringToFieldsSetTypeProperty;
 import org.eclipse.e4.xwt.converters.StringToFont;
 import org.eclipse.e4.xwt.converters.StringToFormAttachment;
 import org.eclipse.e4.xwt.converters.StringToFormNameProperty;
@@ -1522,6 +1523,7 @@ public class XWTLoader implements IXWTLoader {
 		registerConvertor(StringToTriggerProperty.instance);
 		registerConvertor(StringToFieldsProperty.instance);
 		registerConvertor(StringToAscDescProperty.instance);
+		registerConvertor(StringToFieldsSetTypeProperty.instance);
 		registerConvertor(StringToExpression.instance);
 		registerConvertor(StringToOptionIterator.instance);
 		registerConvertor(StringToIterator.instance);

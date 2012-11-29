@@ -35,6 +35,8 @@ public class CreateFieldSet {
 		obj.setCss(fieldset.getCss());
 		obj.setUUID(fieldset.getUuid());
 		obj.setCssClass(fieldset.getCssClass());
+		obj.setLabel(fieldset.getLabel());
+		obj.setFieldSetType(fieldset.getFieldSetType());
 		obj.setCommandExecutor(CreateFieldSet.class.getName());
 	}
 
