@@ -19,8 +19,8 @@ import org.elsoft.windowbuilder.reader.Reader;
 
 public enum ElementBuilder {
 	Shell(org.elsoft.windowbuilder.reader.ShellReader.class),
-	Composite(org.elsoft.windowbuilder.reader.CompositeReader.class),
-	Composite_layout(org.elsoft.windowbuilder.reader.CompositeLayoutReader.class),
+	MetaComposite(org.elsoft.windowbuilder.reader.CompositeReader.class),
+	MetaComposite_layout(org.elsoft.windowbuilder.reader.CompositeLayoutReader.class),
 	GridLayout(org.elsoft.windowbuilder.reader.GridLayoutReader.class),
 	ViewPort(org.elsoft.windowbuilder.reader.ViewPortReader.class),
 	MetaTable(org.elsoft.windowbuilder.reader.TableReader.class),
@@ -31,7 +31,7 @@ public enum ElementBuilder {
 	MetaTabItem(org.elsoft.windowbuilder.reader.TabItemReader.class),
 	MetaTabItem_control(org.elsoft.windowbuilder.reader.TabItemControlReader.class),
 	MetaDropDown(org.elsoft.windowbuilder.reader.DropDownReader.class),
-	Label(org.elsoft.windowbuilder.reader.LabelReader.class),
+	MetaLabel(org.elsoft.windowbuilder.reader.LabelReader.class),
 	MetaTree(org.elsoft.windowbuilder.reader.TreeReader.class),
 	MetaTreeColumn(org.elsoft.windowbuilder.reader.TreeColumnReader.class),
 	DataDefinition(org.elsoft.windowbuilder.reader.DataDefinitionReader.class),

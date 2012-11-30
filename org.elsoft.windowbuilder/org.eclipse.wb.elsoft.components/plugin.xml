@@ -32,10 +32,11 @@
 					<component class="org.eclipse.wb.elsoft.components.MetaCheckbox"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaButton" creationId="radio"/>
 					<component class="org.eclipse.wb.elsoft.components.ViewPort"/>
-					<component class="org.eclipse.swt.widgets.Label"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaLabel"/>
 					<component class="org.eclipse.wb.elsoft.components.LovDisplayField"/>
 					<component class="org.eclipse.wb.elsoft.components.LovReturnField"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaFieldSet"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaComposite"/>
 					<component class="org.eclipse.wb.elsoft.components.DrugAndDrop"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaImage"/>
 					<component class="org.eclipse.wb.elsoft.components.Dependency"/>

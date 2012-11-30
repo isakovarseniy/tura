@@ -79,7 +79,7 @@ public class CanvasParser {
 
 					if (firstPath == true) {
 						if (ElementBuilder.valueOf(objName).equals(
-								ElementBuilder.Composite)) {
+								ElementBuilder.MetaComposite)) {
 							CanvasCheater canvas = new CanvasCheater();
 							int i = artifactName.lastIndexOf('.');
 							canvas.setName(artifactName.substring(0, i));

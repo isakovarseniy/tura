@@ -1,20 +1,20 @@
-<Composite xmlns="http://www.eclipse.org/xwt/presentation"
+<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation"
 	xmlns:x="http://www.eclipse.org/xwt" x:Class="TabCanvas"
 	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
-	<Composite.layout>
+	<p1:MetaComposite.layout>
 		<GridLayout/>
-	</Composite.layout>
-	<p1:MetaTabFolder>
-		<p1:MetaTabItem text="Server setup">
+	</p1:MetaComposite.layout>
+	<p1:MetaTabFolder cssStyle="width:562px">
+		<p1:MetaTabItem text="Server set up">
 			<p1:MetaTabItem.control>
-				<Composite>
-					<Composite.layout>
-						<GridLayout numColumns="2" />
-					</Composite.layout>
-					<Composite>
-						<Composite.layout>
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
+						<GridLayout />
+					</p1:MetaComposite.layout>
+					<p1:MetaComposite>
+						<p1:MetaComposite.layout>
 							<GridLayout />
-						</Composite.layout>
+						</p1:MetaComposite.layout>
 						<p1:MetaDropDown iteratorProperty="OrgStructureLnk"
 							optionIterator="EnvType" optionLabel="optionName" optionValue="optionValue"
 							updateOnValueChanged="claster_table" sourceProperty="holder">
@@ -23,8 +23,7 @@
 									horizontalAlignment="FILL" />
 							</p1:MetaDropDown.layoutData>
 						</p1:MetaDropDown>
-					</Composite>
-					<Label />
+					</p1:MetaComposite>
 					<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
 						linesVisible="true" headerVisible="true" iteratorProperty="Claster"
 						idObject="claster_table">
@@ -42,99 +41,93 @@
 								optionValue="optionValue" />
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
-					<Composite bounds="0, 0, 64, 64">
-						<Composite.layout>
-							<GridLayout />
-						</Composite.layout>
+					<p1:MetaComposite>
+						<p1:MetaComposite.layout>
+							<GridLayout numColumns="4" />
+						</p1:MetaComposite.layout>
 						<p1:MetaAction text="Create" expressionProperty="Claster.create"
 							updateOnButtonPressed="claster_table" />
 						<p1:MetaAction text="Remove" expressionProperty="Claster.remove"
 							updateOnButtonPressed="claster_table" />
-					</Composite>
-					<Composite>
-						<Composite.layout>
-							<GridLayout numColumns="2" />
-						</Composite.layout>
 						<p1:MetaAction text="Save" expressionProperty="Claster.commit"
 							updateOnButtonPressed="claster_table" />
 						<p1:MetaAction text="Undo" expressionProperty="Claster.rallback"
 							updateOnButtonPressed="claster_table" />
-					</Composite>
-					<Label />
-				</Composite>
+					</p1:MetaComposite>
+				</p1:MetaComposite>
 			</p1:MetaTabItem.control>
 		</p1:MetaTabItem>
 		<p1:MetaTabItem text="Packages">
 			<p1:MetaTabItem.control>
 				<p1:SecurityTrigger roles="superAdministrator" granted="ifNotGranted" operation="Disabled"/>
-				<Composite>
-					<Composite.layout>
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
 						<GridLayout/>
-					</Composite.layout>
+					</p1:MetaComposite.layout>
 					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="PackageDescriptor">
 						<p1:MetaTableColumn text="Package name" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="nikName"/>
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="nikName" cssStyle="width:120px"/>
 						</p1:MetaTableColumn>
 						<p1:MetaTableColumn text="Description" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="description"/>
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="description" cssStyle="width:190px"/>
 						</p1:MetaTableColumn>
 						<p1:MetaTableColumn text="Version" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureVersion"/>
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureVersion" cssStyle="width:40px"/>
 						</p1:MetaTableColumn>
 						<p1:MetaTableColumn text="Enable" width="100">
 							<p1:MetaCheckbox x:Style="CHECK" text="Check Button" sourceProperty="enablePackage"/>
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
-					<Composite bounds="0, 0, 64, 64">
-						<Composite.layout>
+					<p1:MetaComposite bounds="0, 0, 64, 64">
+						<p1:MetaComposite.layout>
 							<GridLayout/>
-						</Composite.layout>
+						</p1:MetaComposite.layout>
 						<p1:MetaAction text="Save" bounds="0, 0, 88, 29" SelectionEvent="onSelection" expressionProperty="PackageDescriptor.search">
 							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="enablePackage"/>
 						</p1:MetaAction>
-					</Composite>
-				</Composite>
+					</p1:MetaComposite>
+				</p1:MetaComposite>
 			</p1:MetaTabItem.control>
 		</p1:MetaTabItem>
 		<p1:MetaTabItem text="Packages setup">
 			<p1:MetaTabItem.control>
-				<Composite>
-					<Composite.layout>
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
 						<GridLayout numColumns="2"/>
-					</Composite.layout>
-					<Label/>
-					<Composite>
-						<Composite.layoutData>
+					</p1:MetaComposite.layout>
+					<p1:MetaLabel/>
+					<p1:MetaComposite>
+						<p1:MetaComposite.layoutData>
 							<GridData widthHint="416"/>
-						</Composite.layoutData>
-						<Composite.layout>
+						</p1:MetaComposite.layoutData>
+						<p1:MetaComposite.layout>
 							<GridLayout/>
-						</Composite.layout>
+						</p1:MetaComposite.layout>
 						<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 320, 45" iteratorProperty="AvailablePackagesLnk" idObject="O2OAvaGrid">
 						<p1:MetaTableColumn text="Package name" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="nikName"/>
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="nikName" cssStyle="width:130px"/>
 						</p1:MetaTableColumn>
 						<p1:MetaTableColumn text="Description" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="description"/>
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="description" cssStyle="width:240px"/>
 						</p1:MetaTableColumn>
 						<p1:MetaTableColumn text="Version" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureVersion"/>
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureVersion" cssStyle="width:40px"/>
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
-					</Composite>
-					<Label/>
-					<Composite>
-						<Composite.layout>
+					</p1:MetaComposite>
+					<p1:MetaLabel/>
+					<p1:MetaComposite>
+						<p1:MetaComposite.layout>
 							<GridLayout numColumns="5"/>
-						</Composite.layout>
-						<Composite.layoutData>
+						</p1:MetaComposite.layout>
+						<p1:MetaComposite.layoutData>
 							<GridData widthHint="385"/>
-						</Composite.layoutData>
-						<Label text="Environment">
-							<Label.layoutData>
+						</p1:MetaComposite.layoutData>
+						<p1:MetaLabel text="Environment">
+							<p1:MetaLabel.layoutData>
 								<GridData horizontalAlignment="RIGHT"/>
-							</Label.layoutData>
-						</Label>
+							</p1:MetaLabel.layoutData>
+						</p1:MetaLabel>
 						<p1:MetaDropDown iteratorProperty="OrgStructureLnk" optionIterator="EnvType" optionLabel="optionName" optionValue="optionValue" sourceProperty="holder" updateOnValueChanged="OperationLab">
 							<p1:MetaDropDown.layoutData>
 								<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
@@ -149,8 +142,8 @@
 						<p1:MetaAction text="Remove" expressionProperty="PackageOperationLnk.prevRecord">
 							<p1:Trigger service="Media.CMS.Admin.AdminTriggersService" method="unInstallPackage" triggerType="ONButtonPressed" x:Name="ONButtonPressed"/>
 						</p1:MetaAction>
-					</Composite>
-					<Label/>
+					</p1:MetaComposite>
+					<p1:MetaLabel/>
 					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="PackageOperationLnk" idObject="OperationLab">
 						<p1:MetaTable.layoutData>
 							<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
@@ -165,48 +158,48 @@
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageStatus"/>
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
-				</Composite>
+				</p1:MetaComposite>
 			</p1:MetaTabItem.control>
 		</p1:MetaTabItem>
 		<p1:MetaTabItem text="Features setup">
 			<p1:MetaTabItem.control>
-				<Composite>
-					<Composite.layout>
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
 						<GridLayout/>
-					</Composite.layout>
-					<Composite bounds="0, 0, 64, 64">
-						<Composite.layout>
+					</p1:MetaComposite.layout>
+					<p1:MetaComposite bounds="0, 0, 64, 64">
+						<p1:MetaComposite.layout>
 							<GridLayout numColumns="2"/>
-						</Composite.layout>
+						</p1:MetaComposite.layout>
 						<p1:MetaAction text="Search" expressionProperty="AvailableFeaturesLnk.search" updateOnButtonPressed="features featuresOper"/>
 						<p1:MetaAction text="Query" expressionProperty="AvailableFeaturesLnk.query" updateOnButtonPressed="features featuresOper"/>
-					</Composite>
-					<Composite bounds="0, 0, 330, 55">
-						<Composite.layout>
+					</p1:MetaComposite>
+					<p1:MetaComposite bounds="0, 0, 330, 55">
+						<p1:MetaComposite.layout>
 							<GridLayout/>
-						</Composite.layout>
+						</p1:MetaComposite.layout>
 						<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="AvailableFeaturesLnk" size="445, 146" idObject="features">
 						<p1:MetaTableColumn text="Feature Group" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureGroup"/>
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureGroup" cssStyle="width:240px"/>
 						</p1:MetaTableColumn>
 						<p1:MetaTableColumn text="Feature name" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureName"/>
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureName" cssStyle="width:130px"/>
 						</p1:MetaTableColumn>
 						<p1:MetaTableColumn text="Version" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureVersion"/>
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="featureVersion" cssStyle="width:40px"/>
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
-					</Composite>
-					<Composite bounds="0, 0, 64, 64">
-						<Composite.layout>
+					</p1:MetaComposite>
+					<p1:MetaComposite bounds="0, 0, 64, 64">
+						<p1:MetaComposite.layout>
 							<GridLayout numColumns="5"/>
-						</Composite.layout>
-						<Label text="Environment" bounds="0, 0, 68, 17"/>
+						</p1:MetaComposite.layout>
+						<p1:MetaLabel text="Environment" bounds="0, 0, 68, 17"/>
 						<p1:MetaDropDown bounds="0, 0, 189, 29" iteratorProperty="OrgStructureLnk" optionIterator="EnvType" optionLabel="optionName" optionValue="optionValue" sourceProperty="holder" updateOnValueChanged="featuresOper"/>
 						<p1:MetaAction text="Bind" bounds="0, 0, 88, 29"/>
 						<p1:MetaAction text="Install" bounds="0, 0, 88, 29"/>
 						<p1:MetaAction text="Remove" bounds="0, 0, 88, 29"/>
-					</Composite>
+					</p1:MetaComposite>
 					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="FeatureOperationLnk" idObject="featuresOper">
 						<p1:MetaTableColumn text="Check" width="100">
 							<p1:MetaCheckbox x:Style="CHECK" sourceProperty="selection"/>
@@ -218,8 +211,8 @@
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="packageStatus"/>
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
-				</Composite>
+				</p1:MetaComposite>
 			</p1:MetaTabItem.control>
 		</p1:MetaTabItem>
 	</p1:MetaTabFolder>
-</Composite>
+</p1:MetaComposite>
