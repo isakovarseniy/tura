@@ -1,23 +1,23 @@
-<Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvase" xmlns:p1="clr-namespace:org.elsoft.component" xmlns:p2="clr-namespace:org.eclipse.wb.elsoft.components">
-	<Composite.layout>
+<p2:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvase"  xmlns:p2="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p2:MetaComposite.layout>
 		<GridLayout/>
-	</Composite.layout>
-	<Composite>
-		<Composite.layout>
+	</p2:MetaComposite.layout>
+	<p2:MetaComposite>
+		<p2:MetaComposite.layout>
 			<GridLayout numColumns="4"/>
-		</Composite.layout>
+		</p2:MetaComposite.layout>
 		<p2:MetaAction text="Search" expressionProperty="DepartmentLnk.search" updateOnButtonPressed="dep_table emp_table emp_detale"/>
 		<p2:MetaAction text="Query" expressionProperty="DepartmentLnk.query" updateOnButtonPressed="dep_table emp_table emp_detale"/>
 		<p2:MetaAction text="Commit" expressionProperty="DepartmentLnk.commit" updateOnButtonPressed="dep_table emp_table emp_detale"/>
 		<p2:MetaAction text="RallBack" expressionProperty="DepartmentLnk.rallback" updateOnButtonPressed="dep_table emp_table emp_detale"/>
-	</Composite>
-	<Composite>
-		<Composite.layoutData>
+	</p2:MetaComposite>
+	<p2:MetaComposite>
+		<p2:MetaComposite.layoutData>
 			<GridData widthHint="376"/>
-		</Composite.layoutData>
-		<Composite.layout>
+		</p2:MetaComposite.layoutData>
+		<p2:MetaComposite.layout>
 			<GridLayout numColumns="2"/>
-		</Composite.layout>
+		</p2:MetaComposite.layout>
 		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DepartmentLnk" idObject="dep_table" updateOnRawSelect="emp_table emp_detale" >
 			<p2:MetaTableColumn text="Departments Id" width="111">
 				<p2:MetaInputText x:Style="BORDER" sourceProperty="departmentId"/>
@@ -26,20 +26,20 @@
 				<p2:MetaInputText x:Style="BORDER" sourceProperty="departmentName"/>
 			</p2:MetaTableColumn>
 		</p2:MetaTable>
-		<Composite>
-			<Composite.layout>
+		<p2:MetaComposite>
+			<p2:MetaComposite.layout>
 				<GridLayout numColumns="2"/>
-			</Composite.layout>
+			</p2:MetaComposite.layout>
 			<Label/>
 			<p2:MetaAction text="Create" expressionProperty="DepartmentLnk.create" updateOnButtonPressed="dep_table emp_table emp_detale"/>
 			<Label/>
 			<p2:MetaAction text="Remove" expressionProperty="DepartmentLnk.remove" updateOnButtonPressed="dep_table emp_table emp_detale"/>
-		</Composite>
-	</Composite>
-	<Composite>
-		<Composite.layout>
+		</p2:MetaComposite>
+	</p2:MetaComposite>
+	<p2:MetaComposite>
+		<p2:MetaComposite.layout>
 			<GridLayout/>
-		</Composite.layout>
+		</p2:MetaComposite.layout>
 		<p2:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="EmployeesLnk" idObject="emp_table" updateOnRawSelect="emp_detale" >
 			<p2:MetaTable.layoutData>
 				<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
@@ -57,8 +57,8 @@
 				<p2:MetaInputText x:Style="BORDER" sourceProperty="email"/>
 			</p2:MetaTableColumn>
 		</p2:MetaTable>
-	</Composite>
-	<p2:MetaFieldSet idObject="emp_detale">
+	</p2:MetaComposite>
+	<p2:MetaFieldSet idObject="emp_detale" fieldSet="FieldSet">
 		<p2:ViewPort viewPortName="ViewPort2" canvasName="DetailCanvas" size="64, 64"/>
 	</p2:MetaFieldSet>
-</Composite>
+</p2:MetaComposite>

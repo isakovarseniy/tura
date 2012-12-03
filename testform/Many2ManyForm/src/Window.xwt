@@ -2,7 +2,7 @@
 	<Shell.layout>
 		<GridLayout/>
 	</Shell.layout>
-	<Composite>
+	<p2:MetaComposite>
 		<p2:ViewPort bounds="0, 0, 64, 64" viewPortName="ViewPortA" canvasName="Canvas"/>
-	</Composite>
+	</p2:MetaComposite>
 </Shell>

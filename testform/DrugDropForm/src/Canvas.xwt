@@ -1,9 +1,9 @@
-<Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
-	<Composite.layout>
+<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:MetaComposite.layout>
 		<GridLayout numColumns="2"/>
-	</Composite.layout>
-	<Label text="Available features"/>
-	<Label text="Installed features"/>
+	</p1:MetaComposite.layout>
+	<p1:MetaLabel text="Available features"/>
+	<p1:MetaLabel text="Installed features"/>
 	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="AvailableFeature" idObject="availFeature">
 		<p1:MetaTableColumn text="Feature group" width="100">
 			<p1:MetaInputText x:Style="BORDER" sourceProperty="featureGroup"/>
@@ -20,10 +20,10 @@
 			<p1:MetaInputText x:Style="BORDER" sourceProperty="featureName"/>
 		</p1:MetaTableColumn>
 	</p1:MetaTable>
-	<Label/>
-	<Label/>
+	<p1:MetaLabel/>
+	<p1:MetaLabel/>
 	<p1:DrugAndDrop source="availFeature" destination="instFeature" expressionProperty="AvailableFeature.search" updateOnDrop="availFeature instFeature">
 		<p1:Trigger triggerType="ONItemDrop" x:Name="ONItemDrop" service="Manufacturing.BackOffice.HR.TestFormTriggersService" method="onDropTrigger"/>
 	</p1:DrugAndDrop>
-	<Label/>
-</Composite>
+	<p1:MetaLabel/>
+</p1:MetaComposite>

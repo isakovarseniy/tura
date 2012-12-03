@@ -1,7 +1,7 @@
-<Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="DataDefinition" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
-	<Composite.layout>
+<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="DataDefinition" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:MetaComposite.layout>
 		<RowLayout/>
-	</Composite.layout>
+	</p1:MetaComposite.layout>
 	<p1:DataDefinition form="Manufacturing.BackOffice.HR.DropDownForm">
 		<p1:DataControl x:Name="DropDownLnk" businessObject="Manufacturing.BackOffice.dropdowntest" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;DropDownLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;DropDownLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;DropDownLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
 		<p1:DataControl x:Name="DepartmentLnk" businessObject="Manufacturing.BackOffice.departments" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;DepartmentLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;DepartmentLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;DepartmentLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
@@ -9,4 +9,4 @@
 			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="departmentId" expressionProperty="DropDownLnk.departmentId" refType="Long"/>
 		</p1:DataControl>
 	</p1:DataDefinition>
-</Composite>
+</p1:MetaComposite>

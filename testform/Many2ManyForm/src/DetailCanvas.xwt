@@ -1,14 +1,14 @@
-<Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http1://www.eclipse.org/xwt" x:Class="DetailCanvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
-	<Composite.layout>
+<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http1://www.eclipse.org/xwt" x:Class="DetailCanvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:MetaComposite.layout>
 		<GridLayout/>
-	</Composite.layout>
+	</p1:MetaComposite.layout>
 	<p1:MetaTabFolder>
 		<p1:MetaTabItem text="Tab1">
 			<p1:MetaTabItem.control>
-				<Composite>
-					<Composite.layout>
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
 						<GridLayout numColumns="2"/>
-					</Composite.layout>
+					</p1:MetaComposite.layout>
 					<p1:MetaInputText x:Style="BORDER" text="Phone Number" iteratorProperty="EmployeesLnk" sourceProperty="phoneNumber">
 						<p1:MetaInputText.layoutData>
 							<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
@@ -19,15 +19,15 @@
 							<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
 						</p1:MetaInputText.layoutData>
 					</p1:MetaInputText>
-				</Composite>
+				</p1:MetaComposite>
 			</p1:MetaTabItem.control>
 		</p1:MetaTabItem>
 		<p1:MetaTabItem text="Tab2">
 			<p1:MetaTabItem.control>
-				<Composite>
-					<Composite.layout>
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
 						<GridLayout numColumns="2"/>
-					</Composite.layout>
+					</p1:MetaComposite.layout>
 					<p1:MetaInputText x:Style="BORDER" text="CompositionPST" iteratorProperty="EmployeesLnk" sourceProperty="commissionPct">
 						<p1:MetaInputText.layoutData>
 							<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
@@ -38,8 +38,8 @@
 							<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
 						</p1:MetaInputText.layoutData>
 					</p1:MetaInputText>
-				</Composite>
+				</p1:MetaComposite>
 			</p1:MetaTabItem.control>
 		</p1:MetaTabItem>
 	</p1:MetaTabFolder>
-</Composite>
+</p1:MetaComposite>
