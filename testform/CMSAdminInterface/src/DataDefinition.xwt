@@ -15,22 +15,22 @@
 			</p1:Relation>
 		</p1:DataControl>
 		<p1:DataControl x:Name="OrgStructureLnk" businessObject="Media.CMS.organization" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;findSubOrganizations&quot;}}">
-			<p1:Relation dstDataControl="OrgStructureLnk" treeRelation="true">
+			<p1:Relation dstDataControl="OrgStructureLnk" treeRelation="true" size="0, 0">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="upperOrg"/>
 			</p1:Relation>
-			<p1:ArtificialField primitiveType="null.null.null.String" x:Name="holder" defaultValue="Development" />
-			<p1:Relation dstDataControl="LocationsLnk">
+			<p1:ArtificialField primitiveType="null.null.null.String" x:Name="holder" defaultValue="Development" size="0, 0" />
+			<p1:Relation dstDataControl="LocationsLnk" size="0, 0">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="upperOrg"/>
+			</p1:Relation>
+			<p1:Relation dstDataControl="AvailablePackagesLnk">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="upperOrg"/>
+			</p1:Relation>
+			<p1:Relation dstDataControl="AvailableFeaturesLnk">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="upperOrg"/>
 			</p1:Relation>
 		</p1:DataControl>
 		<p1:DataControl x:Name="LocationsLnk" businessObject="Media.CMS.location" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:Relation dstDataControl="Claster">
-				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="locationId"/>
-			</p1:Relation>
-			<p1:Relation dstDataControl="AvailablePackagesLnk">
-				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="locationId"/>
-			</p1:Relation>
-			<p1:Relation dstDataControl="AvailableFeaturesLnk">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="locationId"/>
 			</p1:Relation>
 		</p1:DataControl>
