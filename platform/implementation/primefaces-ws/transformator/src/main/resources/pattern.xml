@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+  Copyright 2012 Arseniy Isakov
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<Pattern xmlns="http://elsoft.org/platform/pattern/transtormer/uploader">
+	<implementationPattern>
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/deployToGlassfishv3.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/entityObject.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/mainEarPom.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/mainEjbPom.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/mainPom.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/createMethod.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/insertMethod.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/updateMethod.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/removeMethod.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/findMethod.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/sessionBean.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/sessionBeanRemoteInterface.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/buildEAR.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/buildClientProxy.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/mainPOMWSProxy.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/EclipseLink/mainPersistence.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws/EclipseLink" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/ejb_ws/Hibernate/mainPersistence.xml"
+			implementationPatternPath="GlassFishV3/j2ee/ejb_ws/Hibernate" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/jpa/serviceBean.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jpa" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/jpa/createMethod.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jpa" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/jpa/findMethod.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jpa" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/jpa/updateMethod.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jpa" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/jpa/insertMethod.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jpa" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/jpa/removeMethod.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jpa" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/jpa/mainPom.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jpa" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/jpa/entityObject.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jpa" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/webservicelayer/GlassFishV3/j2ee/jpa/jpaObject.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jpa" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/factoryBean.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/transactionManagerBuilder.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/JPA-SERVICE/transactionManagerBuilderImpl.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/JPA-SERVICE" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/WS-EJB-JERSEY/transactionManagerBuilderImpl.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/WS-EJB-JERSEY" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/buildWAR.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/deployToGlassfishv3.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/controlBody.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/WS-EJB-JERSEY/importService.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/WS-EJB-JERSEY" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/JPA-SERVICE/importService.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/JPA-SERVICE" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/JAVA-CLASS/importService.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/JAVA-CLASS" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/WS-EJB-JERSEY/initService.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/WS-EJB-JERSEY" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/JPA-SERVICE/initService.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/JPA-SERVICE" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/JAVA-CLASS/initService.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/JAVA-CLASS" />
+
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/dataControl.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/PrimaryKey.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/RemoteMethod.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Trigger.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Version.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventGridNextRow.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventGridPrevRow.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventGridGetCurrentRow.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventGridGetList.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventButtonPrevRow.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventButtonNextRow.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventLovGetOptionsList.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventButtonRemoveRecord.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventButtonCreateRecord.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventButtonCommit.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventButtonQuery.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventButtonRallback.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventButtonSearch.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/triggerButtonONButtonPressed.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/triggerDrugAndDropONItemDrop.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/mainWEBXML.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/FACESCONFIGFile.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventCommonGetCurrentRow.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventDropDownListGetOptionsList.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventTreeGetTreeRoot.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/eventTreeGetCurrentRow.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/deeper.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/jspxPageCreator.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/uiElementCreator.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementCanvas.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementCell.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementLabel.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementGrid.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementInputText.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementGridInputText.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementGridCheckBox.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementGridDropDownList.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementDrugAndDrop.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementTreeInputText.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementStackableCanvas.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementTabCanvas.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementTabPage.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementViewPort.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementWindow.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementView.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementButton.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementDropDownList.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementLov.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementTree.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementFieldSet.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementFieldSetFieldSet.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementFieldSetPanel.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/artificialElementLov.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/mainHELPERClasses.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/mainPOMXML.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/Portal/Liferay/liferay_display.xml"
+			implementationPatternPath="GlassFishV3/j2ee/Portal/Liferay" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/Portal/Liferay/mainPOMXML.xml"
+			implementationPatternPath="GlassFishV3/j2ee/Portal/Liferay" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/Portal/Liferay/liferay_portlet.xml"
+			implementationPatternPath="GlassFishV3/j2ee/Portal/Liferay" />
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/Portal/Liferay/deployToLiferay.xml"
+			implementationPatternPath="GlassFishV3/j2ee/Portal/Liferay" />
+
+
+		<implementationPattern
+			file="/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/Portal/portlet.xml"
+			implementationPatternPath="GlassFishV3/j2ee/Portal"/>
+
+	</implementationPattern>
+</Pattern>
+
+

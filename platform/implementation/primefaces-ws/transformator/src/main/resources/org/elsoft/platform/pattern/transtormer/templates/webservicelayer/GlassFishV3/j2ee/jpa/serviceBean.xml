@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2012 Arseniy Isakov
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<j:jelly trim="false" xmlns:j="jelly:core"  xmlns:u="jelly:util" xmlns:a="jelly:ant">
+
+	<j:set var="serviceOutputDir"
+		value="${GeneratedCodeRoot}/${domain}/${functionalDomain}/${application}/datasource" />
+
+
+
+	<a:mkdir
+		dir="${serviceOutputDir}/src/main/java/${model.resPackageName.replace('.','/')}" />
+
+	<j:file
+		name="${serviceOutputDir}/src/main/java/${model.resPackageName.replace('.','/')}/${model.resTypeName}.java"
+		trim="true" omitXmlDeclaration="true" escapeText="false">
+
+
+package ${model.resPackageName};
+
+import javax.transaction.TransactionManager;
+import org.elsoft.platform.persistence.ELsoftJPAEntityService;
+import ${model.generic.resPackageName}.${model.generic.resTypeName};
+import java.util.List;
+
+public class ${model.resTypeName}  extends ELsoftJPAEntityService{
+
+ 	public ${model.resTypeName}(TransactionManager tx) {
+		super(tx);
+	}
+	
+    <j:set var="whiteSpace" value=" "/> 
+	<j:forEach items="${model.methods.iterator()}" var="method">
+	
+	public${whiteSpace}<j:if test="${method.returnType == null}">void </j:if><j:if test="${method.returnType != null}">${method.returnType.resPackageName}.${method.returnType.resTypeName} </j:if> ${method.methodName}(
+	
+         <j:set var="iter" value="0"/>  
+	     <j:forEach items="${method.paramClass.iterator()}" var="param">
+	       <j:if test="${iter =='1'}">,</j:if>${param.type.resPackageName}.${param.type.resTypeName} ${param.name}
+           <j:set var="iter" value="1"/>  
+	     </j:forEach>
+	)throws Exception{
+	
+			<j:import file="${RootTemplate}/GlassFishV3/j2ee/jpa/${method.methodName}Method.xml"
+				inherit="true" />
+	}
+    </j:forEach>    
+	
+	
+}
+
+  </j:file>
+
+</j:jelly>

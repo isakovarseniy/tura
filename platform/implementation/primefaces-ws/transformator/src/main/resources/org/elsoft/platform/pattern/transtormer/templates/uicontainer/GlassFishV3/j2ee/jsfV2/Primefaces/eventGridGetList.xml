@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2012 Arseniy Isakov
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:u="jelly:util"
+	xmlns:a="jelly:ant">
+
+	private LazyDataModel&lt;${objlnk.dataLink.majorType.resTypeName}&gt; lazyModel = null;
+	public LazyDataModel&lt;${objlnk.dataLink.majorType.resTypeName}&gt; getLazyModel() {
+
+		if ((lazyModel == null) ){
+
+	        lazyModel = new LazyModel&lt;${objlnk.dataLink.majorType.resTypeName}&gt;() ;
+	        lazyModel.setRowCount(100000000);
+		}
+		return lazyModel;
+	}
+	
+	
+	class LazyModel&lt;T&gt; extends LazyDataModel&lt;T&gt; {
+		List&lt;T&gt; lazy;
+
+		@Override
+		public T getRowData(String rowKey) {
+			if (lazy == null)
+				return null;
+			for (T obj : lazy) {
+				if (getMode().getControl().getObjectKey(obj).equals(rowKey))
+					return obj;
+			}
+
+			return null;
+		}
+
+		@Override
+		public Object getRowKey(T obj) {
+			return getMode().getControl().getObjectKey(obj);
+		}
+
+		@Override
+		public List&lt;T&gt; load(int first, int pageSize, String sortField,
+				org.primefaces.model.SortOrder sortOrder,
+				Map&lt;String, String&gt; filters) {
+			List&lt;T&gt; lazy = new ArrayList&lt;T&gt;();
+
+			int curPos = getMode().getControl().getCurrentPosition();
+			for (int i = first; i &lt; first + pageSize; i++) {
+				T obj = (T) getMode().getControl().getObject(i);
+				if (obj == null)
+					break;
+				Reflection.call(obj, "setPosition", i);
+				lazy.add(obj);
+			}
+			if (lazy.size() == 0) {
+			    T obj = (T) getMode(  ).getControl(  ).createObject(  );
+                Reflection.call( obj, "setPosition", 0 );
+				lazy.add(obj);
+				getMode().getControl().getObject(0);
+			} else {
+				getMode().getControl().getObject(curPos);
+			}
+			return lazy;
+		}
+
+	}
+</j:jelly>

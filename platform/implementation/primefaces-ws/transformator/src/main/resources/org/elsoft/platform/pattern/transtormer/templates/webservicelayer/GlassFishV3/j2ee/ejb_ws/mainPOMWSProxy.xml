@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2012 Arseniy Isakov
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:u="jelly:util"
+	xmlns:a="jelly:ant">
+
+
+	<j:set var="applicationOutputDir"
+		value="${GeneratedCodeRoot}/${domain}/${functionalDomain}/${application}/datasource-proxy" />
+
+	<a:mkdir dir="${applicationOutputDir}" />
+
+	<j:file name="${applicationOutputDir}/pom.xml" trim="true"
+		omitXmlDeclaration="true" escapeText="false" prettyPrint="true">
+
+
+		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+			<modelVersion>4.0.0</modelVersion>
+
+			<groupId>org.elsoft.platform.${domain}.${functionalDomain}</groupId>
+			<artifactId>Model-${domain}-${functionalDomain}-${application}-client</artifactId>
+
+			<packaging>jar</packaging>
+			<version>1.0</version>
+
+			<name>ELsoft :: Platform :: Domain - ${domain} :: Functional
+				Domain - ${functionalDomain} :: Application - ${application} :: Layer - DataSource - Proxy </name>
+
+
+			<dependencies>
+
+				<dependency>
+					<groupId>javax</groupId>
+					<artifactId>javaee-api</artifactId>
+					<version>6.0</version>
+					<scope>provided</scope>
+				</dependency>
+
+			</dependencies>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>jaxws-maven-plugin</artifactId>
+						<version>1.10</version>
+						<executions>
+
+
+							<j:forEach items="${model.iterator()}"
+								var="ant">
+								<execution>
+									<id>${ant.resTypeName}Wsdl</id>
+									<goals>
+										<goal>wsimport</goal>
+									</goals>
+									<configuration>
+										<wsdlUrls>
+											<wsdlUrl>http://${WEB_SERVICES_appServer.host}:${WEB_SERVICES_appServer.httpPort}/${ant.resTypeName}/${ant.resTypeName}Impl?wsdl</wsdlUrl>
+										</wsdlUrls>
+									</configuration>
+								</execution>
+							</j:forEach>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
+		</project>
+
+	</j:file>
+
+</j:jelly>
+
+
+
