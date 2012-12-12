@@ -24,6 +24,7 @@ import javax.transaction.TransactionManager;
 import org.elsoft.platform.Constants;
 import org.elsoft.platform.OrderCriteria;
 import org.elsoft.platform.OrderType;
+import org.elsoft.platform.SQLSearchCriteria;
 import org.elsoft.platform.SearchCriteria;
 import org.elsoft.platform.metamodel.objects.ELsoftObject;
 import org.elsoft.platform.persistence.ObjectsID;
@@ -62,6 +63,10 @@ public class ELsoftJPAEntityService {
 			Iterator<SearchCriteria> sitr = search.iterator();
 			while (sitr.hasNext()) {
 				SearchCriteria searchCreiteria = sitr.next();
+				if (searchCreiteria instanceof SQLSearchCriteria){
+					criteria.add(Restrictions.sqlRestriction(((SQLSearchCriteria)searchCreiteria).getSqlCriteria()));
+					continue;
+				}
 				if (!searchCreiteria.getValue().equals(
 						Constants.UNDEFINED_PARAMETER)) {
 					Constructor<?> cons = Class.forName(

@@ -58,6 +58,7 @@ public class TransactionManagerImpl implements TransactionManager {
 			config.addAnnotatedClass(itr.next());
 		}
 				
+		config.setProperty("show_sql", "true");
 		sessionFactory = config.buildSessionFactory();
 		session = sessionFactory.openSession();
 

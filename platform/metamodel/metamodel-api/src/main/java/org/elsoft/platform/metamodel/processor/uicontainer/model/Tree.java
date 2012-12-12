@@ -55,9 +55,13 @@ public class Tree extends ExternalIterator implements ChildrenOwner,PointerEleme
 	public void setGetTreeRootEvent(EventDAO command,
 			HashMap<String, Object> context) throws Exception {
 		setDataSrcLnk((DataLink) context.get(command.getDstUUID()));
+
 		this.getDataSrcLnk().addTrigger(this.getUiElementType(),
 				MetamodelTriggerEventsType.valueOf( command.getEventType()).name());
 
+		this.getDataSrcLnk().addTrigger(this.getUiElementType(),
+				MetamodelTriggerEventsType.CreateEventGetCurrentRow2.name());
+		
 	}
 
 	public ArrayList<UIElement> getChildrens() {

@@ -113,7 +113,7 @@ public class DataControlTreeSelector {
 		for (MetamodelTriggerEventsType val : MetamodelTriggerEventsType
 				.values()) {
 			if (!val.getMethod().equals("na"))
-				new TreeModel(val.getMethod(), root);
+				new TreeModel("trigger- "+val.getMethod(), root);
 		}
 	}
 }

@@ -31,6 +31,4 @@ public class TabCanvas extends Composite {
 			throw new Error("Unable to load " + name, e);
 		}
 	}
-	public void onSelection(Event event) {
-	}
 }

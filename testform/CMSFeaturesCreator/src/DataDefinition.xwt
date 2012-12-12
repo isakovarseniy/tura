@@ -12,11 +12,10 @@
 			<p1:Relation dstDataControl="OrgStructureLnk" treeRelation="true">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="upperOrg"/>
 			</p1:Relation>
-			<p1:ArtificialField primitiveType="null.null.null.String" x:Name="holder" defaultValue="Development" />
-			<p1:Relation dstDataControl="AvailableFeaturesLnk">
-				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="locationId"/>
-			</p1:Relation>
 		</p1:DataControl>
-		<p1:DataControl x:Name="AvailableFeaturesLnk" businessObject="Media.CMS.availableFeatures" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
+		<p1:DataControl x:Name="FeatureDescLnk" businessObject="Media.CMS.featureDescriptor" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;FeatureDescLnk.GetCurrentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;FeatureDescLnk.GetCurrentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;FeatureDescLnk.GetCurrentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:Trigger triggerType="PREQueryTrigger" x:Name="PREQueryTrigger" service="Media.CMS.Admin.FeatureCreatorTriggersService" method="perQueryFeaturesDescriptor"/>
+			<p1:Dependency expressionProperty="OrgStructureLnk.trigger- treeCurrentRow"/>
+		</p1:DataControl>
 	</p1:DataDefinition>
 </p1:MetaComposite>

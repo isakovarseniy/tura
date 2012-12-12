@@ -1,12 +1,4 @@
-#Mon Sep 24 10:42:48 EDT 2012
-PackageOperationLnk=Media.CMS.featureOperation
-EnvType=Media.CMS.options
-AvailableFeaturesLnk=Media.CMS.availableFeatures
-LocationsLnk=Media.CMS.location
-AvailablePackagesLnk=Media.CMS.availableFeatures
-Claster=Media.CMS.node
-PackageDescriptor=Media.CMS.featureDescriptor
+#Mon Dec 10 16:26:15 EST 2012
 OrganizationsLnk=Media.CMS.organization
-FeatureOperationLnk=Media.CMS.featureOperation
-NodeTypeOptionsLnk=Media.CMS.options
+FeatureDescLnk=Media.CMS.featureDescriptor
 OrgStructureLnk=Media.CMS.organization

@@ -42,6 +42,9 @@ public class EventsMapper {
 		matrix.put("Lov", "CreateEventGetOptionsList","LovGetOptionsList");
 		matrix.put("Lov", "CreateEventGetCurrentRow","CommonGetCurrentRow");
 		matrix.put("Tree", "CreateEventGetTreeRoot","TreeGetTreeRoot");
+		matrix.put("Tree", "CreateEventGetCurrentRow2","TreeGetCurrentRow");
+		
+		
 	}
 	public String map (String element, String event) throws Exception{
 		String result = (String) this.matrix.get(element, event);
