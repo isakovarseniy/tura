@@ -34,6 +34,7 @@
 	<modules>
 		<module>jsf-artifact-calculator</module>
 		<module>ws-ejb-artifact-calculator</module>
+		<module>transformator</module>
 	</modules>
 
 

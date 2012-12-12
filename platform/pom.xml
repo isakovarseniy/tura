@@ -23,6 +23,7 @@
 		<module>commons-platform-ejb</module>
 		<module>commons-platform-jpa</module>
 		<module>commons-platform-datastructure</module>
+                <module>datacontrol</module>
 		<module>metamodel</module>
 		<module>implementation</module>
 		<module>ui-integration</module>

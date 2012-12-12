@@ -28,7 +28,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.elsoft.platform</groupId>
+			<groupId>org.elsoft.platform</groupId>
 			<artifactId>dataviewcontrol</artifactId>
 			<version>1.0</version>
 		</dependency>
