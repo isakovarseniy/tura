@@ -22,7 +22,6 @@ import java.util.UUID;
 
 import javax.xml.stream.XMLStreamReader;
 
-import org.apache.commons.lang.StringUtils;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.form.datasource.CreateDataLinkDAO;
@@ -144,12 +143,18 @@ public class DataControlReader extends Reader {
 					List<String> ls = this.expressionParser((String) array
 							.get(0));
 					if (ls != null) {
+						/*
+						 * methodParameterExpression
+						 * .setExpression(((DataDefinitionReader) parent)
+						 * .getFormName() + "binding." +
+						 * StringUtils.uncapitalize(ls.get(0)) + ".currentRow");
+						 */
+
 						methodParameterExpression
-								.setExpression(((DataDefinitionReader) parent)
-										.getFormName()
-										+ "binding."
-										+ StringUtils.uncapitalize(ls.get(0))
-										+ ".currentRow");
+								.setExpression(expressionBuilder(
+										((DataDefinitionReader) parent)
+												.getFormName(), ls));
+
 						methodParameterExpression.setValue((String) array
 								.get(1));
 					}
@@ -171,7 +176,8 @@ public class DataControlReader extends Reader {
 				command.getFunctionalDomain(), command.getBusinessObjectName());
 		MethodReferenceHandler mrh = rf.getRoot().getFunctionalDomain()
 				.getBusinessObjectsHandler().getMethodReferenceHandler();
-		Iterator<MethodReferenceDAO> itr = mrh.cleanSearch().searchString("methodType", command.getMethodType()).getList();
+		Iterator<MethodReferenceDAO> itr = mrh.cleanSearch()
+				.searchString("methodType", command.getMethodType()).getList();
 
 		while (itr.hasNext()) {
 			MethodReferenceDAO refMethod = itr.next();

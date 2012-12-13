@@ -24,6 +24,7 @@ import java.util.UUID;
 
 import javax.xml.stream.XMLStreamReader;
 
+import org.apache.commons.lang.StringUtils;
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
@@ -31,13 +32,14 @@ import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 public abstract class Reader {
 
 	public static HashMap<String, String> idMAP;
-    public static String formid;	
+	public static String formid;
 	public static HashMap<String, MetamodelTriggerEventsType> eventConverter;
 
 	public ArrayList<Reader> children = new ArrayList<Reader>();
 	private String uuid = UUID.randomUUID().toString();
 
 	public abstract Reader reader(XMLStreamReader xmlReader, Reader parent);
+
 	protected abstract boolean check(HashMap<String, Object> context,
 			RepositoryFactory rf, Reader parent, List<CommandDAO> program)
 			throws Exception;
@@ -46,8 +48,9 @@ public abstract class Reader {
 			RepositoryFactory rf, Reader parent, List<CommandDAO> program)
 			throws Exception;
 
-	public boolean checkAll(HashMap<String, Object> context, RepositoryFactory rf,
-			Reader parent, List<CommandDAO> program) throws Exception {
+	public boolean checkAll(HashMap<String, Object> context,
+			RepositoryFactory rf, Reader parent, List<CommandDAO> program)
+			throws Exception {
 		Reader newParent;
 		if (parent instanceof ShellReader)
 			newParent = parent;
@@ -59,15 +62,15 @@ public abstract class Reader {
 		Iterator<Reader> itr = children.iterator();
 		while (itr.hasNext()) {
 			Reader reader = itr.next();
-			result = reader.checkAll(context, rf, newParent, program)||result;
+			result = reader.checkAll(context, rf, newParent, program) || result;
 		}
 		return result;
 	}
-	
+
 	public void buildAll(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
 		Reader newParent;
-		
+
 		if (parent instanceof ShellReader)
 			newParent = parent;
 		else
@@ -85,6 +88,7 @@ public abstract class Reader {
 	public String getUuid() {
 		return uuid;
 	}
+
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
@@ -98,7 +102,8 @@ public abstract class Reader {
 	}
 
 	public List<String> expressionParser(String expression) {
-		if (expression == null) return null;
+		if (expression == null)
+			return null;
 
 		ArrayList<String> result = new ArrayList<String>();
 
@@ -106,6 +111,27 @@ public abstract class Reader {
 		while (token.hasMoreTokens())
 			result.add(token.nextToken());
 		return result;
+	}
+
+	public String expressionBuilder(String beginEexp,List<String> ls) {
+		String exp = beginEexp
+				+ "binding."
+				+ StringUtils.uncapitalize(ls.get(0));
+
+		if (ls.size() > 1) {
+			if (ls.get(1).indexOf("trigger- ") != -1)
+				exp = exp
+						+ "."
+						+ StringUtils.uncapitalize(ls.get(1).substring(
+								"trigger- ".length()));
+			else
+				exp = exp + ".currentRow."
+						+ StringUtils.uncapitalize(ls.get(1));
+		} else {
+			exp = exp + ".currentRow";
+		}
+
+		return exp;
 	}
 
 }

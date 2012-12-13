@@ -8,6 +8,7 @@ import org.eclipse.e4.xwt.IXWTLoader;
 import org.eclipse.e4.xwt.XWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 
 
 public class Canvas extends Composite {
@@ -31,4 +32,6 @@ public class Canvas extends Composite {
 		}
 	}
 
+	public void onSelection(Event event) {
+	}
 }

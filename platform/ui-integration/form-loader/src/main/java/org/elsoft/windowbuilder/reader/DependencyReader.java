@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.xml.stream.XMLStreamReader;
 
-import org.apache.commons.lang.StringUtils;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.form.datasource.CreateDependencyDAO;
@@ -39,8 +38,11 @@ public class DependencyReader extends Reader {
 		dependency.setUUID(getUuid());
 
 		List<String> ls = this.expressionParser(experssionProperty);
+		
+		String exp = expressionBuilder(((DataDefinitionReader) (((DataControlReader) parent)
+				.getParent())).getFormName(),ls);
 
-		String exp = ((DataDefinitionReader) (((DataControlReader) parent)
+/*		String exp = ((DataDefinitionReader) (((DataControlReader) parent)
 				.getParent())).getFormName()
 				+ "binding."
 				+ StringUtils.uncapitalize(ls.get(0));
@@ -56,7 +58,7 @@ public class DependencyReader extends Reader {
 		} else {
 			exp = exp + ".currentRow";
 		}
-
+*/
 		dependency.setExpression(exp);
 		program.add(dependency);
 

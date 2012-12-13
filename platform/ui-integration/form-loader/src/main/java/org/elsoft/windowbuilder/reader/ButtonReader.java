@@ -49,7 +49,12 @@ public class ButtonReader extends ItemReader {
 				"expressionProperty");
 		List<String> ls = this.expressionParser(dataSrcField);
 		setDataControlId(Reader.idMAP.get(ls.get(0)));
-		setField((String) ls.get(1));
+
+		String field = ls.get(1);
+		if (ls.get(1).indexOf("trigger- ") != -1)
+			field = ls.get(1).substring("trigger- ".length());
+		setField(field);
+		
 		label = xmlReader.getAttributeValue(null, "text");
 		return this;
 	}
@@ -59,7 +64,7 @@ public class ButtonReader extends ItemReader {
 			Reader parent, List<CommandDAO> program) throws Exception {
 
 		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
-			setUuid( getIdObject());
+			setUuid(getIdObject());
 		}
 
 		CreateUIButtonDAO createUIButton = new CreateUIButtonDAO();
