@@ -23,6 +23,7 @@ import java.util.UUID;
 import org.elsoft.platform.metamodel.PersistentInterface;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateSecurityTriggerDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2JavaScript;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateSecurityTrigger;
 
 public abstract class UIElement extends PersistentInterface {
@@ -37,7 +38,16 @@ public abstract class UIElement extends PersistentInterface {
 	private boolean dropable = false;
 	private CreateSecurityTriggerDAO rendered = null;
 	private CreateSecurityTriggerDAO disable = null;
+	private HashMap<String, String> scriptTriggers = new HashMap<String, String>();
 
+	
+	public void addScriptTrigger(String triggerName, String triggerBody){
+		scriptTriggers.put(triggerName, triggerBody);
+	}
+	
+	public HashMap<String, String> getScriptTriggers() {
+		return scriptTriggers;
+	}
 	
     public void setSecurityTrigger(CreateSecurityTriggerDAO trigger){
     	if (trigger.getOperationType().equals("Rendered"))
@@ -101,11 +111,21 @@ public abstract class UIElement extends PersistentInterface {
 		if (disable != null)
 			CreateSecurityTrigger.save(ch, getUuid(), disable);
 
+		Iterator<String> itrS  = scriptTriggers.keySet().iterator();
+		while (itrS.hasNext()){
+			String key = itrS.next();
+			String body = scriptTriggers.get(key);
+			
+			CreateEventUIElement2JavaScript.save(ch, getUuid(), key, body);
+		}
+		
 		Iterator<UIElement> itr = childrens.iterator();
 		while (itr.hasNext()){
 			UIElement element = itr.next();
 			element.serialize(ch);
 		}
+		
+		
 	}
 
 	public String getUuid() {

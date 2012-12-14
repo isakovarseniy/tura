@@ -88,6 +88,8 @@ public class TriggerTypePropertyEditor extends PropertyEditor implements
 		if (parent.getDescription().getComponentClass().getName()
 				.equals("org.eclipse.wb.elsoft.components.MetaAction")) {
 			array.add("ONButtonPressed");
+			array.add("ONButtonClickJS");
+			
 		}
 		
 		if (parent.getDescription().getComponentClass().getName()

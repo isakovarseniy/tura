@@ -33,10 +33,21 @@
 			</j:when>
 		</j:choose>
 
+		<j:choose>
+			<j:when test="${uiElement.scriptTriggers['ONButtonClickJS'] != null and uiElement.scriptTriggers['ONButtonClickJS'] != ''}">
+				<x:attribute name="onclick" trim="true">${uiElement.scriptTriggers['ONButtonClickJS']}</x:attribute>
+			</j:when>
+		</j:choose>
 
 
-		<x:attribute name="actionListener">#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.${uiElement.triggerName}}
-		</x:attribute>
+		<j:choose>
+			<j:when test="${uiElement.dataSrcLnk.name != null and uiElement.dataSrcLnk.name != ''}">
+		      <x:attribute name="actionListener">#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.${uiElement.triggerName}}
+		      </x:attribute>
+			</j:when>
+		</j:choose>
+
+		
 	</x:element>
 
 </j:jelly>

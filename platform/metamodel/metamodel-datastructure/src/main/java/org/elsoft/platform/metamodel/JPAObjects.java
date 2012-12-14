@@ -72,6 +72,7 @@ public class JPAObjects {
 		ls.add(org.elsoft.platform.metamodel.objects.command.security.CreateRoleMapperDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.command.security.CreateRoleMapperHolderDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.command.form.ui.CreateSecurityTriggerDAO.class);
+		ls.add(org.elsoft.platform.metamodel.objects.command.form.ui.CreateEventUIElement2JavaScriptDAO.class);
 
 		return ls;
 

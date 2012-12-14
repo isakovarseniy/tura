@@ -23,17 +23,20 @@ import javax.xml.stream.XMLStreamReader;
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateEventUIElement2JavaScriptDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateEventUIElement2ServiceDAO;
 import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2ServiceMethodDAO;
 import org.elsoft.platform.metamodel.objects.type.MethodDAO;
 import org.elsoft.platform.metamodel.processor.Helper;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2ServiceMethod;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2JavaScript;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Service;
 
 public class TriggerReader extends Reader {
 	private String triggerType;
 	private List<String> service;
 	private String method;
+	private String script;
 
 	@Override
 	public Reader reader(XMLStreamReader xmlReader, Reader parent) {
@@ -43,6 +46,8 @@ public class TriggerReader extends Reader {
 		service = this.expressionParser(xmlReader.getAttributeValue(null,
 				"service"));
 		method = xmlReader.getAttributeValue(null, "method");
+
+		script = xmlReader.getAttributeValue(null, "script");
 
 		return this;
 	}
@@ -58,11 +63,28 @@ public class TriggerReader extends Reader {
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
 
+		if ((parent instanceof ButtonReader)
+				&& (triggerType.equals("ONButtonClickJS"))) {
+			CreateEventUIElement2JavaScriptDAO ui2js = new CreateEventUIElement2JavaScriptDAO();
+			ui2js.setJavaScript(script);
+			ui2js.setCommandExecutor(CreateEventUIElement2JavaScript.class
+					.getName());
+			ui2js.setParentUUID(parent.getUuid());
+			ui2js.setTriggerType(triggerType);
+			ui2js.setDstUUID(((ItemReader) parent).getDataControlId());
+			ui2js.setEventType(MetamodelTriggerEventsType.CreateEventUIElement2JavaScript
+					.name());
+			program.add(ui2js);
+
+			return;
+
+		}
+
 		Helper.findType(rf, service.get(0), service.get(1), service.get(2),
 				service.get(3));
 
-		MethodDAO m = rf.getTypeDefinitionHandler().getMethodHandler().cleanSearch()
-				.searchString("method", method).getObject();
+		MethodDAO m = rf.getTypeDefinitionHandler().getMethodHandler()
+				.cleanSearch().searchString("method", method).getObject();
 
 		if (parent instanceof DataControlReader) {
 			CreateDataLink2ServiceMethodDAO lnk2serv = new CreateDataLink2ServiceMethodDAO();
@@ -77,14 +99,11 @@ public class TriggerReader extends Reader {
 					.getName());
 			lnk2serv.setParentUUID(((DataControlReader) parent)
 					.getDatacontrolUid());
-			
+
 			program.add(lnk2serv);
 		}
-		if ( 
-			 (parent instanceof ButtonReader) ||
-		     (parent instanceof DrugAndDropReader)
-	       )
-		{
+		if ((parent instanceof ButtonReader)
+				|| (parent instanceof DrugAndDropReader)) {
 
 			CreateEventUIElement2ServiceDAO ui2serv = new CreateEventUIElement2ServiceDAO();
 			ui2serv.setDomain(service.get(0));
@@ -96,7 +115,7 @@ public class TriggerReader extends Reader {
 			ui2serv.setRefMethod(m.getObjId());
 			ui2serv.setCommandExecutor(CreateEventUIElement2Service.class
 					.getName());
-			ui2serv.setParentUUID( parent.getUuid());
+			ui2serv.setParentUUID(parent.getUuid());
 			ui2serv.setDstUUID(((ItemReader) parent).getDataControlId());
 			ui2serv.setEventType(MetamodelTriggerEventsType.CreateEventUIElement2ServiceMethod
 					.name());

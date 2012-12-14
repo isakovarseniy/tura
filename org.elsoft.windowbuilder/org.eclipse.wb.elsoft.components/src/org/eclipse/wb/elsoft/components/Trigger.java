@@ -26,7 +26,16 @@ public class Trigger extends Item{
 	private TriggerType triggerType;
 	private ServiceProperty service;
 	private MethodProperty method;
+	private String script;
 	
+	public String getScript() {
+		return script;
+	}
+
+	public void setScript(String script) {
+		this.script = script;
+	}
+
 	public Trigger(Composite parent, int style) {
 		super(parent, style);
 	}

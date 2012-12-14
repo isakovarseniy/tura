@@ -59,7 +59,9 @@
 					<p1:MetaInputText x:Style="BORDER" sourceProperty="componentDescription" cssStyle="background:#E0F2F7"/>
 				</p1:MetaTableColumn>
 			</p1:MetaTable>
-				<p1:MetaAction text="Create" bounds="0, 0, 88, 29" SelectionEvent="onSelection" expressionProperty="ComponentsLnk.trigger- nextRecord" cssStyle="font-size:13px; width:100px; margin:25px 0px 0px 4px"/>
+				<p1:MetaAction text="Create" bounds="0, 0, 88, 29" SelectionEvent="onSelection"  cssStyle="font-size:13px; width:100px; margin:25px 0px 0px 4px">
+					<p1:Trigger triggerType="ONButtonClickJS" x:Name="ONButtonClickJS" script="qwerty.show()"/>
+				</p1:MetaAction>
 			</p1:MetaComposite>
 		</p1:MetaFieldSet>
 	</p1:MetaComposite>
