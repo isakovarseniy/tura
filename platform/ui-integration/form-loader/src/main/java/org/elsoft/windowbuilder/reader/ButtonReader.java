@@ -51,10 +51,12 @@ public class ButtonReader extends ItemReader {
 			List<String> ls = this.expressionParser(dataSrcField);
 			setDataControlId(Reader.idMAP.get(ls.get(0)));
 
-			String field = ls.get(1);
-			if (ls.get(1).indexOf("trigger- ") != -1)
-				field = ls.get(1).substring("trigger- ".length());
-			setField(field);
+			if (ls.size() > 1) {
+				String field = ls.get(1);
+				if (ls.get(1).indexOf("trigger- ") != -1)
+					field = ls.get(1).substring("trigger- ".length());
+				setField(field);
+			}
 		}
 		label = xmlReader.getAttributeValue(null, "text");
 		return this;

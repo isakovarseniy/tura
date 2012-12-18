@@ -22,7 +22,7 @@
 	</p1:MetaTable>
 	<p1:MetaLabel/>
 	<p1:MetaLabel/>
-	<p1:DrugAndDrop source="availFeature" destination="instFeature" expressionProperty="AvailableFeature.search" updateOnDrop="availFeature instFeature">
+	<p1:DrugAndDrop source="availFeature" destination="instFeature" expressionProperty="AvailableFeature" updateOnDrop="availFeature instFeature">
 		<p1:Trigger triggerType="ONItemDrop" x:Name="ONItemDrop" service="Manufacturing.BackOffice.HR.TestFormTriggersService" method="onDropTrigger"/>
 	</p1:DrugAndDrop>
 	<p1:MetaLabel/>

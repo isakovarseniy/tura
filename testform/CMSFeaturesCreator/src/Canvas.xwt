@@ -12,7 +12,7 @@
 			<GridLayout />
 		</p1:MetaComposite.layout>
 		<p1:MetaFieldSet label="Locations" fieldSet="Panel"
-			cssStyle="font-size:20px; height:480px; margin-right:10px; background:#f8f8f8">
+			cssStyle="font-size:20px; height:600px; margin-right:10px; background:#f8f8f8">
 			<p1:MetaFieldSet.layout>
 				<GridLayout />
 			</p1:MetaFieldSet.layout>
@@ -46,55 +46,61 @@
 					</p1:MetaTreeColumn>
 				</p1:MetaTree>
 			</p1:MetaComposite>
-			<p1:MetaLabel text="Create new features:" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em"/>
-			<p1:MetaComposite>
-				<p1:MetaComposite.layout>
-					<GridLayout numColumns="2"/>
-				</p1:MetaComposite.layout>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="ComponentsLnk" cssStyle="font-size:13px" idObject="component_det">
-				<p1:MetaTableColumn text="Component" width="188">
-					<p1:MetaInputText x:Style="BORDER" sourceProperty="componentName" cssStyle="background:#E0F2F7"/>
-				</p1:MetaTableColumn>
-				<p1:MetaTableColumn text="Descriptor" width="100">
-					<p1:MetaInputText x:Style="BORDER" sourceProperty="componentDescription" cssStyle="background:#E0F2F7"/>
-				</p1:MetaTableColumn>
-			</p1:MetaTable>
-				<p1:MetaAction text="Create" bounds="0, 0, 88, 29" SelectionEvent="onSelection"  cssStyle="font-size:13px; width:100px; margin:25px 0px 0px 4px">
-					<p1:Trigger triggerType="ONButtonClickJS" x:Name="ONButtonClickJS" script="qwerty.show()"/>
-				</p1:MetaAction>
-			</p1:MetaComposite>
+			<p1:MetaFieldSet idObject="component_det" fieldSet="FieldSet" cssStyle="margin:25px 0px 0px 0px">
+				<p1:MetaFieldSet.layout>
+					<GridLayout />
+				</p1:MetaFieldSet.layout>
+				<p1:ViewPort viewPortName="ViewPortTab" canvasName="TabCanvase"
+					size="64, 64" cssStyle="font-size:13px" />
+			</p1:MetaFieldSet>
+
+
 		</p1:MetaFieldSet>
 	</p1:MetaComposite>
 	<p1:MetaComposite>
 		<p1:MetaComposite.layout>
-			<GridLayout/>
+			<GridLayout />
 		</p1:MetaComposite.layout>
-		<p1:MetaFieldSet idObject="loc_detail"
-			fieldSet="Panel" cssStyle="font-size:20px; height:480px; width:609px; background:#f8f8f8" label="Plugins">
+		<p1:MetaFieldSet idObject="loc_detail" fieldSet="Panel"
+			cssStyle="font-size:20px; height:600px; width:609px; background:#f8f8f8"
+			label="Plugins">
 			<p1:MetaFieldSet.layout>
-				<GridLayout/>
+				<GridLayout />
 			</p1:MetaFieldSet.layout>
-			<p1:MetaLabel text="Current Features:" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em"/>
+			<p1:MetaLabel text="Current Features:"
+				cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em" />
 			<p1:MetaComposite>
 				<p1:MetaComposite.layout>
-					<GridLayout numColumns="2"/>
+					<GridLayout />
 				</p1:MetaComposite.layout>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="FeatureDescLnk" cssStyle="font-size:13px" size="220, 45">
-				<p1:MetaTableColumn text="Feature name" width="100">
-					<p1:MetaInputText x:Style="BORDER" sourceProperty="featureName" cssStyle="background:#E0F2F7"/>
-				</p1:MetaTableColumn>
-				<p1:MetaTableColumn text="Feature group" width="100">
-					<p1:MetaInputText x:Style="BORDER" sourceProperty="featureGroup" cssStyle="background:#E0F2F7"/>
-				</p1:MetaTableColumn>
-			</p1:MetaTable>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
+					linesVisible="true" headerVisible="true" iteratorProperty="FeatureDescLnk"
+					cssStyle="font-size:13px" size="220, 45">
+					<p1:MetaTableColumn text="Feature name" width="100">
+						<p1:MetaInputText x:Style="BORDER"
+							sourceProperty="featureName" cssStyle="background:#E0F2F7" />
+					</p1:MetaTableColumn>
+					<p1:MetaTableColumn text="Feature group" width="100">
+						<p1:MetaInputText x:Style="BORDER"
+							sourceProperty="featureGroup" cssStyle="background:#E0F2F7" />
+					</p1:MetaTableColumn>
+				</p1:MetaTable>
 				<p1:MetaComposite>
 					<p1:MetaComposite.layout>
-						<GridLayout/>
+						<GridLayout numColumns="2" />
 					</p1:MetaComposite.layout>
-					<p1:MetaAction text="Edit" expressionProperty="FeatureDescLnk.trigger- nextRecord" cssStyle="font-size:13px; width:100px; margin:25px 0px 0px 4px"/>
-					<p1:MetaAction text="Remove" expressionProperty="FeatureDescLnk.trigger- prevRecord" cssStyle="font-size:13px; width:100px; margin:25px 0px 0px 4px"/>
+					<p1:MetaAction text="Edit"
+						expressionProperty="FeatureDescLnk.trigger- nextRecord"
+						cssStyle="font-size:13px; width:100px; margin:25px 0px 0px 4px" >
+						<p1:Trigger triggerType="ONButtonClickJS" x:Name="ONButtonClickJS" script="ModalPopUpVar.show();"/>
+					</p1:MetaAction>
+					<p1:MetaAction text="Remove"
+						expressionProperty="FeatureDescLnk.trigger- prevRecord"
+						cssStyle="font-size:13px; width:100px; margin:25px 0px 0px 4px" />
 				</p1:MetaComposite>
 			</p1:MetaComposite>
 		</p1:MetaFieldSet>
 	</p1:MetaComposite>
+	<p1:ViewPort viewPortName="ViewPortPopUp" canvasName="PopupWindow" />
+	<Label/>
 </p1:MetaComposite>

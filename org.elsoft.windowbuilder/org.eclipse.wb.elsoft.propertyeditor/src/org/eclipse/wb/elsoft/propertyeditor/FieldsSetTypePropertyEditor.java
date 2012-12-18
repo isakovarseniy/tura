@@ -71,6 +71,8 @@ public class FieldsSetTypePropertyEditor extends PropertyEditor implements
 		ArrayList<Object> array = new ArrayList<Object>();
 		array.add("FieldSet");
 		array.add("Panel");
+		array.add("ModalPopupWindow");
+		
 
 		dialog.setElements(array.toArray());
 

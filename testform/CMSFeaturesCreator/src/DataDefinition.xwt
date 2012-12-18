@@ -20,6 +20,12 @@
 		<p1:DataControl x:Name="ComponentsLnk" businessObject="Media.CMS.component" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ComponentsLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ComponentsLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ComponentsLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 		<p1:Dependency expressionProperty="OrgStructureLnk.trigger- treeCurrentRow"/>
 		<p1:Trigger triggerType="PREQueryTrigger" x:Name="PREQueryTrigger" service="Media.CMS.Admin.FeatureCreatorTriggersService" method="perQueryComponent"/>
+		<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="componentType" refType="String" value="tools"/>
 	</p1:DataControl>
+		<p1:DataControl x:Name="Plugins" businessObject="Media.CMS.component" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Plugins.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Plugins.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Plugins.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:Dependency expressionProperty="OrgStructureLnk.trigger- treeCurrentRow"/>
+			<p1:Trigger triggerType="PREQueryTrigger" x:Name="PREQueryTrigger" service="Media.CMS.Admin.FeatureCreatorTriggersService" method="perQueryComponent"/>
+			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="componentType" refType="String" value="plugins"/>
+		</p1:DataControl>
 	</p1:DataDefinition>
 </p1:MetaComposite>

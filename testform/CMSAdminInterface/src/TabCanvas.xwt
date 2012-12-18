@@ -45,13 +45,13 @@
 						<p1:MetaComposite.layout>
 							<GridLayout numColumns="4" />
 						</p1:MetaComposite.layout>
-						<p1:MetaAction text="Create" expressionProperty="Claster.create"
+						<p1:MetaAction text="Create" expressionProperty="Claster.trigger- create"
 							updateOnButtonPressed="claster_table" />
-						<p1:MetaAction text="Remove" expressionProperty="Claster.remove"
+						<p1:MetaAction text="Remove" expressionProperty="Claster.trigger- remove"
 							updateOnButtonPressed="claster_table" />
-						<p1:MetaAction text="Save" expressionProperty="Claster.commit"
+						<p1:MetaAction text="Save" expressionProperty="Claster.trigger- commit"
 							updateOnButtonPressed="claster_table" />
-						<p1:MetaAction text="Undo" expressionProperty="Claster.rallback"
+						<p1:MetaAction text="Undo" expressionProperty="Claster.trigger- rallback"
 							updateOnButtonPressed="claster_table" />
 					</p1:MetaComposite>
 				</p1:MetaComposite>
@@ -82,7 +82,7 @@
 						<p1:MetaComposite.layout>
 							<GridLayout/>
 						</p1:MetaComposite.layout>
-						<p1:MetaAction text="Save" bounds="0, 0, 88, 29" SelectionEvent="onSelection" expressionProperty="PackageDescriptor.search">
+						<p1:MetaAction text="Save" bounds="0, 0, 88, 29" SelectionEvent="onSelection" expressionProperty="PackageDescriptor">
 							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="enablePackage"/>
 						</p1:MetaAction>
 					</p1:MetaComposite>
@@ -133,13 +133,13 @@
 								<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
 							</p1:MetaDropDown.layoutData>
 						</p1:MetaDropDown>
-						<p1:MetaAction text="Bind" expressionProperty="PackageOperationLnk.nextRecord" updateOnButtonPressed="OperationLab">
+						<p1:MetaAction text="Bind" expressionProperty="PackageOperationLnk" updateOnButtonPressed="OperationLab">
 							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="prepareBinding" />
 						</p1:MetaAction>
-						<p1:MetaAction text="Install" expressionProperty="PackageOperationLnk.prevRecord">
+						<p1:MetaAction text="Install" expressionProperty="PackageOperationLnk">
 							<p1:Trigger service="Media.CMS.Admin.AdminTriggersService" method="installPackage" triggerType="ONButtonPressed" x:Name="ONButtonPressed"/>
 						</p1:MetaAction>
-						<p1:MetaAction text="Remove" expressionProperty="PackageOperationLnk.prevRecord">
+						<p1:MetaAction text="Remove" expressionProperty="PackageOperationLnk">
 							<p1:Trigger service="Media.CMS.Admin.AdminTriggersService" method="unInstallPackage" triggerType="ONButtonPressed" x:Name="ONButtonPressed"/>
 						</p1:MetaAction>
 					</p1:MetaComposite>
@@ -171,8 +171,8 @@
 						<p1:MetaComposite.layout>
 							<GridLayout numColumns="2"/>
 						</p1:MetaComposite.layout>
-						<p1:MetaAction text="Search" expressionProperty="AvailableFeaturesLnk.search" updateOnButtonPressed="features featuresOper"/>
-						<p1:MetaAction text="Query" expressionProperty="AvailableFeaturesLnk.query" updateOnButtonPressed="features featuresOper"/>
+						<p1:MetaAction text="Search" expressionProperty="AvailableFeaturesLnk.trigger- search" updateOnButtonPressed="features featuresOper"/>
+						<p1:MetaAction text="Query" expressionProperty="AvailableFeaturesLnk.trigger- query" updateOnButtonPressed="features featuresOper"/>
 					</p1:MetaComposite>
 					<p1:MetaComposite bounds="0, 0, 330, 55">
 						<p1:MetaComposite.layout>

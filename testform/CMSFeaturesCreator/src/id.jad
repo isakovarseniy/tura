@@ -1,9 +1,10 @@
-#Thu Dec 13 12:35:33 EST 2012
-location=location
+#Mon Dec 17 11:37:31 EST 2012
+features=features
+OperationLab=OperationLab
 org_tree=org_tree
 featuresOper=featuresOper
-OperationLab=OperationLab
-features=features
-component_det=component_det
-loc_detail=loc_detail
 claster_table=claster_table
+ModalPopUp=ModalPopUp
+loc_detail=loc_detail
+location=location
+

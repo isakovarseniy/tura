@@ -42,12 +42,12 @@ public class Button extends ActionElement implements PointerElement {
 	@Override
 	protected void serialize(CommandHandler ch) throws Exception {
 		CreateUIButton.save(ch, getParentUuid(), this);
-		if (this.getUiElement2ServiceEvent() != null)
-			CreateEventUIElement2Service.save(ch, this);
-
-		if (this.getTriggerType() != null)
-			CreateEventTrigger.save(ch, getUuid(), this);
-
+		if (this.getTriggerType() != null) {
+			if (this.getUiElement2ServiceEvent() != null)
+				CreateEventUIElement2Service.save(ch, this);
+			else
+				CreateEventTrigger.save(ch, getUuid(), this);
+		}
 		super.serialize(ch);
 
 		Iterator<EventDAO> itr = updateOnButtonPressed.iterator();
