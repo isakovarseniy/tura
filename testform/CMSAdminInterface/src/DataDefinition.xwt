@@ -22,12 +22,6 @@
 			<p1:Relation dstDataControl="LocationsLnk" size="0, 0">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="upperOrg"/>
 			</p1:Relation>
-			<p1:Relation dstDataControl="AvailablePackagesLnk">
-				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="upperOrg"/>
-			</p1:Relation>
-			<p1:Relation dstDataControl="AvailableFeaturesLnk">
-				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="upperOrg"/>
-			</p1:Relation>
 		</p1:DataControl>
 		<p1:DataControl x:Name="LocationsLnk" businessObject="Media.CMS.location" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;LocationsLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;LocationsLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;LocationsLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:Relation dstDataControl="Claster">
@@ -38,22 +32,24 @@
 			<p1:DefaultSearch bounds="0, 0, 64, 64" expressionProperty="OrgStructureLnk.holder" fieldsProperty="infrastructureType" refType="String"/>
 			<p1:Trigger triggerType="PREInsertTrigger" x:Name="PREInsertTrigger" service="Media.CMS.Admin.AdminTriggersService" method="preInsertClaster"/>
 		</p1:DataControl>
-		<p1:DataControl x:Name="AvailablePackagesLnk" businessObject="Media.CMS.availableFeatures" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackagesLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackagesLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackagesLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
-			<p1:DefaultSearch bounds="0, 0, 64, 64" value="availablePackage" fieldsProperty="linkType" refType="String"/>
+		<p1:DataControl x:Name="AvailablePackagesLnk" businessObject="Media.CMS.featureDescriptor" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackagesLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackagesLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailablePackagesLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:Relation dstDataControl="PackageOperationLnk">
-				<p1:Link bounds="0, 0, 64, 64" masterField="featureId" detailField="featureId"/>
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="featureId"/>
 			</p1:Relation>
+			<p1:Trigger triggerType="PREQueryTrigger" x:Name="PREQueryTrigger" service="Media.CMS.Admin.AdminTriggersService" method="perQueryAvailablePackage"/>
+			<p1:Dependency expressionProperty="OrgStructureLnk.trigger- treeCurrentRow"/>
 		</p1:DataControl>
 		<p1:DataControl x:Name="PackageOperationLnk" businessObject="Media.CMS.featureOperation" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;PackageOperationLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;PackageOperationLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;PackageOperationLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="locationId" refType="Long" expressionProperty="LocationsLnk.objId"/>
 			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="infrastructureType" refType="String" expressionProperty="OrgStructureLnk.holder"/>
 			<p1:ArtificialField x:Name="selection" primitiveType="null.null.null.Boolean" defaultValue="true"/>
 		</p1:DataControl>
-		<p1:DataControl x:Name="AvailableFeaturesLnk" businessObject="Media.CMS.availableFeatures" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
-			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="linkType" refType="String" value="availableFeature"/>
+		<p1:DataControl x:Name="AvailableFeaturesLnk" businessObject="Media.CMS.featureDescriptor" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;AvailableFeaturesLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:Relation dstDataControl="FeatureOperationLnk">
-				<p1:Link bounds="0, 0, 64, 64" masterField="featureId" detailField="featureId"/>
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="featureId"/>
 			</p1:Relation>
+			<p1:Trigger triggerType="PREQueryTrigger" x:Name="PREQueryTrigger" service="Media.CMS.Admin.AdminTriggersService" method="perQueryAvailableFeature"/>
+			<p1:Dependency expressionProperty="OrgStructureLnk.trigger- treeCurrentRow"/>
 		</p1:DataControl>
 		<p1:DataControl x:Name="FeatureOperationLnk" businessObject="Media.CMS.featureOperation" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;FeatureOperationLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;FeatureOperationLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;FeatureOperationLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:DefaultSearch bounds="0, 0, 64, 64" expressionProperty="LocationsLnk.objId" fieldsProperty="locationId" refType="Long"/>
@@ -66,5 +62,6 @@
 			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="Media.CMS.Admin.AdminTriggersService" method="postQueryPackages"/>
 			<p1:Dependency expressionProperty="LocationsLnk"/>
 		</p1:DataControl>
+		<p1:DataControl x:Name="Object2object" businessObject="Media.CMS.availableFeatures" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Object2object.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Object2object.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Object2object.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
 	</p1:DataDefinition>
 </p1:MetaComposite>
