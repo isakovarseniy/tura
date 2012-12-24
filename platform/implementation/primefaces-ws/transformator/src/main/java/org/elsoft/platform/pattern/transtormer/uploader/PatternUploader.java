@@ -105,7 +105,7 @@ public class PatternUploader {
 		pu.uploader(
 				"admin",
 				"admin",
-				"/home/platform/GITRepo/bagration/platform/implementation/primefaces-ws/transformator/src/main/resources/pattern.xml");
+				"/home/platform/GITRepo/tura/platform/implementation/primefaces-ws/transformator/src/main/resources/pattern.xml");
 	}
 
 }

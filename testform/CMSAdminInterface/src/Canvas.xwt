@@ -12,7 +12,7 @@
 			<GridLayout />
 		</p1:MetaComposite.layout>
 		<p1:MetaFieldSet label="Locations" fieldSet="Panel"
-			cssStyle="font-size:20px; height:480px; margin-right:10px; background:#f8f8f8">
+			cssStyle="font-size:20px; height:700px; margin-right:10px; background:#f8f8f8">
 			<p1:MetaFieldSet.layout>
 				<GridLayout />
 			</p1:MetaFieldSet.layout>
@@ -82,7 +82,7 @@
 			<GridLayout/>
 		</p1:MetaComposite.layout>
 		<p1:MetaFieldSet idObject="loc_detail"
-			fieldSet="Panel" cssStyle="font-size:20px; height:480px; width:609px; background:#f8f8f8" label="Servers">
+			fieldSet="Panel" cssStyle="font-size:20px; height:700px; width:609px; background:#f8f8f8" label="Servers">
 			<p1:MetaFieldSet.layout>
 				<GridLayout/>
 			</p1:MetaFieldSet.layout>

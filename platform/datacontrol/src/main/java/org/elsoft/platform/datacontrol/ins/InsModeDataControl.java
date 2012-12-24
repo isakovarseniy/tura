@@ -148,8 +148,11 @@ public class InsModeDataControl<T> extends DataControl<T> {
 			checkParenObject(mode.getParent().getParent().getControl()
 					.getCurrentObject());
 
+		
+		boolean flagUpdate = this.isUpdated(); 
+		
 		if (!isRefresh()) {
-			if (this.isUpdated()) {
+			if (flagUpdate) {
 				this.setRefresh(true);
 			}
 		}

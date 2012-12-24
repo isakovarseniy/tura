@@ -17,7 +17,7 @@
 <j:jelly trim="false" xmlns:j="jelly:core"  xmlns:u="jelly:util" xmlns:a="jelly:ant">
 	<a:exec taskname="Deploy package" executable="/bin/cp" dir="${GeneratedCodeRoot}/${domain}/${functionalDomain}/${application}/uicontainer">
 		<a:arg line="${GeneratedCodeRoot}/${domain}/${functionalDomain}/${application}/uicontainer/target/UIContainer-${domain}-${functionalDomain}-${application}-1.0.war"/>
-		<a:arg line="/opt/liferay/deploy"/>
+		<a:arg line="/home/platform/liferay/deploy"/>
 	</a:exec>
 	<a:exec taskname="echo" executable="/bin/echo" >
 		<a:arg line="Complited"/>

@@ -89,6 +89,19 @@ public class Relation {
 
 				scls.add(sc);
 			}
+		}else{
+			PropertyLink lnk = itr.next();
+
+			SearchCriteria sc = new SearchCriteria();
+			sc.setName(lnk.getChild());
+
+			Object value = Constants.UNDEFINED_PARAMETER;
+			sc.setName(lnk.getChild());
+			sc.setClassName(value.getClass().getName());
+			sc.setValue(value.toString());
+
+			scls.add(sc);
+
 		}
 		return scls;
 	}
