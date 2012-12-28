@@ -1112,7 +1112,7 @@ public class PopulateTypeMapping {
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
 		mp.setResPackageName("org.elsoft.platform.form.triggers");
 		mp.setResTypeName("TestFormTriggers");
-		mp.setGroupName("com.jibestream.cms");
+		mp.setGroupName("org.elsoft.testForm");
 		mp.setArtifactName("trigger");
 		mp.setArtifactVersion("1.0");
 	
