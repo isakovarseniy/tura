@@ -41,10 +41,12 @@ public class Helper {
 		Iterator<PacketDAO> itrPac = packetHandler.cleanSearch().getList();
 		while (itrPac.hasNext()) {
 			PacketDAO packet = itrPac.next();
+
 			context.putAll(packetHandler.generate(rf, domain,
 					functionalDomain, application,level,inputContext));
 			inputContext.putAll(context);
 
+			
 			Iterator<ModelMappingDAO> itr = packetHandler.getModelMappingHandler().cleanSearch().getList();
 			while (itr.hasNext()) {
 				ModelMappingDAO modelMapping = itr.next();

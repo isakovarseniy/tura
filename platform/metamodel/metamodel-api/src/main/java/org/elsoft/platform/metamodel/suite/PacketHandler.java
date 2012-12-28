@@ -68,7 +68,7 @@ public class PacketHandler extends Handler<PacketHandler, PacketDAO> {
 	private Method search;
 	@GetMode
 	private Mode<PacketDAO> mode;
-	@Connection(links = { @Link(field1 = "objId", field2 = "parentId") }, connectedObject = PacketHandler.class, connectionName = "Packet2Packet")
+	@Connection(links = { @Link(field1 = "objId", field2 = "parentId") }, connectedObject = PacketHandler.class, connectionName = "Packet2Packet",treeRelation = true)
 	private PacketHandler packetHandler;
 	@Connection(links = { @Link(field1 = "objId", field2 = "parentId") }, connectedObject = ModelMappingHandler.class, connectionName = "Packet2ModelMapping")
 	private ModelMappingHandler modelMappingHandler;

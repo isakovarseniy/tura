@@ -26,7 +26,7 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator extends AbstractUIPlugin {
 
-	public static RepositoryFactory rf;
+	public static RepositoryFactory rf,rf1;
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.eclipse.wb.elsoft.propertyeditor"; //$NON-NLS-1$
 
@@ -76,6 +76,7 @@ public class Activator extends AbstractUIPlugin {
 	static {
 		try {
 			rf = new RepositoryFactory(new TransactionManagerImpl(JPAObjects.getObjects()));
+			rf1 = new RepositoryFactory(new TransactionManagerImpl(JPAObjects.getObjects()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

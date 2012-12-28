@@ -118,7 +118,7 @@
 					<p1:MetaLabel/>
 					<p1:MetaComposite>
 						<p1:MetaComposite.layout>
-							<GridLayout numColumns="5"/>
+							<GridLayout numColumns="6"/>
 						</p1:MetaComposite.layout>
 						<p1:MetaComposite.layoutData>
 							<GridData widthHint="385"/>
@@ -139,8 +139,11 @@
 						<p1:MetaAction text="Install" expressionProperty="PackageOperationLnk">
 							<p1:Trigger service="Media.CMS.Admin.AdminTriggersService" method="installPackage" triggerType="ONButtonPressed" x:Name="ONButtonPressed"/>
 						</p1:MetaAction>
-						<p1:MetaAction text="Remove" expressionProperty="PackageOperationLnk">
+						<p1:MetaAction text="Unistall" expressionProperty="PackageOperationLnk">
 							<p1:Trigger service="Media.CMS.Admin.AdminTriggersService" method="unInstallPackage" triggerType="ONButtonPressed" x:Name="ONButtonPressed"/>
+						</p1:MetaAction>
+						<p1:MetaAction text="Refresh" updateOnButtonPressed="OperationLab" expressionProperty="PackageOperationLnk">
+							<p1:Trigger triggerType="ONButtonPressed" x:Name="ONButtonPressed" service="Media.CMS.Admin.AdminTriggersService" method="checkPackageOperation"/>
 						</p1:MetaAction>
 					</p1:MetaComposite>
 					<p1:MetaLabel/>
