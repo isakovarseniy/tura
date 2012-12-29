@@ -57,12 +57,12 @@ public class GenarateFormJob implements Runnable {
 			HashMap<String, Object> infrastructureContext = ah
 					.getInfrastructureLayer().cleanSearch()
 					.searchString("zoneName", infrastructure).seek()
-					.loadProperties(Activator.rf1);
+					.loadProperties(Activator.rf);
 
 			RecipeHandler rh = ah.getRecipeHandler()
 					.searchString("recipeName", recipe).seek();
 
-			rh.buildRecipe(Activator.rf1, infrastructureContext,
+			rh.buildRecipe(Activator.rf, infrastructureContext,
 					MetamodelPlatformLevel.UI_CONTAINER,
 					MetamodelPlatformLevel.UI_CONTAINER, domain,
 					functionalDomain, application);
