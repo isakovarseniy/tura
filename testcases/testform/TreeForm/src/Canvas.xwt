@@ -1,0 +1,13 @@
+<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:MetaComposite.layout>
+		<GridLayout/>
+	</p1:MetaComposite.layout>
+	<p1:MetaTree x:Style="BORDER" iteratorProperty="DomainLnk">
+		<p1:MetaTree.layoutData>
+			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
+		</p1:MetaTree.layoutData>
+		<p1:MetaTreeColumn text="Column" width="100">
+			<p1:MetaInputText x:Style="BORDER" sourceProperty="name"/>
+		</p1:MetaTreeColumn>
+	</p1:MetaTree>
+</p1:MetaComposite>

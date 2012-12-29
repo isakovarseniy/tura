@@ -1,0 +1,41 @@
+<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:MetaComposite.layout>
+		<GridLayout/>
+	</p1:MetaComposite.layout>
+	<p1:MetaFieldSet idObject="field_set" fieldSet="FieldSet">
+		<p1:MetaComposite size="257, 71">
+			<p1:MetaComposite.layout>
+				<GridLayout numColumns="2"/>
+			</p1:MetaComposite.layout>
+			<p1:MetaInputText x:Style="BORDER" text="Departments Id" iteratorProperty="DepartmentLnk" sourceProperty="departmentId">
+				<p1:MetaInputText.layoutData>
+					<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+				</p1:MetaInputText.layoutData>
+			</p1:MetaInputText>
+			<p1:MetaInputText x:Style="BORDER" text="Department name" iteratorProperty="DepartmentLnk" sourceProperty="departmentName">
+				<p1:MetaInputText.layoutData>
+					<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+				</p1:MetaInputText.layoutData>
+			</p1:MetaInputText>
+			<p1:MetaAction text="Prev Record" expressionProperty="DepartmentLnk.prevRecord" updateOnButtonPressed="emp_table field_set"/>
+			<p1:MetaAction text="Next Record" expressionProperty="DepartmentLnk.nextRecord" updateOnButtonPressed="emp_table field_set"/>
+		</p1:MetaComposite>
+	</p1:MetaFieldSet>
+	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="EmployeesLnk" idObject="emp_table">
+		<p1:MetaTable.layoutData>
+			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
+		</p1:MetaTable.layoutData>
+		<p1:MetaTableColumn text="Employee Id" width="100">
+			<p1:MetaInputText x:Style="BORDER" sourceProperty="employeeId"/>
+		</p1:MetaTableColumn>
+		<p1:MetaTableColumn text="First Name" width="100">
+			<p1:MetaInputText x:Style="BORDER" sourceProperty="firstName"/>
+		</p1:MetaTableColumn>
+		<p1:MetaTableColumn text="Last Name" width="100">
+			<p1:MetaInputText x:Style="BORDER" sourceProperty="lastName"/>
+		</p1:MetaTableColumn>
+		<p1:MetaTableColumn text="Email" width="100">
+			<p1:MetaInputText x:Style="BORDER" sourceProperty="email"/>
+		</p1:MetaTableColumn>
+	</p1:MetaTable>
+</p1:MetaComposite>
