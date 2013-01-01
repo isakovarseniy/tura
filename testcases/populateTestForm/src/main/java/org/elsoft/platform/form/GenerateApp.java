@@ -39,10 +39,11 @@ public class GenerateApp {
 					     "/home/platform/GITRepo/tura/platform/implementation/primefaces-ws/transformator/src/main/resources/pattern.xml"
 					   , "/home/platform/implPattern/ImplementationPetternRoot/"
 					   );
+			TransactionManagerImpl trMgr = new TransactionManagerImpl(JPAObjects.getObjects());
 
-			rf = new RepositoryFactory(new TransactionManagerImpl(JPAObjects.getObjects()));
+			rf = new RepositoryFactory(trMgr);
 
-			rf1 = new RepositoryFactory(new TransactionManagerImpl(JPAObjects.getObjects()));
+			rf1 = new RepositoryFactory(trMgr);
 
 			ApplicationHandler ah = rf.getRoot().cleanSearch()
 					.searchString("domainName", "Manufacturing").seek()

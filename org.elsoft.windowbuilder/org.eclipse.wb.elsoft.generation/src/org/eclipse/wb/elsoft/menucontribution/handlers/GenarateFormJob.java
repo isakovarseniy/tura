@@ -62,7 +62,7 @@ public class GenarateFormJob implements Runnable {
 			RecipeHandler rh = ah.getRecipeHandler()
 					.searchString("recipeName", recipe).seek();
 
-			rh.buildRecipe(Activator.rf, infrastructureContext,
+			rh.buildRecipe(Activator.rf1, infrastructureContext,
 					MetamodelPlatformLevel.UI_CONTAINER,
 					MetamodelPlatformLevel.UI_CONTAINER, domain,
 					functionalDomain, application);
