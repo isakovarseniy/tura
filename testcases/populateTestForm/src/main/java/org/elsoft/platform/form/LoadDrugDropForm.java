@@ -38,7 +38,7 @@ public class LoadDrugDropForm {
 		Reader root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/DrugDropForm/src/DataDefinition.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/DrugDropForm/src/DataDefinition.xwt"),
 						null);
 		root.buildAll(context, rf, root, program);
 
@@ -47,14 +47,14 @@ public class LoadDrugDropForm {
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/DrugDropForm/src/Canvas.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/DrugDropForm/src/Canvas.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/DrugDropForm/src/Window.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/DrugDropForm/src/Window.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 

@@ -38,7 +38,7 @@ public class LoadMany2OneForm {
 		Reader root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/Many2OneForm/src/DataDefinition.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/Many2OneForm/src/DataDefinition.xwt"),
 						null);
 		root.buildAll(context, rf, root, program);
 
@@ -47,14 +47,14 @@ public class LoadMany2OneForm {
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/Many2OneForm/src/Canvas.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/Many2OneForm/src/Canvas.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/Many2OneForm/src/Window.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/Many2OneForm/src/Window.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 

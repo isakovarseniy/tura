@@ -38,7 +38,7 @@ public class LoadTreeForm {
 		Reader root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/TreeForm/src/DataDefinition.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/TreeForm/src/DataDefinition.xwt"),
 						null);
 		root.buildAll(context, rf, root, program);
 
@@ -47,14 +47,14 @@ public class LoadTreeForm {
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/TreeForm/src/Canvas.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/TreeForm/src/Canvas.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/TreeForm/src/Window.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/TreeForm/src/Window.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 

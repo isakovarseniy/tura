@@ -38,7 +38,7 @@ public class LoadLovForm {
 		Reader root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/LovForm/src/DataDefinition.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/LovForm/src/DataDefinition.xwt"),
 						null);
 		root.buildAll(context, rf, root, program);
 
@@ -47,14 +47,14 @@ public class LoadLovForm {
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/LovForm/src/Canvas.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/LovForm/src/Canvas.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testform/LovForm/src/Window.xwt"),
+								"/home/platform/GITRepo/tura/testcases/testform/LovForm/src/Window.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 
