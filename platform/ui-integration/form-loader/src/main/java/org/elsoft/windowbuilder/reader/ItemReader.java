@@ -17,15 +17,31 @@ package org.elsoft.windowbuilder.reader;
 
 import javax.xml.stream.XMLStreamReader;
 
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
+
 
 public abstract class ItemReader extends Reader {
+
+	public String getLabel() {
+		return label;
+	}
+
+	public boolean isTableContext() {
+		return tableContext;
+	}
+
 
 	private String dataControlId;
 	private String field;
 	private String cssStyle;
 	private String cssStyleClass;
 	private String idObject;
+	private String label;
+	private boolean tableContext = false;
 
+
+	
+	
 	public String getCssStyle() {
 		return cssStyle;
 	}
@@ -82,4 +98,32 @@ public abstract class ItemReader extends Reader {
 		this.idObject = idObject;
 	}
 
+	
+	protected Reader setContext(Reader parent){
+		Reader prnt = parent;
+
+		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
+			setUuid( getIdObject());
+		}
+		
+		if (parent instanceof TableColumnReader) {
+			label = ((TableColumnReader) prnt).getLabel();
+			tableContext = true;
+			prnt=((TableColumnReader) prnt).getParent();
+			setDataControlId(((TableReader)prnt).getDataControlId());
+		}
+
+		if (parent instanceof TreeColumnReader) {
+			label = ((TreeColumnReader) prnt).getLabel();
+			tableContext = true;
+			prnt=((TreeColumnReader) prnt).getParent();
+			setDataControlId(((TreeReader)prnt).getDataControlId());
+		}
+		return prnt;
+	}
+	
+	
+	
+	
+	
 }

@@ -29,38 +29,19 @@ import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIImage
 
 public class ImageReader extends ItemReader {
 
-	private String label;
-	private boolean tableContext = false;
-
 	@Override
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
 
-		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
-			setUuid( getIdObject());
-		}
-		
 		EventDAO event = null;
-		if (parent instanceof TableColumnReader) {
-			label = ((TableColumnReader) parent).getLabel();
-			tableContext = true;
-			parent=((TableColumnReader) parent).getParent();
-			setDataControlId(((TableReader)parent).getDataControlId());
-		}
-
-		if (parent instanceof TreeColumnReader) {
-			label = ((TreeColumnReader) parent).getLabel();
-			tableContext = true;
-			parent=((TreeColumnReader) parent).getParent();
-			setDataControlId(((TreeReader)parent).getDataControlId());
-		}
+		parent=setContext(parent);
 		
 		
 		CreateUIImageDAO creatUIImage = new CreateUIImageDAO();
 		creatUIImage.setCommandExecutor(CreateUIImage.class.getName());
 		creatUIImage.setParentUUID(parent.getUuid());
 		creatUIImage.setUUID(getUuid());
-		creatUIImage.setLabel(label);
+		creatUIImage.setLabel(getLabel());
 		creatUIImage.setCss(getCssStyle());
 		creatUIImage.setCssClass(getCssStyleClass());
 		program.add(creatUIImage);
@@ -71,7 +52,7 @@ public class ImageReader extends ItemReader {
 		event.setDstUUID(getDataControlId() + "." + getField());
 		program.add(event);
 
-		if (!tableContext) {
+		if (!isTableContext()) {
 			event = new EventDAO();
 			event.setCommandExecutor(CreateEventGetCurrentRow.class.getName());
 			event.setParentUUID(creatUIImage.getUUID());

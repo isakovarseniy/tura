@@ -29,38 +29,20 @@ import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIInput
 
 public class TextReader extends ItemReader {
 
-	private String label;
-	private boolean tableContext = false;
 
 	@Override
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
 
-		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
-			setUuid( getIdObject());
-		}
-		
 		EventDAO event = null;
-		if (parent instanceof TableColumnReader) {
-			label = ((TableColumnReader) parent).getLabel();
-			tableContext = true;
-			parent=((TableColumnReader) parent).getParent();
-			setDataControlId(((TableReader)parent).getDataControlId());
-		}
 
-		if (parent instanceof TreeColumnReader) {
-			label = ((TreeColumnReader) parent).getLabel();
-			tableContext = true;
-			parent=((TreeColumnReader) parent).getParent();
-			setDataControlId(((TreeReader)parent).getDataControlId());
-		}
-		
+		parent=setContext(parent);
 		
 		CreateUIInputTextDAO createUIInputText = new CreateUIInputTextDAO();
 		createUIInputText.setCommandExecutor(CreateUIInputText.class.getName());
 		createUIInputText.setParentUUID(parent.getUuid());
 		createUIInputText.setUUID(getUuid());
-		createUIInputText.setLabel(label);
+		createUIInputText.setLabel(getLabel());
 		createUIInputText.setCss(getCssStyle());
 		createUIInputText.setCssClass(getCssStyleClass());
 		program.add(createUIInputText);
@@ -71,7 +53,7 @@ public class TextReader extends ItemReader {
 		event.setDstUUID(getDataControlId() + "." + getField());
 		program.add(event);
 
-		if (!tableContext) {
+		if (!isTableContext()) {
 			event = new EventDAO();
 			event.setCommandExecutor(CreateEventGetCurrentRow.class.getName());
 			event.setParentUUID(createUIInputText.getUUID());

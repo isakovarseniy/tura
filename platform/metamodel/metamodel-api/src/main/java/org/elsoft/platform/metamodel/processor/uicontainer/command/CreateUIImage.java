@@ -48,7 +48,7 @@ public class CreateUIImage {
 		obj.setParentUUID(parentUUID);
 		obj.setCss(inputText.getCss());
 		obj.setCssClass(inputText.getCssClass());
-		obj.setCommandExecutor(CreateUIInputText.class.getName());
+		obj.setCommandExecutor(CreateUIImage.class.getName());
 		obj.setUUID(inputText.getUuid());
         obj.setLabel(inputText.getLabel());
 	}

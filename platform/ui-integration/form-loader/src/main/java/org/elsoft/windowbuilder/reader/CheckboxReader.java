@@ -29,38 +29,21 @@ import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUICheck
 
 public class CheckboxReader extends ItemReader {
 
-	private String label;
-	private boolean tableContext = false;
 
 	@Override
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
 
-		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
-			setUuid( getIdObject());
-		}
-		
 		EventDAO event = null;
-		if (parent instanceof TableColumnReader) {
-			label = ((TableColumnReader) parent).getLabel();
-			tableContext = true;
-			parent=((TableColumnReader) parent).getParent();
-			setDataControlId(((TableReader)parent).getDataControlId());
-		}
 
-		if (parent instanceof TreeColumnReader) {
-			label = ((TreeColumnReader) parent).getLabel();
-			tableContext = true;
-			parent=((TreeColumnReader) parent).getParent();
-			setDataControlId(((TreeReader)parent).getDataControlId());
-		}
+		parent=setContext(parent);
 		
 		
 		CreateUICheckBoxDAO createUICheckBox = new CreateUICheckBoxDAO();
 		createUICheckBox.setCommandExecutor(CreateUICheckBox.class.getName());
 		createUICheckBox.setParentUUID(parent.getUuid());
 		createUICheckBox.setUUID(getUuid());
-		createUICheckBox.setLabel(label);
+		createUICheckBox.setLabel(getLabel());
 		createUICheckBox.setCss(getCssStyle());
 		createUICheckBox.setCssClass(getCssStyleClass());
 		program.add(createUICheckBox);
@@ -71,7 +54,7 @@ public class CheckboxReader extends ItemReader {
 		event.setDstUUID(getDataControlId() + "." + getField());
 		program.add(event);
 
-		if (!tableContext) {
+		if (!isTableContext()) {
 			event = new EventDAO();
 			event.setCommandExecutor(CreateEventGetCurrentRow.class.getName());
 			event.setParentUUID(createUICheckBox.getUUID());
