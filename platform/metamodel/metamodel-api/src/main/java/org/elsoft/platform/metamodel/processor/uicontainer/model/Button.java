@@ -23,12 +23,19 @@ import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIButtonDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
+import org.elsoft.platform.metamodel.processor.datasource.model.Field;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventTrigger;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2ImageHolderField;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2ImageHolderLink;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Service;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIButton;
 
-public class Button extends ActionElement implements PointerElement {
+public class Button extends ActionElement implements PointerElement, ImageHolder {
+	private Field imageSrcField;
+	private DataLink imageSrcLnk;
+
+
 	private ArrayList<EventDAO> updateOnButtonPressed = new ArrayList<EventDAO>();
 
 	public Button(CreateUIButtonDAO command, HashMap<String, Object> context) {
@@ -47,6 +54,10 @@ public class Button extends ActionElement implements PointerElement {
 				CreateEventUIElement2Service.save(ch, this);
 			else
 				CreateEventTrigger.save(ch, getUuid(), this);
+		}
+		if ((this.getImageSrcLnk() != null)&&(this.getImageSrcField() != null)){
+			CreateEventUIElement2ImageHolderLink.save(ch, getUuid(), this);
+			CreateEventUIElement2ImageHolderField.save(ch, getUuid(), this);
 		}
 		super.serialize(ch);
 
@@ -74,4 +85,33 @@ public class Button extends ActionElement implements PointerElement {
 		return updateOnButtonPressed;
 	}
 
+	public void setUIElement2ImageHolderLnk(EventDAO command,
+			HashMap<String, Object> context) throws Exception{
+		
+		DataLink dataLink = (DataLink) context.get(command.getDstUUID());
+		dataLink.addTrigger(this.getUiElementType(), MetamodelTriggerEventsType.valueOf(command.getEventType()).name());
+		setImageSrcLnk(dataLink);
+	}
+
+	public void setUIElement2ImageHolderField(EventDAO command,
+			HashMap<String, Object> context) {
+		setImageSrcField((Field) context.get(command.getDstUUID()));
+	}
+	
+	public DataLink getImageSrcLnk() {
+		return imageSrcLnk;
+	}
+
+	public void setImageSrcLnk(DataLink imageSrcLnk) {
+		this.imageSrcLnk = imageSrcLnk;
+	}
+
+	public Field getImageSrcField() {
+		return imageSrcField;
+	}
+
+	public void setImageSrcField(Field imageSrcField) {
+		this.imageSrcField = imageSrcField;
+	}
+	
 }

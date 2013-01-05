@@ -383,6 +383,11 @@
 			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
 
 		<implementationPattern
+			file="/home/platform/GITRepo/tura/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementGridButton.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
+
+
+		<implementationPattern
 			file="/home/platform/GITRepo/tura/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementDropDownList.xml"
 			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
 

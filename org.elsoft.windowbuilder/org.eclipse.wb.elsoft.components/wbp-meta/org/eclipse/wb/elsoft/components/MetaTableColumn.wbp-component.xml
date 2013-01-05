@@ -68,6 +68,11 @@
 		<parameter name="flowContainer.4.horizontal">false</parameter>
 		<parameter name="flowContainer.4.component">org.eclipse.wb.elsoft.components.MetaImage</parameter>
 
+		<parameter name="flowContainer.5">true</parameter>
+		<parameter name="flowContainer.5.horizontal">false</parameter>
+		<parameter name="flowContainer.5.component">org.eclipse.wb.elsoft.components.MetaAction</parameter>
+
+
 		<parameter name="isColumn">true</parameter>
 	</parameters>
 </component>

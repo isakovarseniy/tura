@@ -17,7 +17,6 @@ package org.elsoft.windowbuilder.reader;
 
 import javax.xml.stream.XMLStreamReader;
 
-import org.elsoft.platform.metamodel.objects.command.EventDAO;
 
 
 public abstract class ItemReader extends Reader {

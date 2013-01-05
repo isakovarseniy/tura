@@ -24,6 +24,7 @@ import org.eclipse.swt.widgets.Composite;
 public class MetaAction extends Button {
 
 	private ExpressionProperty expressionProperty;
+	private ExpressionProperty imageProperty;
 	private String cssStyle;
 	private String cssStyleClass;
 	private IDProperty idObject;
@@ -74,6 +75,14 @@ public class MetaAction extends Button {
 
 	public void setUpdateOnButtonPressed(VisualDependencyProperty updateOnButtonPressed) {
 		this.updateOnButtonPressed = updateOnButtonPressed;
+	}
+
+	public ExpressionProperty getImageProperty() {
+		return imageProperty;
+	}
+
+	public void setImageProperty(ExpressionProperty imageProperty) {
+		this.imageProperty = imageProperty;
 	}
 
 

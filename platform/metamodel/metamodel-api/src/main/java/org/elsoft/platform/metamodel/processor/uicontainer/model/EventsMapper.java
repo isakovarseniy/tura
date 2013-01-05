@@ -30,7 +30,7 @@ public class EventsMapper {
 		matrix.put("Button", "CreateEventRallback","ButtonRallback");
 		matrix.put("Button", "CreateEventRemoveRecord","ButtonRemoveRecord");
 		matrix.put("Button", "CreateEventSearch","ButtonSearch");
-		matrix.put("Button", "","CommonGetCurrentRecord");
+		matrix.put("Button", "CreateEventGetCurrentRow","CommonGetCurrentRow");
 		matrix.put("DropDownList", "CreateEventGetOptionsList","DropDownListGetOptionsList");
 		matrix.put("DropDownList", "CreateEventGetCurrentRow","CommonGetCurrentRow");
 		matrix.put("Grid", "CreateEventGetCurrentRow","GridGetCurrentRow");

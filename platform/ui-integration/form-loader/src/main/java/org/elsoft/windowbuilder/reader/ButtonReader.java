@@ -27,6 +27,8 @@ import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIButtonDAO;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventTrigger;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2ImageHolderField;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2ImageHolderLink;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIButton;
 
@@ -36,6 +38,9 @@ public class ButtonReader extends ItemReader {
 	private String cssStyle;
 	private String cssStyleClass;
 	private String updateOnButtonPressed;
+	private String imagePropertyDataControl;
+	private String imagePropertyField;
+	
 
 	@Override
 	public Reader reader(XMLStreamReader xmlReader, Reader parent) {
@@ -58,6 +63,22 @@ public class ButtonReader extends ItemReader {
 				setField(field);
 			}
 		}
+
+		String imageProperty = xmlReader.getAttributeValue(null,
+				"imageProperty");
+
+		if ((imageProperty != null) && (!imageProperty.equals(""))) {
+			List<String> ls = this.expressionParser(imageProperty);
+			imagePropertyDataControl = Reader.idMAP.get(ls.get(0));
+
+			if (ls.size() > 1) {
+				String field = ls.get(1);
+				if (ls.get(1).indexOf("trigger- ") != -1)
+					field = ls.get(1).substring("trigger- ".length());
+				imagePropertyField = field;
+			}
+		}
+				
 		label = xmlReader.getAttributeValue(null, "text");
 		return this;
 	}
@@ -66,6 +87,9 @@ public class ButtonReader extends ItemReader {
 	public void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
 
+		parent=setContext(parent);
+
+		
 		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
 			setUuid(getIdObject());
 		}
@@ -87,6 +111,22 @@ public class ButtonReader extends ItemReader {
 			event.setEventType(eventConverter.get(getField()).name());
 			program.add(event);
 		}
+		
+		if ((imagePropertyDataControl !=null )&&(imagePropertyField != null)){
+			EventDAO event = new EventDAO();
+			event.setCommandExecutor(CreateEventUIElement2ImageHolderField.class.getName());
+			event.setParentUUID(createUIButton.getUUID());
+			event.setDstUUID(imagePropertyDataControl + "." + imagePropertyField);
+			program.add(event);
+
+			event = new EventDAO();
+			event.setCommandExecutor(CreateEventUIElement2ImageHolderLink.class.getName());
+			event.setParentUUID(createUIButton.getUUID());
+			event.setDstUUID(getDataControlId());
+			program.add(event);
+		
+		}
+		
 		if (updateOnButtonPressed != null) {
 			StringTokenizer tokenizer = new StringTokenizer(
 					updateOnButtonPressed);
