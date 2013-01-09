@@ -111,6 +111,11 @@ public class JSPXModeBuilder {
 					"disable_expression", securityConverter(element.getDisable()));            
 		}
 
+		if ((element instanceof InputElement)&&(((InputElement)element).getReadonly() != null)) {
+			element.getPropertiesExtender().put(
+					"readonly_expression", securityConverter(((InputElement)element).getReadonly()));            
+		}
+		
 		if (element instanceof ExternalIterator) {
 			if (((ExternalIterator) element).getDataSrcLnk() != null) {
 				String name = ((ExternalIterator) element).getDataSrcLnk()

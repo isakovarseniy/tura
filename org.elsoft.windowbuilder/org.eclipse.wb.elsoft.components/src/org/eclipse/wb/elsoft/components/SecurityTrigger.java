@@ -16,9 +16,6 @@ public class SecurityTrigger extends Composite{
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-
 	public OperetionTypeProperty getOperation() {
 		return operation;
 	}

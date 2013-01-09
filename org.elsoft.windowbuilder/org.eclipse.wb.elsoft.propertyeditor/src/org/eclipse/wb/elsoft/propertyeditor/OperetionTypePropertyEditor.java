@@ -71,6 +71,7 @@ public class OperetionTypePropertyEditor extends PropertyEditor implements
 		ArrayList<Object> array = new ArrayList<Object>();
 		array.add("Rendered");
 		array.add("Disabled");
+		array.add("ReadOnly");
 
 		dialog.setElements(array.toArray());
 

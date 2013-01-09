@@ -24,6 +24,7 @@
 					<component class="org.eclipse.wb.elsoft.components.MetaTable"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaTableColumn"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaInputText"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaOutputText"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaTree"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaTreeColumn"/>
 					<component class="org.eclipse.wb.elsoft.components.MetaDropDown"/>

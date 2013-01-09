@@ -25,6 +25,7 @@ public class JPAObjects {
 		ls.add(org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIDropDownListDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIGridDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIInputTextDAO.class);
+		ls.add(org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIOutputTextDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.command.form.ui.CreateUILabelDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.command.form.ui.CreateUILovDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.command.form.ui.CreateUITabPageDAO.class);

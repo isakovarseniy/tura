@@ -52,7 +52,8 @@ public abstract class UIElement extends PersistentInterface {
     public void setSecurityTrigger(CreateSecurityTriggerDAO trigger){
     	if (trigger.getOperationType().equals("Rendered"))
     		rendered = trigger;
-    	else
+
+    	if (trigger.getOperationType().equals("Disabled"))
     		disable = trigger;
     }
 	

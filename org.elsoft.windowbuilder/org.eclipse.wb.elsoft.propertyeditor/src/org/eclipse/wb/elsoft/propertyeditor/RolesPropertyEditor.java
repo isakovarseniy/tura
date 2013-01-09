@@ -63,7 +63,7 @@ public class RolesPropertyEditor extends PropertyEditor implements
 		ApplicationHandler apph = Activator.rf.getRoot().cleanSearch()
 				.searchString("domainName", frmName.getDomain()).seek()
 				.getFunctionalDomain().cleanSearch()
-				.searchString("functionalDomainName", frmName.getFormName()).seek()
+				.searchString("functionalDomainName", frmName.getFunctionalDomain()).seek()
 				.getApplicationHandler().cleanSearch()
 				.searchString("applicationName", frmName.getApplication()).seek();
 		Iterator<ApplicationRoleDAO> itr = apph.getApplicationRole().cleanSearch().getList();

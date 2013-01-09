@@ -19,6 +19,17 @@
 				<x:attribute name="style">${uiElement.css}</x:attribute>
 			</j:when>
 		</j:choose>
+		<j:choose>
+		   <j:when test="${uiElement.propertiesExtender['rendered_expression'] != null and uiElement.propertiesExtender['rendered_expression'] != ''}">
+				<x:attribute name="rendered" trim="true">#{${uiElement.propertiesExtender['rendered_expression']}}</x:attribute>
+			</j:when>
+		</j:choose>
+		<j:choose>
+		   <j:when test="${uiElement.propertiesExtender['disable_expression'] != null and uiElement.propertiesExtender['disable_expression'] != ''}">
+				<x:attribute name="disabled" trim="true">#{${uiElement.propertiesExtender['disable_expression']}}</x:attribute>
+			</j:when>
+		</j:choose>
+		
 		<x:attribute name="value">${uiElement.label}</x:attribute>
 		<j:choose>
 			<j:when test="${uiElement.propertiesExtender['OnButtonPressed'] != null and uiElement.propertiesExtender['OnButtonPressed'] != ''}">

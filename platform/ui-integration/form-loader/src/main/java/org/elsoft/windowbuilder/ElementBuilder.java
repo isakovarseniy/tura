@@ -27,6 +27,7 @@ public enum ElementBuilder {
 	MetaTableColumn(org.elsoft.windowbuilder.reader.TableColumnReader.class),
 	MetaAction(org.elsoft.windowbuilder.reader.ButtonReader.class),
 	MetaInputText(org.elsoft.windowbuilder.reader.TextReader.class),
+	MetaOutputText(org.elsoft.windowbuilder.reader.OutputTextReader.class),
 	MetaTabFolder(org.elsoft.windowbuilder.reader.TabFolderReader.class),
 	MetaTabItem(org.elsoft.windowbuilder.reader.TabItemReader.class),
 	MetaTabItem_control(org.elsoft.windowbuilder.reader.TabItemControlReader.class),

@@ -19,10 +19,12 @@ import java.util.HashMap;
 
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateSecurityTriggerDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.datasource.model.Field;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetCurrentRow;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Field;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateSecurityTrigger;
 
 public abstract class InputElement extends UIElement {
 
@@ -30,9 +32,21 @@ public abstract class InputElement extends UIElement {
 	private DataLink dataSrcLnk;
 	private String label;
 	private String required;
+	private CreateSecurityTriggerDAO readonly = null;
 
 	
 
+    public void setSecurityTrigger(CreateSecurityTriggerDAO trigger){
+    	if (trigger.getOperationType().equals("ReadOnly"))
+    		readonly = trigger;
+    	else
+    		super.setSecurityTrigger(trigger);
+    }
+	
+	public CreateSecurityTriggerDAO getReadonly() {
+		return readonly;
+	}
+	
 	public Field getDataSrcField() {
 		return dataSrcField;
 	}
@@ -84,6 +98,9 @@ public abstract class InputElement extends UIElement {
 			CreateEventGetCurrentRow.save(ch, getUuid(), this);		
         if (this.dataSrcField != null)
         	CreateEventUIElement2Field.save(ch, getUuid(), this);
+        if (readonly != null)
+			CreateSecurityTrigger.save(ch, getUuid(), readonly);
+        
 		super.serialize(ch);  
 	}
 

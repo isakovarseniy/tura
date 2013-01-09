@@ -18,11 +18,7 @@
 			<x:element name="p:inputText" URI="http://primefaces.org/ui">
 				<x:attribute name="style">${uiElement.css}</x:attribute>
 				<x:attribute name="value">#{row.${uiElement.dataSrcField.name}}</x:attribute>
-		        <j:choose>
-		           <j:when test="${uiElement.propertiesExtender['readonly_expression'] != null and uiElement.propertiesExtender['readonly_expression'] != ''}">
-				       <x:attribute name="readonly" trim="true">#{${uiElement.propertiesExtender['readonly_expression']}}</x:attribute>
-			       </j:when>
-		        </j:choose>
+				<x:attribute name="readonly" trim="true">true</x:attribute>
 
 				<p:ajax event="blur" />
 				<x:element name="p:ajax" URI="http://primefaces.org/ui">
