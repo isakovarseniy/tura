@@ -70,6 +70,7 @@ import org.eclipse.e4.xwt.converters.ListToSet;
 import org.eclipse.e4.xwt.converters.ObjectToBoolean;
 import org.eclipse.e4.xwt.converters.ObjectToISelection;
 import org.eclipse.e4.xwt.converters.ObjectToString;
+import org.eclipse.e4.xwt.converters.SecurityTriggerToControl;
 import org.eclipse.e4.xwt.converters.SelectionToBoolean;
 import org.eclipse.e4.xwt.converters.SetToIObservableCollection;
 import org.eclipse.e4.xwt.converters.String2VisualDependencyProperty;
@@ -1536,6 +1537,7 @@ public class XWTLoader implements IXWTLoader {
 		registerConvertor(StringToRolesProperty.instance);
 		registerConvertor(StringToGrantedRoleProperty.instance);
 		registerConvertor(StringToOperetionTypeProperty.instance);
+		registerConvertor(SecurityTriggerToControl.instance);
 		
 		
 		registerConvertor(StringToFont.instance);
