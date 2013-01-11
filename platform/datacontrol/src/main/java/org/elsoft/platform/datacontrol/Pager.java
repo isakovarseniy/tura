@@ -214,7 +214,7 @@ public class Pager<T> {
 			st.push(entities);
 
 			if ((entities == null) || (isRefresh())) {
-				return queryDS(index);
+				return queryDS(index,null);
 			}
 
 			if ((startIndex <= index) && (index < entities.size() + startIndex)
@@ -223,7 +223,10 @@ public class Pager<T> {
 				return getEntity(index);
 
 			} else {
-				T obj = queryDS(index);
+				Object prev = null;
+				if (entities.size() != 0 )
+					 prev= entities.get(entities.size()-1);
+				T obj = queryDS(index,prev);
 				if (obj == null) {
 					entities = (ArrayList<T>) st.pop();
 					endIndex = (Integer) st.pop();
@@ -250,13 +253,13 @@ public class Pager<T> {
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private T queryDS(int index) throws Exception {
+	private T queryDS(int index, Object prevObject) throws Exception {
 
 		startIndex = index;
 		endIndex = startIndex + LOADSTEP + 1;
 
 		List<SearchCriteria> ls = getSearchCriteria();
-		if (ls == null )
+		if (ls == null)
 			ls = new ArrayList<SearchCriteria>();
 
 		List<OrderCriteria> lsOrd = getOrderCriteria();
@@ -314,6 +317,10 @@ public class Pager<T> {
 				prevBeginElement = check.get(check.size() - 1);
 			}
 
+			if ((prevBeginElement != null) && (prevObject != null)) {
+				prevBeginElement = sort(prevBeginElement, prevObject, lsOrd);
+			}
+			
 			postEndElement = null;
 			if ((entities != null) && (entities.size() == LOADSTEP + 1 + shift))
 				postEndElement = entities.get(LOADSTEP + shift);
@@ -401,6 +408,14 @@ public class Pager<T> {
 		}
 	}
 
+	private Object sort(Object o1, Object o2, List<OrderCriteria> order) {
+		int i = new Sorter().objectSorter(o1, o2, order);
+		if (i == 1)
+			return o1;
+		else
+			return o2;
+	}
+
 	public String getObjectKey(Object object) {
 		return this.getDataControl().getObjectKey(object);
 	}
@@ -483,18 +498,26 @@ public class Pager<T> {
 	class Sort implements Comparator<Object> {
 		private List<OrderCriteria> order;
 		private Map<?, ?> base;
+		private Sorter sorter;
 
 		protected Sort(List<OrderCriteria> order, Map<?, ?> base) {
 			this.order = order;
 			this.base = base;
+			this.sorter = new Sorter();
 		}
 
-		@SuppressWarnings("unchecked")
 		public int compare(Object k1, Object k2) {
 
 			Object o1 = base.get(k1);
 			Object o2 = base.get(k2);
+			return sorter.objectSorter(o1, o2, order);
+		}
+	}
 
+	@SuppressWarnings("unchecked")
+	class Sorter {
+		protected int objectSorter(Object o1, Object o2,
+				List<OrderCriteria> order) {
 			Iterator<OrderCriteria> itr = order.iterator();
 			int result = 0;
 			while (itr.hasNext()) {
