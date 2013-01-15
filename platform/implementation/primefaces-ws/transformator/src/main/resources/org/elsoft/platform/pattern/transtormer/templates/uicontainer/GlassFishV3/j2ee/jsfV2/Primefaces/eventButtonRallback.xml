@@ -29,6 +29,7 @@
 		bf.get${lnk}().getMode().getControl().setRefresh(true);
 	</j:forEach>
 	}catch(Exception e){
+	  	e.printStackTrace();
 	}	
 	
 	}

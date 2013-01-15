@@ -166,5 +166,9 @@ public abstract class Handler<T,G> {
 		((InsModeDataControl)dc).removeAll();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public G getCurrentRow(){
+		return (G) getMode().getControl().getCurrentObject();
+	}
 
 }

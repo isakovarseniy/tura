@@ -466,7 +466,7 @@ public class Pager<T> {
 			if ((startIndex > i) || (startIndex + LOADSTEP <= i))
 				this.getObject(i);
 
-			T obj = this.entities.remove(i - startIndex);
+			T obj = this.entities.get(i - startIndex);
 			if (obj != null) {
 				InsModeBeanWrapper w = (InsModeBeanWrapper) Reflection.call(
 						obj, "getWrapper");
@@ -484,6 +484,7 @@ public class Pager<T> {
 							.removeObjectCommand(w.getObj(),
 									this.getDataControl());
 				}
+				obj = this.entities.remove(i - startIndex);
 				getDataControl().getMode().getStControl()
 						.addRemovedObjects((T) w.getObj(), getDataControl());
 				return obj;
