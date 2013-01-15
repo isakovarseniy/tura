@@ -214,7 +214,7 @@ public class Pager<T> {
 			st.push(entities);
 
 			if ((entities == null) || (isRefresh())) {
-				return queryDS(index,null);
+				return queryDS(index, null);
 			}
 
 			if ((startIndex <= index) && (index < entities.size() + startIndex)
@@ -224,9 +224,9 @@ public class Pager<T> {
 
 			} else {
 				Object prev = null;
-				if (entities.size() != 0 )
-					 prev= entities.get(entities.size()-1);
-				T obj = queryDS(index,prev);
+				if (entities.size() != 0)
+					prev = entities.get(entities.size() - 1);
+				T obj = queryDS(index, prev);
 				if (obj == null) {
 					entities = (ArrayList<T>) st.pop();
 					endIndex = (Integer) st.pop();
@@ -320,7 +320,7 @@ public class Pager<T> {
 			if ((prevBeginElement != null) && (prevObject != null)) {
 				prevBeginElement = sort(prevBeginElement, prevObject, lsOrd);
 			}
-			
+
 			postEndElement = null;
 			if ((entities != null) && (entities.size() == LOADSTEP + 1 + shift))
 				postEndElement = entities.get(LOADSTEP + shift);
@@ -572,13 +572,38 @@ public class Pager<T> {
 							.getConstructor(String.class);
 					Object value = c.newInstance(crit.getValue());
 
+					ComparatorType cmp = ComparatorType.valueOf(crit
+							.getComparator());
 					@SuppressWarnings("rawtypes")
 					Comparable v = (Comparable) Reflection.call(obj, method);
-					if (!ComparatorType.valueOf(crit.getComparator()).compare(
-							v.compareTo(value))) {
-						isComarable = false;
-						break;
+
+					if (cmp.equals(ComparatorType.LIKE)) {
+						String expr = (String) value;
+						expr = expr.toLowerCase(); // ignoring locale for now
+						expr = expr.replace(".", "\\."); // "\\" is escaped to
+															// "\" (thanks, Alan
+															// M)
+						// ... escape any other potentially problematic
+						// characters here
+						expr = expr.replace("?", ".");
+						expr = expr.replace("%", ".*");
+						String str = (String) v;
+						str = str.toLowerCase();
+						int i = 0;
+						if (!str.matches(expr))
+							i = -1;
+						if (!cmp.compare(i)) {
+							isComarable = false;
+							break;
+						}
+					} else {
+
+						if (!cmp.compare(v.compareTo(value))) {
+							isComarable = false;
+							break;
+						}
 					}
+
 				}
 			} catch (Exception e) {
 				return false;

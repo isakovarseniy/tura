@@ -23,7 +23,7 @@ public enum ComparatorType {
 	LT("<",-1),
 	LTEQ("<=",-1,0),
     EQ("=",0),
-    LIKE("LIKE");
+    LIKE("LIKE",0);
     
     private String comp;
     private Integer [] integers;
