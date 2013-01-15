@@ -21,16 +21,6 @@
 	    new org.primefaces.component.api.FixState().viewClean(
 		(String)event.getComponent().getAttributes().get("update"));	
 		getMode().getStControl().rallbackCommand();
-		BindingFactory bf = (BindingFactory) getMode().getElResolver()
-				.getValue("${model.uicontainer}binding");
-		
-	try{	
-	<j:forEach items="${objlnk.listOfDataLink.iterator()}" var="lnk">
-		bf.get${lnk}().getMode().getControl().setRefresh(true);
-	</j:forEach>
-	}catch(Exception e){
-	  	e.printStackTrace();
-	}	
 	
 	}
 	

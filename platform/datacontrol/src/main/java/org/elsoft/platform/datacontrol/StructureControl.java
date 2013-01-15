@@ -180,6 +180,12 @@ public class StructureControl {
 	}
 
 	public void rallbackCommand() {
+		
+		Iterator<Command> itr = transaction.iterator();
+		while (itr.hasNext()){
+			Command cmd = itr.next();
+			cmd.datacontrol.setRefresh(true);
+		}
 		cleaner();
 		transaction = new ArrayList<Command>();
 	}
