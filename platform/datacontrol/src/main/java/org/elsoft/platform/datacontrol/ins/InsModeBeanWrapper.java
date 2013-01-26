@@ -104,6 +104,15 @@ public class InsModeBeanWrapper implements MethodInterceptor {
 
 					parameters = new org.objectweb.asm.Type[] {};
 
+					if (obj.getType().getCanonicalName()
+							.equals("java.lang.Boolean")) {
+						signature = new Signature("is"
+								+ StringUtils.capitalize(obj.getProperty()),
+								org.objectweb.asm.Type.getType(obj.getType()),
+								parameters);
+						im.add(signature, parameters);
+					}
+
 					signature = new Signature("get"
 							+ StringUtils.capitalize(obj.getProperty()),
 							org.objectweb.asm.Type.getType(obj.getType()),
@@ -179,7 +188,14 @@ public class InsModeBeanWrapper implements MethodInterceptor {
 				return ToStringBuilder.reflectionToString(obj);
 			}
 
-			String field = StringUtils.uncapitalize(m.getName().substring(3));
+			String field = null;
+			if ((m.getName().substring(0, 3).equals("set"))
+					|| (m.getName().substring(0, 3).equals("get")))
+				field = StringUtils.uncapitalize(m.getName().substring(3));
+			else {
+				if (m.getName().substring(0, 2).equals("is"))
+					field = StringUtils.uncapitalize(m.getName().substring(2));
+			}
 
 			if ((m.getName().substring(0, 3).equals("set"))
 					&& (!exceptionmethod.contains(field))) {
@@ -208,7 +224,7 @@ public class InsModeBeanWrapper implements MethodInterceptor {
 					newValue = null;
 			}
 
-			if (artificialmethod.contains(field)) {
+			if ((field != null) && (artificialmethod.contains(field))) {
 				if ((m.getName().substring(0, 3).equals("set"))) {
 					result = artificialvalues.put(field, args[0]);
 				} else {

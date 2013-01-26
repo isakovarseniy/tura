@@ -14,7 +14,8 @@
 	<!-- Grid context -->
 	<p:column headerText="${uiElement.label}">
 	
-	    <p:selectBooleanCheckbox style="${uiElement.css}" value="#{row.${uiElement.dataSrcField.name}}" >  
+	    <p:selectBooleanCheckbox style="${uiElement.css}" value="#{row.${uiElement.dataSrcField.name}}" immediate="true" >  
+            <p:ajax update="@this"></p:ajax>
 			<p:ajax event="blur" />
 			<x:element name="p:ajax" URI="http://primefaces.org/ui">
 				<x:attribute name="event">focus</x:attribute>
