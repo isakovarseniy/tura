@@ -79,6 +79,7 @@ public class PopulateInfrastructure {
 		databaseDefinition.setHost("localhost");
 		databaseDefinition.setPort("5432");
 		databaseDefinition.setDatabaseType("PostgreSQL");
+		databaseDefinition.setDatabaseSchema("hr");
 		databaseDefinition.setPropertyName(MetamodelPlatformLevel.DB.name()+"_dbServer");
 		
 		CreateDatabaseDefinition.save(sc.getCommandHandler(), null, databaseDefinition);

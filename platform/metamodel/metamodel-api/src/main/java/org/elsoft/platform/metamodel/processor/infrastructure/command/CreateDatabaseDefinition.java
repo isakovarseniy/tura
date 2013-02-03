@@ -50,6 +50,7 @@ public class CreateDatabaseDefinition {
 		obj.setPort(dbProperties.getPort());
 		obj.setPropertyName(dbProperties.getPropertyName());
 		obj.setDatabaseType(dbProperties.getDatabaseType());
+		obj.setDatabaseSchema(dbProperties.getDatabaseSchema());
 		obj.setCommandExecutor(CreateDatabaseDefinition.class.getName());
 	}
 

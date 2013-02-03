@@ -46,6 +46,7 @@ public class JPAMavenArtifactCalculator extends ArtifactCalculator {
 		list.add(new Artifact(MetamodelArtifactType.MAVENPOMFile, null,"JPA"));
 		list.add(new Artifact(MetamodelArtifactType.JPAObject, retModel
 				.values(),"JPA"));
+
 		return list;
 	}
 

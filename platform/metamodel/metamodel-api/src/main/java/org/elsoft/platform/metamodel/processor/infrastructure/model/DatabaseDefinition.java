@@ -26,6 +26,7 @@ public class DatabaseDefinition extends CreateDatabaseDefinitionDAO {
 		setHost(command.getHost());
 		setPort(command.getPort());
 		setPropertyName(command.getPropertyName());
+		setDatabaseSchema(command.getDatabaseSchema());
 	}
 
 	protected void serialize(CommandHandler ch) throws Exception {

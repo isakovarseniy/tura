@@ -42,6 +42,11 @@ public class CreateDatabaseDefinitionDAO extends CommandDAO {
 	@Column(name = "DATABASE_TYPE")
 	private String databaseType;
 	
+	@Column(name = "DB_SCHEMA")
+	private String databaseSchema;
+
+	
+	
 	public String getHost() {
 		return host;
 	}
@@ -73,6 +78,14 @@ public class CreateDatabaseDefinitionDAO extends CommandDAO {
 
 	public void setPropertyName(String propertyName) {
 		this.propertyName = propertyName;
+	}
+
+	public String getDatabaseSchema() {
+		return databaseSchema;
+	}
+
+	public void setDatabaseSchema(String databaseSchema) {
+		this.databaseSchema = databaseSchema;
 	}
 
 }

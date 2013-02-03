@@ -35,6 +35,7 @@ public enum MetamodelArtifactType {
 	LIFERAY_PORTLET,
 	PORTLET,
 	TRANSACTIONMANAGER,
-	JPAObject
+	JPAObject,
+	DBConnection
 	
 }

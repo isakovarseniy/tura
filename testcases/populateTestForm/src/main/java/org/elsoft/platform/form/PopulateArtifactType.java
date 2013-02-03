@@ -159,6 +159,12 @@ public class PopulateArtifactType {
 				MetamodelArtifactType.JPAObject.name(),
 				"JPA",
 				"GlassFishV3/j2ee/jpa/jpaObject.xml");
-	
+
+		ah.addArtifactType(
+				MetamodelArtifactType.DBConnection.name(),
+				"JSF-JPA-HIBERNATE",
+				"GlassFishV3/j2ee/jsfV2/Connection/Hibernate/mainHibernateCfg.xml");
+		
+		
 	}
 }
