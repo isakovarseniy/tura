@@ -151,9 +151,10 @@ public class QryModeDataControl<T> extends DataControl<T> {
 	}
 
 	public void initControl() throws Exception {
+	}
 
-		// this.createObject();
-
+	@Override
+	public void cleanGhostObjects() throws Exception {
 	}
 
 }

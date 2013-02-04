@@ -44,6 +44,7 @@ public class StructureControl {
 	private HashMap<Object, Object> updatedObjects = new HashMap<Object, Object>();
 	private HashMap<Object, Object> createdObjects = new HashMap<Object, Object>();
 	private HashMap<Object, Object> removedObjects = new HashMap<Object, Object>();
+	private HashMap<Object, Object> ghostObjectsControls = new HashMap<Object, Object>();
 
 	private Class<?> postCreateTriggerParameters[] = new Class<?>[] { Object.class };
 	private Class<?> preQueryTriggerParameters[] = new Class<?>[] {
@@ -64,6 +65,14 @@ public class StructureControl {
 		this.removedObjects.put(dc.getPager().getObjectKey(t), t);
 	}
 
+	public void addGhostObjectsControls(String uuid, DataControl<?> dc) {
+        this.ghostObjectsControls.put(uuid, dc); 
+	}
+	
+	public void removeGhostObjectsControls(String uuid) {
+        this.ghostObjectsControls.remove(uuid); 
+	}
+	
 	public MultiKeyMap getAnnotation() {
 		return annotation;
 	}
@@ -80,10 +89,17 @@ public class StructureControl {
 		return removedObjects;
 	}
 
-	public void cleaner() {
+	public void cleaner() throws Exception {
 		updatedObjects = new HashMap<Object, Object>();
 		createdObjects = new HashMap<Object, Object>();
 		removedObjects = new HashMap<Object, Object>();
+		
+		Iterator<?> itr = ghostObjectsControls.values().iterator();
+		while (itr.hasNext()){
+			DataControl<?> obj = (DataControl<?>) itr.next();
+			obj.cleanGhostObjects();
+		}
+		ghostObjectsControls = new HashMap<Object, Object>();
 	}
 
 	@SuppressWarnings({ "unchecked" })
@@ -179,7 +195,12 @@ public class StructureControl {
 
 	}
 
-	public void rallbackCommand() {
+	public void rallbackCommand() throws Exception {
+		Iterator<?> itrG = ghostObjectsControls.values().iterator();
+		while (itrG.hasNext()){
+			DataControl<?> obj = (DataControl<?>) itrG.next();
+			obj.setRefresh(true);
+		}
 		
 		Iterator<Command> itr = transaction.iterator();
 		while (itr.hasNext()){
@@ -208,6 +229,13 @@ public class StructureControl {
 
 			}
 			trx.commit();
+
+			Iterator<?> itrG = ghostObjectsControls.values().iterator();
+			while (itrG.hasNext()){
+				DataControl<?> obj = (DataControl<?>) itrG.next();
+				obj.setRefresh(true);
+			}
+			
 			itr = transaction.iterator();
 			while (itr.hasNext()) {
 				Command cmd = itr.next();

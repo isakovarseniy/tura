@@ -70,6 +70,8 @@ public abstract class DataControl<T> {
 	
 	public abstract void initControl() throws Exception;
 	
+	public abstract void cleanGhostObjects() throws Exception; 
+	
 	public String getObjectKey(Object object) {
 
 		String clazz = this.getMode().getAnnotatedObject();

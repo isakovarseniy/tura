@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 
@@ -38,6 +39,8 @@ import org.elsoft.platform.datacontrol.metainfo.Relation;
 
 public class InsModeDataControl<T> extends DataControl<T> {
 
+	private String uuid = UUID.randomUUID().toString();
+	private int ghostCounter = 0;
 	private int currentPosition = 0;
 	private boolean refresh = false;
 	private Object savedCarentParent = null;
@@ -64,6 +67,37 @@ public class InsModeDataControl<T> extends DataControl<T> {
 		}
 	}
 
+	
+	public synchronized void incGhostCounter(){
+		ghostCounter++;
+		this.mode.getStControl().addGhostObjectsControls(uuid, this);
+	}
+
+	public  synchronized void decGhostCounter(){
+		ghostCounter--;
+		if (ghostCounter == 0)
+		   this.mode.getStControl().removeGhostObjectsControls(uuid);
+	}
+	
+	public  synchronized void cleanGhost(){
+		ghostCounter =0;
+		this.mode.getStControl().removeGhostObjectsControls(uuid);
+	}
+	
+	public  synchronized void cleanGhostObjects() throws Exception{
+		if (ghostCounter < 0)
+			throw new Exception ("ghostCounter < 0");
+
+		ghostCounter =0;
+		this.mode.getStControl().removeGhostObjectsControls(uuid);
+	}
+
+	
+	
+	public  synchronized void setGhostCounter(){
+		ghostCounter =0;
+	}
+	
 	public void prevObject() {
 		if (currentPosition > 0)
 			currentPosition--;

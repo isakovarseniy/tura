@@ -65,8 +65,14 @@ public class InsModeBeanWrapper implements MethodInterceptor {
 		return insertMode;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void setInsertMode(boolean insertMode) {
 		this.insertMode = insertMode;
+		if (insertMode)
+			((InsModeDataControl)datacontrol).incGhostCounter();
+		else
+			((InsModeDataControl)datacontrol).decGhostCounter();
+			
 	}
 
 	public DataControl<?> getDatacontrol() {
@@ -267,7 +273,7 @@ public class InsModeBeanWrapper implements MethodInterceptor {
 
 				datacontrol.getMode().getStControl()
 						.insertObjectCommand(obj, this.getDatacontrol());
-				this.insertMode = false;
+				setInsertMode(false);
 				datacontrol.getMode().getStControl()
 						.addCreatedObjects(obj, datacontrol);
 			} else {

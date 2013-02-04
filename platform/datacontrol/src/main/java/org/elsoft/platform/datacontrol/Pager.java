@@ -214,6 +214,7 @@ public class Pager<T> {
 			st.push(entities);
 
 			if ((entities == null) || (isRefresh())) {
+				datacontrol.cleanGhost();
 				return queryDS(index, null);
 			}
 
@@ -231,7 +232,8 @@ public class Pager<T> {
 					entities = (ArrayList<T>) st.pop();
 					endIndex = (Integer) st.pop();
 					startIndex = (Integer) st.pop();
-				}
+				}else
+					datacontrol.cleanGhost();
 
 				return obj;
 
