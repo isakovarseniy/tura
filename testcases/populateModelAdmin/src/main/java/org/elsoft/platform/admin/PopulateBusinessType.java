@@ -16,7 +16,6 @@
 package org.elsoft.platform.admin;
 
 import org.elsoft.platform.datacontrol.DCMetaInfo;
-import org.elsoft.platform.datacontrol.StructureControl;
 import org.elsoft.platform.metamodel.objects.type.BusinessObjectDAO;
 import org.elsoft.platform.metamodel.objects.type.MethodDAO;
 import org.elsoft.platform.metamodel.objects.type.MethodReferenceDAO;
@@ -28,216 +27,34 @@ import org.elsoft.platform.metamodel.RepositoryFactory;
 
 public class PopulateBusinessType {
 
-	public void executeHR(RepositoryFactory rf, FunctionalDomainHandler fd) {
-		createDropdowntestBusinessObject(fd, rf);
-		createCountriesBusinessObject(fd, rf);
-		createDepartmentsBusinessObject(fd, rf);
-		createEmployeesBusinessObject(fd, rf);
-		createhrFeaturesBusinessObject(fd,rf);
-	}
 	
 	public void executeCommons(RepositoryFactory rf, FunctionalDomainHandler fd) {
 		createDomainBusinessObject(fd, rf);
 		createFunctionalDomainBusinessObject(fd, rf);
 		createApplicationBusinessObject(fd, rf);
 		createUIContainerBusinessObject(fd, rf);
-//		createUIElementBusinessObject(fd, rf);
+
+		createBusinessObjectBusinessObject(fd, rf);
+		createMethodBusinessObject(fd, rf);
+		createMethodReferenceBusinessObject(fd, rf);
+		createParameterBusinessObject(fd, rf);
+		createPropertyBusinessObject(fd, rf);
+		createTypeDefinitionBusinessObject(fd, rf);
+		createTypeMappingBusinessObject(fd, rf);
+		createArtifactTypeBusinessObject(fd, rf);
+		createApplicationRoleBusinessObject(fd, rf);
+		createGlobalRoleBusinessObject(fd, rf);
+		
+		createIngredientBusinessObject(fd, rf);
+		createModelMappingBusinessObject(fd, rf);
+		createPacketBusinessObject(fd, rf);
+		createRecipeBusinessObject(fd, rf);
+		createServerClasterBusinessObject(fd, rf);
+		createServerGridBusinessObject(fd, rf);
+		createServerZoneBusinessObject(fd, rf);
+		
 	}
 	
-	private void createDropdowntestBusinessObject(FunctionalDomainHandler fd,
-			RepositoryFactory rf) {
-
-		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
-		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
-
-		BusinessObjectDAO dropdowntest = bh.addBusinessObject("dropdowntest");
-
-		TypeDAO refDropdowntest = (TypeDAO) tdh.cleanSearch()
-				.search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "BackOffice")
-				.searchString("application", "HR")
-				.searchString("typeName", "dropdowntest").getObject();
-
-		dropdowntest.setRefMntType(refDropdowntest.getObjId());
-
-		tdh.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "BackOffice")
-				.searchString("application", "HR")
-				.searchString("typeName", "dropdowntestService").getObject();
-
-		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
-				.cleanSearch().searchString("method", "create").getObject();
-		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "find").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
-
-		
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "insert").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "update").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "remove").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
-		
-		StructureControl st =  bh.getMode().getStControl();
-		st.toString();
-	}
-
-	private void createCountriesBusinessObject(FunctionalDomainHandler fd,
-			RepositoryFactory rf) {
-
-		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
-		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
-
-		BusinessObjectDAO countries = bh.addBusinessObject("countries");
-
-		TypeDAO refCountries = (TypeDAO) tdh.cleanSearch()
-				.search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "BackOffice")
-				.searchString("application", "HR")
-				.searchString("typeName", "countries").getObject();
-
-		countries.setRefMntType(refCountries.getObjId());
-
-		tdh.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "BackOffice")
-				.searchString("application", "HR")
-				.searchString("typeName", "countriesService").getObject();
-
-		MethodDAO method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "create").getObject();
-		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "find").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "insert").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "update").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "remove").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
-
-	}
-
-	private void createDepartmentsBusinessObject(FunctionalDomainHandler fd,
-			RepositoryFactory rf) {
-
-		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
-		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
-
-		BusinessObjectDAO departments = bh.addBusinessObject("departments");
-
-		TypeDAO refDepartments = (TypeDAO) tdh.cleanSearch()
-				.search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "BackOffice")
-				.searchString("application", "HR")
-				.searchString("typeName", "departments").getObject();
-
-		departments.setRefMntType(refDepartments.getObjId());
-
-		tdh.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "BackOffice")
-				.searchString("application", "HR")
-				.searchString("typeName", "departmentsService").getObject();
-
-		MethodDAO method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "create").getObject();
-		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "find").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "insert").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "update").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "remove").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
-
-	}
-
-	private void createEmployeesBusinessObject(FunctionalDomainHandler fd,
-			RepositoryFactory rf) {
-
-		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
-		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
-
-		BusinessObjectDAO employees = bh.addBusinessObject("employees");
-
-		TypeDAO refEmployees = (TypeDAO) tdh
-				.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "BackOffice")
-				.searchString("application", "HR")
-				.searchString("typeName", "employees").getObject();
-
-		employees.setRefMntType(refEmployees.getObjId());
-
-		tdh.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "BackOffice")
-				.searchString("application", "HR")
-				.searchString("typeName", "employeesService").getObject();
-
-		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
-				.cleanSearch().searchString("method", "create").getObject();
-		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler()
-				.cleanSearch().searchString("method", "find").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler()
-				.cleanSearch().searchString("method", "insert").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
-		
-		method = (MethodDAO) tdh.getMethodHandler()
-				.cleanSearch().searchString("method", "update").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
-
-		method = (MethodDAO) tdh.getMethodHandler()
-				.cleanSearch().searchString("method", "remove").getObject();
-		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
-		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
-
-	}
 
 	private void createDomainBusinessObject(FunctionalDomainHandler fd,
 			RepositoryFactory rf) {
@@ -248,15 +65,15 @@ public class PopulateBusinessType {
 		BusinessObjectDAO domain = bh.addBusinessObject("domain");
 
 		TypeDAO refDomain = (TypeDAO) tdh
-				.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "Commons")
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
 				.searchString("typeName", "domain").getObject();
 
 		domain.setRefMntType(refDomain.getObjId());
 
-		tdh.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "Commons")
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
 				.searchString("typeName", "domainService").getObject();
 
@@ -297,15 +114,15 @@ public class PopulateBusinessType {
 				.addBusinessObject("functionalDomain");
 
 		TypeDAO refFunctionalDomain = (TypeDAO) tdh
-				.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "Commons")
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
 				.searchString("typeName", "functionalDomain").getObject();
 
 		functionalDomain.setRefMntType(refFunctionalDomain.getObjId());
 
-		tdh.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "Commons")
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
 				.searchString("typeName", "functionalDomainService")
 				.getObject();
@@ -346,15 +163,15 @@ public class PopulateBusinessType {
 		BusinessObjectDAO application = bh.addBusinessObject("application");
 
 		TypeDAO refApplication = (TypeDAO) tdh
-				.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "Commons")
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
 				.searchString("typeName", "application").getObject();
 
 		application.setRefMntType(refApplication.getObjId());
 
-		tdh.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "Commons")
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
 				.searchString("typeName", "applicationService").getObject();
 
@@ -394,15 +211,15 @@ public class PopulateBusinessType {
 		BusinessObjectDAO UIContainer = bh.addBusinessObject("UIContainer");
 
 		TypeDAO refUIContainer = (TypeDAO) tdh
-				.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "Commons")
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
 				.searchString("typeName", "UIContainer").getObject();
 
 		UIContainer.setRefMntType(refUIContainer.getObjId());
 
-		tdh.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "Commons")
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
 				.searchString("typeName", "UIContainerService").getObject();
 
@@ -433,30 +250,171 @@ public class PopulateBusinessType {
 
 	}
 
-	@SuppressWarnings("unused")
-	private void createUIElementBusinessObject(FunctionalDomainHandler fd,
+	private void createBusinessObjectBusinessObject(FunctionalDomainHandler fd,
 			RepositoryFactory rf) {
 
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO UIElement = bh.addBusinessObject("UIElement");
+		BusinessObjectDAO BusinessObject = bh.addBusinessObject("BusinessObject");
 
-		TypeDAO refUIContainer = (TypeDAO) tdh
-				.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "Commons")
+		TypeDAO refBusinessObject = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "UIElement").getObject();
+				.searchString("typeName", "BusinessObject").getObject();
 
-		UIElement.setRefMntType(refUIContainer.getObjId());
+		BusinessObject.setRefMntType(refBusinessObject.getObjId());
 
-		tdh.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "Commons")
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "UIElementService").getObject();
+				.searchString("typeName", "BusinessObjectService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
-				.searchString("method", "create").getObject();
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+	private void createMethodBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO Method = bh.addBusinessObject("Method");
+
+		TypeDAO refMethod = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "Method").getObject();
+
+		Method.setRefMntType(refMethod.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "MethodService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+	private void createMethodReferenceBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO MethodReference = bh.addBusinessObject("MethodReference");
+
+		TypeDAO refMethodReference = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "MethodReference").getObject();
+
+		MethodReference.setRefMntType(refMethodReference.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "MethodReferenceService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+
+	private void createParameterBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO Parameter = bh.addBusinessObject("Parameter");
+
+		TypeDAO refParameter = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "Parameter").getObject();
+
+		Parameter.setRefMntType(refParameter.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ParameterService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
 		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
 		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
 
@@ -482,55 +440,625 @@ public class PopulateBusinessType {
 
 	}
 	
-	private void createhrFeaturesBusinessObject(FunctionalDomainHandler fd,
+	private void createPropertyBusinessObject(FunctionalDomainHandler fd,
 			RepositoryFactory rf) {
 
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO hrFeatures = bh.addBusinessObject("hrFeatures");
+		BusinessObjectDAO Property = bh.addBusinessObject("Property");
 
-		TypeDAO refDropdowntest = (TypeDAO) tdh.cleanSearch()
-				.search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "BackOffice")
-				.searchString("application", "HR")
-				.searchString("typeName", "hrFeatures").getObject();
+		TypeDAO refProperty = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "Property").getObject();
 
-		hrFeatures.setRefMntType(refDropdowntest.getObjId());
+		Property.setRefMntType(refProperty.getObjId());
 
-		tdh.cleanSearch().search("domain", String.class, "Manufacturing")
-				.searchString("functionalDomain", "BackOffice")
-				.searchString("application", "HR")
-				.searchString("typeName", "hrFeaturesService").getObject();
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "PropertyService").getObject();
 
-		MethodDAO method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "create").getObject();
-		MethodReferenceDAO refMeth =bh.getMethodReferenceHandler().addMethodReference(method);
-		refMeth.setMethodType(DCMetaInfo.CreateTrigger.name());
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
 
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "find").getObject();
-		refMeth = bh.getMethodReferenceHandler().addMethodReference(method);
-		refMeth.setMethodType(DCMetaInfo.SearchTrigger.name());
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
 
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "insert").getObject();
-		refMeth = bh.getMethodReferenceHandler().addMethodReference(method);
-		refMeth.setMethodType(DCMetaInfo.InsertTrigger.name());
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
 
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "update").getObject();
-		refMeth = bh.getMethodReferenceHandler().addMethodReference(method);
-		refMeth.setMethodType(DCMetaInfo.UpdateTrigger.name());
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
 
-		method = (MethodDAO) tdh.getMethodHandler().cleanSearch()
-				.searchString("method", "remove").getObject();
-		refMeth = bh.getMethodReferenceHandler().addMethodReference(method);
-		refMeth.setMethodType(DCMetaInfo.RemoveTrigger.name());
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
 
-		StructureControl st = bh.getMode().getStControl();
-		st.toString();
 	}
 	
+	private void createTypeDefinitionBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO TypeDefinition = bh.addBusinessObject("TypeDefinition");
+
+		TypeDAO refTypeDefinition = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "TypeDefinition").getObject();
+
+		TypeDefinition.setRefMntType(refTypeDefinition.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "TypeDefinitionService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+	private void createTypeMappingBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO TypeMapping = bh.addBusinessObject("TypeMapping");
+
+		TypeDAO refTypeMapping = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "TypeMapping").getObject();
+
+		TypeMapping.setRefMntType(refTypeMapping.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "TypeMappingService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+	private void createArtifactTypeBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO ArtifactType = bh.addBusinessObject("ArtifactType");
+
+		TypeDAO refArtifactType = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ArtifactType").getObject();
+
+		ArtifactType.setRefMntType(refArtifactType.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ArtifactTypeService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+
+	private void createApplicationRoleBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO ApplicationRole = bh.addBusinessObject("ApplicationRole");
+
+		TypeDAO refApplicationRole = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ApplicationRole").getObject();
+
+		ApplicationRole.setRefMntType(refApplicationRole.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ApplicationRoleService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+	
+	private void createGlobalRoleBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO GlobalRole = bh.addBusinessObject("GlobalRole");
+
+		TypeDAO refGlobalRole = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "GlobalRole").getObject();
+
+		GlobalRole.setRefMntType(refGlobalRole.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "GlobalRoleService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+	private void createIngredientBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO Ingredient = bh.addBusinessObject("Ingredient");
+
+		TypeDAO refIngredient = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "Ingredient").getObject();
+
+		Ingredient.setRefMntType(refIngredient.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "IngredientService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+	
+	
+	private void createModelMappingBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO ModelMapping = bh.addBusinessObject("ModelMapping");
+
+		TypeDAO refModelMapping = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ModelMapping").getObject();
+
+		ModelMapping.setRefMntType(refModelMapping.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ModelMappingService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+	private void createPacketBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO Packet = bh.addBusinessObject("Packet");
+
+		TypeDAO refPacket = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "Packet").getObject();
+
+		Packet.setRefMntType(refPacket.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "PacketService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+	private void createRecipeBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO Recipe = bh.addBusinessObject("Recipe");
+
+		TypeDAO refRecipe = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "Recipe").getObject();
+
+		Recipe.setRefMntType(refRecipe.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "RecipeService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+
+	private void createServerClasterBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO ServerClaster = bh.addBusinessObject("ServerClaster");
+
+		TypeDAO refServerClaster = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ServerClaster").getObject();
+
+		ServerClaster.setRefMntType(refServerClaster.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ServerClasterService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+
+	private void createServerGridBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO ServerGrid = bh.addBusinessObject("ServerGrid");
+
+		TypeDAO refServerGrid = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ServerGrid").getObject();
+
+		ServerGrid.setRefMntType(refServerGrid.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ServerGridService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+
+	private void createServerZoneBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO ServerZone = bh.addBusinessObject("ServerZone");
+
+		TypeDAO refServerZone = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ServerZone").getObject();
+
+		ServerZone.setRefMntType(refServerZone.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "ServerZoneService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+
 	
 }
