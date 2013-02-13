@@ -28,7 +28,7 @@ import org.elsoft.platform.metamodel.RepositoryFactory;
 public class PopulateBusinessType {
 
 	
-	public void executeCommons(RepositoryFactory rf, FunctionalDomainHandler fd) {
+	public void execute(RepositoryFactory rf, FunctionalDomainHandler fd) {
 		createDomainBusinessObject(fd, rf);
 		createFunctionalDomainBusinessObject(fd, rf);
 		createApplicationBusinessObject(fd, rf);
