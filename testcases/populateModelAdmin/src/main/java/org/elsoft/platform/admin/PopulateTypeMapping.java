@@ -184,7 +184,7 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(domain, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.suite");
 		mp.setResTypeName("DomainDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
@@ -268,8 +268,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(functionalDomain, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.suite");
+		mp.setResTypeName("FunctionalDomainDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -351,8 +351,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(application, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.suite");
+		mp.setResTypeName("ApplicationDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -434,8 +434,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(uiContainer, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.ui");
+		mp.setResTypeName("UIContainerDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -517,8 +517,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(method, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.type");
+		mp.setResTypeName("MethodDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -600,8 +600,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(methodReference, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.type");
+		mp.setResTypeName("MethodReferenceDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -684,8 +684,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(parameter, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.type");
+		mp.setResTypeName("ParameterDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -767,8 +767,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(property, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.type");
+		mp.setResTypeName("PropertyDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -849,8 +849,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(typeDefinition, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.type");
+		mp.setResTypeName("TypeDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -932,8 +932,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(typeMapping, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.type");
+		mp.setResTypeName("TypeMappingDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -1015,8 +1015,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(artifactType, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.transformation");
+		mp.setResTypeName("ArtifactTypeDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -1098,8 +1098,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(applicationRole, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.security");
+		mp.setResTypeName("ApplicatioinRoleDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -1181,8 +1181,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(globalRole, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.security");
+		mp.setResTypeName("GlobalRoleDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -1264,8 +1264,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(ingredient, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.recipe");
+		mp.setResTypeName("IngredientDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -1347,8 +1347,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(modelMapping, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.recipe");
+		mp.setResTypeName("ModelMappingDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -1431,8 +1431,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(packet, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.recipe");
+		mp.setResTypeName("PacketDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -1514,8 +1514,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(recipe, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.recipe");
+		mp.setResTypeName("RecipeDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -1597,8 +1597,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(serverClaster, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.infrastructure");
+		mp.setResTypeName("ServerClasterDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -1680,8 +1680,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(serverGrid, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.infrastructure");
+		mp.setResTypeName("ServerGridDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
@@ -1763,8 +1763,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(serverZone, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.infrastructure");
+		mp.setResTypeName("ServerZoneDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");

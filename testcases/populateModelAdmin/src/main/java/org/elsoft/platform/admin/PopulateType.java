@@ -402,7 +402,7 @@ public class PopulateType {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO UIContainer = tdh.addType("ELsoft", "Platform",
-				"Metarepository", "UIContainer");
+				"Metarepository", "uiContainer");
 		UIContainer.setTypeOfType(MetamodelTypeOfTypes.Entity.name());
 
 		PropertyHandler ph = tdh.getPropertyHandler();
@@ -425,21 +425,21 @@ public class PopulateType {
 		
 		
 		TypeDAO UIContainerList = tdh.addType("ELsoft", "Platform",
-				"Metarepository", "UIContainerList");
+				"Metarepository", "uiContainerList");
 		UIContainerList.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
 
 		TypeDAO UIContainerSearchCriteria = tdh.addType("ELsoft",
-				"Platform", "Metarepository", "UIContainerSearchCriteria");
+				"Platform", "Metarepository", "uiContainerSearchCriteria");
 		UIContainerSearchCriteria
 				.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
 
 		TypeDAO UIContainerOrderByCriteria = tdh.addType("ELsoft",
-				"Platform", "Metarepository", "UIContainerOrderByCriteria");
+				"Platform", "Metarepository", "uiContainerOrderByCriteria");
 		UIContainerOrderByCriteria
 				.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
 
 		TypeDAO UIContainerService = tdh.addType("ELsoft", "Platform",
-				"Metarepository", "UIContainerService");
+				"Metarepository", "uiContainerService");
 		UIContainerService.setTypeOfType(MetamodelTypeOfTypes.Service.name());
 
 		MethodHandler mh = tdh.getMethodHandler();
@@ -1410,9 +1410,9 @@ public class PopulateType {
 			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
-		TypeDAO ingedient = tdh.addType("ELsoft", "Platform",
-				"Metarepository", "ingedient");
-		ingedient.setTypeOfType(MetamodelTypeOfTypes.Entity.name());
+		TypeDAO ingredient = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "ingredient");
+		ingredient.setTypeOfType(MetamodelTypeOfTypes.Entity.name());
 
 		PropertyHandler ph = tdh.getPropertyHandler();
 		PropertyDAO prop = ph.addProperty("objId");
@@ -1438,40 +1438,40 @@ public class PopulateType {
 		prop = ph.addProperty("level");
 		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
 		
-		TypeDAO ingedientList = tdh.addType("ELsoft", "Platform",
-				"Metarepository", "ingedientList");
-		ingedientList.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+		TypeDAO ingredientList = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "ingredientList");
+		ingredientList.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
 
-		TypeDAO ingedientSearchCriteria = tdh.addType("ELsoft", "Platform",
-				"Metarepository", "ingedientSearchCriteria");
-		ingedientSearchCriteria.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+		TypeDAO ingredientSearchCriteria = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "ingredientSearchCriteria");
+		ingredientSearchCriteria.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
 
-		TypeDAO ingedientOrderByCriteria = tdh.addType("ELsoft", "Platform",
-				"Metarepository", "ingedientOrderByCriteria");
-		ingedientOrderByCriteria.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+		TypeDAO ingredientOrderByCriteria = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "ingredientOrderByCriteria");
+		ingredientOrderByCriteria.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
 
-		TypeDAO ingedientService = tdh.addType("ELsoft", "Platform",
-				"Metarepository", "ingedientService");
-		ingedientService.setTypeOfType(MetamodelTypeOfTypes.Service.name());
+		TypeDAO ingredientService = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "ingredientService");
+		ingredientService.setTypeOfType(MetamodelTypeOfTypes.Service.name());
 
 		MethodHandler mh = tdh.getMethodHandler();
 		ParameterHandler prh = mh.getParameterHandler();
 
 		MethodDAO met = mh.addMethod("create");
-		met.setReturnType(ingedient.getObjId());
+		met.setReturnType(ingredient.getObjId());
 		ParameterDAO prm = prh.addParameter("clazzName");
 		prm.setParameterType(h.get(PlatformPrimetiveTypes.String).getObjId());
 		prm.setDefaultValue("org.elsoft.platform.metamodel.objects.recipe.IngredientDAO");
 		prm.setOverwritten(false);
 
 		met = mh.addMethod("find");
-		met.setReturnType(ingedientList.getObjId());
+		met.setReturnType(ingredientList.getObjId());
 
 		prm = prh.addParameter("search");
-		prm.setParameterType(ingedientSearchCriteria.getObjId());
+		prm.setParameterType(ingredientSearchCriteria.getObjId());
 
 		prm = prh.addParameter("order");
-		prm.setParameterType(ingedientOrderByCriteria.getObjId());
+		prm.setParameterType(ingredientOrderByCriteria.getObjId());
 
 		prm = prh.addParameter("startIndex");
 		prm.setParameterType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
@@ -1486,15 +1486,15 @@ public class PopulateType {
 		
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(ingedient.getObjId());
+		prm.setParameterType(ingredient.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(ingedient.getObjId());
+		prm.setParameterType(ingredient.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(ingedient.getObjId());
+		prm.setParameterType(ingredient.getObjId());
 	}
 	
 

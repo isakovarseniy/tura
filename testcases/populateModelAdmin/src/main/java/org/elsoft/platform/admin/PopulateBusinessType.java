@@ -208,20 +208,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO UIContainer = bh.addBusinessObject("UIContainer");
+		BusinessObjectDAO UIContainer = bh.addBusinessObject("uiContainer");
 
 		TypeDAO refUIContainer = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "UIContainer").getObject();
+				.searchString("typeName", "uiContainer").getObject();
 
 		UIContainer.setRefMntType(refUIContainer.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "UIContainerService").getObject();
+				.searchString("typeName", "uiContainerService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -256,20 +256,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO BusinessObject = bh.addBusinessObject("BusinessObject");
+		BusinessObjectDAO BusinessObject = bh.addBusinessObject("businessObject");
 
 		TypeDAO refBusinessObject = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "BusinessObject").getObject();
+				.searchString("typeName", "businessObject").getObject();
 
 		BusinessObject.setRefMntType(refBusinessObject.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "BusinessObjectService").getObject();
+				.searchString("typeName", "businessObjectService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -303,20 +303,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO Method = bh.addBusinessObject("Method");
+		BusinessObjectDAO Method = bh.addBusinessObject("method");
 
 		TypeDAO refMethod = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "Method").getObject();
+				.searchString("typeName", "method").getObject();
 
 		Method.setRefMntType(refMethod.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "MethodService").getObject();
+				.searchString("typeName", "methodService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -350,20 +350,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO MethodReference = bh.addBusinessObject("MethodReference");
+		BusinessObjectDAO MethodReference = bh.addBusinessObject("methodReference");
 
 		TypeDAO refMethodReference = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "MethodReference").getObject();
+				.searchString("typeName", "methodReference").getObject();
 
 		MethodReference.setRefMntType(refMethodReference.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "MethodReferenceService").getObject();
+				.searchString("typeName", "methodReferenceService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -398,20 +398,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO Parameter = bh.addBusinessObject("Parameter");
+		BusinessObjectDAO Parameter = bh.addBusinessObject("parameter");
 
 		TypeDAO refParameter = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "Parameter").getObject();
+				.searchString("typeName", "parameter").getObject();
 
 		Parameter.setRefMntType(refParameter.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ParameterService").getObject();
+				.searchString("typeName", "parameterService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -446,20 +446,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO Property = bh.addBusinessObject("Property");
+		BusinessObjectDAO Property = bh.addBusinessObject("property");
 
 		TypeDAO refProperty = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "Property").getObject();
+				.searchString("typeName", "property").getObject();
 
 		Property.setRefMntType(refProperty.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "PropertyService").getObject();
+				.searchString("typeName", "propertyService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -494,20 +494,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO TypeDefinition = bh.addBusinessObject("TypeDefinition");
+		BusinessObjectDAO TypeDefinition = bh.addBusinessObject("typeDefinition");
 
 		TypeDAO refTypeDefinition = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "TypeDefinition").getObject();
+				.searchString("typeName", "typeDefinition").getObject();
 
 		TypeDefinition.setRefMntType(refTypeDefinition.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "TypeDefinitionService").getObject();
+				.searchString("typeName", "typeDefinitionService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -541,20 +541,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO TypeMapping = bh.addBusinessObject("TypeMapping");
+		BusinessObjectDAO TypeMapping = bh.addBusinessObject("typeMapping");
 
 		TypeDAO refTypeMapping = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "TypeMapping").getObject();
+				.searchString("typeName", "typeMapping").getObject();
 
 		TypeMapping.setRefMntType(refTypeMapping.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "TypeMappingService").getObject();
+				.searchString("typeName", "typeMappingService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -588,20 +588,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO ArtifactType = bh.addBusinessObject("ArtifactType");
+		BusinessObjectDAO ArtifactType = bh.addBusinessObject("artifactType");
 
 		TypeDAO refArtifactType = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ArtifactType").getObject();
+				.searchString("typeName", "artifactType").getObject();
 
 		ArtifactType.setRefMntType(refArtifactType.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ArtifactTypeService").getObject();
+				.searchString("typeName", "artifactTypeService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -636,20 +636,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO ApplicationRole = bh.addBusinessObject("ApplicationRole");
+		BusinessObjectDAO ApplicationRole = bh.addBusinessObject("applicationRole");
 
 		TypeDAO refApplicationRole = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ApplicationRole").getObject();
+				.searchString("typeName", "applicationRole").getObject();
 
 		ApplicationRole.setRefMntType(refApplicationRole.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ApplicationRoleService").getObject();
+				.searchString("typeName", "applicationRoleService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -684,20 +684,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO GlobalRole = bh.addBusinessObject("GlobalRole");
+		BusinessObjectDAO GlobalRole = bh.addBusinessObject("globalRole");
 
 		TypeDAO refGlobalRole = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "GlobalRole").getObject();
+				.searchString("typeName", "globalRole").getObject();
 
 		GlobalRole.setRefMntType(refGlobalRole.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "GlobalRoleService").getObject();
+				.searchString("typeName", "globalRoleService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -731,20 +731,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO Ingredient = bh.addBusinessObject("Ingredient");
+		BusinessObjectDAO Ingredient = bh.addBusinessObject("ingredient");
 
 		TypeDAO refIngredient = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "Ingredient").getObject();
+				.searchString("typeName", "ingredient").getObject();
 
 		Ingredient.setRefMntType(refIngredient.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "IngredientService").getObject();
+				.searchString("typeName", "ingredientService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -780,20 +780,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO ModelMapping = bh.addBusinessObject("ModelMapping");
+		BusinessObjectDAO ModelMapping = bh.addBusinessObject("modelMapping");
 
 		TypeDAO refModelMapping = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ModelMapping").getObject();
+				.searchString("typeName", "modelMapping").getObject();
 
 		ModelMapping.setRefMntType(refModelMapping.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ModelMappingService").getObject();
+				.searchString("typeName", "modelMappingService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -827,20 +827,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO Packet = bh.addBusinessObject("Packet");
+		BusinessObjectDAO Packet = bh.addBusinessObject("packet");
 
 		TypeDAO refPacket = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "Packet").getObject();
+				.searchString("typeName", "packet").getObject();
 
 		Packet.setRefMntType(refPacket.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "PacketService").getObject();
+				.searchString("typeName", "packetService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -874,20 +874,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO Recipe = bh.addBusinessObject("Recipe");
+		BusinessObjectDAO Recipe = bh.addBusinessObject("recipe");
 
 		TypeDAO refRecipe = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "Recipe").getObject();
+				.searchString("typeName", "recipe").getObject();
 
 		Recipe.setRefMntType(refRecipe.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "RecipeService").getObject();
+				.searchString("typeName", "recipeService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -922,20 +922,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO ServerClaster = bh.addBusinessObject("ServerClaster");
+		BusinessObjectDAO ServerClaster = bh.addBusinessObject("serverClaster");
 
 		TypeDAO refServerClaster = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ServerClaster").getObject();
+				.searchString("typeName", "serverClaster").getObject();
 
 		ServerClaster.setRefMntType(refServerClaster.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ServerClasterService").getObject();
+				.searchString("typeName", "serverClasterService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -970,20 +970,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO ServerGrid = bh.addBusinessObject("ServerGrid");
+		BusinessObjectDAO ServerGrid = bh.addBusinessObject("serverGrid");
 
 		TypeDAO refServerGrid = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ServerGrid").getObject();
+				.searchString("typeName", "serverGrid").getObject();
 
 		ServerGrid.setRefMntType(refServerGrid.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ServerGridService").getObject();
+				.searchString("typeName", "serverGridService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
@@ -1018,20 +1018,20 @@ public class PopulateBusinessType {
 		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 
-		BusinessObjectDAO ServerZone = bh.addBusinessObject("ServerZone");
+		BusinessObjectDAO ServerZone = bh.addBusinessObject("serverZone");
 
 		TypeDAO refServerZone = (TypeDAO) tdh
 				.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ServerZone").getObject();
+				.searchString("typeName", "serverZone").getObject();
 
 		ServerZone.setRefMntType(refServerZone.getObjId());
 
 		tdh.cleanSearch().search("domain", String.class, "ELsoft")
 				.searchString("functionalDomain", "Platform")
 				.searchString("application", "Metarepository")
-				.searchString("typeName", "ServerZoneService").getObject();
+				.searchString("typeName", "serverZoneService").getObject();
 
 		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
 				.cleanSearch().searchString("method", "create").getObject();
