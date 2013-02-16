@@ -179,6 +179,8 @@ public class DataControlModelBuilder {
 				if (rmi.getMethodType().equals(DCMetaInfo.CreateTrigger.name())){
 					tp = (MappedType) rmi.getReturnType();
 					returnTypes.put(tp.resPackageName + tp.resTypeName, tp);
+					dependecy.put(tp.groupName + tp.artifactName
+							+ tp.artifactVersion, tp);
 				}
 			}
 

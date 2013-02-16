@@ -70,11 +70,6 @@ public class PopulateApplication {
 			context = new HashMap<String, Object>();
 			new LoadLovForm().execute(rf, context);
 			
-			context = new HashMap<String, Object>();
-			new LoadTreeForm().execute(rf, context);
-
-
-			
 			new PopulateDataSource().execute(rf);            
 			
 			new PopulateRecipe().execute(rf);

@@ -95,16 +95,6 @@ public class PopulateRecipe {
 				.cleanSearch().searchString("uiContainerName", "LovForm")
 				.getObject();
 
-		UIContainerDAO uicontainerTree = rf.getRoot().cleanSearch()
-				.searchString("domainName", "Manufacturing").seek()
-				.getFunctionalDomain().cleanSearch()
-				.searchString("functionalDomainName", "BackOffice").seek()
-				.getApplicationHandler().cleanSearch()
-				.searchString("applicationName", "HR").seek().getUILayer()
-				.cleanSearch().searchString("uiContainerName", "TreeForm")
-				.getObject();
-		
-
 		UIContainerDAO uicontainerDrugDrop = rf.getRoot().cleanSearch()
 				.searchString("domainName", "Manufacturing").seek()
 				.getFunctionalDomain().cleanSearch()
@@ -311,91 +301,9 @@ public class PopulateRecipe {
 		mmh.addModelMapping(uicontainerMany2One.getObjId(), JSFArtifactCalculator.class.getName(), "Many2OneForm");
 		mmh.addModelMapping(uicontainerDropDown.getObjId(), JSFArtifactCalculator.class.getName(), "DropDownForm");
 		mmh.addModelMapping(uicontainerLov.getObjId(), JSFArtifactCalculator.class.getName(), "LovForm");
-		mmh.addModelMapping(uicontainerTree.getObjId(), JSFArtifactCalculator.class.getName(), "TreeForm");
 		mmh.addModelMapping(uicontainerDrugDrop.getObjId(), JSFArtifactCalculator.class.getName(), "DrugDropForm");
 
 	
-//--------------------------------- Liferay recipe -------------------------
-		
-/*		rh.addRecipe("Genarate HR application Liferay deployment");
-
-		ingh = rh.getIngredientHandler();
-		ingh.addIngredient("HR Services", MetamodelPlatformLevel.WEB_SERVICES, 0);
-		
-		pakh = ingh.getPacketHandler();
-		pack = pakh.addPacket("Services  for HR application");
-		pack.setBuildScript("GlassFishV3/j2ee/ejb_ws/buildEAR.xml");
-		pack.setDeploymentScript("GlassFishV3/j2ee/ejb_ws/deployToGlassfishv3.xml");
-		
-		secondLevel =   pakh.getPacketHandler();
-		
-		secondLevel.addPacket("EJB-POM");
- 		mmh = pakh.getModelMappingHandler();
-		mmh.addModelMapping(null, WSEJBMavenArtifactCalculator.class.getName(), "NA");
-		mmh.addModelMapping(null, WSEJBPersistentArtifactCalculator.class.getName(), "NA");
-
-		
-		secondLevel.addPacket("Services  sources");
-		mmh = pakh.getModelMappingHandler();
-		mmh.addModelMapping(DSdepartment.getObjId(), WSEJBArtifactCalculator.class.getName(), "Manufacturing.BackOffice.HR.departments");
-		mmh.addModelMapping(DSdepartmentsService.getObjId(), WSEJBArtifactCalculator.class.getName(), "Manufacturing.BackOffice.HR.departmentsService");
-
-		mmh.addModelMapping(DSemployees.getObjId(), WSEJBArtifactCalculator.class.getName(), "Manufacturing.BackOffice.HR.employees");
-		mmh.addModelMapping(DSemployeesService.getObjId(), WSEJBArtifactCalculator.class.getName(), "Manufacturing.BackOffice.HR.employeesService");
-	
-		mmh.addModelMapping(DSdropdowntest.getObjId(), WSEJBArtifactCalculator.class.getName(), "Manufacturing.BackOffice.HR.dropdowntest");
-		mmh.addModelMapping(DSdropdowntestService.getObjId(), WSEJBArtifactCalculator.class.getName(), "Manufacturing.BackOffice.HR.dropdowntestService");
-		
-		ingh = rh.getIngredientHandler();
-		ingh.addIngredient("HR Services clients", MetamodelPlatformLevel.WEB_SERVICES, 1);
-		
-		pakh = ingh.getPacketHandler();
-		pack = pakh.addPacket("Clients proxy  for HR application");
-		pack.setBuildScript("GlassFishV3/j2ee/ejb_ws/buildClientProxy.xml");
-		
- 		mmh = pakh.getModelMappingHandler();
-		mmh.addModelMapping(null, WSEJBMavenProxyArtifactCalculator.class.getName(), "NA");
-
-		secondLevel =   pakh.getPacketHandler();
-		
-		secondLevel.addPacket("Services  sources");
-		mmh = secondLevel.getModelMappingHandler();
-		mmh.addModelMapping(DSdepartmentsService.getObjId(), WSEJBClientArtifactCalculator.class.getName(), "Manufacturing.BackOffice.HR.departmentsService");
-		mmh.addModelMapping(DSemployeesService.getObjId(), WSEJBClientArtifactCalculator.class.getName(), "Manufacturing.BackOffice.HR.employeesService");
-		mmh.addModelMapping(DSdropdowntestService.getObjId(), WSEJBClientArtifactCalculator.class.getName(), "Manufacturing.BackOffice.HR.dropdowntestService");
-		mmh.addModelMapping(DShrFeaturesService.getObjId(), WSEJBClientArtifactCalculator.class.getName(), "Manufacturing.BackOffice.HR.hrFeaturesService");
-		mmh.addModelMapping(DSdomainService.getObjId(), WSEJBClientArtifactCalculator.class.getName(), "Manufacturing.Commons.Metarepository.domainService");
-		mmh.addModelMapping(DSfunctionalDomainService.getObjId(), WSEJBClientArtifactCalculator.class.getName(), "Manufacturing.Commons.Metarepository.functionalDomainService");
-		mmh.addModelMapping(DSapplicationService.getObjId(), WSEJBClientArtifactCalculator.class.getName(), "Manufacturing.Commons.Metarepository.applicationService");
-		
-		ingh = rh.getIngredientHandler();
-		ingh.addIngredient("HR Forms Liferay deployment ", MetamodelPlatformLevel.UI_CONTAINER, 1);
-
-		pakh = ingh.getPacketHandler();
-
-		pack = pakh.addPacket("WAR file for HR application with Liferay deployment");
-		pack.setBuildScript("GlassFishV3/j2ee/jsfV2/buildWAR.xml");
-		pack.setDeploymentScript("GlassFishV3/j2ee/Portal/Liferay/deployToLiferay.xml");
-		
-		mmh = pakh.getModelMappingHandler();
-		
-		mmh.addModelMapping(null, WEBXMLArtifactCalculator.class.getName(), "NA");
-		mmh.addModelMapping(null, MAVENPOMXMLArtifactCalculatorLiferay.class.getName(), "NA");
-		mmh.addModelMapping(null, HelperClassesArtifactCalculator.class.getName(), "NA");
-		mmh.addModelMapping(app.getObjId(), LifeRayArtifactCalculator.class.getName(), "Security_mapping");
-
-		
-		pakh = pakh.getPacketHandler();
-		pakh.addPacket("JSF componen for HR aplication");
-		mmh = pakh.getModelMappingHandler();
-		mmh.addModelMapping(uicontainerMany2Many.getObjId(), JSFArtifactCalculator.class.getName(), "Many2ManyForm");
-		mmh.addModelMapping(uicontainerOne2Many.getObjId(), JSFArtifactCalculator.class.getName(), "One2ManyForm");
-		mmh.addModelMapping(uicontainerMany2One.getObjId(), JSFArtifactCalculator.class.getName(), "Many2OneForm");
-		mmh.addModelMapping(uicontainerDropDown.getObjId(), JSFArtifactCalculator.class.getName(), "DropDownForm");
-		mmh.addModelMapping(uicontainerLov.getObjId(), JSFArtifactCalculator.class.getName(), "LovForm");
-		mmh.addModelMapping(uicontainerTree.getObjId(), JSFArtifactCalculator.class.getName(), "TreeForm");
-		mmh.addModelMapping(uicontainerDrugDrop.getObjId(), JSFArtifactCalculator.class.getName(), "DrugDropForm");
-*/	
 	}
 
 }

@@ -1,0 +1,5 @@
+#Sat Feb 16 11:30:04 EST 2013
+ApplicationLnk=ELsoft.Platform.application
+UIcontainerLnk=ELsoft.Platform.uiContainer
+DomainLnk=ELsoft.Platform.domain
+FunctionalDomainLnk=ELsoft.Platform.functionalDomain

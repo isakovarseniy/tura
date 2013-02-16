@@ -462,7 +462,7 @@ public class PopulateRecipe {
 				.getRecipeHandler();
 
 		
-		rh.addRecipe("Genarate Liferay Jibestream application");
+		rh.addRecipe("Genarate Liferay Metamodel interface application");
 
 		IngredientHandler ingh = rh.getIngredientHandler();
 		ingh.addIngredient("Jibestream Services", MetamodelPlatformLevel.WEB_SERVICES, 0);
@@ -546,11 +546,11 @@ public class PopulateRecipe {
 		
 		
 		ingh = rh.getIngredientHandler();
-		ingh.addIngredient("Jibestream Forms Liferay", MetamodelPlatformLevel.UI_CONTAINER, 1);
+		ingh.addIngredient("Tura Metamodel interface Liferay", MetamodelPlatformLevel.UI_CONTAINER, 1);
 
 		pakh = ingh.getPacketHandler();
 
-		pack = pakh.addPacket("WAR file for JIbestream application");
+		pack = pakh.addPacket("WAR file for Metamodel interface application");
 		pack.setBuildScript("GlassFishV3/j2ee/jsfV2/buildWAR.xml");
 		pack.setDeploymentScript("GlassFishV3/j2ee/Portal/Liferay/deployToLiferay.xml");
 		
@@ -564,7 +564,7 @@ public class PopulateRecipe {
 
 		
 		pakh = pakh.getPacketHandler();
-		pakh.addPacket("JSF componen for Jibestream aplication");
+		pakh.addPacket("JSF componen for Metamodel interface aplication");
 		mmh = pakh.getModelMappingHandler();
 		mmh.addModelMapping(uicontainerMetarepositoryInterface.getObjId(), JSFArtifactCalculator.class.getName(), "MetarepositoryInterface");
 		

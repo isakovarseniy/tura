@@ -99,8 +99,8 @@ public class PopulateTypeMapping {
 		TypeMappingDAO mp = tpmh.addTypeMapping(businessObject, "ELsoft",
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
-		mp.setResPackageName("org.elsoft.platform.metamodel.general");
-		mp.setResTypeName("DomainDAO");
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.type");
+		mp.setResTypeName("BusinessObjectDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");

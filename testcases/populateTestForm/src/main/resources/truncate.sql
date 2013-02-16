@@ -12,7 +12,7 @@ truncate table "metamodel"."business_object" cascade;
 truncate table "metamodel"."createappserverdefinition" cascade;
 truncate table "metamodel"."packet" cascade;
 truncate table "metamodel"."servergrid" cascade;
-truncate table "type_mapping" cascade;
+truncate table "metamodel"."type_mapping" cascade;
 truncate table "metamodel"."model_mapping" cascade;
 truncate table "metamodel"."method" cascade;
 truncate table "metamodel"."ingredient" cascade;
