@@ -59,6 +59,8 @@ public class PopulateType {
 		createServerGridTypes(rf, h);
 		createServerZoneTypes(rf, h);
 		
+		createFormTriggers(rf);
+		
 	}
 
 	private HashMap<PlatformPrimetiveTypes, TypeDAO> createPrimitiveTypes(
@@ -2035,5 +2037,20 @@ public class PopulateType {
 		prm = prh.addParameter("obj");
 		prm.setParameterType(serverClaster.getObjId());
 	}
+	
+	private void createFormTriggers(RepositoryFactory rf) {
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+		TypeDAO triggersService = tdh.addType("ELsoft", "Platform",
+				"Metarepository"
+				, "MetamodelAdminTrigger");
+		triggersService.setTypeOfType(MetamodelTypeOfTypes.Service.name());
+		
+		MethodHandler mh = tdh.getMethodHandler();
+
+		mh.addMethod("postQueryMethod");
+		mh.addMethod("postQueryPropertyLnk");
+		mh.addMethod("postQueryParameterLnk");
+		
+	}	
 	
 }

@@ -49,7 +49,7 @@ public class PopulateTypeMapping {
 		createServerGridMapping(rf);
 		createServerZoneMapping(rf);
 
-	
+		createFormTriggersMapping(rf);	
 	}
 
 
@@ -1798,6 +1798,29 @@ public class PopulateTypeMapping {
 		mp.setResPackageName("java.util");
 		mp.setResTypeName("List");
 
+	}
+
+	private void createFormTriggersMapping(RepositoryFactory rf) {
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		TypeDAO adminTriggersService = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "MetamodelAdminTrigger").getObject();
+		
+		TypeMappingHandler tpmh = rf.getTypeMappingHandler();
+
+		TypeMappingDAO mp = tpmh.addTypeMapping(adminTriggersService, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("org.elsoft.platform.admin");
+		mp.setResTypeName("MetamodelAdminTrigger");
+		mp.setGroupName("org.elsoft.platform.admin");
+		mp.setArtifactName("matamodel-admin-form-triggers");
+		mp.setArtifactVersion("1.0");
+	
 	}
 	
 }

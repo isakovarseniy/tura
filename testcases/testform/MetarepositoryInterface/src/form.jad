@@ -1,6 +1,10 @@
-#Sat Feb 16 19:07:56 EST 2013
+#Sun Feb 17 16:47:23 EST 2013
 UIcontainerLnk=ELsoft.Platform.uiContainer
 ApplicationLnk=ELsoft.Platform.application
 DomainLnk=ELsoft.Platform.domain
+Method=ELsoft.Platform.method
+PropertyLnk=ELsoft.Platform.property
+TypeDefinitionHelper=ELsoft.Platform.typeDefinition
 FunctionalDomainLnk=ELsoft.Platform.functionalDomain
 TypeDefinition=ELsoft.Platform.typeDefinition
+ParametersLnk=ELsoft.Platform.parameter

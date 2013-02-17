@@ -9,7 +9,7 @@
 					<p1:MetaComposite.layout>
 						<GridLayout/>
 					</p1:MetaComposite.layout>
-					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="TypeDefinition" idObject="typeTable">
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="TypeDefinition" idObject="typeTable" updateOnRawSelect="PropTable MethodTable ParameterTable">
 						<p1:MetaTableColumn text="Type name" width="100">
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="typeName"/>
 						</p1:MetaTableColumn>
@@ -17,6 +17,49 @@
 							<p1:MetaInputText x:Style="BORDER" sourceProperty="typeOfType"/>
 						</p1:MetaTableColumn>
 					</p1:MetaTable>
+					<p1:MetaComposite>
+						<p1:MetaComposite.layout>
+							<GridLayout/>
+						</p1:MetaComposite.layout>
+						<p1:MetaComposite>
+							<p1:MetaComposite.layout>
+								<GridLayout numColumns="2"/>
+							</p1:MetaComposite.layout>
+							<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="Method" size="220, 45" idObject="MethodTable" updateOnRawSelect="ParameterTable">
+						<p1:MetaTableColumn text="Method name" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="method"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Return type" width="100">
+							<p1:MetaOutputText sourceProperty="refArtType"/>
+						</p1:MetaTableColumn>
+					</p1:MetaTable>
+							<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="ParametersLnk" idObject="ParameterTable">
+								<p1:MetaTable.layoutData>
+									<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
+								</p1:MetaTable.layoutData>
+								<p1:MetaTableColumn text="Parameter name" width="100">
+									<p1:MetaInputText x:Style="BORDER" sourceProperty="parameterName"/>
+								</p1:MetaTableColumn>
+								<p1:MetaTableColumn text="Parameter type" width="100">
+									<p1:MetaOutputText sourceProperty="refArtType"/>
+								</p1:MetaTableColumn>
+							</p1:MetaTable>
+						</p1:MetaComposite>
+						<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="PropertyLnk" idObject="PropTable">
+							<p1:MetaTableColumn text="Property name" width="100">
+								<p1:MetaInputText x:Style="BORDER" sourceProperty="propertyName"/>
+							</p1:MetaTableColumn>
+							<p1:MetaTableColumn text="Type" width="100">
+								<p1:MetaOutputText sourceProperty="refArtType"/>
+							</p1:MetaTableColumn>
+							<p1:MetaTableColumn text="Primary Key" width="100">
+								<p1:MetaCheckbox x:Style="CHECK" text="Check Button" sourceProperty="primaryKey"/>
+							</p1:MetaTableColumn>
+							<p1:MetaTableColumn text="OptLock" width="100">
+								<p1:MetaCheckbox x:Style="CHECK" text="Check Button" sourceProperty="optLock"/>
+							</p1:MetaTableColumn>
+						</p1:MetaTable>
+					</p1:MetaComposite>
 				</p1:MetaComposite>
 			</p1:MetaTabItem.control>
 		</p1:MetaTabItem>
