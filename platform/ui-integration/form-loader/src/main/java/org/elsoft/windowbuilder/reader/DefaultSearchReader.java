@@ -20,7 +20,6 @@ import java.util.List;
 
 import javax.xml.stream.XMLStreamReader;
 
-import org.apache.commons.lang.StringUtils;
 import org.elsoft.platform.ComparatorType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
@@ -59,13 +58,11 @@ public class DefaultSearchReader extends Reader {
 		defaultSearch.setValue(value);
 
 		if (experssionProperty != null) {
+
 			List<String> ls = this.expressionParser(experssionProperty);
-			defaultSearch.setExpression(((DataDefinitionReader)(((DataControlReader) parent).getParent()))
-					.getFormName()
-					+ "binding."
-					+ StringUtils.uncapitalize(ls.get(0))
-					+ ".currentRow."
-					+ StringUtils.uncapitalize(ls.get(1)));
+			defaultSearch.setExpression(expressionBuilder(
+					((DataDefinitionReader) (((DataControlReader) parent)
+							.getParent())).getFormName(), ls));
 		}
 		program.add(defaultSearch);
 	}

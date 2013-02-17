@@ -1,0 +1,24 @@
+<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:MetaComposite.layout>
+		<GridLayout/>
+	</p1:MetaComposite.layout>
+	<p1:MetaTabFolder>
+		<p1:MetaTabItem text="Types">
+			<p1:MetaTabItem.control>
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
+						<GridLayout/>
+					</p1:MetaComposite.layout>
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="TypeDefinition" idObject="typeTable">
+						<p1:MetaTableColumn text="Type name" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="typeName"/>
+						</p1:MetaTableColumn>
+						<p1:MetaTableColumn text="Type of type" width="100">
+							<p1:MetaInputText x:Style="BORDER" sourceProperty="typeOfType"/>
+						</p1:MetaTableColumn>
+					</p1:MetaTable>
+				</p1:MetaComposite>
+			</p1:MetaTabItem.control>
+		</p1:MetaTabItem>
+	</p1:MetaTabFolder>
+</p1:MetaComposite>

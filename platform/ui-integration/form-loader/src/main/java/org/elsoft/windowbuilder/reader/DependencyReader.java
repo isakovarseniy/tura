@@ -42,23 +42,6 @@ public class DependencyReader extends Reader {
 		String exp = expressionBuilder(((DataDefinitionReader) (((DataControlReader) parent)
 				.getParent())).getFormName(),ls);
 
-/*		String exp = ((DataDefinitionReader) (((DataControlReader) parent)
-				.getParent())).getFormName()
-				+ "binding."
-				+ StringUtils.uncapitalize(ls.get(0));
-
-		if (ls.size() > 1) {
-			if (ls.get(1).indexOf("trigger- ") != -1)
-				exp = exp
-						+ "."
-						+ StringUtils.uncapitalize(ls.get(1).substring(
-								"trigger- ".length()));
-			else
-				exp = exp + ".currentRow." + StringUtils.uncapitalize(ls.get(1));
-		} else {
-			exp = exp + ".currentRow";
-		}
-*/
 		dependency.setExpression(exp);
 		program.add(dependency);
 

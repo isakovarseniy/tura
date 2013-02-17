@@ -1006,7 +1006,7 @@ public class PopulateType {
 		met.setReturnType(typeDefinition.getObjId());
 		ParameterDAO prm = prh.addParameter("clazzName");
 		prm.setParameterType(h.get(PlatformPrimetiveTypes.String).getObjId());
-		prm.setDefaultValue("org.elsoft.platform.metamodel.objects.type.TypeDefinitionDAO");
+		prm.setDefaultValue("org.elsoft.platform.metamodel.objects.type.TypeDAO");
 		prm.setOverwritten(false);
 
 		met = mh.addMethod("find");
@@ -1026,7 +1026,7 @@ public class PopulateType {
 
 		prm = prh.addParameter("clazzName");
 		prm.setParameterType(h.get(PlatformPrimetiveTypes.String).getObjId());
-		prm.setDefaultValue("org.elsoft.platform.metamodel.objects.type.TypeDefinitionDAO");
+		prm.setDefaultValue("org.elsoft.platform.metamodel.objects.type.TypeDAO");
 		prm.setOverwritten(false);
 		
 		met = mh.addMethod("update");
