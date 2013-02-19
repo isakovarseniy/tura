@@ -21,9 +21,12 @@ import java.util.UUID;
 import org.apache.commons.lang.WordUtils;
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateEventViewPort2ControllerDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIViewPortDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
+import org.elsoft.platform.metamodel.processor.datasource.model.RemoteMethod;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventViewPort2Controller;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIViewPort;
 
 public class ViewPort extends UIElement implements PointerElement {
@@ -33,6 +36,9 @@ public class ViewPort extends UIElement implements PointerElement {
 	private String viewPortName;
 	private String uncapViewPortName;
 	private EventDAO canvasPointer;
+	private RemoteMethod rmi;
+	private CreateEventViewPort2ControllerDAO vewPortController;
+	
 
 	public ViewPort(CreateUIViewPortDAO command, HashMap<String, Object> context) {
 		this.setCss(command.getCss());
@@ -47,6 +53,9 @@ public class ViewPort extends UIElement implements PointerElement {
 	protected void serialize(CommandHandler ch) throws Exception {
 		CreateUIViewPort.save(ch, getParentUuid(), this);
 		CreateEventUIElement2UIElement.save(ch, this.getUuid(), canvasPointer );
+		if (rmi != null){
+			CreateEventViewPort2Controller.save(ch, this);
+		}
 		super.serialize(ch);
 	}
 
@@ -97,5 +106,22 @@ public class ViewPort extends UIElement implements PointerElement {
 	public void setCanvas(Canvas canvas) {
 		this.canvas = canvas;
 	}
+
+	public RemoteMethod getRmi() {
+		return rmi;
+	}
+
+	public void setRmi(RemoteMethod rmi) {
+		this.rmi = rmi;
+	}
+
+	public CreateEventViewPort2ControllerDAO getVewPortController() {
+		return vewPortController;
+	}
+
+	public void setVewPortController(CreateEventViewPort2ControllerDAO vewPortController) {
+		this.vewPortController = vewPortController;
+	}
+
 
 }

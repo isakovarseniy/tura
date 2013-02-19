@@ -8,6 +8,8 @@
 		</p1:MetaTreeColumn>
 	</p1:MetaTree>
 	<p1:MetaFieldSet idObject="editorView" fieldSet="Panel">
-		<p1:ViewPort viewPortName="ViewPortA" canvasName="ApplicationTabs" size="64, 64"/>
+		<p1:ViewPort viewPortName="ViewPortA" canvasName="ApplicationTabs" size="64, 64">
+			<p1:Trigger triggerType="Controller" x:Name="Controller" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="viewPortAController"/>
+		</p1:ViewPort>
 	</p1:MetaFieldSet>
 </p1:MetaComposite>

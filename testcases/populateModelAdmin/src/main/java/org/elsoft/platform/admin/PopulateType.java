@@ -1086,6 +1086,22 @@ public class PopulateType {
 		prop = ph.addProperty("resPackageName");
 		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
 		
+		prop = ph.addProperty("resTypeName");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		prop = ph.addProperty("artifactName");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		prop = ph.addProperty("groupName");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		prop = ph.addProperty("artifactVersion");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		prop = ph.addProperty("technology");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		
 		TypeDAO typeMappingList = tdh.addType("ELsoft", "Platform",
 				"Metarepository", "typeMappingList");
 		typeMappingList.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
@@ -2050,6 +2066,9 @@ public class PopulateType {
 		mh.addMethod("postQueryMethod");
 		mh.addMethod("postQueryPropertyLnk");
 		mh.addMethod("postQueryParameterLnk");
+		mh.addMethod("postQueryTypeMappinglnk");
+		mh.addMethod("postQueryBusinessObjectlnk");
+		mh.addMethod("viewPortAController");
 		
 	}	
 	

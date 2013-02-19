@@ -1,4 +1,6 @@
-#Sun Feb 17 16:49:21 EST 2013
+#Mon Feb 18 15:27:33 EST 2013
+TypeMappinglnk.refArtType=TypeMappinglnk.refArtType
+BusinessObjectLnk.refArtType=BusinessObjectLnk.refArtType
 PropertyLnk.refArtType=PropertyLnk.refArtType
 ParametersLnk.refArtType=ParametersLnk.refArtType
 Method.refArtType=Method.refArtType

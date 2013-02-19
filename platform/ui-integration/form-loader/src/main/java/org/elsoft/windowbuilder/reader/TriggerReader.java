@@ -25,12 +25,14 @@ import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateEventUIElement2JavaScriptDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateEventUIElement2ServiceDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateEventViewPort2ControllerDAO;
 import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2ServiceMethodDAO;
 import org.elsoft.platform.metamodel.objects.type.MethodDAO;
 import org.elsoft.platform.metamodel.processor.Helper;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2ServiceMethod;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2JavaScript;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Service;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventViewPort2Controller;
 
 public class TriggerReader extends Reader {
 	private String triggerType;
@@ -124,6 +126,28 @@ public class TriggerReader extends Reader {
 
 		}
 
+		if (parent instanceof ViewPortReader) {
+
+			CreateEventViewPort2ControllerDAO ui2serv = new CreateEventViewPort2ControllerDAO();
+			ui2serv.setDomain(service.get(0));
+			ui2serv.setFunctionalDomain(service.get(1));
+			ui2serv.setApplication(service.get(2));
+			ui2serv.setTypeName(service.get(3));
+			ui2serv.setMethodName(method);
+			ui2serv.setMethodType(triggerType);
+			ui2serv.setRefMethod(m.getObjId());
+			ui2serv.setCommandExecutor(CreateEventViewPort2Controller.class
+					.getName());
+			ui2serv.setParentUUID(parent.getUuid());
+			ui2serv.setEventType(MetamodelTriggerEventsType.CreateEventViewPort2Controller
+					.name());
+
+			program.add(ui2serv);
+
+		}
+
+	
+	
 	}
 
 }

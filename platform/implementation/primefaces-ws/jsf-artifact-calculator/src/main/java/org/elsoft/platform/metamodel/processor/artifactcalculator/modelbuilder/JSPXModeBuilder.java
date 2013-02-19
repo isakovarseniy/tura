@@ -23,7 +23,6 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.apache.commons.lang.StringUtils;
-import org.elsoft.platform.metamodel.MetamodelObjectType;
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateSecurityTriggerDAO;
@@ -49,7 +48,7 @@ import com.rits.cloning.Cloner;
 public class JSPXModeBuilder {
 	JspxModel model = new JspxModel();
 
-	public Object builder(UIElement element, Form frm) {
+	public Object builder(UIElement element, Form frm,  HashMap<String, String> keyMap) {
 
 		Cloner cloner = new Cloner();
 		cloner.setDumpClonedClasses(false);
@@ -61,10 +60,10 @@ public class JSPXModeBuilder {
 		model.setElement(el);
 		model.setUicontainer(frm.getName());
 
-		HashMap<String, String> keyMap = new HashMap<String, String>();
+/*		HashMap<String, String> keyMap = new HashMap<String, String>();
 		String path = ":window";
 		pathCalulator(el, keyMap, path);
-
+*/
 		if (el instanceof Canvas)
 			lovFinder(el);
 
@@ -73,7 +72,7 @@ public class JSPXModeBuilder {
 		return model;
 	}
 
-	private void pathCalulator(UIElement element, Map<String, String> pathMap,
+/*	private void pathCalulator(UIElement element, Map<String, String> pathMap,
 			String path) {
 
 		pathMap.put(((UIElement) element).getUuid(), path + ":tura"
@@ -92,7 +91,7 @@ public class JSPXModeBuilder {
 			}
 		}
 	}
-
+*/
 	private void viewPortFinder(UIElement element,
 			HashMap<String, String> keyMap) {
 		if (element instanceof ViewPort) {

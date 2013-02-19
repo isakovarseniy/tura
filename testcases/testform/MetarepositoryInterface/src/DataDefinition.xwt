@@ -12,6 +12,9 @@
 			<p1:Relation dstDataControl="ApplicationLnk" treeRelation="true">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
 			</p1:Relation>
+			<p1:Relation dstDataControl="BusinessObjectLnk">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
+			</p1:Relation>
 		</p1:DataControl>
 		<p1:DataControl x:Name="ApplicationLnk" businessObject="ELsoft.Platform.application" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ApplicationLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ApplicationLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ApplicationLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;,&quot;parameters&quot;:{&quot;search&quot;:[null,null],&quot;order&quot;:[null,null],&quot;startIndex&quot;:[null,null],&quot;endIndex&quot;:[null,null],&quot;clazzName&quot;:[null,&quot;org.elsoft.platform.metamodel.objects.suite.ApplicationDAO&quot;]}}}">
 			<p1:Relation dstDataControl="UIcontainerLnk" treeRelation="true">
@@ -46,5 +49,20 @@
 			<p1:ArtificialField x:Name="refArtType" primitiveType="null.null.null.String"/>
 			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="postQueryParameterLnk"/>
 		</p1:DataControl>
+		<p1:DataControl x:Name="TypeMappinglnk" businessObject="ELsoft.Platform.typeMapping" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;TypeMappinglnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;TypeMappinglnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;TypeMappinglnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:DefaultSearch bounds="0, 0, 64, 64" expressionProperty="DomainLnk.name" fieldsProperty="targetDomain" refType="String"/>
+			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="targetFunctionalDomain" refType="String" expressionProperty="FunctionalDomainLnk.name"/>
+			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="targetApplication" refType="String" expressionProperty="ApplicationLnk.name"/>
+			<p1:ArtificialField x:Name="refArtType" primitiveType="null.null.null.String"/>
+			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="postQueryTypeMappinglnk"/>
+		</p1:DataControl>
+		<p1:DataControl x:Name="BusinessObjectLnk" businessObject="ELsoft.Platform.businessObject" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;BusinessObjectLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;BusinessObjectLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;BusinessObjectLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:ArtificialField x:Name="refArtType" primitiveType="null.null.null.String"/>
+			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="postQueryBusinessObjectlnk"/>
+			<p1:Relation dstDataControl="BusinessObjectMethodLnk">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
+			</p1:Relation>
+		</p1:DataControl>
+		<p1:DataControl x:Name="BusinessObjectMethodLnk" businessObject="ELsoft.Platform.methodReference" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;BusinessObjectMethodLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;BusinessObjectLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;BusinessObjectLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
 	</p1:DataDefinition>
 </p1:MetaComposite>

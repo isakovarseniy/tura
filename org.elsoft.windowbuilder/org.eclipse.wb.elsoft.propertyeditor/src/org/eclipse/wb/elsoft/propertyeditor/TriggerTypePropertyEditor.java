@@ -76,6 +76,11 @@ public class TriggerTypePropertyEditor extends PropertyEditor implements
 		ArrayList<Object> array = new ArrayList<Object>();
 
 		if (parent.getDescription().getComponentClass().getName()
+				.equals("org.eclipse.wb.elsoft.components.ViewPort")) {
+			array.add("Controller");
+		}
+		
+		if (parent.getDescription().getComponentClass().getName()
 				.equals("org.eclipse.wb.elsoft.components.DataControl")) {
 			array.add(DCMetaInfo.POSTCreateTrigger.name());
 			array.add(DCMetaInfo.POSTQueryTrigger.name());

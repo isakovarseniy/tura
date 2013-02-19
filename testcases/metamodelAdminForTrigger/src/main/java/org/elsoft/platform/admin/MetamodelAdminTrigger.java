@@ -8,10 +8,25 @@ import org.elsoft.platform.datacontrol.extender.Handler;
 public class MetamodelAdminTrigger {
 
 
+	public void viewPortAController(Object obj) {
+	}
+	
+	public void postQueryTypeMappinglnk(Object obj) {
+		Long returnType = (Long) Reflection.call(obj, "getTypeReference");
+		refMethodCalculation(returnType, obj);
+	}
+	
+	public void postQueryBusinessObjectlnk(Object obj) {
+		Long returnType = (Long) Reflection.call(obj, "getRefMntType");
+		refMethodCalculation(returnType, obj);
+	}
+
+	
 	public void postQueryMethod(Object obj) {
 		Long returnType = (Long) Reflection.call(obj, "getReturnType");
 		refMethodCalculation(returnType, obj);
 	}
+
 	
 	public void postQueryPropertyLnk(Object obj) {
 		Long returnType = (Long) Reflection.call(obj, "getPropertyType");

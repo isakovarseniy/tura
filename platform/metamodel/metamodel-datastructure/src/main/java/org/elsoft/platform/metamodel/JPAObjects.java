@@ -39,6 +39,7 @@ public class JPAObjects {
 		ls.add(org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2BusinessObjectDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2BusinessObjectMethodDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2DataLinkDAO.class);
+		ls.add(org.elsoft.platform.metamodel.objects.command.form.ui.CreateEventViewPort2ControllerDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2ServiceMethodDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.command.links.CreateMethodParameterExpressionDAO.class);
 		ls.add(org.elsoft.platform.metamodel.objects.datasource.DataSourceDAO.class);
