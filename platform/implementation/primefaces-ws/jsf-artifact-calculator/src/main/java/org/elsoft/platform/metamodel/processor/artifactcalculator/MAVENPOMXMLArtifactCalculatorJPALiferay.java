@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.elsoft.platform.metamodel.MetamodelArtifactType;
 import org.elsoft.platform.metamodel.processor.ArtifactCalculator;
-import org.elsoft.platform.metamodel.processor.artifactcalculator.modelbuilder.DataControlModelBuilder.MappedType;
+import org.elsoft.platform.metamodel.processor.artifactcalculator.modelbuilder.MappedType;
 
 public class MAVENPOMXMLArtifactCalculatorJPALiferay  extends ArtifactCalculator{
 	@Override

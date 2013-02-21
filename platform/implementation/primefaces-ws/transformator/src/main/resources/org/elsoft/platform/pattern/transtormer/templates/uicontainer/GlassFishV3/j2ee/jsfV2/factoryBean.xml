@@ -51,6 +51,9 @@ public class BindingFactory {
 	private String ${vp.viewPortName} ="/${application}/${model.uicontainer}/${vp.canvasName}.xhtml";
 
 	public String get${vp.capViewPortName}(){
+      <j:if test="${vp.rmi != null}">
+       new  ${vp.rmi.proxy.resPackageName}.${vp.rmi.proxy.resTypeName}().${vp.rmi.methodName}(${vp.viewPortName});
+      </j:if>   	
 	     return ${vp.viewPortName};
 	}
 	 

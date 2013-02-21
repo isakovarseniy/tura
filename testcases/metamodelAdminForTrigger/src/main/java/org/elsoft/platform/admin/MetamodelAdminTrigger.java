@@ -4,11 +4,38 @@ import javax.faces.context.FacesContext;
 
 import org.elsoft.platform.Reflection;
 import org.elsoft.platform.datacontrol.extender.Handler;
+import org.primefaces.model.TreeNode;
 
 public class MetamodelAdminTrigger {
 
 
 	public void viewPortAController(Object obj) {
+		Object bindFactory = FacesContext
+				.getCurrentInstance()
+				.getApplication()
+				.evaluateExpressionGet(FacesContext.getCurrentInstance(),
+						"#{MetarepositoryInterfacebinding}", Object.class);
+		Object domainHandl = Reflection.call(bindFactory, "getCurrentDomainLnk");
+		TreeNode currTreeNode =(TreeNode) Reflection.call(domainHandl,"getSelectedNode");
+		if (currTreeNode == null) return;
+		if(currTreeNode.getData().getClass().getCanonicalName().contains("org.elsoft.platform.metamodel.objects.suite.DomainDAO")){
+			Reflection.call(bindFactory, "setViewPortA","/Metarepository/MetarepositoryInterface/DomainCanvas.xhtml");
+			
+			
+		}
+
+		if(currTreeNode.getData().getClass().getCanonicalName().contains("org.elsoft.platform.metamodel.objects.suite.FunctionalDomainDAO")){
+			Reflection.call(bindFactory, "setViewPortA","/Metarepository/MetarepositoryInterface/FunctionalDomainCanvas.xhtml");
+			
+		}
+	
+		if(currTreeNode.getData().getClass().getCanonicalName().contains("org.elsoft.platform.metamodel.objects.suite.ApplicationDAO")){
+			
+			Reflection.call(bindFactory, "setViewPortA","/Metarepository/MetarepositoryInterface/ApplicationCanvas.xhtml");
+			
+		}
+		
+		
 	}
 	
 	public void postQueryTypeMappinglnk(Object obj) {

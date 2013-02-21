@@ -1,0 +1,6 @@
+<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:MetaComposite.layout>
+		<GridLayout/>
+	</p1:MetaComposite.layout>
+	<p1:MetaLabel text="FanctionalDomain"/>
+</p1:MetaComposite>

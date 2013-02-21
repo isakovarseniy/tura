@@ -169,7 +169,17 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 		outputContext.put(MODULES_LIST, modulesList);
 		outputContext.put(RETURN_TYPES, returnTypesMap);
 
-		Object obj = new FactoryBeanModelBuilder().builder(frm);
+		Object obj = new FactoryBeanModelBuilder().builder(
+				(RepositoryFactory) context
+				.get(PlatformConfig.REPOSITORYFACTORY_PARAMETER),
+		(String) context
+				.get(PlatformConfig.DOMAIN_PARAMETER),
+		(String) context
+				.get(PlatformConfig.FUNCTIONAL_DOMAIN_PARAMETER),
+		(String) context
+				.get(PlatformConfig.APPLICATION_PARAMETER),
+		(MetamodelPlatformLevel) context
+				.get(PlatformConfig.LAYER_PARAMETER), frm);
 
 		list.add(new Artifact(MetamodelArtifactType.FactoryBeanFile, obj, "JSF"));
 

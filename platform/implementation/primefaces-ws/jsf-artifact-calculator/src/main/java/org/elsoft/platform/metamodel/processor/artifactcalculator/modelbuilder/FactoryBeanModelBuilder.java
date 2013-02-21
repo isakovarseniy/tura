@@ -20,6 +20,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
+import org.elsoft.platform.metamodel.MetamodelPlatformLevel;
+import org.elsoft.platform.metamodel.RepositoryFactory;
+import org.elsoft.platform.metamodel.processor.datasource.model.RemoteMethod;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Canvas;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ChildrenOwner;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.DataLink;
@@ -33,16 +36,18 @@ public class FactoryBeanModelBuilder {
 
 	private FactoryBeanModel model = new FactoryBeanModel();
 
-	public Object builder(Form frm) {
+	public Object builder(RepositoryFactory rf, String domain,
+			String functionalDomain, String application,
+			MetamodelPlatformLevel level, Form frm) {
 		model.setUicontainer(frm.getName());
 
 		Iterator<Window> itrWin = frm.getWindows().iterator();
 		while (itrWin.hasNext())
-			viewPortsFinder(itrWin.next());
+			viewPortsFinder(itrWin.next(),rf,domain,functionalDomain,application,level);
 
 		Iterator<Canvas> itrCanvas = frm.getCanvases().iterator();
 		while (itrCanvas.hasNext())
-			viewPortsFinder(itrCanvas.next());
+			viewPortsFinder(itrCanvas.next(),rf,domain,functionalDomain,application,level);
 
 		Iterator<DataLink> itr = frm.getDatalinks().iterator();
 		ArrayList<String> check = new ArrayList<String>();
@@ -125,6 +130,7 @@ public class FactoryBeanModelBuilder {
 		private String viewPortName;
 		private String capViewPortName;
 		private String canvasName;
+		private RemoteMethod rmi;
 
 		public String getCanvasName() {
 			return canvasName;
@@ -134,10 +140,28 @@ public class FactoryBeanModelBuilder {
 			this.canvasName = canvasName;
 		}
 
-		public ViewPortDescriptor(ViewPort port) {
+		public ViewPortDescriptor(ViewPort port,RepositoryFactory rf, String domain,
+				String functionalDomain, String application,
+				MetamodelPlatformLevel level ) {
 			canvasName = ((Canvas) port.getCanvas()).getCanvasName();
 			viewPortName = port.getViewPortName();
 			capViewPortName = WordUtils.capitalize(viewPortName);
+
+			if (port.getRmi() != null) {
+				if (port.getRmi().getReturnType() != null) {
+					port.getRmi().setReturnType(
+							new MappedType(port.getRmi().getReturnType()
+									.getTypedao(), domain, functionalDomain,
+									application, level, rf));
+				}
+				port.getRmi().setProxy(
+						new MappedType(port.getRmi().getProxy().getTypedao(),
+								domain, functionalDomain, application, level,
+								rf));
+			   setRmi(port.getRmi());
+			      
+			}
+
 		}
 
 		public String getViewPortName() {
@@ -154,6 +178,14 @@ public class FactoryBeanModelBuilder {
 
 		public void setCapViewPortName(String capViewPortName) {
 			this.capViewPortName = capViewPortName;
+		}
+
+		public RemoteMethod getRmi() {
+			return rmi;
+		}
+
+		public void setRmi(RemoteMethod rmi) {
+			this.rmi = rmi;
 		}
 
 	}
@@ -205,16 +237,18 @@ public class FactoryBeanModelBuilder {
 		}
 	}
 
-	private void viewPortsFinder(UIElement element) {
+	private void viewPortsFinder(UIElement element,RepositoryFactory rf, String domain,
+			String functionalDomain, String application,
+			MetamodelPlatformLevel level) {
 
 		if (element instanceof ViewPort)
-			model.getPorts().add(new ViewPortDescriptor((ViewPort) element));
+			model.getPorts().add(new ViewPortDescriptor((ViewPort) element,rf,domain,functionalDomain,application,level));
 
 		if (element instanceof ChildrenOwner) {
 			Iterator<UIElement> itr = ((ChildrenOwner) element).getChildrens()
 					.iterator();
 			while (itr.hasNext()) {
-				viewPortsFinder(itr.next());
+				viewPortsFinder(itr.next(),rf,domain,functionalDomain,application,level);
 			}
 		}
 	}
