@@ -1,32 +1,37 @@
-<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
-	<p1:MetaComposite.layout>
-		<GridLayout/>
-	</p1:MetaComposite.layout>
-	<p1:MetaTabFolder>
-		<p1:MetaTabItem text="Business Objects">
-			<p1:MetaTabItem.control>
-				<p1:MetaComposite>
-					<p1:MetaComposite.layout>
-						<GridLayout/>
-					</p1:MetaComposite.layout>
-					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="BusinessObjectLnk" updateOnRawSelect="MethodTypeTable">
-						<p1:MetaTable.layoutData>
-							<GridData widthHint="239"/>
-						</p1:MetaTable.layoutData>
-						<p1:MetaTableColumn text="Business object name" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="businessObjectTypeName"/>
-						</p1:MetaTableColumn>
-						<p1:MetaTableColumn text="Management type" width="100">
-							<p1:MetaOutputText sourceProperty="refArtType"/>
-						</p1:MetaTableColumn>
-					</p1:MetaTable>
-					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="BusinessObjectMethodLnk" idObject="MethodTypeTable">
-						<p1:MetaTableColumn text="Method type" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="methodType"/>
-						</p1:MetaTableColumn>
-					</p1:MetaTable>
-				</p1:MetaComposite>
-			</p1:MetaTabItem.control>
-		</p1:MetaTabItem>
-	</p1:MetaTabFolder>
-</p1:MetaComposite>
+<p1:TabCanvas xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" viewPortName="ViewPortA">
+	<p1:MetaTabItem text="Business Objects">
+		<p1:MetaTabItem.control>
+			<p1:MetaComposite>
+				<p1:MetaComposite.layout>
+					<GridLayout />
+				</p1:MetaComposite.layout>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
+					linesVisible="true" headerVisible="true" iteratorProperty="BusinessObjectLnk"
+					updateOnRawSelect="MethodTypeTable">
+					<p1:MetaTable.layoutData>
+						<GridData widthHint="239" />
+					</p1:MetaTable.layoutData>
+					<p1:MetaTableColumn text="Business object name"
+						width="100">
+						<p1:MetaInputText x:Style="BORDER"
+							sourceProperty="businessObjectTypeName" />
+					</p1:MetaTableColumn>
+					<p1:MetaTableColumn text="Management type"
+						width="100">
+						<p1:MetaOutputText sourceProperty="refArtType" />
+					</p1:MetaTableColumn>
+				</p1:MetaTable>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
+					linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45"
+					iteratorProperty="BusinessObjectMethodLnk" idObject="MethodTypeTable">
+					<p1:MetaTableColumn text="Method type" width="100">
+						<p1:MetaInputText x:Style="BORDER"
+							sourceProperty="methodType" />
+					</p1:MetaTableColumn>
+				</p1:MetaTable>
+			</p1:MetaComposite>
+		</p1:MetaTabItem.control>
+	</p1:MetaTabItem>
+</p1:TabCanvas>

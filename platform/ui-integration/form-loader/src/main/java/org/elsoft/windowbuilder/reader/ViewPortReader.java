@@ -51,7 +51,7 @@ public class ViewPortReader extends Reader {
 		CreateUIViewPortDAO createUIViewPort = new CreateUIViewPortDAO();
 		createUIViewPort.setCommandExecutor(CreateUIViewPort.class.getName());
 		createUIViewPort.setParentUUID(parent.getUuid());
-		createUIViewPort.setUUID(getUuid());
+		createUIViewPort.setUUID(name);
 		createUIViewPort.setViewPortName(name);
 		createUIViewPort.setCss(cssStyle);
 		createUIViewPort.setCssClass(cssStyleClass);
@@ -73,5 +73,11 @@ public class ViewPortReader extends Reader {
 			throws Exception {
 		return true;
 	}
+	
+	
+	public String getUuid() {
+		return name;
+	}
+
 
 }

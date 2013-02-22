@@ -9,7 +9,6 @@ public class MetaComposite extends Composite{
 
 	public MetaComposite(Composite parent, int style) {
 		super(parent, style);
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getCssStyle() {

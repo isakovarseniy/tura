@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2012 Arseniy Isakov
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Instances of this class provide a surface for drawing arbitrary graphics.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new org.eclipse.wb.elsoft.components.ViewPort(%parent%, org.eclipse.swt.SWT.NONE)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="org.eclipse.swt.widgets.Composite" parent="true"/>
+			<parameter type="int" defaultSource="org.eclipse.swt.SWT.NONE">
+				<editor id="style">
+					<parameter name="class">org.eclipse.swt.SWT</parameter>
+					<parameter name="set">BORDER H_SCROLL V_SCROLL NO_BACKGROUND NO_FOCUS NO_MERGE_PAINTS NO_REDRAW_RESIZE NO_RADIO_GROUP</parameter>
+				</editor>
+			</parameter>
+		</constructor>
+	</constructors>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- border -->
+		<parameter name="shouldDrawBorder"><![CDATA[
+			object.getClass().getName().equals('org.eclipse.swt.widgets.Canvas')
+		]]>
+		</parameter>
+		
+		<!-- flow container: TableColumn -->
+		<parameter name="flowContainer.1">true</parameter>
+		<parameter name="flowContainer.1.horizontal">true</parameter>
+		<parameter name="flowContainer.1.component">org.eclipse.wb.elsoft.components.MetaComposite</parameter>
+		
+	</parameters>
+</component>

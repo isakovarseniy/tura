@@ -60,6 +60,14 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 			pathCalulator(cavasesMap.get(((ViewPort) element).getCanvas().getCanvasName()),
 					pathMap, path, cavasesMap);
 
+			if (((ViewPort) element).getCanvasSwitch() != null){
+				Iterator<Canvas> itr = ((ViewPort) element).getCanvasSwitch().iterator();
+				while (itr.hasNext()){
+					pathCalulator(cavasesMap.get(itr.next().getCanvasName()),
+							pathMap, path, cavasesMap);
+					
+				}
+			}
 		}
 
 		if (element instanceof ChildrenOwner) {

@@ -18,17 +18,20 @@ package org.elsoft.platform.metamodel.processor.uicontainer.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUICanvasDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUICanvas;
 
-public class Canvas  extends UIElement implements ChildrenOwner {
+public class Canvas extends UIElement implements ChildrenOwner, PointerElement {
 
 	private String canvasName;
 	private String canvasType;
-	
+	private EventDAO viewPortPointer;
 
-	public Canvas(CreateUICanvasDAO command,HashMap<String, Object> context){
+	public Canvas(CreateUICanvasDAO command, HashMap<String, Object> context) {
 		this.setCss(command.getCss());
 		this.setCssClass(command.getCssClass());
 		this.setCanvasName(command.getCanvasName());
@@ -36,13 +39,15 @@ public class Canvas  extends UIElement implements ChildrenOwner {
 		setUuid(command.getUUID());
 		context.put(command.getUUID(), this);
 	}
-	
+
 	@Override
 	protected void serialize(CommandHandler ch) throws Exception {
-		CreateUICanvas.save(ch, getParentUuid(), this);		
-        super.serialize(ch);  
+		CreateUICanvas.save(ch, getParentUuid(), this);
+		if (viewPortPointer != null)
+			CreateEventUIElement2UIElement.save(ch, this.getUuid(),
+					viewPortPointer);
+		super.serialize(ch);
 	}
-
 
 	public String getCanvasName() {
 		return canvasName;
@@ -73,6 +78,19 @@ public class Canvas  extends UIElement implements ChildrenOwner {
 	public String getUiElementType() {
 		return "Canvas";
 	}
-	
-	
+
+	@Override
+	public void addReference(EventDAO event, HashMap<String, Object> context) {
+		if (event.getEventType().equals(
+				MetamodelTriggerEventsType.CreateEventUIElement2UIElement
+						.name())) {
+
+			((ViewPort) context.get(event.getDstUUID()))
+					.addCanvasToSwitch(this);
+
+			viewPortPointer = event;
+		}
+
+	}
+
 }

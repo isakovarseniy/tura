@@ -42,8 +42,12 @@
 					<component class="org.eclipse.wb.elsoft.components.MetaImage"/>
 					<component class="org.eclipse.wb.elsoft.components.Dependency"/>
 					<component class="org.eclipse.wb.elsoft.components.SecurityTrigger"/>
-					<component class="org.eclipse.wb.elsoft.components.MetaTabFolder"/>
+					<!--component class="org.eclipse.wb.elsoft.components.MetaTabFolder"/-->
 					<component class="org.eclipse.wb.elsoft.components.MetaTabItem"/>
+					<component class="org.eclipse.wb.elsoft.components.TabCanvas"/>
+					<component class="org.eclipse.wb.elsoft.components.StackableCanvas"/>
+
+
 				</category>
 			</palette>
 		</toolkit>

@@ -21,9 +21,12 @@ import java.util.List;
 import javax.xml.stream.XMLStreamReader;
 
 import org.elsoft.platform.metamodel.MetamodelObjectType;
+import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
+import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUICanvasDAO;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2UIElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUICanvas;
 
 public class CanvasCheater extends Reader {
@@ -32,17 +35,19 @@ public class CanvasCheater extends Reader {
 	private String type = MetamodelObjectType.StackableCanvas.name();
 	private String cssStyle;
 	private String cssStyleClass;
+	private String viewPortName;
 
 	@Override
 	public Reader reader(XMLStreamReader xmlReader, Reader parent) {
 		cssStyle = xmlReader.getAttributeValue(null, "cssStyle");
 		cssStyleClass = xmlReader.getAttributeValue(null, "cssStyleClass");
+		viewPortName = xmlReader.getAttributeValue(null, "viewPortName");
 		return this;
 	}
 
 	@Override
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
-			Reader parent,List<CommandDAO> program) throws Exception {
+			Reader parent, List<CommandDAO> program) throws Exception {
 
 		CreateUICanvasDAO createCanvas = new CreateUICanvasDAO();
 		createCanvas.setCommandExecutor(CreateUICanvas.class.getName());
@@ -54,6 +59,18 @@ public class CanvasCheater extends Reader {
 		createCanvas.setCssClass(cssStyleClass);
 
 		program.add(createCanvas);
+
+		if (viewPortName != null) {
+			EventDAO event = new EventDAO();
+			event.setCommandExecutor(CreateEventUIElement2UIElement.class
+					.getName());
+			event.setParentUUID(createCanvas.getUUID());
+			event.setDstUUID(viewPortName);
+			event.setEventType(MetamodelTriggerEventsType.CreateEventUIElement2UIElement
+					.name());
+
+			program.add(event);
+		}
 
 	}
 

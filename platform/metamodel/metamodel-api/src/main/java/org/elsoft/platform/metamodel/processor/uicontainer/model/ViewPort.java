@@ -15,6 +15,7 @@
  ******************************************************************************/
 package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -31,6 +32,7 @@ import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUIViewP
 
 public class ViewPort extends UIElement implements PointerElement {
 
+
 	private String uuid = UUID.randomUUID().toString();
 	private Canvas canvas;
 	private String viewPortName;
@@ -38,6 +40,7 @@ public class ViewPort extends UIElement implements PointerElement {
 	private EventDAO canvasPointer;
 	private RemoteMethod rmi;
 	private CreateEventViewPort2ControllerDAO vewPortController;
+	private ArrayList<Canvas> canvasSwitch = new ArrayList<Canvas>();
 	
 
 	public ViewPort(CreateUIViewPortDAO command, HashMap<String, Object> context) {
@@ -49,6 +52,9 @@ public class ViewPort extends UIElement implements PointerElement {
 		context.put(command.getUUID(), this);
 	}
 
+	public ArrayList<Canvas> getCanvasSwitch() {
+		return canvasSwitch;
+	}
 	@Override
 	protected void serialize(CommandHandler ch) throws Exception {
 		CreateUIViewPort.save(ch, getParentUuid(), this);
@@ -123,5 +129,8 @@ public class ViewPort extends UIElement implements PointerElement {
 		this.vewPortController = vewPortController;
 	}
 
+	public void addCanvasToSwitch(Canvas canvas){
+		canvasSwitch.add(canvas);
+	}
 
 }

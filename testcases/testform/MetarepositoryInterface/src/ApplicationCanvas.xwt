@@ -1,107 +1,123 @@
-<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
-	<p1:MetaComposite.layout>
-		<GridLayout/>
-	</p1:MetaComposite.layout>
-	<p1:MetaTabFolder>
-		<p1:MetaTabItem text="Types">
-			<p1:MetaTabItem.control>
-				<p1:MetaComposite>
-					<p1:MetaComposite.layout>
-						<GridLayout/>
-					</p1:MetaComposite.layout>
-					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="TypeDefinition" idObject="typeTable" updateOnRawSelect="typesViewPort">
-						<p1:MetaTableColumn text="Type name" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="typeName"/>
-						</p1:MetaTableColumn>
-						<p1:MetaTableColumn text="Type of type" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="typeOfType"/>
-						</p1:MetaTableColumn>
-					</p1:MetaTable>
-					<p1:MetaFieldSet fieldSet="FieldSet" idObject="typesViewPort">
-						<p1:ViewPort bounds="0, 0, 64, 64" viewPortName="viewPortB" canvasName="TypesCanvas"/>
-					</p1:MetaFieldSet>
-				</p1:MetaComposite>
-			</p1:MetaTabItem.control>
-		</p1:MetaTabItem>
-		<p1:MetaTabItem text="Type mapping">
-			<p1:MetaTabItem.control>
-				<p1:MetaComposite>
-					<p1:MetaComposite.layout>
-						<GridLayout/>
-					</p1:MetaComposite.layout>
-					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="TypeMappinglnk" updateOnRawSelect="TypeMappindDetail">
-						<p1:MetaTableColumn text="Mapped Type" width="100">
-							<p1:MetaOutputText sourceProperty="refArtType"/>
-						</p1:MetaTableColumn>
-						<p1:MetaTableColumn text="Technology" width="100">
-							<p1:MetaInputText x:Style="BORDER" sourceProperty="technology"/>
-						</p1:MetaTableColumn>
-					</p1:MetaTable>
-					<p1:MetaFieldSet idObject="TypeMappindDetail" fieldSet="FieldSet">
-						<p1:MetaComposite size="404, 111">
+<p1:TabCanvas xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" viewPortName="ViewPortA">
+	<p1:MetaTabItem text="Types">
+		<p1:MetaTabItem.control>
+			<p1:MetaComposite>
+				<p1:MetaComposite.layout>
+					<GridLayout />
+				</p1:MetaComposite.layout>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
+					linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45"
+					iteratorProperty="TypeDefinition" idObject="typeTable"
+					updateOnRawSelect="typesViewPort">
+					<p1:MetaTableColumn text="Type name" width="100">
+						<p1:MetaInputText x:Style="BORDER"
+							sourceProperty="typeName" />
+					</p1:MetaTableColumn>
+					<p1:MetaTableColumn text="Type of type" width="100">
+						<p1:MetaInputText x:Style="BORDER"
+							sourceProperty="typeOfType" />
+					</p1:MetaTableColumn>
+				</p1:MetaTable>
+				<p1:MetaFieldSet fieldSet="FieldSet" idObject="typesViewPort">
+					<p1:ViewPort bounds="0, 0, 64, 64" viewPortName="viewPortB"
+						canvasName="TypesCanvas" />
+				</p1:MetaFieldSet>
+			</p1:MetaComposite>
+		</p1:MetaTabItem.control>
+	</p1:MetaTabItem>
+	<p1:MetaTabItem text="Type mapping">
+		<p1:MetaTabItem.control>
+			<p1:MetaComposite>
+				<p1:MetaComposite.layout>
+					<GridLayout />
+				</p1:MetaComposite.layout>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
+					linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45"
+					iteratorProperty="TypeMappinglnk" updateOnRawSelect="TypeMappindDetail">
+					<p1:MetaTableColumn text="Mapped Type" width="100">
+						<p1:MetaOutputText sourceProperty="refArtType" />
+					</p1:MetaTableColumn>
+					<p1:MetaTableColumn text="Technology" width="100">
+						<p1:MetaInputText x:Style="BORDER"
+							sourceProperty="technology" />
+					</p1:MetaTableColumn>
+				</p1:MetaTable>
+				<p1:MetaFieldSet idObject="TypeMappindDetail"
+					fieldSet="FieldSet">
+					<p1:MetaComposite size="404, 111">
 						<p1:MetaComposite.layout>
-							<GridLayout numColumns="2"/>
+							<GridLayout numColumns="2" />
 						</p1:MetaComposite.layout>
 						<p1:MetaComposite bounds="0, 0, 187, 69">
-						<p1:MetaComposite.layout>
-							<GridLayout numColumns="2"/>
-						</p1:MetaComposite.layout>
-						<p1:MetaLabel location="0, 0" text="Package Name">
-							<p1:MetaLabel.layoutData>
-								<GridData heightHint="27"/>
-							</p1:MetaLabel.layoutData>
-						</p1:MetaLabel>
-						<p1:MetaInputText x:Style="BORDER" bounds="0, 0, 75, 27" iteratorProperty="TypeMappinglnk" sourceProperty="resPackageName"/>
-						<p1:MetaLabel text="Object Name">
-							<p1:MetaLabel.layoutData>
-								<GridData horizontalAlignment="RIGHT"/>
-							</p1:MetaLabel.layoutData>
-						</p1:MetaLabel>
-						<p1:MetaInputText x:Style="BORDER" iteratorProperty="TypeMappinglnk" sourceProperty="resTypeName">
-							<p1:MetaInputText.layoutData>
-								<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
-							</p1:MetaInputText.layoutData>
-						</p1:MetaInputText>
-					</p1:MetaComposite>
+							<p1:MetaComposite.layout>
+								<GridLayout numColumns="2" />
+							</p1:MetaComposite.layout>
+							<p1:MetaLabel location="0, 0" text="Package Name">
+								<p1:MetaLabel.layoutData>
+									<GridData heightHint="27" />
+								</p1:MetaLabel.layoutData>
+							</p1:MetaLabel>
+							<p1:MetaInputText x:Style="BORDER" bounds="0, 0, 75, 27"
+								iteratorProperty="TypeMappinglnk" sourceProperty="resPackageName" />
+							<p1:MetaLabel text="Object Name">
+								<p1:MetaLabel.layoutData>
+									<GridData horizontalAlignment="RIGHT" />
+								</p1:MetaLabel.layoutData>
+							</p1:MetaLabel>
+							<p1:MetaInputText x:Style="BORDER"
+								iteratorProperty="TypeMappinglnk" sourceProperty="resTypeName">
+								<p1:MetaInputText.layoutData>
+									<GridData grabExcessHorizontalSpace="true"
+										horizontalAlignment="FILL" />
+								</p1:MetaInputText.layoutData>
+							</p1:MetaInputText>
+						</p1:MetaComposite>
 						<p1:MetaComposite size="179, 101">
-						<p1:MetaComposite.layout>
-							<GridLayout numColumns="2"/>
-						</p1:MetaComposite.layout>
-						<p1:MetaLabel location="0, 0" text="Goup Name">
-							<p1:MetaLabel.layoutData>
-								<GridData horizontalAlignment="RIGHT"/>
-							</p1:MetaLabel.layoutData>
-						</p1:MetaLabel>
-						<p1:MetaInputText x:Style="BORDER" iteratorProperty="TypeMappinglnk" sourceProperty="groupName">
-							<p1:MetaInputText.layoutData>
-								<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
-							</p1:MetaInputText.layoutData>
-						</p1:MetaInputText>
-						<p1:MetaLabel text="Artifact name">
-							<p1:MetaLabel.layoutData>
-								<GridData horizontalAlignment="RIGHT"/>
-							</p1:MetaLabel.layoutData>
-						</p1:MetaLabel>
-						<p1:MetaInputText x:Style="BORDER" iteratorProperty="TypeMappinglnk" sourceProperty="artifactName">
-							<p1:MetaInputText.layoutData>
-								<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
-							</p1:MetaInputText.layoutData>
-						</p1:MetaInputText>
-						<p1:MetaLabel text="Version">
-							<p1:MetaLabel.layoutData>
-								<GridData horizontalAlignment="RIGHT"/>
-							</p1:MetaLabel.layoutData>
-						</p1:MetaLabel>
-						<p1:MetaInputText x:Style="BORDER" iteratorProperty="TypeMappinglnk" sourceProperty="artifactVersion">
-							<p1:MetaInputText.layoutData>
-								<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
-							</p1:MetaInputText.layoutData>
-						</p1:MetaInputText>
+							<p1:MetaComposite.layout>
+								<GridLayout numColumns="2" />
+							</p1:MetaComposite.layout>
+							<p1:MetaLabel location="0, 0" text="Goup Name">
+								<p1:MetaLabel.layoutData>
+									<GridData horizontalAlignment="RIGHT" />
+								</p1:MetaLabel.layoutData>
+							</p1:MetaLabel>
+							<p1:MetaInputText x:Style="BORDER"
+								iteratorProperty="TypeMappinglnk" sourceProperty="groupName">
+								<p1:MetaInputText.layoutData>
+									<GridData grabExcessHorizontalSpace="true"
+										horizontalAlignment="FILL" />
+								</p1:MetaInputText.layoutData>
+							</p1:MetaInputText>
+							<p1:MetaLabel text="Artifact name">
+								<p1:MetaLabel.layoutData>
+									<GridData horizontalAlignment="RIGHT" />
+								</p1:MetaLabel.layoutData>
+							</p1:MetaLabel>
+							<p1:MetaInputText x:Style="BORDER"
+								iteratorProperty="TypeMappinglnk" sourceProperty="artifactName">
+								<p1:MetaInputText.layoutData>
+									<GridData grabExcessHorizontalSpace="true"
+										horizontalAlignment="FILL" />
+								</p1:MetaInputText.layoutData>
+							</p1:MetaInputText>
+							<p1:MetaLabel text="Version">
+								<p1:MetaLabel.layoutData>
+									<GridData horizontalAlignment="RIGHT" />
+								</p1:MetaLabel.layoutData>
+							</p1:MetaLabel>
+							<p1:MetaInputText x:Style="BORDER"
+								iteratorProperty="TypeMappinglnk" sourceProperty="artifactVersion">
+								<p1:MetaInputText.layoutData>
+									<GridData grabExcessHorizontalSpace="true"
+										horizontalAlignment="FILL" />
+								</p1:MetaInputText.layoutData>
+							</p1:MetaInputText>
+						</p1:MetaComposite>
 					</p1:MetaComposite>
-					</p1:MetaComposite>
-					</p1:MetaFieldSet>
-				</p1:MetaComposite>
-			</p1:MetaTabItem.control>
-		</p1:MetaTabItem>
-	</p1:MetaTabFolder>
-</p1:MetaComposite>
+				</p1:MetaFieldSet>
+			</p1:MetaComposite>
+		</p1:MetaTabItem.control>
+	</p1:MetaTabItem>
+</p1:TabCanvas>

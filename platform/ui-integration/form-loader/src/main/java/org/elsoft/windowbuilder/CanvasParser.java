@@ -79,12 +79,17 @@ public class CanvasParser {
 
 					if (firstPath == true) {
 						if (ElementBuilder.valueOf(objName).equals(
-								ElementBuilder.MetaComposite)) {
+								ElementBuilder.StackableCanvas)) {
 							CanvasCheater canvas = new CanvasCheater();
 							int i = artifactName.lastIndexOf('.');
 							canvas.setName(artifactName.substring(0, i));
+							
+							canvas.reader(xmlReader, root);
 							stack.push(canvas);
 							root.getChildren().add(canvas);
+							firstPath = false;
+
+							continue;
 						}
 						if (ElementBuilder.valueOf(objName).equals(
 								ElementBuilder.Shell)) {
@@ -96,22 +101,24 @@ public class CanvasParser {
 							firstPath = false;
 							continue;
 						}
+						if (ElementBuilder.valueOf(objName).equals(
+								ElementBuilder.TabCanvas)) {
+							CanvasCheater canvas = new CanvasCheater();
+							int i = artifactName.lastIndexOf('.');
+							canvas.setName(artifactName.substring(0, i));
+							canvas.setType(MetamodelObjectType.TabCanvas.name());
+
+							canvas.reader(xmlReader, root);
+							stack.push(canvas);
+							root.getChildren().add(canvas);
+							firstPath = false;
+
+							continue;
+						}
+
 					}
 					firstPath = false;
 					Reader parent = stack.peek();
-					if (ElementBuilder.valueOf(objName).equals(
-							ElementBuilder.MetaTabFolder)) {
-						Reader save = stack.pop();
-						Reader parentOfParent = stack.peek();
-						stack.push(save);
-						if (parentOfParent instanceof CanvasCheater) {
-							((CanvasCheater) parentOfParent)
-									.setType(MetamodelObjectType.TabCanvas
-											.name());
-							stack.pop();
-							continue;
-						}
-					}
 					Reader newReader = ElementBuilder.valueOf(objName)
 							.getInstance().reader(xmlReader, parent);
 
