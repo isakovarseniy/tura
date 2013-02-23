@@ -1,0 +1,5 @@
+<p1:TabCanvas xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+
+</p1:TabCanvas>

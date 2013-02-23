@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+
+
+	<!-- ======================================================== -->
+	<!-- New Wizards -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.eclipse.wb.xwt" name="XWT"
+			parentCategory="org.eclipse.wb/org.eclipse.wb.rcp"/>
+		<wizard name="Tura Window" icon="icons/wizard/Window/wizard.gif"
+			category="org.eclipse.wb/org.eclipse.wb.rcp/org.eclipse.wb.xwt"
+			class="org.eclipse.wb.elsoft.internal.wizards.WindowWizard"
+			id="org.eclipse.wb.xwt.wizards.ApplicationWizard">
+			<description>Create Tura Window</description>
+		</wizard>
+		<wizard name="Tura Stackable Canvas" icon="icons/wizard/Canvas/wizard.gif"
+			category="org.eclipse.wb/org.eclipse.wb.rcp/org.eclipse.wb.xwt"
+			class="org.eclipse.wb.elsoft.internal.wizards.StackableCanvasWizard"
+			id="org.eclipse.wb.elsoft.wizards.StackableCanvasWizard">
+			<description>Create Tura Stackable Canvas</description>
+		</wizard>
+
+		<wizard name="Tura Tab Canvas" icon="icons/wizard/Canvas/wizard.gif"
+			category="org.eclipse.wb/org.eclipse.wb.rcp/org.eclipse.wb.xwt"
+			class="org.eclipse.wb.elsoft.internal.wizards.TabCanvasWizard"
+			id="org.eclipse.wb.elsoft.wizards.TabCanvasWizard">
+			<description>Create Tura Tab Canvas</description>
+		</wizard>
+
+	</extension>
+
+
+
 	<extension point="org.eclipse.wb.core.toolkits">
 		<toolkit id="org.eclipse.wb.rcp">
         <classLoader-bundle

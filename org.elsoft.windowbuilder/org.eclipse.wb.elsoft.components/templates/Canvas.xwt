@@ -1,0 +1,8 @@
+<p1:StackableCanvas xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:StackableCanvas.layout>
+		<GridLayout/>
+	</p1:StackableCanvas.layout>
+
+</p1:StackableCanvas>
