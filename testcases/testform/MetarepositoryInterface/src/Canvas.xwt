@@ -9,12 +9,12 @@
 			<GridLayout numColumns="2" />
 		</p1:MetaComposite.layout>
 		<p1:MetaTree x:Style="BORDER" iteratorProperty="DomainLnk"
-			updateOnRawSelect="editorView">
+			updateOnRawSelect="editorView" cssStyle="width:300px;height:800px;">
 			<p1:MetaTreeColumn text="Column" width="100">
 				<p1:MetaInputText x:Style="BORDER" sourceProperty="name" />
 			</p1:MetaTreeColumn>
 		</p1:MetaTree>
-		<p1:MetaFieldSet idObject="editorView" fieldSet="Panel">
+		<p1:MetaFieldSet idObject="editorView" fieldSet="Panel" cssStyle="width:900px;height:800px;margin-left:20px;">
 			<p1:ViewPort viewPortName="ViewPortA" canvasName="DomainCanvas"
 				size="64, 64">
 				<p1:Trigger triggerType="Controller" x:Name="Controller"

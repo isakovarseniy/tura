@@ -21,6 +21,6 @@
 
 
 
-	<h:outputText value="${uiElement.label}" />
+	<h:outputText style="${uiElement.css}" value="${uiElement.label}" />
 
 </j:jelly>

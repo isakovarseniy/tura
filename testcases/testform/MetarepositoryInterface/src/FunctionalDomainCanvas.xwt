@@ -3,13 +3,18 @@
 	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" viewPortName="ViewPortA">
 	<p1:MetaTabItem text="Business Objects">
 		<p1:MetaTabItem.control>
-			<p1:MetaComposite>
+			<p1:MetaComposite cssStyle="width:830px;height:720px;font-size:16px; height:700px; margin-right:10px;font-weight:normal; ">
 				<p1:MetaComposite.layout>
 					<GridLayout />
 				</p1:MetaComposite.layout>
+				<p1:MetaLabel text="Objects:" cssStyle="text-decoration:underline;line-height:1.9em">
+					<p1:MetaLabel.layoutData>
+						<GridData widthHint="61"/>
+					</p1:MetaLabel.layoutData>
+				</p1:MetaLabel>
 				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
 					linesVisible="true" headerVisible="true" iteratorProperty="BusinessObjectLnk"
-					updateOnRawSelect="MethodTypeTable">
+					updateOnRawSelect="MethodTypeTable" cssStyle="font-size:12px;">
 					<p1:MetaTable.layoutData>
 						<GridData widthHint="239" />
 					</p1:MetaTable.layoutData>
@@ -23,9 +28,10 @@
 						<p1:MetaOutputText sourceProperty="refArtType" />
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
+				<p1:MetaLabel text="Methods:" cssStyle="text-decoration:underline;line-height:1.9em"/>
 				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
 					linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45"
-					iteratorProperty="BusinessObjectMethodLnk" idObject="MethodTypeTable">
+					iteratorProperty="BusinessObjectMethodLnk" idObject="MethodTypeTable" cssStyle="font-size:12px;">
 					<p1:MetaTableColumn text="Method type" width="100">
 						<p1:MetaInputText x:Style="BORDER"
 							sourceProperty="methodType" />

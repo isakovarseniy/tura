@@ -3,14 +3,14 @@
 	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" viewPortName="ViewPortA">
 	<p1:MetaTabItem text="Types">
 		<p1:MetaTabItem.control>
-			<p1:MetaComposite>
+			<p1:MetaComposite cssStyle="width:830px;height:720px;font-size:16px; font-weight:normal;">
 				<p1:MetaComposite.layout>
 					<GridLayout />
 				</p1:MetaComposite.layout>
 				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
 					linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45"
 					iteratorProperty="TypeDefinition" idObject="typeTable"
-					updateOnRawSelect="typesViewPort">
+					updateOnRawSelect="typesViewPort" cssStyle="font-size:12px;">
 					<p1:MetaTableColumn text="Type name" width="100">
 						<p1:MetaInputText x:Style="BORDER"
 							sourceProperty="typeName" />
@@ -20,7 +20,7 @@
 							sourceProperty="typeOfType" />
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
-				<p1:MetaFieldSet fieldSet="FieldSet" idObject="typesViewPort">
+				<p1:MetaFieldSet fieldSet="FieldSet" idObject="typesViewPort" cssStyle="font-size:12px;">
 					<p1:ViewPort bounds="0, 0, 64, 64" viewPortName="viewPortB"
 						canvasName="TypesCanvas" />
 				</p1:MetaFieldSet>
@@ -29,13 +29,13 @@
 	</p1:MetaTabItem>
 	<p1:MetaTabItem text="Type mapping">
 		<p1:MetaTabItem.control>
-			<p1:MetaComposite>
+			<p1:MetaComposite cssStyle="width:830px;height:720px;font-size:16px; font-weight:normal; ">
 				<p1:MetaComposite.layout>
 					<GridLayout />
 				</p1:MetaComposite.layout>
 				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
 					linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45"
-					iteratorProperty="TypeMappinglnk" updateOnRawSelect="TypeMappindDetail">
+					iteratorProperty="TypeMappinglnk" updateOnRawSelect="TypeMappindDetail" cssStyle="font-size:12px;">
 					<p1:MetaTableColumn text="Mapped Type" width="100">
 						<p1:MetaOutputText sourceProperty="refArtType" />
 					</p1:MetaTableColumn>
@@ -45,7 +45,7 @@
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
 				<p1:MetaFieldSet idObject="TypeMappindDetail"
-					fieldSet="FieldSet">
+					fieldSet="FieldSet" cssStyle="font-size:12px;">
 					<p1:MetaComposite size="404, 111">
 						<p1:MetaComposite.layout>
 							<GridLayout numColumns="2" />
@@ -54,14 +54,14 @@
 							<p1:MetaComposite.layout>
 								<GridLayout numColumns="2" />
 							</p1:MetaComposite.layout>
-							<p1:MetaLabel location="0, 0" text="Package Name">
+							<p1:MetaLabel location="0, 0" text="Package Name" cssStyle="font-size:16px;margin-right:10px;margin-left:10px;">
 								<p1:MetaLabel.layoutData>
 									<GridData heightHint="27" />
 								</p1:MetaLabel.layoutData>
 							</p1:MetaLabel>
 							<p1:MetaInputText x:Style="BORDER" bounds="0, 0, 75, 27"
 								iteratorProperty="TypeMappinglnk" sourceProperty="resPackageName" />
-							<p1:MetaLabel text="Object Name">
+							<p1:MetaLabel text="Object Name" cssStyle="font-size:16px;margin-right:10px;margin-left:10px;">
 								<p1:MetaLabel.layoutData>
 									<GridData horizontalAlignment="RIGHT" />
 								</p1:MetaLabel.layoutData>
@@ -78,7 +78,7 @@
 							<p1:MetaComposite.layout>
 								<GridLayout numColumns="2" />
 							</p1:MetaComposite.layout>
-							<p1:MetaLabel location="0, 0" text="Goup Name">
+							<p1:MetaLabel location="0, 0" text="Goup Name" cssStyle="font-size:16px;margin-right:10px;margin-left:10px;">
 								<p1:MetaLabel.layoutData>
 									<GridData horizontalAlignment="RIGHT" />
 								</p1:MetaLabel.layoutData>
@@ -90,7 +90,7 @@
 										horizontalAlignment="FILL" />
 								</p1:MetaInputText.layoutData>
 							</p1:MetaInputText>
-							<p1:MetaLabel text="Artifact name">
+							<p1:MetaLabel text="Artifact name" cssStyle="font-size:16px;margin-right:10px;margin-left:10px;">
 								<p1:MetaLabel.layoutData>
 									<GridData horizontalAlignment="RIGHT" />
 								</p1:MetaLabel.layoutData>
@@ -102,7 +102,7 @@
 										horizontalAlignment="FILL" />
 								</p1:MetaInputText.layoutData>
 							</p1:MetaInputText>
-							<p1:MetaLabel text="Version">
+							<p1:MetaLabel text="Version" cssStyle="font-size:16px;margin-right:10px;margin-left:10px;">
 								<p1:MetaLabel.layoutData>
 									<GridData horizontalAlignment="RIGHT" />
 								</p1:MetaLabel.layoutData>
