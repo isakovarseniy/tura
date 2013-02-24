@@ -7,6 +7,7 @@
 				<p1:MetaComposite.layout>
 					<GridLayout />
 				</p1:MetaComposite.layout>
+				<Label/>
 				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
 					linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45"
 					iteratorProperty="TypeDefinition" idObject="typeTable"
@@ -20,6 +21,13 @@
 							sourceProperty="typeOfType" />
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
+				<p1:MetaComposite cssStyle="font-size:12px;">
+					<p1:MetaComposite.layout>
+						<GridLayout numColumns="2"/>
+					</p1:MetaComposite.layout>
+					<p1:MetaAction text="Create" bounds="0, 0, 88, 29" expressionProperty="TypeDefinition.trigger- create" updateOnButtonPressed="typesViewPort typeTable"/>
+					<p1:MetaAction text="Remove" bounds="0, 0, 88, 29" expressionProperty="TypeDefinition.trigger- remove" updateOnButtonPressed="typesViewPort typeTable"/>
+				</p1:MetaComposite>
 				<p1:MetaFieldSet fieldSet="FieldSet" idObject="typesViewPort" cssStyle="font-size:12px;">
 					<p1:ViewPort bounds="0, 0, 64, 64" viewPortName="viewPortB"
 						canvasName="TypesCanvas" />
@@ -33,9 +41,13 @@
 				<p1:MetaComposite.layout>
 					<GridLayout />
 				</p1:MetaComposite.layout>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
-					linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45"
-					iteratorProperty="TypeMappinglnk" updateOnRawSelect="TypeMappindDetail" cssStyle="font-size:12px;">
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
+						<GridLayout numColumns="2"/>
+					</p1:MetaComposite.layout>
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
+					linesVisible="true" headerVisible="true" bounds="0, 0, 220, 45"
+					iteratorProperty="TypeMappinglnk" updateOnRawSelect="TypeMappindDetail" cssStyle="font-size:12px;" idObject="TypeMappingTable">
 					<p1:MetaTableColumn text="Mapped Type" width="100">
 						<p1:MetaOutputText sourceProperty="refArtType" />
 					</p1:MetaTableColumn>
@@ -44,6 +56,14 @@
 							sourceProperty="technology" />
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
+					<p1:MetaComposite cssStyle="font-size:12px;">
+						<p1:MetaComposite.layout>
+							<GridLayout/>
+						</p1:MetaComposite.layout>
+						<p1:MetaAction text="Create" size="55, 29" expressionProperty="TypeMappinglnk.trigger- create" updateOnButtonPressed="TypeMappindDetail TypeMappingTable"/>
+						<p1:MetaAction text="Remove" bounds="0, 0, 88, 29" expressionProperty="TypeMappinglnk.trigger- remove" updateOnButtonPressed="TypeMappindDetail TypeMappingTable"/>
+					</p1:MetaComposite>
+				</p1:MetaComposite>
 				<p1:MetaFieldSet idObject="TypeMappindDetail"
 					fieldSet="FieldSet" cssStyle="font-size:12px;">
 					<p1:MetaComposite size="404, 111">

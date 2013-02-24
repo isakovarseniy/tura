@@ -69,19 +69,13 @@ public abstract class Reader {
 
 	public void buildAll(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
-		Reader newParent;
-
-		if (parent instanceof ShellReader)
-			newParent = parent;
-		else
-			newParent = this;
 
 		build(context, rf, parent, program);
 
 		Iterator<Reader> itr = children.iterator();
 		while (itr.hasNext()) {
 			Reader reader = itr.next();
-			reader.buildAll(context, rf, newParent, program);
+			reader.buildAll(context, rf, this, program);
 		}
 	}
 

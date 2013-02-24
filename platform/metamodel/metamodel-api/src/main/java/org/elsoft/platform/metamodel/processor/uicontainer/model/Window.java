@@ -70,7 +70,8 @@ public class Window extends UIElement implements ChildrenOwner{
 	}
 
 	public void addChild(UIElement child) {
+		child.setParentUuid(getUuid());
+		this.getChildrens().add(child);
 	}
-	
 	
 }

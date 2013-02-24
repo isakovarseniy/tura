@@ -163,6 +163,12 @@ public class JSPXModeBuilder {
 		}
 
 		if (element instanceof ActionElement) {
+			if (((ActionElement) element).getDataSrcLnk() != null) {
+				String name = ((ActionElement) element).getDataSrcLnk()
+						.getName();
+				((ActionElement) element).getDataSrcLnk().setName(
+						StringUtils.uncapitalize(name));
+			}
 			if ((((ActionElement) element).getTriggerType() != null)
 					&& ((((ActionElement) element).getTriggerType()
 							.equals(MetamodelTriggerEventsType.CreateEventSearch
