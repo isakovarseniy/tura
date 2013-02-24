@@ -100,6 +100,10 @@ public class PopulateDataSource {
 		createDataSource(rf,dsh,"serverZone");
 		createDataSource(rf,dsh,"serverZoneService");
 	
+		createDataSource(rf,dsh,"options");
+		createDataSource(rf,dsh,"optionsService");
+
+	
 	}
 
 	private void createDataSource(RepositoryFactory rf,DataSourceHandler dsh,String dataSourceName) throws Exception {

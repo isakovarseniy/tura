@@ -51,7 +51,7 @@ public class PopulateApplication {
 			fDomain.addFunctionalDomain("Commons");
 			new PopulateBusinessType().executeCommons(rf, fDomain);
 			
-			HashMap<String, Object> context = new HashMap<String, Object>();
+/*			HashMap<String, Object> context = new HashMap<String, Object>();
 			new LoadDrugDropForm().execute(rf, context);
  
 			context = new HashMap<String, Object>();
@@ -73,7 +73,7 @@ public class PopulateApplication {
 			new PopulateDataSource().execute(rf);            
 			
 			new PopulateRecipe().execute(rf);
-
+*/
 			rf.saveModel();
 
 		} catch (Exception e) {

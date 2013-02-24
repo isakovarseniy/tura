@@ -55,7 +55,7 @@ public class PopulateRecipe {
 				.getObject();
 		
 		
-		DataSourceDAO DSdomain = rf.getRoot().cleanSearch()
+/*		DataSourceDAO DSdomain = rf.getRoot().cleanSearch()
 				.searchString("domainName", "ELsoft").seek()
 				.getFunctionalDomain().cleanSearch()
 				.searchString("functionalDomainName", "Platform").seek()
@@ -451,6 +451,33 @@ public class PopulateRecipe {
 				.searchString("applicationName", "Metarepository").seek().getDataSourceHandler()
 				.cleanSearch().searchString("dataSourceName", "businessObjectService")
 				.getObject();
+*/		
+
+		
+		DataSourceDAO DSoption = rf.getRoot().cleanSearch()
+				.searchString("domainName", "ELsoft").seek()
+				.getFunctionalDomain().cleanSearch()
+				.searchString("functionalDomainName", "Platform").seek()
+				.getApplicationHandler().cleanSearch()
+				.searchString("applicationName", "Metarepository").seek().getDataSourceHandler()
+				.cleanSearch().searchString("dataSourceName", "options")
+				.getObject();
+
+		DataSourceDAO DSoptionService = rf.getRoot().cleanSearch()
+				.searchString("domainName", "ELsoft").seek()
+				.getFunctionalDomain().cleanSearch()
+				.searchString("functionalDomainName", "Platform").seek()
+				.getApplicationHandler().cleanSearch()
+				.searchString("applicationName", "Metarepository").seek().getDataSourceHandler()
+				.cleanSearch().searchString("dataSourceName", "optionsService")
+				.getObject();
+
+		
+		
+		
+		
+		
+		
 		
 		
 		RecipeHandler rh = rf.getRoot().cleanSearch()
@@ -480,7 +507,7 @@ public class PopulateRecipe {
 		mmh = secondLevel.getModelMappingHandler();
 
 		
-		mmh.addModelMapping(DSdomain.getObjId(), JPAArtifactCalculator.class.getName(),"ELsoft.Platform.Metarepository.domain");
+/*		mmh.addModelMapping(DSdomain.getObjId(), JPAArtifactCalculator.class.getName(),"ELsoft.Platform.Metarepository.domain");
 		mmh.addModelMapping(DSdomainService.getObjId(), JPAArtifactCalculator.class.getName(),"ELsoft.Platform.Metarepository.domainService");
 	
 		mmh.addModelMapping(DSfunctionalDomain.getObjId(), JPAArtifactCalculator.class.getName(),"ELsoft.Platform.Metarepository.functionalDomain");
@@ -542,7 +569,9 @@ public class PopulateRecipe {
 
 		mmh.addModelMapping(DSserverZone.getObjId(), JPAArtifactCalculator.class.getName(),"ELsoft.Platform.Metarepository.serverZone");
 		mmh.addModelMapping(DSserverZoneService.getObjId(), JPAArtifactCalculator.class.getName(),"ELsoft.Platform.Metarepository.serverZoneService");
-		
+*/		
+		mmh.addModelMapping(DSoption.getObjId(), JPAArtifactCalculator.class.getName(),"ELsoft.Platform.Metarepository.options");
+		mmh.addModelMapping(DSoptionService.getObjId(), JPAArtifactCalculator.class.getName(),"ELsoft.Platform.Metarepository.optionsService");
 		
 		
 		ingh = rh.getIngredientHandler();

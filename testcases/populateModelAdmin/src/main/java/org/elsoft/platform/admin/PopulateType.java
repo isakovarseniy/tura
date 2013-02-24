@@ -58,6 +58,7 @@ public class PopulateType {
 		createServerClasterTypes(rf, h);
 		createServerGridTypes(rf, h);
 		createServerZoneTypes(rf, h);
+		createOptionTypes(rf, h);
 		
 		createFormTriggers(rf);
 		
@@ -2053,6 +2054,90 @@ public class PopulateType {
 		prm = prh.addParameter("obj");
 		prm.setParameterType(serverClaster.getObjId());
 	}
+	
+	private void createOptionTypes(RepositoryFactory rf,HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+		TypeDAO options = tdh.addType("ELsoft", "Platform", "Metarepository",
+				"options");
+		options.setTypeOfType(MetamodelTypeOfTypes.Entity.name());
+
+		PropertyHandler ph = tdh.getPropertyHandler();
+		PropertyDAO prop = ph.addProperty("objId");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+		prop.setPrimaryKey(true);
+
+		prop = ph.addProperty("version");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+		prop.setOptLock(true);
+
+		prop = ph.addProperty("setName");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		prop = ph.addProperty("optionName");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		prop = ph.addProperty("optionValue");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		
+		TypeDAO optionsList = tdh.addType("ELsoft", "Platform", "Metarepository",
+				"optionsList");
+		optionsList.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+
+		TypeDAO optionsSearchCriteria = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "optionsSearchCriteria");
+		optionsSearchCriteria
+				.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+
+		TypeDAO optionsOrderByCriteria = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "optionsOrderByCriteria");
+		optionsOrderByCriteria
+				.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+
+		TypeDAO optionsService = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "optionsService");
+		optionsService.setTypeOfType(MetamodelTypeOfTypes.Service.name());
+		optionsService.setGenericType(options.getObjId());
+
+		MethodHandler mh = tdh.getMethodHandler();
+		ParameterHandler prh = mh.getParameterHandler();
+
+		MethodDAO met = mh.addMethod("create");
+		met.setReturnType(options.getObjId());
+
+		met = mh.addMethod("find");
+		met.setReturnType(optionsList.getObjId());
+
+		ParameterDAO prm = prh.addParameter("search");
+		prm.setParameterType(optionsSearchCriteria.getObjId());
+
+		prm = prh.addParameter("order");
+		prm.setParameterType(optionsOrderByCriteria.getObjId());
+
+		prm = prh.addParameter("startIndex");
+		prm.setParameterType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+
+		prm = prh.addParameter("endIndex");
+		prm.setParameterType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+
+		prm = prh.addParameter("clazzName");
+		prm.setParameterType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		met = mh.addMethod("update");
+		prm = prh.addParameter("obj");
+		prm.setParameterType(options.getObjId());
+
+		met = mh.addMethod("remove");
+		prm = prh.addParameter("obj");
+		prm.setParameterType(options.getObjId());
+
+		met = mh.addMethod("insert");
+		prm = prh.addParameter("obj");
+		prm.setParameterType(options.getObjId());
+
+	}
+
 	
 	private void createFormTriggers(RepositoryFactory rf) {
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();

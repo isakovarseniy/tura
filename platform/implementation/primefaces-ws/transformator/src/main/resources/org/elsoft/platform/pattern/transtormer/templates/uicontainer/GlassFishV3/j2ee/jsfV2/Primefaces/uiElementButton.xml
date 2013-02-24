@@ -13,7 +13,7 @@
 
 	<x:element name="p:commandButton" URI="http://primefaces.org/ui">
 		<x:attribute name="id">tura${uiElement.uuid}</x:attribute>
-
+		<x:attribute name="style">${uiElement.css}</x:attribute>
 		<j:choose>
 			<j:when test="${uiElement.css != null}">
 				<x:attribute name="style">${uiElement.css}</x:attribute>

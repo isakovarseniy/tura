@@ -48,10 +48,130 @@ public class PopulateTypeMapping {
 		createServerClasterMapping(rf);
 		createServerGridMapping(rf);
 		createServerZoneMapping(rf);
-
+		createOptionsMapping(rf);
+		
 		createFormTriggersMapping(rf);	
 	}
 
+	
+	private void createOptionsMapping(RepositoryFactory rf) {
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		TypeDAO options = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "options").getObject();
+
+		TypeDAO optionsService = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "optionsService").getObject();
+
+		TypeDAO optionsSearchCriteria = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "optionsSearchCriteria").getObject();
+
+		TypeDAO optionsOrderByCriteria = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "optionsOrderByCriteria").getObject();
+		
+		TypeDAO optionsList = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "optionsList").getObject();
+		
+		
+		TypeMappingHandler tpmh = rf.getTypeMappingHandler();
+
+		TypeMappingDAO mp = tpmh.addTypeMapping(options, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects");
+		mp.setResTypeName("OptionsDAO");
+		mp.setGroupName("org.elsoft.platform.ELsoft.Platform");
+		mp.setArtifactName("Model-ELsoft-Platform-Metarepository");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("JPA-SERVICE");
+
+		mp = tpmh.addTypeMapping(optionsService, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("org.elsoft.platform.metamodel.options");
+		mp.setResTypeName("OptionsService");
+		mp.setGroupName("org.elsoft.platform.ELsoft.Platform");
+		mp.setArtifactName("Model-ELsoft-Platform-Metarepository");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("JPA-SERVICE");
+		
+
+		mp = tpmh.addTypeMapping(options, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.WEB_SERVICES.name());
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects");
+		mp.setResTypeName("OptionsDAO");
+
+		
+		mp = tpmh.addTypeMapping(optionsService, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.WEB_SERVICES.name());
+		mp.setResPackageName("org.elsoft.platform.metamodel.options");
+		mp.setResTypeName("OptionsService");
+	
+
+		mp = tpmh.addTypeMapping(optionsSearchCriteria, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.WEB_SERVICES.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List<org.elsoft.platform.SearchCriteria>");
+
+
+		mp = tpmh.addTypeMapping(optionsSearchCriteria, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List");
+
+
+		mp = tpmh.addTypeMapping(optionsOrderByCriteria, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.WEB_SERVICES.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List<org.elsoft.platform.OrderCriteria>");
+
+
+		mp = tpmh.addTypeMapping(optionsOrderByCriteria, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List");
+		
+
+		mp = tpmh.addTypeMapping(optionsList, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List<org.elsoft.platform.metamodel.objects.OptionsDAO>");
+
+		mp = tpmh.addTypeMapping(optionsList, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.WEB_SERVICES.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List<org.elsoft.platform.metamodel.objects.OptionsDAO>");
+
+	}
+	
 
 	private void createBusinessObjectMapping(RepositoryFactory rf) {
 

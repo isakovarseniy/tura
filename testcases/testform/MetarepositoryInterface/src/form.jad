@@ -1,4 +1,4 @@
-#Mon Feb 18 15:52:20 EST 2013
+#Sun Feb 24 16:44:02 EST 2013
 UIcontainerLnk=ELsoft.Platform.uiContainer
 ApplicationLnk=ELsoft.Platform.application
 DomainLnk=ELsoft.Platform.domain
@@ -6,8 +6,9 @@ Method=ELsoft.Platform.method
 TypeMappinglnk=ELsoft.Platform.typeMapping
 PropertyLnk=ELsoft.Platform.property
 BusinessObjectMethodLnk=ELsoft.Platform.methodReference
-FunctionalDomainLnk=ELsoft.Platform.functionalDomain
 TypeDefinitionHelper=ELsoft.Platform.typeDefinition
+FunctionalDomainLnk=ELsoft.Platform.functionalDomain
+OptTypeOfTypes=ELsoft.Platform.options
 BusinessObjectLnk=ELsoft.Platform.businessObject
 TypeDefinition=ELsoft.Platform.typeDefinition
 ParametersLnk=ELsoft.Platform.parameter

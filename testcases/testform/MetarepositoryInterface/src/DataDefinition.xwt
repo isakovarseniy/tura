@@ -64,5 +64,8 @@
 			</p1:Relation>
 		</p1:DataControl>
 		<p1:DataControl x:Name="BusinessObjectMethodLnk" businessObject="ELsoft.Platform.methodReference" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;BusinessObjectMethodLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;BusinessObjectLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;BusinessObjectLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
+		<p1:DataControl x:Name="OptTypeOfTypes" businessObject="ELsoft.Platform.options" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OptTypeOfTypes.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OptTypeOfTypes.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OptTypeOfTypes.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:DefaultSearch bounds="0, 0, 64, 64" fieldsProperty="setName" refType="String" value="MetamodelTypeOfTypes"/>
+		</p1:DataControl>
 	</p1:DataDefinition>
 </p1:MetaComposite>
