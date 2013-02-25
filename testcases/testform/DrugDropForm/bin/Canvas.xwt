@@ -1,10 +1,16 @@
-<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
-	<p1:MetaComposite.layout>
-		<GridLayout numColumns="2"/>
-	</p1:MetaComposite.layout>
-	<p1:MetaLabel text="Available features"/>
-	<p1:MetaLabel text="Installed features"/>
-	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="AvailableFeature" idObject="availFeature">
+<p1:StackableCanvas xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:StackableCanvas.layout>
+		<GridLayout/>
+	</p1:StackableCanvas.layout>
+	<p1:MetaComposite>
+		<p1:MetaComposite.layout>
+			<GridLayout numColumns="2"/>
+		</p1:MetaComposite.layout>
+		<p1:MetaLabel text="Available features" size="118, 17"/>
+		<p1:MetaLabel text="Installed features" size="114, 17"/>
+		<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="AvailableFeature" idObject="availFeature" size="220, 45">
 		<p1:MetaTableColumn text="Feature group" width="100">
 			<p1:MetaInputText x:Style="BORDER" sourceProperty="featureGroup"/>
 		</p1:MetaTableColumn>
@@ -12,7 +18,7 @@
 			<p1:MetaInputText x:Style="BORDER" sourceProperty="featureName"/>
 		</p1:MetaTableColumn>
 	</p1:MetaTable>
-	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="InstalledFeature" idObject="instFeature">
+		<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="InstalledFeature" idObject="instFeature" size="220, 45">
 		<p1:MetaTableColumn text="Feature group" width="100">
 			<p1:MetaInputText x:Style="BORDER" sourceProperty="featureGroup"/>
 		</p1:MetaTableColumn>
@@ -20,10 +26,19 @@
 			<p1:MetaInputText x:Style="BORDER" sourceProperty="featureName"/>
 		</p1:MetaTableColumn>
 	</p1:MetaTable>
-	<p1:MetaLabel/>
-	<p1:MetaLabel/>
-	<p1:DrugAndDrop source="availFeature" destination="instFeature" expressionProperty="AvailableFeature" updateOnDrop="availFeature instFeature">
+		<Label/>
+		<Label/>
+		<Label/>
+		<Label/>
+		<p1:MetaLabel size="0, 17"/>
+		<Label/>
+		<p1:MetaLabel size="0, 17"/>
+		<Label/>
+		<p1:DrugAndDrop source="availFeature" destination="instFeature" expressionProperty="AvailableFeature" updateOnDrop="availFeature instFeature" size="64, 64">
 		<p1:Trigger triggerType="ONItemDrop" x:Name="ONItemDrop" service="Manufacturing.BackOffice.HR.TestFormTriggersService" method="onDropTrigger"/>
 	</p1:DrugAndDrop>
-	<p1:MetaLabel/>
-</p1:MetaComposite>
+		<Label/>
+		<p1:MetaLabel size="0, 17"/>
+		<Label/>
+	</p1:MetaComposite>
+</p1:StackableCanvas>

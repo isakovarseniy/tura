@@ -1,7 +1,9 @@
-<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
-	<p1:MetaComposite.layout>
+<p1:StackableCanvas xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:StackableCanvas.layout>
 		<GridLayout/>
-	</p1:MetaComposite.layout>
+	</p1:StackableCanvas.layout>
 	<p1:MetaFieldSet idObject="data_set" fieldSet="FieldSet">
 		<p1:MetaFieldSet.layoutData>
 			<GridData heightHint="287" widthHint="632"/>
@@ -25,4 +27,4 @@
 	</p1:MetaLOV>
 		</p1:MetaComposite>
 	</p1:MetaFieldSet>
-</p1:MetaComposite>
+</p1:StackableCanvas>

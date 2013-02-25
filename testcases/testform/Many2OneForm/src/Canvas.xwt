@@ -1,7 +1,9 @@
-<p1:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas" xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
-	<p1:MetaComposite.layout>
+<p1:StackableCanvas xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:StackableCanvas.layout>
 		<GridLayout/>
-	</p1:MetaComposite.layout>
+	</p1:StackableCanvas.layout>
 	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DepartmentLnk" updateOnRawSelect="emp_det">
 		<p1:MetaTable.layoutData>
 			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
@@ -50,4 +52,4 @@
 		<p1:MetaAction text="Prev Record" expressionProperty="EmployeesLnk.prevRecord" updateOnButtonPressed="emp_det"/>
 		<p1:MetaAction text="Next Record" expressionProperty="EmployeesLnk.nextRecord" updateOnButtonPressed="emp_det"/>
 	</p1:MetaComposite>
-</p1:MetaComposite>
+</p1:StackableCanvas>

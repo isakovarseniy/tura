@@ -85,6 +85,10 @@ public class PopulateTypeMapping {
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
 		mp.setResPackageName("org.elsoft.platform.hr.dropdowntest");
 		mp.setResTypeName("DropdowntestDAO");
+		mp.setGroupName("org.elsoft.platform.Manufacturing.BackOffice");
+		mp.setArtifactName("Model-Manufacturing-BackOffice-HR-client");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("WS-EJB-JERSEY");
 
 		
 		mp = tpmh.addTypeMapping(dropdowntestService, "Manufacturing",
@@ -309,6 +313,10 @@ public class PopulateTypeMapping {
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
 		mp.setResPackageName("org.elsoft.platform.hr.departments");
 		mp.setResTypeName("DepartmentsDAO");
+		mp.setGroupName("org.elsoft.platform.Manufacturing.BackOffice");
+		mp.setArtifactName("Model-Manufacturing-BackOffice-HR-client");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("WS-EJB-JERSEY");
 
 		
 		mp = tpmh.addTypeMapping(departmentsService, "Manufacturing",
@@ -426,6 +434,10 @@ public class PopulateTypeMapping {
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
 		mp.setResPackageName("org.elsoft.platform.hr.employees");
 		mp.setResTypeName("EmployeesDAO");
+		mp.setGroupName("org.elsoft.platform.Manufacturing.BackOffice");
+		mp.setArtifactName("Model-Manufacturing-BackOffice-HR-client");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("WS-EJB-JERSEY");
 
 		
 		mp = tpmh.addTypeMapping(employeesService, "Manufacturing",
@@ -1026,6 +1038,10 @@ public class PopulateTypeMapping {
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
 		mp.setResPackageName("com.jibestream.cms.admin.hrfeatures");
 		mp.setResTypeName("HrFeaturesDAO");
+		mp.setGroupName("org.elsoft.platform.Manufacturing.BackOffice");
+		mp.setArtifactName("Model-Manufacturing-BackOffice-HR-client");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("WS-EJB-JERSEY");
 
 		
 		mp = tpmh.addTypeMapping(hrFeaturesService, "Manufacturing",

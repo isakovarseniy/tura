@@ -1,7 +1,9 @@
-<p2:MetaComposite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvase"  xmlns:p2="clr-namespace:org.eclipse.wb.elsoft.components">
-	<p2:MetaComposite.layout>
+<p2:StackableCanvas xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
+	xmlns:p2="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p2:StackableCanvas.layout>
 		<GridLayout/>
-	</p2:MetaComposite.layout>
+	</p2:StackableCanvas.layout>
 	<p2:MetaComposite>
 		<p2:MetaComposite.layout>
 			<GridLayout numColumns="4"/>
@@ -61,4 +63,4 @@
 	<p2:MetaFieldSet idObject="emp_detale" fieldSet="FieldSet">
 		<p2:ViewPort viewPortName="ViewPort2" canvasName="DetailCanvas" size="64, 64"/>
 	</p2:MetaFieldSet>
-</p2:MetaComposite>
+</p2:StackableCanvas>
