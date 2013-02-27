@@ -17,11 +17,11 @@
 			<p:commandButton xmlns:p="http://primefaces.org/ui"
 				value="Search"
 				actionListener="#{${model.uicontainer}binding.${lov.optionsSrcLnk.name}.search}"
-				update=":window:table${lov.uuid.replaceAll('\-','')}"></p:commandButton>
+				update="${lov.propertiesExtender['canvasPath']}:table${lov.uuid.replaceAll('\-','')}"></p:commandButton>
 			<p:commandButton xmlns:p="http://primefaces.org/ui"
 				value="Query"
 				actionListener="#{${model.uicontainer}binding.${lov.optionsSrcLnk.name}.query}"
-				update=":window:table${lov.uuid.replaceAll('\-','')}"></p:commandButton>
+				update="${lov.propertiesExtender['canvasPath']}:table${lov.uuid.replaceAll('\-','')}"></p:commandButton>
 		</h:panelGrid>
 
 		<p:dataTable var="row" id="table${lov.uuid.replaceAll('\-','')}"

@@ -64,9 +64,11 @@ public class JSPXModeBuilder {
 		String path = ":window";
 		pathCalulator(el, keyMap, path);
 */
-		if (el instanceof Canvas)
-			lovFinder(el);
-
+		if (el instanceof Canvas){
+			String path = keyMap.get(((Canvas)el).getCanvasName());
+			int i = path.lastIndexOf(":");
+			lovFinder(el,path.substring(0,i));
+		}
 		viewPortFinder(el, keyMap);
 
 		return model;
@@ -270,16 +272,17 @@ public class JSPXModeBuilder {
 		return result.substring(1);
 	}
 
-	private void lovFinder(UIElement element) {
+	private void lovFinder(UIElement element,String path) {
 
-		if (element instanceof Lov)
+		if (element instanceof Lov){
+			element.getPropertiesExtender().put("canvasPath", path);
 			model.getLovArray().add((Lov) element);
-
+		}
 		if (element instanceof ChildrenOwner) {
 			Iterator<UIElement> itr = ((ChildrenOwner) element).getChildrens()
 					.iterator();
 			while (itr.hasNext()) {
-				lovFinder(itr.next());
+				lovFinder(itr.next(),path);
 			}
 		}
 	}

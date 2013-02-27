@@ -20,7 +20,14 @@
 							sourceProperty="method" />
 					</p1:MetaTableColumn>
 					<p1:MetaTableColumn text="Return type" width="100">
-						<p1:MetaOutputText sourceProperty="refArtType" />
+						<p1:MetaLOV sourceProperty="refArtType" optionIterator="TypeDefinitionHelper" updateOnValueChanged="MethodTable">
+							<p1:LovDisplayField x:Style="BORDER" displayField="domain" fieldLabel="Domain"/>
+							<p1:LovDisplayField x:Style="BORDER" fieldLabel="FunctionalDomain" displayField="functionalDomain"/>
+							<p1:LovDisplayField x:Style="BORDER" displayField="application" fieldLabel="Application"/>
+							<p1:LovDisplayField x:Style="BORDER" displayField="typeName" fieldLabel="Type name"/>
+							<p1:LovReturnField x:Style="BORDER" returnIterator="Method" displayField="objId" returnField="returnType"/>
+							<p1:LovReturnField x:Style="BORDER" returnIterator="Method" returnField="refArtType" displayField="objId"/>
+						</p1:MetaLOV>
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
 					<p1:MetaComposite>
