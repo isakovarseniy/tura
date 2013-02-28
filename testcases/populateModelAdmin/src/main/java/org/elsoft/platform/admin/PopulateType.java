@@ -2154,7 +2154,8 @@ public class PopulateType {
 		mh.addMethod("postQueryTypeMappinglnk");
 		mh.addMethod("postQueryBusinessObjectlnk");
 		mh.addMethod("viewPortAController");
-		
+		mh.addMethod("postQueryTypeDefinitionHelperlnk");
+				
 	}	
 	
 }

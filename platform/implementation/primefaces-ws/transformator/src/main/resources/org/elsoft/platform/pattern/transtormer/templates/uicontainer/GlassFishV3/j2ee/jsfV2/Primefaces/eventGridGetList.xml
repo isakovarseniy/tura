@@ -46,6 +46,7 @@
 
 		@Override
 		public Object getRowKey(T obj) {
+		    if (obj == null) return null;
 			return getMode().getControl().getObjectKey(obj);
 		}
 

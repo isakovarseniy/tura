@@ -26,7 +26,7 @@
 							<p1:LovDisplayField x:Style="BORDER" displayField="application" fieldLabel="Application"/>
 							<p1:LovDisplayField x:Style="BORDER" displayField="typeName" fieldLabel="Type name"/>
 							<p1:LovReturnField x:Style="BORDER" returnIterator="Method" displayField="objId" returnField="returnType"/>
-							<p1:LovReturnField x:Style="BORDER" returnIterator="Method" returnField="refArtType" displayField="objId"/>
+							<p1:LovReturnField x:Style="BORDER" returnIterator="Method" returnField="refArtType" displayField="refArtType"/>
 						</p1:MetaLOV>
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
