@@ -1,16 +1,19 @@
-#Sat Mar 02 22:27:43 EST 2013
-MethodHelper=ELsoft.Platform.method
-UIcontainerLnk=ELsoft.Platform.uiContainer
-ApplicationLnk=ELsoft.Platform.application
-DomainLnk=ELsoft.Platform.domain
+#Sun Mar 03 11:20:44 EST 2013
 Method=ELsoft.Platform.method
-TypeMappinglnk=ELsoft.Platform.typeMapping
-PropertyLnk=ELsoft.Platform.property
 BusinessObjectMethodLnk=ELsoft.Platform.methodReference
-TypeDefinitionHelper=ELsoft.Platform.typeDefinition
 FunctionalDomainLnk=ELsoft.Platform.functionalDomain
-OptTypeOfTriggers=ELsoft.Platform.options
-OptTypeOfTypes=ELsoft.Platform.options
+MethodHelper=ELsoft.Platform.method
+PropertyLnk=ELsoft.Platform.property
+TypeDefinitionHelper=ELsoft.Platform.typeDefinition
+Uicontainer=ELsoft.Platform.uiContainer
 BusinessObjectLnk=ELsoft.Platform.businessObject
-TypeDefinition=ELsoft.Platform.typeDefinition
+TypeMappinglnk=ELsoft.Platform.typeMapping
+OptTypeOfTypes=ELsoft.Platform.options
+OptTypeOfTriggers=ELsoft.Platform.options
+MethodHelper2=ELsoft.Platform.method
+GlobalRoles=ELsoft.Platform.globalRole
+ApplicationRoles=ELsoft.Platform.applicationRole
 ParametersLnk=ELsoft.Platform.parameter
+DomainLnk=ELsoft.Platform.domain
+TypeDefinition=ELsoft.Platform.typeDefinition
+ApplicationLnk=ELsoft.Platform.application

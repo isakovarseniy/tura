@@ -144,4 +144,47 @@
 			</p1:MetaComposite>
 		</p1:MetaTabItem.control>
 	</p1:MetaTabItem>
+	<p1:MetaTabItem text="Application roles">
+		<p1:MetaTabItem.control>
+			<p1:MetaComposite>
+				<p1:MetaComposite.layout>
+					<GridLayout/>
+				</p1:MetaComposite.layout>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="ApplicationRoles" idObject="ApplicationRoleTable">
+					<p1:MetaTableColumn text="RoleName" width="100">
+						<p1:MetaInputText x:Style="BORDER" sourceProperty="roleName"/>
+					</p1:MetaTableColumn>
+				</p1:MetaTable>
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
+						<GridLayout numColumns="2"/>
+					</p1:MetaComposite.layout>
+					<p1:MetaAction text="Create" bounds="0, 0, 88, 29" expressionProperty="ApplicationRoles.trigger- create" updateOnButtonPressed="ApplicationRoleTable"/>
+					<p1:MetaAction text="Remove" bounds="0, 0, 88, 29" expressionProperty="ApplicationRoles.trigger- remove" updateOnButtonPressed="ApplicationRoleTable"/>
+				</p1:MetaComposite>
+			</p1:MetaComposite>
+		</p1:MetaTabItem.control>
+	</p1:MetaTabItem>
+	<p1:MetaTabItem text="Service layer"/>
+	<p1:MetaTabItem text="UI layer">
+		<p1:MetaTabItem.control>
+			<p1:MetaComposite>
+				<p1:MetaComposite.layout>
+					<GridLayout/>
+				</p1:MetaComposite.layout>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="Uicontainer" idObject="UITable">
+					<p1:MetaTableColumn text="Form name" width="100">
+						<p1:MetaInputText x:Style="BORDER" sourceProperty="uiContainerName"/>
+					</p1:MetaTableColumn>
+				</p1:MetaTable>
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
+						<GridLayout numColumns="2"/>
+					</p1:MetaComposite.layout>
+					<p1:MetaAction text="Create" bounds="0, 0, 88, 29" updateOnButtonPressed="UITable" expressionProperty="Uicontainer.trigger- create"/>
+					<p1:MetaAction text="Remove" updateOnButtonPressed="UITable" expressionProperty="Uicontainer.trigger- remove"/>
+				</p1:MetaComposite>
+			</p1:MetaComposite>
+		</p1:MetaTabItem.control>
+	</p1:MetaTabItem>
 </p1:TabCanvas>

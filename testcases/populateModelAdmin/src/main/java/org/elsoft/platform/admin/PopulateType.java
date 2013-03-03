@@ -426,6 +426,8 @@ public class PopulateType {
 		prop = ph.addProperty("name");
 		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
 		
+		prop = ph.addProperty("uiContainerName");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
 		
 		TypeDAO UIContainerList = tdh.addType("ELsoft", "Platform",
 				"Metarepository", "uiContainerList");
@@ -2155,6 +2157,7 @@ public class PopulateType {
 		mh.addMethod("postQueryBusinessObjectlnk");
 		mh.addMethod("viewPortAController");
 		mh.addMethod("postQueryTypeDefinitionHelperlnk");
+		mh.addMethod("postQueryBusinessObjectMethodLnk");
 				
 	}	
 	

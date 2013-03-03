@@ -87,11 +87,39 @@ public class MetamodelAdminTrigger {
 		refMethodCalculation(returnType, obj);
 	}
 
+	@SuppressWarnings("rawtypes")
+	public void postQueryBusinessObjectMethodLnk(Object obj) {
+		Long refMethod = (Long) Reflection.call(obj, "getRefMethod");
+
+		Object bindFactory = FacesContext
+				.getCurrentInstance()
+				.getApplication()
+				.evaluateExpressionGet(FacesContext.getCurrentInstance(),
+						"#{MetarepositoryInterfacebinding}", Object.class);
+		Handler methodHandl = (Handler) Reflection
+				.call(bindFactory, "getCurrentMethodHelper2");
+		
+		methodHandl = (Handler) methodHandl.cleanSearch();
+		methodHandl = (Handler) methodHandl.searchLong("objId", refMethod);
+		Object methodObj = methodHandl.getObject();
+		Long refType = (Long) Reflection.call(methodObj, "getParentId");
+		refMethodCalculation(refType, obj);
+		
+		String method = (String) Reflection.call(methodObj, "getMethod");
+		Reflection.call(obj, "setRefArtMethodName",method);
+		Reflection.call(obj, "setRefArtTypeId",refType);
+		
+	
+	}
+
+
 	public void postQueryParameterLnk(Object obj) {
 		Long returnType = (Long) Reflection.call(obj, "getParameterType");
 		refMethodCalculation(returnType, obj);
 	}
-
+	
+	
+	
 	@SuppressWarnings("rawtypes")
 	private void refMethodCalculation(Long returnType, Object obj) {
 		if (returnType == null)

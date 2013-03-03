@@ -1219,7 +1219,7 @@ public class PopulateTypeMapping {
 				"Platform", "Metarepository");
 		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
 		mp.setResPackageName("org.elsoft.platform.metamodel.objects.security");
-		mp.setResTypeName("ApplicatioinRoleDAO");
+		mp.setResTypeName("ApplicationRoleDAO");
 		mp.setGroupName("org.elsoft.platform.metamodel");
 		mp.setArtifactName("metamodel-datastructure");
 		mp.setArtifactVersion("1.0");
