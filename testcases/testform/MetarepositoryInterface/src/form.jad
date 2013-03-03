@@ -1,4 +1,5 @@
-#Sun Feb 24 16:44:02 EST 2013
+#Sat Mar 02 22:27:43 EST 2013
+MethodHelper=ELsoft.Platform.method
 UIcontainerLnk=ELsoft.Platform.uiContainer
 ApplicationLnk=ELsoft.Platform.application
 DomainLnk=ELsoft.Platform.domain
@@ -8,6 +9,7 @@ PropertyLnk=ELsoft.Platform.property
 BusinessObjectMethodLnk=ELsoft.Platform.methodReference
 TypeDefinitionHelper=ELsoft.Platform.typeDefinition
 FunctionalDomainLnk=ELsoft.Platform.functionalDomain
+OptTypeOfTriggers=ELsoft.Platform.options
 OptTypeOfTypes=ELsoft.Platform.options
 BusinessObjectLnk=ELsoft.Platform.businessObject
 TypeDefinition=ELsoft.Platform.typeDefinition

@@ -39,6 +39,7 @@ public class EventsMapper {
 		matrix.put("Grid", "CreateEventNextRecord","GridNextRow");
 		matrix.put("Grid", "CreateEventPrevRecord","GridPrevRow");
 		matrix.put("InputText", "CreateEventGetCurrentRow","CommonGetCurrentRow");
+		matrix.put("CheckBox", "CreateEventGetCurrentRow","CommonGetCurrentRow");
 		matrix.put("Lov", "CreateEventGetOptionsList","LovGetOptionsList");
 		matrix.put("Lov", "CreateEventGetCurrentRow","CommonGetCurrentRow");
 		matrix.put("Tree", "CreateEventGetTreeRoot","TreeGetTreeRoot");

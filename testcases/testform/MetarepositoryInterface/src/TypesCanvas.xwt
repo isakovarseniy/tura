@@ -55,10 +55,13 @@
 				</p1:MetaTable>
 					<p1:MetaComposite size="64, 64">
 						<p1:MetaComposite.layout>
-							<GridLayout numColumns="2"/>
+							<GridLayout numColumns="3"/>
 						</p1:MetaComposite.layout>
 						<p1:MetaAction text="Create" bounds="0, 0, 88, 29" expressionProperty="ParametersLnk.trigger- create" updateOnButtonPressed="ParameterTable"/>
 						<p1:MetaAction text="Remove" bounds="0, 0, 88, 29" expressionProperty="ParametersLnk.trigger- remove" updateOnButtonPressed="ParameterTable"/>
+						<p1:MetaAction text="Details" updateOnButtonPressed="ModalParametersPopUp">
+							<p1:Trigger script="PopupParameterCanvasVar.show();" triggerType="ONButtonClickJS" x:Name="ONButtonClickJS"/>
+						</p1:MetaAction>
 					</p1:MetaComposite>
 				</p1:MetaComposite>
 			</p1:MetaComposite>

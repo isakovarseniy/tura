@@ -1,8 +1,11 @@
-#Mon Feb 18 15:27:33 EST 2013
-TypeMappinglnk.refArtType=TypeMappinglnk.refArtType
-BusinessObjectLnk.refArtType=BusinessObjectLnk.refArtType
+#Sat Mar 02 22:50:30 EST 2013
+BusinessObjectMethodLnk.refArtType=BusinessObjectMethodLnk.refArtType
+Method.refType=Method.refType
 PropertyLnk.refArtType=PropertyLnk.refArtType
-ParametersLnk.refArtType=ParametersLnk.refArtType
+BusinessObjectMethodLnk.refArtMethodName=BusinessObjectMethodLnk.refArtMethodName
+BusinessObjectMethodLnk.refArtTypeId=BusinessObjectMethodLnk.refArtTypeId
 Method.refArtType=Method.refArtType
 TypeDefinitionHelper.refArtType=TypeDefinitionHelper.refArtType
-Method.refType=Method.refType
+BusinessObjectLnk.refArtType=BusinessObjectLnk.refArtType
+TypeMappinglnk.refArtType=TypeMappinglnk.refArtType
+ParametersLnk.refArtType=ParametersLnk.refArtType

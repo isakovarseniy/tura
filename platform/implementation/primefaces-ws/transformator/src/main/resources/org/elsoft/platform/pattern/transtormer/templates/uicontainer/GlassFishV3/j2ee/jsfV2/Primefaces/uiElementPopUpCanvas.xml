@@ -24,4 +24,5 @@
 		<j:import file="${RootTemplate}/GlassFishV3/j2ee/jsfV2/deeper.xml"
 			inherit="true" />
      </p:dialog>
+
 </j:jelly>

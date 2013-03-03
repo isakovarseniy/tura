@@ -48,6 +48,7 @@ public class CreateUILov {
 		CreateUILovDAO obj = (CreateUILovDAO) dc.createObject();
 		obj.setParentUUID(parentUUID);
 		obj.setCss(lov.getCss());
+		obj.setLabel(lov.getLabel());
 		obj.setCssClass(lov.getCssClass());
 		obj.setCommandExecutor(CreateUILov.class.getName());
 		obj.setUUID(lov.getUuid());

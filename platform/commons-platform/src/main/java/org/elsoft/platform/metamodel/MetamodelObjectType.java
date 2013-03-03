@@ -29,6 +29,7 @@ public enum MetamodelObjectType {
 	DataBase,
 	Button,
 	StackableCanvas,
+	PopUpCanvas,
 	TabCanvas,
 	TabPage
 }

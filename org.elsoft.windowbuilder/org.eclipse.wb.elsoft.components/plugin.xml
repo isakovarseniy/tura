@@ -29,6 +29,14 @@
 			<description>Create Tura Tab Canvas</description>
 		</wizard>
 
+		<wizard name="Tura PopUp Canvas" icon="icons/wizard/Canvas/wizard.gif"
+			category="org.eclipse.wb/org.eclipse.wb.rcp/org.eclipse.wb.xwt"
+			class="org.eclipse.wb.elsoft.internal.wizards.PopUpCanvasWizard"
+			id="org.eclipse.wb.elsoft.wizards.PopUpCanvasWizard">
+			<description>Create Tura PopUp Canvas</description>
+		</wizard>
+
+
 	</extension>
 
 
@@ -78,6 +86,7 @@
 					<component class="org.eclipse.wb.elsoft.components.MetaTabItem"/>
 					<component class="org.eclipse.wb.elsoft.components.TabCanvas"/>
 					<component class="org.eclipse.wb.elsoft.components.StackableCanvas"/>
+					<component class="org.eclipse.wb.elsoft.components.PopUpCanvas"/>
 
 
 				</category>

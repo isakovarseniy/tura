@@ -21,6 +21,7 @@ public enum ElementBuilder {
 	Shell(org.elsoft.windowbuilder.reader.ShellReader.class),
 	StackableCanvas(org.elsoft.windowbuilder.reader.CanvasCheater.class),
 	TabCanvas(org.elsoft.windowbuilder.reader.CanvasCheater.class),
+	PopUpCanvas(org.elsoft.windowbuilder.reader.CanvasCheater.class),
 	MetaComposite(org.elsoft.windowbuilder.reader.CompositeReader.class),
 	MetaComposite_layout(org.elsoft.windowbuilder.reader.CompositeLayoutReader.class),
 	GridLayout(org.elsoft.windowbuilder.reader.GridLayoutReader.class),

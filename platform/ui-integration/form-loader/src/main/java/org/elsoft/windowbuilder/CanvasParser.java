@@ -116,6 +116,22 @@ public class CanvasParser {
 							continue;
 						}
 
+						if (ElementBuilder.valueOf(objName).equals(
+								ElementBuilder.PopUpCanvas)) {
+							CanvasCheater canvas = new CanvasCheater();
+							int i = artifactName.lastIndexOf('.');
+							canvas.setName(artifactName.substring(0, i));
+							canvas.setType(MetamodelObjectType.PopUpCanvas.name());
+
+							canvas.reader(xmlReader, root);
+							stack.push(canvas);
+							root.getChildren().add(canvas);
+							firstPath = false;
+
+							continue;
+						}
+
+					
 					}
 					firstPath = false;
 					Reader parent = stack.peek();

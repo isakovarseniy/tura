@@ -1,4 +1,4 @@
-#Sun Feb 24 10:35:45 EST 2013
+#Thu Feb 28 22:13:18 EST 2013
 editorView=editorView
 typesViewPort=typesViewPort
 PropTable=PropTable
@@ -8,4 +8,5 @@ MethodTable=MethodTable
 mainView=mainView
 TypeMappingTable=TypeMappingTable
 MethodTypeTable=MethodTypeTable
+ModalParametersPopUp=ModalParametersPopUp
 typeTable=typeTable

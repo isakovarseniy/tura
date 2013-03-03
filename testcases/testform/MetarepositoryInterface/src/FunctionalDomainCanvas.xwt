@@ -33,9 +33,26 @@
 					linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45"
 					iteratorProperty="BusinessObjectMethodLnk" idObject="MethodTypeTable" cssStyle="font-size:12px;">
 					<p1:MetaTableColumn text="Method type" width="100">
-						<p1:MetaInputText x:Style="BORDER"
-							sourceProperty="methodType" />
+						<p1:MetaDropDown sourceProperty="methodType" optionIterator="OptTypeOfTriggers" optionLabel="optionName" optionValue="optionValue"/>
 					</p1:MetaTableColumn>
+					<p1:MetaTableColumn text="Type" width="100">
+						<p1:MetaLOV sourceProperty="refArtType" optionIterator="TypeDefinitionHelper" updateOnValueChanged="MethodTypeTable">
+							<p1:LovDisplayField x:Style="BORDER" displayField="domain" fieldLabel="Domain"/>
+							<p1:LovDisplayField x:Style="BORDER" fieldLabel="FunctionalDomain" displayField="functionalDomain"/>
+							<p1:LovDisplayField x:Style="BORDER" displayField="application" fieldLabel="Application"/>
+							<p1:LovDisplayField x:Style="BORDER" displayField="typeName" fieldLabel="Type name"/>
+							<p1:LovReturnField x:Style="BORDER" returnIterator="BusinessObjectMethodLnk" displayField="objId" returnField="refArtTypeId"/>
+							<p1:LovReturnField x:Style="BORDER" returnIterator="BusinessObjectMethodLnk" returnField="refArtType" displayField="refArtType"/>
+						</p1:MetaLOV>
+					</p1:MetaTableColumn>
+					<p1:MetaTableColumn text="Method" width="100">
+						<p1:MetaLOV optionIterator="MethodHelper" sourceProperty="refArtMethodName" updateOnValueChanged="MethodTypeTable">
+							<p1:LovDisplayField x:Style="BORDER" fieldLabel="Method" displayField="method"/>
+							<p1:LovReturnField x:Style="BORDER" displayField="objId" returnIterator="BusinessObjectMethodLnk" returnField="refMethod"/>
+							<p1:LovReturnField x:Style="BORDER" displayField="method" returnIterator="BusinessObjectMethodLnk" returnField="refArtMethodName"/>
+						</p1:MetaLOV>
+					</p1:MetaTableColumn>
+					
 				</p1:MetaTable>
 			</p1:MetaComposite>
 		</p1:MetaTabItem.control>

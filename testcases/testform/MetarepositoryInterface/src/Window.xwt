@@ -24,4 +24,5 @@
 				size="64, 64" />
 		</p2:MetaFieldSet>
 	</p2:MetaComposite>
+	<p2:ViewPort viewPortName="ViewPortPopUpParameters" canvasName="PopupParameterCanvas"/>
 </Shell>
