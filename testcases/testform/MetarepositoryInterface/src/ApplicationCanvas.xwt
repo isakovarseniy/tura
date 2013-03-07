@@ -162,7 +162,7 @@
 					<p1:MetaAction text="Create" bounds="0, 0, 88, 29" expressionProperty="ApplicationRoles.trigger- create" updateOnButtonPressed="ApplicationRoleTable"/>
 					<p1:MetaAction text="Remove" bounds="0, 0, 88, 29" expressionProperty="ApplicationRoles.trigger- remove" updateOnButtonPressed="ApplicationRoleTable"/>
 				</p1:MetaComposite>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="RolesMapping" custObject="ELsoft.Platform.Metarepository.RoleMappingCommand">
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="RolesMapping" castObject="ELsoft.Platform.Metarepository.RoleMappingCommand">
 					<p1:MetaTable.layoutData>
 						<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
 					</p1:MetaTable.layoutData>

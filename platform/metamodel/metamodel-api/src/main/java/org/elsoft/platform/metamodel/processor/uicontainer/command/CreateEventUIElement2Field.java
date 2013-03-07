@@ -25,6 +25,7 @@ import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.Processor;
+import org.elsoft.platform.metamodel.processor.datasource.model.Field;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.InputElement;
 
 public class CreateEventUIElement2Field {
@@ -36,6 +37,11 @@ public class CreateEventUIElement2Field {
 
 		InputElement element = (InputElement) context.get(command.getParentUUID());
 
+		Field pointer = (Field) context.get(command.getDstUUID());
+		
+		if ((pointer == null) || (element == null))
+			return Processor.COMMAND_POSTPONE;
+	
 		element.setUIElement2FieldEvent(command, context);
 		return Processor.COMMAND_COMPLITED;
 

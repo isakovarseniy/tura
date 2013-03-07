@@ -19,7 +19,7 @@ import org.elsoft.platform.metamodel.types.TypeDefinitionHandler;
 
 public class CreateDataLink2CastType {
 
-	public static String CREATEDATALINK2CASTTYPE = "org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2BusinessObject";
+	public static String CREATEDATALINK2CASTTYPE = "org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2CastTypeDAO";
 
 	public static int load(RepositoryFactory rf,
 			HashMap<String, Object> context, CommandDAO cmd) {
@@ -33,7 +33,8 @@ public class CreateDataLink2CastType {
 		DataLink lnk = (DataLink) context.get(command.getParentUUID());
 
 		Object cast = lnk.getCastObjects().get(
-				command.getDomain() + "." + command.getFunctionalDomain() + "."
+				lnk.getUuid() + "." + command.getDomain() + "."
+						+ command.getFunctionalDomain() + "."
 						+ command.getApplication() + "."
 						+ command.getTypeName());
 		if (cast == null) {
@@ -43,13 +44,13 @@ public class CreateDataLink2CastType {
 				PropertyDAO prop = (PropertyDAO) itr.next();
 				TypeDAO type = (TypeDAO) tdh.getPropertyHandler()
 						.getTypeDefinitionHandler().getObject();
-				lnk.addField(new Field(prop, type, context, lnk.getUuid(), type
-						.getDomain()
-						+ "."
-						+ type.getFunctionalDomain()
-						+ "."
-						+ type.getApplication() + "." + type.getTypeName()));
+				lnk.addField(new Field(prop, type, context, lnk.getUuid(),
+						command.getDomain() + "."
+								+ command.getFunctionalDomain() + "."
+								+ command.getApplication() + "."
+								+ command.getTypeName()));
 			}
+			lnk.addCastcastObject(command);
 		}
 		return Processor.COMMAND_COMPLITED;
 

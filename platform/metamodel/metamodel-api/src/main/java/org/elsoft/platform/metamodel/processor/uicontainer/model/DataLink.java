@@ -69,7 +69,7 @@ public class DataLink extends PersistentInterface {
 
 	public void addCastcastObject(CreateDataLink2CastTypeDAO castObject) {
 		castObjects.put(
-				castObject.getDomain() + "." + castObject.getFunctionalDomain()
+				getUuid()+"."+ castObject.getDomain() + "." + castObject.getFunctionalDomain()
 						+ "." + castObject.getApplication() + "."
 						+ castObject.getTypeName(), castObject);
 	}
