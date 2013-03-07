@@ -77,6 +77,7 @@ import org.eclipse.e4.xwt.converters.String2VisualDependencyProperty;
 import org.eclipse.e4.xwt.converters.StringToAscDescProperty;
 import org.eclipse.e4.xwt.converters.StringToBoolean;
 import org.eclipse.e4.xwt.converters.StringToBusinessObject;
+import org.eclipse.e4.xwt.converters.StringToCastObjectProperty;
 import org.eclipse.e4.xwt.converters.StringToColor;
 import org.eclipse.e4.xwt.converters.StringToDestinationDataControlProperty;
 import org.eclipse.e4.xwt.converters.StringToDoubleArray;
@@ -1537,7 +1538,9 @@ public class XWTLoader implements IXWTLoader {
 		registerConvertor(StringToRolesProperty.instance);
 		registerConvertor(StringToGrantedRoleProperty.instance);
 		registerConvertor(StringToOperetionTypeProperty.instance);
+		registerConvertor(StringToCastObjectProperty.instance);
 		registerConvertor(SecurityTriggerToControl.instance);
+		
 		
 		
 		registerConvertor(StringToFont.instance);

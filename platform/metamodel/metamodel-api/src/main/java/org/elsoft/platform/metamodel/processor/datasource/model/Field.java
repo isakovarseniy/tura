@@ -46,8 +46,19 @@ public class Field {
 		this.pk = pk;
 	}
 
+
+	public Field(PropertyDAO property,TypeDAO type,HashMap<String, Object> context, String datalinkUUID ,String classifier) {
+        init(property,type, context,  datalinkUUID);
+		uuid=datalinkUUID+"."+ classifier +"."+property.getPropertyName();
+		context.put(uuid, this);
+	}	
 	
 	public Field(PropertyDAO property,TypeDAO type,HashMap<String, Object> context, String datalinkUUID ) {
+         init(property,type, context,  datalinkUUID);
+ 		 context.put(uuid, this);
+	}
+
+	private void init(PropertyDAO property,TypeDAO type,HashMap<String, Object> context, String datalinkUUID ){
 		this.type = new IndependentType(type);
 		name=property.getPropertyName();
 		uuid=datalinkUUID+"."+property.getPropertyName();
@@ -60,7 +71,6 @@ public class Field {
 		if (( j != null)&&(property.getOptLock() ))
 			this.setOptLock(true);
 		
-		context.put(uuid, this);
 	}
 
 	public Field(PropertyHandler ph, PropertyDAO property) {

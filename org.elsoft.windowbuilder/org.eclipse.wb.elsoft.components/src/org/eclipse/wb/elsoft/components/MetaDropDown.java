@@ -15,6 +15,7 @@
  ******************************************************************************/
 package org.eclipse.wb.elsoft.components;
 
+import org.eclipse.e4.xwt.elsoft.types.CastObjectProperty;
 import org.eclipse.e4.xwt.elsoft.types.IDProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.OptionFieldProperty;
@@ -27,6 +28,7 @@ import org.eclipse.swt.widgets.Composite;
 public class MetaDropDown extends Combo{
 	private IteratorProperty iteratorProperty;
 	private SourceProperty sourceProperty;
+	private CastObjectProperty castObject;
 	private OptionIteratorProperty optionIterator;
 	private OptionFieldProperty optionLabel;
 	private OptionFieldProperty optionValue;
@@ -115,6 +117,14 @@ public class MetaDropDown extends Combo{
 
 	public MetaDropDown(Composite parent, int style) {
 		super(parent, style);
+	}
+
+	public CastObjectProperty getCastObject() {
+		return castObject;
+	}
+
+	public void setCastObject(CastObjectProperty castObject) {
+		this.castObject = castObject;
 	}
 
 

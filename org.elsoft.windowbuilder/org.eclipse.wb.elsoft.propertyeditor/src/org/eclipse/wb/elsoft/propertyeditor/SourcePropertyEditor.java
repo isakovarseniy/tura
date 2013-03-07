@@ -24,6 +24,7 @@ import java.util.StringTokenizer;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.e4.xwt.elsoft.types.BusinessObjectProperty;
+import org.eclipse.e4.xwt.elsoft.types.CastObjectProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.SourceProperty;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -75,98 +76,133 @@ public class SourcePropertyEditor extends PropertyEditor implements
 		Shell shell = new Shell(display);
 		shell.setLayout(new FillLayout());
 
-		Properties properties = (new ControlHelper()).load(ControlHelper.DATACONTROL_FILE_NAME);
+		Properties properties = (new ControlHelper())
+				.load(ControlHelper.DATACONTROL_FILE_NAME);
+		Property custObject = null;
 
 		ObjectInfo objInf = genericProperty.getObject();
 		String dcName = null;
 
-		if (objInf.getParent().getClass().getCanonicalName().equals("org.eclipse.wb.internal.xwt.model.widgets.ButtonInfo")){
-			if (property.getTitle().equals("displayField")){
-				Property val  = objInf.getParent().getPropertyByTitle("optionIterator");
-	            if (val.getValue() == null){
-	    			IStatus status = new Status(IStatus.ERROR, "Explorer", IStatus.OK,
-	    					"Option Iterator is not defined by parent elemnt", null);
+		if (objInf.getParent().getClass().getCanonicalName()
+				.equals("org.eclipse.wb.internal.xwt.model.widgets.ButtonInfo")) {
+			if (property.getTitle().equals("displayField")) {
+				Property val = objInf.getParent().getPropertyByTitle(
+						"optionIterator");
+				if (val.getValue() == null) {
+					IStatus status = new Status(IStatus.ERROR, "Explorer",
+							IStatus.OK,
+							"Option Iterator is not defined by parent elemnt",
+							null);
 
-	    			ErrorDialog error = new ErrorDialog(shell, "Explorer - Error",
-	    					"An unexpectedexception has ocurred.", status,
-	    					IStatus.ERROR);
-	    			error.open();
-	    			return;
-	            }
+					ErrorDialog error = new ErrorDialog(shell,
+							"Explorer - Error",
+							"An unexpectedexception has ocurred.", status,
+							IStatus.ERROR);
+					error.open();
+					return;
+				}
 				dcName = ((IteratorProperty) val.getValue()).getIterator();
 			}
-			if (property.getTitle().equals("returnField")){
-				Property val  = objInf.getPropertyByTitle("returnIterator");
-	            if (val.getValue() == null){
-	    			IStatus status = new Status(IStatus.ERROR, "Explorer", IStatus.OK,
-	    					"Return Iterator is not defined by parent elemnt", null);
+			if (property.getTitle().equals("returnField")) {
+				Property val = objInf.getPropertyByTitle("returnIterator");
+				if (val.getValue() == null) {
+					IStatus status = new Status(IStatus.ERROR, "Explorer",
+							IStatus.OK,
+							"Return Iterator is not defined by parent elemnt",
+							null);
 
-	    			ErrorDialog error = new ErrorDialog(shell, "Explorer - Error",
-	    					"An unexpectedexception has ocurred.", status,
-	    					IStatus.ERROR);
-	    			error.open();
-	    			return;
-	            }
+					ErrorDialog error = new ErrorDialog(shell,
+							"Explorer - Error",
+							"An unexpectedexception has ocurred.", status,
+							IStatus.ERROR);
+					error.open();
+					return;
+				}
 				dcName = ((IteratorProperty) val.getValue()).getIterator();
 			}
 
-		
-		}else{
-		
-		if (
-		   ( objInf.getParent().getClass().getCanonicalName().equals("org.eclipse.wb.internal.xwt.model.widgets.TableColumnInfo"))||
-		   ( objInf.getParent().getClass().getCanonicalName().equals("org.eclipse.wb.internal.xwt.model.widgets.TreeColumnInfo"))
-		   )
-		
-		{
-			Property val  = objInf.getParent().getParent().getPropertyByTitle("iteratorProperty");
-            if (val.getValue() == null){
-    			IStatus status = new Status(IStatus.ERROR, "Explorer", IStatus.OK,
-    					"Iterator is not defined by parent elemnt", null);
+		} else {
 
-    			ErrorDialog error = new ErrorDialog(shell, "Explorer - Error",
-    					"An unexpectedexception has ocurred.", status,
-    					IStatus.ERROR);
-    			error.open();
-    			return;
-            }
-			
-			dcName = ((IteratorProperty) val.getValue()).getIterator();
-		}else{
-			Property val = objInf.getPropertyByTitle("iteratorProperty");
-            if (val.getValue() == null){
-    			IStatus status = new Status(IStatus.ERROR, "Explorer", IStatus.OK,
-    					"Iterator is not defined in current elemnt", null);
+			if ((objInf.getParent().getClass().getCanonicalName()
+					.equals("org.eclipse.wb.internal.xwt.model.widgets.TableColumnInfo"))
+					|| (objInf.getParent().getClass().getCanonicalName()
+							.equals("org.eclipse.wb.internal.xwt.model.widgets.TreeColumnInfo")))
 
-    			ErrorDialog error = new ErrorDialog(shell, "Explorer - Error",
-    					"An unexpectedexception has ocurred.", status,
-    					IStatus.ERROR);
-    			error.open();
-    			return;
-            }
-			
-			dcName = ((IteratorProperty) val.getValue()).getIterator();
+			{
+				Property val = objInf.getParent().getParent()
+						.getPropertyByTitle("iteratorProperty");
+				custObject = objInf.getParent().getParent()
+						.getPropertyByTitle("custObject");
+				if (val.getValue() == null) {
+					IStatus status = new Status(IStatus.ERROR, "Explorer",
+							IStatus.OK,
+							"Iterator is not defined by parent elemnt", null);
+
+					ErrorDialog error = new ErrorDialog(shell,
+							"Explorer - Error",
+							"An unexpectedexception has ocurred.", status,
+							IStatus.ERROR);
+					error.open();
+					return;
+				}
+
+				dcName = ((IteratorProperty) val.getValue()).getIterator();
+			} else {
+				Property val = objInf.getPropertyByTitle("iteratorProperty");
+				custObject = objInf.getPropertyByTitle("custObject");
+				if (val.getValue() == null) {
+					IStatus status = new Status(IStatus.ERROR, "Explorer",
+							IStatus.OK,
+							"Iterator is not defined in current elemnt", null);
+
+					ErrorDialog error = new ErrorDialog(shell,
+							"Explorer - Error",
+							"An unexpectedexception has ocurred.", status,
+							IStatus.ERROR);
+					error.open();
+					return;
+				}
+
+				dcName = ((IteratorProperty) val.getValue()).getIterator();
+			}
+
 		}
-		
+		Iterator<PropertyDAO> itr = null;
+
+		if ((custObject == null) || (custObject.getValue() == null)) {
+			BusinessObjectProperty bo = new BusinessObjectProperty(
+					(String) properties.get(dcName));
+
+			itr = Activator.rf
+					.getRoot()
+					.cleanSearch()
+					.searchString("domainName", bo.getDomain())
+					.seek()
+					.getFunctionalDomain()
+					.cleanSearch()
+					.searchString("functionalDomainName",
+							bo.getFunctionalDomain())
+					.seek()
+					.getBusinessObjectsHandler()
+					.cleanSearch()
+					.searchString("businessObjectTypeName",
+							bo.getBusinessObjectName()).seek()
+					.getTypeDefinitionHandler().getPropertyHandler().getList();
+
+		}else{
+			CastObjectProperty cu =  (CastObjectProperty) custObject.getValue();
+			itr = Activator.rf
+					.getTypeDefinitionHandler()
+					.cleanSearch()
+					.searchString("domain", cu.getDomain())
+					.searchString("functionalDomain",cu.getFunctionalDomain())
+					.searchString("application",cu.getApplication())
+					.searchString("typeName",cu.getTypeName()).seek()
+					.getPropertyHandler().getList();
+			
+			
+			
 		}
-		BusinessObjectProperty bo = new BusinessObjectProperty(
-				(String) properties.get(dcName));
-
-		Iterator<PropertyDAO> itr = Activator.rf
-				.getRoot()
-				.cleanSearch()
-				.searchString("domainName", bo.getDomain())
-				.seek()
-				.getFunctionalDomain()
-				.cleanSearch()
-				.searchString("functionalDomainName", bo.getFunctionalDomain())
-				.seek()
-				.getBusinessObjectsHandler()
-				.cleanSearch()
-				.searchString("businessObjectTypeName",
-						bo.getBusinessObjectName()).seek()
-				.getTypeDefinitionHandler().getPropertyHandler().getList();
-
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(
 				shell, new LabelProvider());
 		dialog.setTitle("Fields selection");
@@ -178,19 +214,19 @@ public class SourcePropertyEditor extends PropertyEditor implements
 		}
 
 		ControlHelper cntFile = new ControlHelper();
-		Properties prop = cntFile.load(ControlHelper.ARTIFICIAL_FIELD_FILE_NAME);
+		Properties prop = cntFile
+				.load(ControlHelper.ARTIFICIAL_FIELD_FILE_NAME);
 		Enumeration<Object> enumer = prop.keys();
-		while (enumer.hasMoreElements()){
+		while (enumer.hasMoreElements()) {
 			String key = (String) enumer.nextElement();
-			StringTokenizer st = new StringTokenizer(key,".");
+			StringTokenizer st = new StringTokenizer(key, ".");
 
 			String control = st.nextToken();
 			String artfld = st.nextToken();
 			if (control.equals(dcName))
 				array.add(artfld);
 		}
-		
-		
+
 		dialog.setElements(array.toArray());
 
 		if (dialog.open() == Window.OK) {

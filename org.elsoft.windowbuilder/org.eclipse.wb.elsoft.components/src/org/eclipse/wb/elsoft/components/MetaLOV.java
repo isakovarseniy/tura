@@ -15,6 +15,7 @@
  ******************************************************************************/
 package org.eclipse.wb.elsoft.components;
 
+import org.eclipse.e4.xwt.elsoft.types.CastObjectProperty;
 import org.eclipse.e4.xwt.elsoft.types.IDProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.OptionIteratorProperty;
@@ -31,6 +32,7 @@ public class MetaLOV extends Button {
 
 	private IteratorProperty iteratorProperty;
 	private SourceProperty sourceProperty;
+	private CastObjectProperty castObject;
 	private OptionIteratorProperty optionIterator;
 	private String cssStyle;
 	private String cssStyleClass;
@@ -109,6 +111,14 @@ public class MetaLOV extends Button {
 
 	public void setSourceProperty(SourceProperty sourceProperty) {
 		this.sourceProperty = sourceProperty;
+	}
+
+	public CastObjectProperty getCastObject() {
+		return castObject;
+	}
+
+	public void setCastObject(CastObjectProperty castObject) {
+		this.castObject = castObject;
 	}
 
 }

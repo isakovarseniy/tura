@@ -50,6 +50,9 @@ public class PopulateTypeMapping {
 		createServerZoneMapping(rf);
 		createOptionsMapping(rf);
 		
+		createCommandMapping(rf);
+		createRoleMapingCommandMapping(rf);
+		
 		createFormTriggersMapping(rf);	
 	}
 
@@ -1170,6 +1173,113 @@ public class PopulateTypeMapping {
 		mp.setResPackageName("java.util");
 		mp.setResTypeName("List");
 
+	}
+	
+	private void createCommandMapping(RepositoryFactory rf) {
+
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		TypeDAO command = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "command").getObject();
+
+		TypeDAO commandService = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "commandService").getObject();
+
+		TypeDAO commandSearchCriteria = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "commandSearchCriteria").getObject();
+
+		TypeDAO commandOrderByCriteria = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "commandOrderByCriteria").getObject();
+		
+
+		TypeDAO commandList = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "commandList").getObject();
+		
+		
+		TypeMappingHandler tpmh = rf.getTypeMappingHandler();
+
+		TypeMappingDAO mp = tpmh.addTypeMapping(command, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.command");
+		mp.setResTypeName("CommandDAO");
+		mp.setGroupName("org.elsoft.platform.metamodel");
+		mp.setArtifactName("metamodel-datastructure");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("JPA-SERVICE");
+
+		mp = tpmh.addTypeMapping(commandService, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("org.elsoft.platform.persistence");
+		mp.setResTypeName("ELsoftJPAEntityService");
+		mp.setGroupName("org.elsoft.platform");
+		mp.setArtifactName("commons-platform-jpa");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("JPA-SERVICE");
+
+		mp = tpmh.addTypeMapping(commandSearchCriteria, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List");
+
+		mp = tpmh.addTypeMapping(commandOrderByCriteria, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List");
+
+		mp = tpmh.addTypeMapping(commandList, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List");
+
+	}
+
+	private void createRoleMapingCommandMapping(RepositoryFactory rf){
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		TypeDAO command = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "RoleMappingCommand").getObject();
+
+		TypeMappingHandler tpmh = rf.getTypeMappingHandler();
+
+		TypeMappingDAO mp = tpmh.addTypeMapping(command, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.command.security");
+		mp.setResTypeName("CreateRoleMapperDAO");
+		mp.setGroupName("org.elsoft.platform.metamodel");
+		mp.setArtifactName("metamodel-datastructure");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("JPA-SERVICE");
+		
 	}
 	
 	private void createApplicationRoleMapping(RepositoryFactory rf) {

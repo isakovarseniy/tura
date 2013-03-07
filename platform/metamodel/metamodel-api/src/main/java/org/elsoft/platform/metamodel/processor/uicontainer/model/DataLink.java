@@ -23,6 +23,7 @@ import java.util.UUID;
 
 import org.elsoft.platform.metamodel.PersistentInterface;
 import org.elsoft.platform.metamodel.objects.command.form.datasource.CreateDataLinkDAO;
+import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2CastTypeDAO;
 import org.elsoft.platform.metamodel.objects.type.TypeDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.datasource.model.Field;
@@ -32,6 +33,7 @@ import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateArtifit
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2BusinessObject;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2BusinessObjectMethod;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2CastType;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2ServiceMethod;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDefaultOrderBy;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDefaultSearch;
@@ -57,11 +59,23 @@ public class DataLink extends PersistentInterface {
 	private ArrayList<DefaultSearch> defaultSearch = new ArrayList<DefaultSearch>();
 	private ArrayList<DefaultOrderBy> defaultOrderBy = new ArrayList<DefaultOrderBy>();
 	private ArrayList<String> dependency = new ArrayList<String>();
-	private EventsMapper mapper = new EventsMapper(); 
-    private HashMap<String,Object> triggerPropery = new HashMap<String,Object>(); 
+	private EventsMapper mapper = new EventsMapper();
+	private HashMap<String, Object> triggerPropery = new HashMap<String, Object>();
+	private HashMap<String, CreateDataLink2CastTypeDAO> castObjects = new HashMap<String, CreateDataLink2CastTypeDAO>();
 
 	public HashMap<String, Object> getTriggerPropery() {
 		return triggerPropery;
+	}
+
+	public void addCastcastObject(CreateDataLink2CastTypeDAO castObject) {
+		castObjects.put(
+				castObject.getDomain() + "." + castObject.getFunctionalDomain()
+						+ "." + castObject.getApplication() + "."
+						+ castObject.getTypeName(), castObject);
+	}
+
+	public HashMap<String, CreateDataLink2CastTypeDAO> getCastObjects() {
+		return castObjects;
 	}
 
 	public ArrayList<ArtifitialField> getArtifitialFields() {
@@ -102,10 +116,10 @@ public class DataLink extends PersistentInterface {
 		this.businessObjectName = businessObjectName;
 	}
 
-	public void addArtifitialField(ArtifitialField artifitialField){
+	public void addArtifitialField(ArtifitialField artifitialField) {
 		artifitialFields.add(artifitialField);
 	}
-	
+
 	@Override
 	protected void serialize(CommandHandler ch) throws Exception {
 		CreateDataLink.save(ch, getParentUuid(), uuid, name);
@@ -124,11 +138,12 @@ public class DataLink extends PersistentInterface {
 		itrRmi = remoteMethods.iterator();
 		while (itrRmi.hasNext()) {
 			RemoteMethod rmi = itrRmi.next();
-			TypeDAO type =rmi.getProxy().getTypedao();
+			TypeDAO type = rmi.getProxy().getTypedao();
 			CreateDataLink2ServiceMethod.save(ch, type.getDomain(),
-					type.getFunctionalDomain(),type.getApplication(),type.getTypeName() , rmi);
+					type.getFunctionalDomain(), type.getApplication(),
+					type.getTypeName(), rmi);
 		}
-		
+
 		Iterator<DefaultSearch> itrDef = defaultSearch.iterator();
 		while (itrDef.hasNext()) {
 			DefaultSearch dsearch = itrDef.next();
@@ -142,20 +157,25 @@ public class DataLink extends PersistentInterface {
 			DefaultOrderBy dorder = itrOrd.next();
 			CreateDefaultOrderBy.save(ch, uuid, dorder);
 		}
-	
+
 		Iterator<ArtifitialField> itrArt = artifitialFields.iterator();
-		while(itrArt.hasNext()){
+		while (itrArt.hasNext()) {
 			ArtifitialField artfld = itrArt.next();
 			CreateArtifitialFields.save(ch, uuid, artfld);
 		}
 
 		Iterator<String> itrDep = dependency.iterator();
-		while(itrDep.hasNext()){
+		while (itrDep.hasNext()) {
 			String dep = itrDep.next();
 			CreateDependency.save(ch, uuid, dep);
 		}
-	
-	
+		
+		Iterator<CreateDataLink2CastTypeDAO> itrCast = castObjects.values().iterator();
+		while (itrCast.hasNext()) {
+			CreateDataLink2CastTypeDAO cast = itrCast.next();
+			CreateDataLink2CastType.save(ch, uuid, cast);
+		}
+
 	}
 
 	public String getUuid() {
@@ -197,7 +217,7 @@ public class DataLink extends PersistentInterface {
 	public ArrayList<RemoteMethod> getRemoteUIEventMethods() {
 		return remoteUIEventMethods;
 	}
-	
+
 	public void addRemoteBusinessMethod(RemoteMethod remote) {
 		remote.setParentUuid(uuid);
 		remoteBusinessMethods.add(remote);
@@ -213,8 +233,6 @@ public class DataLink extends PersistentInterface {
 		remoteUIEventMethods.add(remote);
 	}
 
-	
-	
 	public void addAnnotation(Annotation ant) {
 		annotations.add(ant);
 	}
@@ -231,7 +249,7 @@ public class DataLink extends PersistentInterface {
 			DataLink masterLnk, DataLink detailLnk, Boolean treeRelation) {
 		Relation rel = relations.get(relationName);
 		if (rel == null) {
-			rel = new Relation(relationName, masterLnk, detailLnk,treeRelation);
+			rel = new Relation(relationName, masterLnk, detailLnk, treeRelation);
 			relations.put(relationName, rel);
 		}
 		rel.addLink(f2f);
@@ -241,7 +259,6 @@ public class DataLink extends PersistentInterface {
 		defaultSearch.add(rel);
 	}
 
-	
 	public void addDefaultOrderBy(DefaultOrderBy rel) {
 		defaultOrderBy.add(rel);
 	}
@@ -266,10 +283,11 @@ public class DataLink extends PersistentInterface {
 		this.majorType = majorType;
 	}
 
-	public void addTrigger(String uiElement, String triggerName) throws Exception {
-		String result= mapper.map(uiElement, triggerName);
+	public void addTrigger(String uiElement, String triggerName)
+			throws Exception {
+		String result = mapper.map(uiElement, triggerName);
 		if (!triggers.contains(result))
-		    triggers.add(result);
+			triggers.add(result);
 
 	}
 
@@ -277,5 +295,4 @@ public class DataLink extends PersistentInterface {
 		return mapper;
 	}
 
-	
 }

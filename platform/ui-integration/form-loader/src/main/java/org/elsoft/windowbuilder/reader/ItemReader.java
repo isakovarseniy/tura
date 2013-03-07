@@ -37,6 +37,7 @@ public abstract class ItemReader extends Reader {
 	private String idObject;
 	private String label;
 	private boolean tableContext = false;
+	private String castObject;
 
 
 	
@@ -80,6 +81,7 @@ public abstract class ItemReader extends Reader {
 		cssStyle = xmlReader.getAttributeValue(null, "cssStyle");
 		cssStyleClass = xmlReader.getAttributeValue(null, "cssStyleClass");
 		idObject = xmlReader.getAttributeValue(null, "idObject");
+		castObject = xmlReader.getAttributeValue(null, "castObject");
 
 		String iterator = xmlReader.getAttributeValue(null, "iteratorProperty");
 		dataControlId = Reader.idMAP.get(iterator);
@@ -110,6 +112,7 @@ public abstract class ItemReader extends Reader {
 			tableContext = true;
 			prnt=((TableColumnReader) prnt).getParent();
 			setDataControlId(((TableReader)prnt).getDataControlId());
+			setCastObject(((TableReader)prnt).getCastObject());
 		}
 
 		if (parent instanceof TreeColumnReader) {
@@ -117,8 +120,17 @@ public abstract class ItemReader extends Reader {
 			tableContext = true;
 			prnt=((TreeColumnReader) prnt).getParent();
 			setDataControlId(((TreeReader)prnt).getDataControlId());
+			setCastObject(((TreeReader)prnt).getCastObject());
 		}
 		return prnt;
+	}
+
+	public String getCastObject() {
+		return castObject;
+	}
+
+	public void setCastObject(String castObject) {
+		this.castObject = castObject;
 	}
 	
 	

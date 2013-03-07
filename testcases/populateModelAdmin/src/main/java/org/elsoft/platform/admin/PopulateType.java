@@ -59,6 +59,9 @@ public class PopulateType {
 		createServerGridTypes(rf, h);
 		createServerZoneTypes(rf, h);
 		createOptionTypes(rf, h);
+ 		
+		createCommandTypes(rf,h);
+		createRoleMapingCommand(rf,h);
 		
 		createFormTriggers(rf);
 		
@@ -222,6 +225,7 @@ public class PopulateType {
 		prm = prh.addParameter("obj");
 		prm.setParameterType(domain.getObjId());
 	}
+
 
 	private void createFunctionalDomainTypes(RepositoryFactory rf,
 			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
@@ -1255,6 +1259,147 @@ public class PopulateType {
 		prm.setParameterType(artifactType.getObjId());
 	}
 	
+	
+	private void createCommandTypes(RepositoryFactory rf,
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+		TypeDAO Command = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "command");
+		Command.setTypeOfType(MetamodelTypeOfTypes.Entity.name());
+
+		PropertyHandler ph = tdh.getPropertyHandler();
+		PropertyDAO prop = ph.addProperty("objId");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+		prop.setPrimaryKey(true);
+
+		prop = ph.addProperty("version");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+		prop.setOptLock(true);
+
+		prop = ph.addProperty("parentId");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+
+		prop = ph.addProperty("objType");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		prop = ph.addProperty("parentUUID");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		prop = ph.addProperty("UUID");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		prop = ph.addProperty("commandExecutor");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		TypeDAO CommandList = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "commandList");
+		CommandList.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+
+		TypeDAO CommandSearchCriteria = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "commandSearchCriteria");
+		CommandSearchCriteria.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+
+		TypeDAO CommandOrderByCriteria = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "commandOrderByCriteria");
+		CommandOrderByCriteria.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+
+		TypeDAO CommandService = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "commandService");
+		CommandService.setTypeOfType(MetamodelTypeOfTypes.Service.name());
+
+		MethodHandler mh = tdh.getMethodHandler();
+		ParameterHandler prh = mh.getParameterHandler();
+
+		MethodDAO met = mh.addMethod("create");
+		met.setReturnType(Command.getObjId());
+		ParameterDAO prm = prh.addParameter("clazzName");
+		prm.setParameterType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		prm.setDefaultValue("org.elsoft.platform.metamodel.objects.transformation.CommandDAO");
+		prm.setOverwritten(false);
+
+		met = mh.addMethod("find");
+		met.setReturnType(CommandList.getObjId());
+
+		prm = prh.addParameter("search");
+		prm.setParameterType(CommandSearchCriteria.getObjId());
+
+		prm = prh.addParameter("order");
+		prm.setParameterType(CommandOrderByCriteria.getObjId());
+
+		prm = prh.addParameter("startIndex");
+		prm.setParameterType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+
+		prm = prh.addParameter("endIndex");
+		prm.setParameterType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+
+		prm = prh.addParameter("clazzName");
+		prm.setParameterType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		prm.setDefaultValue("org.elsoft.platform.metamodel.objects.transformation.CommandDAO");
+		prm.setOverwritten(false);
+		
+		met = mh.addMethod("update");
+		prm = prh.addParameter("obj");
+		prm.setParameterType(Command.getObjId());
+
+		met = mh.addMethod("remove");
+		prm = prh.addParameter("obj");
+		prm.setParameterType(Command.getObjId());
+
+		met = mh.addMethod("insert");
+		prm = prh.addParameter("obj");
+		prm.setParameterType(Command.getObjId());
+	}
+
+    private void createRoleMapingCommand(RepositoryFactory rf,
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h){
+    	
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+		TypeDAO Command = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "RoleMappingCommand");
+		Command.setTypeOfType(MetamodelTypeOfTypes.Entity.name());
+
+		PropertyHandler ph = tdh.getPropertyHandler();
+		PropertyDAO prop = ph.addProperty("objId");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+		prop.setPrimaryKey(true);
+
+		prop = ph.addProperty("version");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+		prop.setOptLock(true);
+
+		prop = ph.addProperty("parentId");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+
+		prop = ph.addProperty("objType");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		prop = ph.addProperty("parentUUID");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		prop = ph.addProperty("UUID");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		prop = ph.addProperty("commandExecutor");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+   	
+		prop = ph.addProperty("domain");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		prop = ph.addProperty("functionalDomain");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		prop = ph.addProperty("application");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		prop = ph.addProperty("refApplicationRole");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+
+		prop = ph.addProperty("refGlobalRole");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+    
+    }
+	
 	private void createApplicationRoleTypes(RepositoryFactory rf,
 			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
 
@@ -2140,6 +2285,9 @@ public class PopulateType {
 
 	}
 
+
+	
+	
 	
 	private void createFormTriggers(RepositoryFactory rf) {
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();

@@ -74,6 +74,9 @@
  		<editor type="org.eclipse.e4.xwt.elsoft.types.FieldsSetTypeProperty"
 			class="org.eclipse.wb.elsoft.propertyeditor.FieldsSetTypePropertyEditor"/>
 
+ 		<editor type="org.eclipse.e4.xwt.elsoft.types.CastObjectProperty"
+			class="org.eclipse.wb.elsoft.propertyeditor.CastObjectPropertyEditor"/>
+
    </extension>
 
 

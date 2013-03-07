@@ -23,6 +23,7 @@ import java.util.StringTokenizer;
 import org.eclipse.e4.xwt.XWTMaps;
 import org.eclipse.e4.xwt.elsoft.types.AscDescProperty;
 import org.eclipse.e4.xwt.elsoft.types.BusinessObjectProperty;
+import org.eclipse.e4.xwt.elsoft.types.CastObjectProperty;
 import org.eclipse.e4.xwt.elsoft.types.DestinationDataControlProperty;
 import org.eclipse.e4.xwt.elsoft.types.ExpressionProperty;
 import org.eclipse.e4.xwt.elsoft.types.FieldsProperty;
@@ -157,6 +158,11 @@ public class ResourceManager {
 		return new ServiceProperty(field);
 	}
 
+	public CastObjectProperty getCastObjectProperty(String field) {
+		return new CastObjectProperty(field);
+	}
+
+	
 	public PrimitiveType getPrimitiveType(String field) {
 		return new PrimitiveType(field);
 	}

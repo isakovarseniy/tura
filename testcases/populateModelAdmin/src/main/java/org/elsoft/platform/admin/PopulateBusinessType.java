@@ -54,6 +54,8 @@ public class PopulateBusinessType {
 		createServerGridBusinessObject(fd, rf);
 		createServerZoneBusinessObject(fd, rf);
 		createOptionsBusinessObject(fd,rf);
+	
+		createCommandBusinessObject(fd,rf);
 		
 	}
 	
@@ -681,6 +683,57 @@ public class PopulateBusinessType {
 
 	}
 
+	private void createCommandBusinessObject(FunctionalDomainHandler fd,
+			RepositoryFactory rf) {
+
+		BusinessObjectHandler bh = fd.getBusinessObjectsHandler();
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		BusinessObjectDAO Command = bh.addBusinessObject("command");
+
+		TypeDAO refCommand = (TypeDAO) tdh
+				.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "command").getObject();
+
+		Command.setRefMntType(refCommand.getObjId());
+
+		tdh.cleanSearch().search("domain", String.class, "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "commandService").getObject();
+
+		MethodDAO method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "create").getObject();
+		MethodReferenceDAO metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.CreateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "find").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.SearchTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "insert").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.InsertTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "update").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.UpdateTrigger.name());
+
+		method = (MethodDAO) tdh.getMethodHandler()
+				.cleanSearch().searchString("method", "remove").getObject();
+		metRef =  bh.getMethodReferenceHandler().addMethodReference(method);
+		metRef.setMethodType(DCMetaInfo.RemoveTrigger.name());
+
+	}
+	
+	
+	
+	
 	private void createApplicationRoleBusinessObject(FunctionalDomainHandler fd,
 			RepositoryFactory rf) {
 

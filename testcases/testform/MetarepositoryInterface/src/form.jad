@@ -1,4 +1,4 @@
-#Sun Mar 03 11:20:44 EST 2013
+#Wed Mar 06 17:28:15 EST 2013
 Method=ELsoft.Platform.method
 BusinessObjectMethodLnk=ELsoft.Platform.methodReference
 FunctionalDomainLnk=ELsoft.Platform.functionalDomain
@@ -8,6 +8,7 @@ TypeDefinitionHelper=ELsoft.Platform.typeDefinition
 Uicontainer=ELsoft.Platform.uiContainer
 BusinessObjectLnk=ELsoft.Platform.businessObject
 TypeMappinglnk=ELsoft.Platform.typeMapping
+RolesMapping=ELsoft.Platform.command
 OptTypeOfTypes=ELsoft.Platform.options
 OptTypeOfTriggers=ELsoft.Platform.options
 MethodHelper2=ELsoft.Platform.method
@@ -15,5 +16,5 @@ GlobalRoles=ELsoft.Platform.globalRole
 ApplicationRoles=ELsoft.Platform.applicationRole
 ParametersLnk=ELsoft.Platform.parameter
 DomainLnk=ELsoft.Platform.domain
-TypeDefinition=ELsoft.Platform.typeDefinition
 ApplicationLnk=ELsoft.Platform.application
+TypeDefinition=ELsoft.Platform.typeDefinition

@@ -1,5 +1,6 @@
 package org.eclipse.wb.elsoft.components;
 
+import org.eclipse.e4.xwt.elsoft.types.CastObjectProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.SourceProperty;
 import org.eclipse.swt.widgets.Button;
@@ -9,6 +10,7 @@ public class MetaCheckbox extends Button{
 
 	private IteratorProperty iteratorProperty;
 	private SourceProperty sourceProperty;
+	private CastObjectProperty castObject;
 	private String cssStyle;
 	private String cssStyleClass;
 
@@ -58,6 +60,16 @@ public class MetaCheckbox extends Button{
 	}
 
 	protected void checkSubclass() {
+	}
+
+
+	public CastObjectProperty getCastObject() {
+		return castObject;
+	}
+
+
+	public void setCastObject(CastObjectProperty castObject) {
+		this.castObject = castObject;
 	}
 	
 	

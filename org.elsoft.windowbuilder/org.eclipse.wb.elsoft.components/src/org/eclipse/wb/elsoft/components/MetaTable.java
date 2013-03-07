@@ -15,6 +15,7 @@
  ******************************************************************************/
 package org.eclipse.wb.elsoft.components;
 
+import org.eclipse.e4.xwt.elsoft.types.CastObjectProperty;
 import org.eclipse.e4.xwt.elsoft.types.IDProperty;
 import org.eclipse.e4.xwt.elsoft.types.IteratorProperty;
 import org.eclipse.e4.xwt.elsoft.types.VisualDependencyProperty;
@@ -23,6 +24,7 @@ import org.eclipse.swt.widgets.Table;
 
 public class MetaTable extends Table {
 	private IteratorProperty iteratorProperty;
+	private CastObjectProperty castObject;
 	private String cssStyle;
 	private String cssStyleClass;
 	private IDProperty idObject;
@@ -73,6 +75,14 @@ public class MetaTable extends Table {
 
 	public void setUpdateOnRawSelect(VisualDependencyProperty updateOnRawSelect) {
 		this.updateOnRawSelect = updateOnRawSelect;
+	}
+
+	public CastObjectProperty getCastObject() {
+		return castObject;
+	}
+
+	public void setCastObject(CastObjectProperty castObject) {
+		this.castObject = castObject;
 	}
 
 
