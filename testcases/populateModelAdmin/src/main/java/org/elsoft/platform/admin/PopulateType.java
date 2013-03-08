@@ -1316,7 +1316,7 @@ public class PopulateType {
 		ParameterDAO prm = prh.addParameter("clazzName");
 		prm.setParameterType(h.get(PlatformPrimetiveTypes.String).getObjId());
 		prm.setDefaultValue("org.elsoft.platform.metamodel.objects.command.CommandDAO");
-		prm.setOverwritten(false);
+		prm.setOverwritten(true);
 
 		met = mh.addMethod("find");
 		met.setReturnType(CommandList.getObjId());
@@ -1336,7 +1336,7 @@ public class PopulateType {
 		prm = prh.addParameter("clazzName");
 		prm.setParameterType(h.get(PlatformPrimetiveTypes.String).getObjId());
 		prm.setDefaultValue("org.elsoft.platform.metamodel.objects.command.CommandDAO");
-		prm.setOverwritten(false);
+		prm.setOverwritten(true);
 		
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
