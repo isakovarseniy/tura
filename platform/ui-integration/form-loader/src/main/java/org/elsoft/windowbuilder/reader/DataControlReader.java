@@ -142,22 +142,18 @@ public class DataControlReader extends Reader {
 
 					List<String> ls = this.expressionParser((String) array
 							.get(0));
+
 					if (ls != null) {
-						/*
-						 * methodParameterExpression
-						 * .setExpression(((DataDefinitionReader) parent)
-						 * .getFormName() + "binding." +
-						 * StringUtils.uncapitalize(ls.get(0)) + ".currentRow");
-						 */
 
 						methodParameterExpression
 								.setExpression(expressionBuilder(
 										((DataDefinitionReader) parent)
 												.getFormName(), ls));
-
+					}
+					if (array.get(1) != null)
 						methodParameterExpression.setValue((String) array
 								.get(1));
-					}
+
 					methodParameterExpression
 							.setParentUUID(createDataLink2BusinessObjectMethod
 									.getRefMethod().toString());

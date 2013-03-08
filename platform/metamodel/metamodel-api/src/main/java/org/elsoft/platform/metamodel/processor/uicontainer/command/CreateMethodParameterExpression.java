@@ -42,6 +42,7 @@ public class CreateMethodParameterExpression {
 				Parameter param = itr.next();
 				if (param.getName().equals(command.getParamName())) {
 					param.setExpression(command.getExpression());
+					param.setValue(command.getValue());
 					break;
 				}
 			}
@@ -68,6 +69,7 @@ public class CreateMethodParameterExpression {
 				obj.setCommandExecutor(CreateMethodParameterExpression.class
 						.getName());
 				obj.setExpression(param.getExpression());
+				obj.setValue(param.getValue());
 				obj.setParamName(param.getName());
 			}
 		}
