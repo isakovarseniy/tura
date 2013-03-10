@@ -25,6 +25,9 @@ import org.apache.commons.lang.WordUtils;
 import org.elsoft.platform.datacontrol.DCMetaInfo;
 import org.elsoft.platform.metamodel.MetamodelPlatformLevel;
 import org.elsoft.platform.metamodel.RepositoryFactory;
+import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2CastTypeDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
+import org.elsoft.platform.metamodel.processor.Helper;
 import org.elsoft.platform.metamodel.processor.datasource.model.Parameter;
 import org.elsoft.platform.metamodel.processor.datasource.model.RemoteMethod;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Annotation;
@@ -131,8 +134,21 @@ public class DataControlModelBuilder {
 			}
 
 		}
+		DataLinkExtender dlext = new DataLinkExtender(dataLink, frm);
 
-		return new DataLinkExtender(dataLink, frm);
+		Iterator<CreateDataLink2CastTypeDAO> castItr = dataLink
+				.getCastObjects().values().iterator();
+		while (castItr.hasNext()) {
+			CreateDataLink2CastTypeDAO castObj = castItr.next();
+			TypeDAO tp = Helper.findType(rf, castObj.getDomain(),
+					castObj.getFunctionalDomain(), castObj.getApplication(),
+					castObj.getTypeName());
+			MappedType mtp = new MappedType(tp, domain, functionalDomain, application, level, rf);
+
+			dlext.getReturnTypes().put(mtp.getResPackageName() + mtp.getResTypeName(), mtp);
+		}
+
+		return dlext;
 	}
 
 	public class DataLinkExtender {
@@ -169,14 +185,17 @@ public class DataControlModelBuilder {
 				RemoteMethod rmi = itrRem.next();
 				MappedType tp = (MappedType) rmi.getProxy();
 				proxy.put(tp.getResPackageName() + tp.getResTypeName(), tp);
-				dependecy.put(tp.getGroupName() + tp.getArtifactName()
-						+ tp.getArtifactVersion(), tp);
+				dependecy.put(
+						tp.getGroupName() + tp.getArtifactName()
+								+ tp.getArtifactVersion(), tp);
 
-				if (rmi.getMethodType().equals(DCMetaInfo.CreateTrigger.name())){
+				if (rmi.getMethodType().equals(DCMetaInfo.CreateTrigger.name())) {
 					tp = (MappedType) rmi.getReturnType();
-					returnTypes.put(tp.getResPackageName() + tp.getResTypeName(), tp);
-					dependecy.put(tp.getGroupName() + tp.getArtifactName()
-							+ tp.getArtifactVersion(), tp);
+					returnTypes.put(
+							tp.getResPackageName() + tp.getResTypeName(), tp);
+					dependecy.put(
+							tp.getGroupName() + tp.getArtifactName()
+									+ tp.getArtifactVersion(), tp);
 				}
 			}
 
@@ -185,8 +204,9 @@ public class DataControlModelBuilder {
 
 				RemoteMethod rmi = itrRem.next();
 				MappedType tp = (MappedType) rmi.getProxy();
-				dependecy.put(tp.getGroupName() + tp.getArtifactName()
-						+ tp.getArtifactVersion(), tp);
+				dependecy.put(
+						tp.getGroupName() + tp.getArtifactName()
+								+ tp.getArtifactVersion(), tp);
 
 			}
 
@@ -195,8 +215,9 @@ public class DataControlModelBuilder {
 
 				RemoteMethod rmi = itrRem.next();
 				MappedType tp = (MappedType) rmi.getProxy();
-				dependecy.put(tp.getGroupName() + tp.getArtifactName()
-						+ tp.getArtifactVersion(), tp);
+				dependecy.put(
+						tp.getGroupName() + tp.getArtifactName()
+								+ tp.getArtifactVersion(), tp);
 
 			}
 

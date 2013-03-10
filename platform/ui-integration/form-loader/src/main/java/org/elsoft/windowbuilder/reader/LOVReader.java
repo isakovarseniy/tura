@@ -26,6 +26,8 @@ import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUILovDAO;
+import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2CastTypeDAO;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2CastType;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetCurrentRow;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetOptionsList;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Field;
@@ -54,17 +56,9 @@ public class LOVReader extends ItemReader {
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
 
-		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
-			setUuid( getIdObject());
-		}
-
 		EventDAO event = null;
-		if (parent instanceof TableColumnReader) {
-			label = ((TableColumnReader) parent).getLabel();
-			tableContext = true;
-			parent = ((TableColumnReader) parent).getParent();
-			setDataControlId(((TableReader) parent).getDataControlId());
-		}
+		parent=setContext(parent);
+
 		CreateUILovDAO createUILov = new CreateUILovDAO();
 		createUILov.setCommandExecutor(CreateUILov.class.getName());
 		createUILov.setParentUUID(parent.getUuid());
@@ -77,8 +71,27 @@ public class LOVReader extends ItemReader {
 		event = new EventDAO();
 		event.setParentUUID(createUILov.getUUID());
 		event.setCommandExecutor(CreateEventUIElement2Field.class.getName());
-		event.setDstUUID(getDataControlId() + "." + getField());
+		if (getCastObject() == null)
+			event.setDstUUID(getDataControlId() + "." + getField());
+		else
+			event.setDstUUID(getDataControlId() + "." + getCastObject() + "."
+					+ getField());
 		program.add(event);
+
+		
+		if (getCastObject() != null) {
+			CreateDataLink2CastTypeDAO cast = new CreateDataLink2CastTypeDAO();
+			cast.setCommandExecutor(CreateDataLink2CastType.class.getName());
+			cast.setParentUUID(getDataControlId());
+			
+		    List<String> ls = this.expressionParser(getCastObject());
+		    cast.setDomain(ls.get(0)); 
+		    cast.setFunctionalDomain(ls.get(1)); 
+		    cast.setApplication(ls.get(2)); 
+		    cast.setTypeName(ls.get(3)); 
+		    
+		    program.add(cast);
+		}
 
 		if (!tableContext) {
 			event = new EventDAO();

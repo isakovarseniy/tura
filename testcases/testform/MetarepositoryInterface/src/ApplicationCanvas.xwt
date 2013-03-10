@@ -167,10 +167,10 @@
 						<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
 					</p1:MetaTable.layoutData>
 					<p1:MetaTableColumn text="Application Role" width="147">
-						<p1:MetaOutputText sourceProperty="refApplicationRole"/>
+						<p1:MetaDropDown optionIterator="DrpDwnAppRoles" optionLabel="roleName" optionValue="objId" sourceProperty="refApplicationRole"/>
 					</p1:MetaTableColumn>
 					<p1:MetaTableColumn text="Global role" width="274">
-						<p1:MetaOutputText sourceProperty="refGlobalRole"/>
+						<p1:MetaDropDown optionIterator="DrpDwnGlobalRoles" optionLabel="roleName" optionValue="objId" sourceProperty="refGlobalRole"/>
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
 			</p1:MetaComposite>

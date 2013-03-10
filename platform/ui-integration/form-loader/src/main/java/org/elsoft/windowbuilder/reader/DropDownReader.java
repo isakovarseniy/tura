@@ -27,6 +27,8 @@ import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateOptionDescriptorDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIDropDownListDAO;
+import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2CastTypeDAO;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2CastType;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDisplayFieldSpecifier;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetCurrentRow;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetOptionsList;
@@ -53,7 +55,8 @@ public class DropDownReader extends ItemReader {
 		optionDataControlId = Reader.idMAP.get(iterator);
 		labelField = xmlReader.getAttributeValue(null, "optionLabel");
 		valueField = xmlReader.getAttributeValue(null, "optionValue");
-		setUpdateOnValueChanged(xmlReader.getAttributeValue(null, "updateOnValueChanged"));
+		setUpdateOnValueChanged(xmlReader.getAttributeValue(null,
+				"updateOnValueChanged"));
 		return this;
 	}
 
@@ -61,20 +64,13 @@ public class DropDownReader extends ItemReader {
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
 
-		if ((getIdObject() != null) && (!getIdObject().equals(""))) {
-			setUuid( getIdObject() );
-		}
-
 		EventDAO event = null;
-		if (parent instanceof TableColumnReader) {
-			label = ((TableColumnReader) parent).getLabel();
-			tableContext = true;
-			parent = ((TableColumnReader) parent).getParent();
-			setDataControlId(((TableReader) parent).getDataControlId());
-		}
+		parent=setContext(parent);
+
 
 		CreateUIDropDownListDAO createUIDropDownList = new CreateUIDropDownListDAO();
-		createUIDropDownList.setCommandExecutor(CreateUIDropDownList.class.getName());
+		createUIDropDownList.setCommandExecutor(CreateUIDropDownList.class
+				.getName());
 		createUIDropDownList.setParentUUID(parent.getUuid());
 		createUIDropDownList.setLabel(label);
 		createUIDropDownList.setUUID(getUuid());
@@ -85,8 +81,26 @@ public class DropDownReader extends ItemReader {
 		event = new EventDAO();
 		event.setCommandExecutor(CreateEventUIElement2Field.class.getName());
 		event.setParentUUID(createUIDropDownList.getUUID());
-		event.setDstUUID(getDataControlId() + "." + getField());
+		if (getCastObject() == null)
+			event.setDstUUID(getDataControlId() + "." + getField());
+		else
+			event.setDstUUID(getDataControlId() + "." + getCastObject() + "."
+					+ getField());
 		program.add(event);
+
+		if (getCastObject() != null) {
+			CreateDataLink2CastTypeDAO cast = new CreateDataLink2CastTypeDAO();
+			cast.setCommandExecutor(CreateDataLink2CastType.class.getName());
+			cast.setParentUUID(getDataControlId());
+
+			List<String> ls = this.expressionParser(getCastObject());
+			cast.setDomain(ls.get(0));
+			cast.setFunctionalDomain(ls.get(1));
+			cast.setApplication(ls.get(2));
+			cast.setTypeName(ls.get(3));
+
+			program.add(cast);
+		}
 
 		if (!tableContext) {
 			event = new EventDAO();
@@ -102,7 +116,8 @@ public class DropDownReader extends ItemReader {
 		program.add(event);
 
 		CreateOptionDescriptorDAO dispOption = new CreateOptionDescriptorDAO();
-		dispOption.setCommandExecutor(CreateDisplayFieldSpecifier.class.getName());
+		dispOption.setCommandExecutor(CreateDisplayFieldSpecifier.class
+				.getName());
 		dispOption.setValue1(labelField);
 		dispOption.setValue2(valueField);
 		dispOption.setParentUUID(createUIDropDownList.getUUID());

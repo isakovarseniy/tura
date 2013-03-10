@@ -78,7 +78,7 @@ public class SourcePropertyEditor extends PropertyEditor implements
 
 		Properties properties = (new ControlHelper())
 				.load(ControlHelper.DATACONTROL_FILE_NAME);
-		Property custObject = null;
+		Property castObject = null;
 
 		ObjectInfo objInf = genericProperty.getObject();
 		String dcName = null;
@@ -131,8 +131,8 @@ public class SourcePropertyEditor extends PropertyEditor implements
 			{
 				Property val = objInf.getParent().getParent()
 						.getPropertyByTitle("iteratorProperty");
-				custObject = objInf.getParent().getParent()
-						.getPropertyByTitle("custObject");
+				castObject = objInf.getParent().getParent()
+						.getPropertyByTitle("castObject");
 				if (val.getValue() == null) {
 					IStatus status = new Status(IStatus.ERROR, "Explorer",
 							IStatus.OK,
@@ -149,7 +149,7 @@ public class SourcePropertyEditor extends PropertyEditor implements
 				dcName = ((IteratorProperty) val.getValue()).getIterator();
 			} else {
 				Property val = objInf.getPropertyByTitle("iteratorProperty");
-				custObject = objInf.getPropertyByTitle("custObject");
+				castObject = objInf.getPropertyByTitle("castObject");
 				if (val.getValue() == null) {
 					IStatus status = new Status(IStatus.ERROR, "Explorer",
 							IStatus.OK,
@@ -169,7 +169,7 @@ public class SourcePropertyEditor extends PropertyEditor implements
 		}
 		Iterator<PropertyDAO> itr = null;
 
-		if ((custObject == null) || (custObject.getValue() == null)) {
+		if ((castObject == null) || (castObject.getValue() == null)) {
 			BusinessObjectProperty bo = new BusinessObjectProperty(
 					(String) properties.get(dcName));
 
@@ -190,7 +190,7 @@ public class SourcePropertyEditor extends PropertyEditor implements
 					.getTypeDefinitionHandler().getPropertyHandler().getList();
 
 		}else{
-			CastObjectProperty cu =  (CastObjectProperty) custObject.getValue();
+			CastObjectProperty cu =  (CastObjectProperty) castObject.getValue();
 			itr = Activator.rf
 					.getTypeDefinitionHandler()
 					.cleanSearch()
