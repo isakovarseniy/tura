@@ -35,27 +35,32 @@ public class CreateEventUIElement2Field {
 			HashMap<String, Object> context, CommandDAO cmd) {
 		EventDAO command = (EventDAO) cmd;
 
-		InputElement element = (InputElement) context.get(command.getParentUUID());
+		InputElement element = (InputElement) context.get(command
+				.getParentUUID());
 
 		Field pointer = (Field) context.get(command.getDstUUID());
-		
-		if ((pointer == null) || (element == null))
+
+		if ((pointer == null) || (element == null)) {
+			System.out.println(command.getDstUUID());
 			return Processor.COMMAND_POSTPONE;
-	
+		}
 		element.setUIElement2FieldEvent(command, context);
 		return Processor.COMMAND_COMPLITED;
 
 	}
 
 	public static void save(CommandHandler ch, String parentUUID,
-			InputElement element ) {
-		ch.getMode().getElResolver()
-				.setValue(SessionContext.COMMAND_TYPE, CREATEEVENTUIELEMENT2FIELD);
+			InputElement element) {
+		ch.getMode()
+				.getElResolver()
+				.setValue(SessionContext.COMMAND_TYPE,
+						CREATEEVENTUIELEMENT2FIELD);
 		DataControl<CommandDAO> dc = ch.getMode().getControl();
 		EventDAO obj = (EventDAO) dc.createObject();
 		obj.setParentUUID(parentUUID);
 		obj.setDstUUID(element.getDataSrcField().getUuid());
-		obj.setEventType(MetamodelTriggerEventsType.CreateEventUIElement2Field.name());
+		obj.setEventType(MetamodelTriggerEventsType.CreateEventUIElement2Field
+				.name());
 		obj.setCommandExecutor(CreateEventUIElement2Field.class.getName());
 	}
 

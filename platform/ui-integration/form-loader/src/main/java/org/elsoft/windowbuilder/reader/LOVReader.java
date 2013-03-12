@@ -27,6 +27,8 @@ import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUILovDAO;
 import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2CastTypeDAO;
+import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
+import org.elsoft.platform.metamodel.processor.Helper;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2CastType;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetCurrentRow;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetOptionsList;
@@ -46,7 +48,8 @@ public class LOVReader extends ItemReader {
 		super.reader(xmlReader, parent);
 
 		String iterator = xmlReader.getAttributeValue(null, "optionIterator");
-		setUpdateOnValueChanged(xmlReader.getAttributeValue(null, "updateOnValueChanged"));
+		setUpdateOnValueChanged(xmlReader.getAttributeValue(null,
+				"updateOnValueChanged"));
 		optionDataControlId = Reader.idMAP.get(iterator);
 
 		return this;
@@ -57,7 +60,7 @@ public class LOVReader extends ItemReader {
 			Reader parent, List<CommandDAO> program) throws Exception {
 
 		EventDAO event = null;
-		parent=setContext(parent);
+		parent = setContext(parent);
 
 		CreateUILovDAO createUILov = new CreateUILovDAO();
 		createUILov.setCommandExecutor(CreateUILov.class.getName());
@@ -73,24 +76,33 @@ public class LOVReader extends ItemReader {
 		event.setCommandExecutor(CreateEventUIElement2Field.class.getName());
 		if (getCastObject() == null)
 			event.setDstUUID(getDataControlId() + "." + getField());
-		else
-			event.setDstUUID(getDataControlId() + "." + getCastObject() + "."
-					+ getField());
+		else {
+			List<String> ls = this.expressionParser(getCastObject());
+			Helper.findType(rf, ls.get(0), ls.get(1), ls.get(2), ls.get(3));
+			PropertyDAO pr = rf.getTypeDefinitionHandler().getPropertyHandler()
+					.cleanSearch().searchString("propertyName", getField())
+					.getObject();
+
+			if (pr == null)
+				event.setDstUUID(getDataControlId() + "." + getField());
+			else
+				event.setDstUUID(getDataControlId() + "." + getCastObject()
+						+ "." + getField());
+		}
 		program.add(event);
 
-		
 		if (getCastObject() != null) {
 			CreateDataLink2CastTypeDAO cast = new CreateDataLink2CastTypeDAO();
 			cast.setCommandExecutor(CreateDataLink2CastType.class.getName());
 			cast.setParentUUID(getDataControlId());
-			
-		    List<String> ls = this.expressionParser(getCastObject());
-		    cast.setDomain(ls.get(0)); 
-		    cast.setFunctionalDomain(ls.get(1)); 
-		    cast.setApplication(ls.get(2)); 
-		    cast.setTypeName(ls.get(3)); 
-		    
-		    program.add(cast);
+
+			List<String> ls = this.expressionParser(getCastObject());
+			cast.setDomain(ls.get(0));
+			cast.setFunctionalDomain(ls.get(1));
+			cast.setApplication(ls.get(2));
+			cast.setTypeName(ls.get(3));
+
+			program.add(cast);
 		}
 
 		if (!tableContext) {

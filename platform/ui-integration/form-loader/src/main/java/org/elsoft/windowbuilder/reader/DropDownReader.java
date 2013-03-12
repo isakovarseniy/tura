@@ -28,6 +28,8 @@ import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateOptionDescriptorDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateUIDropDownListDAO;
 import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2CastTypeDAO;
+import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
+import org.elsoft.platform.metamodel.processor.Helper;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2CastType;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDisplayFieldSpecifier;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventGetCurrentRow;
@@ -83,9 +85,19 @@ public class DropDownReader extends ItemReader {
 		event.setParentUUID(createUIDropDownList.getUUID());
 		if (getCastObject() == null)
 			event.setDstUUID(getDataControlId() + "." + getField());
-		else
-			event.setDstUUID(getDataControlId() + "." + getCastObject() + "."
-					+ getField());
+		else {
+			List<String> ls = this.expressionParser(getCastObject());
+			Helper.findType(rf, ls.get(0), ls.get(1), ls.get(2), ls.get(3));
+			PropertyDAO pr = rf.getTypeDefinitionHandler().getPropertyHandler()
+					.cleanSearch().searchString("propertyName", getField())
+					.getObject();
+
+			if (pr == null)
+				event.setDstUUID(getDataControlId() + "." + getField());
+			else
+				event.setDstUUID(getDataControlId() + "." + getCastObject()
+						+ "." + getField());
+		}
 		program.add(event);
 
 		if (getCastObject() != null) {

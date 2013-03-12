@@ -62,6 +62,7 @@ public class PopulateType {
  		
 		createCommandTypes(rf,h);
 		createRoleMapingCommand(rf,h);
+		createDataSourceCommand(rf,h);
 		
 		createFormTriggers(rf);
 		
@@ -1400,7 +1401,47 @@ public class PopulateType {
     
     }
 	
-	private void createApplicationRoleTypes(RepositoryFactory rf,
+
+    private void createDataSourceCommand(RepositoryFactory rf,
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h){
+    	
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+		TypeDAO Command = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "DataSourceCommand");
+		Command.setTypeOfType(MetamodelTypeOfTypes.Entity.name());
+
+		PropertyHandler ph = tdh.getPropertyHandler();
+		PropertyDAO prop = ph.addProperty("objId");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+		prop.setPrimaryKey(true);
+
+		prop = ph.addProperty("version");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+		prop.setOptLock(true);
+
+		prop = ph.addProperty("parentId");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+
+		prop = ph.addProperty("objType");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		prop = ph.addProperty("parentUUID");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		prop = ph.addProperty("UUID");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		prop = ph.addProperty("commandExecutor");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+   	
+		prop = ph.addProperty("refType");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+
+    }
+ 
+    
+    
+    private void createApplicationRoleTypes(RepositoryFactory rf,
 			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();

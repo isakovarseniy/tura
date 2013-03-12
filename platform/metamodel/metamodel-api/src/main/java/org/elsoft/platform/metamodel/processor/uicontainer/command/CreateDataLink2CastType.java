@@ -26,7 +26,7 @@ public class CreateDataLink2CastType {
 
 		CreateDataLink2CastTypeDAO command = (CreateDataLink2CastTypeDAO) cmd;
 
-		Helper.findType(rf, command.getDomain(), command.getFunctionalDomain(),
+		TypeDAO type = Helper.findType(rf, command.getDomain(), command.getFunctionalDomain(),
 				command.getApplication(), command.getTypeName());
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
@@ -38,11 +38,11 @@ public class CreateDataLink2CastType {
 						+ command.getApplication() + "."
 						+ command.getTypeName());
 		if (cast == null) {
-			Iterator<?> itr = tdh.getPropertyHandler().getList();
+			Iterator<?> itr = tdh.getPropertyHandler().cleanSearch().getList();
 
 			while (itr.hasNext()) {
 				PropertyDAO prop = (PropertyDAO) itr.next();
-				TypeDAO type = (TypeDAO) tdh.getPropertyHandler()
+				type = (TypeDAO) tdh.getPropertyHandler()
 						.getTypeDefinitionHandler().getObject();
 				lnk.addField(new Field(prop, type, context, lnk.getUuid(),
 						command.getDomain() + "."

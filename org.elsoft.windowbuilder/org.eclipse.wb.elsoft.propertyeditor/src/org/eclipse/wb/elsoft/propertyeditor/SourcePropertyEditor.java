@@ -105,6 +105,21 @@ public class SourcePropertyEditor extends PropertyEditor implements
 			}
 			if (property.getTitle().equals("returnField")) {
 				Property val = objInf.getPropertyByTitle("returnIterator");
+				
+				if ((objInf.getParent().getParent().getClass().getCanonicalName()
+						.equals("org.eclipse.wb.internal.xwt.model.widgets.TableColumnInfo"))
+						|| (objInf.getParent().getClass().getCanonicalName()
+								.equals("org.eclipse.wb.internal.xwt.model.widgets.TreeColumnInfo"))){
+
+					castObject = objInf.getParent().getParent().getParent()
+							.getPropertyByTitle("castObject");
+				}else{
+					castObject = objInf.getParent().getParent()
+							.getPropertyByTitle("castObject");
+					
+				}
+					
+				
 				if (val.getValue() == null) {
 					IStatus status = new Status(IStatus.ERROR, "Explorer",
 							IStatus.OK,

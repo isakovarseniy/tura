@@ -52,6 +52,7 @@ public class PopulateTypeMapping {
 		
 		createCommandMapping(rf);
 		createRoleMapingCommandMapping(rf);
+		createDataSourceCommandMapping(rf);
 		
 		createFormTriggersMapping(rf);	
 	}
@@ -1281,6 +1282,34 @@ public class PopulateTypeMapping {
 		mp.setTechnology("JPA-SERVICE");
 		
 	}
+	
+
+	private void createDataSourceCommandMapping(RepositoryFactory rf){
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		TypeDAO command = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "DataSourceCommand").getObject();
+
+		TypeMappingHandler tpmh = rf.getTypeMappingHandler();
+
+		TypeMappingDAO mp = tpmh.addTypeMapping(command, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.command.datasource");
+		mp.setResTypeName("CreateDataSourceDAO");
+		mp.setGroupName("org.elsoft.platform.metamodel");
+		mp.setArtifactName("metamodel-datastructure");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("JPA-SERVICE");
+		
+	}
+	
+	
+	
 	
 	private void createApplicationRoleMapping(RepositoryFactory rf) {
 
