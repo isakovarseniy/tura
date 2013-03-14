@@ -16,5 +16,5 @@
 -->
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:u="jelly:util"
 	xmlns:a="jelly:ant">
-         new ${rmi.proxy.resPackageName}.${rmi.proxy.resTypeName}().${rmi.methodName}();     
+         new ${rmi.proxy.resPackageName}.${rmi.proxy.resTypeName}().${rmi.methodName}(eLResolver);     
 </j:jelly>

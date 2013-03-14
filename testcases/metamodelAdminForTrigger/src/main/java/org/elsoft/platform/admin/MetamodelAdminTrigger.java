@@ -1,8 +1,11 @@
 package org.elsoft.platform.admin;
 
+import java.util.ArrayList;
+
 import javax.faces.context.FacesContext;
 
 import org.elsoft.platform.Reflection;
+import org.elsoft.platform.datacontrol.ELResolver;
 import org.elsoft.platform.datacontrol.extender.Handler;
 import org.primefaces.model.TreeNode;
 
@@ -112,8 +115,11 @@ public class MetamodelAdminTrigger {
 	
 	}
 
-	public void preFormTrigger(){
+	public void preFormTrigger(ELResolver el){
 		
+		ArrayList<Class<?>> clazzes = new ArrayList<Class<?>>();
+		clazzes.add( org.elsoft.platform.metamodel.objects.command.datasource.CreateDataSourceDAO.class);
+		el.setValue("clazzes", clazzes);
 	}
 	
 	@SuppressWarnings("rawtypes")

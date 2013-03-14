@@ -34,6 +34,13 @@ import javax.transaction.TransactionManager;
 
 public class TransactionManagerBuilderImpl implements TransactionManagerBuilder{
 
+    private ELResolver el;
+
+    public TransactionManagerBuilderImpl( ELResolver el )
+    {
+        this.el = el;
+    }
+
 	public TransactionManager getTransactionManager() throws Exception{
 		InitialContext ctx = new InitialContext();
 		return (TransactionManager) ctx.lookup("java:appserver/TransactionManager");

@@ -44,6 +44,7 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 	public static String DEPENDENIES_LIST = "DependenciesList";
 	public static String MODULES_LIST = "ModulesList";
 	public static String RETURN_TYPES = "returnTypes";
+	public static String TRANSACTION_MANAGER_TECHNOLOGIES = "tsxMgrTech";
 
 	private void pathCalulator(UIElement element, Map<String, String> pathMap,
 			String path, Map<String, Canvas> cavasesMap) {

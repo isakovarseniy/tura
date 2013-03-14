@@ -31,11 +31,26 @@
 package org.elsoft.platform.${application};
 import javax.transaction.TransactionManager;
 import java.util.ArrayList;
+import org.elsoft.platform.datacontrol.ELResolver;
+import java.util.List;
 
 public class TransactionManagerBuilderImpl implements TransactionManagerBuilder{
 
+    private ELResolver el;
+
+    public TransactionManagerBuilderImpl( ELResolver el )
+    {
+        this.el = el;
+    }
+
 	public TransactionManager getTransactionManager() throws Exception{
+	
+	   	       List&lt;Class&lt;?&gt;&gt;  clazzes = (List&lt;Class&lt;?&gt;&gt;) el.getValue( "clazzes" );
+
+	
  		       ArrayList&lt;Class&lt;?&gt;&gt; ls = new ArrayList&lt;Class&lt;?&gt;&gt;();
+ 		       ls.addAll(clazzes);
+ 
                ls.add( org.elsoft.platform.persistence.ObjectsID.class);
  
  				<j:forEach items="${returnTypes.values().iterator()}"

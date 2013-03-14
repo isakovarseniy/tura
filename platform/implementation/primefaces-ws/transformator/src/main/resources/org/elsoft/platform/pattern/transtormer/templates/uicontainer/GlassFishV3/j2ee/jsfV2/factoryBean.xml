@@ -62,8 +62,7 @@
 		private ELResolver eLResolver = new ELResolverImpl();
 		private RootModeSwitch rootModeSwitch = new RootModeSwitch();
 		private FactoryDataControl factory;
-		private TransactionManagerBuilder trxBld = new
-		TransactionManagerBuilderImpl();
+		private TransactionManagerBuilder trxBld = new TransactionManagerBuilderImpl(eLResolver);
 
 		public BindingFactory() throws Exception{
 

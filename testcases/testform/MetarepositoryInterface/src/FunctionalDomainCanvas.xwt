@@ -14,7 +14,7 @@
 				</p1:MetaLabel>
 				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
 					linesVisible="true" headerVisible="true" iteratorProperty="BusinessObjectLnk"
-					updateOnRawSelect="MethodTypeTable" cssStyle="font-size:12px;">
+					updateOnRawSelect="MethodTypeTable" cssStyle="font-size:12px;" idObject="BussObjTable">
 					<p1:MetaTable.layoutData>
 						<GridData widthHint="239" />
 					</p1:MetaTable.layoutData>
@@ -25,7 +25,14 @@
 					</p1:MetaTableColumn>
 					<p1:MetaTableColumn text="Management type"
 						width="100">
-						<p1:MetaOutputText sourceProperty="refArtType" />
+						<p1:MetaLOV sourceProperty="refArtType" optionIterator="TypeDefinitionHelper" updateOnValueChanged="BussObjTable">
+							<p1:LovDisplayField x:Style="BORDER" displayField="domain" fieldLabel="Domain"/>
+							<p1:LovDisplayField x:Style="BORDER" fieldLabel="FunctionalDomain" displayField="functionalDomain"/>
+							<p1:LovDisplayField x:Style="BORDER" displayField="application" fieldLabel="Application"/>
+							<p1:LovDisplayField x:Style="BORDER" displayField="typeName" fieldLabel="Type name"/>
+							<p1:LovReturnField x:Style="BORDER" returnIterator="BusinessObjectLnk" displayField="objId" returnField="refMntType"/>
+							<p1:LovReturnField x:Style="BORDER" returnIterator="BusinessObjectLnk" returnField="refArtType" displayField="refArtType"/>
+						</p1:MetaLOV>
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
 				<p1:MetaLabel text="Methods:" cssStyle="text-decoration:underline;line-height:1.9em"/>

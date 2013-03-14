@@ -13,6 +13,7 @@ public class MAVENPOMXMLArtifactCalculatorJPALiferay  extends ArtifactCalculator
 	@Override
 	protected List<Artifact> getArtifactList(Object model,
 			HashMap<String, Object> context,HashMap<String, Object> outputContext) {
+		
 		ArrayList<Artifact> list = new ArrayList<Artifact>();
 
 		list.add(new Artifact(MetamodelArtifactType.MAVENPOMFile,null,"LIFERAY-PORTLET-JSF"));
