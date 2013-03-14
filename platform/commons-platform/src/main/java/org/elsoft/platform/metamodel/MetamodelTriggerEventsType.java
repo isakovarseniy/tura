@@ -36,6 +36,7 @@ public enum MetamodelTriggerEventsType {
 	CreateEventUIElement2Field("na"), 
 	CreateEventGetOptionsList("optionsList"),
 	CreateEventUIElement2ServiceMethod("na"),
+	CreateEventPreFormTrigger2ServiceMethod("na"),
 	CreateEventUIElement2JavaScript("na"),
 	CreateEventUIElement2ImageHolder("na"),
 	CreateEventViewPort2Controller("na"),

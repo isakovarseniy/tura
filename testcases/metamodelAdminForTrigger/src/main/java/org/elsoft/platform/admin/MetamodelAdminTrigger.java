@@ -112,6 +112,34 @@ public class MetamodelAdminTrigger {
 	
 	}
 
+	public void preFormTrigger(){
+		
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void postQueryDataSource(Object obj) {
+
+		Long refDs = (Long) Reflection.call(obj, "getObjId");
+		
+		Object bindFactory = FacesContext
+				.getCurrentInstance()
+				.getApplication()
+				.evaluateExpressionGet(FacesContext.getCurrentInstance(),
+						"#{MetarepositoryInterfacebinding}", Object.class);
+		Handler dsHandl = (Handler) Reflection
+				.call(bindFactory, "getCurrentDataSourcesCommand");
+		
+		dsHandl = (Handler) dsHandl.cleanSearch();
+		dsHandl = (Handler) dsHandl.searchLong("parentId", refDs);
+		Object dscmd = dsHandl.getObject();
+
+		Long refType = (Long) Reflection.call(dscmd, "getRefType");
+		refMethodCalculation(refType, obj);
+		
+	
+	}
+	
+	
 
 	public void postQueryParameterLnk(Object obj) {
 		Long returnType = (Long) Reflection.call(obj, "getParameterType");

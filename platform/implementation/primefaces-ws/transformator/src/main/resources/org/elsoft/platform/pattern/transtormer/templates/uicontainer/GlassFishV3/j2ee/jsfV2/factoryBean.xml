@@ -1,179 +1,196 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Copyright 2012 Arseniy Isakov
-  
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-  
-    http://www.apache.org/licenses/LICENSE-2.0
-  
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
+<!-- Copyright 2012 Arseniy Isakov Licensed under the Apache License, Version 
+	2.0 (the "License"); you may not use this file except in compliance with 
+	the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:u="jelly:util"
 	xmlns:a="jelly:ant">
 
 	<j:set var="applicationOutputDir"
 		value="${GeneratedCodeRoot}/${domain}/${functionalDomain}/${application}/uicontainer" />
 
-	<a:mkdir dir="${applicationOutputDir}/src/main/java/org/elsoft/platform/${application}/${model.uicontainer}"/>
+	<a:mkdir
+		dir="${applicationOutputDir}/src/main/java/org/elsoft/platform/${application}/${model.uicontainer}" />
 
-	<j:file	name="${applicationOutputDir}/src/main/java/org/elsoft/platform/${application}/${model.uicontainer}/BindingFactory.java"
-			trim="true" omitXmlDeclaration="true" escapeText="false">
+	<j:file
+		name="${applicationOutputDir}/src/main/java/org/elsoft/platform/${application}/${model.uicontainer}/BindingFactory.java"
+		trim="true" omitXmlDeclaration="true" escapeText="false">
 
 
-package org.elsoft.platform.${application}.${model.uicontainer};
+		package org.elsoft.platform.${application}.${model.uicontainer};
 
-import javax.el.ELContext;
-import javax.faces.context.FacesContext;
-import javax.transaction.TransactionManager;
-import javax.naming.InitialContext;
+		import javax.el.ELContext;
+		import javax.faces.context.FacesContext;
+		import javax.transaction.TransactionManager;
+		import javax.naming.InitialContext;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import org.elsoft.platform.datacontrol.ELResolver;
-import org.elsoft.platform.datacontrol.StructureControl;
-import org.elsoft.platform.datacontrol.RootModeSwitch;
-import org.elsoft.platform.datacontrol.FactoryDataControl;
-import org.elsoft.platform.${application}.TransactionManagerBuilder;
-import org.elsoft.platform.${application}.TransactionManagerBuilderImpl;
+		import javax.faces.bean.ManagedBean;
+		import javax.faces.bean.SessionScoped;
+		import org.elsoft.platform.datacontrol.ELResolver;
+		import org.elsoft.platform.datacontrol.StructureControl;
+		import org.elsoft.platform.datacontrol.RootModeSwitch;
+		import org.elsoft.platform.datacontrol.FactoryDataControl;
+		import org.elsoft.platform.${application}.TransactionManagerBuilder;
+		import org.elsoft.platform.${application}.TransactionManagerBuilderImpl;
 
-@ManagedBean(name = "${model.uicontainer}binding")
-@SessionScoped
-public class BindingFactory {
+		@ManagedBean(name = "${model.uicontainer}binding")
+		@SessionScoped
+		public class BindingFactory {
 
-    
-	<j:forEach items="${model.ports.iterator()}" var="vp">
-	private String ${vp.viewPortName} ="/${application}/${model.uicontainer}/${vp.canvasName}.xhtml";
 
-	public String get${vp.capViewPortName}(){
-      <j:if test="${vp.rmi != null}">
-       new  ${vp.rmi.proxy.resPackageName}.${vp.rmi.proxy.resTypeName}().${vp.rmi.methodName}(${vp.viewPortName});
-      </j:if>   	
-	     return ${vp.viewPortName};
-	}
-	 
-	public void set${vp.capViewPortName}(String ${vp.viewPortName}){
-	     this.${vp.viewPortName}=${vp.viewPortName};
-	}
-    </j:forEach>
+		<j:forEach items="${model.ports.iterator()}" var="vp">
+			private String ${vp.viewPortName}
+			="/${application}/${model.uicontainer}/${vp.canvasName}.xhtml";
 
-	private StructureControl structureControl = new StructureControl();
-	private ELResolver eLResolver = new ELResolverImpl();
-	private RootModeSwitch rootModeSwitch = new RootModeSwitch();
-	private FactoryDataControl factory;
-	private TransactionManagerBuilder trxBld = new TransactionManagerBuilderImpl();
-	
-	public BindingFactory() throws Exception{
-	 structureControl.setTrx(trxBld.getTransactionManager());
-     factory =new FactoryDataControl();
-	 factory.setElResolver(eLResolver);
-	 factory.setStructureControl(structureControl);
-	 factory.setRoot(rootModeSwitch);
-	}
-	
-	private Object resultOperation;
+			public String get${vp.capViewPortName}(){
+			<j:if test="${vp.rmi != null}">
+				new
+				${vp.rmi.proxy.resPackageName}.${vp.rmi.proxy.resTypeName}().${vp.rmi.methodName}(${vp.viewPortName});
+			</j:if>
+			return ${vp.viewPortName};
+			}
 
-	public Object getResultOperation() {
+			public void set${vp.capViewPortName}(String ${vp.viewPortName}){
+			this.${vp.viewPortName}=${vp.viewPortName};
+			}
+		</j:forEach>
+
+		private StructureControl structureControl = new StructureControl();
+		private ELResolver eLResolver = new ELResolverImpl();
+		private RootModeSwitch rootModeSwitch = new RootModeSwitch();
+		private FactoryDataControl factory;
+		private TransactionManagerBuilder trxBld = new
+		TransactionManagerBuilderImpl();
+
+		public BindingFactory() throws Exception{
+
+        <j:set var="rmi" value="${model.preFormTrigger}"   />
+        
+        <j:if test="${rmi!=null}"> 
+			<j:import
+				file="${RootTemplate}/GlassFishV3/j2ee/jsfV2/Primefaces/triggerPREFormTrigger.xml"
+				inherit="true" />
+         </j:if>
+         
+		structureControl.setTrx(trxBld.getTransactionManager());
+		factory =new FactoryDataControl();
+		factory.setElResolver(eLResolver);
+		factory.setStructureControl(structureControl);
+		factory.setRoot(rootModeSwitch);
+		}
+
+		private Object resultOperation;
+
+		public Object getResultOperation() {
 		return resultOperation;
-	}
+		}
 
-	public void setResultOperation(Object resultOperation) {
+		public void setResultOperation(Object resultOperation) {
 		this.resultOperation = resultOperation;
-	}
-
-	
-	<j:forEach items="${model.detail.iterator()}" var="objlnk">
- 
-	private ${objlnk.capName}Handler ${objlnk.name};
-	private ${objlnk.capName}Handler current${objlnk.name};
-
-	public ${objlnk.capName}Handler get${objlnk.capName}() throws Exception{
-		if (${objlnk.name} == null) {
-		   ${objlnk.name}= getCurrent${objlnk.capMasterName}().get${objlnk.capName}Handler();
-		   this.current${objlnk.name} = ${objlnk.name};
-		}
-		return ${objlnk.name};
-	}
-
-	public ${objlnk.capName}Handler getCurrent${objlnk.capName}() throws Exception{
-	    if (current${objlnk.name} == null)
-	        get${objlnk.capName}();
-		return current${objlnk.name};
-	}
-
-	public void setCurrent${objlnk.capName}(${objlnk.capName}Handler current${objlnk.name}) {
-		this.current${objlnk.name} = current${objlnk.name};
-	  <j:forEach items="${objlnk.details.iterator()}" var="objrel">
-		   ${objrel.name} = null;
-		   set${objrel.name}Null();
-      </j:forEach>
-	}
-   
-    public void set${objlnk.capName}Null(){
-	  <j:forEach items="${objlnk.details.iterator()}" var="objrel">
-		   ${objrel.name}=null;
-		   set${objrel.name}Null();
-      </j:forEach>
-    } 
-    </j:forEach>
-
-	<j:forEach items="${model.master.iterator()}" var="objlnk">
-
-	private ${objlnk.capName}Handler ${objlnk.name};
-	private ${objlnk.capName}Handler current${objlnk.name};
-
-	public ${objlnk.capName}Handler get${objlnk.capName}() throws Exception {
-		if (${objlnk.name} == null) {
-			${objlnk.name} = (${objlnk.capName}Handler) this.factory.newRootInstance(${objlnk.capName}Handler.class);
-		   this.current${objlnk.name} = ${objlnk.name};
-		}
-		return ${objlnk.name};
-	}
-	
-	public ${objlnk.capName}Handler getCurrent${objlnk.capName}() throws Exception {
-	    if (current${objlnk.name} == null)
-	        get${objlnk.capName}();
-		return current${objlnk.name};
-	}
-
-	public void setCurrent${objlnk.capName}(${objlnk.capName}Handler current${objlnk.name}) {
-		this.current${objlnk.name}=current${objlnk.name};
-	  <j:forEach items="${objlnk.details.iterator()}" var="objrel">
-		   ${objrel.name}=null;
-      </j:forEach>
-	}
-	
-    </j:forEach>
-
-
-	
-	
-	public class ELResolverImpl implements ELResolver {
-
-		public Object getValue(String exp) {
-			return FacesContext
-					.getCurrentInstance()
-					.getApplication()
-					.evaluateExpressionGet(FacesContext.getCurrentInstance(),
-							"#{" + exp + "}", Object.class);
 		}
 
-		public void setValue(String exp, Object value) {
-			javax.faces.application.Application app = FacesContext.getCurrentInstance().getApplication();
-			javax.el.ExpressionFactory exprFactory = app.getExpressionFactory();
 
-			ELContext elContext = FacesContext.getCurrentInstance().getELContext();
-			javax.el.ValueExpression valExpr = exprFactory.createValueExpression(elContext, "#{" + exp + "}", Object.class);			
-			valExpr.setValue(elContext, value);
+		<j:forEach items="${model.detail.iterator()}" var="objlnk">
+
+			private ${objlnk.capName}Handler ${objlnk.name};
+			private ${objlnk.capName}Handler current${objlnk.name};
+
+			public ${objlnk.capName}Handler get${objlnk.capName}() throws Exception{
+			if (${objlnk.name} == null) {
+			${objlnk.name}= getCurrent${objlnk.capMasterName}().get${objlnk.capName}Handler();
+			this.current${objlnk.name} = ${objlnk.name};
+			}
+			return ${objlnk.name};
+			}
+
+			public ${objlnk.capName}Handler getCurrent${objlnk.capName}() throws
+			Exception{
+			if (current${objlnk.name} == null)
+			get${objlnk.capName}();
+			return current${objlnk.name};
+			}
+
+			public void setCurrent${objlnk.capName}(${objlnk.capName}Handler
+			current${objlnk.name}) {
+			this.current${objlnk.name} = current${objlnk.name};
+			<j:forEach items="${objlnk.details.iterator()}" var="objrel">
+				${objrel.name} = null;
+				set${objrel.name}Null();
+			</j:forEach>
+			}
+
+			public void set${objlnk.capName}Null(){
+			<j:forEach items="${objlnk.details.iterator()}" var="objrel">
+				${objrel.name}=null;
+				set${objrel.name}Null();
+			</j:forEach>
+			}
+		</j:forEach>
+
+		<j:forEach items="${model.master.iterator()}" var="objlnk">
+
+			private ${objlnk.capName}Handler ${objlnk.name};
+			private ${objlnk.capName}Handler current${objlnk.name};
+
+			public ${objlnk.capName}Handler get${objlnk.capName}() throws Exception {
+			if (${objlnk.name} == null) {
+			${objlnk.name} =
+			(${objlnk.capName}Handler)
+			this.factory.newRootInstance(${objlnk.capName}Handler.class);
+			this.current${objlnk.name} = ${objlnk.name};
+			}
+			return ${objlnk.name};
+			}
+
+			public ${objlnk.capName}Handler getCurrent${objlnk.capName}() throws
+			Exception {
+			if (current${objlnk.name} == null)
+			get${objlnk.capName}();
+			return current${objlnk.name};
+			}
+
+			public void setCurrent${objlnk.capName}(${objlnk.capName}Handler
+			current${objlnk.name}) {
+			this.current${objlnk.name}=current${objlnk.name};
+			<j:forEach items="${objlnk.details.iterator()}" var="objrel">
+				${objrel.name}=null;
+			</j:forEach>
+			}
+
+		</j:forEach>
+
+
+
+
+		public class ELResolverImpl implements ELResolver {
+
+		public Object
+		getValue(String exp) {
+		return FacesContext
+		.getCurrentInstance()
+		.getApplication()
+		.evaluateExpressionGet(FacesContext.getCurrentInstance(),
+		"#{" + exp + "}", Object.class);
 		}
-	}
-	
-	
-}
-   </j:file>
+
+		public void setValue(String exp, Object
+		value) {
+		javax.faces.application.Application app = FacesContext.getCurrentInstance().getApplication();
+		javax.el.ExpressionFactory exprFactory = app.getExpressionFactory();
+
+		ELContext elContext =
+		FacesContext.getCurrentInstance().getELContext();
+		javax.el.ValueExpression valExpr =
+		exprFactory.createValueExpression(elContext, "#{" + exp + "}",
+		Object.class);
+		valExpr.setValue(elContext, value);
+		}
+		}
+
+
+		}
+	</j:file>
 </j:jelly>

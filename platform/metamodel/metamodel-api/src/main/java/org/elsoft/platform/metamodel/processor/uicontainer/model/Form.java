@@ -17,7 +17,10 @@ package org.elsoft.platform.metamodel.processor.uicontainer.model;
 
 import org.elsoft.platform.metamodel.PersistentInterface;
 import org.elsoft.platform.metamodel.objects.command.form.CreateFormDAO;
+import org.elsoft.platform.metamodel.objects.command.form.ui.CreateEventUIElement2ServiceDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
+import org.elsoft.platform.metamodel.processor.datasource.model.RemoteMethod;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventForm2Service;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateForm;
 
 import java.util.ArrayList;
@@ -30,13 +33,28 @@ public class Form extends PersistentInterface {
 
 	private String name;
 	private String uuid = UUID.randomUUID().toString();
-	private HashMap<String,DataLink> datalink = new HashMap<String,DataLink>();
+	private HashMap<String, DataLink> datalink = new HashMap<String, DataLink>();
 	private ArrayList<Window> windows = new ArrayList<Window>();
 	private ArrayList<Canvas> canvases = new ArrayList<Canvas>();
 	private String domain;
 	private String functionalDomain;
 	private String application;
-	
+	private ArrayList<CreateEventUIElement2ServiceDAO> uiElement2ServiceEvent = new ArrayList<CreateEventUIElement2ServiceDAO>();
+	private HashMap<String, RemoteMethod> triggers = new HashMap<String, RemoteMethod>();
+
+	public ArrayList<CreateEventUIElement2ServiceDAO> getUiElement2ServiceEvent() {
+		return uiElement2ServiceEvent;
+	}
+
+	public HashMap<String, RemoteMethod> getTriggers() {
+		return triggers;
+	}
+
+	public void addTrigger(RemoteMethod rmi,
+			CreateEventUIElement2ServiceDAO command) {
+		this.triggers.put(command.getMethodType(), rmi);
+		this.uiElement2ServiceEvent.add(command);
+	}
 
 	public String getDomain() {
 		return domain;
@@ -63,11 +81,11 @@ public class Form extends PersistentInterface {
 	}
 
 	public Form(CreateFormDAO command, HashMap<String, Object> context) {
-          setUuid(command.getUUID());
-          setName(command.getFormName());
-          setDomain(command.getDomain());
-          setFunctionalDomain(command.getFunctionalDomain());
-          setApplication(command.getApplication());
+		setUuid(command.getUUID());
+		setName(command.getFormName());
+		setDomain(command.getDomain());
+		setFunctionalDomain(command.getFunctionalDomain());
+		setApplication(command.getApplication());
 	}
 
 	@Override
@@ -90,6 +108,13 @@ public class Form extends PersistentInterface {
 				}
 			}
 		}
+		Iterator<CreateEventUIElement2ServiceDAO> itrRmi = uiElement2ServiceEvent
+				.iterator();
+		while (itrRmi.hasNext()) {
+			CreateEventUIElement2ServiceDAO rmi = itrRmi.next();
+			CreateEventForm2Service.save(ch, this.getUuid(), rmi);
+		}
+
 		Iterator<Canvas> itrCanvas = canvases.iterator();
 		while (itrCanvas.hasNext()) {
 			Canvas canvas = itrCanvas.next();
@@ -122,7 +147,7 @@ public class Form extends PersistentInterface {
 
 	public void addDataLink(DataLink datalink) {
 		datalink.setParentUuid(this.uuid);
-		this.datalink.put(datalink.getName(),datalink);
+		this.datalink.put(datalink.getName(), datalink);
 	}
 
 	public void addWindow(Window win) {

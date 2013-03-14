@@ -90,6 +90,13 @@ public class TriggerTypePropertyEditor extends PropertyEditor implements
 			array.add(DCMetaInfo.PREUpdateTrigger.name());
 		}
 
+
+		if (parent.getDescription().getComponentClass().getName()
+				.equals("org.eclipse.wb.elsoft.components.DataDefinition")) {
+			array.add(DCMetaInfo.PREFormTrigger.name());
+		}
+		
+		
 		if (parent.getDescription().getComponentClass().getName()
 				.equals("org.eclipse.wb.elsoft.components.MetaAction")) {
 			array.add("ONButtonPressed");

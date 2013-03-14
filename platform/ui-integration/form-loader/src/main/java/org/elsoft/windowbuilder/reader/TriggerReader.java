@@ -30,6 +30,7 @@ import org.elsoft.platform.metamodel.objects.command.links.CreateDataLink2Servic
 import org.elsoft.platform.metamodel.objects.type.MethodDAO;
 import org.elsoft.platform.metamodel.processor.Helper;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateDataLink2ServiceMethod;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventForm2Service;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2JavaScript;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2Service;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventViewPort2Controller;
@@ -146,7 +147,27 @@ public class TriggerReader extends Reader {
 
 		}
 
-	
+		if (parent instanceof DataDefinitionReader) {
+
+			CreateEventUIElement2ServiceDAO ui2serv = new CreateEventUIElement2ServiceDAO();
+			ui2serv.setDomain(service.get(0));
+			ui2serv.setFunctionalDomain(service.get(1));
+			ui2serv.setApplication(service.get(2));
+			ui2serv.setTypeName(service.get(3));
+			ui2serv.setMethodName(method);
+			ui2serv.setMethodType(triggerType);
+			ui2serv.setRefMethod(m.getObjId());
+			ui2serv.setCommandExecutor(CreateEventForm2Service.class
+					.getName());
+			ui2serv.setParentUUID(parent.getUuid());
+			ui2serv.setEventType(MetamodelTriggerEventsType.CreateEventPreFormTrigger2ServiceMethod
+					.name());
+
+			program.add(ui2serv);
+
+		}
+
+		
 	
 	}
 

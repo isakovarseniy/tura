@@ -20,8 +20,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
+import org.elsoft.platform.datacontrol.DCMetaInfo;
 import org.elsoft.platform.metamodel.MetamodelPlatformLevel;
 import org.elsoft.platform.metamodel.RepositoryFactory;
+import org.elsoft.platform.metamodel.processor.datasource.model.Parameter;
 import org.elsoft.platform.metamodel.processor.datasource.model.RemoteMethod;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Canvas;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ChildrenOwner;
@@ -39,7 +41,33 @@ public class FactoryBeanModelBuilder {
 	public Object builder(RepositoryFactory rf, String domain,
 			String functionalDomain, String application,
 			MetamodelPlatformLevel level, Form frm) {
+		
+		Iterator<RemoteMethod> itrRmi = frm.getTriggers().values().iterator();
+		while (itrRmi.hasNext()) {
+			RemoteMethod rmi = itrRmi.next();
+			if (rmi.getReturnType() != null) {
+				rmi.setReturnType(new MappedType(rmi.getReturnType()
+						.getTypedao(), domain, functionalDomain, application,
+						level, rf));
+			}
+			Iterator<Parameter> itrParams = rmi.getParamClass().iterator();
+			while (itrParams.hasNext()) {
+				Parameter param = itrParams.next();
+				param.setType(new MappedType(param.getType().getTypedao(),
+						domain, functionalDomain, application, level, rf));
+			}
+
+			rmi.setProxy(new MappedType(rmi.getProxy().getTypedao(), domain,
+					functionalDomain, application, level, rf));
+
+			rmi.setProxy(new MappedType(rmi.getProxy().getTypedao(), domain,
+					functionalDomain, application, level, rf));
+		}
+	
+		
 		model.setUicontainer(frm.getName());
+		
+		model.setPreFormTrigger(frm.getTriggers().get(DCMetaInfo.PREFormTrigger.name()));
 
 		Iterator<Window> itrWin = frm.getWindows().iterator();
 		while (itrWin.hasNext())
@@ -103,6 +131,7 @@ public class FactoryBeanModelBuilder {
 		private ArrayList<ViewPortDescriptor> ports = new ArrayList<ViewPortDescriptor>();
 		private ArrayList<LinkDescriptor> master = new ArrayList<LinkDescriptor>();
 		private ArrayList<LinkDescriptor> detail = new ArrayList<LinkDescriptor>();
+		private RemoteMethod preFormTrigger;
 
 		public String getUicontainer() {
 			return uicontainer;
@@ -122,6 +151,14 @@ public class FactoryBeanModelBuilder {
 
 		public ArrayList<LinkDescriptor> getDetail() {
 			return detail;
+		}
+
+		public RemoteMethod getPreFormTrigger() {
+			return preFormTrigger;
+		}
+
+		public void setPreFormTrigger(RemoteMethod preFormTrigger) {
+			this.preFormTrigger = preFormTrigger;
 		}
 
 	}

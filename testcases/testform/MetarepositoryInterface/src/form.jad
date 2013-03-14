@@ -1,4 +1,4 @@
-#Sun Mar 10 13:23:13 EDT 2013
+#Tue Mar 12 12:42:53 EDT 2013
 Method=ELsoft.Platform.method
 BusinessObjectMethodLnk=ELsoft.Platform.methodReference
 FunctionalDomainLnk=ELsoft.Platform.functionalDomain
@@ -9,6 +9,7 @@ DrpDwnGlobalRoles=ELsoft.Platform.globalRole
 TypeDefinitionHelper=ELsoft.Platform.typeDefinition
 Uicontainer=ELsoft.Platform.uiContainer
 BusinessObjectLnk=ELsoft.Platform.businessObject
+DataSourcesCommand=ELsoft.Platform.command
 TypeMappinglnk=ELsoft.Platform.typeMapping
 OptTypeOfTypes=ELsoft.Platform.options
 RolesMapping=ELsoft.Platform.command
@@ -20,4 +21,4 @@ ParametersLnk=ELsoft.Platform.parameter
 DomainLnk=ELsoft.Platform.domain
 ApplicationLnk=ELsoft.Platform.application
 TypeDefinition=ELsoft.Platform.typeDefinition
-DataSources=ELsoft.Platform.command
+DataSources=ELsoft.Platform.dataSource

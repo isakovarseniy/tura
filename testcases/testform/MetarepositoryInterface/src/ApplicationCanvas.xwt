@@ -182,19 +182,22 @@
 				<p1:MetaComposite.layout>
 					<GridLayout/>
 				</p1:MetaComposite.layout>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" castObject="ELsoft.Platform.Metarepository.DataSourceCommand" iteratorProperty="DataSources">
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DataSources" idObject="DataSourceTable">
 					<p1:MetaTable.layoutData>
 						<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
 					</p1:MetaTable.layoutData>
-					<p1:MetaTableColumn text="Type name" width="100">
-						<p1:MetaLOV optionIterator="TypeDefinitionHelper" sourceProperty="refArtType">
+					<p1:MetaTableColumn text="Data source name" width="100">
+						<p1:MetaLOV optionIterator="TypeDefinitionHelper" sourceProperty="dataSourceName" updateOnValueChanged="DataSourceTable">
 							<p1:LovDisplayField x:Style="BORDER" displayField="domain" fieldLabel="Domain"/>
 							<p1:LovDisplayField x:Style="BORDER" displayField="functionalDomain" fieldLabel="Functional domain"/>
 							<p1:LovDisplayField x:Style="BORDER" displayField="application" fieldLabel="Application"/>
 							<p1:LovDisplayField x:Style="BORDER" displayField="typeName" fieldLabel="Type name"/>
-							<p1:LovReturnField x:Style="BORDER" displayField="objId" returnIterator="DataSources" returnField="refType"/>
 							<p1:LovReturnField x:Style="BORDER" returnIterator="DataSources" returnField="refArtType" displayField="refArtType"/>
+							<p1:LovReturnField x:Style="BORDER" displayField="typeName" returnIterator="DataSources" returnField="dataSourceName"/>
 						</p1:MetaLOV>
+					</p1:MetaTableColumn>
+					<p1:MetaTableColumn text="Type name" width="100">
+						<p1:MetaOutputText sourceProperty="refArtType"/>
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
 			</p1:MetaComposite>

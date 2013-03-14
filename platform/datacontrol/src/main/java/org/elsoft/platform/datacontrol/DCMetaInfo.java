@@ -28,6 +28,7 @@ public enum DCMetaInfo {
 	PRERemoveTrigger,
 	RemoveTrigger,
 	PREUpdateTrigger,
+	PREFormTrigger,
 	UpdateTrigger,
 	ArtificialProperty,
 	FunctionResult

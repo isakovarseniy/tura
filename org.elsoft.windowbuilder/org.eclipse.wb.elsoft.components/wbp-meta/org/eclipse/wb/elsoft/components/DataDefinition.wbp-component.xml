@@ -43,5 +43,10 @@
 		<parameter name="flowContainer.2.horizontal">false</parameter>
 		<parameter name="flowContainer.2.component">org.eclipse.wb.elsoft.components.FormParameter</parameter>
 	
+		<parameter name="flowContainer.3">true</parameter>
+		<parameter name="flowContainer.3.horizontal">false</parameter>
+		<parameter name="flowContainer.3.component">org.eclipse.wb.elsoft.components.Trigger</parameter>
+
+
 	</parameters>
 </component>

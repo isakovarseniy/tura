@@ -63,6 +63,8 @@ public class PopulateType {
 		createCommandTypes(rf,h);
 		createRoleMapingCommand(rf,h);
 		createDataSourceCommand(rf,h);
+
+		createDataSourceTypes(rf,h);
 		
 		createFormTriggers(rf);
 		
@@ -584,6 +586,105 @@ public class PopulateType {
 	}
 
 
+	
+	private void createDataSourceTypes(RepositoryFactory rf,
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+		TypeDAO dataSource = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "dataSource");
+		dataSource.setTypeOfType(MetamodelTypeOfTypes.Entity.name());
+
+		PropertyHandler ph = tdh.getPropertyHandler();
+		PropertyDAO prop = ph.addProperty("objId");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+		prop.setPrimaryKey(true);
+
+		prop = ph.addProperty("version");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+		prop.setOptLock(true);
+
+		prop = ph.addProperty("parentId");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+
+		prop = ph.addProperty("objType");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+
+		prop = ph.addProperty("dataSourceName");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		
+		TypeDAO dataSourceList = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "dataSourceList");
+		dataSourceList.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+
+		TypeDAO dataSourceSearchCriteria = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "dataSourceSearchCriteria");
+		dataSourceSearchCriteria.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+
+		TypeDAO dataSourceOrderByCriteria = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "dataSourceOrderByCriteria");
+		dataSourceOrderByCriteria.setTypeOfType(MetamodelTypeOfTypes.JavaObject.name());
+
+		TypeDAO dataSourceService = tdh.addType("ELsoft", "Platform",
+				"Metarepository", "dataSourceService");
+		dataSourceService.setTypeOfType(MetamodelTypeOfTypes.Service.name());
+
+		MethodHandler mh = tdh.getMethodHandler();
+		ParameterHandler prh = mh.getParameterHandler();
+
+		MethodDAO met = mh.addMethod("create");
+		met.setReturnType(dataSource.getObjId());
+		ParameterDAO prm = prh.addParameter("clazzName");
+		prm.setParameterType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		prm.setDefaultValue("org.elsoft.platform.metamodel.objects.datasource.DataSourceDAO");
+		prm.setOverwritten(false);
+
+		met = mh.addMethod("find");
+		met.setReturnType(dataSourceList.getObjId());
+
+		prm = prh.addParameter("search");
+		prm.setParameterType(dataSourceSearchCriteria.getObjId());
+
+		prm = prh.addParameter("order");
+		prm.setParameterType(dataSourceOrderByCriteria.getObjId());
+
+		prm = prh.addParameter("startIndex");
+		prm.setParameterType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+
+		prm = prh.addParameter("endIndex");
+		prm.setParameterType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+
+		prm = prh.addParameter("clazzName");
+		prm.setParameterType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		prm.setDefaultValue("org.elsoft.platform.metamodel.objects.datasource.DataSourceDAO");
+		prm.setOverwritten(false);
+		
+		met = mh.addMethod("update");
+		prm = prh.addParameter("obj");
+		prm.setParameterType(dataSource.getObjId());
+
+		met = mh.addMethod("remove");
+		prm = prh.addParameter("obj");
+		prm.setParameterType(dataSource.getObjId());
+
+		met = mh.addMethod("insert");
+		prm = prh.addParameter("obj");
+		prm.setParameterType(dataSource.getObjId());
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	private void createMethodTypes(RepositoryFactory rf,
 			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
 
@@ -2347,7 +2448,10 @@ public class PopulateType {
 		mh.addMethod("viewPortAController");
 		mh.addMethod("postQueryTypeDefinitionHelperlnk");
 		mh.addMethod("postQueryBusinessObjectMethodLnk");
-				
+		mh.addMethod("postQueryDataSource");
+		mh.addMethod("preFormTrigger");
+		
+						
 	}	
 	
 }

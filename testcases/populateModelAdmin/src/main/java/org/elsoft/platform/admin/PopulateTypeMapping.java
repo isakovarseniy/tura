@@ -53,6 +53,8 @@ public class PopulateTypeMapping {
 		createCommandMapping(rf);
 		createRoleMapingCommandMapping(rf);
 		createDataSourceCommandMapping(rf);
+
+		createDataSourceMapping(rf);
 		
 		createFormTriggersMapping(rf);	
 	}
@@ -927,6 +929,91 @@ public class PopulateTypeMapping {
 		mp.setResTypeName("List");
 
 	}
+
+	private void createDataSourceMapping(RepositoryFactory rf) {
+
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		TypeDAO dataSource = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "dataSource").getObject();
+
+		TypeDAO dataSourceService = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "dataSourceService").getObject();
+
+		TypeDAO dataSourceSearchCriteria = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "dataSourceSearchCriteria").getObject();
+
+		TypeDAO dataSourceOrderByCriteria = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "dataSourceOrderByCriteria").getObject();
+		
+
+		TypeDAO dataSourceList = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "dataSourceList").getObject();
+		
+		
+		TypeMappingHandler tpmh = rf.getTypeMappingHandler();
+
+		TypeMappingDAO mp = tpmh.addTypeMapping(dataSource, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects.datasource");
+		mp.setResTypeName("DataSourceDAO");
+		mp.setGroupName("org.elsoft.platform.metamodel");
+		mp.setArtifactName("metamodel-datastructure");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("JPA-SERVICE");
+
+		mp = tpmh.addTypeMapping(dataSourceService, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("org.elsoft.platform.persistence");
+		mp.setResTypeName("ELsoftJPAEntityService");
+		mp.setGroupName("org.elsoft.platform");
+		mp.setArtifactName("commons-platform-jpa");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("JPA-SERVICE");
+
+		mp = tpmh.addTypeMapping(dataSourceSearchCriteria, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List");
+
+		mp = tpmh.addTypeMapping(dataSourceOrderByCriteria, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List");
+
+		mp = tpmh.addTypeMapping(dataSourceList, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("java.util");
+		mp.setResTypeName("List");
+
+	}
+	
+	
 	private void createTypeDefinitionMapping(RepositoryFactory rf) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
