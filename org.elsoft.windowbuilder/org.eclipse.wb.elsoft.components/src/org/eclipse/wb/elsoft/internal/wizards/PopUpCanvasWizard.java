@@ -35,6 +35,6 @@ public final class PopUpCanvasWizard extends XwtWizard {
   ////////////////////////////////////////////////////////////////////////////
   @Override
   protected XwtWizardPage createMainPage() {
-    return new StackableCanvasWizardPage();
+    return new PopUpCanvasWizardPage();
   }
 }

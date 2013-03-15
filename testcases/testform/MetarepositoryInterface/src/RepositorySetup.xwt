@@ -1,0 +1,50 @@
+<p1:TabCanvas xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:MetaTabItem text="Artifact types">
+		<p1:MetaTabItem.control>
+			<p1:MetaComposite>
+				<p1:MetaComposite.layout>
+					<GridLayout/>
+				</p1:MetaComposite.layout>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="ArtifactTypeLnk">
+					<p1:MetaTableColumn text="Artifact Type" width="100">
+						<p1:MetaDropDown sourceProperty="artifactType" optionIterator="OptArtifactType" optionLabel="optionName" optionValue="optionValue"/>
+					</p1:MetaTableColumn>
+					<p1:MetaTableColumn text="Script" width="100">
+						<p1:MetaInputText x:Style="BORDER" sourceProperty="templatePath"/>
+					</p1:MetaTableColumn>
+					<p1:MetaTableColumn text="Technology" width="100">
+						<p1:MetaDropDown sourceProperty="technology" optionIterator="OptTech" optionLabel="optionName" optionValue="optionValue"/>
+					</p1:MetaTableColumn>
+				</p1:MetaTable>
+			</p1:MetaComposite>
+		</p1:MetaTabItem.control>
+	</p1:MetaTabItem>
+	<p1:MetaTabItem text="Options">
+		<p1:MetaTabItem.control>
+			<p1:MetaComposite>
+				<p1:MetaComposite.layout>
+					<GridLayout/>
+				</p1:MetaComposite.layout>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="OptSets" updateOnRawSelect="OptionsTable">
+					<p1:MetaTableColumn text="Set name" width="100">
+						<p1:MetaInputText x:Style="BORDER" sourceProperty="optionName"/>
+					</p1:MetaTableColumn>
+				</p1:MetaTable>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="OptionsLnk" idObject="OptionsTable">
+					<p1:MetaTable.layoutData>
+						<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL" widthHint="121"/>
+					</p1:MetaTable.layoutData>
+					<p1:MetaTableColumn text="Name" width="100">
+						<p1:MetaInputText x:Style="BORDER" sourceProperty="optionName"/>
+					</p1:MetaTableColumn>
+					<p1:MetaTableColumn text="Value" width="100">
+						<p1:MetaInputText x:Style="BORDER" sourceProperty="optionValue"/>
+					</p1:MetaTableColumn>
+				</p1:MetaTable>
+			</p1:MetaComposite>
+		</p1:MetaTabItem.control>
+	</p1:MetaTabItem>
+
+</p1:TabCanvas>

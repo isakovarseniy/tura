@@ -20,7 +20,7 @@
 		</p2:MetaComposite>
 		<p2:MetaFieldSet bounds="0, 0, 64, 64" idObject="mainView"
 			fieldSet="FieldSet">
-			<p2:ViewPort canvasName="Canvas" viewPortName="ViewPort1"
+			<p2:ViewPort canvasName="MainHolder" viewPortName="ViewPort1"
 				size="64, 64" />
 		</p2:MetaFieldSet>
 	</p2:MetaComposite>

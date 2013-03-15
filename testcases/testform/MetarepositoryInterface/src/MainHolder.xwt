@@ -1,0 +1,15 @@
+<p1:TabCanvas xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	<p1:MetaTabItem text="Repository setup">
+		<p1:MetaTabItem.control>
+			<p1:ViewPort x:Name="RepositorySetupViewPort" viewPortName="RepositorySetupViewPort" canvasName="RepositorySetup"/>
+		</p1:MetaTabItem.control>
+	</p1:MetaTabItem>
+	<p1:MetaTabItem text="Applications setup">
+		<p1:MetaTabItem.control>
+			<p1:ViewPort x:Name="AppSetupViewPort" canvasName="Canvas" viewPortName="AppSetupViewPort"/>
+		</p1:MetaTabItem.control>
+	</p1:MetaTabItem>
+
+</p1:TabCanvas>
