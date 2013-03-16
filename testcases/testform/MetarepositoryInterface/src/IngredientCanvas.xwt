@@ -1,0 +1,33 @@
+<p1:StackableCanvas xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" viewPortName="RecipeViewPort">
+	<p1:StackableCanvas.layout>
+		<GridLayout numColumns="4"/>
+	</p1:StackableCanvas.layout>
+	<p1:MetaComposite>
+		<p1:MetaComposite.layout>
+			<GridLayout/>
+		</p1:MetaComposite.layout>
+		<p1:MetaLabel location="0, 0" text="Ingredient name"/>
+	</p1:MetaComposite>
+	<Label/>
+	<p1:MetaLabel text="Level"/>
+	<p1:MetaLabel text="order"/>
+	<p1:MetaInputText x:Style="BORDER" iteratorProperty="Ingredient" sourceProperty="ingradientName">
+		<p1:MetaInputText.layoutData>
+			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+		</p1:MetaInputText.layoutData>
+	</p1:MetaInputText>
+	<Label/>
+	<p1:MetaDropDown iteratorProperty="Ingredient" sourceProperty="level" optionIterator="OptMeamodelLevel" optionLabel="optionName" optionValue="optionValue">
+		<p1:MetaDropDown.layoutData>
+			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+		</p1:MetaDropDown.layoutData>
+	</p1:MetaDropDown>
+	<p1:MetaInputText x:Style="BORDER" iteratorProperty="Ingredient" sourceProperty="numId">
+		<p1:MetaInputText.layoutData>
+			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+		</p1:MetaInputText.layoutData>
+	</p1:MetaInputText>
+
+</p1:StackableCanvas>

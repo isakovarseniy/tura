@@ -1,6 +1,6 @@
-#Fri Mar 15 18:51:29 EDT 2013
-ModelMapping=ELsoft.Platform.modelMapping
+#Sat Mar 16 19:37:00 EDT 2013
 Method=ELsoft.Platform.method
+ModelMapping=ELsoft.Platform.modelMapping
 BusinessObjectMethodLnk=ELsoft.Platform.methodReference
 OptionsLnk=ELsoft.Platform.options
 FunctionalDomainLnk=ELsoft.Platform.functionalDomain
@@ -13,6 +13,7 @@ DrpDwnGlobalRoles=ELsoft.Platform.globalRole
 Ingredient=ELsoft.Platform.ingredient
 TypeDefinitionHelper=ELsoft.Platform.typeDefinition
 Uicontainer=ELsoft.Platform.uiContainer
+OptMeamodelLevel=ELsoft.Platform.options
 BusinessObjectLnk=ELsoft.Platform.businessObject
 OptTech=ELsoft.Platform.options
 DataSourcesCommand=ELsoft.Platform.command
@@ -20,6 +21,7 @@ TypeMappinglnk=ELsoft.Platform.typeMapping
 OptTypeOfTypes=ELsoft.Platform.options
 RolesMapping=ELsoft.Platform.command
 OptTypeOfTriggers=ELsoft.Platform.options
+OptArtCalc=ELsoft.Platform.options
 MethodHelper2=ELsoft.Platform.method
 GlobalRoles=ELsoft.Platform.globalRole
 ApplicationRoles=ELsoft.Platform.applicationRole

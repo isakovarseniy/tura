@@ -2485,6 +2485,8 @@ public class PopulateType {
 		mh.addMethod("postQueryReceipeLnk");
 		mh.addMethod("postQueryIngredient");
 		mh.addMethod("postQueryPacket");
+		mh.addMethod("recipeViewPortController");
+		
 
 	}
 

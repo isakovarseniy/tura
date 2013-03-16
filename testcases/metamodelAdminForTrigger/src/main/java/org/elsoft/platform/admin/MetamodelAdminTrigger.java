@@ -29,6 +29,61 @@ public class MetamodelAdminTrigger {
 		
 	}	
 	
+	
+	public void recipeViewPortController(Object obj){
+		Object bindFactory = FacesContext
+				.getCurrentInstance()
+				.getApplication()
+				.evaluateExpressionGet(FacesContext.getCurrentInstance(),
+						"#{MetarepositoryInterfacebinding}", Object.class);
+
+		Object recipeHandl = Reflection
+				.call(bindFactory, "getCurrentRecipelnk");
+		TreeNode currTreeNode = (TreeNode) Reflection.call(recipeHandl,
+				"getSelectedNode");
+		if (currTreeNode == null)
+			return;
+
+		if (currTreeNode
+				.getData()
+				.getClass()
+				.getCanonicalName()
+				.contains(
+						"org.elsoft.platform.metamodel.objects.recipe.RecipeDAO")) {
+			Reflection
+					.call(bindFactory, "setRecipeViewPort",
+							"/Metarepository/MetarepositoryInterface/RecipeCanvas.xhtml");
+
+		}
+
+		if (currTreeNode
+				.getData()
+				.getClass()
+				.getCanonicalName()
+				.contains(
+						"org.elsoft.platform.metamodel.objects.recipe.IngredientDAO")) {
+			Reflection
+					.call(bindFactory, "setRecipeViewPort",
+							"/Metarepository/MetarepositoryInterface/IngredientCanvas.xhtml");
+
+		}
+
+		if (currTreeNode
+				.getData()
+				.getClass()
+				.getCanonicalName()
+				.contains(
+						"org.elsoft.platform.metamodel.objects.recipe.PacketDAO")) {
+
+			Reflection
+					.call(bindFactory, "setRecipeViewPort",
+							"/Metarepository/MetarepositoryInterface/PacketCanvas.xhtml");
+
+		}
+		
+		
+	}
+	
 	public void viewPortAController(Object obj) {
 		Object bindFactory = FacesContext
 				.getCurrentInstance()

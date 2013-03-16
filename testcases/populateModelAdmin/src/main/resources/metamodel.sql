@@ -88,3 +88,89 @@ VALUES (36, 0, 'WS-EJB-Client', 'WS-EJB-Client', 'TypesOfTechnologies');
 INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
 VALUES (37, 0, 'JSF-JPA-HIBERNATE', 'JSF-JPA-HIBERNATE', 'TypesOfTechnologies');
 
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (38, 0, 'MetamodelTypeOfTypes', 'MetamodelTypeOfTypes', 'sets');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (39, 0, 'TypesOfTechnologies', 'TypesOfTechnologies', 'sets');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (40, 0, 'TypesOfArtifactTypes', 'TypesOfArtifactTypes', 'sets');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (41, 0, 'DCMetaInfo', 'DCMetaInfo', 'sets');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (42, 0, 'MetamodelPlatformLevel', 'MetamodelPlatformLevel', 'sets');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (43, 0, 'DB', 'DB', 'MetamodelPlatformLevel');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (44, 0, 'VM', 'VM', 'MetamodelPlatformLevel');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (45, 0, 'WEB_SERVICES', 'WEB_SERVICES', 'MetamodelPlatformLevel');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (46, 0, 'UI_CONTAINER', 'UI_CONTAINER', 'MetamodelPlatformLevel');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (47, 0, 'REPORTS', 'REPORTS', 'MetamodelPlatformLevel');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (48, 0, 'BUSINESS_PROCESS', 'BUSINESS_PROCESS', 'MetamodelPlatformLevel');
+
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (49, 0, 'TypesOfArtifactCalculator', 'TypesOfArtifactCalculator', 'sets');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (50, 0, 'ConnectionArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.ConnectionArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (51, 0, 'HelperClassesArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.HelperClassesArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (52, 0, 'JSFArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.JSFArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (53, 0, 'LifeRayArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.LifeRayArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (54, 0, 'MAVENPOMXMLArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.MAVENPOMXMLArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (55, 0, 'MAVENPOMXMLArtifactCalculatorJPALiferay','org.elsoft.platform.metamodel.processor.artifactcalculator.MAVENPOMXMLArtifactCalculatorJPALiferay', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (56, 0, 'MAVENPOMXMLArtifactCalculatorLiferay','org.elsoft.platform.metamodel.processor.artifactcalculator.MAVENPOMXMLArtifactCalculatorLiferay', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (57, 0, 'WEBXMLArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.WEBXMLArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (58, 0, 'JPAArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.JPAArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (59, 0, 'JPAMavenArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.JPAMavenArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (60, 0, 'WSEJBArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (61, 0, 'WSEJBClientArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBClientArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (62, 0, 'WSEJBMavenArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBMavenArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (63, 0, 'WSEJBMavenProxyArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBMavenProxyArtifactCalculator', 'TypesOfArtifactCalculator');
+
+INSERT INTO metamodel.options( obj_id, optlock, optionname, optionvalue, setname)
+VALUES (64, 0, 'WSEJBPersistentArtifactCalculator','org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBPersistentArtifactCalculator', 'TypesOfArtifactCalculator');
+
+
+
+select * from metamodel.options where setName ='TypesOfArtifactCalculator'

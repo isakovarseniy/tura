@@ -228,9 +228,9 @@
 		<p1:MetaTabItem.control>
 			<p1:MetaComposite>
 				<p1:MetaComposite.layout>
-					<GridLayout/>
+					<GridLayout numColumns="2"/>
 				</p1:MetaComposite.layout>
-				<p1:MetaTree x:Style="BORDER" iteratorProperty="recipelnk">
+				<p1:MetaTree x:Style="BORDER" iteratorProperty="recipelnk" updateOnRawSelect="recipeEditor">
 					<p1:MetaTree.layoutData>
 						<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
 					</p1:MetaTree.layoutData>
@@ -238,6 +238,11 @@
 						<p1:MetaInputText x:Style="BORDER" sourceProperty="name"/>
 					</p1:MetaTreeColumn>
 				</p1:MetaTree>
+				<p1:MetaFieldSet fieldSet="Panel" idObject="recipeEditor">
+					<p1:ViewPort x:Name="RecipeViewPort" viewPortName="RecipeViewPort" canvasName="RecipeCanvas" size="64, 64">
+					<p1:Trigger triggerType="Controller" x:Name="Controller" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="recipeViewPortController"/>
+				</p1:ViewPort>
+				</p1:MetaFieldSet>
 			</p1:MetaComposite>
 		</p1:MetaTabItem.control>
 	</p1:MetaTabItem>
