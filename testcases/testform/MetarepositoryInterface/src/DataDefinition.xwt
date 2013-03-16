@@ -32,6 +32,9 @@
 			<p1:Relation dstDataControl="DataSources">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
 			</p1:Relation>
+			<p1:Relation dstDataControl="recipelnk">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
+			</p1:Relation>
 		</p1:DataControl>
 		<p1:DataControl x:Name="TypeDefinition" businessObject="ELsoft.Platform.typeDefinition" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;TypeDefinition.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;TypeDefinition.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;TypeDefinition.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:DefaultSearch bounds="0, 0, 64, 64" expressionProperty="DomainLnk.name" fieldsProperty="domain" refType="String"/>
@@ -119,5 +122,30 @@
 			</p1:Relation>
 		</p1:DataControl>
 		<p1:DataControl x:Name="OptionsLnk" businessObject="ELsoft.Platform.options" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OptionsLnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OptionsLnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OptionsLnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
+		<p1:DataControl x:Name="recipelnk" businessObject="ELsoft.Platform.recipe" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;recipelnk.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;recipelnk.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;recipelnk.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:Relation dstDataControl="Ingredient" treeRelation="true">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
+			</p1:Relation>
+			<p1:ArtificialField x:Name="name" primitiveType="null.null.null.String"/>
+			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="postQueryReceipeLnk"/>
+		</p1:DataControl>
+		<p1:DataControl x:Name="Ingredient" businessObject="ELsoft.Platform.ingredient" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Ingredient.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Ingredient.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Ingredient.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}" touchEnabled="true">
+			<p1:Relation dstDataControl="Packet" treeRelation="true">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
+			</p1:Relation>
+			<p1:ArtificialField x:Name="name" primitiveType="null.null.null.String"/>
+			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="postQueryIngredient"/>
+		</p1:DataControl>
+		<p1:DataControl x:Name="Packet" businessObject="ELsoft.Platform.packet" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Packet.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Packet.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Packet.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:Relation dstDataControl="ModelMapping">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
+			</p1:Relation>
+			<p1:Relation treeRelation="true" dstDataControl="Packet">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
+			</p1:Relation>
+			<p1:ArtificialField x:Name="name" primitiveType="null.null.null.String"/>
+			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="postQueryPacket"/>
+		</p1:DataControl>
+		<p1:DataControl x:Name="ModelMapping" businessObject="ELsoft.Platform.modelMapping" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ModelMapping.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ModelMapping.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ModelMapping.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
 	</p1:DataDefinition>
 </p1:MetaComposite>

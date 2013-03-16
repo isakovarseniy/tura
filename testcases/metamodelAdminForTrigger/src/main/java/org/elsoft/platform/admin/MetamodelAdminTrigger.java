@@ -11,6 +11,24 @@ import org.primefaces.model.TreeNode;
 
 public class MetamodelAdminTrigger {
 
+	
+	public void postQueryReceipeLnk(Object obj){
+		Object name = Reflection.call(obj, "getRecipeName");
+		Reflection.call(obj, "setName", name);
+	}
+	
+	public void postQueryIngredient(Object obj){
+		Object name = Reflection.call(obj, "getIngradientName");
+		Reflection.call(obj, "setName", name);
+		
+	}	
+	
+	public void postQueryPacket(Object obj){
+		Object name = Reflection.call(obj, "getPacketName");
+		Reflection.call(obj, "setName", name);
+		
+	}	
+	
 	public void viewPortAController(Object obj) {
 		Object bindFactory = FacesContext
 				.getCurrentInstance()

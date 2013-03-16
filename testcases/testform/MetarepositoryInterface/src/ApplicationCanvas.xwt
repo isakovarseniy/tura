@@ -224,4 +224,21 @@
 			</p1:MetaComposite>
 		</p1:MetaTabItem.control>
 	</p1:MetaTabItem>
+	<p1:MetaTabItem text="Recipe">
+		<p1:MetaTabItem.control>
+			<p1:MetaComposite>
+				<p1:MetaComposite.layout>
+					<GridLayout/>
+				</p1:MetaComposite.layout>
+				<p1:MetaTree x:Style="BORDER" iteratorProperty="recipelnk">
+					<p1:MetaTree.layoutData>
+						<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
+					</p1:MetaTree.layoutData>
+					<p1:MetaTreeColumn width="100">
+						<p1:MetaInputText x:Style="BORDER" sourceProperty="name"/>
+					</p1:MetaTreeColumn>
+				</p1:MetaTree>
+			</p1:MetaComposite>
+		</p1:MetaTabItem.control>
+	</p1:MetaTabItem>
 </p1:TabCanvas>

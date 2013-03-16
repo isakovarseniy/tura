@@ -117,14 +117,14 @@
 			this.current${objlnk.name} = current${objlnk.name};
 			<j:forEach items="${objlnk.details.iterator()}" var="objrel">
 				${objrel.name} = null;
-				set${objrel.name}Null();
+				set${objrel.capName}Null();
 			</j:forEach>
 			}
 
 			public void set${objlnk.capName}Null(){
 			<j:forEach items="${objlnk.details.iterator()}" var="objrel">
 				${objrel.name}=null;
-				set${objrel.name}Null();
+				set${objrel.capName}Null();
 			</j:forEach>
 			}
 		</j:forEach>

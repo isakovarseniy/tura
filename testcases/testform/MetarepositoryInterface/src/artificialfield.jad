@@ -1,12 +1,15 @@
-#Sun Mar 10 13:47:47 EDT 2013
+#Fri Mar 15 19:34:57 EDT 2013
+Packet.name=Packet.name
 BusinessObjectMethodLnk.refArtType=BusinessObjectMethodLnk.refArtType
 Method.refType=Method.refType
 PropertyLnk.refArtType=PropertyLnk.refArtType
+Ingredient.name=Ingredient.name
 BusinessObjectMethodLnk.refArtMethodName=BusinessObjectMethodLnk.refArtMethodName
 BusinessObjectMethodLnk.refArtTypeId=BusinessObjectMethodLnk.refArtTypeId
-DataSources.refArtType=DataSources.refArtType
 Method.refArtType=Method.refArtType
+DataSources.refArtType=DataSources.refArtType
 TypeDefinitionHelper.refArtType=TypeDefinitionHelper.refArtType
 BusinessObjectLnk.refArtType=BusinessObjectLnk.refArtType
 TypeMappinglnk.refArtType=TypeMappinglnk.refArtType
+recipelnk.name=recipelnk.name
 ParametersLnk.refArtType=ParametersLnk.refArtType

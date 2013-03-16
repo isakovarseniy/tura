@@ -1,4 +1,5 @@
-#Thu Mar 14 20:50:08 EDT 2013
+#Fri Mar 15 18:51:29 EDT 2013
+ModelMapping=ELsoft.Platform.modelMapping
 Method=ELsoft.Platform.method
 BusinessObjectMethodLnk=ELsoft.Platform.methodReference
 OptionsLnk=ELsoft.Platform.options
@@ -6,8 +7,10 @@ FunctionalDomainLnk=ELsoft.Platform.functionalDomain
 MethodHelper=ELsoft.Platform.method
 ArtifactTypeLnk=ELsoft.Platform.artifactType
 PropertyLnk=ELsoft.Platform.property
+Packet=ELsoft.Platform.packet
 DrpDwnAppRoles=ELsoft.Platform.applicationRole
 DrpDwnGlobalRoles=ELsoft.Platform.globalRole
+Ingredient=ELsoft.Platform.ingredient
 TypeDefinitionHelper=ELsoft.Platform.typeDefinition
 Uicontainer=ELsoft.Platform.uiContainer
 BusinessObjectLnk=ELsoft.Platform.businessObject
@@ -20,6 +23,7 @@ OptTypeOfTriggers=ELsoft.Platform.options
 MethodHelper2=ELsoft.Platform.method
 GlobalRoles=ELsoft.Platform.globalRole
 ApplicationRoles=ELsoft.Platform.applicationRole
+recipelnk=ELsoft.Platform.recipe
 DomainLnk=ELsoft.Platform.domain
 ParametersLnk=ELsoft.Platform.parameter
 OptArtifactType=ELsoft.Platform.options
