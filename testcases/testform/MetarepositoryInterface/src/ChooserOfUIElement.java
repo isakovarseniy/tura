@@ -8,19 +8,18 @@ import org.eclipse.e4.xwt.IXWTLoader;
 import org.eclipse.e4.xwt.XWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Event;
 
 
-public class Canvas extends Composite {
+public class ChooserOfUIElement extends Composite {
 
-	public Canvas(Composite parent, int style) {
+	public ChooserOfUIElement(Composite parent, int style) {
 		super(parent, style);
 		setLayout(new FillLayout());
 		// load XWT
-		String name = Canvas.class.getSimpleName()
+		String name = ChooserOfUIElement.class.getSimpleName()
 				+ IConstants.XWT_EXTENSION_SUFFIX;
 		try {
-			URL url = Canvas.class.getResource(name);
+			URL url = ChooserOfUIElement.class.getResource(name);
 			Map<String, Object> options = new HashMap<String, Object>();
 			options.put(IXWTLoader.CLASS_PROPERTY, this);
 			options.put(IXWTLoader.CONTAINER_PROPERTY, this);
@@ -32,6 +31,4 @@ public class Canvas extends Composite {
 		}
 	}
 
-	public void onSelection(Event event) {
-	}
 }

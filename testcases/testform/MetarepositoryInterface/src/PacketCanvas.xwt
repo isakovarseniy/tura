@@ -42,5 +42,9 @@
 			<p1:MetaInputText x:Style="BORDER" sourceProperty="modelName"/>
 		</p1:MetaTableColumn>
 	</p1:MetaTable>
+	<p1:MetaAction text="Model chooser" SelectionEvent="onSelection">
+		<p1:Trigger triggerType="ONButtonClickJS" x:Name="ONButtonClickJS" script="PopUpProgrammChooserVar.show();"/>
+	</p1:MetaAction>
+	<p1:ViewPort x:Name="vewPortPopUpChooser" viewPortName="vewPortPopUpChooser" canvasName="PopUpProgrammChooser"/>
 
 </p1:StackableCanvas>
