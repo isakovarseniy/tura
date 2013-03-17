@@ -11,26 +11,58 @@ import org.primefaces.model.TreeNode;
 
 public class MetamodelAdminTrigger {
 
-	
-	public void postQueryReceipeLnk(Object obj){
+	public void postQueryReceipeLnk(Object obj) {
 		Object name = Reflection.call(obj, "getRecipeName");
 		Reflection.call(obj, "setName", name);
 	}
-	
-	public void postQueryIngredient(Object obj){
+
+	public void postQueryIngredient(Object obj) {
 		Object name = Reflection.call(obj, "getIngradientName");
 		Reflection.call(obj, "setName", name);
-		
-	}	
-	
-	public void postQueryPacket(Object obj){
+
+	}
+
+	public void postQueryPacket(Object obj) {
 		Object name = Reflection.call(obj, "getPacketName");
 		Reflection.call(obj, "setName", name);
+
+	}
+
+	public void vewPortProgrammChooser(Object obj) {
+		Object bindFactory = FacesContext
+				.getCurrentInstance()
+				.getApplication()
+				.evaluateExpressionGet(FacesContext.getCurrentInstance(),
+						"#{MetarepositoryInterfacebinding}", Object.class);
+
+		Object modelMappingHandl = Reflection.call(bindFactory,
+				"getCurrentModelMapping");
+
+		Object currentRow = Reflection.call(modelMappingHandl,
+				"getGridCurrentRow");
+
+		String artifactCalculator =  (String) Reflection.call(currentRow, "getArtifactCalculator");
 		
-	}	
-	
-	
-	public void recipeViewPortController(Object obj){
+		if (artifactCalculator.equals("org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBArtifactCalculator")){
+
+			Reflection
+			.call(bindFactory, "setVewPortProgrammChooser",
+					"/Metarepository/MetarepositoryInterface/ChooserOfDataSource.xhtml");
+			
+		}
+		
+/*		if (artifactCalculator.equals(anObject)){
+
+			Reflection
+			.call(bindFactory, "setVewPortProgrammChooser",
+					"/Metarepository/MetarepositoryInterface/ChooserOfUIElement.xhtml");
+			
+		}
+*/
+		
+	}
+
+	public void recipeViewPortController(Object obj) {
 		Object bindFactory = FacesContext
 				.getCurrentInstance()
 				.getApplication()
@@ -80,10 +112,9 @@ public class MetamodelAdminTrigger {
 							"/Metarepository/MetarepositoryInterface/PacketCanvas.xhtml");
 
 		}
-		
-		
+
 	}
-	
+
 	public void viewPortAController(Object obj) {
 		Object bindFactory = FacesContext
 				.getCurrentInstance()
@@ -141,10 +172,10 @@ public class MetamodelAdminTrigger {
 	}
 
 	public void postQueryTypeDefinitionHelperlnk(Object obj) {
-		String typeName = (String) Reflection.call(obj, "getTypeName")
-				+ "." + (String) Reflection.call(obj, "getApplication")
-				+ "." + (String) Reflection.call(obj, "getFunctionalDomain")
-				+ "." + (String) Reflection.call(obj, "getDomain");
+		String typeName = (String) Reflection.call(obj, "getTypeName") + "."
+				+ (String) Reflection.call(obj, "getApplication") + "."
+				+ (String) Reflection.call(obj, "getFunctionalDomain") + "."
+				+ (String) Reflection.call(obj, "getDomain");
 		Reflection.call(obj, "setRefArtType", typeName);
 	}
 
@@ -172,61 +203,55 @@ public class MetamodelAdminTrigger {
 				.getApplication()
 				.evaluateExpressionGet(FacesContext.getCurrentInstance(),
 						"#{MetarepositoryInterfacebinding}", Object.class);
-		Handler methodHandl = (Handler) Reflection
-				.call(bindFactory, "getCurrentMethodHelper2");
-		
+		Handler methodHandl = (Handler) Reflection.call(bindFactory,
+				"getCurrentMethodHelper2");
+
 		methodHandl = (Handler) methodHandl.cleanSearch();
 		methodHandl = (Handler) methodHandl.searchLong("objId", refMethod);
 		Object methodObj = methodHandl.getObject();
 		Long refType = (Long) Reflection.call(methodObj, "getParentId");
 		refMethodCalculation(refType, obj);
-		
+
 		String method = (String) Reflection.call(methodObj, "getMethod");
-		Reflection.call(obj, "setRefArtMethodName",method);
-		Reflection.call(obj, "setRefArtTypeId",refType);
-		
-	
+		Reflection.call(obj, "setRefArtMethodName", method);
+		Reflection.call(obj, "setRefArtTypeId", refType);
+
 	}
 
-	public void preFormTrigger(ELResolver el){
-		
+	public void preFormTrigger(ELResolver el) {
+
 		ArrayList<Class<?>> clazzes = new ArrayList<Class<?>>();
-		clazzes.add( org.elsoft.platform.metamodel.objects.command.datasource.CreateDataSourceDAO.class);
+		clazzes.add(org.elsoft.platform.metamodel.objects.command.datasource.CreateDataSourceDAO.class);
 		el.setValue("clazzes", clazzes);
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public void postQueryDataSource(Object obj) {
 
 		Long refDs = (Long) Reflection.call(obj, "getObjId");
-		
+
 		Object bindFactory = FacesContext
 				.getCurrentInstance()
 				.getApplication()
 				.evaluateExpressionGet(FacesContext.getCurrentInstance(),
 						"#{MetarepositoryInterfacebinding}", Object.class);
-		Handler dsHandl = (Handler) Reflection
-				.call(bindFactory, "getCurrentDataSourcesCommand");
-		
+		Handler dsHandl = (Handler) Reflection.call(bindFactory,
+				"getCurrentDataSourcesCommand");
+
 		dsHandl = (Handler) dsHandl.cleanSearch();
 		dsHandl = (Handler) dsHandl.searchLong("parentId", refDs);
 		Object dscmd = dsHandl.getObject();
 
 		Long refType = (Long) Reflection.call(dscmd, "getRefType");
 		refMethodCalculation(refType, obj);
-		
-	
+
 	}
-	
-	
 
 	public void postQueryParameterLnk(Object obj) {
 		Long returnType = (Long) Reflection.call(obj, "getParameterType");
 		refMethodCalculation(returnType, obj);
 	}
-	
-	
-	
+
 	@SuppressWarnings("rawtypes")
 	private void refMethodCalculation(Long returnType, Object obj) {
 		if (returnType == null)
@@ -246,18 +271,18 @@ public class MetamodelAdminTrigger {
 		Object typeObj = typeHelper.getObject();
 		if (typeObj != null) {
 			String typeName = (String) Reflection.call(typeObj, "getTypeName")
-					+ decode( (String) Reflection.call(typeObj, "getApplication"))
-					+ decode( (String) Reflection.call(typeObj, "getFunctionalDomain"))
+					+ decode((String) Reflection
+							.call(typeObj, "getApplication"))
+					+ decode((String) Reflection.call(typeObj,
+							"getFunctionalDomain"))
 					+ decode((String) Reflection.call(typeObj, "getDomain"));
 			Reflection.call(obj, "setRefArtType", typeName);
 		}
 
 	}
-	
-	 public static String decode(String value)  
-	 {  
-	  return value != null ? "." + value: "";  
-	 }  
 
-	
+	public static String decode(String value) {
+		return value != null ? "." + value : "";
+	}
+
 }

@@ -8,7 +8,9 @@
 		<p1:MetaComposite.layout>
 			<GridLayout/>
 		</p1:MetaComposite.layout>
-		<p1:ViewPort bounds="0, 0, 64, 64" x:Name="vewPortProgrammChooser" viewPortName="vewPortProgrammChooser" canvasName="ChooserOfUIElement"/>
+		<p1:ViewPort bounds="0, 0, 64, 64" x:Name="vewPortProgrammChooser" viewPortName="vewPortProgrammChooser" canvasName="ChooserOfUIElement">
+			<p1:Trigger triggerType="Controller" x:Name="Controller" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="vewPortProgrammChooser"/>
+		</p1:ViewPort>
 	</p1:MetaComposite>
 
 </p1:PopUpCanvas>
