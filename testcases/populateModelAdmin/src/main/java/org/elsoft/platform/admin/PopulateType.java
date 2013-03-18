@@ -16,6 +16,7 @@
 package org.elsoft.platform.admin;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.elsoft.platform.metamodel.MetamodelTypeOfTypes;
 import org.elsoft.platform.metamodel.PlatformPrimetiveTypes;
@@ -23,18 +24,16 @@ import org.elsoft.platform.metamodel.objects.type.MethodDAO;
 import org.elsoft.platform.metamodel.objects.type.ParameterDAO;
 import org.elsoft.platform.metamodel.objects.type.PropertyDAO;
 import org.elsoft.platform.metamodel.objects.type.TypeDAO;
-import org.elsoft.platform.metamodel.objects.type.TypeMappingDAO;
 import org.elsoft.platform.metamodel.types.MethodHandler;
 import org.elsoft.platform.metamodel.types.ParameterHandler;
 import org.elsoft.platform.metamodel.types.PropertyHandler;
 import org.elsoft.platform.metamodel.types.TypeDefinitionHandler;
-import org.elsoft.platform.metamodel.types.TypeMappingHandler;
 import org.elsoft.platform.metamodel.RepositoryFactory;
 
 public class PopulateType {
 
 	public void execute(RepositoryFactory rf) {
-		HashMap<PlatformPrimetiveTypes, TypeDAO> h = createPrimitiveTypes(rf);
+		HashMap<PlatformPrimetiveTypes, TypeDAO> h = readPrimitiveTypes(rf);
 		createDomainTypes(rf, h);
 		createFunctionalDomainTypes(rf, h);
 		createApplicationTypes(rf, h);
@@ -70,97 +69,22 @@ public class PopulateType {
 
 	}
 
-	private HashMap<PlatformPrimetiveTypes, TypeDAO> createPrimitiveTypes(
-			RepositoryFactory rf) {
-		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
-		TypeMappingHandler tmph = rf.getTypeMappingHandler();
+	private HashMap<PlatformPrimetiveTypes, TypeDAO> readPrimitiveTypes(RepositoryFactory rf) {
+
 		HashMap<PlatformPrimetiveTypes, TypeDAO> h = new HashMap<PlatformPrimetiveTypes, TypeDAO>();
 
-		TypeDAO tpdao = tdh.addPrimitiveType(PlatformPrimetiveTypes.String);
-		h.put(PlatformPrimetiveTypes.String, tpdao);
-		TypeMappingDAO tmpdao = tmph.addTypeMapping(tpdao,
-				PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name());
-		tmpdao.setTargetLayer(PlatformPrimetiveTypes.NA.name());
-		tmpdao.setResPackageName("java.lang");
-		tmpdao.setResTypeName("String");
-
-		tpdao = tdh.addPrimitiveType(PlatformPrimetiveTypes.Boolean);
-		h.put(PlatformPrimetiveTypes.Boolean, tpdao);
-		tmpdao = tmph.addTypeMapping(tpdao, PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name());
-		tmpdao.setTargetLayer(PlatformPrimetiveTypes.NA.name());
-		tmpdao.setResPackageName("java.lang");
-		tmpdao.setResTypeName("Boolean");
-
-		tpdao = tdh.addPrimitiveType(PlatformPrimetiveTypes.Decimal);
-		h.put(PlatformPrimetiveTypes.Decimal, tpdao);
-		tmpdao = tmph.addTypeMapping(tpdao, PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name());
-		tmpdao.setTargetLayer(PlatformPrimetiveTypes.NA.name());
-		tmpdao.setResPackageName("java.lang");
-		tmpdao.setResTypeName("BigDecimal");
-
-		tpdao = tdh.addPrimitiveType(PlatformPrimetiveTypes.Float);
-		h.put(PlatformPrimetiveTypes.Float, tpdao);
-		tmpdao = tmph.addTypeMapping(tpdao, PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name());
-		tmpdao.setTargetLayer(PlatformPrimetiveTypes.NA.name());
-		tmpdao.setResPackageName("java.lang");
-		tmpdao.setResTypeName("Float");
-
-		tpdao = tdh.addPrimitiveType(PlatformPrimetiveTypes.Double);
-		h.put(PlatformPrimetiveTypes.Double, tpdao);
-		tmpdao = tmph.addTypeMapping(tpdao, PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name());
-		tmpdao.setTargetLayer(PlatformPrimetiveTypes.NA.name());
-		tmpdao.setResPackageName("java.lang");
-		tmpdao.setResTypeName("Double");
-
-		tpdao = tdh.addPrimitiveType(PlatformPrimetiveTypes.DateTime);
-		h.put(PlatformPrimetiveTypes.DateTime, tpdao);
-		tmpdao = tmph.addTypeMapping(tpdao, PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name());
-		tmpdao.setTargetLayer(PlatformPrimetiveTypes.NA.name());
-		tmpdao.setResPackageName("java.util");
-		tmpdao.setResTypeName("Date");
-
-		tpdao = tdh.addPrimitiveType(PlatformPrimetiveTypes.Date);
-		h.put(PlatformPrimetiveTypes.Date, tpdao);
-		tmpdao = tmph.addTypeMapping(tpdao, PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name());
-		tmpdao.setTargetLayer(PlatformPrimetiveTypes.NA.name());
-		tmpdao.setResPackageName("java.util");
-		tmpdao.setResTypeName("Date");
-
-		tpdao = tdh.addPrimitiveType(PlatformPrimetiveTypes.Integer);
-		h.put(PlatformPrimetiveTypes.Integer, tpdao);
-		tmpdao = tmph.addTypeMapping(tpdao, PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name());
-		tmpdao.setTargetLayer(PlatformPrimetiveTypes.NA.name());
-		tmpdao.setResPackageName("java.lang");
-		tmpdao.setResTypeName("Integer");
-
-		tpdao = tdh.addPrimitiveType(PlatformPrimetiveTypes.Long);
-		h.put(PlatformPrimetiveTypes.Long, tpdao);
-		tmpdao = tmph.addTypeMapping(tpdao, PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name(),
-				PlatformPrimetiveTypes.NA.name());
-		tmpdao.setTargetLayer(PlatformPrimetiveTypes.NA.name());
-		tmpdao.setResPackageName("java.lang");
-		tmpdao.setResTypeName("Long");
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler().searchString(
+				"typeOfType", MetamodelTypeOfTypes.Primitive.name());
+		Iterator<TypeDAO> itr = tdh.getList();
+		while (itr.hasNext()) {
+			TypeDAO type = itr.next();
+			h.put(PlatformPrimetiveTypes.valueOf(type.getTypeName()), type);
+		}
 
 		return h;
 
 	}
+	
 
 	private void createDomainTypes(RepositoryFactory rf,
 			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {

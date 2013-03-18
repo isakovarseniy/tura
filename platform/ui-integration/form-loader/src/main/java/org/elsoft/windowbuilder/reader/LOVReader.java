@@ -65,7 +65,7 @@ public class LOVReader extends ItemReader {
 		CreateUILovDAO createUILov = new CreateUILovDAO();
 		createUILov.setCommandExecutor(CreateUILov.class.getName());
 		createUILov.setParentUUID(parent.getUuid());
-		createUILov.setLabel(label);
+		createUILov.setLabel(getLabel());
 		createUILov.setUUID(getUuid());
 		createUILov.setCss(getCssStyle());
 		createUILov.setCssClass(getCssStyleClass());

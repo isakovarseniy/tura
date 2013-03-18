@@ -49,7 +49,8 @@ public class TransactionManagerBuilderImpl implements TransactionManagerBuilder{
 
 	
  		       ArrayList&lt;Class&lt;?&gt;&gt; ls = new ArrayList&lt;Class&lt;?&gt;&gt;();
- 		       ls.addAll(clazzes);
+ 		       if (clazzes != null)
+ 		           ls.addAll(clazzes);
  
                ls.add( org.elsoft.platform.persistence.ObjectsID.class);
  

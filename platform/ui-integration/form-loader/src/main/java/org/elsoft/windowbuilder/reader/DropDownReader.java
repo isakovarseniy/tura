@@ -43,10 +43,7 @@ public class DropDownReader extends ItemReader {
 	private String optionDataControlId;
 	private String labelField;
 	private String valueField;
-	private String label;
 	private boolean tableContext = false;
-	private String cssStyle;
-	private String cssStyleClass;
 	private String updateOnValueChanged;
 
 	@Override
@@ -74,10 +71,10 @@ public class DropDownReader extends ItemReader {
 		createUIDropDownList.setCommandExecutor(CreateUIDropDownList.class
 				.getName());
 		createUIDropDownList.setParentUUID(parent.getUuid());
-		createUIDropDownList.setLabel(label);
+		createUIDropDownList.setLabel(getLabel());
 		createUIDropDownList.setUUID(getUuid());
-		createUIDropDownList.setCss(cssStyle);
-		createUIDropDownList.setCssClass(cssStyleClass);
+		createUIDropDownList.setCss(getCssStyle());
+		createUIDropDownList.setCssClass(getCssStyleClass());
 		program.add(createUIDropDownList);
 
 		event = new EventDAO();
