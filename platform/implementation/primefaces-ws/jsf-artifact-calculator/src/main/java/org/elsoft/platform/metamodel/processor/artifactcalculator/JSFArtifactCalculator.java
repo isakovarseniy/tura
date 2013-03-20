@@ -58,15 +58,16 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 			path = path + ":tura" + ((Canvas) element).getUuid();
 
 		if (element instanceof ViewPort) {
-			pathCalulator(cavasesMap.get(((ViewPort) element).getCanvas().getCanvasName()),
-					pathMap, path, cavasesMap);
+			pathCalulator(cavasesMap.get(((ViewPort) element).getCanvas()
+					.getCanvasName()), pathMap, path, cavasesMap);
 
-			if (((ViewPort) element).getCanvasSwitch() != null){
-				Iterator<Canvas> itr = ((ViewPort) element).getCanvasSwitch().iterator();
-				while (itr.hasNext()){
+			if (((ViewPort) element).getCanvasSwitch() != null) {
+				Iterator<Canvas> itr = ((ViewPort) element).getCanvasSwitch()
+						.iterator();
+				while (itr.hasNext()) {
 					pathCalulator(cavasesMap.get(itr.next().getCanvasName()),
 							pathMap, path, cavasesMap);
-					
+
 				}
 			}
 		}
@@ -88,34 +89,47 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 
 		Form frm = (Form) model;
 
-		
+		RepositoryFactory rf = (RepositoryFactory) context
+				.get(PlatformConfig.REPOSITORYFACTORY_PARAMETER);
+		String domain = (String) context.get(PlatformConfig.DOMAIN_PARAMETER);
+		String functionalDomain = (String) context
+				.get(PlatformConfig.FUNCTIONAL_DOMAIN_PARAMETER);
+		String application = (String) context
+				.get(PlatformConfig.APPLICATION_PARAMETER);
+		MetamodelPlatformLevel level = (MetamodelPlatformLevel) context
+				.get(PlatformConfig.LAYER_PARAMETER);
+
 		Iterator<Canvas> itrCanvas = frm.getCanvases().iterator();
-		HashMap<String,Canvas> canvasesMap = new HashMap<String,Canvas>();
+		HashMap<String, Canvas> canvasesMap = new HashMap<String, Canvas>();
 		while (itrCanvas.hasNext()) {
 			Canvas canvas = itrCanvas.next();
 			canvasesMap.put(canvas.getCanvasName(), canvas);
 		}
-		
+
 		String path = ":window";
 		HashMap<String, String> keyMap = new HashMap<String, String>();
 		Iterator<Window> itrWin = frm.getWindows().iterator();
 		while (itrWin.hasNext()) {
 			Window win = itrWin.next();
-			pathCalulator(win,keyMap, path, canvasesMap);
+			pathCalulator(win, keyMap, path, canvasesMap);
 		}
 
 		itrWin = frm.getWindows().iterator();
 		while (itrWin.hasNext()) {
 			Window win = itrWin.next();
 			list.add(new Artifact(MetamodelArtifactType.JSPXFile,
-					(new JSPXModeBuilder()).builder(win, frm, keyMap), "JSF"));
+					(new JSPXModeBuilder()).builder(win, domain,
+							functionalDomain, application, level, frm, rf,
+							keyMap,context), "JSF"));
 		}
 
 		itrCanvas = frm.getCanvases().iterator();
 		while (itrCanvas.hasNext()) {
 			Canvas canvas = itrCanvas.next();
 			list.add(new Artifact(MetamodelArtifactType.JSPXFile,
-					(new JSPXModeBuilder()).builder(canvas, frm, keyMap), "JSF"));
+					(new JSPXModeBuilder()).builder(canvas, domain,
+							functionalDomain, application, level, frm, rf,
+							keyMap,context), "JSF"));
 		}
 
 		@SuppressWarnings("unchecked")
@@ -147,19 +161,8 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 			DataLink link = itrLink.next();
 			Artifact artifact = new Artifact(
 					MetamodelArtifactType.DataControlFile,
-					new DataControlModelBuilder().builder(
-							(RepositoryFactory) context
-									.get(PlatformConfig.REPOSITORYFACTORY_PARAMETER),
-							link,
-							(String) context
-									.get(PlatformConfig.DOMAIN_PARAMETER),
-							(String) context
-									.get(PlatformConfig.FUNCTIONAL_DOMAIN_PARAMETER),
-							(String) context
-									.get(PlatformConfig.APPLICATION_PARAMETER),
-							(MetamodelPlatformLevel) context
-									.get(PlatformConfig.LAYER_PARAMETER), frm),
-					"JSF");
+					new DataControlModelBuilder().builder(rf, link, domain,
+							functionalDomain, application, level, frm), "JSF");
 
 			proxyMap.putAll(((DataLinkExtender) (artifact.getModel()))
 					.getProxyHash());
@@ -178,21 +181,11 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 		outputContext.put(MODULES_LIST, modulesList);
 		outputContext.put(RETURN_TYPES, returnTypesMap);
 
-		Object obj = new FactoryBeanModelBuilder().builder(
-				(RepositoryFactory) context
-				.get(PlatformConfig.REPOSITORYFACTORY_PARAMETER),
-		(String) context
-				.get(PlatformConfig.DOMAIN_PARAMETER),
-		(String) context
-				.get(PlatformConfig.FUNCTIONAL_DOMAIN_PARAMETER),
-		(String) context
-				.get(PlatformConfig.APPLICATION_PARAMETER),
-		(MetamodelPlatformLevel) context
-				.get(PlatformConfig.LAYER_PARAMETER), frm);
+		Object obj = new FactoryBeanModelBuilder().builder(rf, domain,
+				functionalDomain, application, level, frm);
 
 		list.add(new Artifact(MetamodelArtifactType.FactoryBeanFile, obj, "JSF"));
 
 		return list;
 	}
-
 }

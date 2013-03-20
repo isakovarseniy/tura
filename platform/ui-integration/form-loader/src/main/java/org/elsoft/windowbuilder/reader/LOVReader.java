@@ -39,7 +39,6 @@ import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateUILov;
 public class LOVReader extends ItemReader {
 
 	private String optionDataControlId;
-	private String label;
 	private boolean tableContext = false;
 	private String updateOnValueChanged;
 

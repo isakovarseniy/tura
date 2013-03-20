@@ -40,6 +40,7 @@ public enum MetamodelTriggerEventsType {
 	CreateEventUIElement2JavaScript("na"),
 	CreateEventUIElement2ImageHolder("na"),
 	CreateEventViewPort2Controller("na"),
+	CreateEventUIElement2SecurityServiceMethod("na"),
 	Drugable("na"),
 	Dropable("na"),
 	

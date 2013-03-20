@@ -24,6 +24,7 @@ import org.elsoft.platform.metamodel.PersistentInterface;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateSecurityTriggerDAO;
 import org.elsoft.platform.metamodel.processor.CommandHandler;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2JavaScript;
+import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateEventUIElement2SecurityService;
 import org.elsoft.platform.metamodel.processor.uicontainer.command.CreateSecurityTrigger;
 import org.elsoft.platform.metamodel.processor.datasource.model.RemoteMethod;
 
@@ -55,26 +56,16 @@ public abstract class UIElement extends PersistentInterface {
 		return triggers;
 	}
 
-	public void setSecurityTrigger(CreateSecurityTriggerDAO trigger,
-			RemoteMethod rmi) {
-		if (trigger.getOperationType().equals("Rendered")) {
+	public void setSecurityTrigger(CreateSecurityTriggerDAO trigger) {
+		if (trigger.getOperationType().equals("Rendered"))
 			rendered = trigger;
-			if (rmi != null)
-				triggers.put("Rendered", rmi);
-		}
 
-		if (trigger.getOperationType().equals("ReadOnly")) {
+		if (trigger.getOperationType().equals("ReadOnly"))
 			readonly = trigger;
-			if (rmi != null)
-				triggers.put("ReadOnly", rmi);
-		}
 
-		
-		if (trigger.getOperationType().equals("Disabled")) {
+		if (trigger.getOperationType().equals("Disabled"))
 			disable = trigger;
-			if (rmi != null)
-				triggers.put("Disabled", rmi);
-		}
+
 	}
 
 	public CreateSecurityTriggerDAO getRendered() {
@@ -84,8 +75,7 @@ public abstract class UIElement extends PersistentInterface {
 	public CreateSecurityTriggerDAO getReadonly() {
 		return readonly;
 	}
-	
-	
+
 	public CreateSecurityTriggerDAO getDisable() {
 		return disable;
 	}
@@ -130,11 +120,23 @@ public abstract class UIElement extends PersistentInterface {
 
 	@Override
 	protected void serialize(CommandHandler ch) throws Exception {
-		if (rendered != null)
+		if (rendered != null) {
 			CreateSecurityTrigger.save(ch, getUuid(), rendered);
-
-		if (disable != null)
+			if (rendered.getDomain() != null)
+				CreateEventUIElement2SecurityService.save(ch, rendered);
+			
+		}
+		if (disable != null) {
 			CreateSecurityTrigger.save(ch, getUuid(), disable);
+			if (disable.getDomain() != null)
+				CreateEventUIElement2SecurityService.save(ch, disable);
+		}
+
+		if (readonly != null) {
+			CreateSecurityTrigger.save(ch, getUuid(), readonly);
+			if (readonly.getDomain() != null)
+				CreateEventUIElement2SecurityService.save(ch, readonly);
+		}
 
 		Iterator<String> itrS = scriptTriggers.keySet().iterator();
 		while (itrS.hasNext()) {

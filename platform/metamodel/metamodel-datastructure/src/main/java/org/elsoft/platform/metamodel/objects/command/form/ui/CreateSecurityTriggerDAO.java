@@ -47,6 +47,12 @@ public class CreateSecurityTriggerDAO  extends CommandDAO {
 	
 	@Column(name = "GRANTED")
 	private String granted;
+	
+
+	@Column(name = "DSTUUID")
+	private String dstUUID;
+	
+	
 			
 	public String getOperationType() {
 		return operationType;
@@ -113,6 +119,12 @@ public class CreateSecurityTriggerDAO  extends CommandDAO {
 	}
 	public void setRefMethod(Long refMethod) {
 		this.refMethod = refMethod;
+	}
+	public String getDstUUID() {
+		return dstUUID;
+	}
+	public void setDstUUID(String dstUUID) {
+		this.dstUUID = dstUUID;
 	}
 	
 	

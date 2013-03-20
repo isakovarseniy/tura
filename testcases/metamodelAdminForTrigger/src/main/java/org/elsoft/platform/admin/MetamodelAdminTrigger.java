@@ -10,6 +10,11 @@ import org.elsoft.platform.datacontrol.extender.Handler;
 import org.primefaces.model.TreeNode;
 
 public class MetamodelAdminTrigger {
+	
+	
+	public boolean disableModelChoserButton(){
+		return false;
+	}
 
 	public void postQueryReceipeLnk(Object obj) {
 		Object name = Reflection.call(obj, "getRecipeName");

@@ -1,8 +1,10 @@
 package org.eclipse.wb.elsoft.components;
 
 import org.eclipse.e4.xwt.elsoft.types.GrantedRoleProperty;
+import org.eclipse.e4.xwt.elsoft.types.MethodProperty;
 import org.eclipse.e4.xwt.elsoft.types.OperetionTypeProperty;
 import org.eclipse.e4.xwt.elsoft.types.RolesProperty;
+import org.eclipse.e4.xwt.elsoft.types.ServiceProperty;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Item;
@@ -12,7 +14,10 @@ public class SecurityTrigger extends Item {
 	private RolesProperty roles;
 	private OperetionTypeProperty operation;
 	private GrantedRoleProperty granted;
+	private ServiceProperty service;
+	private MethodProperty method;
 
+	
 	public SecurityTrigger(Composite parent, int style) {
 		super(parent, style);
 		// TODO Auto-generated constructor stub
@@ -50,6 +55,22 @@ public class SecurityTrigger extends Item {
 
 	public void setRoles(RolesProperty roles) {
 		this.roles = roles;
+	}
+
+	public ServiceProperty getService() {
+		return service;
+	}
+
+	public void setService(ServiceProperty service) {
+		this.service = service;
+	}
+
+	public MethodProperty getMethod() {
+		return method;
+	}
+
+	public void setMethod(MethodProperty method) {
+		this.method = method;
 	}
 
 }

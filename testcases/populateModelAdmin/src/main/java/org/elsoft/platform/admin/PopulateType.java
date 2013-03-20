@@ -2411,7 +2411,7 @@ public class PopulateType {
 		mh.addMethod("postQueryPacket");
 		mh.addMethod("recipeViewPortController");
 		mh.addMethod("vewPortProgrammChooser");		
-
+		mh.addMethod("disableModelChoserButton");
 	}
 
 }

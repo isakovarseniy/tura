@@ -23,13 +23,20 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.apache.commons.lang.StringUtils;
+import org.elsoft.platform.metamodel.MetamodelPlatformLevel;
 import org.elsoft.platform.metamodel.MetamodelTriggerEventsType;
+import org.elsoft.platform.metamodel.RepositoryFactory;
 import org.elsoft.platform.metamodel.objects.command.EventDAO;
 import org.elsoft.platform.metamodel.objects.command.form.ui.CreateSecurityTriggerDAO;
+import org.elsoft.platform.metamodel.objects.type.MethodDAO;
+import org.elsoft.platform.metamodel.processor.Helper;
+import org.elsoft.platform.metamodel.processor.datasource.model.Parameter;
+import org.elsoft.platform.metamodel.processor.datasource.model.RemoteMethod;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ActionElement;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Button;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.Canvas;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ChildrenOwner;
+import org.elsoft.platform.metamodel.processor.uicontainer.model.DataLink;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.DropDownList;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.DrugAndDrop;
 import org.elsoft.platform.metamodel.processor.uicontainer.model.ExternalIterator;
@@ -46,9 +53,27 @@ import org.elsoft.platform.metamodel.processor.uicontainer.model.ViewPort;
 import com.rits.cloning.Cloner;
 
 public class JSPXModeBuilder {
-	JspxModel model = new JspxModel();
+	private JspxModel model = new JspxModel();
+	private String domain;
+	private String functionalDomain;
+	private String application;
+	private MetamodelPlatformLevel level;
+	private RepositoryFactory rf;
+	private Form frm;
+	private HashMap<String, Object> context;
 
-	public Object builder(UIElement element, Form frm,  HashMap<String, String> keyMap) {
+	public Object builder(UIElement element, String domain,
+			String functionalDomain, String application,
+			MetamodelPlatformLevel level, Form frm, RepositoryFactory rf,
+			HashMap<String, String> keyMap,HashMap<String, Object> context) {
+
+		this.domain = domain;
+		this.functionalDomain = functionalDomain;
+		this.application = application;
+		this.level = level;
+		this.rf = rf;
+		this.frm=frm;
+		this.context = context;
 
 		Cloner cloner = new Cloner();
 		cloner.setDumpClonedClasses(false);
@@ -60,42 +85,42 @@ public class JSPXModeBuilder {
 		model.setElement(el);
 		model.setUicontainer(frm.getName());
 
-/*		HashMap<String, String> keyMap = new HashMap<String, String>();
-		String path = ":window";
-		pathCalulator(el, keyMap, path);
-*/
-		if (el instanceof Canvas){
-			String path = keyMap.get(((Canvas)el).getCanvasName());
+		if (el instanceof Canvas) {
+			String path = keyMap.get(((Canvas) el).getCanvasName());
 			int i = path.lastIndexOf(":");
-			lovFinder(el,path.substring(0,i));
+			lovFinder(el, path.substring(0, i));
 		}
 		viewPortFinder(el, keyMap);
 
 		return model;
 	}
 
-/*	private void pathCalulator(UIElement element, Map<String, String> pathMap,
-			String path) {
-
-		pathMap.put(((UIElement) element).getUuid(), path + ":tura"
-				+ ((UIElement) element).getUuid());
-
-		if ((element instanceof Canvas)
-				&& (((Canvas) element).getCanvasType()
-						.equals(MetamodelObjectType.TabCanvas.name())))
-			path = path + ":tura" + ((Canvas) element).getUuid();
-
-		if (element instanceof ChildrenOwner) {
-			Iterator<UIElement> itr = ((ChildrenOwner) element).getChildrens()
-					.iterator();
-			while (itr.hasNext()) {
-				pathCalulator(itr.next(), pathMap, path);
-			}
-		}
-	}
-*/
 	private void viewPortFinder(UIElement element,
 			HashMap<String, String> keyMap) {
+
+		Iterator<RemoteMethod> itrRmi = element.getTriggers().values()
+				.iterator();
+		while (itrRmi.hasNext()) {
+			RemoteMethod rmi = itrRmi.next();
+			if (rmi.getReturnType() != null) {
+				rmi.setReturnType(new MappedType(rmi.getReturnType()
+						.getTypedao(), domain, functionalDomain, application,
+						level, rf));
+			}
+			Iterator<Parameter> itrParams = rmi.getParamClass().iterator();
+			while (itrParams.hasNext()) {
+				Parameter param = itrParams.next();
+				param.setType(new MappedType(param.getType().getTypedao(),
+						domain, functionalDomain, application, level, rf));
+			}
+
+			rmi.setProxy(new MappedType(rmi.getProxy().getTypedao(), domain,
+					functionalDomain, application, level, rf));
+
+			rmi.setProxy(new MappedType(rmi.getProxy().getTypedao(), domain,
+					functionalDomain, application, level, rf));
+		}
+
 		if (element instanceof ViewPort) {
 			String name = ((ViewPort) element).getViewPortName();
 			((ViewPort) element)
@@ -103,20 +128,21 @@ public class JSPXModeBuilder {
 		}
 
 		if (element.getRendered() != null) {
-			element.getPropertiesExtender().put(
-					"rendered_expression", securityConverter(element.getRendered()));            
+			element.getPropertiesExtender().put("rendered_expression",
+					securityConverter(element.getRendered()));
 		}
 
 		if (element.getDisable() != null) {
-			element.getPropertiesExtender().put(
-					"disable_expression", securityConverter(element.getDisable()));            
+			element.getPropertiesExtender().put("disable_expression",
+					securityConverter(element.getDisable()));
 		}
 
-		if ((element instanceof InputElement)&&(((InputElement)element).getReadonly() != null)) {
-			element.getPropertiesExtender().put(
-					"readonly_expression", securityConverter(((InputElement)element).getReadonly()));            
+		if ((element instanceof InputElement)
+				&& (((InputElement) element).getReadonly() != null)) {
+			element.getPropertiesExtender().put("readonly_expression",
+					securityConverter(((InputElement) element).getReadonly()));
 		}
-		
+
 		if (element instanceof ExternalIterator) {
 			if (((ExternalIterator) element).getDataSrcLnk() != null) {
 				String name = ((ExternalIterator) element).getDataSrcLnk()
@@ -182,7 +208,8 @@ public class JSPXModeBuilder {
 							.equals(MetamodelTriggerEventsType.CreateEventRallback
 									.name())))
 					|| (((ActionElement) element).getTriggerType() != null)
-				        &&((ActionElement) element).getTriggerType()
+					&& ((ActionElement) element)
+							.getTriggerType()
 							.equals(MetamodelTriggerEventsType.CreateEventUIElement2ServiceMethod
 									.name()))
 
@@ -241,19 +268,44 @@ public class JSPXModeBuilder {
 	private String securityConverter(CreateSecurityTriggerDAO trigger) {
 		String str = "";
 
-		if (trigger.getGranted().equals("ifNotGranted"))
-			str = "!p:ifGranted";
-		else
-			str = "p:" + trigger.getGranted();
-		String roles = "";
-		StringTokenizer token = new StringTokenizer(trigger.getRoles(), " ");
-		while (token.hasMoreElements()) {
-			roles = roles + ",'" + token.nextToken() + "'";
+		if (trigger.getGranted() != null) {
+
+			if (trigger.getGranted().equals("ifNotGranted"))
+				str = "!p:ifGranted";
+			else
+				str = "p:" + trigger.getGranted();
+			String roles = "";
+			StringTokenizer token = new StringTokenizer(trigger.getRoles(), " ");
+			while (token.hasMoreElements()) {
+				roles = roles + ",'" + token.nextToken() + "'";
+			}
+
+			str = str + "(" + roles.substring(1) + ")";
+			return str;
 		}
+		if (trigger.getDomain() != null) {
+			Helper.findType(rf, trigger.getDomain(),
+					trigger.getFunctionalDomain(), trigger.getApplication(),
+					trigger.getTypeName());
 
-		str = str + "(" + roles.substring(1) + ")";
-		return str;
+			MethodDAO method = rf.getTypeDefinitionHandler().getMethodHandler()
+					.cleanSearch()
+					.searchString("method", trigger.getMethodName())
+					.getObject();
 
+			RemoteMethod rmi = new RemoteMethod(rf.getTypeDefinitionHandler()
+					.getMethodHandler(), method, "Security");
+
+			String name = rmi.getProxy().getDomain().toLowerCase() + "_"
+					+ rmi.getProxy().getFunctionalDomain().toLowerCase() + "_"
+					+ rmi.getProxy().getApplication().toLowerCase() + "_"
+					+ rmi.getProxy().getTypeName().toLowerCase() + "_"
+					+ rmi.getMethodName().toLowerCase();
+			
+			String control =StringUtils.uncapitalize(((DataLink)context.get(trigger.getDstUUID())).getName());
+			return frm.getName()+"."+control+"."+name;
+		}
+		return "";
 	}
 
 	private String dependeniesBuilder(List<EventDAO> ls,
@@ -272,9 +324,9 @@ public class JSPXModeBuilder {
 		return result.substring(1);
 	}
 
-	private void lovFinder(UIElement element,String path) {
+	private void lovFinder(UIElement element, String path) {
 
-		if (element instanceof Lov){
+		if (element instanceof Lov) {
 			element.getPropertiesExtender().put("canvasPath", path);
 			model.getLovArray().add((Lov) element);
 		}
@@ -282,7 +334,7 @@ public class JSPXModeBuilder {
 			Iterator<UIElement> itr = ((ChildrenOwner) element).getChildrens()
 					.iterator();
 			while (itr.hasNext()) {
-				lovFinder(itr.next(),path);
+				lovFinder(itr.next(), path);
 			}
 		}
 	}
