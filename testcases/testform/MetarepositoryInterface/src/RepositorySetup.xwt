@@ -1,13 +1,14 @@
 <p1:TabCanvas xmlns="http://www.eclipse.org/xwt/presentation"
 	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
-	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" cssStyle="height:750px;">
 	<p1:MetaTabItem text="Artifact types">
 		<p1:MetaTabItem.control>
 			<p1:MetaComposite>
 				<p1:MetaComposite.layout>
 					<GridLayout/>
 				</p1:MetaComposite.layout>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="ArtifactTypeLnk">
+				<p1:MetaLabel text="Exsisting artifacts" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em"/>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="ArtifactTypeLnk" cssStyle="font-size:13px; margin:25px 0px 0px 4px">
 					<p1:MetaTableColumn text="Artifact Type" width="100">
 						<p1:MetaDropDown sourceProperty="artifactType" optionIterator="OptArtifactType" optionLabel="optionName" optionValue="optionValue"/>
 					</p1:MetaTableColumn>
@@ -25,14 +26,16 @@
 		<p1:MetaTabItem.control>
 			<p1:MetaComposite>
 				<p1:MetaComposite.layout>
-					<GridLayout/>
+					<GridLayout numColumns="2"/>
 				</p1:MetaComposite.layout>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="OptSets" updateOnRawSelect="OptionsTable">
+				<p1:MetaLabel text="Set name" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em"/>
+				<p1:MetaLabel text="Optopns name" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em"/>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="OptSets" updateOnRawSelect="OptionsTable" cssStyle="font-size:13px; margin:10px 0px 0px 0px">
 					<p1:MetaTableColumn text="Set name" width="100">
 						<p1:MetaInputText x:Style="BORDER" sourceProperty="optionName"/>
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="OptionsLnk" idObject="OptionsTable">
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="OptionsLnk" idObject="OptionsTable" cssStyle="font-size:13px; margin:10px 5px 0px 25px">
 					<p1:MetaTable.layoutData>
 						<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL" widthHint="121"/>
 					</p1:MetaTable.layoutData>
