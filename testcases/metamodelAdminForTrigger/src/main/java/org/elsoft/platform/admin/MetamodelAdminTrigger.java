@@ -10,10 +10,30 @@ import org.elsoft.platform.datacontrol.extender.Handler;
 import org.primefaces.model.TreeNode;
 
 public class MetamodelAdminTrigger {
-	
-	
-	public boolean disableModelChoserButton(){
-		return false;
+
+	public boolean disableModelChoserButton() {
+		Object bindFactory = FacesContext
+				.getCurrentInstance()
+				.getApplication()
+				.evaluateExpressionGet(FacesContext.getCurrentInstance(),
+						"#{MetarepositoryInterfacebinding}", Object.class);
+
+		Object modelMappingHandl = Reflection.call(bindFactory,
+				"getCurrentModelMapping");
+
+		Object currentRow = Reflection.call(modelMappingHandl,
+				"getGridCurrentRow");
+
+		String artifactCalculator = (String) Reflection.call(currentRow,
+				"getArtifactCalculator");
+
+		if (artifactCalculator
+				.equals("org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBArtifactCalculator")) {
+
+			return false;
+		}
+
+		return true;
 	}
 
 	public void postQueryReceipeLnk(Object obj) {
@@ -46,25 +66,27 @@ public class MetamodelAdminTrigger {
 		Object currentRow = Reflection.call(modelMappingHandl,
 				"getGridCurrentRow");
 
-		String artifactCalculator =  (String) Reflection.call(currentRow, "getArtifactCalculator");
-		
-		if (artifactCalculator.equals("org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBArtifactCalculator")){
+		String artifactCalculator = (String) Reflection.call(currentRow,
+				"getArtifactCalculator");
+
+		if (artifactCalculator
+				.equals("org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBArtifactCalculator")) {
 
 			Reflection
-			.call(bindFactory, "setVewPortProgrammChooser",
-					"/Metarepository/MetarepositoryInterface/ChooserOfDataSource.xhtml");
-			
-		}
-		
-/*		if (artifactCalculator.equals(anObject)){
+					.call(bindFactory, "setVewPortProgrammChooser",
+							"/Metarepository/MetarepositoryInterface/ChooserOfDataSource.xhtml");
 
-			Reflection
-			.call(bindFactory, "setVewPortProgrammChooser",
-					"/Metarepository/MetarepositoryInterface/ChooserOfUIElement.xhtml");
-			
 		}
-*/
-		
+
+		/*
+		 * if (artifactCalculator.equals(anObject)){
+		 * 
+		 * Reflection .call(bindFactory, "setVewPortProgrammChooser",
+		 * "/Metarepository/MetarepositoryInterface/ChooserOfUIElement.xhtml");
+		 * 
+		 * }
+		 */
+
 	}
 
 	public void recipeViewPortController(Object obj) {

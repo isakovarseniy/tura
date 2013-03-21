@@ -1,4 +1,4 @@
-#Sat Mar 16 10:21:27 EDT 2013
+#Wed Mar 20 18:45:43 EDT 2013
 TypeMappingTable=TypeMappingTable
 mainView=mainView
 OptionsTable=OptionsTable
@@ -12,6 +12,7 @@ ModalParametersPopUp=ModalParametersPopUp
 editorView=editorView
 recipeEditor=recipeEditor
 PropTable=PropTable
+modelButtonChooser=modelButtonChooser
 TypeMappindDetail=TypeMappindDetail
 UITable=UITable
 MethodTypeTable=MethodTypeTable

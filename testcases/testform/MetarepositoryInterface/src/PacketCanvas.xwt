@@ -28,7 +28,7 @@
 			</p1:MetaInputText.layoutData>
 		</p1:MetaInputText>
 	</p1:MetaComposite>
-	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="ModelMapping">
+	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="ModelMapping" updateOnRawSelect="modelButtonChooser">
 		<p1:MetaTable.layoutData>
 			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
 		</p1:MetaTable.layoutData>
@@ -42,10 +42,20 @@
 			<p1:MetaInputText x:Style="BORDER" sourceProperty="modelName"/>
 		</p1:MetaTableColumn>
 	</p1:MetaTable>
-	<p1:MetaAction text="Model chooser" SelectionEvent="onSelection" expressionProperty="Packet">
+	<p1:MetaFieldSet fieldSet="Panel" idObject="modelButtonChooser">
+		<p1:MetaFieldSet.layout>
+			<GridLayout/>
+		</p1:MetaFieldSet.layout>
+		<p1:MetaComposite>
+			<p1:MetaComposite.layout>
+				<GridLayout/>
+			</p1:MetaComposite.layout>
+			<p1:MetaAction text="Model chooser" SelectionEvent="onSelection" expressionProperty="Packet" idObject="modelChooserButton" size="107, 29">
 		<p1:Trigger triggerType="ONButtonClickJS" x:Name="ONButtonClickJS" script="PopUpProgrammChooserVar.show();"/>
 		<p1:SecurityTrigger operation="Disabled" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="disableModelChoserButton"/>
 	</p1:MetaAction>
+		</p1:MetaComposite>
+	</p1:MetaFieldSet>
 	<p1:ViewPort x:Name="vewPortPopUpChooser" viewPortName="vewPortPopUpChooser" canvasName="PopUpProgrammChooser"/>
 
 </p1:StackableCanvas>

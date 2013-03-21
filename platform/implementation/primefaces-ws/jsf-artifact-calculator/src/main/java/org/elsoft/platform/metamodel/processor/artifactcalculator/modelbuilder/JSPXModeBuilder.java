@@ -303,7 +303,7 @@ public class JSPXModeBuilder {
 					+ rmi.getMethodName().toLowerCase();
 			
 			String control =StringUtils.uncapitalize(((DataLink)context.get(trigger.getDstUUID())).getName());
-			return frm.getName()+"."+control+"."+name;
+			return frm.getName()+"binding."+control+"."+name;
 		}
 		return "";
 	}
