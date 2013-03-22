@@ -349,6 +349,9 @@
 			file="/home/platform/GITRepo/tura/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementGridOutputText.xml"
 			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
 
+		<implementationPattern
+			file="/home/platform/GITRepo/tura/platform/implementation/primefaces-ws/transformator/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementOutputText.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
 
 
 		<implementationPattern

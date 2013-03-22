@@ -8,9 +8,9 @@
 		<p1:MetaComposite.layout>
 			<GridLayout/>
 		</p1:MetaComposite.layout>
-		<p1:MetaLabel location="0, 0" text="Packet name"/>
+		<p1:MetaLabel location="0, 0" text="Packet name" cssStyle="font-size:13px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;"/>
 	</p1:MetaComposite>
-	<p1:MetaInputText x:Style="BORDER" iteratorProperty="Packet" sourceProperty="packetName">
+	<p1:MetaInputText x:Style="BORDER" iteratorProperty="Packet" sourceProperty="packetName" cssStyle="font-size:13px;">
 		<p1:MetaInputText.layoutData>
 			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
 		</p1:MetaInputText.layoutData>
@@ -19,24 +19,22 @@
 		<p1:MetaComposite.layout>
 			<GridLayout numColumns="2"/>
 		</p1:MetaComposite.layout>
-		<p1:MetaLabel location="0, 0" text="Deplyment script"/>
-		<p1:MetaLabel location="0, 0" text="Build script"/>
-		<p1:MetaInputText x:Style="BORDER" bounds="0, 0, 75, 27" iteratorProperty="Packet" sourceProperty="deploymentScript"/>
-		<p1:MetaInputText x:Style="BORDER" iteratorProperty="Packet" sourceProperty="buildScript">
+		<p1:MetaLabel location="0, 0" text="Deplyment script" cssStyle="font-size:13px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;"/>
+		<p1:MetaLabel location="0, 0" text="Build script" cssStyle="font-size:13px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;margin-left:25px;"/>
+		<p1:MetaInputText x:Style="BORDER" bounds="0, 0, 75, 27" iteratorProperty="Packet" sourceProperty="deploymentScript" cssStyle="font-size:13px;"/>
+		<p1:MetaInputText x:Style="BORDER" iteratorProperty="Packet" sourceProperty="buildScript" cssStyle="font-size:13px;margin-left:25px;">
 			<p1:MetaInputText.layoutData>
 				<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
 			</p1:MetaInputText.layoutData>
 		</p1:MetaInputText>
 	</p1:MetaComposite>
-	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="ModelMapping" updateOnRawSelect="modelButtonChooser">
+	<p1:MetaLabel text="Model mapping" cssStyle="font-size:13px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;margin-top:25px;"/>
+	<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="ModelMapping" updateOnRawSelect="modelButtonChooser" cssStyle="font-size:13px;">
 		<p1:MetaTable.layoutData>
-			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
+			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL" heightHint="46"/>
 		</p1:MetaTable.layoutData>
-		<p1:MetaTableColumn text="Programm ref" width="100">
-			<p1:MetaInputText x:Style="BORDER" sourceProperty="programRef"/>
-		</p1:MetaTableColumn>
 		<p1:MetaTableColumn text="Artifact calculator" width="100">
-			<p1:MetaDropDown sourceProperty="artifactCalculator" optionIterator="OptArtCalc" optionLabel="optionName" optionValue="optionValue"/>
+			<p1:MetaDropDown sourceProperty="artifactCalculator" optionIterator="OptArtCalc" optionLabel="optionName" optionValue="optionValue" cssStyle="width:250px"/>
 		</p1:MetaTableColumn>
 		<p1:MetaTableColumn text="Model name" width="100">
 			<p1:MetaInputText x:Style="BORDER" sourceProperty="modelName"/>
@@ -48,12 +46,17 @@
 		</p1:MetaFieldSet.layout>
 		<p1:MetaComposite>
 			<p1:MetaComposite.layout>
-				<GridLayout/>
+				<GridLayout numColumns="2"/>
 			</p1:MetaComposite.layout>
 			<p1:MetaAction text="Model chooser" SelectionEvent="onSelection" expressionProperty="Packet" idObject="modelChooserButton" size="107, 29">
 		<p1:Trigger triggerType="ONButtonClickJS" x:Name="ONButtonClickJS" script="PopUpProgrammChooserVar.show();"/>
 		<p1:SecurityTrigger operation="Disabled" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="disableModelChoserButton"/>
 	</p1:MetaAction>
+			<p1:MetaOutputText iteratorProperty="ModelMapping" sourceProperty="programRef">
+				<p1:MetaOutputText.layoutData>
+					<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+				</p1:MetaOutputText.layoutData>
+			</p1:MetaOutputText>
 		</p1:MetaComposite>
 	</p1:MetaFieldSet>
 	<p1:ViewPort x:Name="vewPortPopUpChooser" viewPortName="vewPortPopUpChooser" canvasName="PopUpProgrammChooser"/>

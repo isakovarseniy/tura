@@ -1,10 +1,10 @@
 
 <p1:TabCanvas xmlns="http://www.eclipse.org/xwt/presentation"
 	xmlns:x="http://www.eclipse.org/xwt" x:Class="DataDefinition"
-	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" viewPortName="viewPortB">
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" viewPortName="viewPortB" cssStyle="height:380px;width:830px">
 	<p1:MetaTabItem text="Metods">
 		<p1:MetaTabItem.control>
-			<p1:MetaComposite cssStyle="height:300px;width:770px">
+			<p1:MetaComposite>
 				<p1:MetaComposite.layout>
 					<GridLayout numColumns="2" />
 				</p1:MetaComposite.layout>
@@ -17,7 +17,7 @@
 					size="220, 45" idObject="MethodTable" updateOnRawSelect="ParameterTable" cssStyle="margin-right:5px">
 					<p1:MetaTableColumn text="Method name" width="100">
 						<p1:MetaInputText x:Style="BORDER"
-							sourceProperty="method" />
+							sourceProperty="method" cssStyle="width:130px" />
 					</p1:MetaTableColumn>
 					<p1:MetaTableColumn text="Return type" width="100">
 						<p1:MetaLOV sourceProperty="refArtType" optionIterator="TypeDefinitionHelper" updateOnValueChanged="MethodTable">
@@ -69,7 +69,7 @@
 	</p1:MetaTabItem>
 	<p1:MetaTabItem text="Properties">
 		<p1:MetaTabItem.control>
-			<p1:MetaComposite cssStyle="height:300px;width:770px">
+			<p1:MetaComposite>
 				<p1:MetaComposite.layout>
 					<GridLayout />
 				</p1:MetaComposite.layout>

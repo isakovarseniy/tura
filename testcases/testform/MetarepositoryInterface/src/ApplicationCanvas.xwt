@@ -1,9 +1,9 @@
 <p1:TabCanvas xmlns="http://www.eclipse.org/xwt/presentation"
 	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
-	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" viewPortName="ViewPortA">
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" viewPortName="ViewPortA" cssStyle="height:780px;width:870px">
 	<p1:MetaTabItem text="Types">
 		<p1:MetaTabItem.control>
-			<p1:MetaComposite cssStyle="width:830px;height:720px;font-size:16px; font-weight:normal;">
+			<p1:MetaComposite>
 				<p1:MetaComposite.layout>
 					<GridLayout />
 				</p1:MetaComposite.layout>
@@ -15,13 +15,13 @@
 					<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
 					linesVisible="true" headerVisible="true" bounds="0, 0, 220, 45"
 					iteratorProperty="TypeDefinition" idObject="typeTable"
-					updateOnRawSelect="typesViewPort" cssStyle="font-size:12px;">
+					updateOnRawSelect="typesViewPort" cssStyle="font-size:13px;">
 					<p1:MetaTableColumn text="Type name" width="100">
 						<p1:MetaInputText x:Style="BORDER"
 							sourceProperty="typeName" />
 					</p1:MetaTableColumn>
 					<p1:MetaTableColumn text="Type of type" width="100">
-						<p1:MetaDropDown sourceProperty="typeOfType" optionIterator="OptTypeOfTypes" optionLabel="optionName" optionValue="optionValue"/>
+						<p1:MetaDropDown sourceProperty="typeOfType" optionIterator="OptTypeOfTypes" optionLabel="optionName" optionValue="optionValue" cssStyle="width:130px"/>
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
 				</p1:MetaComposite>
@@ -32,7 +32,7 @@
 					<p1:MetaAction text="Create" bounds="0, 0, 88, 29" expressionProperty="TypeDefinition.trigger- create" updateOnButtonPressed="typesViewPort typeTable"/>
 					<p1:MetaAction text="Remove" bounds="0, 0, 88, 29" expressionProperty="TypeDefinition.trigger- remove" updateOnButtonPressed="typesViewPort typeTable"/>
 				</p1:MetaComposite>
-				<p1:MetaFieldSet fieldSet="FieldSet" idObject="typesViewPort" cssStyle="font-size:12px;">
+				<p1:MetaFieldSet fieldSet="FieldSet" idObject="typesViewPort" cssStyle="font-size:13px;border-style:none;padding-left:0px;marging-top:5px">
 					<p1:ViewPort bounds="0, 0, 64, 64" viewPortName="viewPortB"
 						canvasName="TypesCanvas" />
 				</p1:MetaFieldSet>
@@ -41,7 +41,7 @@
 	</p1:MetaTabItem>
 	<p1:MetaTabItem text="Type mapping">
 		<p1:MetaTabItem.control>
-			<p1:MetaComposite cssStyle="width:830px;height:720px;font-size:16px; font-weight:normal; ">
+			<p1:MetaComposite>
 				<p1:MetaComposite.layout>
 					<GridLayout />
 				</p1:MetaComposite.layout>
@@ -49,9 +49,10 @@
 					<p1:MetaComposite.layout>
 						<GridLayout/>
 					</p1:MetaComposite.layout>
+					<p1:MetaLabel text="Type:" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em"/>
 					<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
 					linesVisible="true" headerVisible="true" bounds="0, 0, 220, 45"
-					iteratorProperty="TypeMappinglnk" updateOnRawSelect="TypeMappindDetail" cssStyle="font-size:12px;" idObject="TypeMappingTable">
+					iteratorProperty="TypeMappinglnk" updateOnRawSelect="TypeMappindDetail" cssStyle="font-size:13px;" idObject="TypeMappingTable">
 					<p1:MetaTableColumn text="Mapped Type" width="100">
 						<p1:MetaOutputText sourceProperty="refArtType" />
 					</p1:MetaTableColumn>
@@ -68,6 +69,7 @@
 						<p1:MetaAction text="Remove" bounds="0, 0, 88, 29" expressionProperty="TypeMappinglnk.trigger- remove" updateOnButtonPressed="TypeMappindDetail TypeMappingTable"/>
 					</p1:MetaComposite>
 				</p1:MetaComposite>
+				<p1:MetaLabel text="Implementation details:" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em"/>
 				<p1:MetaFieldSet idObject="TypeMappindDetail"
 					fieldSet="FieldSet" cssStyle="font-size:12px;">
 					<p1:MetaComposite size="404, 111">
@@ -78,20 +80,20 @@
 							<p1:MetaComposite.layout>
 								<GridLayout numColumns="2" />
 							</p1:MetaComposite.layout>
-							<p1:MetaLabel location="0, 0" text="Package Name" cssStyle="font-size:16px;margin-right:10px;margin-left:10px;">
+							<p1:MetaLabel location="0, 0" text="Package Name" cssStyle="font-size:13px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;margin-right:10px;">
 								<p1:MetaLabel.layoutData>
 									<GridData heightHint="27" />
 								</p1:MetaLabel.layoutData>
 							</p1:MetaLabel>
 							<p1:MetaInputText x:Style="BORDER" bounds="0, 0, 75, 27"
-								iteratorProperty="TypeMappinglnk" sourceProperty="resPackageName" />
-							<p1:MetaLabel text="Object Name" cssStyle="font-size:16px;margin-right:10px;margin-left:10px;">
+								iteratorProperty="TypeMappinglnk" sourceProperty="resPackageName" cssStyle="font-size:13px;" />
+							<p1:MetaLabel text="Object Name" cssStyle="font-size:13px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;margin-right:10px;">
 								<p1:MetaLabel.layoutData>
 									<GridData horizontalAlignment="RIGHT" />
 								</p1:MetaLabel.layoutData>
 							</p1:MetaLabel>
 							<p1:MetaInputText x:Style="BORDER"
-								iteratorProperty="TypeMappinglnk" sourceProperty="resTypeName">
+								iteratorProperty="TypeMappinglnk" sourceProperty="resTypeName" cssStyle="font-size:13px;">
 								<p1:MetaInputText.layoutData>
 									<GridData grabExcessHorizontalSpace="true"
 										horizontalAlignment="FILL" />
@@ -102,37 +104,37 @@
 							<p1:MetaComposite.layout>
 								<GridLayout numColumns="2" />
 							</p1:MetaComposite.layout>
-							<p1:MetaLabel location="0, 0" text="Goup Name" cssStyle="font-size:16px;margin-right:10px;margin-left:10px;">
+							<p1:MetaLabel location="0, 0" text="Goup Name" cssStyle="font-size:13px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;margin-right:10px;margin-left:10px;">
 								<p1:MetaLabel.layoutData>
 									<GridData horizontalAlignment="RIGHT" />
 								</p1:MetaLabel.layoutData>
 							</p1:MetaLabel>
 							<p1:MetaInputText x:Style="BORDER"
-								iteratorProperty="TypeMappinglnk" sourceProperty="groupName">
+								iteratorProperty="TypeMappinglnk" sourceProperty="groupName" cssStyle="font-size:13px;">
 								<p1:MetaInputText.layoutData>
 									<GridData grabExcessHorizontalSpace="true"
 										horizontalAlignment="FILL" />
 								</p1:MetaInputText.layoutData>
 							</p1:MetaInputText>
-							<p1:MetaLabel text="Artifact name" cssStyle="font-size:16px;margin-right:10px;margin-left:10px;">
+							<p1:MetaLabel text="Artifact name" cssStyle="font-size:13px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;margin-right:10px;margin-left:10px;">
 								<p1:MetaLabel.layoutData>
 									<GridData horizontalAlignment="RIGHT" />
 								</p1:MetaLabel.layoutData>
 							</p1:MetaLabel>
 							<p1:MetaInputText x:Style="BORDER"
-								iteratorProperty="TypeMappinglnk" sourceProperty="artifactName">
+								iteratorProperty="TypeMappinglnk" sourceProperty="artifactName" cssStyle="font-size:13px;">
 								<p1:MetaInputText.layoutData>
 									<GridData grabExcessHorizontalSpace="true"
 										horizontalAlignment="FILL" />
 								</p1:MetaInputText.layoutData>
 							</p1:MetaInputText>
-							<p1:MetaLabel text="Version" cssStyle="font-size:16px;margin-right:10px;margin-left:10px;">
+							<p1:MetaLabel text="Version" cssStyle="font-size:13px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;margin-right:10px;margin-left:10px;">
 								<p1:MetaLabel.layoutData>
 									<GridData horizontalAlignment="RIGHT" />
 								</p1:MetaLabel.layoutData>
 							</p1:MetaLabel>
 							<p1:MetaInputText x:Style="BORDER"
-								iteratorProperty="TypeMappinglnk" sourceProperty="artifactVersion">
+								iteratorProperty="TypeMappinglnk" sourceProperty="artifactVersion" cssStyle="font-size:13px;">
 								<p1:MetaInputText.layoutData>
 									<GridData grabExcessHorizontalSpace="true"
 										horizontalAlignment="FILL" />
@@ -148,29 +150,36 @@
 		<p1:MetaTabItem.control>
 			<p1:MetaComposite>
 				<p1:MetaComposite.layout>
-					<GridLayout/>
+					<GridLayout numColumns="2"/>
 				</p1:MetaComposite.layout>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="ApplicationRoles" idObject="ApplicationRoleTable">
+				<p1:MetaLabel text="Role list:" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em"/>
+				<p1:MetaLabel text="Mapping rules:" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;margin-left:25px;"/>
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
+						<GridLayout/>
+					</p1:MetaComposite.layout>
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="ApplicationRoles" idObject="ApplicationRoleTable" size="120, 45" cssStyle="margin-top:10px;font-size:13px;">
 					<p1:MetaTableColumn text="RoleName" width="100">
 						<p1:MetaInputText x:Style="BORDER" sourceProperty="roleName"/>
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
-				<p1:MetaComposite>
+					<p1:MetaComposite size="135, 39">
 					<p1:MetaComposite.layout>
 						<GridLayout numColumns="2"/>
 					</p1:MetaComposite.layout>
 					<p1:MetaAction text="Create" bounds="0, 0, 88, 29" expressionProperty="ApplicationRoles.trigger- create" updateOnButtonPressed="ApplicationRoleTable"/>
 					<p1:MetaAction text="Remove" bounds="0, 0, 88, 29" expressionProperty="ApplicationRoles.trigger- remove" updateOnButtonPressed="ApplicationRoleTable"/>
 				</p1:MetaComposite>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="RolesMapping" castObject="ELsoft.Platform.Metarepository.RoleMappingCommand">
+				</p1:MetaComposite>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="RolesMapping" castObject="ELsoft.Platform.Metarepository.RoleMappingCommand" cssStyle="font-size:13px;margin-left:25px;">
 					<p1:MetaTable.layoutData>
 						<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
 					</p1:MetaTable.layoutData>
 					<p1:MetaTableColumn text="Application Role" width="147">
-						<p1:MetaDropDown optionIterator="DrpDwnAppRoles" optionLabel="roleName" optionValue="objId" sourceProperty="refApplicationRole"/>
+						<p1:MetaDropDown optionIterator="DrpDwnAppRoles" optionLabel="roleName" optionValue="objId" sourceProperty="refApplicationRole" cssStyle="width:140px"/>
 					</p1:MetaTableColumn>
 					<p1:MetaTableColumn text="Global role" width="274">
-						<p1:MetaDropDown optionIterator="DrpDwnGlobalRoles" optionLabel="roleName" optionValue="objId" sourceProperty="refGlobalRole"/>
+						<p1:MetaDropDown optionIterator="DrpDwnGlobalRoles" optionLabel="roleName" optionValue="objId" sourceProperty="refGlobalRole" cssStyle="width:140px"/>
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
 			</p1:MetaComposite>
@@ -182,6 +191,7 @@
 				<p1:MetaComposite.layout>
 					<GridLayout/>
 				</p1:MetaComposite.layout>
+				<p1:MetaLabel text="Data sources:" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em"/>
 				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" iteratorProperty="DataSources" idObject="DataSourceTable">
 					<p1:MetaTable.layoutData>
 						<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
@@ -209,6 +219,7 @@
 				<p1:MetaComposite.layout>
 					<GridLayout/>
 				</p1:MetaComposite.layout>
+				<p1:MetaLabel text="Application forms:" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em"/>
 				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="Uicontainer" idObject="UITable">
 					<p1:MetaTableColumn text="Form name" width="100">
 						<p1:MetaInputText x:Style="BORDER" sourceProperty="uiContainerName"/>
@@ -230,7 +241,7 @@
 				<p1:MetaComposite.layout>
 					<GridLayout numColumns="2"/>
 				</p1:MetaComposite.layout>
-				<p1:MetaTree x:Style="BORDER" iteratorProperty="recipelnk" updateOnRawSelect="recipeEditor">
+				<p1:MetaTree x:Style="BORDER" iteratorProperty="recipelnk" updateOnRawSelect="recipeEditor" cssStyle="height:700px;width:300px">
 					<p1:MetaTree.layoutData>
 						<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" grabExcessVerticalSpace="true" verticalAlignment="FILL"/>
 					</p1:MetaTree.layoutData>
@@ -238,7 +249,7 @@
 						<p1:MetaInputText x:Style="BORDER" sourceProperty="name"/>
 					</p1:MetaTreeColumn>
 				</p1:MetaTree>
-				<p1:MetaFieldSet fieldSet="Panel" idObject="recipeEditor">
+				<p1:MetaFieldSet fieldSet="Panel" idObject="recipeEditor" cssStyle="width:530px;height:700px;margin-left:10px">
 					<p1:ViewPort x:Name="RecipeViewPort" viewPortName="RecipeViewPort" canvasName="RecipeCanvas" size="64, 64">
 					<p1:Trigger triggerType="Controller" x:Name="Controller" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="recipeViewPortController"/>
 				</p1:ViewPort>

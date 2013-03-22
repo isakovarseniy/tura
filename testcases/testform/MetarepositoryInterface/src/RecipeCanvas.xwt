@@ -2,18 +2,19 @@
 	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
 	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components">
 	<p1:StackableCanvas.layout>
-		<GridLayout numColumns="2"/>
+		<GridLayout/>
 	</p1:StackableCanvas.layout>
 	<p1:MetaComposite>
 		<p1:MetaComposite.layout>
+			<GridLayout numColumns="2"/>
+		</p1:MetaComposite.layout>
+		<p1:MetaComposite size="94, 27">
+		<p1:MetaComposite.layout>
 			<GridLayout/>
 		</p1:MetaComposite.layout>
-		<p1:MetaLabel location="0, 0" text="Recipe name"/>
+		<p1:MetaLabel location="0, 0" text="Recipe name" cssStyle="font-size:13px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;"/>
 	</p1:MetaComposite>
-	<p1:MetaInputText x:Style="BORDER" iteratorProperty="recipelnk" sourceProperty="recipeName">
-		<p1:MetaInputText.layoutData>
-			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL" widthHint="165"/>
-		</p1:MetaInputText.layoutData>
-	</p1:MetaInputText>
+		<p1:MetaInputText x:Style="BORDER" iteratorProperty="recipelnk" sourceProperty="recipeName" cssStyle="font-size:13px;margin-left:10px" size="341, 27"/>
+	</p1:MetaComposite>
 
 </p1:StackableCanvas>

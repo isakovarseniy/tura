@@ -14,7 +14,7 @@
 				<p1:MetaInputText x:Style="BORDER" sourceProperty="name" />
 			</p1:MetaTreeColumn>
 		</p1:MetaTree>
-		<p1:MetaFieldSet idObject="editorView" fieldSet="Panel" cssStyle="width:900px;height:800px;margin-left:20px;">
+		<p1:MetaFieldSet idObject="editorView" fieldSet="Panel" cssStyle="width:900px;height:800px;margin-left:20px;border-style:none;padding:0px 0px 0px 0px">
 			<p1:ViewPort viewPortName="ViewPortA" canvasName="DomainCanvas"
 				size="64, 64">
 				<p1:Trigger triggerType="Controller" x:Name="Controller"

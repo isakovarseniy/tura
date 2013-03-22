@@ -17,7 +17,7 @@
 	<h:panelGrid columns="2">
 
 		<h:outputText value="${uiElement.label}" />
-		<p:selectOneMenu id="tura${uiElement.uuid}" immediate="true"
+		<p:selectOneMenu id="tura${uiElement.uuid}" immediate="true" style="${uiElement.css}"
 			valueChangeListener="#{${model.uicontainer}binding.${uiElement.optionsSrcLnk.name}.changeListener}"
 			value="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.currentRow.${uiElement.dataSrcField.name}}">
 			<f:selectItems

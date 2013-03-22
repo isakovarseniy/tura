@@ -1,23 +1,20 @@
 <p1:TabCanvas xmlns="http://www.eclipse.org/xwt/presentation"
 	xmlns:x="http://www.eclipse.org/xwt" x:Class="Canvas"
-	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" viewPortName="ViewPortA">
+	xmlns:p1="clr-namespace:org.eclipse.wb.elsoft.components" viewPortName="ViewPortA" cssStyle="height:780px;width:870px">
 	<p1:MetaTabItem text="Business Objects">
 		<p1:MetaTabItem.control>
-			<p1:MetaComposite cssStyle="width:830px;height:720px;font-size:16px; height:700px; margin-right:10px;font-weight:normal; ">
+			<p1:MetaComposite>
 				<p1:MetaComposite.layout>
 					<GridLayout />
 				</p1:MetaComposite.layout>
-				<p1:MetaLabel text="Objects:" cssStyle="text-decoration:underline;line-height:1.9em">
-					<p1:MetaLabel.layoutData>
-						<GridData widthHint="61"/>
-					</p1:MetaLabel.layoutData>
-				</p1:MetaLabel>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
+				<p1:MetaComposite>
+					<p1:MetaComposite.layout>
+						<GridLayout/>
+					</p1:MetaComposite.layout>
+					<p1:MetaLabel text="Objects:" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em" size="61, 17"/>
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
 					linesVisible="true" headerVisible="true" iteratorProperty="BusinessObjectLnk"
-					updateOnRawSelect="MethodTypeTable" cssStyle="font-size:12px;" idObject="BussObjTable">
-					<p1:MetaTable.layoutData>
-						<GridData widthHint="239" />
-					</p1:MetaTable.layoutData>
+					updateOnRawSelect="MethodTypeTable" cssStyle="font-size:13px;" idObject="BussObjTable" size="259, 45">
 					<p1:MetaTableColumn text="Business object name"
 						width="100">
 						<p1:MetaInputText x:Style="BORDER"
@@ -35,10 +32,10 @@
 						</p1:MetaLOV>
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
-				<p1:MetaLabel text="Methods:" cssStyle="text-decoration:underline;line-height:1.9em"/>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
-					linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45"
-					iteratorProperty="BusinessObjectMethodLnk" idObject="MethodTypeTable" cssStyle="font-size:12px;">
+					<p1:MetaLabel text="Methods:" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em;margin:0px 0px 0px 5px" size="60, 17"/>
+					<p1:MetaTable x:Style="BORDER | FULL_SELECTION"
+					linesVisible="true" headerVisible="true" bounds="0, 0, 320, 45"
+					iteratorProperty="BusinessObjectMethodLnk" idObject="MethodTypeTable" cssStyle="font-size:13px;">
 					<p1:MetaTableColumn text="Method type" width="100">
 						<p1:MetaDropDown sourceProperty="methodType" optionIterator="OptTypeOfTriggers" optionLabel="optionName" optionValue="optionValue"/>
 					</p1:MetaTableColumn>
@@ -61,6 +58,7 @@
 					</p1:MetaTableColumn>
 					
 				</p1:MetaTable>
+				</p1:MetaComposite>
 			</p1:MetaComposite>
 		</p1:MetaTabItem.control>
 	</p1:MetaTabItem>
@@ -70,12 +68,13 @@
 				<p1:MetaComposite.layout>
 					<GridLayout/>
 				</p1:MetaComposite.layout>
-				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="GlobalRoles" idObject="GlobalRolesTable">
+				<p1:MetaLabel text="Role list" cssStyle="font-size:16px; font-weight:normal; text-decoration:underline; color:#084B8A; line-height:1.9em"/>
+				<p1:MetaTable x:Style="BORDER | FULL_SELECTION" linesVisible="true" headerVisible="true" bounds="0, 0, 30, 45" iteratorProperty="GlobalRoles" idObject="GlobalRolesTable" cssStyle="font-size:13px;">
 					<p1:MetaTableColumn text="Role name" width="100">
 						<p1:MetaInputText x:Style="BORDER" sourceProperty="roleName"/>
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
-				<p1:MetaComposite bounds="0, 0, 64, 64">
+				<p1:MetaComposite bounds="0, 0, 64, 64" cssStyle="margin:0px 0px 0px 5px">
 					<p1:MetaComposite.layout>
 						<GridLayout numColumns="2"/>
 					</p1:MetaComposite.layout>
