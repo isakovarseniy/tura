@@ -18,8 +18,8 @@
 	xmlns:a="jelly:ant">
 
 
-	public ${objlnk.dataLink.majorType.resTypeName} getTreeCurrentRow() {
-		return (${objlnk.dataLink.majorType.resTypeName})selectedNode.getData();
+	public Object getTreeCurrentRow() {
+		return selectedNode.getData();
 	}	
 
 </j:jelly>

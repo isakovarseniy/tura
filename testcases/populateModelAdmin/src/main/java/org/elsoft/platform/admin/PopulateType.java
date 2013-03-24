@@ -2412,6 +2412,7 @@ public class PopulateType {
 		mh.addMethod("recipeViewPortController");
 		mh.addMethod("vewPortProgrammChooser");		
 		mh.addMethod("disableModelChoserButton");
+		mh.addMethod("preQueryModelMapping");
 	}
 
 }

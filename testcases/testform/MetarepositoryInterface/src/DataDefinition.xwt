@@ -137,16 +137,16 @@
 			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="postQueryIngredient"/>
 		</p1:DataControl>
 		<p1:DataControl x:Name="Packet" businessObject="ELsoft.Platform.packet" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Packet.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Packet.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Packet.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
-			<p1:Relation dstDataControl="ModelMapping">
-				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
-			</p1:Relation>
 			<p1:Relation treeRelation="true" dstDataControl="Packet">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
 			</p1:Relation>
 			<p1:ArtificialField x:Name="name" primitiveType="null.null.null.String"/>
 			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="postQueryPacket"/>
 		</p1:DataControl>
-		<p1:DataControl x:Name="ModelMapping" businessObject="ELsoft.Platform.modelMapping" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ModelMapping.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ModelMapping.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ModelMapping.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}"/>
+		<p1:DataControl x:Name="ModelMapping" businessObject="ELsoft.Platform.modelMapping" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ModelMapping.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ModelMapping.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;ModelMapping.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
+			<p1:Dependency expressionProperty="recipelnk.trigger- treeCurrentRow"/>
+			<p1:Trigger triggerType="PREQueryTrigger" x:Name="PREQueryTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="preQueryModelMapping"/>
+		</p1:DataControl>
 		<p1:DataControl x:Name="OptMeamodelLevel" businessObject="ELsoft.Platform.options" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OptMeamodelLevel.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OptMeamodelLevel.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;OptMeamodelLevel.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:DefaultSearch bounds="0, 0, 64, 64" value="MetamodelPlatformLevel" fieldsProperty="setName" refType="String"/>
 		</p1:DataControl>

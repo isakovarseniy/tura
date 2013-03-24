@@ -1,10 +1,15 @@
 package org.elsoft.platform.admin;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.context.FacesContext;
 
+import org.elsoft.platform.ComparatorType;
+import org.elsoft.platform.OrderCriteria;
 import org.elsoft.platform.Reflection;
+import org.elsoft.platform.SearchCriteria;
+import org.elsoft.platform.datacontrol.DataControl;
 import org.elsoft.platform.datacontrol.ELResolver;
 import org.elsoft.platform.datacontrol.extender.Handler;
 import org.primefaces.model.TreeNode;
@@ -27,13 +32,36 @@ public class MetamodelAdminTrigger {
 		String artifactCalculator = (String) Reflection.call(currentRow,
 				"getArtifactCalculator");
 
-		if (artifactCalculator
-				.equals("org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBArtifactCalculator")) {
+		if ((artifactCalculator != null)
+				&& (artifactCalculator
+						.equals("org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBArtifactCalculator"))) {
 
 			return false;
 		}
 
 		return true;
+	}
+
+	public void preQueryModelMapping(DataControl<?> dc,
+			List<SearchCriteria> search, List<OrderCriteria> order) {
+
+		Object bindFactory = FacesContext
+				.getCurrentInstance()
+				.getApplication()
+				.evaluateExpressionGet(FacesContext.getCurrentInstance(),
+						"#{MetarepositoryInterfacebinding}", Object.class);
+
+		Object recipeHandl = Reflection
+				.call(bindFactory, "getCurrentRecipelnk");
+
+		Object obj = Reflection.call(recipeHandl, "getTreeCurrentRow");
+
+		SearchCriteria sc = new SearchCriteria();
+		sc.setName("parentId");
+		sc.setComparator(ComparatorType.EQ.name());
+		sc.setValue(((Long) Reflection.call(obj, "getObjId")).toString());
+		sc.setClassName(Long.class.getName());
+		search.add(sc);
 	}
 
 	public void postQueryReceipeLnk(Object obj) {
@@ -66,11 +94,15 @@ public class MetamodelAdminTrigger {
 		Object currentRow = Reflection.call(modelMappingHandl,
 				"getGridCurrentRow");
 
+		if (currentRow == null)
+			return;
+
 		String artifactCalculator = (String) Reflection.call(currentRow,
 				"getArtifactCalculator");
 
-		if (artifactCalculator
-				.equals("org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBArtifactCalculator")) {
+		if ((artifactCalculator != null)
+				&& (artifactCalculator
+						.equals("org.elsoft.platform.metamodel.processor.artifactcalculator.WSEJBArtifactCalculator"))) {
 
 			Reflection
 					.call(bindFactory, "setVewPortProgrammChooser",
