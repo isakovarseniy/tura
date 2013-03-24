@@ -13,25 +13,25 @@
 
 	<!-- Standalone context -->
 	<ui:fragment
-		rendered="#{!${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.queryMode}">
+		rendered="#{!${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.queryMode}">
 		<h:panelGrid columns="2">
 
 			<h:outputText value="${uiElement.label}" />
 			<p:inputText style="${uiElement.css}"
-				value="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.currentRow.${uiElement.dataSrcField.name}}">
+				value="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.currentRow.${uiElement.dataSrcField.name}}">
 				<p:ajax event="blur" update="@this" />
 			</p:inputText>
 
 		</h:panelGrid>
 	</ui:fragment>
 	<ui:fragment
-		rendered="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.queryMode}">
+		rendered="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.queryMode}">
 
 		<h:panelGrid columns="2">
 			<h:outputText value="${uiElement.label}" />
 			<h:panelGrid columns="2">
 				<p:selectOneMenu immediate="true"
-					value="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.currentRow.comparator${uiElement.propertiesExtender['capSrcField']}}">
+					value="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.currentRow.comparator${uiElement.propertiesExtender['capSrcField']}}">
 					<f:selectItem itemLabel="=" itemValue="EQ" />
 					<f:selectItem itemLabel=">" itemValue="GT" />
 					<f:selectItem itemLabel=">=" itemValue="GTEQ" />
@@ -41,7 +41,7 @@
 	                <p:ajax update="@this"/>
 				</p:selectOneMenu>
 				<p:inputText
-					value="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.currentRow.${uiElement.dataSrcField.name}}">
+					value="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.currentRow.${uiElement.dataSrcField.name}}">
 					<p:ajax event="blur" />
 				</p:inputText>
 			</h:panelGrid>

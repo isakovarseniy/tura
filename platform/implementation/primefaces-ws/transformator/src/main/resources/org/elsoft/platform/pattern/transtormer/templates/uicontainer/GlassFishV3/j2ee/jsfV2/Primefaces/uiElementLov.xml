@@ -23,7 +23,7 @@
 		<h:panelGrid columns="3">
 			<h:outputText value="${uiElement.label}" />
 			<p:inputText style="${uiElement.css}"
-				value="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.currentRow.${uiElement.dataSrcField.name}}" >
+				value="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.currentRow.${uiElement.dataSrcField.name}}" >
 			</p:inputText>
 			<p:commandButton value="..." onclick="lov${uiElement.uuid.replaceAll('\-','')}.show()"  update="${uiElement.propertiesExtender['canvasPath']}:table${uiElement.uuid.replaceAll('\-','')}"/>
 		</h:panelGrid>

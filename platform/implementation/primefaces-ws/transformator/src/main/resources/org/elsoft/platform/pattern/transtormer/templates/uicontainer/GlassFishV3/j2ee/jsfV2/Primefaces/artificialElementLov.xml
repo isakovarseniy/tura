@@ -16,33 +16,33 @@
  		<h:panelGrid columns="2">
 			<p:commandButton xmlns:p="http://primefaces.org/ui"
 				value="Search"
-				actionListener="#{${model.uicontainer}binding.${lov.optionsSrcLnk.name}.search}"
+				actionListener="#{${model.uicontainer}binding.current${lov.optionsSrcLnk.name}.search}"
 				update="${lov.propertiesExtender['canvasPath']}:table${lov.uuid.replaceAll('\-','')}"></p:commandButton>
 			<p:commandButton xmlns:p="http://primefaces.org/ui"
 				value="Query"
-				actionListener="#{${model.uicontainer}binding.${lov.optionsSrcLnk.name}.query}"
+				actionListener="#{${model.uicontainer}binding.current${lov.optionsSrcLnk.name}.query}"
 				update="${lov.propertiesExtender['canvasPath']}:table${lov.uuid.replaceAll('\-','')}"></p:commandButton>
 		</h:panelGrid>
 
 		<p:dataTable var="row" id="table${lov.uuid.replaceAll('\-','')}"
-			value="#{${model.uicontainer}binding.${lov.optionsSrcLnk.name}.lazyModel}"
+			value="#{${model.uicontainer}binding.current${lov.optionsSrcLnk.name}.lazyModel}"
 			paginator="true" rows="5" lazy="true"
 			paginatorTemplate="{RowsPerPageDropdown}  {PreviousPageLink}  {NextPageLink}"
 			rowsPerPageTemplate="5,10,15" selectionMode="single" rowKey="#{row}">
 
 			<p:ajax event="rowSelect"
-				listener="#{${model.uicontainer}binding.${lov.optionsSrcLnk.name}.setGridCurrentRow}" />
+				listener="#{${model.uicontainer}binding.current${lov.optionsSrcLnk.name}.setGridCurrentRow}" />
 
 			<j:forEach items="${lov.displayedFields.iterator()}" var="field">
 				<p:column headerText="${field.displayLabel}">
 
-				<ui:fragment rendered="#{${model.uicontainer}binding.${lov.optionsSrcLnk.name}.queryMode}">
+				<ui:fragment rendered="#{${model.uicontainer}binding.current${lov.optionsSrcLnk.name}.queryMode}">
 					<p:inputText value="#{row.${field.displayExpression}}" >
-					   <p:ajax event="focus" listener="#{${model.uicontainer}binding.${lov.optionsSrcLnk.name}.onFocusEvent}"/>
+					   <p:ajax event="focus" listener="#{${model.uicontainer}binding.current${lov.optionsSrcLnk.name}.onFocusEvent}"/>
 					   <p:ajax event="blur" />
 					</p:inputText>
 				</ui:fragment>
-				<ui:fragment rendered="#{!${model.uicontainer}binding.${lov.optionsSrcLnk.name}.queryMode}">
+				<ui:fragment rendered="#{!${model.uicontainer}binding.current${lov.optionsSrcLnk.name}.queryMode}">
 					<h:outputText value="#{row.${field.displayExpression}}" >
 					</h:outputText>
 				</ui:fragment>
@@ -59,7 +59,7 @@
 				</x:attribute>
 			</j:when>
 		</j:choose>
-		<x:attribute name="actionListener">#{${model.uicontainer}binding.${lov.optionsSrcLnk.name}.returnResult}</x:attribute>
+		<x:attribute name="actionListener">#{${model.uicontainer}binding.current${lov.optionsSrcLnk.name}.returnResult}</x:attribute>
 	</x:element>
 			
 

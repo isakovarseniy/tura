@@ -148,7 +148,7 @@ public class JSPXModeBuilder {
 				String name = ((ExternalIterator) element).getDataSrcLnk()
 						.getName();
 				((ExternalIterator) element).getDataSrcLnk().setName(
-						StringUtils.uncapitalize(name));
+						StringUtils.capitalize(name));
 			}
 		}
 
@@ -157,7 +157,7 @@ public class JSPXModeBuilder {
 				String name = ((InputElement) element).getDataSrcLnk()
 						.getName();
 				((InputElement) element).getDataSrcLnk().setName(
-						StringUtils.uncapitalize(name));
+						StringUtils.capitalize(name));
 
 				((InputElement) element).getPropertiesExtender().put(
 						"capSrcLnk", StringUtils.capitalize(name));
@@ -178,7 +178,7 @@ public class JSPXModeBuilder {
 				String name = ((OptionsInputElement) element)
 						.getOptionsSrcLnk().getName();
 				((OptionsInputElement) element).getOptionsSrcLnk().setName(
-						StringUtils.uncapitalize(name));
+						StringUtils.capitalize(name));
 			}
 		}
 
@@ -195,7 +195,7 @@ public class JSPXModeBuilder {
 				String name = ((ActionElement) element).getDataSrcLnk()
 						.getName();
 				((ActionElement) element).getDataSrcLnk().setName(
-						StringUtils.uncapitalize(name));
+						StringUtils.capitalize(name));
 			}
 			if ((((ActionElement) element).getTriggerType() != null)
 					&& ((((ActionElement) element).getTriggerType()
@@ -302,8 +302,8 @@ public class JSPXModeBuilder {
 					+ rmi.getProxy().getTypeName().toLowerCase() + "_"
 					+ rmi.getMethodName().toLowerCase();
 			
-			String control =StringUtils.uncapitalize(((DataLink)context.get(trigger.getDstUUID())).getName());
-			return frm.getName()+"binding."+control+"."+name;
+			String control =StringUtils.capitalize(((DataLink)context.get(trigger.getDstUUID())).getName());
+			return frm.getName()+"binding.current"+control+"."+name;
 		}
 		return "";
 	}

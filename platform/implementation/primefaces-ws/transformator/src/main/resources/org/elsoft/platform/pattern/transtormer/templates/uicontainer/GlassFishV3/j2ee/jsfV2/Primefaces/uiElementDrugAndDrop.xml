@@ -16,7 +16,7 @@
 		>
 		
 		<x:element name="p:ajax" URI="http://primefaces.org/ui">
-		   <x:attribute name="listener">#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.${uiElement.triggerName}}</x:attribute>
+		   <x:attribute name="listener">#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.${uiElement.triggerName}}</x:attribute>
 		<j:choose>
 		  <j:when test="${uiElement.propertiesExtender['OnItemDrop'] != null and uiElement.propertiesExtender['OnItemDrop'] != ''}">
 				<x:attribute name="update" trim="true">${uiElement.propertiesExtender['OnItemDrop']}

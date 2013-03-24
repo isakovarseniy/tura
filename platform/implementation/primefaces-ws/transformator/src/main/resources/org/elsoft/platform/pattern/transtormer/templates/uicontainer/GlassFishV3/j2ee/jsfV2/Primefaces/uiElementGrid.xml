@@ -12,18 +12,18 @@
 	xmlns:p="http://primefaces.org/ui" xmlns:x="jelly:xml">
 
 	<p:dataTable var="row" id="tura${uiElement.uuid}" style="${uiElement.css}"
-		value="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.lazyModel}"
+		value="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.lazyModel}"
 		paginator="true" rows="${uiElement.rowNumber}" lazy="true"
 		paginatorTemplate="{RowsPerPageDropdown}  {PreviousPageLink}  {NextPageLink}"
 		rowsPerPageTemplate="${uiElement.rowNumber},5,10,15" selectionMode="single"
 		rowKey="#{row}">
 
         <j:set var="OnRawSelect" value="${uiElement.propertiesExtender['OnRawSelect']}"/>
-        <j:set var="RawSelectionLink" value="${model.uicontainer}binding.${uiElement.dataSrcLnk.name}"/>
+        <j:set var="RawSelectionLink" value="${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}"/>
         
 		<x:element name="p:ajax" URI="http://primefaces.org/ui">
 			<x:attribute name="event">rowSelect</x:attribute>
-			<x:attribute name="listener">#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.setGridCurrentRow}</x:attribute>
+			<x:attribute name="listener">#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.setGridCurrentRow}</x:attribute>
 			<x:attribute name="event">rowSelect</x:attribute>
 			<j:choose>
 				<j:when test="${uiElement.propertiesExtender['OnRawSelect'] != null and uiElement.propertiesExtender['OnRawSelect'] != ''}">

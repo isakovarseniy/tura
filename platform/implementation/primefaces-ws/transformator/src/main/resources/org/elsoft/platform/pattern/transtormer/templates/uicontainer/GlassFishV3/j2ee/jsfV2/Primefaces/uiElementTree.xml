@@ -20,17 +20,17 @@
 	xmlns:p="http://primefaces.org/ui" xmlns:x="jelly:xml">
 
 	<p:tree id="tura${uiElement.uuid}" style="${uiElement.css}"
-		value="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.root}"
+		value="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.root}"
 		var="row" dynamic="true" cache="false" selectionMode="single"
-		selection="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.selectedNode}">
+		selection="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.selectedNode}">
 
 		<p:ajax event="expand" 
-			listener="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.onNodeExpand}" />
+			listener="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.onNodeExpand}" />
 		<p:ajax event="collapse"
-			listener="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.onNodeCollapse}" />
+			listener="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.onNodeCollapse}" />
 			
 		<x:element name="p:ajax" URI="http://primefaces.org/ui">
-			<x:attribute name="listener">#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.onNodeSelect}</x:attribute>
+			<x:attribute name="listener">#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.onNodeSelect}</x:attribute>
 			<x:attribute name="event">select</x:attribute>
 			<j:choose>
 				<j:when test="${uiElement.propertiesExtender['OnRawSelect'] != null and uiElement.propertiesExtender['OnRawSelect'] !=''}">
@@ -42,7 +42,7 @@
 			
 			
 		<p:ajax event="unselect" 
-			listener="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.onNodeUnselect}" />
+			listener="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.onNodeUnselect}" />
 
 		<p:treeNode>
 	        <j:set var="context" value="Tree"/>

@@ -15,7 +15,7 @@
 	<p:column headerText="${uiElement.label}">
 
 		<ui:fragment
-			rendered="#{!${model.uicontainer}binding.${uiElement.parent.dataSrcLnk.name}.queryMode}">
+			rendered="#{!${model.uicontainer}binding.current${uiElement.parent.dataSrcLnk.name}.queryMode}">
 
 			<j:set var="readonlyExpression" value="false" />
 			<j:choose>
@@ -29,10 +29,10 @@
 			<ui:fragment rendered="#{!${readonlyExpression}}">
 
 				<p:selectOneMenu immediate="true" style="${uiElement.css}"
-					valueChangeListener="#{${model.uicontainer}binding.${uiElement.optionsSrcLnk.name}.changeListener}"
+					valueChangeListener="#{${model.uicontainer}binding.current${uiElement.optionsSrcLnk.name}.changeListener}"
 					value="#{row.${uiElement.dataSrcField.name}}">
 					<f:selectItems
-						value="#{${model.uicontainer}binding.${uiElement.optionsSrcLnk.name}.optionsList}" />
+						value="#{${model.uicontainer}binding.current${uiElement.optionsSrcLnk.name}.optionsList}" />
 					<p:ajax event="blur" />
 					<x:element name="p:ajax" URI="http://primefaces.org/ui">
 						<x:attribute name="event">focus</x:attribute>
@@ -73,7 +73,7 @@
 
 		</ui:fragment>
 		<ui:fragment
-			rendered="#{${model.uicontainer}binding.${uiElement.parent.dataSrcLnk.name}.queryMode}">
+			rendered="#{${model.uicontainer}binding.current${uiElement.parent.dataSrcLnk.name}.queryMode}">
 			<h:panelGrid columns="2">
 				<p:selectOneMenu immediate="true"
 					value="#{row.comparator${uiElement.propertiesExtender['capSrcField']}}">
@@ -86,10 +86,10 @@
 					<p:ajax update="@this" />
 				</p:selectOneMenu>
 				<p:selectOneMenu immediate="true" style="${uiElement.css}"
-					valueChangeListener="#{${model.uicontainer}binding.${uiElement.optionsSrcLnk.name}.changeListener}"
+					valueChangeListener="#{${model.uicontainer}binding.current${uiElement.optionsSrcLnk.name}.changeListener}"
 					value="#{row.${uiElement.dataSrcField.name}}">
 					<f:selectItems
-						value="#{${model.uicontainer}binding.${uiElement.optionsSrcLnk.name}.optionsList}" />
+						value="#{${model.uicontainer}binding.current${uiElement.optionsSrcLnk.name}.optionsList}" />
 					<p:ajax event="blur" />
 					<x:element name="p:ajax" URI="http://primefaces.org/ui">
 						<x:attribute name="event">focus</x:attribute>

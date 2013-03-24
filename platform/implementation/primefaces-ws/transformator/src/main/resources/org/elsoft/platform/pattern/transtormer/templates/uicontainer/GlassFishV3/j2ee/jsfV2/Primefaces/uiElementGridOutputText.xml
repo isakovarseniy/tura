@@ -14,7 +14,7 @@
 	<!-- Grid context -->
 	<p:column headerText="${uiElement.label}">
 		<ui:fragment
-			rendered="#{!${model.uicontainer}binding.${uiElement.parent.dataSrcLnk.name}.queryMode}">
+			rendered="#{!${model.uicontainer}binding.current${uiElement.parent.dataSrcLnk.name}.queryMode}">
 			<x:element name="p:inputText" URI="http://primefaces.org/ui">
 				<x:attribute name="style">${uiElement.css}</x:attribute>
 				<x:attribute name="value">#{row.${uiElement.dataSrcField.name}}</x:attribute>
@@ -36,7 +36,7 @@
 			</x:element>
 		</ui:fragment>
 		<ui:fragment
-			rendered="#{${model.uicontainer}binding.${uiElement.parent.dataSrcLnk.name}.queryMode}">
+			rendered="#{${model.uicontainer}binding.current${uiElement.parent.dataSrcLnk.name}.queryMode}">
 			<h:panelGrid columns="2" style="${uiElement.css};">
 
 				<p:selectOneMenu immediate="true" style="width:40px;"

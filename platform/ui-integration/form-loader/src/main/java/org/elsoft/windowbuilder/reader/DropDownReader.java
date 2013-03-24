@@ -90,6 +90,7 @@ public class DropDownReader extends ItemReader {
 					.getObject();
 
 			if (pr == null)
+				//Artificial field
 				event.setDstUUID(getDataControlId() + "." + getField());
 			else
 				event.setDstUUID(getDataControlId() + "." + getCastObject()

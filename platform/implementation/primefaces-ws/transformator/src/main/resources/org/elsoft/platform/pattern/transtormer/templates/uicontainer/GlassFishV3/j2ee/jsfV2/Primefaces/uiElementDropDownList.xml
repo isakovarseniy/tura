@@ -18,10 +18,10 @@
 
 		<h:outputText value="${uiElement.label}" />
 		<p:selectOneMenu id="tura${uiElement.uuid}" immediate="true" style="${uiElement.css}"
-			valueChangeListener="#{${model.uicontainer}binding.${uiElement.optionsSrcLnk.name}.changeListener}"
-			value="#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.currentRow.${uiElement.dataSrcField.name}}">
+			valueChangeListener="#{${model.uicontainer}binding.current${uiElement.optionsSrcLnk.name}.changeListener}"
+			value="#{${model.uicontainer}binding.current${uiElement.dataSrcLnk.name}.currentRow.${uiElement.dataSrcField.name}}">
 			<f:selectItems
-				value="#{${model.uicontainer}binding.${uiElement.optionsSrcLnk.name}.optionsList}" />
+				value="#{${model.uicontainer}binding.current${uiElement.optionsSrcLnk.name}.optionsList}" />
 
 			<x:element name="p:ajax" URI="http://primefaces.org/ui">
 				<x:attribute name="process">@this</x:attribute>
