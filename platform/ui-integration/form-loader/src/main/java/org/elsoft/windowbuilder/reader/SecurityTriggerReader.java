@@ -44,18 +44,17 @@ public class SecurityTriggerReader extends Reader {
 	@Override
 	protected void build(HashMap<String, Object> context, RepositoryFactory rf,
 			Reader parent, List<CommandDAO> program) throws Exception {
-		
+
 		MethodDAO m = null;
-		
+
 		if ((service != null) && (method != null)) {
 
 			Helper.findType(rf, service.get(0), service.get(1), service.get(2),
 					service.get(3));
 
-			m = rf.getTypeDefinitionHandler().getMethodHandler()
-					.cleanSearch().searchString("method", method).getObject();
+			m = rf.getTypeDefinitionHandler().getMethodHandler().cleanSearch()
+					.searchString("method", method).getObject();
 		}
-		
 
 		CreateSecurityTriggerDAO createSecurityTrigger = new CreateSecurityTriggerDAO();
 		createSecurityTrigger.setCommandExecutor(CreateSecurityTrigger.class
@@ -65,14 +64,20 @@ public class SecurityTriggerReader extends Reader {
 		createSecurityTrigger.setGranted(granted);
 		createSecurityTrigger.setRoles(roles);
 		createSecurityTrigger.setOperationType(operation);
-		createSecurityTrigger.setDomain(service.get(0));
-		createSecurityTrigger.setFunctionalDomain(service.get(1));
-		createSecurityTrigger.setApplication(service.get(2));
-		createSecurityTrigger.setTypeName(service.get(3));
-		createSecurityTrigger.setMethodName(method);
-		createSecurityTrigger.setMethodType(operation);
-		createSecurityTrigger.setRefMethod(m.getObjId());
-		createSecurityTrigger.setDstUUID(((ItemReader) parent).getDataControlId());
+		
+		if ((service != null) && (method != null)) {
+			createSecurityTrigger.setDomain(service.get(0));
+			createSecurityTrigger.setFunctionalDomain(service.get(1));
+			createSecurityTrigger.setApplication(service.get(2));
+			createSecurityTrigger.setTypeName(service.get(3));
+
+			createSecurityTrigger.setRefMethod(m.getObjId());
+			createSecurityTrigger.setMethodName(method);
+			createSecurityTrigger.setMethodType(operation);
+			createSecurityTrigger.setDstUUID(((ItemReader) parent)
+					.getDataControlId());
+		}
+		
 
 		program.add(createSecurityTrigger);
 
