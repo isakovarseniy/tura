@@ -21,11 +21,19 @@
 
 
     private TreeNode root;
+	private boolean init = false;
+	private boolean treeReresh = false;
 
-    public TreeNode getRoot(  ) throws Exception
-    {
- 	  if ((root == null)||getMode(  ).getControl(  ).testForRefresh(  )) 
-       {
+	public TreeNode getRoot() throws Exception {
+		if ((root == null) || getMode().getControl().testForRefresh()
+				|| (treeReresh)) {
+			if (!init) {
+				getMode().getRefreshListeners().add(new org.elsoft.platform.datacontrol.DCEventListener() {
+					public void execute() {
+						treeReresh = true;
+					}
+				});
+			}
             root = new DefaultTreeNode( this, null );
 
             Iterator&lt;${objlnk.dataLink.majorType.resTypeName}&gt; itr = getMode(  ).getControl(  ).getList(  ).iterator(  );
@@ -46,6 +54,7 @@
                 new DefaultTreeNode( this, node );
             }
             getMode().getControl().getObject(0);
+			treeReresh = false;
             
         }
 

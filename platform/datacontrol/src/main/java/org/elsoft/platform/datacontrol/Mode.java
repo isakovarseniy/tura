@@ -15,6 +15,7 @@
  ******************************************************************************/
 package org.elsoft.platform.datacontrol;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -33,19 +34,23 @@ public class Mode<T> {
 	private Integer newMode = RootModeSwitch.INSERT_MODE;
 	private HashMap<Integer, DataControl<T>> modeSwitch = new HashMap<Integer, DataControl<T>>();
 	private HashMap<String, Activity> transition = new HashMap<String, Activity>();
-	private HashMap<String,Object> dependency = new  HashMap<String,Object>();
+	private HashMap<String, Object> dependency = new HashMap<String, Object>();
 	private RootModeSwitch root;
 	private ELResolver elResolver = null;
 	private StructureControl stControl = null;
 	private String object;
 	private List<DefaultSearchCriteria> defaultFilter;
-	private List<OrderCriteria>  defaultOrderby;
+	private List<OrderCriteria> defaultOrderby;
 	private Object extender;
 	private Class<?> rootClass;
-	
-	
+	private List<DCEventListener> refreshListeners = new ArrayList<DCEventListener>();
+
 	public Class<?> getRootClass() {
 		return rootClass;
+	}
+
+	public List<DCEventListener> getRefreshListeners() {
+		return refreshListeners;
 	}
 
 	public void setRootClass(Class<?> rootClass) {
@@ -60,7 +65,8 @@ public class Mode<T> {
 		this.dependency = dependency;
 	}
 
-	public void addMode(Integer mode, DataControl<T> dc, boolean isDefault) throws Exception {
+	public void addMode(Integer mode, DataControl<T> dc, boolean isDefault)
+			throws Exception {
 		modeSwitch.put(mode, dc);
 		dc.setMode(this);
 		dc.initControl();
@@ -85,8 +91,8 @@ public class Mode<T> {
 		Collection<Relation> relCol = this.getChildrens();
 		Iterator<Relation> itr = relCol.iterator();
 		while (itr.hasNext()) {
-			Mode<?> cm =  itr.next().getChild();
-			if (cm != null) //It can be null for self-relation 
+			Mode<?> cm = itr.next().getChild();
+			if (cm != null) // It can be null for self-relation
 				cm.setMode(this.currentMode);
 		}
 	}
@@ -171,7 +177,7 @@ public class Mode<T> {
 	}
 
 	public void setAnnotatedObject(String object) {
-		this.object=object;
+		this.object = object;
 	}
 
 	public List<DefaultSearchCriteria> getDefaultFilter() {
@@ -197,6 +203,5 @@ public class Mode<T> {
 	public void setExtender(Object extender) {
 		this.extender = extender;
 	}
-
 
 }

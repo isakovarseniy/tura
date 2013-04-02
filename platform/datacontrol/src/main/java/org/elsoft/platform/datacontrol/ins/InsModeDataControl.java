@@ -24,13 +24,13 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.logging.Logger;
 
-
 import org.apache.commons.lang.StringUtils;
 import org.elsoft.platform.Constants;
 import org.elsoft.platform.OrderCriteria;
 import org.elsoft.platform.PlatformConfig;
 import org.elsoft.platform.Reflection;
 import org.elsoft.platform.SearchCriteria;
+import org.elsoft.platform.datacontrol.DCEventListener;
 import org.elsoft.platform.datacontrol.DataControl;
 import org.elsoft.platform.datacontrol.Mode;
 import org.elsoft.platform.datacontrol.Pager;
@@ -67,37 +67,34 @@ public class InsModeDataControl<T> extends DataControl<T> {
 		}
 	}
 
-	
-	public synchronized void incGhostCounter(){
+	public synchronized void incGhostCounter() {
 		ghostCounter++;
 		this.mode.getStControl().addGhostObjectsControls(uuid, this);
 	}
 
-	public  synchronized void decGhostCounter(){
+	public synchronized void decGhostCounter() {
 		ghostCounter--;
 		if (ghostCounter == 0)
-		   this.mode.getStControl().removeGhostObjectsControls(uuid);
+			this.mode.getStControl().removeGhostObjectsControls(uuid);
 	}
-	
-	public  synchronized void cleanGhost(){
-		ghostCounter =0;
+
+	public synchronized void cleanGhost() {
+		ghostCounter = 0;
 		this.mode.getStControl().removeGhostObjectsControls(uuid);
 	}
-	
-	public  synchronized void cleanGhostObjects() throws Exception{
+
+	public synchronized void cleanGhostObjects() throws Exception {
 		if (ghostCounter < 0)
-			throw new Exception ("ghostCounter < 0");
+			throw new Exception("ghostCounter < 0");
 
-		ghostCounter =0;
+		ghostCounter = 0;
 		this.mode.getStControl().removeGhostObjectsControls(uuid);
 	}
 
-	
-	
-	public  synchronized void setGhostCounter(){
-		ghostCounter =0;
+	public synchronized void setGhostCounter() {
+		ghostCounter = 0;
 	}
-	
+
 	public void prevObject() {
 		if (currentPosition > 0)
 			currentPosition--;
@@ -182,9 +179,8 @@ public class InsModeDataControl<T> extends DataControl<T> {
 			checkParenObject(mode.getParent().getParent().getControl()
 					.getCurrentObject());
 
-		
-		boolean flagUpdate = this.isUpdated(); 
-		
+		boolean flagUpdate = this.isUpdated();
+
 		if (!isRefresh()) {
 			if (flagUpdate) {
 				this.setRefresh(true);
@@ -198,6 +194,13 @@ public class InsModeDataControl<T> extends DataControl<T> {
 
 		T obj = pager.getObject(index);
 		this.currentPosition = index;
+		if (isRefresh()) {
+			Iterator<DCEventListener> itr = this.getMode()
+					.getRefreshListeners().iterator();
+			while (itr.hasNext()) {
+				itr.next().execute();
+			}
+		}
 		this.setRefresh(false);
 		return obj;
 	}
@@ -212,10 +215,10 @@ public class InsModeDataControl<T> extends DataControl<T> {
 		try {
 			if (objWrp != null) {
 				if (mode.getParent() != null) {
-					InsModeBeanWrapper w  =((InsModeBeanWrapper) Reflection.call(objWrp,
-							"getWrapper"));
-					Object  obj = w.getObj();
-					
+					InsModeBeanWrapper w = ((InsModeBeanWrapper) Reflection
+							.call(objWrp, "getWrapper"));
+					Object obj = w.getObj();
+
 					List<SearchCriteria> ls = mode.getParent()
 							.getChildSearchCriteria();
 					Iterator<SearchCriteria> itr = ls.iterator();
