@@ -40,7 +40,7 @@ public class FactoryBeanModelBuilder {
 
 	public Object builder(RepositoryFactory rf, String domain,
 			String functionalDomain, String application,
-			MetamodelPlatformLevel level, Form frm) {
+			MetamodelPlatformLevel level, Form frm) throws Exception {
 		
 		Iterator<RemoteMethod> itrRmi = frm.getTriggers().values().iterator();
 		while (itrRmi.hasNext()) {
@@ -179,7 +179,7 @@ public class FactoryBeanModelBuilder {
 
 		public ViewPortDescriptor(ViewPort port,RepositoryFactory rf, String domain,
 				String functionalDomain, String application,
-				MetamodelPlatformLevel level ) {
+				MetamodelPlatformLevel level ) throws Exception {
 			canvasName = ((Canvas) port.getCanvas()).getCanvasName();
 			viewPortName = port.getViewPortName();
 			capViewPortName = WordUtils.capitalize(viewPortName);
@@ -276,7 +276,7 @@ public class FactoryBeanModelBuilder {
 
 	private void viewPortsFinder(UIElement element,RepositoryFactory rf, String domain,
 			String functionalDomain, String application,
-			MetamodelPlatformLevel level) {
+			MetamodelPlatformLevel level) throws Exception {
 
 		if (element instanceof ViewPort)
 			model.getPorts().add(new ViewPortDescriptor((ViewPort) element,rf,domain,functionalDomain,application,level));

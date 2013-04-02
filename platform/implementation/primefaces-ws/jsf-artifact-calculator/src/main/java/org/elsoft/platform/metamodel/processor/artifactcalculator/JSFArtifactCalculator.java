@@ -84,7 +84,7 @@ public class JSFArtifactCalculator extends ArtifactCalculator {
 	@Override
 	protected List<Artifact> getArtifactList(Object model,
 			HashMap<String, Object> context,
-			HashMap<String, Object> outputContext) {
+			HashMap<String, Object> outputContext) throws Exception {
 		ArrayList<Artifact> list = new ArrayList<Artifact>();
 
 		Form frm = (Form) model;

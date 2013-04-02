@@ -53,7 +53,7 @@ System.out.println(artifact.artifactType.name()+"+++"+artifact.getTechnology());
 
 	protected abstract List<Artifact> getArtifactList(Object model,
 			HashMap<String, Object> context,
-			HashMap<String, Object> outputContext);
+			HashMap<String, Object> outputContext) throws Exception;
 
 
 	public class Artifact {

@@ -17,7 +17,7 @@ public class MappedType extends IndependentType {
 
 	public MappedType(TypeDAO type, String domain, String functionalDomain,
 			String application, MetamodelPlatformLevel level,
-			RepositoryFactory rf) {
+			RepositoryFactory rf) throws Exception {
 		super(type);
 
 		TypeMappingDAO typemap = rf.getTypeMappingHandler().cleanSearch()
@@ -43,6 +43,9 @@ public class MappedType extends IndependentType {
 					.searchLong("typeReference", type.getObjId())
 					.getObject();
 
+		}
+		if (typemap == null){
+			throw new Exception(type.getDomain()+"."+type.getFunctionalDomain()+"."+type.getApplication()+"."+type.getTypeName()+"  is not mapped to "+domain+"."+functionalDomain+"."+application);
 		}
 
 		this.resPackageName = typemap.getResPackageName();

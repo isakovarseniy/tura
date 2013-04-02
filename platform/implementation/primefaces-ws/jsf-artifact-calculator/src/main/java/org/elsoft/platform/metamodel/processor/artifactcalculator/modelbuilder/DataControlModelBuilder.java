@@ -44,7 +44,7 @@ import org.elsoft.platform.metamodel.processor.uicontainer.model.Version;
 public class DataControlModelBuilder {
 	public Object builder(RepositoryFactory rf, DataLink dataLink,
 			String domain, String functionalDomain, String application,
-			MetamodelPlatformLevel level, Form frm) {
+			MetamodelPlatformLevel level, Form frm) throws Exception  {
 
 		dataLink.setMajorType(new MappedType(dataLink.getMajorType()
 				.getTypedao(), domain, functionalDomain, application, level, rf));

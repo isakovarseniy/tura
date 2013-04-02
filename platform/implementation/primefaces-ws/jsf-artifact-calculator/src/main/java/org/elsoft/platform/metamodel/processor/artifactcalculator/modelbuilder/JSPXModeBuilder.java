@@ -65,7 +65,7 @@ public class JSPXModeBuilder {
 	public Object builder(UIElement element, String domain,
 			String functionalDomain, String application,
 			MetamodelPlatformLevel level, Form frm, RepositoryFactory rf,
-			HashMap<String, String> keyMap,HashMap<String, Object> context) {
+			HashMap<String, String> keyMap,HashMap<String, Object> context) throws Exception {
 
 		this.domain = domain;
 		this.functionalDomain = functionalDomain;
@@ -96,7 +96,7 @@ public class JSPXModeBuilder {
 	}
 
 	private void viewPortFinder(UIElement element,
-			HashMap<String, String> keyMap) {
+			HashMap<String, String> keyMap) throws Exception {
 
 		Iterator<RemoteMethod> itrRmi = element.getTriggers().values()
 				.iterator();
