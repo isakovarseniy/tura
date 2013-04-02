@@ -86,8 +86,34 @@
 			Method method = bf.getClass().getMethod("setCurrent" + methodName,
 					ext.getClazz());
 			method.invoke(bf, w.getDatacontrol().getMode().getExtender());
-		}
 
+			Iterator&lt;String> itr = ext.getRelations().values().iterator();
+
+			while (itr.hasNext()) {
+				String m = itr.next();
+				Connection c = ext.getConnections().get(m);
+
+				if (c.treeRelation()) {
+					continue;
+				}
+
+				Handler&lt;?, ?> h = (Handler&lt;?, ?>) Reflection.call(w
+						.getDatacontrol().getMode().getExtender(), m);
+
+				methodName = c
+						.connectedObject()
+						.getSimpleName()
+						.substring(
+								0,
+								c.connectedObject().getSimpleName()
+										.indexOf("Handler"));
+
+				method = bf.getClass().getMethod("setCurrent" + methodName,
+						c.connectedObject());
+
+				method.invoke(bf, h);
+			}
+		}
 	}
 
 	public void setSelectedNode(TreeNode selectedNode) throws Exception {

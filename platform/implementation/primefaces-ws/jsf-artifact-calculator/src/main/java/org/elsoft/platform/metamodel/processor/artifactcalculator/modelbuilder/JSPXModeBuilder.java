@@ -149,6 +149,9 @@ public class JSPXModeBuilder {
 						.getName();
 				((ExternalIterator) element).getDataSrcLnk().setName(
 						StringUtils.capitalize(name));
+
+				element.getPropertiesExtender().put("lowSrcLnk", StringUtils.uncapitalize(name));
+				
 			}
 		}
 

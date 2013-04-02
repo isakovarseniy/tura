@@ -140,6 +140,9 @@
 			<p1:Relation treeRelation="true" dstDataControl="Packet">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
 			</p1:Relation>
+			<p1:Relation size="0, 0" dstDataControl="ModelMapping">
+				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
+			</p1:Relation>
 			<p1:ArtificialField x:Name="name" primitiveType="null.null.null.String"/>
 			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="postQueryPacket"/>
 		</p1:DataControl>
