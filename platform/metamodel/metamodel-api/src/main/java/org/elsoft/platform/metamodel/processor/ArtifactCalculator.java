@@ -31,6 +31,10 @@ public abstract class ArtifactCalculator {
 			HashMap<String, Object> context, String modelname) throws Exception {
 
 		HashMap<String, Object> outputContext = new HashMap<String, Object>();
+		
+		if (context.get(modelname) == null){
+			System.out.println ("Model "+modelname+" is empty");
+		}
 
 		Iterator<Artifact> itr = getArtifactList(context.get(modelname),
 				context, outputContext).iterator();

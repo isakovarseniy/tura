@@ -199,6 +199,8 @@ public class JSPXModeBuilder {
 						.getName();
 				((ActionElement) element).getDataSrcLnk().setName(
 						StringUtils.capitalize(name));
+
+				element.getPropertiesExtender().put("lowSrcLnk", StringUtils.uncapitalize(name));
 			}
 			if ((((ActionElement) element).getTriggerType() != null)
 					&& ((((ActionElement) element).getTriggerType()

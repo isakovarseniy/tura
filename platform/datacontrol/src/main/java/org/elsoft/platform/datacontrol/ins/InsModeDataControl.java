@@ -88,7 +88,7 @@ public class InsModeDataControl<T> extends DataControl<T> {
 			throw new Exception("ghostCounter < 0");
 
 		ghostCounter = 0;
-		this.mode.getStControl().removeGhostObjectsControls(uuid);
+//		this.mode.getStControl().removeGhostObjectsControls(uuid);
 	}
 
 	public synchronized void setGhostCounter() {
