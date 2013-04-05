@@ -32,6 +32,8 @@ public class PopulateApplication {
 			rf = new RepositoryFactory(new TransactionManagerImpl(JPAObjects.getObjects()));
 			rf.getRoot();
 
+			rf.createPrimitiveTypes();
+			rf.populateArtifacts();
 			rf.getRoot().addDomain("ELsoft");
 			FunctionalDomainHandler fDomain = rf.getRoot()
 					.getFunctionalDomain();

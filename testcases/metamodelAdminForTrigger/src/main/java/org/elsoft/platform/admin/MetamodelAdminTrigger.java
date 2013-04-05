@@ -12,9 +12,43 @@ import org.elsoft.platform.SearchCriteria;
 import org.elsoft.platform.datacontrol.DataControl;
 import org.elsoft.platform.datacontrol.ELResolver;
 import org.elsoft.platform.datacontrol.extender.Handler;
+import org.elsoft.platform.metamodel.objects.suite.ApplicationDAO;
+import org.elsoft.platform.metamodel.objects.suite.DomainDAO;
+import org.elsoft.platform.metamodel.objects.suite.FunctionalDomainDAO;
+import org.elsoft.platform.metamodel.objects.type.TypeDAO;
 import org.primefaces.model.TreeNode;
 
 public class MetamodelAdminTrigger {
+
+	public void postCreateTypeDefinition(Object obj) {
+		Handler domainHandler = (Handler) FacesContext
+				.getCurrentInstance()
+				.getApplication()
+				.evaluateExpressionGet(FacesContext.getCurrentInstance(),
+						"#{MetarepositoryInterfacebinding.currentDomainLnk}",
+						Object.class);
+
+		Handler functionalDomain = (Handler) FacesContext
+				.getCurrentInstance()
+				.getApplication()
+				.evaluateExpressionGet(
+						FacesContext.getCurrentInstance(),
+						"#{MetarepositoryInterfacebinding.currentFunctionalDomainLnk}",
+						Object.class);
+
+		Handler application = (Handler) FacesContext
+				.getCurrentInstance()
+				.getApplication()
+				.evaluateExpressionGet(
+						FacesContext.getCurrentInstance(),
+						"#{MetarepositoryInterfacebinding.currentApplicationLnk}",
+						Object.class);
+
+		((TypeDAO) obj).setDomain(((DomainDAO) domainHandler.getMode().getControl().getCurrentObject()).getName());
+		((TypeDAO) obj).setFunctionalDomain(((FunctionalDomainDAO) functionalDomain.getMode().getControl().getCurrentObject()).getName());
+		((TypeDAO) obj).setApplication(((ApplicationDAO)application.getMode().getControl().getCurrentObject()).getName());
+
+	}
 
 	public boolean disableModelChoserButton() {
 		Object bindFactory = FacesContext

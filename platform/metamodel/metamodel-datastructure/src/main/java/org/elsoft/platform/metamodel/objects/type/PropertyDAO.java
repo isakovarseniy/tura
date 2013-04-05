@@ -34,10 +34,10 @@ public class PropertyDAO extends ELsoftObject{
 	private String propertyName;
 
 	@Column(name = "PRIMARY_KEY")
-	private Boolean primaryKey;
+	private Boolean primaryKey=false;
 
 	@Column(name = "OPTM_LOCK")
-	private Boolean optLock;
+	private Boolean optLock=false;
 	
 	public Boolean getPrimaryKey() {
 		return primaryKey;

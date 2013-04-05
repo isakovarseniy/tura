@@ -39,7 +39,7 @@ public class ParameterDAO extends ELsoftObject{
 	private String defaultExpression;
 
 	@Column(name = "OVERWRITTEN")
-	private Boolean overwritten;
+	private Boolean overwritten=false;
 
 	
 	public String getDefaultValue() {

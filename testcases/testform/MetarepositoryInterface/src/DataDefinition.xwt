@@ -46,6 +46,7 @@
 			<p1:Relation dstDataControl="PropertyLnk">
 				<p1:Link bounds="0, 0, 64, 64" masterField="objId" detailField="parentId"/>
 			</p1:Relation>
+			<p1:Trigger triggerType="POSTCreateTrigger" x:Name="POSTCreateTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="postCreateTypeDefinition"/>
 		</p1:DataControl>
 		<p1:DataControl x:Name="Method" businessObject="ELsoft.Platform.method" triggerProperty="$${&quot;CreateTrigger&quot;:{&quot;call&quot;:&quot;create&quot;},&quot;UpdateTrigger&quot;:{&quot;call&quot;:&quot;update&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Method.trigger- currentRow&quot;,null]}},&quot;InsertTrigger&quot;:{&quot;call&quot;:&quot;insert&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Method.trigger- currentRow&quot;,null]}},&quot;RemoveTrigger&quot;:{&quot;call&quot;:&quot;remove&quot;,&quot;parameters&quot;:{&quot;obj&quot;:[&quot;Method.trigger- currentRow&quot;,null]}},&quot;SearchTrigger&quot;:{&quot;call&quot;:&quot;find&quot;}}">
 			<p1:Trigger triggerType="POSTQueryTrigger" x:Name="POSTQueryTrigger" service="ELsoft.Platform.Metarepository.MetamodelAdminTrigger" method="postQueryMethod"/>

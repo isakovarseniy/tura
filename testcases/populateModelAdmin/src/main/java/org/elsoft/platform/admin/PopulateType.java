@@ -2413,6 +2413,8 @@ public class PopulateType {
 		mh.addMethod("vewPortProgrammChooser");		
 		mh.addMethod("disableModelChoserButton");
 		mh.addMethod("preQueryModelMapping");
+		mh.addMethod("postCreateTypeDefinition");
+				
 	}
 
 }

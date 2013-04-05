@@ -65,7 +65,11 @@
 			<artifactId>activemq-all</artifactId>
 			<version>5.7.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.elsoft.platform.metamodel</groupId>
+			<artifactId>metamodel-datastructure</artifactId>
+			<version>1.0</version>
+		</dependency>
 
 	</dependencies>
 
