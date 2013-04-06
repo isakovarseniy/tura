@@ -25,6 +25,7 @@ import org.elsoft.platform.metamodel.RepositoryFactory;
 public class PopulateTypeMapping {
 
 	public void execute(RepositoryFactory rf) {
+		createElsoftObjectMapping(rf);
 		createDomainMapping(rf);
 		createFunctionalDomainMapping(rf);
 		createApplicationMapping(rf);
@@ -59,6 +60,32 @@ public class PopulateTypeMapping {
 		createFormTriggersMapping(rf);	
 	}
 
+	
+	private void createElsoftObjectMapping(RepositoryFactory rf){
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+
+		TypeDAO elsoftObject = (TypeDAO) tdh
+				.cleanSearch()
+				.searchString("domain", "ELsoft")
+				.searchString("functionalDomain", "Platform")
+				.searchString("application", "Metarepository")
+				.searchString("typeName", "elsoftObject").getObject();
+		
+		TypeMappingHandler tpmh = rf.getTypeMappingHandler();
+
+		TypeMappingDAO mp = tpmh.addTypeMapping(elsoftObject, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.UI_CONTAINER.name());
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects");
+		mp.setResTypeName("ELsoftObject");
+		mp.setGroupName("org.elsoft.platform");
+		mp.setArtifactName("commons-platform-datastructure");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("JPA-SERVICE");
+		
+		
+		
+	}
 	
 	private void createOptionsMapping(RepositoryFactory rf) {
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();

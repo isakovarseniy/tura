@@ -34,42 +34,44 @@ public class PopulateType {
 
 	public void execute(RepositoryFactory rf) {
 		HashMap<PlatformPrimetiveTypes, TypeDAO> h = readPrimitiveTypes(rf);
-		createDomainTypes(rf, h);
-		createFunctionalDomainTypes(rf, h);
-		createApplicationTypes(rf, h);
-		createUIContainerTypes(rf, h);
+		TypeDAO elsoftObject = createELSoft(rf, h);
+		createDomainTypes(rf, h ,elsoftObject);
+		createFunctionalDomainTypes(rf, h,elsoftObject);
+		createApplicationTypes(rf, h,elsoftObject);
+		createUIContainerTypes(rf, h,elsoftObject);
 
-		createBusinessObjectTypes(rf, h);
-		createMethodTypes(rf, h);
-		createMethodReferenceTypes(rf, h);
-		createParameterTypes(rf, h);
-		createPropertyTypes(rf, h);
-		createTypeDefinitionTypes(rf, h);
-		createTypeMappingTypes(rf, h);
-		createArtifactTypeTypes(rf, h);
-		createApplicationRoleTypes(rf, h);
-		createGlobalRoleTypes(rf, h);
+		createBusinessObjectTypes(rf, h,elsoftObject);
+		createMethodTypes(rf, h,elsoftObject);
+		createMethodReferenceTypes(rf, h,elsoftObject);
+		createParameterTypes(rf, h,elsoftObject);
+		createPropertyTypes(rf, h,elsoftObject);
+		createTypeDefinitionTypes(rf, h,elsoftObject);
+		createTypeMappingTypes(rf, h,elsoftObject);
+		createArtifactTypeTypes(rf, h,elsoftObject);
+		createApplicationRoleTypes(rf, h,elsoftObject);
+		createGlobalRoleTypes(rf, h,elsoftObject);
 
-		createIngredientTypes(rf, h);
-		createModelMappingTypes(rf, h);
-		createPacketTypes(rf, h);
-		createRecipeTypes(rf, h);
-		createServerClasterTypes(rf, h);
-		createServerGridTypes(rf, h);
-		createServerZoneTypes(rf, h);
-		createOptionTypes(rf, h);
+		createIngredientTypes(rf, h,elsoftObject);
+		createModelMappingTypes(rf, h,elsoftObject);
+		createPacketTypes(rf, h,elsoftObject);
+		createRecipeTypes(rf, h,elsoftObject);
+		createServerClasterTypes(rf, h,elsoftObject);
+		createServerGridTypes(rf, h,elsoftObject);
+		createServerZoneTypes(rf, h,elsoftObject);
+		createOptionTypes(rf, h,elsoftObject);
 
-		createCommandTypes(rf, h);
+		createCommandTypes(rf, h,elsoftObject);
 		createRoleMapingCommand(rf, h);
 		createDataSourceCommand(rf, h);
 
-		createDataSourceTypes(rf, h);
+		createDataSourceTypes(rf, h,elsoftObject);
 
 		createFormTriggers(rf);
 
 	}
 
-	private HashMap<PlatformPrimetiveTypes, TypeDAO> readPrimitiveTypes(RepositoryFactory rf) {
+	private HashMap<PlatformPrimetiveTypes, TypeDAO> readPrimitiveTypes(
+			RepositoryFactory rf) {
 
 		HashMap<PlatformPrimetiveTypes, TypeDAO> h = new HashMap<PlatformPrimetiveTypes, TypeDAO>();
 
@@ -84,10 +86,51 @@ public class PopulateType {
 		return h;
 
 	}
-	
+
+	private TypeDAO createELSoft(RepositoryFactory rf,
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+
+		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
+		TypeDAO elsoftObject = tdh.addType("ELsoft", "Platform", "Metarepository",
+				"elsoftObject");
+		
+		elsoftObject.setTypeOfType(MetamodelTypeOfTypes.Entity.name());
+
+		PropertyHandler ph = tdh.getPropertyHandler();
+		PropertyDAO prop = ph.addProperty("objId");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+		prop.setPrimaryKey(true);
+
+		prop = ph.addProperty("version");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Integer).getObjId());
+		prop.setOptLock(true);
+
+		prop = ph.addProperty("parentId");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Long).getObjId());
+
+		prop = ph.addProperty("objType");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		prop = ph.addProperty("objStatus");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.String).getObjId());
+		
+		prop = ph.addProperty("createDate");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Date).getObjId());
+		
+		prop = ph.addProperty("updateDate");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Date).getObjId());
+
+		prop = ph.addProperty("activeDate");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Date).getObjId());
+
+		prop = ph.addProperty("expiredDate");
+		prop.setPropertyType(h.get(PlatformPrimetiveTypes.Date).getObjId());
+		
+		return elsoftObject;
+	}
 
 	private void createDomainTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO domain = tdh.addType("ELsoft", "Platform", "Metarepository",
@@ -162,19 +205,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(domain.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(domain.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(domain.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createFunctionalDomainTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO functionalDomain = tdh.addType("ELsoft", "Platform",
@@ -252,20 +295,20 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(functionalDomain.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(functionalDomain.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(functionalDomain.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 	}
 
 	private void createApplicationTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO application = tdh.addType("ELsoft", "Platform",
@@ -339,20 +382,20 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(application.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(application.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(application.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 	}
 
 	private void createUIContainerTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO UIContainer = tdh.addType("ELsoft", "Platform",
@@ -429,20 +472,20 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(UIContainer.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(UIContainer.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(UIContainer.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 	}
 
 	private void createBusinessObjectTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO businessObject = tdh.addType("ELsoft", "Platform",
@@ -522,19 +565,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(businessObject.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(businessObject.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(businessObject.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createDataSourceTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO dataSource = tdh.addType("ELsoft", "Platform",
@@ -609,19 +652,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(dataSource.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(dataSource.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(dataSource.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createMethodTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO method = tdh.addType("ELsoft", "Platform", "Metarepository",
@@ -699,19 +742,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(method.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(method.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(method.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createMethodReferenceTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO methodReference = tdh.addType("ELsoft", "Platform",
@@ -791,19 +834,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(methodReference.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(methodReference.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(methodReference.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createParameterTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO parameter = tdh.addType("ELsoft", "Platform", "Metarepository",
@@ -890,19 +933,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(parameter.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(parameter.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(parameter.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createPropertyTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO property = tdh.addType("ELsoft", "Platform", "Metarepository",
@@ -986,19 +1029,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(property.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(property.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(property.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createTypeDefinitionTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO typeDefinition = tdh.addType("ELsoft", "Platform",
@@ -1090,19 +1133,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(typeDefinition.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(typeDefinition.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(typeDefinition.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createTypeMappingTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO typeMapping = tdh.addType("ELsoft", "Platform",
@@ -1207,19 +1250,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(typeMapping.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(typeMapping.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(typeMapping.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createArtifactTypeTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO artifactType = tdh.addType("ELsoft", "Platform",
@@ -1300,19 +1343,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(artifactType.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(artifactType.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(artifactType.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createCommandTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO Command = tdh.addType("ELsoft", "Platform", "Metarepository",
@@ -1393,15 +1436,15 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(Command.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(Command.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(Command.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createRoleMapingCommand(RepositoryFactory rf,
@@ -1491,7 +1534,7 @@ public class PopulateType {
 	}
 
 	private void createApplicationRoleTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO applicationRole = tdh.addType("ELsoft", "Platform",
@@ -1568,19 +1611,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(applicationRole.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(applicationRole.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(applicationRole.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createGlobalRoleTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO globalRole = tdh.addType("ELsoft", "Platform",
@@ -1655,19 +1698,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(globalRole.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(globalRole.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(globalRole.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createIngredientTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO ingredient = tdh.addType("ELsoft", "Platform",
@@ -1748,11 +1791,11 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(ingredient.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(ingredient.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
@@ -1760,7 +1803,7 @@ public class PopulateType {
 	}
 
 	private void createModelMappingTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO modelMapping = tdh.addType("ELsoft", "Platform",
@@ -1841,19 +1884,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(modelMapping.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(modelMapping.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(modelMapping.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createPacketTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO packet = tdh.addType("ELsoft", "Platform", "Metarepository",
@@ -1934,19 +1977,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(packet.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(packet.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(packet.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createRecipeTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO recipe = tdh.addType("ELsoft", "Platform", "Metarepository",
@@ -2021,19 +2064,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(recipe.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(recipe.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(recipe.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createServerZoneTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO serverZone = tdh.addType("ELsoft", "Platform",
@@ -2111,19 +2154,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(serverZone.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(serverZone.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(serverZone.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createServerGridTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO serverGrid = tdh.addType("ELsoft", "Platform",
@@ -2201,19 +2244,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(serverGrid.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(serverGrid.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(serverGrid.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createServerClasterTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO serverClaster = tdh.addType("ELsoft", "Platform",
@@ -2294,19 +2337,19 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(serverClaster.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(serverClaster.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(serverClaster.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 	}
 
 	private void createOptionTypes(RepositoryFactory rf,
-			HashMap<PlatformPrimetiveTypes, TypeDAO> h) {
+			HashMap<PlatformPrimetiveTypes, TypeDAO> h,TypeDAO elsoftObject) {
 
 		TypeDefinitionHandler tdh = rf.getTypeDefinitionHandler();
 		TypeDAO options = tdh.addType("ELsoft", "Platform", "Metarepository",
@@ -2376,15 +2419,15 @@ public class PopulateType {
 
 		met = mh.addMethod("update");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(options.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("remove");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(options.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 		met = mh.addMethod("insert");
 		prm = prh.addParameter("obj");
-		prm.setParameterType(options.getObjId());
+		prm.setParameterType(elsoftObject.getObjId());
 
 	}
 
@@ -2410,11 +2453,11 @@ public class PopulateType {
 		mh.addMethod("postQueryIngredient");
 		mh.addMethod("postQueryPacket");
 		mh.addMethod("recipeViewPortController");
-		mh.addMethod("vewPortProgrammChooser");		
+		mh.addMethod("vewPortProgrammChooser");
 		mh.addMethod("disableModelChoserButton");
 		mh.addMethod("preQueryModelMapping");
 		mh.addMethod("postCreateTypeDefinition");
-				
+
 	}
 
 }
