@@ -108,6 +108,7 @@ public class QryModeBeanWrapper implements MethodInterceptor {
 							org.objectweb.asm.Type.VOID_TYPE, parameters);
 					im.add(signature, parameters);
 
+					
 				}
 			}
 
@@ -140,14 +141,22 @@ public class QryModeBeanWrapper implements MethodInterceptor {
 					// setter
 					parameters = new org.objectweb.asm.Type[] { org.objectweb.asm.Type
 							.getType(String.class) };
-					signature = new Signature("setComparator" + obj.getProperty(),
+					signature = new Signature("setComparator" + StringUtils.capitalize(obj.getProperty()),
 							org.objectweb.asm.Type.VOID_TYPE, parameters);
 					im.add(signature, parameters);
 
+					// getter
+					parameters = new org.objectweb.asm.Type[] {};
+					signature = new Signature("getComparator" + StringUtils.capitalize(obj.getProperty()),
+							org.objectweb.asm.Type.getType(String.class),
+							parameters);
+					im.add(signature, parameters);
+
+					
 					// Add order by
 					// getter
 					parameters = new org.objectweb.asm.Type[] {};
-					signature = new Signature("getOrderBy" + obj.getProperty(),
+					signature = new Signature("getOrderBy" + StringUtils.capitalize(obj.getProperty()),
 							org.objectweb.asm.Type.getType(String.class),
 							parameters);
 
@@ -156,7 +165,7 @@ public class QryModeBeanWrapper implements MethodInterceptor {
 					// setter
 					parameters = new org.objectweb.asm.Type[] { org.objectweb.asm.Type
 							.getType(String.class) };
-					signature = new Signature("setOrderBy" + obj.getProperty(),
+					signature = new Signature("setOrderBy" + StringUtils.capitalize(obj.getProperty()),
 							org.objectweb.asm.Type.VOID_TYPE, parameters);
 					im.add(signature, parameters);
 
