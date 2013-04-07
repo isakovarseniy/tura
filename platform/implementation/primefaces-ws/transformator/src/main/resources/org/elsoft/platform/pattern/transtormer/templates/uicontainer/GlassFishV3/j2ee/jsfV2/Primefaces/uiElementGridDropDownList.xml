@@ -29,13 +29,11 @@
 			<ui:fragment rendered="#{!${readonlyExpression}}">
 
 				<p:selectOneMenu immediate="true" style="${uiElement.css}"
-					valueChangeListener="#{${model.uicontainer}binding.current${uiElement.optionsSrcLnk.name}.changeListener}"
 					value="#{row.${uiElement.dataSrcField.name}}">
 					<f:selectItems
 						value="#{${model.uicontainer}binding.current${uiElement.optionsSrcLnk.name}.optionsList}" />
-					<p:ajax event="blur" />
 					<x:element name="p:ajax" URI="http://primefaces.org/ui">
-						<x:attribute name="event">focus</x:attribute>
+						<x:attribute name="event">change</x:attribute>
 						<x:attribute name="listener">#{${RawSelectionLink}.onFocusEvent}
 						</x:attribute>
 						<j:choose>

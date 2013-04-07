@@ -27,6 +27,12 @@
 		}
 	}
 	
+	public void setGridCurrentRow(${objlnk.dataLink.majorType.resTypeName} obj) {
+		int currentRow = (Integer) Reflection.call(obj, "getPosition");
+		getMode().getControl().getObject(currentRow);
+	}
+	
+	
 	public void onFocusEvent(javax.faces.event.AjaxBehaviorEvent event){
 		int currentRow = 0;
 		ArrayList&lt;${objlnk.dataLink.majorType.resTypeName}&gt; list = (ArrayList&lt;${objlnk.dataLink.majorType.resTypeName}&gt;) getLazyModel().getWrappedData();

@@ -47,7 +47,10 @@
 			</x:element>
 			<j:choose>
 		      <j:when test="${uiElement.propertiesExtender['readonly_expression'] == null or uiElement.propertiesExtender['readonly_expression'] == ''}">
-			     <p:commandButton value="..." onclick="lov${uiElement.uuid.replaceAll('\-','')}.show()"  update="${uiElement.propertiesExtender['canvasPath']}:table${uiElement.uuid.replaceAll('\-','')}"/>
+			     <p:commandButton value="..." onclick="lov${uiElement.uuid.replaceAll('\-','')}.show()"  update="${uiElement.propertiesExtender['canvasPath']}:table${uiElement.uuid.replaceAll('\-','')}">
+			           <f:setPropertyActionListener value="#{row}"
+                                    target="#{${RawSelectionLink}.gridCurrentRow}" />
+                 </p:commandButton>                   
 			  </j:when>
 		    </j:choose>
 			
