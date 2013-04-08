@@ -17,7 +17,7 @@
 					size="220, 45" idObject="MethodTable" updateOnRawSelect="ParameterTable" cssStyle="margin-right:5px">
 					<p1:MetaTableColumn text="Method name" width="100">
 						<p1:MetaInputText x:Style="BORDER"
-							sourceProperty="method" cssStyle="width:130px" />
+							sourceProperty="method" cssStyle="width:100px" />
 					</p1:MetaTableColumn>
 					<p1:MetaTableColumn text="Return type" width="100">
 						<p1:MetaLOV sourceProperty="refArtType" optionIterator="TypeDefinitionHelper" updateOnValueChanged="MethodTable">
@@ -47,10 +47,18 @@
 					idObject="ParameterTable" size="201, 199">
 					<p1:MetaTableColumn text="Parameter name" width="100">
 						<p1:MetaInputText x:Style="BORDER"
-							sourceProperty="parameterName" />
+							sourceProperty="parameterName" cssStyle="width:100px" />
 					</p1:MetaTableColumn>
 					<p1:MetaTableColumn text="Parameter type" width="100">
-						<p1:MetaOutputText sourceProperty="refArtType" />
+						<p1:MetaLOV sourceProperty="refArtType" optionIterator="TypeDefinitionHelper1" updateOnValueChanged="ParameterTable">
+							<p1:LovDisplayField x:Style="BORDER" displayField="domain" fieldLabel="Domain"/>
+							<p1:LovDisplayField x:Style="BORDER" fieldLabel="FunctionalDomain" displayField="functionalDomain"/>
+							<p1:LovDisplayField x:Style="BORDER" displayField="application" fieldLabel="Application"/>
+							<p1:LovDisplayField x:Style="BORDER" displayField="typeName" fieldLabel="Type name"/>
+							<p1:LovReturnField x:Style="BORDER" returnIterator="ParametersLnk" displayField="objId" returnField="parameterType"/>
+							<p1:LovReturnField x:Style="BORDER" returnIterator="ParametersLnk" returnField="refArtType" displayField="refArtType"/>
+						</p1:MetaLOV>
+						
 					</p1:MetaTableColumn>
 				</p1:MetaTable>
 					<p1:MetaComposite size="64, 64">
@@ -81,7 +89,14 @@
 							sourceProperty="propertyName" />
 					</p1:MetaTableColumn>
 					<p1:MetaTableColumn text="Type" width="100">
-						<p1:MetaOutputText sourceProperty="refArtType" />
+						<p1:MetaLOV sourceProperty="refArtType" optionIterator="TypeDefinitionHelper2" updateOnValueChanged="PropTable">
+							<p1:LovDisplayField x:Style="BORDER" displayField="domain" fieldLabel="Domain"/>
+							<p1:LovDisplayField x:Style="BORDER" fieldLabel="FunctionalDomain" displayField="functionalDomain"/>
+							<p1:LovDisplayField x:Style="BORDER" displayField="application" fieldLabel="Application"/>
+							<p1:LovDisplayField x:Style="BORDER" displayField="typeName" fieldLabel="Type name"/>
+							<p1:LovReturnField x:Style="BORDER" returnIterator="PropertyLnk" displayField="objId" returnField="propertyType"/>
+							<p1:LovReturnField x:Style="BORDER" returnIterator="PropertyLnk" returnField="refArtType" displayField="refArtType"/>
+						</p1:MetaLOV>
 					</p1:MetaTableColumn>
 					<p1:MetaTableColumn text="Primary Key" width="100">
 						<p1:MetaCheckbox x:Style="CHECK" text="Check Button"

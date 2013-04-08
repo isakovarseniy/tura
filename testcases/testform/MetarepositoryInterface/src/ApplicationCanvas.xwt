@@ -11,8 +11,8 @@
 					<p1:MetaComposite.layout>
 						<GridLayout numColumns="2"/>
 					</p1:MetaComposite.layout>
-					<p1:MetaAction text="Search" bounds="0, 0, 88, 29" expressionProperty="TypeDefinition.trigger- search" updateOnButtonPressed="typeTable"/>
-					<p1:MetaAction text="Query" bounds="0, 0, 88, 29" expressionProperty="TypeDefinition.trigger- query" updateOnButtonPressed="typeTable"/>
+					<p1:MetaAction text="Search" bounds="0, 0, 88, 29" expressionProperty="TypeDefinition.trigger- search" updateOnButtonPressed="MethodTable ParameterTable typeTable PropTable"/>
+					<p1:MetaAction text="Query" bounds="0, 0, 88, 29" expressionProperty="TypeDefinition.trigger- query" updateOnButtonPressed="MethodTable ParameterTable typeTable PropTable"/>
 				</p1:MetaComposite>
 				<p1:MetaComposite>
 					<p1:MetaComposite.layout>
