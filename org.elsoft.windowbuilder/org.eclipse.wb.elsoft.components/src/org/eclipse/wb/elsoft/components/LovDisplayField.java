@@ -23,7 +23,25 @@ public class LovDisplayField extends Item{
 
 	private String fieldLabel;
 	private SourceProperty displayField;
+	private String cssStyle;
+	private String cssStyleClass;
 	
+
+	public String getCssStyle() {
+		return cssStyle;
+	}
+
+	public void setCssStyle(String cssStyle) {
+		this.cssStyle = cssStyle;
+	}
+
+	public String getCssStyleClass() {
+		return cssStyleClass;
+	}
+
+	public void setCssStyleClass(String cssStyleClass) {
+		this.cssStyleClass = cssStyleClass;
+	}
 
 	public LovDisplayField(Composite parent, int style) {
 		super(parent, style);

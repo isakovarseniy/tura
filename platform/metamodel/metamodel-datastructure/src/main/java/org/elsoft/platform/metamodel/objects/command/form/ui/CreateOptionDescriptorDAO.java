@@ -28,7 +28,34 @@ import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 @DiscriminatorValue("CREATEOPTIONDESCRIPTOR")
 @XmlRootElement
 public class CreateOptionDescriptorDAO extends CommandDAO{
+
+	@Column(name="CSS")
+	private String css;
+
+	@Column(name="CSSCLASS")
+	private String cssClass;
 	
+	
+	public String getCss() {
+		return css;
+	}
+
+
+	public void setCss(String css) {
+		this.css = css;
+	}
+
+
+	public String getCssClass() {
+		return cssClass;
+	}
+
+
+	public void setCssClass(String cssClass) {
+		this.cssClass = cssClass;
+	}
+
+
 	@Column(name="VALUE1")
 	private String value1;
 

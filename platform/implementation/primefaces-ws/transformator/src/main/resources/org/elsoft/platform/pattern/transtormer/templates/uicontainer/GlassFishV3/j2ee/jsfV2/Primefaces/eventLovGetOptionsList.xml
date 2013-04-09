@@ -39,6 +39,10 @@
 
 	}
 	
+	public void setGridRefresh(boolean refresh) {
+		        this.cleanSearch();
+	}
+	
     public void search( javax.faces.event.ActionEvent event )
     {
         getMode().setMode( RootModeSwitch.QUERY_MODE );

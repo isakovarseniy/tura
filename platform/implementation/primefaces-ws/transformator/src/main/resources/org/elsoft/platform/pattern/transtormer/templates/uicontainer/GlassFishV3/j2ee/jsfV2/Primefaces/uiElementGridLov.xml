@@ -50,6 +50,8 @@
 			     <p:commandButton value="..." onclick="lov${uiElement.uuid.replaceAll('\-','')}.show()"  update="${uiElement.propertiesExtender['canvasPath']}:table${uiElement.uuid.replaceAll('\-','')}">
 			           <f:setPropertyActionListener value="#{row}"
                                     target="#{${RawSelectionLink}.gridCurrentRow}" />
+			           <f:setPropertyActionListener value="#{true}"
+                                    target="#{${model.uicontainer}binding.current${uiElement.OptionsSrcLnk.name}.gridRefresh}" />
                  </p:commandButton>                   
 			  </j:when>
 		    </j:choose>
@@ -85,7 +87,11 @@
 						</j:choose>
 					</x:element>
 				</p:inputText>
-			    <p:commandButton value="..." onclick="lov${uiElement.uuid.replaceAll('\-','')}.show()"  update="${uiElement.propertiesExtender['canvasPath']}:table${uiElement.uuid.replaceAll('\-','')}"/>
+			    <p:commandButton value="..." onclick="lov${uiElement.uuid.replaceAll('\-','')}.show()"  update="${uiElement.propertiesExtender['canvasPath']}:table${uiElement.uuid.replaceAll('\-','')}">
+			          <f:setPropertyActionListener value="#{row}"
+                                    target="#{${RawSelectionLink}.gridCurrentRow}" />
+			    
+			    </p:commandButton>
 			</h:panelGrid>
 		</ui:fragment>
 

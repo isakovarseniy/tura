@@ -18,10 +18,15 @@ package org.elsoft.platform.metamodel.processor.uicontainer.model;
 public class DisplayField {
 	private String displayLabel;
 	private String displayExpression;
+	private String css;
+	private String cssClass;
 
-	public DisplayField(String label, String expression) {
+	public DisplayField(String label, String expression,String cssStyle, String cssStyleClass) {
 		this.displayLabel = label;
 		this.displayExpression = expression;
+		this.css=cssStyle;
+		this.cssClass=cssStyleClass;
+		
 	}
 
 	public String getDisplayLabel() {
@@ -50,6 +55,22 @@ public class DisplayField {
 			return obj.getDisplayLabel().equals(getDisplayLabel());
 		}
 		return false;
+	}
+
+	public String getCss() {
+		return css;
+	}
+
+	public void setCss(String css) {
+		this.css = css;
+	}
+
+	public String getCssClass() {
+		return cssClass;
+	}
+
+	public void setCssClass(String cssClass) {
+		this.cssClass = cssClass;
 	}
 
 }

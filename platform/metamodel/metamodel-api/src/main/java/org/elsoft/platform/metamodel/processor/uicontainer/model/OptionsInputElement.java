@@ -39,9 +39,9 @@ public abstract class OptionsInputElement extends InputElement {
 		this.optionsSrcLnk = optionsSrcLnk;
 	}
 
-	public void addDisplayField(String label, String expression) {
+	public void addDisplayField(String label, String expression, String cssStyle, String cssStypeClass) {
 
-		this.displayedFields.add(new DisplayField(label, expression));
+		this.displayedFields.add(new DisplayField(label, expression,cssStyle, cssStypeClass));
 	}
 
 	public void addReturnResult(String srcExpr, String trgExp) {

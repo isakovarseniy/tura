@@ -46,7 +46,7 @@ public class CreateDisplayFieldSpecifier {
 				|| (element.getOptionsSrcLnk() == null))
 			return Processor.COMMAND_POSTPONE;
 
-		element.addDisplayField(command.getValue1(), command.getValue2());
+		element.addDisplayField(command.getValue1(), command.getValue2(),command.getCss(),command.getCssClass());
 
 		DataLink optionLink = element.getOptionsSrcLnk();
 		String eventname = optionLink.getMapper().map(
@@ -61,7 +61,7 @@ public class CreateDisplayFieldSpecifier {
 			optionLink.getTriggerPropery().put(eventname + "_DisplayField", ls);
 		}
 		DisplayField df = new DisplayField(command.getValue1(),
-				command.getValue2());
+				command.getValue2(),command.getCss(),command.getCssClass());
 		if (!ls.contains(df))
 			ls.add(df);
 
@@ -83,6 +83,8 @@ public class CreateDisplayFieldSpecifier {
 		obj.setValue1(displayField.getDisplayLabel());
 		obj.setValue2(displayField.getDisplayExpression());
 		obj.setCommandExecutor(CreateDisplayFieldSpecifier.class.getName());
+		obj.setCss(displayField.getCss());
+		obj.setCssClass(displayField.getCssClass());
 	}
 
 }

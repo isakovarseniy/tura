@@ -29,11 +29,15 @@ public class LovDisplayFieldReader extends Reader {
 
 	private String fieldLabel;
 	private String field;
+	private String cssStyle;
+	private String cssStyleClass;
 	
 	@Override
 	public Reader reader(XMLStreamReader xmlReader, Reader parent) {
 		fieldLabel = xmlReader.getAttributeValue(null, "fieldLabel");
 		field = xmlReader.getAttributeValue(null, "displayField");
+		cssStyle = xmlReader.getAttributeValue(null, "cssStyle");
+		cssStyleClass = xmlReader.getAttributeValue(null, "cssStyleClass");
 		return this;
 	}
 
@@ -46,6 +50,8 @@ public class LovDisplayFieldReader extends Reader {
 		dispOption.setValue1(fieldLabel);
 		dispOption.setValue2(field);
 		dispOption.setParentUUID(parent.getUuid());
+		dispOption.setCss(cssStyle);
+		dispOption.setCssClass(cssStyleClass);
 		program.add(dispOption);
 		
 	}

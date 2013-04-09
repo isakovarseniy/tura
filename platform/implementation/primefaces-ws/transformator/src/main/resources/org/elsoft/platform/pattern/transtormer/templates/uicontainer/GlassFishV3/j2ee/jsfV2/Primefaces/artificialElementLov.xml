@@ -37,13 +37,28 @@
 				<p:column headerText="${field.displayLabel}">
 
 				<ui:fragment rendered="#{${model.uicontainer}binding.current${lov.optionsSrcLnk.name}.queryMode}">
-					<p:inputText value="#{row.${field.displayExpression}}" >
+			       <h:panelGrid columns="2" style="${field.css}">
+	                <j:invokeStatic className="org.apache.commons.lang.StringUtils" method="capitalize" var="capDisplayExpression">
+		               <j:arg type="java.lang.String" value="${field.displayExpression}" />
+	                </j:invokeStatic>
+				    <p:selectOneMenu immediate="true" style="width:40px" value="#{row.comparator${capDisplayExpression}}">
+					   <f:selectItem itemLabel="=" itemValue="EQ" />
+					   <f:selectItem itemLabel=">" itemValue="GT" />
+					   <f:selectItem itemLabel=">=" itemValue="GTEQ" />
+					   <f:selectItem itemLabel="&lt;" itemValue="LT" />
+					   <f:selectItem itemLabel="&lt;=" itemValue="LTEQ" />
+					   <f:selectItem itemLabel="%" itemValue="LIKE" />
+	                   <p:ajax update="@this"/>
+				    </p:selectOneMenu>
+					<p:inputText value="#{row.${field.displayExpression}}" style="width:100%" >
 					   <p:ajax event="focus" listener="#{${model.uicontainer}binding.current${lov.optionsSrcLnk.name}.onFocusEvent}"/>
 					   <p:ajax event="blur" />
 					</p:inputText>
+
+                   </h:panelGrid>
 				</ui:fragment>
 				<ui:fragment rendered="#{!${model.uicontainer}binding.current${lov.optionsSrcLnk.name}.queryMode}">
-					<h:outputText value="#{row.${field.displayExpression}}" >
+					<h:outputText value="#{row.${field.displayExpression}}" style="${field.css};">
 					</h:outputText>
 				</ui:fragment>
 				</p:column>
