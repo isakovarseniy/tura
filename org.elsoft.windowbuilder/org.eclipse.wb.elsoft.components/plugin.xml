@@ -87,6 +87,7 @@
 					<component class="org.eclipse.wb.elsoft.components.TabCanvas"/>
 					<component class="org.eclipse.wb.elsoft.components.StackableCanvas"/>
 					<component class="org.eclipse.wb.elsoft.components.PopUpCanvas"/>
+					<component class="org.eclipse.wb.elsoft.components.MetaFileUpload"/>
 
 
 				</category>

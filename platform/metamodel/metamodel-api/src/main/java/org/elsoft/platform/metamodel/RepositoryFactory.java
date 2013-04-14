@@ -198,6 +198,17 @@ public class RepositoryFactory {
 		tmpdao.setResPackageName("java.lang");
 		tmpdao.setResTypeName("Long");
 
+
+		tpdao = tdh.addPrimitiveType(PlatformPrimetiveTypes.HexBinary);
+		h.put(PlatformPrimetiveTypes.HexBinary, tpdao);
+		tmpdao = tmph.addTypeMapping(tpdao, PlatformPrimetiveTypes.NA.name(),
+				PlatformPrimetiveTypes.NA.name(),
+				PlatformPrimetiveTypes.NA.name());
+		tmpdao.setTargetLayer(PlatformPrimetiveTypes.NA.name());
+		tmpdao.setResPackageName("");
+		tmpdao.setResTypeName("byte[]");
+		
+		
 		return h;
 
 	}
