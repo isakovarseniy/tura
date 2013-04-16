@@ -81,9 +81,9 @@
 		<parameter name="flowContainer.7.component">org.eclipse.wb.elsoft.components.MetaLOV</parameter>
 
 
-		<parameter name="flowContainer.7">true</parameter>
-		<parameter name="flowContainer.7.horizontal">false</parameter>
-		<parameter name="flowContainer.7.component">org.eclipse.wb.elsoft.components.MetaFileUpload</parameter>
+		<parameter name="flowContainer.8">true</parameter>
+		<parameter name="flowContainer.8.horizontal">false</parameter>
+		<parameter name="flowContainer.8.component">org.eclipse.wb.elsoft.components.MetaFileUpload</parameter>
 
 
 		<parameter name="isColumn">true</parameter>

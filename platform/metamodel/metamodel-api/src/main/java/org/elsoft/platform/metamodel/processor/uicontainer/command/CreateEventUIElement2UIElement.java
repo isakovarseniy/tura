@@ -39,8 +39,10 @@ public class CreateEventUIElement2UIElement {
 		PointerElement pointer = (PointerElement) context.get(command
 				.getParentUUID());
 
-		if ((pointer == null) || (element == null))
+		if ((pointer == null) || (element == null)){
+			System.out.println("Parent -> "+command.getParentUUID()+ " Dst -> "+command.getDstUUID());
 			return Processor.COMMAND_POSTPONE;
+		}
 
 		pointer.addReference(command, context);
 
