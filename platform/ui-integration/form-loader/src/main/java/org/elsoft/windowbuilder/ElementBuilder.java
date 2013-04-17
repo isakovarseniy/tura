@@ -54,7 +54,8 @@ public enum ElementBuilder {
 	MetaImage(org.elsoft.windowbuilder.reader.ImageReader.class),
 	MetaCheckbox(org.elsoft.windowbuilder.reader.CheckboxReader.class),
 	Dependency( org.elsoft.windowbuilder.reader.DependencyReader.class),
-	SecurityTrigger(org.elsoft.windowbuilder.reader.SecurityTriggerReader.class)
+	SecurityTrigger(org.elsoft.windowbuilder.reader.SecurityTriggerReader.class),
+	MetaFileUpload(org.elsoft.windowbuilder.reader.FileUploaderReader.class)
 	;
 	
 	Class<?> clazz; 

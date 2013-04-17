@@ -23,6 +23,7 @@ public enum MetamodelTriggerEventsType {
 	CreateEventCommit("commit"), 
 	CreateEventSearch("search"), 
 	CreateEventQuery("query"), 
+	CreateEventFileUpload("fileUploader"),
 	CreateEventCreateRecord("create"), 
 	CreateEventRemoveRecord("remove"), 
 	CreateEventNextRecord("nextRecord"),
