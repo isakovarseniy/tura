@@ -27,7 +27,7 @@
 			</j:choose>
 
 			<ui:fragment rendered="#{!${readonlyExpression}}">
-				<p:fileUpload value="#{${RawSelectionLink}.fileLoader}"
+				<p:fileUpload fileUploadListener="#{${RawSelectionLink}.fileLoader}"
 					mode="simple">
 			           <f:setPropertyActionListener value="#{row}"
                                     target="#{${RawSelectionLink}.gridCurrentRow}" />

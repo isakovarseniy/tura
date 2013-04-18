@@ -24,7 +24,7 @@
 	public void fileLoader(org.primefaces.event.FileUploadEvent event){
 		byte[] bytes = event.getFile().getContents();
 		Object obj =  getMode().getControl().getCurrentObject();
-		Reflection.call(obj, "set"+field, bytes);
+		Reflection.call(obj, "set" + org.apache.commons.lang.StringUtils.capitalize(field), bytes);
 	}
 
 </j:jelly>
