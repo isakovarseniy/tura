@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.logging.Logger;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.elsoft.platform.PlatformConfig;
 import org.elsoft.platform.Reflection;
@@ -69,10 +70,10 @@ public class InsModeBeanWrapper implements MethodInterceptor {
 	public void setInsertMode(boolean insertMode) {
 		this.insertMode = insertMode;
 		if (insertMode)
-			((InsModeDataControl)datacontrol).incGhostCounter();
+			((InsModeDataControl) datacontrol).incGhostCounter();
 		else
-			((InsModeDataControl)datacontrol).decGhostCounter();
-			
+			((InsModeDataControl) datacontrol).decGhostCounter();
+
 	}
 
 	public DataControl<?> getDatacontrol() {
@@ -191,7 +192,21 @@ public class InsModeBeanWrapper implements MethodInterceptor {
 			}
 
 			if (m.getName().equals("toString")) {
-				return ToStringBuilder.reflectionToString(obj);
+				Field[] fields = obj.getClass().getDeclaredFields();
+				ArrayList<String> list = new ArrayList<String>();
+				for (int i = 0; i < fields.length; i++) {
+					if (fields[i].getType() == byte[].class) {
+						list.add(fields[i].getName());
+					}
+				}
+				ReflectionToStringBuilder reflectionToStringBuilder = new ReflectionToStringBuilder(
+						obj);
+				reflectionToStringBuilder.setAppendStatics(false);
+				reflectionToStringBuilder.setAppendTransients(false);
+				reflectionToStringBuilder
+						.setExcludeFieldNames(list.toArray( new String[0] ));
+				return reflectionToStringBuilder.toString();
+
 			}
 
 			String field = null;
