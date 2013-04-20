@@ -22,9 +22,11 @@
 		this.field = field;
 	}
 	public void fileLoader(org.primefaces.event.FileUploadEvent event){
-		byte[] bytes = event.getFile().getContents();
-		Object obj =  getMode().getControl().getCurrentObject();
-		Reflection.call(obj, "set" + org.apache.commons.lang.StringUtils.capitalize(field), bytes);
+        byte[] bytes = event.getFile(  ).getContents(  );
+        String contentType = event.getFile().getContentType();
+        Object obj = getMode(  ).getControl(  ).getCurrentObject(  );
+        Reflection.call( obj, "set" + org.apache.commons.lang.StringUtils.capitalize( field ), bytes );
+        Reflection.call( obj, "set" + org.apache.commons.lang.StringUtils.capitalize( field )+"Type", contentType );
 	}
 
 </j:jelly>
