@@ -14,3 +14,9 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipse.wb.elsoft.propertyeditor
+Import-Package: org.eclipse.jdt.core.dom,
+ org.eclipse.wb.core.model,
+ org.eclipse.wb.internal.core.model.property,
+ org.eclipse.wb.internal.core.nls,
+ org.eclipse.wb.internal.core.nls.edit,
+ org.eclipse.wb.internal.core.nls.model
