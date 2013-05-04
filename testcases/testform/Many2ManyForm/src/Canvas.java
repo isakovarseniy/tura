@@ -12,7 +12,7 @@ public class Canvas {
 	public static void main(String args[]) throws Exception {
 		URL url = Canvas.class.getResource(Canvas.class.getSimpleName()
 				+ IConstants.XWT_EXTENSION_SUFFIX);
-		Control control = XWT.load(url);
+		Control control = (Control) XWT.load(url);
 		Shell shell = control.getShell();
 		shell.layout();
 		centerInDisplay(shell);
