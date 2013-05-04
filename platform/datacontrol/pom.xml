@@ -55,7 +55,7 @@
 		<dependency>
 			<groupId>uk.com.robust-it</groupId>
 			<artifactId>cloning</artifactId>
-			<version>1.7.6</version>
+			<version>1.7.9</version>
 		</dependency>
 
 		<dependency>

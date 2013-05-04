@@ -42,6 +42,13 @@
 			<name>mirrors.ibiblio.org</name>
 			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
 		</repository>
+		
+		<repository>
+			<id>repo.jenkins-ci.org</id>
+			<name>repo.jenkins-ci.org</name>
+			<url>http://repo.jenkins-ci.org/releases</url>
+		</repository>
+
 
 	</repositories>
 
@@ -85,7 +92,7 @@
 									<type>${project.packaging}</type>
 								</artifactItem>
 							</artifactItems>
-							<outputDirectory>/home/platform/Downloads/dependencies</outputDirectory>
+							<outputDirectory>${user.home}/Downloads/dependencies</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>

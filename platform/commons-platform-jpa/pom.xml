@@ -56,14 +56,6 @@
 			<version>3.12.1.GA</version>
 		</dependency>
 
-
-		<dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.1-901.jdbc4</version>
-		</dependency>
-
-
 	</dependencies>
 
 
