@@ -35,11 +35,12 @@ public class LoadMany2ManyForm {
 			throws Exception {
 
 		ArrayList<CommandDAO> program = new ArrayList<CommandDAO>();
+		String userDir = System.getenv("TURA_SOURCE_HOME");
 
 		Reader root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/Many2ManyForm/src/DataDefinition.xwt"),
+								userDir +"/testcases/testform/Many2ManyForm/src/DataDefinition.xwt"),
 						 null);
 		root.buildAll(context, rf, root, program);
 
@@ -48,21 +49,21 @@ public class LoadMany2ManyForm {
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/Many2ManyForm/src/Canvas.xwt"),
+								userDir +"/testcases/testform/Many2ManyForm/src/Canvas.xwt"),
 						 frmUUID);
 		root.buildAll(context, rf, root, program);
 
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/Many2ManyForm/src/Window.xwt"),
+								userDir +"/testcases/testform/Many2ManyForm/src/Window.xwt"),
 						 frmUUID);
 		root.buildAll(context, rf, root, program);
 
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/Many2ManyForm/src/DetailCanvas.xwt"),
+								userDir +"/testcases/testform/Many2ManyForm/src/DetailCanvas.xwt"),
 						 frmUUID);
 		root.buildAll(context, rf, root, program);
 

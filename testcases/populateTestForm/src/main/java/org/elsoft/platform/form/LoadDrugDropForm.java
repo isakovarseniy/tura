@@ -34,11 +34,12 @@ public class LoadDrugDropForm {
 			throws Exception {
 
 		ArrayList<CommandDAO> program = new ArrayList<CommandDAO>();
+		String userDir = System.getenv("TURA_SOURCE_HOME");
 
 		Reader root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/DrugDropForm/src/DataDefinition.xwt"),
+								userDir +"/testcases/testform/DrugDropForm/src/DataDefinition.xwt"),
 						null);
 		root.buildAll(context, rf, root, program);
 
@@ -47,14 +48,14 @@ public class LoadDrugDropForm {
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/DrugDropForm/src/Canvas.xwt"),
+								userDir +"/testcases/testform/DrugDropForm/src/Canvas.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/DrugDropForm/src/Window.xwt"),
+								userDir +"/testcases/testform/DrugDropForm/src/Window.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 

@@ -35,11 +35,11 @@ public class PlatformConfig {
 
 	public static String ROOT_GENERATED_CODE = "GeneratedCodeRoot";
 
-	public static String ROOT_GENERATED_CODE_PATH = "/home/platform/generatedCode";
+	public static String ROOT_GENERATED_CODE_PATH = "TURA_ROOT_GENERATED_CODE_PATH";
 
 	public static String ROOT_TEMPLATE = "RootTemplate";
 
-	public static String ROOT_TEMPLATE_PATH = "/home/platform/implPattern";
+	public static String ROOT_TEMPLATE_PATH = "TURA_ROOT_TEMPLATE_PATH";
 
 	public static String PLATFORM = "platform";
 

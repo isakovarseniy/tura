@@ -31,10 +31,10 @@ public class ScriptRunner {
 			throws JellyException {
 
 		context.put(PlatformConfig.ROOT_GENERATED_CODE,
-				PlatformConfig.ROOT_GENERATED_CODE_PATH + "/"
+				System.getenv(PlatformConfig.ROOT_GENERATED_CODE_PATH) + "/"
 						+ context.get(PlatformConfig.LAYER_PARAMETER));
 		context.put(PlatformConfig.ROOT_TEMPLATE,
-				PlatformConfig.ROOT_TEMPLATE_PATH + "/"
+				System.getenv(PlatformConfig.ROOT_TEMPLATE_PATH) + "/"
 						+ PlatformConfig.IMPLEMENTATION_PATTERN_ROOT);
 
 		JellyContext jellyContext = new JellyContext();

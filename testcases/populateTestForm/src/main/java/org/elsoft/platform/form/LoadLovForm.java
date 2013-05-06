@@ -34,11 +34,12 @@ public class LoadLovForm {
 			throws Exception {
 
 		ArrayList<CommandDAO> program = new ArrayList<CommandDAO>();
+		String userDir = System.getenv("TURA_SOURCE_HOME");
 
 		Reader root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/LovForm/src/DataDefinition.xwt"),
+								userDir +"/testcases/testform/LovForm/src/DataDefinition.xwt"),
 						null);
 		root.buildAll(context, rf, root, program);
 
@@ -47,14 +48,14 @@ public class LoadLovForm {
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/LovForm/src/Canvas.xwt"),
+								userDir +"/testcases/testform/LovForm/src/Canvas.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/LovForm/src/Window.xwt"),
+								userDir +"/testcases/testform/LovForm/src/Window.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 

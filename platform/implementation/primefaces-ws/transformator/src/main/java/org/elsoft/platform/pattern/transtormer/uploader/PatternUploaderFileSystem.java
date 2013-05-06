@@ -14,33 +14,34 @@ public class PatternUploaderFileSystem {
 	public static void main(String[] args) {
 
 		PatternUploaderFileSystem pu = new PatternUploaderFileSystem();
-		pu.uploader(
-				     "/home/platform/GITRepo/tura/platform/implementation/primefaces-ws/transformator/src/main/resources/pattern.xml"
-				   , "/home/platform/implPattern/ImplementationPetternRoot/"
-				   );
+		String userHome = System.getProperty("user.home");
+		String turaSourceHome = System.getenv("TURA_SOURCE_HOME");
+
+		pu.uploader(turaSourceHome , userHome);
 	}
 
-	public void uploader(String file, String dir) {
+	public void uploader(String turaSourceHome, String userHome) {
 		Pattern patterns = null;
 
 		try {
 
-			FileInputStream f = new FileInputStream(new File(file));
+			FileInputStream f = new FileInputStream(new File(turaSourceHome + "/platform/implementation/primefaces-ws/transformator/src/main/resources/pattern.xml"));
 			patterns = JaxbUtils.readDocument(Pattern.class, f);
-			
+
 			// Register implementation pattern
 			Iterator<ImplementationPattern> itr0 = patterns
 					.getImplementationPattern().getImplementationPattern()
 					.iterator();
-			
-			
+
 			while (itr0.hasNext()) {
 				ImplementationPattern ptrn = itr0.next();
-				File dirPath = new File (dir+ptrn.getImplementationPatternPath());
-				File fl = new File(ptrn.getFile());
-				FileUtils.copyFileToDirectory(fl,dirPath);  
+				File dirPath = new File(userHome
+						+ "/implPattern/ImplementationPetternRoot/"
+						+ ptrn.getImplementationPatternPath());
+				File fl = new File(ptrn.getFile().replaceAll("\\$\\{user.dir\\}", turaSourceHome+"/platform/implementation/primefaces-ws/transformator"));
+				FileUtils.copyFileToDirectory(fl, dirPath);
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -34,11 +34,12 @@ public class LoadOne2ManyForm {
 			throws Exception {
 
 		ArrayList<CommandDAO> program = new ArrayList<CommandDAO>();
+		String userDir = System.getenv("TURA_SOURCE_HOME");
 
 		Reader root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/One2ManyForm/src/DataDefinition.xwt"),
+								userDir +"/testcases/testform/One2ManyForm/src/DataDefinition.xwt"),
 						null);
 		root.buildAll(context, rf, root, program);
 
@@ -47,14 +48,14 @@ public class LoadOne2ManyForm {
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/One2ManyForm/src/Canvas.xwt"),
+								userDir +"/testcases/testform/One2ManyForm/src/Canvas.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 
 		root = new CanvasParser()
 				.XWTModelbuilder(
 						new File(
-								"/home/platform/GITRepo/tura/testcases/testform/One2ManyForm/src/Window.xwt"),
+								userDir +"/testcases/testform/One2ManyForm/src/Window.xwt"),
 						frmUUID);
 		root.buildAll(context, rf, root, program);
 
