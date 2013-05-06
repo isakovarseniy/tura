@@ -58,6 +58,7 @@ public class PopulateInfrastructure {
 		appServerDefinition.setHost("localhost");
 		appServerDefinition.setHttpPort("8080");
 		appServerDefinition.setManagementPort("4848");
+		appServerDefinition.setManagementTool("glassfish3/glassfish/bin/asadmin");
 		appServerDefinition.setPropertyName(MetamodelPlatformLevel.WEB_SERVICES.name()+"_appServer");
 		CreateAppServerDefinition.save(sc.getCommandHandler(), null, appServerDefinition);
 		
@@ -68,6 +69,7 @@ public class PopulateInfrastructure {
 		appServerDefinition.setHost("localhost");
 		appServerDefinition.setHttpPort("8080");
 		appServerDefinition.setManagementPort("4848");
+		appServerDefinition.setManagementTool("glassfish3/glassfish/bin/asadmin");
 		appServerDefinition.setPropertyName(MetamodelPlatformLevel.UI_CONTAINER.name()+"_appServer");
 		CreateAppServerDefinition.save(sc.getCommandHandler(), null, appServerDefinition);
 		

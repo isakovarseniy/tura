@@ -31,6 +31,7 @@ package org.elsoft.platform.${application};
 
 import javax.naming.InitialContext;
 import javax.transaction.TransactionManager;
+import org.elsoft.platform.datacontrol.ELResolver;
 
 public class TransactionManagerBuilderImpl implements TransactionManagerBuilder{
 

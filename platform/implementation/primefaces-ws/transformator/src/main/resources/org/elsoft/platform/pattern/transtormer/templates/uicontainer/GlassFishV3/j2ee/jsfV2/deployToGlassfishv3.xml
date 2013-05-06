@@ -16,12 +16,11 @@
 -->
 <j:jelly trim="false" xmlns:j="jelly:core"  xmlns:u="jelly:util" xmlns:a="jelly:ant">
 
-	<a:exec taskname="Deploy package" executable="/home/platform/glassfish3/glassfish/bin/asadmin" dir="${GeneratedCodeRoot}/${domain}/${functionalDomain}/${application}/uicontainer">
+	<a:exec taskname="Deploy package" executable="${GLASSFISH_HOME}/${UI_CONTAINER_appServer.managementTool}" dir="${GeneratedCodeRoot}/${domain}/${functionalDomain}/${application}/uicontainer">
 		<a:arg line="deploy"/>
 		<a:arg line="--port ${UI_CONTAINER_appServer.managementPort}"/>
 		<a:arg line="--force=true"/>
 		<a:arg line="${GeneratedCodeRoot}/${domain}/${functionalDomain}/${application}/uicontainer/target/UIContainer-${domain}-${functionalDomain}-${application}-1.0.war"/>
 	</a:exec>
-
 
 </j:jelly>

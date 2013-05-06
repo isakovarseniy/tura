@@ -50,6 +50,7 @@ public class CreateAppServerDefinition {
 		obj.setHttpPort(appProperties.getHttpPort());
 		obj.setPropertyName(appProperties.getPropertyName());
 		obj.setManagementPort(appProperties.getManagementPort());
+		obj.setManagementTool(appProperties.getManagementTool());
 		obj.setCommandExecutor(CreateAppServerDefinition.class.getName());
 	}
 

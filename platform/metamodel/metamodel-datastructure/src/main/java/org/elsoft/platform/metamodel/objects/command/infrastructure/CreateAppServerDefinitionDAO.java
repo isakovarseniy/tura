@@ -29,6 +29,7 @@ import org.elsoft.platform.metamodel.objects.command.CommandDAO;
 @XmlRootElement
 public class CreateAppServerDefinitionDAO extends CommandDAO {
 
+
 	@Column(name = "PROPERTY_NAME")
 	private String propertyName;
 
@@ -42,6 +43,18 @@ public class CreateAppServerDefinitionDAO extends CommandDAO {
 	@Column(name = "MANAGEMENT_PORT")
 	private String managementPort;
 
+	@Column(name = "MANAGEMENT_TOOL")
+	private String managementTool;
+
+	public String getManagementTool() {
+		return managementTool;
+	}
+
+	public void setManagementTool(String managementTool) {
+		this.managementTool = managementTool;
+	}
+	
+	
 	public String getHost() {
 		return host;
 	}

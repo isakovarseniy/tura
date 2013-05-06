@@ -44,6 +44,7 @@
     <class>org.elsoft.platform.persistence.ObjectsID</class>
     <properties>
       <property value="org.hibernate.dialect.PostgreSQLDialect" name="hibernate.dialect"></property>
+      <property name="hibernate.default_schema" value="metamodel"></property>
       <!--  property value="create" name="hibernate.hbm2ddl.auto"></property-->
     </properties>
   </persistence-unit>

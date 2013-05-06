@@ -26,6 +26,7 @@ public class AppServerDefinition extends CreateAppServerDefinitionDAO {
 		setHttpPort(command.getHttpPort());
 		setManagementPort(command.getManagementPort());
 		setPropertyName(command.getPropertyName());
+		setManagementTool(command.getManagementTool());
 	}
 
 	protected void serialize(CommandHandler ch) throws Exception {

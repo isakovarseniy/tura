@@ -37,6 +37,8 @@ public class ScriptRunner {
 				System.getenv(PlatformConfig.ROOT_TEMPLATE_PATH) + "/"
 						+ PlatformConfig.IMPLEMENTATION_PATTERN_ROOT);
 
+		context.putAll(System.getenv());
+		
 		JellyContext jellyContext = new JellyContext();
 
 		jellyContext.setVariables(context);
