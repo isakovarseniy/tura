@@ -35,10 +35,11 @@ public class GenerateApp {
 		try {
 
 			PatternUploaderFileSystem pu = new PatternUploaderFileSystem();
-			pu.uploader(
-					     "/home/platform/GITRepo/tura/platform/implementation/primefaces-ws/transformator/src/main/resources/pattern.xml"
-					   , "/home/platform/implPattern/ImplementationPetternRoot/"
-					   );
+			String userHome = System.getProperty("user.home");
+			String turaSourceHome = System.getenv("TURA_SOURCE_HOME");
+
+			pu.uploader(turaSourceHome , userHome);
+
 			TransactionManagerImpl trMgr = new TransactionManagerImpl(JPAObjects.getObjects());
 
 			rf = new RepositoryFactory(trMgr);

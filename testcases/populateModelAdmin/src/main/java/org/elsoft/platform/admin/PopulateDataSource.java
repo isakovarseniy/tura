@@ -103,11 +103,12 @@ public class PopulateDataSource {
 		createDataSource(rf,dsh,"options");
 		createDataSource(rf,dsh,"optionsService");
 
-	
 	}
 
 	private void createDataSource(RepositoryFactory rf,DataSourceHandler dsh,String dataSourceName) throws Exception {
 
+System.out.println(dataSourceName);		
+		
 		TypeDAO typedao = rf.getTypeDefinitionHandler().cleanSearch()
 				.searchString("domain", "ELsoft")
 				.searchString("functionalDomain", "Platform")
