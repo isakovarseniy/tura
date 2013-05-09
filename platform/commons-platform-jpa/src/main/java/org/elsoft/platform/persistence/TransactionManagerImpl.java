@@ -59,6 +59,7 @@ public class TransactionManagerImpl implements TransactionManager {
 		}
 				
 		config.setProperty("show_sql", "true");
+		config.setProperty("hbm2ddl.auto", "update");
 		sessionFactory = config.buildSessionFactory();
 		session = sessionFactory.openSession();
 
