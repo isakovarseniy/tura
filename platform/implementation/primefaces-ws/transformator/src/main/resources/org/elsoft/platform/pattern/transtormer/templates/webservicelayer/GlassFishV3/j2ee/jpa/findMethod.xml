@@ -16,12 +16,9 @@
 -->
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:u="jelly:util"
 	xmlns:a="jelly:ant">
-	 try{
+	)throws Exception{
+	
         return (List&lt;${model.generic.resTypeName}&gt;)super.find( search, order, startIndex,endIndex,${model.generic.resTypeName}.class.getCanonicalName()); 
+	}
 
-		}catch(Exception e){
-			throw new Exception(e.getMessage());
-		}
-	 
- 
 </j:jelly>

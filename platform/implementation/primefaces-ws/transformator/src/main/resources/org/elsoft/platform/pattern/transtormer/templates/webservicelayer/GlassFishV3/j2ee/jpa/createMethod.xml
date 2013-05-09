@@ -16,7 +16,7 @@
 -->
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:u="jelly:util"
 	xmlns:a="jelly:ant">
-	
+    ){
     	try{
     		${method.returnType.resPackageName}.${method.returnType.resTypeName} obj = new ${method.returnType.resPackageName}.${method.returnType.resTypeName}();
         	obj.setObjId(this.getObjsectID());
@@ -27,5 +27,6 @@
     		return null;
     	}
 
+	}
 	
 </j:jelly>

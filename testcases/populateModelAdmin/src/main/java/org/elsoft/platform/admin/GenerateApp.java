@@ -62,7 +62,7 @@ public class GenerateApp {
 					.seek();
 
 			rh.buildRecipe(rf1, infrastructureContext,
-					MetamodelPlatformLevel.UI_CONTAINER,
+					MetamodelPlatformLevel.WEB_SERVICES,
 					MetamodelPlatformLevel.UI_CONTAINER, "ELsoft",
 					"Platform", "Metarepository");
 

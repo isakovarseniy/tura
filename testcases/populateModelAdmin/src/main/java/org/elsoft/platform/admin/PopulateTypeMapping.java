@@ -83,6 +83,17 @@ public class PopulateTypeMapping {
 		mp.setArtifactVersion("1.0");
 		mp.setTechnology("JPA-SERVICE");
 		
+
+		 mp = tpmh.addTypeMapping(elsoftObject, "ELsoft",
+				"Platform", "Metarepository");
+		mp.setTargetLayer(MetamodelPlatformLevel.WEB_SERVICES.name());
+		mp.setResPackageName("org.elsoft.platform.metamodel.objects");
+		mp.setResTypeName("ELsoftObject");
+		mp.setGroupName("org.elsoft.platform");
+		mp.setArtifactName("commons-platform-datastructure");
+		mp.setArtifactVersion("1.0");
+		mp.setTechnology("JPA-SERVICE");
+		
 		
 		
 	}

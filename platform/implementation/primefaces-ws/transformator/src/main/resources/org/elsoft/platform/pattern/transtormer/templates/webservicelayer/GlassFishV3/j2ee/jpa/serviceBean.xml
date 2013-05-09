@@ -52,11 +52,9 @@ public class ${model.resTypeName}  extends ELsoftJPAEntityService{
 	       <j:if test="${iter =='1'}">,</j:if>${param.type.resPackageName}.${param.type.resTypeName} ${param.name}
            <j:set var="iter" value="1"/>  
 	     </j:forEach>
-	)throws Exception{
 	
 			<j:import file="${RootTemplate}/GlassFishV3/j2ee/jpa/${method.methodName}Method.xml"
 				inherit="true" />
-	}
     </j:forEach>    
 	
 	

@@ -54,7 +54,7 @@
 				<dependency>
 					<groupId>com.liferay.faces</groupId>
 					<artifactId>liferay-faces-bridge-impl</artifactId>
-					<version>3.0.0-RC1</version>
+					<version>3.1.1-ga2</version>
 				</dependency>
 
 				<dependency>
@@ -94,17 +94,15 @@
 				</repository>
 				<repository>
 					<id>maven2-repository.jboss.org</id>
-					<url>http://repository.jboss.org/maven2</url>
-				</repository>
-				<repository>
-					<id>maven2-repository-portletfaces.org</id>
-					<url>http://repository.portletfaces.org/content/repositories/liferay-releases</url>
+					<url>http://repository.jboss.org</url>
 				</repository>
 				<repository>
 					<id>prime-repo</id>
 					<name>PrimeFaces Maven Repository</name>
 					<url>http://repository.primefaces.org</url>
+					<layout>default</layout>
 				</repository>
+
 			</repositories>
 
 			<build>
