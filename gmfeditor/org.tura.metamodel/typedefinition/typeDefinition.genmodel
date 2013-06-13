@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/org.tura.metamodel/src" modelPluginID="org.tura.metamodel"
+    modelName="Typedefinition" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>typeDefinition.emf</foreignModel>
+  <genPackages prefix="Typedefinition" disposableProviderFactory="true" ecorePackage="typeDefinition.ecore#/">
+    <genClasses ecoreClass="typeDefinition.ecore#//TypeDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//TypeDefinition/types"/>
+    </genClasses>
+    <genClasses ecoreClass="typeDefinition.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Type/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Type/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Type/operations"/>
+    </genClasses>
+    <genClasses ecoreClass="typeDefinition.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Attribute/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Attribute/type"/>
+    </genClasses>
+    <genClasses ecoreClass="typeDefinition.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Operation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Operation/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Operation/returnValue"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

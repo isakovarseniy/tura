@@ -1,0 +1,40 @@
+@namespace(uri="http://tura.org/2013/v1/typedefinition", prefix="tura.typedefinition")
+@gmf
+package typedefinition;
+
+@gmf.diagram
+class TypeDefinition{
+   val Type[*] types;
+}
+
+@gmf.node(label="name")
+class Type{
+   attr EString name;
+   @gmf.compartment
+   val Attribute[*] attributes;
+   @gmf.compartment
+   val Operation[*] operations;
+}
+
+@gmf.node(label="name")
+class Attribute{
+   attr EString name;
+   val Type type;
+}
+
+
+@gmf.node(label="name")
+class Operation{
+   attr EString name;
+   @gmf.compartment
+   val Attribute[*] parameters;
+   @gmf.compartment
+   val ReturnValue[1] returnValue;
+}
+
+
+@gmf.node(label="name")
+class ReturnValue{
+   val Type[1] returnValue;
+}
+

@@ -1,0 +1,7 @@
+# Tracing options for the org.tura.metamodel.typedefinition plug-in
+
+# Common issues
+org.tura.metamodel.typedefinition/debug=false
+
+# Visual IDs
+org.tura.metamodel.typedefinition/debug/visualID=false

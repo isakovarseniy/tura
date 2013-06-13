@@ -1,0 +1,2 @@
+var plugin = GmfGen!GenPlugin.all.first;
+plugin.id = 'org.tura.metamodel.typedefinition';
