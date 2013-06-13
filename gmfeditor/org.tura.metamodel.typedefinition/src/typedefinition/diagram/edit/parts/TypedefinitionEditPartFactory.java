@@ -52,11 +52,11 @@ public class TypedefinitionEditPartFactory implements EditPartFactory {
 			case AttributeName2EditPart.VISUAL_ID:
 				return new AttributeName2EditPart(view);
 
-			case Attribute3EditPart.VISUAL_ID:
-				return new Attribute3EditPart(view);
+			case ReturnValueEditPart.VISUAL_ID:
+				return new ReturnValueEditPart(view);
 
-			case AttributeName3EditPart.VISUAL_ID:
-				return new AttributeName3EditPart(view);
+			case ReturnValueNameEditPart.VISUAL_ID:
+				return new ReturnValueNameEditPart(view);
 
 			case TypeTypeAttributesCompartmentEditPart.VISUAL_ID:
 				return new TypeTypeAttributesCompartmentEditPart(view);

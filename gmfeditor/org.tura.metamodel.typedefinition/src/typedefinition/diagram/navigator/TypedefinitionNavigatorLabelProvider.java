@@ -21,16 +21,17 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
 import typedefinition.diagram.edit.parts.Attribute2EditPart;
-import typedefinition.diagram.edit.parts.Attribute3EditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.AttributeName2EditPart;
-import typedefinition.diagram.edit.parts.AttributeName3EditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueNameEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
+import typedefinition.diagram.edit.parts.WrappingLabelEditPart;
 import typedefinition.diagram.part.TypedefinitionDiagramEditorPlugin;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 import typedefinition.diagram.providers.TypedefinitionElementTypes;
@@ -118,9 +119,9 @@ public class TypedefinitionNavigatorLabelProvider extends LabelProvider
 		case Attribute2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/typedefinition?Attribute", TypedefinitionElementTypes.Attribute_3003); //$NON-NLS-1$
-		case Attribute3EditPart.VISUAL_ID:
+		case ReturnValueEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/typedefinition?Attribute", TypedefinitionElementTypes.Attribute_3004); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/typedefinition?ReturnValue", TypedefinitionElementTypes.ReturnValue_3004); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -191,8 +192,8 @@ public class TypedefinitionNavigatorLabelProvider extends LabelProvider
 			return getOperation_3002Text(view);
 		case Attribute2EditPart.VISUAL_ID:
 			return getAttribute_3003Text(view);
-		case Attribute3EditPart.VISUAL_ID:
-			return getAttribute_3004Text(view);
+		case ReturnValueEditPart.VISUAL_ID:
+			return getReturnValue_3004Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -287,12 +288,12 @@ public class TypedefinitionNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getAttribute_3004Text(View view) {
+	private String getReturnValue_3004Text(View view) {
 		IParser parser = TypedefinitionParserProvider.getParser(
-				TypedefinitionElementTypes.Attribute_3004,
+				TypedefinitionElementTypes.ReturnValue_3004,
 				view.getElement() != null ? view.getElement() : view,
 				TypedefinitionVisualIDRegistry
-						.getType(AttributeName3EditPart.VISUAL_ID));
+						.getType(ReturnValueNameEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import typedefinition.Attribute;
 import typedefinition.Operation;
+import typedefinition.ReturnValue;
 import typedefinition.TypedefinitionPackage;
 
 /**
@@ -77,7 +78,7 @@ public class OperationImpl extends EObjectImpl implements Operation
    * @generated
    * @ordered
    */
-  protected Attribute returnValue;
+  protected ReturnValue returnValue;
 
   /**
    * <!-- begin-user-doc -->
@@ -142,7 +143,7 @@ public class OperationImpl extends EObjectImpl implements Operation
    * <!-- end-user-doc -->
    * @generated
    */
-  public Attribute getReturnValue()
+  public ReturnValue getReturnValue()
   {
     return returnValue;
   }
@@ -152,9 +153,9 @@ public class OperationImpl extends EObjectImpl implements Operation
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReturnValue(Attribute newReturnValue, NotificationChain msgs)
+  public NotificationChain basicSetReturnValue(ReturnValue newReturnValue, NotificationChain msgs)
   {
-    Attribute oldReturnValue = returnValue;
+    ReturnValue oldReturnValue = returnValue;
     returnValue = newReturnValue;
     if (eNotificationRequired())
     {
@@ -169,7 +170,7 @@ public class OperationImpl extends EObjectImpl implements Operation
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setReturnValue(Attribute newReturnValue)
+  public void setReturnValue(ReturnValue newReturnValue)
   {
     if (newReturnValue != returnValue)
     {
@@ -242,7 +243,7 @@ public class OperationImpl extends EObjectImpl implements Operation
         getParameters().addAll((Collection<? extends Attribute>)newValue);
         return;
       case TypedefinitionPackage.OPERATION__RETURN_VALUE:
-        setReturnValue((Attribute)newValue);
+        setReturnValue((ReturnValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -265,7 +266,7 @@ public class OperationImpl extends EObjectImpl implements Operation
         getParameters().clear();
         return;
       case TypedefinitionPackage.OPERATION__RETURN_VALUE:
-        setReturnValue((Attribute)null);
+        setReturnValue((ReturnValue)null);
         return;
     }
     super.eUnset(featureID);

@@ -19,7 +19,7 @@ public class TypesTypesPackagesCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TypesTypesPackagesCompartmentItemSemanticEditPolicy() {
-		super(TuraElementTypes.Types_2003);
+		super(TuraElementTypes.Types_2001);
 	}
 
 	/**

@@ -213,6 +213,43 @@ public interface TypedefinitionPackage extends EPackage
    */
   int OPERATION_FEATURE_COUNT = 3;
 
+  /**
+   * The meta object id for the '{@link typedefinition.impl.ReturnValueImpl <em>Return Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.ReturnValueImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getReturnValue()
+   * @generated
+   */
+  int RETURN_VALUE = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN_VALUE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Return Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN_VALUE__RETURN_VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Return Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN_VALUE_FEATURE_COUNT = 2;
+
 
   /**
    * Returns the meta object for class '{@link typedefinition.TypeDefinition <em>Type Definition</em>}'.
@@ -354,6 +391,38 @@ public interface TypedefinitionPackage extends EPackage
   EReference getOperation_ReturnValue();
 
   /**
+   * Returns the meta object for class '{@link typedefinition.ReturnValue <em>Return Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Return Value</em>'.
+   * @see typedefinition.ReturnValue
+   * @generated
+   */
+  EClass getReturnValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link typedefinition.ReturnValue#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see typedefinition.ReturnValue#getName()
+   * @see #getReturnValue()
+   * @generated
+   */
+  EAttribute getReturnValue_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link typedefinition.ReturnValue#getReturnValue <em>Return Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Return Value</em>'.
+   * @see typedefinition.ReturnValue#getReturnValue()
+   * @see #getReturnValue()
+   * @generated
+   */
+  EReference getReturnValue_ReturnValue();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -487,6 +556,32 @@ public interface TypedefinitionPackage extends EPackage
      * @generated
      */
     EReference OPERATION__RETURN_VALUE = eINSTANCE.getOperation_ReturnValue();
+
+    /**
+     * The meta object literal for the '{@link typedefinition.impl.ReturnValueImpl <em>Return Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see typedefinition.impl.ReturnValueImpl
+     * @see typedefinition.impl.TypedefinitionPackageImpl#getReturnValue()
+     * @generated
+     */
+    EClass RETURN_VALUE = eINSTANCE.getReturnValue();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RETURN_VALUE__NAME = eINSTANCE.getReturnValue_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Return Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RETURN_VALUE__RETURN_VALUE = eINSTANCE.getReturnValue_ReturnValue();
 
   }
 

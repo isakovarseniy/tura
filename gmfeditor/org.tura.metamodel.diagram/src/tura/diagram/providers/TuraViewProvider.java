@@ -215,7 +215,7 @@ public class TuraViewProvider extends AbstractProvider implements IViewProvider 
 		}
 		switch (visualID) {
 		case TypesEditPart.VISUAL_ID:
-			return createTypes_2003(domainElement, containerView, index,
+			return createTypes_2001(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case PackageEditPart.VISUAL_ID:
 			return createPackage_3001(domainElement, containerView, index,
@@ -245,7 +245,7 @@ public class TuraViewProvider extends AbstractProvider implements IViewProvider 
 	/**
 	 * @generated
 	 */
-	public Node createTypes_2003(EObject domainElement, View containerView,
+	public Node createTypes_2001(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.getStyles().add(
@@ -283,7 +283,7 @@ public class TuraViewProvider extends AbstractProvider implements IViewProvider 
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5005 = createLabel(node,
+		Node label5003 = createLabel(node,
 				TuraVisualIDRegistry.getType(TypesNameEditPart.VISUAL_ID));
 		createCompartment(
 				node,
@@ -342,7 +342,7 @@ public class TuraViewProvider extends AbstractProvider implements IViewProvider 
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5003 = createLabel(node,
+		Node label5001 = createLabel(node,
 				TuraVisualIDRegistry.getType(PackageNameEditPart.VISUAL_ID));
 		return node;
 	}
@@ -385,7 +385,7 @@ public class TuraViewProvider extends AbstractProvider implements IViewProvider 
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5004 = createLabel(node,
+		Node label5002 = createLabel(node,
 				TuraVisualIDRegistry.getType(PrimitiveNameEditPart.VISUAL_ID));
 		return node;
 	}

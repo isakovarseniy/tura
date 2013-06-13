@@ -4,6 +4,8 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel"
+    dynamicTemplates="true"
+    templateDirectory="/org.tura.metamodel/templates/"
     copyrightText="">
   <diagram
       visualID="1000"
@@ -57,7 +59,7 @@
             href="tura.genmodel#//tura/Types/packages"/>
       </modelFacet>
       <labels
-          visualID="5003"
+          visualID="5001"
           editPartClassName="PackageNameEditPart"
           itemSemanticEditPolicyClassName="PackageNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -101,7 +103,7 @@
             href="tura.genmodel#//tura/Types/primitives"/>
       </modelFacet>
       <labels
-          visualID="5004"
+          visualID="5002"
           editPartClassName="PrimitiveNameEditPart"
           itemSemanticEditPolicyClassName="PrimitiveNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -120,7 +122,7 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="2003"
+        visualID="2001"
         editPartClassName="TypesEditPart"
         itemSemanticEditPolicyClassName="TypesItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TypesCanonicalEditPolicy"
@@ -147,7 +149,7 @@
             href="tura.genmodel#//tura/TuraMetamodel/typeDefinition"/>
       </modelFacet>
       <labels
-          visualID="5005"
+          visualID="5003"
           editPartClassName="TypesNameEditPart"
           itemSemanticEditPolicyClassName="TypesNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -221,6 +223,10 @@
             title="Primitive"
             description="Create new Primitive"
             genNodes="//@diagram/@childNodes.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ReturnValue"
+            description="Create new ReturnValue"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Type"

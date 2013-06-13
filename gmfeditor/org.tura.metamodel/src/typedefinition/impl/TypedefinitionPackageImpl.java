@@ -13,6 +13,7 @@ import tura.TuraPackage;
 import tura.impl.TuraPackageImpl;
 import typedefinition.Attribute;
 import typedefinition.Operation;
+import typedefinition.ReturnValue;
 import typedefinition.Type;
 import typedefinition.TypeDefinition;
 import typedefinition.TypedefinitionFactory;
@@ -53,6 +54,13 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * @generated
    */
   private EClass operationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass returnValueEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -257,6 +265,36 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getReturnValue()
+  {
+    return returnValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getReturnValue_Name()
+  {
+    return (EAttribute)returnValueEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getReturnValue_ReturnValue()
+  {
+    return (EReference)returnValueEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TypedefinitionFactory getTypedefinitionFactory()
   {
     return (TypedefinitionFactory)getEFactoryInstance();
@@ -298,6 +336,10 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     createEAttribute(operationEClass, OPERATION__NAME);
     createEReference(operationEClass, OPERATION__PARAMETERS);
     createEReference(operationEClass, OPERATION__RETURN_VALUE);
+
+    returnValueEClass = createEClass(RETURN_VALUE);
+    createEAttribute(returnValueEClass, RETURN_VALUE__NAME);
+    createEReference(returnValueEClass, RETURN_VALUE__RETURN_VALUE);
   }
 
   /**
@@ -346,7 +388,11 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperation_Parameters(), this.getAttribute(), null, "parameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOperation_ReturnValue(), this.getAttribute(), null, "returnValue", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperation_ReturnValue(), this.getReturnValue(), null, "returnValue", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(returnValueEClass, ReturnValue.class, "ReturnValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getReturnValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReturnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReturnValue_ReturnValue(), this.getType(), null, "returnValue", null, 1, 1, ReturnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
@@ -376,7 +422,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        source, 
        new String[] 
        {
-       });								
+       });									
   }
 
   /**
@@ -393,7 +439,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        source, 
        new String[] 
        {
-       });							
+       });								
   }
 
   /**
@@ -425,7 +471,14 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        new String[] 
        {
        "label", "name"
-       });		
+       });				
+    addAnnotation
+      (returnValueEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name"
+       });
   }
 
   /**
@@ -460,7 +513,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        source, 
        new String[] 
        {
-       });
+       });	
   }
 
 } //TypedefinitionPackageImpl

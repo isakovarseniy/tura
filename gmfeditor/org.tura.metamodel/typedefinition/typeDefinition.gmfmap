@@ -21,7 +21,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="typeDefinition.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="typeDefinition.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="typeDefinition.gmfgraph#Type"/>
       <children
@@ -72,10 +72,25 @@
                 href="typeDefinition.ecore#//Operation/parameters"/>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.1/@ownedChild/@compartments.1"
-              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+              compartment="//@nodes.0/@ownedChild/@children.1/@ownedChild/@compartments.1">
             <containmentFeature
                 href="typeDefinition.ecore#//Operation/returnValue"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="typeDefinition.ecore#//ReturnValue"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="typeDefinition.gmfgraph#ReturnValueLabel"/>
+                <features
+                    href="typeDefinition.ecore#//ReturnValue/name"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="typeDefinition.gmftool#//@palette/@tools.0/@tools.2"/>
+              <diagramNode
+                  href="typeDefinition.gmfgraph#ReturnValue"/>
+            </ownedChild>
           </children>
           <compartments
               children="//@nodes.0/@ownedChild/@children.1/@ownedChild/@children.0">

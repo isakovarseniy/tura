@@ -13,14 +13,15 @@ import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import typedefinition.Attribute;
 import typedefinition.Operation;
+import typedefinition.ReturnValue;
 import typedefinition.Type;
 import typedefinition.TypeDefinition;
 import typedefinition.diagram.edit.parts.Attribute2EditPart;
-import typedefinition.diagram.edit.parts.Attribute3EditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
@@ -181,10 +182,10 @@ public class TypedefinitionDiagramUpdater {
 		Operation modelElement = (Operation) containerView.getElement();
 		LinkedList<TypedefinitionNodeDescriptor> result = new LinkedList<TypedefinitionNodeDescriptor>();
 		{
-			Attribute childElement = modelElement.getReturnValue();
+			ReturnValue childElement = modelElement.getReturnValue();
 			int visualID = TypedefinitionVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == Attribute3EditPart.VISUAL_ID) {
+			if (visualID == ReturnValueEditPart.VISUAL_ID) {
 				result.add(new TypedefinitionNodeDescriptor(childElement,
 						visualID));
 			}
@@ -207,8 +208,8 @@ public class TypedefinitionDiagramUpdater {
 			return getOperation_3002ContainedLinks(view);
 		case Attribute2EditPart.VISUAL_ID:
 			return getAttribute_3003ContainedLinks(view);
-		case Attribute3EditPart.VISUAL_ID:
-			return getAttribute_3004ContainedLinks(view);
+		case ReturnValueEditPart.VISUAL_ID:
+			return getReturnValue_3004ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -226,8 +227,8 @@ public class TypedefinitionDiagramUpdater {
 			return getOperation_3002IncomingLinks(view);
 		case Attribute2EditPart.VISUAL_ID:
 			return getAttribute_3003IncomingLinks(view);
-		case Attribute3EditPart.VISUAL_ID:
-			return getAttribute_3004IncomingLinks(view);
+		case ReturnValueEditPart.VISUAL_ID:
+			return getReturnValue_3004IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -245,8 +246,8 @@ public class TypedefinitionDiagramUpdater {
 			return getOperation_3002OutgoingLinks(view);
 		case Attribute2EditPart.VISUAL_ID:
 			return getAttribute_3003OutgoingLinks(view);
-		case Attribute3EditPart.VISUAL_ID:
-			return getAttribute_3004OutgoingLinks(view);
+		case ReturnValueEditPart.VISUAL_ID:
+			return getReturnValue_3004OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -294,7 +295,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getAttribute_3004ContainedLinks(
+	public static List<TypedefinitionLinkDescriptor> getReturnValue_3004ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -334,7 +335,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getAttribute_3004IncomingLinks(
+	public static List<TypedefinitionLinkDescriptor> getReturnValue_3004IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -374,7 +375,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getAttribute_3004OutgoingLinks(
+	public static List<TypedefinitionLinkDescriptor> getReturnValue_3004OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

@@ -39,7 +39,8 @@ public class TypedefinitionPaletteFactory {
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createAttribute1CreationTool());
 		paletteContainer.add(createOperation2CreationTool());
-		paletteContainer.add(createType3CreationTool());
+		paletteContainer.add(createReturnValue3CreationTool());
+		paletteContainer.add(createType4CreationTool());
 		return paletteContainer;
 	}
 
@@ -47,10 +48,9 @@ public class TypedefinitionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createAttribute1CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(TypedefinitionElementTypes.Attribute_3001);
 		types.add(TypedefinitionElementTypes.Attribute_3003);
-		types.add(TypedefinitionElementTypes.Attribute_3004);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Attribute1CreationTool_title,
 				Messages.Attribute1CreationTool_desc, types);
@@ -80,12 +80,28 @@ public class TypedefinitionPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createType3CreationTool() {
+	private ToolEntry createReturnValue3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Type3CreationTool_title,
-				Messages.Type3CreationTool_desc,
+				Messages.ReturnValue3CreationTool_title,
+				Messages.ReturnValue3CreationTool_desc,
+				Collections
+						.singletonList(TypedefinitionElementTypes.ReturnValue_3004));
+		entry.setId("createReturnValue3CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(TypedefinitionElementTypes
+				.getImageDescriptor(TypedefinitionElementTypes.ReturnValue_3004));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createType4CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Type4CreationTool_title,
+				Messages.Type4CreationTool_desc,
 				Collections.singletonList(TypedefinitionElementTypes.Type_2001));
-		entry.setId("createType3CreationTool"); //$NON-NLS-1$
+		entry.setId("createType4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypedefinitionElementTypes
 				.getImageDescriptor(TypedefinitionElementTypes.Type_2001));
 		entry.setLargeIcon(entry.getSmallIcon());

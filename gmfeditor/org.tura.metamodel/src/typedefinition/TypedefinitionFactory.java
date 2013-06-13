@@ -59,6 +59,15 @@ public interface TypedefinitionFactory extends EFactory
   Operation createOperation();
 
   /**
+   * Returns a new object of class '<em>Return Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Return Value</em>'.
+   * @generated
+   */
+  ReturnValue createReturnValue();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

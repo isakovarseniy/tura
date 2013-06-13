@@ -22,5 +22,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Operation/parameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Operation/returnValue"/>
     </genClasses>
+    <genClasses ecoreClass="typeDefinition.ecore#//ReturnValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//ReturnValue/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//ReturnValue/returnValue"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

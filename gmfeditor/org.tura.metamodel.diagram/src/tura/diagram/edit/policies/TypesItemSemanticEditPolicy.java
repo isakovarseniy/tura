@@ -31,7 +31,7 @@ public class TypesItemSemanticEditPolicy extends TuraBaseItemSemanticEditPolicy 
 	 * @generated
 	 */
 	public TypesItemSemanticEditPolicy() {
-		super(TuraElementTypes.Types_2003);
+		super(TuraElementTypes.Types_2001);
 	}
 
 	/**

@@ -35,6 +35,7 @@ class Operation{
 
 @gmf.node(label="name")
 class ReturnValue{
+   attr EString name;
    val Type[1] returnValue;
 }
 

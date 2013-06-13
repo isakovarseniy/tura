@@ -29,11 +29,11 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
 import typedefinition.diagram.edit.parts.Attribute2EditPart;
-import typedefinition.diagram.edit.parts.Attribute3EditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
@@ -300,7 +300,7 @@ public class TypedefinitionNavigatorContentProvider implements
 							.getType(OperationOperationReturnValueCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					TypedefinitionVisualIDRegistry
-							.getType(Attribute3EditPart.VISUAL_ID));
+							.getType(ReturnValueEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

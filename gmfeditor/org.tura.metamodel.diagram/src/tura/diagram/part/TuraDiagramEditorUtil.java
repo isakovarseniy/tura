@@ -52,8 +52,11 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
+import org.tura.metamodel.commons.PlatformPrimetiveTypes;
+import tura.Primitive;
 import tura.TuraFactory;
 import tura.TuraMetamodel;
+import tura.Types;
 import tura.diagram.edit.parts.TuraMetamodelEditPart;
 
 /**
@@ -221,7 +224,17 @@ public class TuraDiagramEditorUtil {
 	 * @generated
 	 */
 	private static TuraMetamodel createInitialModel() {
-		return TuraFactory.eINSTANCE.createTuraMetamodel();
+
+		TuraMetamodel model = TuraFactory.eINSTANCE.createTuraMetamodel();
+		Types types = TuraFactory.eINSTANCE.createTypes();
+		model.setTypeDefinition(types);
+
+		for (int i = 0; i < PlatformPrimetiveTypes.values().length; i++) {
+			Primitive primitive = TuraFactory.eINSTANCE.createPrimitive();
+			primitive.setName(PlatformPrimetiveTypes.values()[i].name());
+			types.getPrimitives().add(primitive);
+		}
+		return model;
 	}
 
 	/**

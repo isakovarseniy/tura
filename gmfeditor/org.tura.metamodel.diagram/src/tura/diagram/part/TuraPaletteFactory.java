@@ -40,8 +40,9 @@ public class TuraPaletteFactory {
 		paletteContainer.add(createOperation2CreationTool());
 		paletteContainer.add(createPackage3CreationTool());
 		paletteContainer.add(createPrimitive4CreationTool());
-		paletteContainer.add(createType5CreationTool());
-		paletteContainer.add(createTypes6CreationTool());
+		paletteContainer.add(createReturnValue5CreationTool());
+		paletteContainer.add(createType6CreationTool());
+		paletteContainer.add(createTypes7CreationTool());
 		return paletteContainer;
 	}
 
@@ -100,25 +101,37 @@ public class TuraPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createType5CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Type5CreationTool_title,
-				Messages.Type5CreationTool_desc, null, null) {
+	private ToolEntry createReturnValue5CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.ReturnValue5CreationTool_title,
+				Messages.ReturnValue5CreationTool_desc, null, null) {
 		};
-		entry.setId("createType5CreationTool"); //$NON-NLS-1$
+		entry.setId("createReturnValue5CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypes6CreationTool() {
+	private ToolEntry createType6CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Type6CreationTool_title,
+				Messages.Type6CreationTool_desc, null, null) {
+		};
+		entry.setId("createType6CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createTypes7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Types6CreationTool_title,
-				Messages.Types6CreationTool_desc,
-				Collections.singletonList(TuraElementTypes.Types_2003));
-		entry.setId("createTypes6CreationTool"); //$NON-NLS-1$
+				Messages.Types7CreationTool_title,
+				Messages.Types7CreationTool_desc,
+				Collections.singletonList(TuraElementTypes.Types_2001));
+		entry.setId("createTypes7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TuraElementTypes
-				.getImageDescriptor(TuraElementTypes.Types_2003));
+				.getImageDescriptor(TuraElementTypes.Types_2001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

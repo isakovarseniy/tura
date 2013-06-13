@@ -104,7 +104,7 @@ public class TuraNavigatorLabelProvider extends LabelProvider implements
 					"Navigator?Diagram?http://tura.org/2013/v1/tura?TuraMetamodel", TuraElementTypes.TuraMetamodel_1000); //$NON-NLS-1$
 		case TypesEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/tura?Types", TuraElementTypes.Types_2003); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/tura?Types", TuraElementTypes.Types_2001); //$NON-NLS-1$
 		case PackageEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/tura?Package", TuraElementTypes.Package_3001); //$NON-NLS-1$
@@ -174,7 +174,7 @@ public class TuraNavigatorLabelProvider extends LabelProvider implements
 		case TuraMetamodelEditPart.VISUAL_ID:
 			return getTuraMetamodel_1000Text(view);
 		case TypesEditPart.VISUAL_ID:
-			return getTypes_2003Text(view);
+			return getTypes_2001Text(view);
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_3001Text(view);
 		case PrimitiveEditPart.VISUAL_ID:
@@ -193,9 +193,9 @@ public class TuraNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getTypes_2003Text(View view) {
+	private String getTypes_2001Text(View view) {
 		IParser parser = TuraParserProvider.getParser(
-				TuraElementTypes.Types_2003,
+				TuraElementTypes.Types_2001,
 				view.getElement() != null ? view.getElement() : view,
 				TuraVisualIDRegistry.getType(TypesNameEditPart.VISUAL_ID));
 		if (parser != null) {
@@ -204,7 +204,7 @@ public class TuraNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			TuraDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5005); //$NON-NLS-1$
+					"Parser was not found for label " + 5003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -223,7 +223,7 @@ public class TuraNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			TuraDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5003); //$NON-NLS-1$
+					"Parser was not found for label " + 5001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -242,7 +242,7 @@ public class TuraNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			TuraDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5004); //$NON-NLS-1$
+					"Parser was not found for label " + 5002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

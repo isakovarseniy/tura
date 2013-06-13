@@ -40,20 +40,21 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
 import typedefinition.diagram.edit.parts.Attribute2EditPart;
-import typedefinition.diagram.edit.parts.Attribute3EditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.AttributeName2EditPart;
-import typedefinition.diagram.edit.parts.AttributeName3EditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueNameEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
+import typedefinition.diagram.edit.parts.WrappingLabelEditPart;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 
 /**
@@ -152,8 +153,8 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 				case TypeEditPart.VISUAL_ID:
 				case AttributeEditPart.VISUAL_ID:
 				case OperationEditPart.VISUAL_ID:
+				case ReturnValueEditPart.VISUAL_ID:
 				case Attribute2EditPart.VISUAL_ID:
-				case Attribute3EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != TypedefinitionVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -170,7 +171,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 				|| AttributeEditPart.VISUAL_ID == visualID
 				|| OperationEditPart.VISUAL_ID == visualID
 				|| Attribute2EditPart.VISUAL_ID == visualID
-				|| Attribute3EditPart.VISUAL_ID == visualID;
+				|| ReturnValueEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -240,8 +241,8 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		case Attribute2EditPart.VISUAL_ID:
 			return createAttribute_3003(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case Attribute3EditPart.VISUAL_ID:
-			return createAttribute_3004(domainElement, containerView, index,
+		case ReturnValueEditPart.VISUAL_ID:
+			return createReturnValue_3004(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -470,12 +471,13 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createAttribute_3004(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createReturnValue_3004(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(TypedefinitionVisualIDRegistry
-				.getType(Attribute3EditPart.VISUAL_ID));
+				.getType(ReturnValueEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -508,7 +510,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label5003 = createLabel(node,
 				TypedefinitionVisualIDRegistry
-						.getType(AttributeName3EditPart.VISUAL_ID));
+						.getType(ReturnValueNameEditPart.VISUAL_ID));
 		return node;
 	}
 

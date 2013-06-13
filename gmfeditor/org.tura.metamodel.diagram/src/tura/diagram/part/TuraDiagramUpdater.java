@@ -133,7 +133,7 @@ public class TuraDiagramUpdater {
 		case TuraMetamodelEditPart.VISUAL_ID:
 			return getTuraMetamodel_1000ContainedLinks(view);
 		case TypesEditPart.VISUAL_ID:
-			return getTypes_2003ContainedLinks(view);
+			return getTypes_2001ContainedLinks(view);
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_3001ContainedLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
@@ -148,7 +148,7 @@ public class TuraDiagramUpdater {
 	public static List<TuraLinkDescriptor> getIncomingLinks(View view) {
 		switch (TuraVisualIDRegistry.getVisualID(view)) {
 		case TypesEditPart.VISUAL_ID:
-			return getTypes_2003IncomingLinks(view);
+			return getTypes_2001IncomingLinks(view);
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_3001IncomingLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
@@ -163,7 +163,7 @@ public class TuraDiagramUpdater {
 	public static List<TuraLinkDescriptor> getOutgoingLinks(View view) {
 		switch (TuraVisualIDRegistry.getVisualID(view)) {
 		case TypesEditPart.VISUAL_ID:
-			return getTypes_2003OutgoingLinks(view);
+			return getTypes_2001OutgoingLinks(view);
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_3001OutgoingLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
@@ -183,7 +183,7 @@ public class TuraDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TuraLinkDescriptor> getTypes_2003ContainedLinks(View view) {
+	public static List<TuraLinkDescriptor> getTypes_2001ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -206,7 +206,7 @@ public class TuraDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TuraLinkDescriptor> getTypes_2003IncomingLinks(View view) {
+	public static List<TuraLinkDescriptor> getTypes_2001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -229,7 +229,7 @@ public class TuraDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TuraLinkDescriptor> getTypes_2003OutgoingLinks(View view) {
+	public static List<TuraLinkDescriptor> getTypes_2001OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 

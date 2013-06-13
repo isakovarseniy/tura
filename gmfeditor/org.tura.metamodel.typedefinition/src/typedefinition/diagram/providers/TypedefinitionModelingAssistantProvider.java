@@ -66,7 +66,7 @@ public class TypedefinitionModelingAssistantProvider extends
 		}
 		if (editPart instanceof OperationOperationReturnValueCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypedefinitionElementTypes.Attribute_3004);
+			types.add(TypedefinitionElementTypes.ReturnValue_3004);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

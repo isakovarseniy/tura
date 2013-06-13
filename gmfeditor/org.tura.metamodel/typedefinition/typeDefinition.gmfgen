@@ -164,24 +164,24 @@
     </childNodes>
     <childNodes
         visualID="3004"
-        editPartClassName="Attribute3EditPart"
-        itemSemanticEditPolicyClassName="Attribute3ItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="Attribute3CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="Attribute3GraphicalNodeEditPolicy"
-        createCommandClassName="Attribute3CreateCommand"
+        editPartClassName="ReturnValueEditPart"
+        itemSemanticEditPolicyClassName="ReturnValueItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ReturnValueCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ReturnValueGraphicalNodeEditPolicy"
+        createCommandClassName="ReturnValueCreateCommand"
         containers="//@diagram/@compartments.3">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.0/@elementType"/>
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ReturnValueEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="AttributeFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AttributeFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureAttributeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AttributeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureAttributeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureAttributeLabelFigure.setText(&quot;Attribute&quot;);&#xA;&#xA;this.add(fFigureAttributeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureAttributeLabelFigure() {&#xA;&#x9;&#x9;return fFigureAttributeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="ReturnValueFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReturnValueFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureReturnValueLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReturnValueFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureReturnValueLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureReturnValueLabelFigure.setText(&quot;ReturnValue&quot;);&#xA;&#xA;this.add(fFigureReturnValueLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureReturnValueLabelFigure() {&#xA;&#x9;&#x9;return fFigureReturnValueLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="typeDefinition.genmodel#//typedefinition/Attribute"/>
+            href="typeDefinition.genmodel#//typedefinition/ReturnValue"/>
         <containmentMetaFeature
             href="typeDefinition.genmodel#//typedefinition/Operation/returnValue"/>
         <childMetaFeature
@@ -189,20 +189,20 @@
       </modelFacet>
       <labels
           visualID="5003"
-          editPartClassName="AttributeName3EditPart"
-          itemSemanticEditPolicyClassName="AttributeName3ItemSemanticEditPolicy"
+          editPartClassName="ReturnValueNameEditPart"
+          itemSemanticEditPolicyClassName="ReturnValueNameItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureAttributeLabelFigure"
+            getterName="getFigureReturnValueLabelFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="typeDefinition.genmodel#//typedefinition/Attribute/name"/>
+              href="typeDefinition.genmodel#//typedefinition/ReturnValue/name"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -328,12 +328,17 @@
             xsi:type="gmfgen:ToolEntry"
             title="Attribute"
             description="Create new Attribute"
-            genNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2 //@diagram/@childNodes.3"/>
+            genNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Operation"
             description="Create new Operation"
             genNodes="//@diagram/@childNodes.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ReturnValue"
+            description="Create new ReturnValue"
+            genNodes="//@diagram/@childNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Type"

@@ -38,5 +38,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../typedefinition/typeDefinition.ecore#//Operation/parameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../typedefinition/typeDefinition.ecore#//Operation/returnValue"/>
     </genClasses>
+    <genClasses ecoreClass="../typedefinition/typeDefinition.ecore#//ReturnValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../typedefinition/typeDefinition.ecore#//ReturnValue/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../typedefinition/typeDefinition.ecore#//ReturnValue/returnValue"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

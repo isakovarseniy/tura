@@ -294,8 +294,8 @@
          <object class="typedefinition.diagram.edit.parts.AttributeEditPart" id="Attribute_3001"/>
          <object class="typedefinition.diagram.edit.parts.OperationEditPart" id="Operation_3002"/>
          <object class="typedefinition.diagram.edit.parts.Attribute2EditPart" id="Attribute_3003"/>
-         <object class="typedefinition.diagram.edit.parts.Attribute3EditPart" id="Attribute_3004"/>
-         <context elements="TypeDefinition_1000,Type_2001,Attribute_3001,Operation_3002,Attribute_3003,Attribute_3004"/>
+         <object class="typedefinition.diagram.edit.parts.ReturnValueEditPart" id="ReturnValue_3004"/>
+         <context elements="TypeDefinition_1000,Type_2001,Attribute_3001,Operation_3002,Attribute_3003,ReturnValue_3004"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -376,13 +376,14 @@
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
-         <specializationType
-               id="org.tura.metamodel.typedefinition.Attribute_3004"
-               name="%metatype.name.Attribute_3004"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.tura.metamodel.typedefinition.Attribute_3001"/>
+         <metamodelType
+               id="org.tura.metamodel.typedefinition.ReturnValue_3004"
+               name="%metatype.name.ReturnValue_3004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ReturnValue"
+               edithelper="typedefinition.diagram.edit.helpers.ReturnValueEditHelper">
             <param name="semanticHint" value="3004"/>
-         </specializationType>
+         </metamodelType>
       </metamodel>
    </extension>
 
@@ -401,7 +402,7 @@
          <elementType ref="org.tura.metamodel.typedefinition.Attribute_3001"/>
          <elementType ref="org.tura.metamodel.typedefinition.Operation_3002"/>
          <elementType ref="org.tura.metamodel.typedefinition.Attribute_3003"/>
-         <elementType ref="org.tura.metamodel.typedefinition.Attribute_3004"/>
+         <elementType ref="org.tura.metamodel.typedefinition.ReturnValue_3004"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

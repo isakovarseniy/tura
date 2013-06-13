@@ -13,20 +13,21 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import typedefinition.TypeDefinition;
 import typedefinition.TypedefinitionPackage;
 import typedefinition.diagram.edit.parts.Attribute2EditPart;
-import typedefinition.diagram.edit.parts.Attribute3EditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.AttributeName2EditPart;
-import typedefinition.diagram.edit.parts.AttributeName3EditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueNameEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
+import typedefinition.diagram.edit.parts.WrappingLabelEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -161,9 +162,9 @@ public class TypedefinitionVisualIDRegistry {
 			}
 			break;
 		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
-			if (TypedefinitionPackage.eINSTANCE.getAttribute().isSuperTypeOf(
+			if (TypedefinitionPackage.eINSTANCE.getReturnValue().isSuperTypeOf(
 					domainElement.eClass())) {
-				return Attribute3EditPart.VISUAL_ID;
+				return ReturnValueEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -229,8 +230,8 @@ public class TypedefinitionVisualIDRegistry {
 				return true;
 			}
 			break;
-		case Attribute3EditPart.VISUAL_ID:
-			if (AttributeName3EditPart.VISUAL_ID == nodeVisualID) {
+		case ReturnValueEditPart.VISUAL_ID:
+			if (ReturnValueNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -250,7 +251,7 @@ public class TypedefinitionVisualIDRegistry {
 			}
 			break;
 		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
-			if (Attribute3EditPart.VISUAL_ID == nodeVisualID) {
+			if (ReturnValueEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -316,7 +317,7 @@ public class TypedefinitionVisualIDRegistry {
 			return false;
 		case AttributeEditPart.VISUAL_ID:
 		case Attribute2EditPart.VISUAL_ID:
-		case Attribute3EditPart.VISUAL_ID:
+		case ReturnValueEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

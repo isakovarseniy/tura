@@ -21,7 +21,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="tura.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="tura.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="tura.gmfgraph#Types"/>
       <children

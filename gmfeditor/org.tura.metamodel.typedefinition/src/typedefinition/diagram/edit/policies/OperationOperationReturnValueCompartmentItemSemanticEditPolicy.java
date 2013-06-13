@@ -6,7 +6,7 @@ package typedefinition.diagram.edit.policies;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-import typedefinition.diagram.edit.commands.Attribute3CreateCommand;
+import typedefinition.diagram.edit.commands.ReturnValueCreateCommand;
 import typedefinition.diagram.providers.TypedefinitionElementTypes;
 
 /**
@@ -26,8 +26,8 @@ public class OperationOperationReturnValueCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypedefinitionElementTypes.Attribute_3004 == req.getElementType()) {
-			return getGEFWrapper(new Attribute3CreateCommand(req));
+		if (TypedefinitionElementTypes.ReturnValue_3004 == req.getElementType()) {
+			return getGEFWrapper(new ReturnValueCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

@@ -32,55 +32,55 @@ public class TuraParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser typesName_5005Parser;
+	private IParser typesName_5003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTypesName_5005Parser() {
-		if (typesName_5005Parser == null) {
+	private IParser getTypesName_5003Parser() {
+		if (typesName_5003Parser == null) {
 			EAttribute[] features = new EAttribute[] { TuraPackage.eINSTANCE
 					.getTypes_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			typesName_5005Parser = parser;
+			typesName_5003Parser = parser;
 		}
-		return typesName_5005Parser;
+		return typesName_5003Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser packageName_5003Parser;
+	private IParser packageName_5001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPackageName_5003Parser() {
-		if (packageName_5003Parser == null) {
+	private IParser getPackageName_5001Parser() {
+		if (packageName_5001Parser == null) {
 			EAttribute[] features = new EAttribute[] { TuraPackage.eINSTANCE
 					.getPackage_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			packageName_5003Parser = parser;
+			packageName_5001Parser = parser;
 		}
-		return packageName_5003Parser;
+		return packageName_5001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser primitiveName_5004Parser;
+	private IParser primitiveName_5002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPrimitiveName_5004Parser() {
-		if (primitiveName_5004Parser == null) {
+	private IParser getPrimitiveName_5002Parser() {
+		if (primitiveName_5002Parser == null) {
 			EAttribute[] features = new EAttribute[] { TuraPackage.eINSTANCE
 					.getPrimitive_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			primitiveName_5004Parser = parser;
+			primitiveName_5002Parser = parser;
 		}
-		return primitiveName_5004Parser;
+		return primitiveName_5002Parser;
 	}
 
 	/**
@@ -89,11 +89,11 @@ public class TuraParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case TypesNameEditPart.VISUAL_ID:
-			return getTypesName_5005Parser();
+			return getTypesName_5003Parser();
 		case PackageNameEditPart.VISUAL_ID:
-			return getPackageName_5003Parser();
+			return getPackageName_5001Parser();
 		case PrimitiveNameEditPart.VISUAL_ID:
-			return getPrimitiveName_5004Parser();
+			return getPrimitiveName_5002Parser();
 		}
 		return null;
 	}

@@ -21,9 +21,9 @@ import org.eclipse.swt.graphics.Image;
 
 import typedefinition.TypedefinitionPackage;
 import typedefinition.diagram.edit.parts.Attribute2EditPart;
-import typedefinition.diagram.edit.parts.Attribute3EditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.part.TypedefinitionDiagramEditorPlugin;
@@ -77,7 +77,7 @@ public class TypedefinitionElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Attribute_3004 = getElementType("org.tura.metamodel.typedefinition.Attribute_3004"); //$NON-NLS-1$
+	public static final IElementType ReturnValue_3004 = getElementType("org.tura.metamodel.typedefinition.ReturnValue_3004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -204,8 +204,8 @@ public class TypedefinitionElementTypes {
 			elements.put(Attribute_3003,
 					TypedefinitionPackage.eINSTANCE.getAttribute());
 
-			elements.put(Attribute_3004,
-					TypedefinitionPackage.eINSTANCE.getAttribute());
+			elements.put(ReturnValue_3004,
+					TypedefinitionPackage.eINSTANCE.getReturnValue());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -228,7 +228,7 @@ public class TypedefinitionElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Attribute_3001);
 			KNOWN_ELEMENT_TYPES.add(Operation_3002);
 			KNOWN_ELEMENT_TYPES.add(Attribute_3003);
-			KNOWN_ELEMENT_TYPES.add(Attribute_3004);
+			KNOWN_ELEMENT_TYPES.add(ReturnValue_3004);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -248,8 +248,8 @@ public class TypedefinitionElementTypes {
 			return Operation_3002;
 		case Attribute2EditPart.VISUAL_ID:
 			return Attribute_3003;
-		case Attribute3EditPart.VISUAL_ID:
-			return Attribute_3004;
+		case ReturnValueEditPart.VISUAL_ID:
+			return ReturnValue_3004;
 		}
 		return null;
 	}

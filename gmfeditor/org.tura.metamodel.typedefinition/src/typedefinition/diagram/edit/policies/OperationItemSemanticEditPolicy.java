@@ -16,9 +16,9 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import typedefinition.diagram.edit.parts.Attribute2EditPart;
-import typedefinition.diagram.edit.parts.Attribute3EditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 import typedefinition.diagram.providers.TypedefinitionElementTypes;
 
@@ -84,7 +84,7 @@ public class OperationItemSemanticEditPolicy extends
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (TypedefinitionVisualIDRegistry.getVisualID(cnode)) {
-					case Attribute3EditPart.VISUAL_ID:
+					case ReturnValueEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

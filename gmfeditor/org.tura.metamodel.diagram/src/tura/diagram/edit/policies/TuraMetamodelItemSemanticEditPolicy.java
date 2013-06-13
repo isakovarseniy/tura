@@ -30,7 +30,7 @@ public class TuraMetamodelItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TuraElementTypes.Types_2003 == req.getElementType()) {
+		if (TuraElementTypes.Types_2001 == req.getElementType()) {
 			return getGEFWrapper(new TypesCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

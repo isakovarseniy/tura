@@ -25,7 +25,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import typedefinition.TypedefinitionPackage;
-import typedefinition.diagram.edit.parts.Attribute3EditPart;
+import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.part.TypedefinitionDiagramUpdater;
 import typedefinition.diagram.part.TypedefinitionNodeDescriptor;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
@@ -83,7 +83,7 @@ public class OperationOperationReturnValueCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return Attribute3EditPart.VISUAL_ID == TypedefinitionVisualIDRegistry
+		return ReturnValueEditPart.VISUAL_ID == TypedefinitionVisualIDRegistry
 				.getVisualID(view);
 	}
 

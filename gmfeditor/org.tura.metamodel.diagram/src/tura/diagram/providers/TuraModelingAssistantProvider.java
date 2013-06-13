@@ -43,7 +43,7 @@ public class TuraModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof TuraMetamodelEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TuraElementTypes.Types_2003);
+			types.add(TuraElementTypes.Types_2001);
 			return types;
 		}
 		if (editPart instanceof TypesTypesPrimitivesCompartmentEditPart) {

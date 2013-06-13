@@ -61,7 +61,7 @@ public class TypesNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5005;
+	public static final int VISUAL_ID = 5003;
 
 	/**
 	 * @generated
@@ -311,7 +311,7 @@ public class TypesNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = TuraParserProvider
 					.getParser(
-							TuraElementTypes.Types_2003,
+							TuraElementTypes.Types_2001,
 							getParserElement(),
 							TuraVisualIDRegistry
 									.getType(tura.diagram.edit.parts.TypesNameEditPart.VISUAL_ID));

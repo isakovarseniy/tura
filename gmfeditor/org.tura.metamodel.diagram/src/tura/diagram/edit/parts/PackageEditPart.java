@@ -8,6 +8,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -24,6 +25,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+
 import tura.diagram.edit.policies.OpenDiagramEditPolicy;
 import tura.diagram.edit.policies.PackageItemSemanticEditPolicy;
 import tura.diagram.part.TuraVisualIDRegistry;
@@ -252,30 +254,29 @@ public class PackageEditPart extends ShapeNodeEditPart {
 				.getType(PackageNameEditPart.VISUAL_ID));
 	}
 
-	public class PackageFigure extends org.eclipse.draw2d.RoundedRectangle {
-		private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePackageLabelFigure;
+	public class PackageFigure extends RoundedRectangle {
+		private WrappingLabel fFigurePackageLabelFigure;
 
 		public PackageFigure() {
-			org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();
+			FlowLayout layoutThis = new FlowLayout();
 			layoutThis.setStretchMinorAxis(false);
-			layoutThis
-					.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP);
-			layoutThis
-					.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorSpacing(5);
-			layoutThis.setMinorSpacing(5);
+			layoutThis.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
+			layoutThis.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
+			layoutThis.setMajorSpacing(0);
+			layoutThis.setMinorSpacing(0);
 			layoutThis.setHorizontal(true);
 			this.setLayoutManager(layoutThis);
+			this.setCornerDimensions(new Dimension(4,4));
 			createContents();
 		}
 
 		private void createContents() {
-			fFigurePackageLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();
+			fFigurePackageLabelFigure = new WrappingLabel();
 			fFigurePackageLabelFigure.setText("Package");
 			this.add(fFigurePackageLabelFigure);
 		}
 
-		public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePackageLabelFigure() {
+		public WrappingLabel getFigurePackageLabelFigure() {
 			return fFigurePackageLabelFigure;
 		}
 	}

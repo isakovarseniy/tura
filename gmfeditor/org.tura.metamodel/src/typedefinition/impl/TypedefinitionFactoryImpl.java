@@ -68,6 +68,7 @@ public class TypedefinitionFactoryImpl extends EFactoryImpl implements Typedefin
       case TypedefinitionPackage.TYPE: return createType();
       case TypedefinitionPackage.ATTRIBUTE: return createAttribute();
       case TypedefinitionPackage.OPERATION: return createOperation();
+      case TypedefinitionPackage.RETURN_VALUE: return createReturnValue();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -115,6 +116,17 @@ public class TypedefinitionFactoryImpl extends EFactoryImpl implements Typedefin
   {
     OperationImpl operation = new OperationImpl();
     return operation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReturnValue createReturnValue()
+  {
+    ReturnValueImpl returnValue = new ReturnValueImpl();
+    return returnValue;
   }
 
   /**

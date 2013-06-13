@@ -59,7 +59,7 @@ public class TuraElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Types_2003 = getElementType("org.tura.metamodel.diagram.Types_2003"); //$NON-NLS-1$
+	public static final IElementType Types_2001 = getElementType("org.tura.metamodel.diagram.Types_2001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -183,7 +183,7 @@ public class TuraElementTypes {
 			elements.put(TuraMetamodel_1000,
 					TuraPackage.eINSTANCE.getTuraMetamodel());
 
-			elements.put(Types_2003, TuraPackage.eINSTANCE.getTypes());
+			elements.put(Types_2001, TuraPackage.eINSTANCE.getTypes());
 
 			elements.put(Package_3001, TuraPackage.eINSTANCE.getPackage());
 
@@ -206,7 +206,7 @@ public class TuraElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(TuraMetamodel_1000);
-			KNOWN_ELEMENT_TYPES.add(Types_2003);
+			KNOWN_ELEMENT_TYPES.add(Types_2001);
 			KNOWN_ELEMENT_TYPES.add(Package_3001);
 			KNOWN_ELEMENT_TYPES.add(Primitive_3002);
 		}
@@ -221,7 +221,7 @@ public class TuraElementTypes {
 		case TuraMetamodelEditPart.VISUAL_ID:
 			return TuraMetamodel_1000;
 		case TypesEditPart.VISUAL_ID:
-			return Types_2003;
+			return Types_2001;
 		case PackageEditPart.VISUAL_ID:
 			return Package_3001;
 		case PrimitiveEditPart.VISUAL_ID:

@@ -18,10 +18,11 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import typedefinition.TypedefinitionPackage;
 import typedefinition.diagram.edit.parts.AttributeName2EditPart;
-import typedefinition.diagram.edit.parts.AttributeName3EditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueNameEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
+import typedefinition.diagram.edit.parts.WrappingLabelEditPart;
 import typedefinition.diagram.parsers.MessageFormatParser;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 
@@ -106,19 +107,19 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser attributeName_5003Parser;
+	private IParser returnValueName_5003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAttributeName_5003Parser() {
-		if (attributeName_5003Parser == null) {
+	private IParser getReturnValueName_5003Parser() {
+		if (returnValueName_5003Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getAttribute_Name() };
+					.getReturnValue_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			attributeName_5003Parser = parser;
+			returnValueName_5003Parser = parser;
 		}
-		return attributeName_5003Parser;
+		return returnValueName_5003Parser;
 	}
 
 	/**
@@ -134,8 +135,8 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 			return getOperationName_5004Parser();
 		case AttributeName2EditPart.VISUAL_ID:
 			return getAttributeName_5002Parser();
-		case AttributeName3EditPart.VISUAL_ID:
-			return getAttributeName_5003Parser();
+		case ReturnValueNameEditPart.VISUAL_ID:
+			return getReturnValueName_5003Parser();
 		}
 		return null;
 	}

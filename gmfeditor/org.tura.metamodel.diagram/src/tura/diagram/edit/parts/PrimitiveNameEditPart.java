@@ -61,7 +61,7 @@ public class PrimitiveNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5004;
+	public static final int VISUAL_ID = 5002;
 
 	/**
 	 * @generated

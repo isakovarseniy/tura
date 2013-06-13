@@ -109,6 +109,28 @@
           accessor="getOperationReturnValueCompartmentFigure"
           figure="//@figures.0/@descriptors.2/@actualFigure/@children.2"/>
     </descriptors>
+    <descriptors
+        name="ReturnValueFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ReturnValueFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ReturnValueLabelFigure"
+            text="ReturnValue"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureReturnValueLabelFigure"
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="Type"
@@ -119,6 +141,9 @@
   <nodes
       name="Operation"
       figure="OperationFigure"/>
+  <nodes
+      name="ReturnValue"
+      figure="ReturnValueFigure"/>
   <compartments
       name="TypeAttributesCompartment"
       figure="TypeFigure"
@@ -151,4 +176,8 @@
       name="OperationLabel"
       figure="OperationFigure"
       accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels
+      name="ReturnValueLabel"
+      figure="ReturnValueFigure"
+      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
 </gmfgraph:Canvas>
