@@ -16,14 +16,14 @@ import typedefinition.diagram.providers.TypedefinitionElementTypes;
 /**
  * @generated
  */
-public class Attribute3ItemSemanticEditPolicy extends
+public class ReturnValueItemSemanticEditPolicy extends
 		TypedefinitionBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public Attribute3ItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Attribute_3004);
+	public ReturnValueItemSemanticEditPolicy() {
+		super(TypedefinitionElementTypes.ReturnValue_3004);
 	}
 
 	/**

@@ -15,19 +15,19 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typedefinition.Attribute;
 import typedefinition.Operation;
+import typedefinition.ReturnValue;
 import typedefinition.TypedefinitionFactory;
 
 /**
  * @generated
  */
-public class Attribute3CreateCommand extends EditElementCommand {
+public class ReturnValueCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public Attribute3CreateCommand(CreateElementRequest req) {
+	public ReturnValueCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -61,8 +61,8 @@ public class Attribute3CreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Attribute newElement = TypedefinitionFactory.eINSTANCE
-				.createAttribute();
+		ReturnValue newElement = TypedefinitionFactory.eINSTANCE
+				.createReturnValue();
 
 		Operation owner = (Operation) getElementToEdit();
 		owner.setReturnValue(newElement);
@@ -76,8 +76,9 @@ public class Attribute3CreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Attribute newElement, IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected void doConfigure(ReturnValue newElement,
+			IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(

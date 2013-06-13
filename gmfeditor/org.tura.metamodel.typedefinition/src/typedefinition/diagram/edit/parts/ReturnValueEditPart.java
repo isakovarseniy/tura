@@ -26,13 +26,13 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import typedefinition.diagram.edit.policies.Attribute3ItemSemanticEditPolicy;
+import typedefinition.diagram.edit.policies.ReturnValueItemSemanticEditPolicy;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 
 /**
  * @generated
  */
-public class Attribute3EditPart extends ShapeNodeEditPart {
+public class ReturnValueEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
@@ -52,7 +52,7 @@ public class Attribute3EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public Attribute3EditPart(View view) {
+	public ReturnValueEditPart(View view) {
 		super(view);
 	}
 
@@ -62,7 +62,7 @@ public class Attribute3EditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new Attribute3ItemSemanticEditPolicy());
+				new ReturnValueItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -98,23 +98,24 @@ public class Attribute3EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new AttributeFigure();
+		return primaryShape = new ReturnValueFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public AttributeFigure getPrimaryShape() {
-		return (AttributeFigure) primaryShape;
+	public ReturnValueFigure getPrimaryShape() {
+		return (ReturnValueFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof AttributeName3EditPart) {
-			((AttributeName3EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureAttributeLabelFigure());
+		if (childEditPart instanceof ReturnValueNameEditPart) {
+			((ReturnValueNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureReturnValueLabelFigure());
 			return true;
 		}
 		return false;
@@ -124,7 +125,7 @@ public class Attribute3EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof AttributeName3EditPart) {
+		if (childEditPart instanceof ReturnValueNameEditPart) {
 			return true;
 		}
 		return false;
@@ -248,23 +249,23 @@ public class Attribute3EditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(TypedefinitionVisualIDRegistry
-				.getType(AttributeName3EditPart.VISUAL_ID));
+				.getType(ReturnValueNameEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class AttributeFigure extends RoundedRectangle {
+	public class ReturnValueFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureAttributeLabelFigure;
+		private WrappingLabel fFigureReturnValueLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public AttributeFigure() {
+		public ReturnValueFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
@@ -278,19 +279,19 @@ public class Attribute3EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureAttributeLabelFigure = new WrappingLabel();
+			fFigureReturnValueLabelFigure = new WrappingLabel();
 
-			fFigureAttributeLabelFigure.setText("Attribute");
+			fFigureReturnValueLabelFigure.setText("ReturnValue");
 
-			this.add(fFigureAttributeLabelFigure);
+			this.add(fFigureReturnValueLabelFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureAttributeLabelFigure() {
-			return fFigureAttributeLabelFigure;
+		public WrappingLabel getFigureReturnValueLabelFigure() {
+			return fFigureReturnValueLabelFigure;
 		}
 
 	}

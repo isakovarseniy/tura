@@ -1,0 +1,18 @@
+«REM»Initialize diagram with primitive data types«ENDREM»
+
+«AROUND createInitialModelMethod FOR gmfgen::GenDiagram»
+	«EXPAND xpt::Common::generatedMemberComment('Create a new instance of domain element associated with canvas.\n<!-- begin-user-doc -->\n<!-- end-user-doc -->')»
+	private static «EXPAND MetaModel::QualifiedClassName FOR domainDiagramElement» createInitialModel() {
+
+		tura.TuraMetamodel model = tura.TuraFactory.eINSTANCE.createTuraMetamodel();
+		tura.Types types = TuraFactory.eINSTANCE.createTypes();
+		model.setTypeDefinition(types);
+		
+		for (int i=0; i < org.tura.metamodel.commons.PlatformPrimetiveTypes.values().length;i++){
+			tura.Primitive primitive =tura.TuraFactory.eINSTANCE.createPrimitive();
+			primitive.setName(org.tura.metamodel.commons.PlatformPrimetiveTypes.values()[i].name());
+			types.getPrimitives().add(primitive);
+		}
+		return model;
+	}
+«ENDAROUND»

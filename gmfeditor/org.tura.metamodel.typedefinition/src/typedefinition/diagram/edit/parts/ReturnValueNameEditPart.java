@@ -55,7 +55,7 @@ import typedefinition.diagram.providers.TypedefinitionParserProvider;
 /**
  * @generated
  */
-public class AttributeName3EditPart extends CompartmentEditPart implements
+public class ReturnValueNameEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
@@ -91,7 +91,7 @@ public class AttributeName3EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public AttributeName3EditPart(View view) {
+	public ReturnValueNameEditPart(View view) {
 		super(view);
 	}
 
@@ -311,10 +311,10 @@ public class AttributeName3EditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = TypedefinitionParserProvider
 					.getParser(
-							TypedefinitionElementTypes.Attribute_3004,
+							TypedefinitionElementTypes.ReturnValue_3004,
 							getParserElement(),
 							TypedefinitionVisualIDRegistry
-									.getType(typedefinition.diagram.edit.parts.AttributeName3EditPart.VISUAL_ID));
+									.getType(typedefinition.diagram.edit.parts.ReturnValueNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
