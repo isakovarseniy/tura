@@ -3,4 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Commons
 Bundle-SymbolicName: org.tura.metamodel.commons
 Bundle-Version: 1.0.0.qualifier
-Export-Package: org.tura.metamodel.commons
+Export-Package: org.tura.metamodel.commons,
+ org.tura.metamodel.commons.editparts
+Import-Package: org.eclipse.draw2d,
+ org.eclipse.draw2d.geometry,
+ org.eclipse.gmf.runtime.diagram.ui.layout
