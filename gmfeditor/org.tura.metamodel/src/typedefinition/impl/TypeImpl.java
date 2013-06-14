@@ -38,99 +38,93 @@ import typedefinition.TypedefinitionPackage;
  *
  * @generated
  */
-public class TypeImpl extends EObjectImpl implements Type
-{
-  /**
+public class TypeImpl extends EObjectImpl implements Type {
+	/**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
+	/**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getAttributes()
    * @generated
    * @ordered
    */
-  protected EList<Attribute> attributes;
+	protected EList<Attribute> attributes;
 
-  /**
+	/**
    * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getOperations()
    * @generated
    * @ordered
    */
-  protected EList<Operation> operations;
+	protected EList<Operation> operations;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected TypeImpl()
-  {
+	protected TypeImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return TypedefinitionPackage.Literals.TYPE;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
+	public String getName() {
     return name;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.TYPE__NAME, oldName, name));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Attribute> getAttributes()
-  {
+	public EList<Attribute> getAttributes() {
     if (attributes == null)
     {
       attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, TypedefinitionPackage.TYPE__ATTRIBUTES);
@@ -138,13 +132,12 @@ public class TypeImpl extends EObjectImpl implements Type
     return attributes;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Operation> getOperations()
-  {
+	public EList<Operation> getOperations() {
     if (operations == null)
     {
       operations = new EObjectContainmentEList<Operation>(Operation.class, this, TypedefinitionPackage.TYPE__OPERATIONS);
@@ -152,14 +145,13 @@ public class TypeImpl extends EObjectImpl implements Type
     return operations;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
     switch (featureID)
     {
       case TypedefinitionPackage.TYPE__ATTRIBUTES:
@@ -170,14 +162,13 @@ public class TypeImpl extends EObjectImpl implements Type
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case TypedefinitionPackage.TYPE__NAME:
@@ -190,15 +181,14 @@ public class TypeImpl extends EObjectImpl implements Type
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case TypedefinitionPackage.TYPE__NAME:
@@ -216,14 +206,13 @@ public class TypeImpl extends EObjectImpl implements Type
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case TypedefinitionPackage.TYPE__NAME:
@@ -239,14 +228,13 @@ public class TypeImpl extends EObjectImpl implements Type
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case TypedefinitionPackage.TYPE__NAME:
@@ -259,14 +247,13 @@ public class TypeImpl extends EObjectImpl implements Type
     return super.eIsSet(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());

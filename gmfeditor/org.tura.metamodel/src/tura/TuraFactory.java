@@ -12,59 +12,58 @@ import org.eclipse.emf.ecore.EFactory;
  * @see tura.TuraPackage
  * @generated
  */
-public interface TuraFactory extends EFactory
-{
-  /**
+public interface TuraFactory extends EFactory {
+	/**
    * The singleton instance of the factory.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  TuraFactory eINSTANCE = tura.impl.TuraFactoryImpl.init();
+	TuraFactory eINSTANCE = tura.impl.TuraFactoryImpl.init();
 
-  /**
+	/**
    * Returns a new object of class '<em>Metamodel</em>'.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return a new object of class '<em>Metamodel</em>'.
    * @generated
    */
-  TuraMetamodel createTuraMetamodel();
+	TuraMetamodel createTuraMetamodel();
 
-  /**
+	/**
    * Returns a new object of class '<em>Types</em>'.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return a new object of class '<em>Types</em>'.
    * @generated
    */
-  Types createTypes();
+	Types createTypes();
 
-  /**
+	/**
    * Returns a new object of class '<em>Primitive</em>'.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return a new object of class '<em>Primitive</em>'.
    * @generated
    */
-  Primitive createPrimitive();
+	Primitive createPrimitive();
 
-  /**
+	/**
    * Returns a new object of class '<em>Package</em>'.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return a new object of class '<em>Package</em>'.
    * @generated
    */
-  Package createPackage();
+	Package createPackage();
 
-  /**
+	/**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return the package supported by this factory.
    * @generated
    */
-  TuraPackage getTuraPackage();
+	TuraPackage getTuraPackage();
 
 } //TuraFactory

@@ -1,2 +1,7 @@
+//Enable dynamic templates
+var genEditorGenerator = GmfGen!GenEditorGenerator.all.first;
+genEditorGenerator.setDynamicTemplates(true);
+genEditorGenerator.setTemplateDirectory('/org.tura.metamodel/templates/');
+
 var plugin = GmfGen!GenPlugin.all.first;
 plugin.id = 'org.tura.metamodel.typedefinition';

@@ -20,32 +20,31 @@ import org.eclipse.emf.ecore.EObject;
  * @model annotation="gmf.node label='name'"
  * @generated
  */
-public interface Primitive extends EObject
-{
-  /**
+public interface Primitive extends EObject {
+	/**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
    * @see tura.TuraPackage#getPrimitive_Name()
    * @model
    * @generated
    */
-  String getName();
+	String getName();
 
-  /**
+	/**
    * Sets the value of the '{@link tura.Primitive#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
    * @see #getName()
    * @generated
    */
-  void setName(String value);
+	void setName(String value);
 
 } // Primitive

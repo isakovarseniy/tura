@@ -18,16 +18,14 @@ import typedefinition.*;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypedefinitionFactoryImpl extends EFactoryImpl implements TypedefinitionFactory
-{
-  /**
+public class TypedefinitionFactoryImpl extends EFactoryImpl implements TypedefinitionFactory {
+	/**
    * Creates the default factory implementation.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public static TypedefinitionFactory init()
-  {
+	public static TypedefinitionFactory init() {
     try
     {
       TypedefinitionFactory theTypedefinitionFactory = (TypedefinitionFactory)EPackage.Registry.INSTANCE.getEFactory("http://tura.org/2013/v1/typedefinition"); 
@@ -43,25 +41,23 @@ public class TypedefinitionFactoryImpl extends EFactoryImpl implements Typedefin
     return new TypedefinitionFactoryImpl();
   }
 
-  /**
+	/**
    * Creates an instance of the factory.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TypedefinitionFactoryImpl()
-  {
+	public TypedefinitionFactoryImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public EObject create(EClass eClass)
-  {
+	@Override
+	public EObject create(EClass eClass) {
     switch (eClass.getClassifierID())
     {
       case TypedefinitionPackage.TYPE_DEFINITION: return createTypeDefinition();
@@ -74,80 +70,73 @@ public class TypedefinitionFactoryImpl extends EFactoryImpl implements Typedefin
     }
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TypeDefinition createTypeDefinition()
-  {
+	public TypeDefinition createTypeDefinition() {
     TypeDefinitionImpl typeDefinition = new TypeDefinitionImpl();
     return typeDefinition;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Type createType()
-  {
+	public Type createType() {
     TypeImpl type = new TypeImpl();
     return type;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Attribute createAttribute()
-  {
+	public Attribute createAttribute() {
     AttributeImpl attribute = new AttributeImpl();
     return attribute;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Operation createOperation()
-  {
+	public Operation createOperation() {
     OperationImpl operation = new OperationImpl();
     return operation;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public ReturnValue createReturnValue()
-  {
+	public ReturnValue createReturnValue() {
     ReturnValueImpl returnValue = new ReturnValueImpl();
     return returnValue;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TypedefinitionPackage getTypedefinitionPackage()
-  {
+	public TypedefinitionPackage getTypedefinitionPackage() {
     return (TypedefinitionPackage)getEPackage();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @deprecated
    * @generated
    */
-  @Deprecated
-  public static TypedefinitionPackage getPackage()
-  {
+	@Deprecated
+	public static TypedefinitionPackage getPackage() {
     return TypedefinitionPackage.eINSTANCE;
   }
 

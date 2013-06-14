@@ -25,37 +25,36 @@ import typedefinition.impl.TypedefinitionPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TuraPackageImpl extends EPackageImpl implements TuraPackage
-{
-  /**
+public class TuraPackageImpl extends EPackageImpl implements TuraPackage {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass turaMetamodelEClass = null;
+	private EClass turaMetamodelEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass typesEClass = null;
+	private EClass typesEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass primitiveEClass = null;
+	private EClass primitiveEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass packageEClass = null;
+	private EClass packageEClass = null;
 
-  /**
+	/**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -64,38 +63,36 @@ public class TuraPackageImpl extends EPackageImpl implements TuraPackage
    * initialization of the package, or returns the registered package,
    * if one already exists.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
    * @see tura.TuraPackage#eNS_URI
    * @see #init()
    * @generated
    */
-  private TuraPackageImpl()
-  {
+	private TuraPackageImpl() {
     super(eNS_URI, TuraFactory.eINSTANCE);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private static boolean isInited = false;
+	private static boolean isInited = false;
 
-  /**
+	/**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
    * 
    * <p>This method is used to initialize {@link TuraPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #eNS_URI
    * @see #createPackageContents()
    * @see #initializePackageContents()
    * @generated
    */
-  public static TuraPackage init()
-  {
+	public static TuraPackage init() {
     if (isInited) return (TuraPackage)EPackage.Registry.INSTANCE.getEPackage(TuraPackage.eNS_URI);
 
     // Obtain or create and register package
@@ -123,132 +120,120 @@ public class TuraPackageImpl extends EPackageImpl implements TuraPackage
     return theTuraPackage;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTuraMetamodel()
-  {
+	public EClass getTuraMetamodel() {
     return turaMetamodelEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTuraMetamodel_TypeDefinition()
-  {
+	public EReference getTuraMetamodel_TypeDefinition() {
     return (EReference)turaMetamodelEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTypes()
-  {
+	public EClass getTypes() {
     return typesEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypes_Name()
-  {
+	public EAttribute getTypes_Name() {
     return (EAttribute)typesEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypes_Primitives()
-  {
+	public EReference getTypes_Primitives() {
     return (EReference)typesEClass.getEStructuralFeatures().get(1);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypes_Packages()
-  {
+	public EReference getTypes_Packages() {
     return (EReference)typesEClass.getEStructuralFeatures().get(2);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPrimitive()
-  {
+	public EClass getPrimitive() {
     return primitiveEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPrimitive_Name()
-  {
+	public EAttribute getPrimitive_Name() {
     return (EAttribute)primitiveEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPackage()
-  {
+	public EClass getPackage() {
     return packageEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPackage_Name()
-  {
+	public EAttribute getPackage_Name() {
     return (EAttribute)packageEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TuraFactory getTuraFactory()
-  {
+	public TuraFactory getTuraFactory() {
     return (TuraFactory)getEFactoryInstance();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isCreated = false;
+	private boolean isCreated = false;
 
-  /**
+	/**
    * Creates the meta-model objects for the package.  This method is
    * guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void createPackageContents()
-  {
+	public void createPackageContents() {
     if (isCreated) return;
     isCreated = true;
 
@@ -268,22 +253,21 @@ public class TuraPackageImpl extends EPackageImpl implements TuraPackage
     createEAttribute(packageEClass, PACKAGE__NAME);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isInitialized = false;
+	private boolean isInitialized = false;
 
-  /**
+	/**
    * Complete the initialization of the package and its meta-model.  This
    * method is guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void initializePackageContents()
-  {
+	public void initializePackageContents() {
     if (isInitialized) return;
     isInitialized = true;
 
@@ -331,14 +315,13 @@ public class TuraPackageImpl extends EPackageImpl implements TuraPackage
     createGmf_3Annotations();
   }
 
-  /**
+	/**
    * Initializes the annotations for <b>gmf</b>.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmfAnnotations()
-  {
+	protected void createGmfAnnotations() {
     String source = "gmf";		
     addAnnotation
       (this, 
@@ -348,14 +331,13 @@ public class TuraPackageImpl extends EPackageImpl implements TuraPackage
        });						
   }
 
-  /**
+	/**
    * Initializes the annotations for <b>gmf.diagram</b>.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_1Annotations()
-  {
+	protected void createGmf_1Annotations() {
     String source = "gmf.diagram";			
     addAnnotation
       (turaMetamodelEClass, 
@@ -365,14 +347,13 @@ public class TuraPackageImpl extends EPackageImpl implements TuraPackage
        });					
   }
 
-  /**
+	/**
    * Initializes the annotations for <b>gmf.node</b>.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_2Annotations()
-  {
+	protected void createGmf_2Annotations() {
     String source = "gmf.node";				
     addAnnotation
       (typesEClass, 
@@ -397,14 +378,13 @@ public class TuraPackageImpl extends EPackageImpl implements TuraPackage
        });
   }
 
-  /**
+	/**
    * Initializes the annotations for <b>gmf.compartment</b>.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_3Annotations()
-  {
+	protected void createGmf_3Annotations() {
     String source = "gmf.compartment";					
     addAnnotation
       (getTypes_Primitives(), 

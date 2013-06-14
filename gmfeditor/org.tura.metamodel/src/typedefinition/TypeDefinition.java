@@ -22,22 +22,21 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface TypeDefinition extends EObject
-{
-  /**
+public interface TypeDefinition extends EObject {
+	/**
    * Returns the value of the '<em><b>Types</b></em>' containment reference list.
    * The list contents are of type {@link typedefinition.Type}.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
    * @return the value of the '<em>Types</em>' containment reference list.
    * @see typedefinition.TypedefinitionPackage#getTypeDefinition_Types()
    * @model containment="true"
    * @generated
    */
-  EList<Type> getTypes();
+	EList<Type> getTypes();
 
 } // TypeDefinition

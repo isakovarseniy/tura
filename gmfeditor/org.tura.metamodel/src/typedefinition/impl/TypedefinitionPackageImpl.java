@@ -10,7 +10,9 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import tura.TuraPackage;
+
 import tura.impl.TuraPackageImpl;
+
 import typedefinition.Attribute;
 import typedefinition.Operation;
 import typedefinition.ReturnValue;
@@ -25,44 +27,43 @@ import typedefinition.TypedefinitionPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypedefinitionPackageImpl extends EPackageImpl implements TypedefinitionPackage
-{
-  /**
+public class TypedefinitionPackageImpl extends EPackageImpl implements TypedefinitionPackage {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass typeDefinitionEClass = null;
+	private EClass typeDefinitionEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass typeEClass = null;
+	private EClass typeEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass attributeEClass = null;
+	private EClass attributeEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass operationEClass = null;
+	private EClass operationEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass returnValueEClass = null;
+	private EClass returnValueEClass = null;
 
-  /**
+	/**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -71,38 +72,36 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * initialization of the package, or returns the registered package,
    * if one already exists.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
    * @see typedefinition.TypedefinitionPackage#eNS_URI
    * @see #init()
    * @generated
    */
-  private TypedefinitionPackageImpl()
-  {
+	private TypedefinitionPackageImpl() {
     super(eNS_URI, TypedefinitionFactory.eINSTANCE);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private static boolean isInited = false;
+	private static boolean isInited = false;
 
-  /**
+	/**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
    * 
    * <p>This method is used to initialize {@link TypedefinitionPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #eNS_URI
    * @see #createPackageContents()
    * @see #initializePackageContents()
    * @generated
    */
-  public static TypedefinitionPackage init()
-  {
+	public static TypedefinitionPackage init() {
     if (isInited) return (TypedefinitionPackage)EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI);
 
     // Obtain or create and register package
@@ -110,16 +109,11 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     isInited = true;
 
-    // Obtain or create and register interdependencies
-    TuraPackageImpl theTuraPackage = (TuraPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TuraPackage.eNS_URI) instanceof TuraPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TuraPackage.eNS_URI) : TuraPackage.eINSTANCE);
-
     // Create package meta-data objects
     theTypedefinitionPackage.createPackageContents();
-    theTuraPackage.createPackageContents();
 
     // Initialize created meta-data
     theTypedefinitionPackage.initializePackageContents();
-    theTuraPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theTypedefinitionPackage.freeze();
@@ -130,192 +124,174 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     return theTypedefinitionPackage;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTypeDefinition()
-  {
+	public EClass getTypeDefinition() {
     return typeDefinitionEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypeDefinition_Types()
-  {
+	public EReference getTypeDefinition_Types() {
     return (EReference)typeDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getType()
-  {
+	public EClass getType() {
     return typeEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getType_Name()
-  {
+	public EAttribute getType_Name() {
     return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getType_Attributes()
-  {
+	public EReference getType_Attributes() {
     return (EReference)typeEClass.getEStructuralFeatures().get(1);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getType_Operations()
-  {
+	public EReference getType_Operations() {
     return (EReference)typeEClass.getEStructuralFeatures().get(2);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAttribute()
-  {
+	public EClass getAttribute() {
     return attributeEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttribute_Name()
-  {
+	public EAttribute getAttribute_Name() {
     return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAttribute_Type()
-  {
+	public EReference getAttribute_Type() {
     return (EReference)attributeEClass.getEStructuralFeatures().get(1);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getOperation()
-  {
+	public EClass getOperation() {
     return operationEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getOperation_Name()
-  {
+	public EAttribute getOperation_Name() {
     return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOperation_Parameters()
-  {
+	public EReference getOperation_Parameters() {
     return (EReference)operationEClass.getEStructuralFeatures().get(1);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOperation_ReturnValue()
-  {
+	public EReference getOperation_ReturnValue() {
     return (EReference)operationEClass.getEStructuralFeatures().get(2);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getReturnValue()
-  {
+	public EClass getReturnValue() {
     return returnValueEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getReturnValue_Name()
-  {
+	public EAttribute getReturnValue_Name() {
     return (EAttribute)returnValueEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getReturnValue_ReturnValue()
-  {
+	public EReference getReturnValue_ReturnValue() {
     return (EReference)returnValueEClass.getEStructuralFeatures().get(1);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TypedefinitionFactory getTypedefinitionFactory()
-  {
+	public TypedefinitionFactory getTypedefinitionFactory() {
     return (TypedefinitionFactory)getEFactoryInstance();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isCreated = false;
+	private boolean isCreated = false;
 
-  /**
+	/**
    * Creates the meta-model objects for the package.  This method is
    * guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void createPackageContents()
-  {
+	public void createPackageContents() {
     if (isCreated) return;
     isCreated = true;
 
@@ -342,22 +318,21 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     createEReference(returnValueEClass, RETURN_VALUE__RETURN_VALUE);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isInitialized = false;
+	private boolean isInitialized = false;
 
-  /**
+	/**
    * Complete the initialization of the package and its meta-model.  This
    * method is guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void initializePackageContents()
-  {
+	public void initializePackageContents() {
     if (isInitialized) return;
     isInitialized = true;
 
@@ -408,14 +383,13 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     createGmf_3Annotations();
   }
 
-  /**
+	/**
    * Initializes the annotations for <b>gmf</b>.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmfAnnotations()
-  {
+	protected void createGmfAnnotations() {
     String source = "gmf";		
     addAnnotation
       (this, 
@@ -425,14 +399,13 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        });									
   }
 
-  /**
+	/**
    * Initializes the annotations for <b>gmf.diagram</b>.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_1Annotations()
-  {
+	protected void createGmf_1Annotations() {
     String source = "gmf.diagram";			
     addAnnotation
       (typeDefinitionEClass, 
@@ -442,14 +415,13 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        });								
   }
 
-  /**
+	/**
    * Initializes the annotations for <b>gmf.node</b>.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_2Annotations()
-  {
+	protected void createGmf_2Annotations() {
     String source = "gmf.node";				
     addAnnotation
       (typeEClass, 
@@ -481,14 +453,13 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        });
   }
 
-  /**
+	/**
    * Initializes the annotations for <b>gmf.compartment</b>.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_3Annotations()
-  {
+	protected void createGmf_3Annotations() {
     String source = "gmf.compartment";					
     addAnnotation
       (getType_Attributes(), 

@@ -22,16 +22,14 @@ import tura.Types;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TuraFactoryImpl extends EFactoryImpl implements TuraFactory
-{
-  /**
+public class TuraFactoryImpl extends EFactoryImpl implements TuraFactory {
+	/**
    * Creates the default factory implementation.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public static TuraFactory init()
-  {
+	public static TuraFactory init() {
     try
     {
       TuraFactory theTuraFactory = (TuraFactory)EPackage.Registry.INSTANCE.getEFactory("http://tura.org/2013/v1/tura"); 
@@ -47,25 +45,23 @@ public class TuraFactoryImpl extends EFactoryImpl implements TuraFactory
     return new TuraFactoryImpl();
   }
 
-  /**
+	/**
    * Creates an instance of the factory.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TuraFactoryImpl()
-  {
+	public TuraFactoryImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public EObject create(EClass eClass)
-  {
+	@Override
+	public EObject create(EClass eClass) {
     switch (eClass.getClassifierID())
     {
       case TuraPackage.TURA_METAMODEL: return createTuraMetamodel();
@@ -77,69 +73,63 @@ public class TuraFactoryImpl extends EFactoryImpl implements TuraFactory
     }
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TuraMetamodel createTuraMetamodel()
-  {
+	public TuraMetamodel createTuraMetamodel() {
     TuraMetamodelImpl turaMetamodel = new TuraMetamodelImpl();
     return turaMetamodel;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Types createTypes()
-  {
+	public Types createTypes() {
     TypesImpl types = new TypesImpl();
     return types;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Primitive createPrimitive()
-  {
+	public Primitive createPrimitive() {
     PrimitiveImpl primitive = new PrimitiveImpl();
     return primitive;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public tura.Package createPackage()
-  {
+	public tura.Package createPackage() {
     PackageImpl package_ = new PackageImpl();
     return package_;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TuraPackage getTuraPackage()
-  {
+	public TuraPackage getTuraPackage() {
     return (TuraPackage)getEPackage();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @deprecated
    * @generated
    */
-  @Deprecated
-  public static TuraPackage getPackage()
-  {
+	@Deprecated
+	public static TuraPackage getPackage() {
     return TuraPackage.eINSTANCE;
   }
 
