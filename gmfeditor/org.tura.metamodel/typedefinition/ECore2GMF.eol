@@ -12,3 +12,19 @@ var preferredSize = new GmfGraph!Dimension;
 preferredSize.dx = 100;
 preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
+
+
+-- Find the returnvalue figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'ReturnValueFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 100;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
