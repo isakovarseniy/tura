@@ -29,92 +29,99 @@ import typedefinition.TypedefinitionPackage;
  *
  * @generated
  */
-public class ReturnValueImpl extends EObjectImpl implements ReturnValue {
-	/**
+public class ReturnValueImpl extends EObjectImpl implements ReturnValue
+{
+  /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-	protected static final String NAME_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
-	/**
+  /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-	protected String name = NAME_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
-	/**
+  /**
    * The cached value of the '{@link #getReturnValue() <em>Return Value</em>}' containment reference.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getReturnValue()
    * @generated
    * @ordered
    */
-	protected Type returnValue;
+  protected Type returnValue;
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	protected ReturnValueImpl() {
+  protected ReturnValueImpl()
+  {
     super();
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	protected EClass eStaticClass() {
+  @Override
+  protected EClass eStaticClass()
+  {
     return TypedefinitionPackage.Literals.RETURN_VALUE;
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public String getName() {
+  public String getName()
+  {
     return name;
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public void setName(String newName) {
+  public void setName(String newName)
+  {
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.RETURN_VALUE__NAME, oldName, name));
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public Type getReturnValue() {
+  public Type getReturnValue()
+  {
     return returnValue;
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public NotificationChain basicSetReturnValue(Type newReturnValue, NotificationChain msgs) {
+  public NotificationChain basicSetReturnValue(Type newReturnValue, NotificationChain msgs)
+  {
     Type oldReturnValue = returnValue;
     returnValue = newReturnValue;
     if (eNotificationRequired())
@@ -125,12 +132,13 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue {
     return msgs;
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public void setReturnValue(Type newReturnValue) {
+  public void setReturnValue(Type newReturnValue)
+  {
     if (newReturnValue != returnValue)
     {
       NotificationChain msgs = null;
@@ -145,13 +153,14 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue {
       eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE, newReturnValue, newReturnValue));
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
     switch (featureID)
     {
       case TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE:
@@ -160,13 +169,14 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue {
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
     switch (featureID)
     {
       case TypedefinitionPackage.RETURN_VALUE__NAME:
@@ -177,13 +187,14 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue {
     return super.eGet(featureID, resolve, coreType);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
     switch (featureID)
     {
       case TypedefinitionPackage.RETURN_VALUE__NAME:
@@ -196,13 +207,14 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue {
     super.eSet(featureID, newValue);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public void eUnset(int featureID) {
+  @Override
+  public void eUnset(int featureID)
+  {
     switch (featureID)
     {
       case TypedefinitionPackage.RETURN_VALUE__NAME:
@@ -215,13 +227,14 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue {
     super.eUnset(featureID);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public boolean eIsSet(int featureID) {
+  @Override
+  public boolean eIsSet(int featureID)
+  {
     switch (featureID)
     {
       case TypedefinitionPackage.RETURN_VALUE__NAME:
@@ -232,13 +245,14 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue {
     return super.eIsSet(featureID);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public String toString() {
+  @Override
+  public String toString()
+  {
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());

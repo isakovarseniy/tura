@@ -172,6 +172,35 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <links
+        visualID="4001"
+        editPartClassName="TypeExtensionEditPart"
+        itemSemanticEditPolicyClassName="TypeExtensionItemSemanticEditPolicy"
+        createCommandClassName="TypeExtensionCreateCommand"
+        reorientCommandClassName="TypeExtensionReorientCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="TypeExtensionEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="TypeExtensionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TypeExtensionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TypeExtensionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DOT);&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet
+          xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass
+            href="tura.genmodel#//typedefinition/TypeExtension"/>
+        <containmentMetaFeature
+            href="tura.genmodel#//typedefinition/Type/extension"/>
+        <childMetaFeature
+            href="tura.genmodel#//typedefinition/Type/extension"/>
+        <sourceMetaFeature
+            href="tura.genmodel#//typedefinition/TypeExtension/source"/>
+        <targetMetaFeature
+            href="tura.genmodel#//typedefinition/TypeExtension/target"/>
+      </modelFacet>
+    </links>
     <compartments
         visualID="7001"
         editPartClassName="TypesTypesPrimitivesCompartmentEditPart"
@@ -238,9 +267,22 @@
             description="Create new Type"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="TypeReference"
+            description="Create new TypeReference"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Types"
             description="Create new Types"
             genNodes="//@diagram/@topLevelNodes.0"/>
+      </groups>
+      <groups
+          title="Connections"
+          collapse="true">
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="TypeExtension"
+            description="Create new TypeExtension"
+            genLinks="//@diagram/@links.0"/>
       </groups>
     </palette>
     <preferencePages
@@ -273,6 +315,7 @@
       printingEnabled="true">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
+    <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
   </plugin>
   <editor/>
   <navigator>
@@ -287,6 +330,11 @@
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@links.0"
+        groupName="links"
+        groupIcon="icons/linksNavigatorGroup.gif"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>

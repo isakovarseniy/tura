@@ -28,51 +28,56 @@ import tura.Types;
  *
  * @generated
  */
-public class TuraMetamodelImpl extends EObjectImpl implements TuraMetamodel {
-	/**
+public class TuraMetamodelImpl extends EObjectImpl implements TuraMetamodel
+{
+  /**
    * The cached value of the '{@link #getTypeDefinition() <em>Type Definition</em>}' containment reference.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getTypeDefinition()
    * @generated
    * @ordered
    */
-	protected Types typeDefinition;
+  protected Types typeDefinition;
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	protected TuraMetamodelImpl() {
+  protected TuraMetamodelImpl()
+  {
     super();
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	protected EClass eStaticClass() {
+  @Override
+  protected EClass eStaticClass()
+  {
     return TuraPackage.Literals.TURA_METAMODEL;
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public Types getTypeDefinition() {
+  public Types getTypeDefinition()
+  {
     return typeDefinition;
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public NotificationChain basicSetTypeDefinition(Types newTypeDefinition, NotificationChain msgs) {
+  public NotificationChain basicSetTypeDefinition(Types newTypeDefinition, NotificationChain msgs)
+  {
     Types oldTypeDefinition = typeDefinition;
     typeDefinition = newTypeDefinition;
     if (eNotificationRequired())
@@ -83,12 +88,13 @@ public class TuraMetamodelImpl extends EObjectImpl implements TuraMetamodel {
     return msgs;
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public void setTypeDefinition(Types newTypeDefinition) {
+  public void setTypeDefinition(Types newTypeDefinition)
+  {
     if (newTypeDefinition != typeDefinition)
     {
       NotificationChain msgs = null;
@@ -103,13 +109,14 @@ public class TuraMetamodelImpl extends EObjectImpl implements TuraMetamodel {
       eNotify(new ENotificationImpl(this, Notification.SET, TuraPackage.TURA_METAMODEL__TYPE_DEFINITION, newTypeDefinition, newTypeDefinition));
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
     switch (featureID)
     {
       case TuraPackage.TURA_METAMODEL__TYPE_DEFINITION:
@@ -118,13 +125,14 @@ public class TuraMetamodelImpl extends EObjectImpl implements TuraMetamodel {
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
     switch (featureID)
     {
       case TuraPackage.TURA_METAMODEL__TYPE_DEFINITION:
@@ -133,13 +141,14 @@ public class TuraMetamodelImpl extends EObjectImpl implements TuraMetamodel {
     return super.eGet(featureID, resolve, coreType);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
     switch (featureID)
     {
       case TuraPackage.TURA_METAMODEL__TYPE_DEFINITION:
@@ -149,13 +158,14 @@ public class TuraMetamodelImpl extends EObjectImpl implements TuraMetamodel {
     super.eSet(featureID, newValue);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public void eUnset(int featureID) {
+  @Override
+  public void eUnset(int featureID)
+  {
     switch (featureID)
     {
       case TuraPackage.TURA_METAMODEL__TYPE_DEFINITION:
@@ -165,13 +175,14 @@ public class TuraMetamodelImpl extends EObjectImpl implements TuraMetamodel {
     super.eUnset(featureID);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public boolean eIsSet(int featureID) {
+  @Override
+  public boolean eIsSet(int featureID)
+  {
     switch (featureID)
     {
       case TuraPackage.TURA_METAMODEL__TYPE_DEFINITION:

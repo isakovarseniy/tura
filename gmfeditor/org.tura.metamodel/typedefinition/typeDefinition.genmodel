@@ -8,10 +8,19 @@
     <genClasses ecoreClass="typeDefinition.ecore#//TypeDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//TypeDefinition/types"/>
     </genClasses>
+    <genClasses ecoreClass="typeDefinition.ecore#//TypeElement"/>
     <genClasses ecoreClass="typeDefinition.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Type/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Type/attributes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Type/operations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Type/extension"/>
+    </genClasses>
+    <genClasses ecoreClass="typeDefinition.ecore#//TypeReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//TypeReference/name"/>
+    </genClasses>
+    <genClasses ecoreClass="typeDefinition.ecore#//TypeExtension">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//TypeExtension/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//TypeExtension/target"/>
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Attribute/name"/>

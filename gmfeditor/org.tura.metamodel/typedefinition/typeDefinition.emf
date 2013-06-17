@@ -4,16 +4,34 @@ package typedefinition;
 
 @gmf.diagram
 class TypeDefinition{
-   val Type[*] types;
+   val TypeElement[*] types;
+}
+
+class TypeElement{
+   
 }
 
 @gmf.node(label="name")
-class Type{
+class Type extends TypeElement{
    attr EString name;
    @gmf.compartment
    val Attribute[*] attributes;
    @gmf.compartment
    val Operation[*] operations;
+
+   val TypeExtension[1] extension;
+   
+}
+
+@gmf.node(label="name")
+class TypeReference extends TypeElement{
+   attr EString name;
+ }
+
+@gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
+class TypeExtension {
+    ref TypeElement source;
+    ref TypeElement target;
 }
 
 @gmf.node(label="name")

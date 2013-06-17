@@ -1,26 +1,25 @@
 /**
  */
-package tura;
+package typedefinition;
 
-import typedefinition.TypeDefinition;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Package</b></em>'.
+ * A representation of the model object '<em><b>Type Reference</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link tura.Package#getName <em>Name</em>}</li>
+ *   <li>{@link typedefinition.TypeReference#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
- * @see tura.TuraPackage#getPackage()
+ * @see typedefinition.TypedefinitionPackage#getTypeReference()
  * @model annotation="gmf.node label='name'"
  * @generated
  */
-public interface Package extends TypeDefinition
+public interface TypeReference extends TypeElement
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -32,14 +31,14 @@ public interface Package extends TypeDefinition
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see tura.TuraPackage#getPackage_Name()
+   * @see typedefinition.TypedefinitionPackage#getTypeReference_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link tura.Package#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link typedefinition.TypeReference#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -48,4 +47,4 @@ public interface Package extends TypeDefinition
    */
   void setName(String value);
 
-} // Package
+} // TypeReference

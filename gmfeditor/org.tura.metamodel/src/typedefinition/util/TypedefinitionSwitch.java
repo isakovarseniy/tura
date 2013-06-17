@@ -22,50 +22,54 @@ import typedefinition.*;
  * @see typedefinition.TypedefinitionPackage
  * @generated
  */
-public class TypedefinitionSwitch<T> extends Switch<T> {
-	/**
+public class TypedefinitionSwitch<T> extends Switch<T>
+{
+  /**
    * The cached model package
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	protected static TypedefinitionPackage modelPackage;
+  protected static TypedefinitionPackage modelPackage;
 
-	/**
+  /**
    * Creates an instance of the switch.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public TypedefinitionSwitch() {
+  public TypedefinitionSwitch()
+  {
     if (modelPackage == null)
     {
       modelPackage = TypedefinitionPackage.eINSTANCE;
     }
   }
 
-	/**
+  /**
    * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @parameter ePackage the package in question.
    * @return whether this is a switch for the given package.
    * @generated
    */
-	@Override
-	protected boolean isSwitchFor(EPackage ePackage) {
+  @Override
+  protected boolean isSwitchFor(EPackage ePackage)
+  {
     return ePackage == modelPackage;
   }
 
-	/**
+  /**
    * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @return the first non-null result returned by a <code>caseXXX</code> call.
    * @generated
    */
-	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
+  @Override
+  protected T doSwitch(int classifierID, EObject theEObject)
+  {
     switch (classifierID)
     {
       case TypedefinitionPackage.TYPE_DEFINITION:
@@ -75,10 +79,33 @@ public class TypedefinitionSwitch<T> extends Switch<T> {
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case TypedefinitionPackage.TYPE_ELEMENT:
+      {
+        TypeElement typeElement = (TypeElement)theEObject;
+        T result = caseTypeElement(typeElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case TypedefinitionPackage.TYPE:
       {
         Type type = (Type)theEObject;
         T result = caseType(type);
+        if (result == null) result = caseTypeElement(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TypedefinitionPackage.TYPE_REFERENCE:
+      {
+        TypeReference typeReference = (TypeReference)theEObject;
+        T result = caseTypeReference(typeReference);
+        if (result == null) result = caseTypeElement(typeReference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TypedefinitionPackage.TYPE_EXTENSION:
+      {
+        TypeExtension typeExtension = (TypeExtension)theEObject;
+        T result = caseTypeExtension(typeExtension);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -107,94 +134,148 @@ public class TypedefinitionSwitch<T> extends Switch<T> {
     }
   }
 
-	/**
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Type Definition</em>'.
    * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Type Definition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-	public T caseTypeDefinition(TypeDefinition object) {
+  public T caseTypeDefinition(TypeDefinition object)
+  {
     return null;
   }
 
-	/**
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeElement(TypeElement object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
    * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-	public T caseType(Type object) {
+  public T caseType(Type object)
+  {
     return null;
   }
 
-	/**
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeReference(TypeReference object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Extension</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Extension</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeExtension(TypeExtension object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
    * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-	public T caseAttribute(Attribute object) {
+  public T caseAttribute(Attribute object)
+  {
     return null;
   }
 
-	/**
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
    * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-	public T caseOperation(Operation object) {
+  public T caseOperation(Operation object)
+  {
     return null;
   }
 
-	/**
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Return Value</em>'.
    * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Return Value</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-	public T caseReturnValue(ReturnValue object) {
+  public T caseReturnValue(ReturnValue object)
+  {
     return null;
   }
 
-	/**
+  /**
    * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
    * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch, but this is the last case anyway.
-	 * <!-- end-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch, but this is the last case anyway.
+   * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject)
    * @generated
    */
-	@Override
-	public T defaultCase(EObject object) {
+  @Override
+  public T defaultCase(EObject object)
+  {
     return null;
   }
 

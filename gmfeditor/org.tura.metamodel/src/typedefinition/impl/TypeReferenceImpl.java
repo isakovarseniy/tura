@@ -1,6 +1,6 @@
 /**
  */
-package tura.impl;
+package typedefinition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -8,24 +8,23 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import tura.TuraPackage;
-
-import typedefinition.impl.TypeDefinitionImpl;
+import typedefinition.TypeReference;
+import typedefinition.TypedefinitionPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Package</b></em>'.
+ * An implementation of the model object '<em><b>Type Reference</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link tura.impl.PackageImpl#getName <em>Name</em>}</li>
+ *   <li>{@link typedefinition.impl.TypeReferenceImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PackageImpl extends TypeDefinitionImpl implements tura.Package
+public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -52,7 +51,7 @@ public class PackageImpl extends TypeDefinitionImpl implements tura.Package
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PackageImpl()
+  protected TypeReferenceImpl()
   {
     super();
   }
@@ -65,7 +64,7 @@ public class PackageImpl extends TypeDefinitionImpl implements tura.Package
   @Override
   protected EClass eStaticClass()
   {
-    return TuraPackage.Literals.PACKAGE;
+    return TypedefinitionPackage.Literals.TYPE_REFERENCE;
   }
 
   /**
@@ -88,7 +87,7 @@ public class PackageImpl extends TypeDefinitionImpl implements tura.Package
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TuraPackage.PACKAGE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.TYPE_REFERENCE__NAME, oldName, name));
   }
 
   /**
@@ -101,7 +100,7 @@ public class PackageImpl extends TypeDefinitionImpl implements tura.Package
   {
     switch (featureID)
     {
-      case TuraPackage.PACKAGE__NAME:
+      case TypedefinitionPackage.TYPE_REFERENCE__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -117,7 +116,7 @@ public class PackageImpl extends TypeDefinitionImpl implements tura.Package
   {
     switch (featureID)
     {
-      case TuraPackage.PACKAGE__NAME:
+      case TypedefinitionPackage.TYPE_REFERENCE__NAME:
         setName((String)newValue);
         return;
     }
@@ -134,7 +133,7 @@ public class PackageImpl extends TypeDefinitionImpl implements tura.Package
   {
     switch (featureID)
     {
-      case TuraPackage.PACKAGE__NAME:
+      case TypedefinitionPackage.TYPE_REFERENCE__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -151,7 +150,7 @@ public class PackageImpl extends TypeDefinitionImpl implements tura.Package
   {
     switch (featureID)
     {
-      case TuraPackage.PACKAGE__NAME:
+      case TypedefinitionPackage.TYPE_REFERENCE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -174,4 +173,4 @@ public class PackageImpl extends TypeDefinitionImpl implements tura.Package
     return result.toString();
   }
 
-} //PackageImpl
+} //TypeReferenceImpl

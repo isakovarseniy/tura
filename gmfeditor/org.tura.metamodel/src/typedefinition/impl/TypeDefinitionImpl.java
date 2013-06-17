@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import typedefinition.Type;
 import typedefinition.TypeDefinition;
+import typedefinition.TypeElement;
 import typedefinition.TypedefinitionPackage;
 
 /**
@@ -33,56 +34,61 @@ import typedefinition.TypedefinitionPackage;
  *
  * @generated
  */
-public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition {
-	/**
+public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
+{
+  /**
    * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getTypes()
    * @generated
    * @ordered
    */
-	protected EList<Type> types;
+  protected EList<TypeElement> types;
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	protected TypeDefinitionImpl() {
+  protected TypeDefinitionImpl()
+  {
     super();
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	protected EClass eStaticClass() {
+  @Override
+  protected EClass eStaticClass()
+  {
     return TypedefinitionPackage.Literals.TYPE_DEFINITION;
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public EList<Type> getTypes() {
+  public EList<TypeElement> getTypes()
+  {
     if (types == null)
     {
-      types = new EObjectContainmentEList<Type>(Type.class, this, TypedefinitionPackage.TYPE_DEFINITION__TYPES);
+      types = new EObjectContainmentEList<TypeElement>(TypeElement.class, this, TypedefinitionPackage.TYPE_DEFINITION__TYPES);
     }
     return types;
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
     switch (featureID)
     {
       case TypedefinitionPackage.TYPE_DEFINITION__TYPES:
@@ -91,13 +97,14 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition {
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
     switch (featureID)
     {
       case TypedefinitionPackage.TYPE_DEFINITION__TYPES:
@@ -106,31 +113,33 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition {
     return super.eGet(featureID, resolve, coreType);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
     switch (featureID)
     {
       case TypedefinitionPackage.TYPE_DEFINITION__TYPES:
         getTypes().clear();
-        getTypes().addAll((Collection<? extends Type>)newValue);
+        getTypes().addAll((Collection<? extends TypeElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public void eUnset(int featureID) {
+  @Override
+  public void eUnset(int featureID)
+  {
     switch (featureID)
     {
       case TypedefinitionPackage.TYPE_DEFINITION__TYPES:
@@ -140,13 +149,14 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition {
     super.eUnset(featureID);
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	@Override
-	public boolean eIsSet(int featureID) {
+  @Override
+  public boolean eIsSet(int featureID)
+  {
     switch (featureID)
     {
       case TypedefinitionPackage.TYPE_DEFINITION__TYPES:
