@@ -9,7 +9,7 @@
 	«IF  self.editPartClassName.indexOf('TuraMetamodelEditPart') > 0-»
 
 		tura.TuraMetamodel model = tura.TuraFactory.eINSTANCE.createTuraMetamodel();
-		tura.Types types = TuraFactory.eINSTANCE.createTypes();
+		tura.Types types = tura.TuraFactory.eINSTANCE.createTypes();
 		model.setTypeDefinition(types);
 		
 		for (int i=0; i < org.tura.metamodel.commons.PlatformPrimetiveTypes.values().length;i++){
