@@ -51,8 +51,8 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
-
 import org.tura.metamodel.commons.PlatformPrimetiveTypes;
+
 import tura.Primitive;
 import tura.TuraFactory;
 import tura.TuraMetamodel;
@@ -223,6 +223,7 @@ public class TuraDiagramEditorUtil {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+
 	private static TuraMetamodel createInitialModel() {
 
 		TuraMetamodel model = TuraFactory.eINSTANCE.createTuraMetamodel();

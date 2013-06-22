@@ -23,6 +23,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import tura.diagram.edit.policies.TuraBaseItemSemanticEditPolicy;
 import tura.diagram.providers.ElementInitializers;
 import tura.provider.TuraItemProviderAdapterFactory;
 import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
@@ -61,6 +62,11 @@ public class TuraDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
+	private TuraBaseItemSemanticEditPolicy.LinkConstraints linkConstraints;
+
+	/**
+	 * @generated
+	 */
 	private ElementInitializers initializers;
 
 	/**
@@ -86,6 +92,7 @@ public class TuraDiagramEditorPlugin extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		adapterFactory.dispose();
 		adapterFactory = null;
+		linkConstraints = null;
 		initializers = null;
 		instance = null;
 		super.stop(context);
@@ -202,6 +209,21 @@ public class TuraDiagramEditorPlugin extends AbstractUIPlugin {
 			documentProvider = new TuraDocumentProvider();
 		}
 		return documentProvider;
+	}
+
+	/**
+	 * @generated
+	 */
+	public TuraBaseItemSemanticEditPolicy.LinkConstraints getLinkConstraints() {
+		return linkConstraints;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void setLinkConstraints(
+			TuraBaseItemSemanticEditPolicy.LinkConstraints lc) {
+		this.linkConstraints = lc;
 	}
 
 	/**

@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import typedefinition.diagram.edit.commands.TypeCreateCommand;
+import typedefinition.diagram.edit.commands.TypeReferenceCreateCommand;
 import typedefinition.diagram.providers.TypedefinitionElementTypes;
 
 /**
@@ -32,6 +33,10 @@ public class TypeDefinitionItemSemanticEditPolicy extends
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (TypedefinitionElementTypes.Type_2001 == req.getElementType()) {
 			return getGEFWrapper(new TypeCreateCommand(req));
+		}
+		if (TypedefinitionElementTypes.TypeReference_2002 == req
+				.getElementType()) {
+			return getGEFWrapper(new TypeReferenceCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

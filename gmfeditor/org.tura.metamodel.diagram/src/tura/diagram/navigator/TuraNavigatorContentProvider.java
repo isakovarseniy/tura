@@ -31,9 +31,11 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 import tura.diagram.edit.parts.PackageEditPart;
 import tura.diagram.edit.parts.PrimitiveEditPart;
 import tura.diagram.edit.parts.TuraMetamodelEditPart;
+import tura.diagram.edit.parts.TypeExtensionEditPart;
 import tura.diagram.edit.parts.TypesEditPart;
 import tura.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
 import tura.diagram.edit.parts.TypesTypesPrimitivesCompartmentEditPart;
+import tura.diagram.part.Messages;
 import tura.diagram.part.TuraVisualIDRegistry;
 
 /**
@@ -242,11 +244,21 @@ public class TuraNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<TuraAbstractNavigatorItem> result = new LinkedList<TuraAbstractNavigatorItem>();
 			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
 			Diagram sv = (Diagram) view;
+			TuraNavigatorGroup links = new TuraNavigatorGroup(
+					Messages.NavigatorGroupName_TuraMetamodel_1000_links,
+					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					TuraVisualIDRegistry.getType(TypesEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					TuraVisualIDRegistry
+							.getType(TypeExtensionEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			if (!links.isEmpty()) {
+				result.add(links);
+			}
 			return result.toArray();
 		}
 

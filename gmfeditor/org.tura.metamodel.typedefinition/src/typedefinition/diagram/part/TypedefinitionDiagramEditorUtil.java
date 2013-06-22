@@ -225,7 +225,9 @@ public class TypedefinitionDiagramEditorUtil {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+
 	private static TypeDefinition createInitialModel() {
+
 		return TypedefinitionFactory.eINSTANCE.createTypeDefinition();
 	}
 

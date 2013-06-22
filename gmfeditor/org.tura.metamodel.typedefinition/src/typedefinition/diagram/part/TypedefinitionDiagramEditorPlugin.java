@@ -23,6 +23,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import typedefinition.diagram.edit.policies.TypedefinitionBaseItemSemanticEditPolicy;
 import typedefinition.diagram.providers.ElementInitializers;
 import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
 
@@ -60,6 +61,11 @@ public class TypedefinitionDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
+	private TypedefinitionBaseItemSemanticEditPolicy.LinkConstraints linkConstraints;
+
+	/**
+	 * @generated
+	 */
 	private ElementInitializers initializers;
 
 	/**
@@ -85,6 +91,7 @@ public class TypedefinitionDiagramEditorPlugin extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		adapterFactory.dispose();
 		adapterFactory = null;
+		linkConstraints = null;
 		initializers = null;
 		instance = null;
 		super.stop(context);
@@ -200,6 +207,21 @@ public class TypedefinitionDiagramEditorPlugin extends AbstractUIPlugin {
 			documentProvider = new TypedefinitionDocumentProvider();
 		}
 		return documentProvider;
+	}
+
+	/**
+	 * @generated
+	 */
+	public TypedefinitionBaseItemSemanticEditPolicy.LinkConstraints getLinkConstraints() {
+		return linkConstraints;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void setLinkConstraints(
+			TypedefinitionBaseItemSemanticEditPolicy.LinkConstraints lc) {
+		this.linkConstraints = lc;
 	}
 
 	/**

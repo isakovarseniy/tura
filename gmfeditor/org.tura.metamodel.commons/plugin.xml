@@ -1,0 +1,23 @@
+<plugin>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tura.metamodel.typedefinition">
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.custom"
+             label="Custom"/>
+      </propertyTabs>
+   </extension>
+   
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.tura.metamodel.typedefinition">
+          <propertySection
+               tab="property.tab.domain.custom"
+               class="org.metamodel.tura.ui.properties.sections.ShotPropertySection"
+               id="hockeyleague.section.Shot">
+              <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
+         </propertySection>        
+    </propertySections>
+  </extension>  
+</plugin>

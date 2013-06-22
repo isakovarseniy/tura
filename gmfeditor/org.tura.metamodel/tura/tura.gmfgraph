@@ -7,6 +7,20 @@
     name="tura">
   <figures
       name="Default">
+    <figures
+        xsi:type="gmfgraph:PolygonDecoration"
+        name="ClosedArrow">
+      <backgroundColor
+          xsi:type="gmfgraph:ConstantColor"/>
+      <template/>
+      <template
+          x="-2"
+          y="2"/>
+      <template
+          x="-2"
+          y="-2"/>
+      <template/>
+    </figures>
     <descriptors
         name="TypesFigure">
       <actualFigure
@@ -239,7 +253,8 @@
           xsi:type="gmfgraph:PolylineConnection"
           name="TypeExtensionFigure"
           lineWidth="2"
-          lineKind="LINE_DOT"/>
+          lineKind="LINE_DOT"
+          targetDecoration="//@figures.0/@figures.0"/>
     </descriptors>
   </figures>
   <nodes

@@ -35,8 +35,12 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
+import tura.diagram.part.TuraDiagramEditorPlugin;
 import tura.diagram.part.TuraVisualIDRegistry;
 import tura.diagram.providers.TuraElementTypes;
+import typedefinition.Type;
+import typedefinition.TypeElement;
+import typedefinition.TypeExtension;
 
 /**
  * @generated
@@ -293,6 +297,54 @@ public class TuraBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				continue;
 			}
 			cmd.add(new DeleteCommand(getEditingDomain(), nextView));
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public static LinkConstraints getLinkConstraints() {
+		LinkConstraints cached = TuraDiagramEditorPlugin.getInstance()
+				.getLinkConstraints();
+		if (cached == null) {
+			TuraDiagramEditorPlugin.getInstance().setLinkConstraints(
+					cached = new LinkConstraints());
+		}
+		return cached;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static class LinkConstraints {
+
+		/**
+		 * @generated
+		 */
+		LinkConstraints() {
+			// use static method #getLinkConstraints() to access instance
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateTypeExtension_4001(Type container,
+				TypeElement source, TypeElement target) {
+			if (container != null) {
+				if (container.getExtension() != null) {
+					return false;
+				}
+			}
+			return canExistTypeExtension_4001(container, null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistTypeExtension_4001(Type container,
+				TypeExtension linkInstance, TypeElement source,
+				TypeElement target) {
+			return true;
 		}
 	}
 

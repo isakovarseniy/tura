@@ -17,10 +17,12 @@ import tura.diagram.edit.parts.PackageNameEditPart;
 import tura.diagram.edit.parts.PrimitiveEditPart;
 import tura.diagram.edit.parts.PrimitiveNameEditPart;
 import tura.diagram.edit.parts.TuraMetamodelEditPart;
+import tura.diagram.edit.parts.TypeExtensionEditPart;
 import tura.diagram.edit.parts.TypesEditPart;
 import tura.diagram.edit.parts.TypesNameEditPart;
 import tura.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
 import tura.diagram.edit.parts.TypesTypesPrimitivesCompartmentEditPart;
+import typedefinition.TypedefinitionPackage;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -220,6 +222,10 @@ public class TuraVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
+		}
+		if (TypedefinitionPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
+				domainElement.eClass())) {
+			return TypeExtensionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

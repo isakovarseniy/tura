@@ -5,6 +5,7 @@ package typedefinition.diagram.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -19,15 +20,29 @@ import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetViewMutabilityCommand;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
+import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import typedefinition.TypedefinitionPackage;
+import typedefinition.diagram.edit.parts.Attribute2EditPart;
+import typedefinition.diagram.edit.parts.AttributeEditPart;
+import typedefinition.diagram.edit.parts.OperationEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueEditPart;
+import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
+import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
+import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.part.TypedefinitionDiagramUpdater;
+import typedefinition.diagram.part.TypedefinitionLinkDescriptor;
 import typedefinition.diagram.part.TypedefinitionNodeDescriptor;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 
@@ -86,8 +101,9 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return TypeEditPart.VISUAL_ID == TypedefinitionVisualIDRegistry
-				.getVisualID(view);
+		int visualID = TypedefinitionVisualIDRegistry.getVisualID(view);
+		return visualID == TypeEditPart.VISUAL_ID
+				|| visualID == TypeReferenceEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -183,6 +199,8 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 			postProcessRefreshSemantic(createdViews);
 		}
 
+		Collection<IAdaptable> createdConnectionViews = refreshConnections();
+
 		if (createdViews.size() > 1) {
 			// perform a layout of the container
 			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host()
@@ -190,7 +208,230 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 			executeCommand(new ICommandProxy(layoutCmd));
 		}
 
+		createdViews.addAll(createdConnectionViews);
+
 		makeViewsImmutable(createdViews);
+	}
+
+	/**
+	 * @generated
+	 */
+	private Collection<IAdaptable> refreshConnections() {
+		Domain2Notation domain2NotationMap = new Domain2Notation();
+		Collection<TypedefinitionLinkDescriptor> linkDescriptors = collectAllLinks(
+				getDiagram(), domain2NotationMap);
+		Collection existingLinks = new LinkedList(getDiagram().getEdges());
+		for (Iterator linksIterator = existingLinks.iterator(); linksIterator
+				.hasNext();) {
+			Edge nextDiagramLink = (Edge) linksIterator.next();
+			int diagramLinkVisualID = TypedefinitionVisualIDRegistry
+					.getVisualID(nextDiagramLink);
+			if (diagramLinkVisualID == -1) {
+				if (nextDiagramLink.getSource() != null
+						&& nextDiagramLink.getTarget() != null) {
+					linksIterator.remove();
+				}
+				continue;
+			}
+			EObject diagramLinkObject = nextDiagramLink.getElement();
+			EObject diagramLinkSrc = nextDiagramLink.getSource().getElement();
+			EObject diagramLinkDst = nextDiagramLink.getTarget().getElement();
+			for (Iterator<TypedefinitionLinkDescriptor> linkDescriptorsIterator = linkDescriptors
+					.iterator(); linkDescriptorsIterator.hasNext();) {
+				TypedefinitionLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator
+						.next();
+				if (diagramLinkObject == nextLinkDescriptor.getModelElement()
+						&& diagramLinkSrc == nextLinkDescriptor.getSource()
+						&& diagramLinkDst == nextLinkDescriptor
+								.getDestination()
+						&& diagramLinkVisualID == nextLinkDescriptor
+								.getVisualID()) {
+					linksIterator.remove();
+					linkDescriptorsIterator.remove();
+					break;
+				}
+			}
+		}
+		deleteViews(existingLinks.iterator());
+		return createConnections(linkDescriptors, domain2NotationMap);
+	}
+
+	/**
+	 * @generated
+	 */
+	private Collection<TypedefinitionLinkDescriptor> collectAllLinks(View view,
+			Domain2Notation domain2NotationMap) {
+		if (!TypeDefinitionEditPart.MODEL_ID
+				.equals(TypedefinitionVisualIDRegistry.getModelID(view))) {
+			return Collections.emptyList();
+		}
+		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
+		switch (TypedefinitionVisualIDRegistry.getVisualID(view)) {
+		case TypeDefinitionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(TypedefinitionDiagramUpdater
+						.getTypeDefinition_1000ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TypeEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(TypedefinitionDiagramUpdater
+						.getType_2001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TypeReferenceEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(TypedefinitionDiagramUpdater
+						.getTypeReference_2002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case AttributeEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(TypedefinitionDiagramUpdater
+						.getAttribute_3001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case OperationEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(TypedefinitionDiagramUpdater
+						.getOperation_3002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case Attribute2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(TypedefinitionDiagramUpdater
+						.getAttribute_3003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ReturnValueEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(TypedefinitionDiagramUpdater
+						.getReturnValue_3004ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TypeExtensionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(TypedefinitionDiagramUpdater
+						.getTypeExtension_4001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		}
+		for (Iterator children = view.getChildren().iterator(); children
+				.hasNext();) {
+			result.addAll(collectAllLinks((View) children.next(),
+					domain2NotationMap));
+		}
+		for (Iterator edges = view.getSourceEdges().iterator(); edges.hasNext();) {
+			result.addAll(collectAllLinks((View) edges.next(),
+					domain2NotationMap));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private Collection<IAdaptable> createConnections(
+			Collection<TypedefinitionLinkDescriptor> linkDescriptors,
+			Domain2Notation domain2NotationMap) {
+		LinkedList<IAdaptable> adapters = new LinkedList<IAdaptable>();
+		for (TypedefinitionLinkDescriptor nextLinkDescriptor : linkDescriptors) {
+			EditPart sourceEditPart = getSourceEditPart(nextLinkDescriptor,
+					domain2NotationMap);
+			EditPart targetEditPart = getTargetEditPart(nextLinkDescriptor,
+					domain2NotationMap);
+			if (sourceEditPart == null || targetEditPart == null) {
+				continue;
+			}
+			CreateConnectionViewRequest.ConnectionViewDescriptor descriptor = new CreateConnectionViewRequest.ConnectionViewDescriptor(
+					nextLinkDescriptor.getSemanticAdapter(),
+					TypedefinitionVisualIDRegistry.getType(nextLinkDescriptor
+							.getVisualID()), ViewUtil.APPEND, false,
+					((IGraphicalEditPart) getHost())
+							.getDiagramPreferencesHint());
+			CreateConnectionViewRequest ccr = new CreateConnectionViewRequest(
+					descriptor);
+			ccr.setType(RequestConstants.REQ_CONNECTION_START);
+			ccr.setSourceEditPart(sourceEditPart);
+			sourceEditPart.getCommand(ccr);
+			ccr.setTargetEditPart(targetEditPart);
+			ccr.setType(RequestConstants.REQ_CONNECTION_END);
+			Command cmd = targetEditPart.getCommand(ccr);
+			if (cmd != null && cmd.canExecute()) {
+				executeCommand(cmd);
+				IAdaptable viewAdapter = (IAdaptable) ccr.getNewObject();
+				if (viewAdapter != null) {
+					adapters.add(viewAdapter);
+				}
+			}
+		}
+		return adapters;
+	}
+
+	/**
+	 * @generated
+	 */
+	private EditPart getEditPart(EObject domainModelElement,
+			Domain2Notation domain2NotationMap) {
+		View view = (View) domain2NotationMap.get(domainModelElement);
+		if (view != null) {
+			return (EditPart) getHost().getViewer().getEditPartRegistry()
+					.get(view);
+		}
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	private Diagram getDiagram() {
+		return ((View) getHost().getModel()).getDiagram();
+	}
+
+	/**
+	 * @generated
+	 */
+	private EditPart getSourceEditPart(UpdaterLinkDescriptor descriptor,
+			Domain2Notation domain2NotationMap) {
+		return getEditPart(descriptor.getSource(), domain2NotationMap);
+	}
+
+	/**
+	 * @generated
+	 */
+	private EditPart getTargetEditPart(UpdaterLinkDescriptor descriptor,
+			Domain2Notation domain2NotationMap) {
+		return getEditPart(descriptor.getDestination(), domain2NotationMap);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected final EditPart getHintedEditPart(EObject domainModelElement,
+			Domain2Notation domain2NotationMap, int hintVisualId) {
+		View view = (View) domain2NotationMap.getHinted(domainModelElement,
+				TypedefinitionVisualIDRegistry.getType(hintVisualId));
+		if (view != null) {
+			return (EditPart) getHost().getViewer().getEditPartRegistry()
+					.get(view);
+		}
+		return null;
 	}
 
 	/**

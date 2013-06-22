@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
 import tura.diagram.edit.policies.TypesTypesPrimitivesCompartmentCanonicalEditPolicy;
 import tura.diagram.edit.policies.TypesTypesPrimitivesCompartmentItemSemanticEditPolicy;
@@ -47,10 +48,13 @@ public class TypesTypesPrimitivesCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
+
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(false);
+		HTMLLikeLayout layout = new HTMLLikeLayout();
+		result.getContentPane().setLayoutManager(layout);
 		return result;
 	}
 

@@ -26,6 +26,8 @@ import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
+import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
+import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.part.TypedefinitionDiagramEditorPlugin;
 
 /**
@@ -65,6 +67,10 @@ public class TypedefinitionElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType TypeReference_2002 = getElementType("org.tura.metamodel.typedefinition.TypeReference_2002"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType Attribute_3001 = getElementType("org.tura.metamodel.typedefinition.Attribute_3001"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -78,6 +84,10 @@ public class TypedefinitionElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ReturnValue_3004 = getElementType("org.tura.metamodel.typedefinition.ReturnValue_3004"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType TypeExtension_4001 = getElementType("org.tura.metamodel.typedefinition.TypeExtension_4001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -195,6 +205,9 @@ public class TypedefinitionElementTypes {
 
 			elements.put(Type_2001, TypedefinitionPackage.eINSTANCE.getType());
 
+			elements.put(TypeReference_2002,
+					TypedefinitionPackage.eINSTANCE.getTypeReference());
+
 			elements.put(Attribute_3001,
 					TypedefinitionPackage.eINSTANCE.getAttribute());
 
@@ -206,6 +219,9 @@ public class TypedefinitionElementTypes {
 
 			elements.put(ReturnValue_3004,
 					TypedefinitionPackage.eINSTANCE.getReturnValue());
+
+			elements.put(TypeExtension_4001,
+					TypedefinitionPackage.eINSTANCE.getTypeExtension());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -225,10 +241,12 @@ public class TypedefinitionElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(TypeDefinition_1000);
 			KNOWN_ELEMENT_TYPES.add(Type_2001);
+			KNOWN_ELEMENT_TYPES.add(TypeReference_2002);
 			KNOWN_ELEMENT_TYPES.add(Attribute_3001);
 			KNOWN_ELEMENT_TYPES.add(Operation_3002);
 			KNOWN_ELEMENT_TYPES.add(Attribute_3003);
 			KNOWN_ELEMENT_TYPES.add(ReturnValue_3004);
+			KNOWN_ELEMENT_TYPES.add(TypeExtension_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -242,6 +260,8 @@ public class TypedefinitionElementTypes {
 			return TypeDefinition_1000;
 		case TypeEditPart.VISUAL_ID:
 			return Type_2001;
+		case TypeReferenceEditPart.VISUAL_ID:
+			return TypeReference_2002;
 		case AttributeEditPart.VISUAL_ID:
 			return Attribute_3001;
 		case OperationEditPart.VISUAL_ID:
@@ -250,6 +270,8 @@ public class TypedefinitionElementTypes {
 			return Attribute_3003;
 		case ReturnValueEditPart.VISUAL_ID:
 			return ReturnValue_3004;
+		case TypeExtensionEditPart.VISUAL_ID:
+			return TypeExtension_4001;
 		}
 		return null;
 	}

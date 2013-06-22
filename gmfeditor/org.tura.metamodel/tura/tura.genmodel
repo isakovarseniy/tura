@@ -21,6 +21,7 @@
     </genClasses>
   </genPackages>
   <genPackages prefix="Typedefinition" disposableProviderFactory="true" ecorePackage="../typedefinition/typeDefinition.ecore#/">
+    <genDataTypes ecoreDataType="../typedefinition/typeDefinition.ecore#//RefType"/>
     <genClasses ecoreClass="../typedefinition/typeDefinition.ecore#//TypeDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../typedefinition/typeDefinition.ecore#//TypeDefinition/types"/>
     </genClasses>
@@ -33,6 +34,7 @@
     </genClasses>
     <genClasses ecoreClass="../typedefinition/typeDefinition.ecore#//TypeReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../typedefinition/typeDefinition.ecore#//TypeReference/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../typedefinition/typeDefinition.ecore#//TypeReference/type"/>
     </genClasses>
     <genClasses ecoreClass="../typedefinition/typeDefinition.ecore#//TypeExtension">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../typedefinition/typeDefinition.ecore#//TypeExtension/source"/>

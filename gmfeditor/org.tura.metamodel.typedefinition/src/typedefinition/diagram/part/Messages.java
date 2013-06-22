@@ -251,6 +251,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String Connections2Group_title;
+
+	/**
+	 * @generated
+	 */
 	public static String Attribute1CreationTool_title;
 
 	/**
@@ -291,6 +296,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String TypeReference5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeReference5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension1CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String TypeTypeAttributesCompartmentEditPart_title;
 
 	/**
@@ -312,6 +337,41 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TypeExtension_4001_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TypeExtension_4001_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TypeDefinition_1000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TypeReference_2002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TypeReference_2002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Type_2001_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Type_2001_outgoinglinks;
 
 	/**
 	 * @generated

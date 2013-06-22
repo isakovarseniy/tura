@@ -22,7 +22,7 @@ import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueNameEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
-import typedefinition.diagram.edit.parts.WrappingLabelEditPart;
+import typedefinition.diagram.edit.parts.TypeReferenceNameEditPart;
 import typedefinition.diagram.parsers.MessageFormatParser;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 
@@ -48,6 +48,24 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 			typeName_5005Parser = parser;
 		}
 		return typeName_5005Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser typeReferenceName_5006Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTypeReferenceName_5006Parser() {
+		if (typeReferenceName_5006Parser == null) {
+			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
+					.getTypeReference_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			typeReferenceName_5006Parser = parser;
+		}
+		return typeReferenceName_5006Parser;
 	}
 
 	/**
@@ -129,6 +147,8 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 		switch (visualID) {
 		case TypeNameEditPart.VISUAL_ID:
 			return getTypeName_5005Parser();
+		case TypeReferenceNameEditPart.VISUAL_ID:
+			return getTypeReferenceName_5006Parser();
 		case AttributeNameEditPart.VISUAL_ID:
 			return getAttributeName_5001Parser();
 		case OperationNameEditPart.VISUAL_ID:

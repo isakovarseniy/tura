@@ -3,6 +3,10 @@
  */
 package typedefinition.diagram.edit.parts;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
@@ -24,6 +28,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -32,6 +37,7 @@ import org.eclipse.swt.graphics.Color;
 import typedefinition.diagram.edit.policies.OpenDiagramEditPolicy;
 import typedefinition.diagram.edit.policies.TypeItemSemanticEditPolicy;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
+import typedefinition.diagram.providers.TypedefinitionElementTypes;
 
 /**
  * @generated
@@ -291,6 +297,63 @@ public class TypeEditPart extends ShapeNodeEditPart {
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(TypedefinitionVisualIDRegistry
 				.getType(TypeNameEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> getMARelTypesOnSource() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+		types.add(TypedefinitionElementTypes.TypeExtension_4001);
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
+		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof typedefinition.diagram.edit.parts.TypeEditPart) {
+			types.add(TypedefinitionElementTypes.TypeExtension_4001);
+		}
+		if (targetEditPart instanceof TypeReferenceEditPart) {
+			types.add(TypedefinitionElementTypes.TypeExtension_4001);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (relationshipType == TypedefinitionElementTypes.TypeExtension_4001) {
+			types.add(TypedefinitionElementTypes.Type_2001);
+			types.add(TypedefinitionElementTypes.TypeReference_2002);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> getMARelTypesOnTarget() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+		types.add(TypedefinitionElementTypes.TypeExtension_4001);
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (relationshipType == TypedefinitionElementTypes.TypeExtension_4001) {
+			types.add(TypedefinitionElementTypes.Type_2001);
+			types.add(TypedefinitionElementTypes.TypeReference_2002);
+		}
+		return types;
 	}
 
 	/**

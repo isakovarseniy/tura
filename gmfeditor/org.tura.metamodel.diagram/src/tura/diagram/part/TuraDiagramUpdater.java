@@ -18,6 +18,7 @@ import tura.Types;
 import tura.diagram.edit.parts.PackageEditPart;
 import tura.diagram.edit.parts.PrimitiveEditPart;
 import tura.diagram.edit.parts.TuraMetamodelEditPart;
+import tura.diagram.edit.parts.TypeExtensionEditPart;
 import tura.diagram.edit.parts.TypesEditPart;
 import tura.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
 import tura.diagram.edit.parts.TypesTypesPrimitivesCompartmentEditPart;
@@ -138,6 +139,8 @@ public class TuraDiagramUpdater {
 			return getPackage_3001ContainedLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
 			return getPrimitive_3002ContainedLinks(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_4001ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -153,6 +156,8 @@ public class TuraDiagramUpdater {
 			return getPackage_3001IncomingLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
 			return getPrimitive_3002IncomingLinks(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_4001IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -168,6 +173,8 @@ public class TuraDiagramUpdater {
 			return getPackage_3001OutgoingLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
 			return getPrimitive_3002OutgoingLinks(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_4001OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -206,6 +213,14 @@ public class TuraDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<TuraLinkDescriptor> getTypeExtension_4001ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<TuraLinkDescriptor> getTypes_2001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -229,6 +244,14 @@ public class TuraDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<TuraLinkDescriptor> getTypeExtension_4001IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<TuraLinkDescriptor> getTypes_2001OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -245,6 +268,14 @@ public class TuraDiagramUpdater {
 	 * @generated
 	 */
 	public static List<TuraLinkDescriptor> getPrimitive_3002OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<TuraLinkDescriptor> getTypeExtension_4001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

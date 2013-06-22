@@ -34,6 +34,12 @@ public class TypedefinitionEditPartFactory implements EditPartFactory {
 			case TypeNameEditPart.VISUAL_ID:
 				return new TypeNameEditPart(view);
 
+			case TypeReferenceEditPart.VISUAL_ID:
+				return new TypeReferenceEditPart(view);
+
+			case TypeReferenceNameEditPart.VISUAL_ID:
+				return new TypeReferenceNameEditPart(view);
+
 			case AttributeEditPart.VISUAL_ID:
 				return new AttributeEditPart(view);
 
@@ -70,6 +76,10 @@ public class TypedefinitionEditPartFactory implements EditPartFactory {
 			case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
 				return new OperationOperationReturnValueCompartmentEditPart(
 						view);
+
+			case TypeExtensionEditPart.VISUAL_ID:
+				return new TypeExtensionEditPart(view);
+
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

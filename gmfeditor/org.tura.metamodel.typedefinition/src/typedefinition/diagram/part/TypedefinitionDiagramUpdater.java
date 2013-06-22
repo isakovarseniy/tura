@@ -3,11 +3,16 @@
  */
 package typedefinition.diagram.part;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
@@ -16,6 +21,10 @@ import typedefinition.Operation;
 import typedefinition.ReturnValue;
 import typedefinition.Type;
 import typedefinition.TypeDefinition;
+import typedefinition.TypeElement;
+import typedefinition.TypeExtension;
+import typedefinition.TypeReference;
+import typedefinition.TypedefinitionPackage;
 import typedefinition.diagram.edit.parts.Attribute2EditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
@@ -24,8 +33,11 @@ import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmen
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
+import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
+import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
+import typedefinition.diagram.providers.TypedefinitionElementTypes;
 
 /**
  * @generated
@@ -71,10 +83,15 @@ public class TypedefinitionDiagramUpdater {
 		TypeDefinition modelElement = (TypeDefinition) view.getElement();
 		LinkedList<TypedefinitionNodeDescriptor> result = new LinkedList<TypedefinitionNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getTypes().iterator(); it.hasNext();) {
-			Type childElement = (Type) it.next();
+			TypeElement childElement = (TypeElement) it.next();
 			int visualID = TypedefinitionVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == TypeEditPart.VISUAL_ID) {
+				result.add(new TypedefinitionNodeDescriptor(childElement,
+						visualID));
+				continue;
+			}
+			if (visualID == TypeReferenceEditPart.VISUAL_ID) {
 				result.add(new TypedefinitionNodeDescriptor(childElement,
 						visualID));
 				continue;
@@ -202,6 +219,8 @@ public class TypedefinitionDiagramUpdater {
 			return getTypeDefinition_1000ContainedLinks(view);
 		case TypeEditPart.VISUAL_ID:
 			return getType_2001ContainedLinks(view);
+		case TypeReferenceEditPart.VISUAL_ID:
+			return getTypeReference_2002ContainedLinks(view);
 		case AttributeEditPart.VISUAL_ID:
 			return getAttribute_3001ContainedLinks(view);
 		case OperationEditPart.VISUAL_ID:
@@ -210,6 +229,8 @@ public class TypedefinitionDiagramUpdater {
 			return getAttribute_3003ContainedLinks(view);
 		case ReturnValueEditPart.VISUAL_ID:
 			return getReturnValue_3004ContainedLinks(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_4001ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -221,6 +242,8 @@ public class TypedefinitionDiagramUpdater {
 		switch (TypedefinitionVisualIDRegistry.getVisualID(view)) {
 		case TypeEditPart.VISUAL_ID:
 			return getType_2001IncomingLinks(view);
+		case TypeReferenceEditPart.VISUAL_ID:
+			return getTypeReference_2002IncomingLinks(view);
 		case AttributeEditPart.VISUAL_ID:
 			return getAttribute_3001IncomingLinks(view);
 		case OperationEditPart.VISUAL_ID:
@@ -229,6 +252,8 @@ public class TypedefinitionDiagramUpdater {
 			return getAttribute_3003IncomingLinks(view);
 		case ReturnValueEditPart.VISUAL_ID:
 			return getReturnValue_3004IncomingLinks(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_4001IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -240,6 +265,8 @@ public class TypedefinitionDiagramUpdater {
 		switch (TypedefinitionVisualIDRegistry.getVisualID(view)) {
 		case TypeEditPart.VISUAL_ID:
 			return getType_2001OutgoingLinks(view);
+		case TypeReferenceEditPart.VISUAL_ID:
+			return getTypeReference_2002OutgoingLinks(view);
 		case AttributeEditPart.VISUAL_ID:
 			return getAttribute_3001OutgoingLinks(view);
 		case OperationEditPart.VISUAL_ID:
@@ -248,6 +275,8 @@ public class TypedefinitionDiagramUpdater {
 			return getAttribute_3003OutgoingLinks(view);
 		case ReturnValueEditPart.VISUAL_ID:
 			return getReturnValue_3004OutgoingLinks(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_4001OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -264,6 +293,17 @@ public class TypedefinitionDiagramUpdater {
 	 * @generated
 	 */
 	public static List<TypedefinitionLinkDescriptor> getType_2001ContainedLinks(
+			View view) {
+		Type modelElement = (Type) view.getElement();
+		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_TypeExtension_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<TypedefinitionLinkDescriptor> getTypeReference_2002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -303,9 +343,37 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getType_2001IncomingLinks(
+	public static List<TypedefinitionLinkDescriptor> getTypeExtension_4001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<TypedefinitionLinkDescriptor> getType_2001IncomingLinks(
+			View view) {
+		Type modelElement = (Type) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_4001(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<TypedefinitionLinkDescriptor> getTypeReference_2002IncomingLinks(
+			View view) {
+		TypeReference modelElement = (TypeReference) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_4001(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -343,9 +411,31 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getType_2001OutgoingLinks(
+	public static List<TypedefinitionLinkDescriptor> getTypeExtension_4001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<TypedefinitionLinkDescriptor> getType_2001OutgoingLinks(
+			View view) {
+		Type modelElement = (Type) view.getElement();
+		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<TypedefinitionLinkDescriptor> getTypeReference_2002OutgoingLinks(
+			View view) {
+		TypeReference modelElement = (TypeReference) view.getElement();
+		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_4001(modelElement));
+		return result;
 	}
 
 	/**
@@ -378,6 +468,96 @@ public class TypedefinitionDiagramUpdater {
 	public static List<TypedefinitionLinkDescriptor> getReturnValue_3004OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<TypedefinitionLinkDescriptor> getTypeExtension_4001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<TypedefinitionLinkDescriptor> getContainedTypeModelFacetLinks_TypeExtension_4001(
+			Type container) {
+		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
+		TypeExtension link = container.getExtension();
+		if (TypeExtensionEditPart.VISUAL_ID != TypedefinitionVisualIDRegistry
+				.getLinkWithClassVisualID(link)) {
+			return result;
+		}
+		TypeElement dst = link.getTarget();
+		TypeElement src = link.getSource();
+		result.add(new TypedefinitionLinkDescriptor(src, dst, link,
+				TypedefinitionElementTypes.TypeExtension_4001,
+				TypeExtensionEditPart.VISUAL_ID));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<TypedefinitionLinkDescriptor> getIncomingTypeModelFacetLinks_TypeExtension_4001(
+			TypeElement target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != TypedefinitionPackage.eINSTANCE
+					.getTypeExtension_Target()
+					|| false == setting.getEObject() instanceof TypeExtension) {
+				continue;
+			}
+			TypeExtension link = (TypeExtension) setting.getEObject();
+			if (TypeExtensionEditPart.VISUAL_ID != TypedefinitionVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement src = link.getSource();
+			result.add(new TypedefinitionLinkDescriptor(src, target, link,
+					TypedefinitionElementTypes.TypeExtension_4001,
+					TypeExtensionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<TypedefinitionLinkDescriptor> getOutgoingTypeModelFacetLinks_TypeExtension_4001(
+			TypeElement source) {
+		Type container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof Type) {
+				container = (Type) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
+		TypeExtension link = container.getExtension();
+		if (TypeExtensionEditPart.VISUAL_ID != TypedefinitionVisualIDRegistry
+				.getLinkWithClassVisualID(link)) {
+			return result;
+		}
+		TypeElement dst = link.getTarget();
+		TypeElement src = link.getSource();
+		if (src != source) {
+			return result;
+		}
+		result.add(new TypedefinitionLinkDescriptor(src, dst, link,
+				TypedefinitionElementTypes.TypeExtension_4001,
+				TypeExtensionEditPart.VISUAL_ID));
+		return result;
 	}
 
 	/**

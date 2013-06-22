@@ -24,10 +24,12 @@ import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueNameEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
+import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
+import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
+import typedefinition.diagram.edit.parts.TypeReferenceNameEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
-import typedefinition.diagram.edit.parts.WrappingLabelEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -142,6 +144,10 @@ public class TypedefinitionVisualIDRegistry {
 					domainElement.eClass())) {
 				return TypeEditPart.VISUAL_ID;
 			}
+			if (TypedefinitionPackage.eINSTANCE.getTypeReference()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return TypeReferenceEditPart.VISUAL_ID;
+			}
 			break;
 		case TypeTypeAttributesCompartmentEditPart.VISUAL_ID:
 			if (TypedefinitionPackage.eINSTANCE.getAttribute().isSuperTypeOf(
@@ -197,6 +203,9 @@ public class TypedefinitionVisualIDRegistry {
 			if (TypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (TypeReferenceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case TypeEditPart.VISUAL_ID:
 			if (TypeNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -206,6 +215,11 @@ public class TypedefinitionVisualIDRegistry {
 				return true;
 			}
 			if (TypeTypeOperationsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case TypeReferenceEditPart.VISUAL_ID:
+			if (TypeReferenceNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -266,6 +280,10 @@ public class TypedefinitionVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
+		if (TypedefinitionPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
+				domainElement.eClass())) {
+			return TypeExtensionEditPart.VISUAL_ID;
+		}
 		return -1;
 	}
 
@@ -315,6 +333,7 @@ public class TypedefinitionVisualIDRegistry {
 		switch (visualID) {
 		case TypeDefinitionEditPart.VISUAL_ID:
 			return false;
+		case TypeReferenceEditPart.VISUAL_ID:
 		case AttributeEditPart.VISUAL_ID:
 		case Attribute2EditPart.VISUAL_ID:
 		case ReturnValueEditPart.VISUAL_ID:

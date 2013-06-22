@@ -51,6 +51,10 @@ public class TuraEditPartFactory implements EditPartFactory {
 
 			case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
 				return new TypesTypesPackagesCompartmentEditPart(view);
+
+			case TypeExtensionEditPart.VISUAL_ID:
+				return new TypeExtensionEditPart(view);
+
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

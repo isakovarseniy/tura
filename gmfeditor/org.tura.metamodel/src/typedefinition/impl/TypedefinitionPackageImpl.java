@@ -4,13 +4,14 @@ package typedefinition.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import tura.TuraPackage;
-import tura.impl.TuraPackageImpl;
+import org.tura.metamodel.commons.types.RefType;
+
 import typedefinition.Attribute;
 import typedefinition.Operation;
 import typedefinition.ReturnValue;
@@ -85,6 +86,13 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * @generated
    */
   private EClass returnValueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EDataType refTypeEDataType = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -254,6 +262,16 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getTypeReference_Type()
+  {
+    return (EAttribute)typeReferenceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTypeExtension()
   {
     return typeExtensionEClass;
@@ -384,6 +402,16 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * <!-- end-user-doc -->
    * @generated
    */
+  public EDataType getRefType()
+  {
+    return refTypeEDataType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TypedefinitionFactory getTypedefinitionFactory()
   {
     return (TypedefinitionFactory)getEFactoryInstance();
@@ -422,6 +450,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     typeReferenceEClass = createEClass(TYPE_REFERENCE);
     createEAttribute(typeReferenceEClass, TYPE_REFERENCE__NAME);
+    createEAttribute(typeReferenceEClass, TYPE_REFERENCE__TYPE);
 
     typeExtensionEClass = createEClass(TYPE_EXTENSION);
     createEReference(typeExtensionEClass, TYPE_EXTENSION__SOURCE);
@@ -439,6 +468,9 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     returnValueEClass = createEClass(RETURN_VALUE);
     createEAttribute(returnValueEClass, RETURN_VALUE__NAME);
     createEReference(returnValueEClass, RETURN_VALUE__RETURN_VALUE);
+
+    // Create data types
+    refTypeEDataType = createEDataType(REF_TYPE);
   }
 
   /**
@@ -487,6 +519,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     initEClass(typeReferenceEClass, TypeReference.class, "TypeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeReference_Name(), ecorePackage.getEString(), "name", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeReference_Type(), this.getRefType(), "type", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeExtensionEClass, TypeExtension.class, "TypeExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypeExtension_Source(), this.getTypeElement(), null, "source", null, 0, 1, TypeExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -504,6 +537,9 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     initEClass(returnValueEClass, ReturnValue.class, "ReturnValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getReturnValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReturnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getReturnValue_ReturnValue(), this.getType(), null, "returnValue", null, 1, 1, ReturnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize data types
+    initEDataType(refTypeEDataType, RefType.class, "RefType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

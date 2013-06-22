@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: tura.diagram.part.TuraDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: tura.diagram.edit.parts,
+Export-Package: tura.diagram.edit.parts, 
  tura.diagram.part,
  tura.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,
@@ -35,10 +35,12 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide,
  org.eclipse.gmf.tooling.runtime;visibility:=reexport,
  org.eclipse.draw2d;visibility:=reexport,
+ org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
  org.tura.metamodel;visibility:=reexport,
  org.tura.metamodel.edit;visibility:=reexport,
  org.eclipse.emf.validation;visibility:=reexport,
- org.eclipse.gef;visibility:=reexport,
- org.tura.metamodel.commons;bundle-version="1.0.0"
+ org.eclipse.gef;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.tura.metamodel.commons,
+ org.tura.metamodel.commons.editparts

@@ -8,7 +8,6 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -262,11 +261,10 @@ public class PackageEditPart extends ShapeNodeEditPart {
 			layoutThis.setStretchMinorAxis(false);
 			layoutThis.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
 			layoutThis.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorSpacing(0);
-			layoutThis.setMinorSpacing(0);
+			layoutThis.setMajorSpacing(5);
+			layoutThis.setMinorSpacing(5);
 			layoutThis.setHorizontal(true);
 			this.setLayoutManager(layoutThis);
-			this.setCornerDimensions(new Dimension(4,4));
 			createContents();
 		}
 

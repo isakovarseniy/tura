@@ -251,6 +251,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String Connections2Group_title;
+
+	/**
+	 * @generated
+	 */
 	public static String Attribute1CreationTool_title;
 
 	/**
@@ -311,12 +316,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Types7CreationTool_title;
+	public static String TypeReference7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Types7CreationTool_desc;
+	public static String TypeReference7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Types8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Types8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension1CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension1CreationTool_desc;
 
 	/**
 	 * @generated
@@ -332,6 +357,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TuraMetamodel_1000_links;
 
 	/**
 	 * @generated

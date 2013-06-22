@@ -23,8 +23,10 @@ import tura.TuraPackage;
 import tura.diagram.edit.parts.PackageEditPart;
 import tura.diagram.edit.parts.PrimitiveEditPart;
 import tura.diagram.edit.parts.TuraMetamodelEditPart;
+import tura.diagram.edit.parts.TypeExtensionEditPart;
 import tura.diagram.edit.parts.TypesEditPart;
 import tura.diagram.part.TuraDiagramEditorPlugin;
+import typedefinition.TypedefinitionPackage;
 
 /**
  * @generated
@@ -68,6 +70,10 @@ public class TuraElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Primitive_3002 = getElementType("org.tura.metamodel.diagram.Primitive_3002"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType TypeExtension_4001 = getElementType("org.tura.metamodel.diagram.TypeExtension_4001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -188,6 +194,9 @@ public class TuraElementTypes {
 			elements.put(Package_3001, TuraPackage.eINSTANCE.getPackage());
 
 			elements.put(Primitive_3002, TuraPackage.eINSTANCE.getPrimitive());
+
+			elements.put(TypeExtension_4001,
+					TypedefinitionPackage.eINSTANCE.getTypeExtension());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -209,6 +218,7 @@ public class TuraElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Types_2001);
 			KNOWN_ELEMENT_TYPES.add(Package_3001);
 			KNOWN_ELEMENT_TYPES.add(Primitive_3002);
+			KNOWN_ELEMENT_TYPES.add(TypeExtension_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -226,6 +236,8 @@ public class TuraElementTypes {
 			return Package_3001;
 		case PrimitiveEditPart.VISUAL_ID:
 			return Primitive_3002;
+		case TypeExtensionEditPart.VISUAL_ID:
+			return TypeExtension_4001;
 		}
 		return null;
 	}
