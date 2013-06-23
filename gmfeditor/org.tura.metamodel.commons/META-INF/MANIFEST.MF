@@ -18,6 +18,7 @@ Import-Package: org.eclipse.draw2d,
  org.eclipse.emf.edit.provider,
  org.eclipse.emf.edit.ui.provider,
  org.eclipse.gmf.runtime.diagram.ui.layout,
+ org.eclipse.ui.ide,
  org.eclipse.ui.views.properties,
  org.eclipse.ui.views.properties.tabbed,
  typedefinition

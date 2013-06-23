@@ -6,7 +6,7 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.custom.CLabel;
@@ -75,7 +75,8 @@ public abstract class AbstractEnumerationPropertySection extends
 		int index = combo.getSelectionIndex();
 		boolean equals = isEqual(index);
 		if (!equals) {
-			EditingDomain editingDomain = ((IEditingDomainProvider) getPart())
+			
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 			Object value = getFeatureValue(index);
 			if (eObjectList.size() == 1) {

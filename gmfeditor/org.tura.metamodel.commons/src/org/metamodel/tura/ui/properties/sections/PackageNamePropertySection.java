@@ -19,6 +19,8 @@ import typedefinition.TypedefinitionPackage;
 public class PackageNamePropertySection extends
 		AbstractEnumerationPropertySection {
 
+	private ArrayList<String> values;
+
 	/**
 	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#getFeature()
 	 */
@@ -37,7 +39,7 @@ public class PackageNamePropertySection extends
 	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#getFeatureValue(int)
 	 */
 	protected Object getFeatureValue(int index) {
-		return ShotKind.VALUES.get(index);
+		return values.get(index);
 	}
 
 	/**
@@ -51,7 +53,7 @@ public class PackageNamePropertySection extends
 	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#isEqual(int)
 	 */
 	protected boolean isEqual(int index) {
-		return ShotKind.VALUES.get(index).equals(
+		return values.get(index).equals(
 				((TypeReference) eObject).getPackageName());
 	}
 
@@ -60,19 +62,22 @@ public class PackageNamePropertySection extends
 	 */
 	protected String[] getEnumerationFeatureValues() {
 
-		Diagram diagram = (Diagram) editPart.getRoot().getContents().getModel();
-		PackageImpl pckg = (PackageImpl) diagram.getElement();
-		TypesImpl types = (TypesImpl) pckg.eContainer();
-		ArrayList<String> ls = new ArrayList<String>();
+		if (values == null) {
+			values = new ArrayList<String>();
+			Diagram diagram = (Diagram) editPart.getRoot().getContents()
+					.getModel();
+			PackageImpl pckg = (PackageImpl) diagram.getElement();
+			TypesImpl types = (TypesImpl) pckg.eContainer();
 
-		for (Iterator<tura.Package> i = types.getPackages().iterator(); i
-				.hasNext();) {
-			tura.Package p = i.next();
-			if (p.getName() != null)
-				ls.add(p.getName());
+			for (Iterator<tura.Package> i = types.getPackages().iterator(); i
+					.hasNext();) {
+				tura.Package p = i.next();
+				if (p.getName() != null)
+					values.add(p.getName());
+			}
+			values.add("Primitives");
 		}
-        ls.add("Primitives"); 
-		
-		return ls.toArray(new String[ls.size()]);
+
+		return values.toArray(new String[values.size()]);
 	}
 }
