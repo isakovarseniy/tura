@@ -207,7 +207,7 @@ public class ReturnValueItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypedefinitionEditPlugin.INSTANCE;
+    return TuraEditPlugin.INSTANCE;
   }
 
 }

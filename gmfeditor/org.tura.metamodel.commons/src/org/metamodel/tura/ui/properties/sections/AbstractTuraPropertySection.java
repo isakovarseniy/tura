@@ -1,9 +1,10 @@
-
 package org.metamodel.tura.ui.properties.sections;
 
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.GC;
@@ -18,8 +19,8 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
  * 
  * @author Anthony Hunter
  */
-public abstract class AbstractTuraPropertySection
-	extends AbstractPropertySection {
+public abstract class AbstractTuraPropertySection extends
+		AbstractPropertySection {
 
 	/**
 	 * the property sheet page for this section.
@@ -32,10 +33,12 @@ public abstract class AbstractTuraPropertySection
 	 */
 	protected EObject eObject;
 
+	protected IGraphicalEditPart editPart;;
+	
 	/**
 	 * The list of current selected objects.
 	 */
-	protected List eObjectList;
+	protected List<Object> eObjectList;
 
 	/**
 	 * Get the standard label width when labels for sections line up on the left
@@ -76,15 +79,15 @@ public abstract class AbstractTuraPropertySection
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#setInput(org.eclipse.ui.IWorkbenchPart,
 	 *      org.eclipse.jface.viewers.ISelection)
 	 */
+	@SuppressWarnings("unchecked")
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
 		if (!(selection instanceof IStructuredSelection)) {
 			return;
 		}
-		if (((IStructuredSelection) selection).getFirstElement() instanceof EObject) {
-			eObject = (EObject) ((IStructuredSelection) selection)
-				.getFirstElement();
-			eObjectList = ((IStructuredSelection) selection).toList();
-		}
+		eObjectList = ((IStructuredSelection) selection).toList();
+		editPart =  (IGraphicalEditPart) ((IStructuredSelection) selection).getFirstElement();
+		eObject  = ((ShapeImpl) editPart.getModel()).basicGetElement();
+
 	}
 }

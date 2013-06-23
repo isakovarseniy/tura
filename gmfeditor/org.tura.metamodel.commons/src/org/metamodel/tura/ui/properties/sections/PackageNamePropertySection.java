@@ -1,9 +1,13 @@
 package org.metamodel.tura.ui.properties.sections;
 
-
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.gmf.runtime.notation.Diagram;
+
+import tura.impl.PackageImpl;
+import tura.impl.TypesImpl;
 import typedefinition.TypeReference;
 import typedefinition.TypedefinitionPackage;
 
@@ -12,21 +16,21 @@ import typedefinition.TypedefinitionPackage;
  * 
  * @author Anthony Hunter
  */
-public class ShotPropertySection
-	extends AbstractEnumerationPropertySection {
+public class PackageNamePropertySection extends
+		AbstractEnumerationPropertySection {
 
 	/**
 	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#getFeature()
 	 */
 	protected EAttribute getFeature() {
-		return TypedefinitionPackage.eINSTANCE.getTypeReference_Type();
+		return TypedefinitionPackage.eINSTANCE.getTypeReference_PackageName();
 	}
 
 	/**
 	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#getFeatureAsText()
 	 */
 	protected String getFeatureAsText() {
-		return ((typedefinition.TypeReference) eObject).getType().toString();
+		return ((typedefinition.TypeReference) eObject).getPackageName();
 	}
 
 	/**
@@ -40,25 +44,35 @@ public class ShotPropertySection
 	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#getLabelText()
 	 */
 	protected String getLabelText() {
-		return "Shot:";//$NON-NLS-1$
+		return "Package name";//$NON-NLS-1$
 	}
 
 	/**
 	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#isEqual(int)
 	 */
 	protected boolean isEqual(int index) {
-		return ShotKind.VALUES.get(index).equals(((TypeReference) eObject).getType());
+		return ShotKind.VALUES.get(index).equals(
+				((TypeReference) eObject).getPackageName());
 	}
 
 	/**
 	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#getEnumerationFeatureValues()
 	 */
 	protected String[] getEnumerationFeatureValues() {
-		List values = ShotKind.VALUES;
-		String[] ret = new String[values.size()];
-		for (int i = 0; i < values.size(); i++) {
-			ret[i] = ((ShotKind) values.get(i)).getName();
+
+		Diagram diagram = (Diagram) editPart.getRoot().getContents().getModel();
+		PackageImpl pckg = (PackageImpl) diagram.getElement();
+		TypesImpl types = (TypesImpl) pckg.eContainer();
+		ArrayList<String> ls = new ArrayList<String>();
+
+		for (Iterator<tura.Package> i = types.getPackages().iterator(); i
+				.hasNext();) {
+			tura.Package p = i.next();
+			if (p.getName() != null)
+				ls.add(p.getName());
 		}
-		return ret;
+        ls.add("Primitives"); 
+		
+		return ls.toArray(new String[ls.size()]);
 	}
 }

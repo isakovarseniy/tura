@@ -5,7 +5,6 @@
     copyrightFields="false">
   <foreignModel>typeDefinition.emf</foreignModel>
   <genPackages prefix="Typedefinition" disposableProviderFactory="true" ecorePackage="typeDefinition.ecore#/">
-    <genDataTypes ecoreDataType="typeDefinition.ecore#//RefType"/>
     <genClasses ecoreClass="typeDefinition.ecore#//TypeDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//TypeDefinition/types"/>
     </genClasses>
@@ -18,7 +17,8 @@
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//TypeReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//TypeReference/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//TypeReference/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//TypeReference/packageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//TypeReference/typeName"/>
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//TypeExtension">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//TypeExtension/source"/>

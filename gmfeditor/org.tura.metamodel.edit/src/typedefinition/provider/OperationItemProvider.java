@@ -214,7 +214,7 @@ public class OperationItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypedefinitionEditPlugin.INSTANCE;
+    return TuraEditPlugin.INSTANCE;
   }
 
 }

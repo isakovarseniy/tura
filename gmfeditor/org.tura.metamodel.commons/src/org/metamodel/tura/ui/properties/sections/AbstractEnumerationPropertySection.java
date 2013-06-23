@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -76,7 +75,7 @@ public abstract class AbstractEnumerationPropertySection extends
 		int index = combo.getSelectionIndex();
 		boolean equals = isEqual(index);
 		if (!equals) {
-			EditingDomain editingDomain =   ((IEditingDomainProvider) getPart())
+			EditingDomain editingDomain = ((IEditingDomainProvider) getPart())
 					.getEditingDomain();
 			Object value = getFeatureValue(index);
 			if (eObjectList.size() == 1) {
@@ -87,8 +86,8 @@ public abstract class AbstractEnumerationPropertySection extends
 			} else {
 				CompoundCommand compoundCommand = new CompoundCommand();
 				/* apply the property change to all selected elements */
-				for (Iterator i = eObjectList.iterator(); i.hasNext();) {
-					EObject nextObject = (EObject) i.next();
+				for (Iterator<Object> i = eObjectList.iterator(); i.hasNext();) {
+					Object nextObject = i.next();
 					compoundCommand.append(SetCommand.create(editingDomain,
 							nextObject, getFeature(), value));
 				}
@@ -102,7 +101,9 @@ public abstract class AbstractEnumerationPropertySection extends
 	 */
 	public void refresh() {
 		combo.setItems(getEnumerationFeatureValues());
-		combo.setText(getFeatureAsText());
+		if (getFeatureAsText() != null) {
+			combo.setText(getFeatureAsText());
+		}
 	}
 
 	/**

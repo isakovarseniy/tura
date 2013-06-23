@@ -62,7 +62,8 @@ public class TypeReferenceItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addTypePropertyDescriptor(object);
+      addPackageNamePropertyDescriptor(object);
+      addTypeNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -91,20 +92,43 @@ public class TypeReferenceItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Type feature.
+   * This adds a property descriptor for the Package Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addTypePropertyDescriptor(Object object)
+  protected void addPackageNamePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_TypeReference_type_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_TypeReference_type_feature", "_UI_TypeReference_type"),
-         TypedefinitionPackage.Literals.TYPE_REFERENCE__TYPE,
+         getString("_UI_TypeReference_packageName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypeReference_packageName_feature", "_UI_TypeReference_type"),
+         TypedefinitionPackage.Literals.TYPE_REFERENCE__PACKAGE_NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Type Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addTypeNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypeReference_typeName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypeReference_typeName_feature", "_UI_TypeReference_type"),
+         TypedefinitionPackage.Literals.TYPE_REFERENCE__TYPE_NAME,
          true,
          false,
          false,
@@ -155,7 +179,8 @@ public class TypeReferenceItemProvider
     switch (notification.getFeatureID(TypeReference.class))
     {
       case TypedefinitionPackage.TYPE_REFERENCE__NAME:
-      case TypedefinitionPackage.TYPE_REFERENCE__TYPE:
+      case TypedefinitionPackage.TYPE_REFERENCE__PACKAGE_NAME:
+      case TypedefinitionPackage.TYPE_REFERENCE__TYPE_NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

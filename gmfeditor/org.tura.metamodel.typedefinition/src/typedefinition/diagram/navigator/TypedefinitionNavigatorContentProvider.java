@@ -246,31 +246,6 @@ public class TypedefinitionNavigatorContentProvider implements
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (TypedefinitionVisualIDRegistry.getVisualID(view)) {
 
-		case OperationEditPart.VISUAL_ID: {
-			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(OperationOperationParametersCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					TypedefinitionVisualIDRegistry
-							.getType(Attribute2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(OperationOperationReturnValueCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					TypedefinitionVisualIDRegistry
-							.getType(ReturnValueEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
 		case TypeDefinitionEditPart.VISUAL_ID: {
 			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
 			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
@@ -296,6 +271,31 @@ public class TypedefinitionNavigatorContentProvider implements
 			if (!links.isEmpty()) {
 				result.add(links);
 			}
+			return result.toArray();
+		}
+
+		case OperationEditPart.VISUAL_ID: {
+			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(OperationOperationParametersCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					TypedefinitionVisualIDRegistry
+							.getType(Attribute2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(OperationOperationReturnValueCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					TypedefinitionVisualIDRegistry
+							.getType(ReturnValueEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 
@@ -338,35 +338,6 @@ public class TypedefinitionNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case TypeReferenceEditPart.VISUAL_ID: {
-			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			TypedefinitionNavigatorGroup incominglinks = new TypedefinitionNavigatorGroup(
-					Messages.NavigatorGroupName_TypeReference_2002_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			TypedefinitionNavigatorGroup outgoinglinks = new TypedefinitionNavigatorGroup(
-					Messages.NavigatorGroupName_TypeReference_2002_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(TypeExtensionEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(TypeExtensionEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
 		case TypeEditPart.VISUAL_ID: {
 			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -395,6 +366,35 @@ public class TypedefinitionNavigatorContentProvider implements
 							.getType(OperationEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(TypeExtensionEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(TypeExtensionEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case TypeReferenceEditPart.VISUAL_ID: {
+			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			TypedefinitionNavigatorGroup incominglinks = new TypedefinitionNavigatorGroup(
+					Messages.NavigatorGroupName_TypeReference_2002_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			TypedefinitionNavigatorGroup outgoinglinks = new TypedefinitionNavigatorGroup(
+					Messages.NavigatorGroupName_TypeReference_2002_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					TypedefinitionVisualIDRegistry
 							.getType(TypeExtensionEditPart.VISUAL_ID));

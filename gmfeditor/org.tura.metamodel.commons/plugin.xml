@@ -14,7 +14,7 @@
       <propertySections contributorId="org.tura.metamodel.typedefinition">
           <propertySection
                tab="property.tab.domain.custom"
-               class="org.metamodel.tura.ui.properties.sections.ShotPropertySection"
+               class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
                id="hockeyleague.section.Shot">
               <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
          </propertySection>        

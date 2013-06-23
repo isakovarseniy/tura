@@ -207,7 +207,7 @@ public class AttributeItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypedefinitionEditPlugin.INSTANCE;
+    return TuraEditPlugin.INSTANCE;
   }
 
 }

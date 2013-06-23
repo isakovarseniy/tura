@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: tura.diagram.part.TuraDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: tura.diagram.edit.parts, 
+Export-Package: tura.diagram.edit.parts,
  tura.diagram.part,
  tura.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,

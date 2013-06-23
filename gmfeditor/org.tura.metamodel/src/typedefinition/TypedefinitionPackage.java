@@ -4,7 +4,6 @@ package typedefinition;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -179,13 +178,22 @@ public interface TypedefinitionPackage extends EPackage
   int TYPE_REFERENCE__NAME = TYPE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE__TYPE = TYPE_ELEMENT_FEATURE_COUNT + 1;
+  int TYPE_REFERENCE__PACKAGE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_REFERENCE__TYPE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Type Reference</em>' class.
@@ -194,7 +202,7 @@ public interface TypedefinitionPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 2;
+  int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link typedefinition.impl.TypeExtensionImpl <em>Type Extension</em>}' class.
@@ -353,16 +361,6 @@ public interface TypedefinitionPackage extends EPackage
    */
   int RETURN_VALUE_FEATURE_COUNT = 2;
 
-  /**
-   * The meta object id for the '<em>Ref Type</em>' data type.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.tura.metamodel.commons.types.RefType
-   * @see typedefinition.impl.TypedefinitionPackageImpl#getRefType()
-   * @generated
-   */
-  int REF_TYPE = 8;
-
 
   /**
    * Returns the meta object for class '{@link typedefinition.TypeDefinition <em>Type Definition</em>}'.
@@ -471,15 +469,26 @@ public interface TypedefinitionPackage extends EPackage
   EAttribute getTypeReference_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link typedefinition.TypeReference#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link typedefinition.TypeReference#getPackageName <em>Package Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see typedefinition.TypeReference#getType()
+   * @return the meta object for the attribute '<em>Package Name</em>'.
+   * @see typedefinition.TypeReference#getPackageName()
    * @see #getTypeReference()
    * @generated
    */
-  EAttribute getTypeReference_Type();
+  EAttribute getTypeReference_PackageName();
+
+  /**
+   * Returns the meta object for the attribute '{@link typedefinition.TypeReference#getTypeName <em>Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type Name</em>'.
+   * @see typedefinition.TypeReference#getTypeName()
+   * @see #getTypeReference()
+   * @generated
+   */
+  EAttribute getTypeReference_TypeName();
 
   /**
    * Returns the meta object for class '{@link typedefinition.TypeExtension <em>Type Extension</em>}'.
@@ -621,17 +630,6 @@ public interface TypedefinitionPackage extends EPackage
   EReference getReturnValue_ReturnValue();
 
   /**
-   * Returns the meta object for data type '{@link org.tura.metamodel.commons.types.RefType <em>Ref Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for data type '<em>Ref Type</em>'.
-   * @see org.tura.metamodel.commons.types.RefType
-   * @model instanceClass="org.tura.metamodel.commons.types.RefType"
-   * @generated
-   */
-  EDataType getRefType();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -743,12 +741,20 @@ public interface TypedefinitionPackage extends EPackage
     EAttribute TYPE_REFERENCE__NAME = eINSTANCE.getTypeReference_Name();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Package Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TYPE_REFERENCE__TYPE = eINSTANCE.getTypeReference_Type();
+    EAttribute TYPE_REFERENCE__PACKAGE_NAME = eINSTANCE.getTypeReference_PackageName();
+
+    /**
+     * The meta object literal for the '<em><b>Type Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_REFERENCE__TYPE_NAME = eINSTANCE.getTypeReference_TypeName();
 
     /**
      * The meta object literal for the '{@link typedefinition.impl.TypeExtensionImpl <em>Type Extension</em>}' class.
@@ -861,16 +867,6 @@ public interface TypedefinitionPackage extends EPackage
      * @generated
      */
     EReference RETURN_VALUE__RETURN_VALUE = eINSTANCE.getReturnValue_ReturnValue();
-
-    /**
-     * The meta object literal for the '<em>Ref Type</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.tura.metamodel.commons.types.RefType
-     * @see typedefinition.impl.TypedefinitionPackageImpl#getRefType()
-     * @generated
-     */
-    EDataType REF_TYPE = eINSTANCE.getRefType();
 
   }
 
