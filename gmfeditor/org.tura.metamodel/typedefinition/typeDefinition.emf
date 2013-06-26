@@ -58,4 +58,4 @@ class ReturnValue{
    val Type[1] returnValue;
 }
 
-datatype reftype:org.tura.metamodel.commons.types.RefType;
+datatype reftype:org.tura.metamodel.commons.types.impl.RefTypeImpl;

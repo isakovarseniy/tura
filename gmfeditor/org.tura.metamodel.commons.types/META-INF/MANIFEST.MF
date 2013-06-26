@@ -10,3 +10,5 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.tura.metamodel.commons.types,
  org.tura.metamodel.commons.types.impl
+Bundle-ClassPath: lib/json-simple-1.1.1.jar,
+ .

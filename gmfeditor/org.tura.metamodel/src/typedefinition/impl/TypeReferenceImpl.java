@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.tura.metamodel.commons.types.RefType;
+import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 import typedefinition.TypeReference;
 import typedefinition.TypedefinitionPackage;
@@ -57,7 +57,7 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * @generated
    * @ordered
    */
-  protected static final RefType TYPE_EDEFAULT = null;
+  protected static final RefTypeImpl TYPE_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -67,7 +67,7 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * @generated
    * @ordered
    */
-  protected RefType type = TYPE_EDEFAULT;
+  protected RefTypeImpl type = TYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,7 +118,7 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefType getType()
+  public RefTypeImpl getType()
   {
     return type;
   }
@@ -128,9 +128,9 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(RefType newType)
+  public void setType(RefTypeImpl newType)
   {
-    RefType oldType = type;
+    RefTypeImpl oldType = type;
     type = newType;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.TYPE_REFERENCE__TYPE, oldType, type));
@@ -168,7 +168,7 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
         setName((String)newValue);
         return;
       case TypedefinitionPackage.TYPE_REFERENCE__TYPE:
-        setType((RefType)newValue);
+        setType((RefTypeImpl)newValue);
         return;
     }
     super.eSet(featureID, newValue);

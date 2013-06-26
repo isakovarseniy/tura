@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.tura.metamodel.commons.types.RefType;
+import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 import typedefinition.*;
 
@@ -207,9 +207,9 @@ public class TypedefinitionFactoryImpl extends EFactoryImpl implements Typedefin
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefType createreftypeFromString(EDataType eDataType, String initialValue)
+  public RefTypeImpl createreftypeFromString(EDataType eDataType, String initialValue)
   {
-    return (RefType)super.createFromString(eDataType, initialValue);
+    return (RefTypeImpl)super.createFromString(eDataType, initialValue);
   }
 
   /**

@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.tura.metamodel.commons.types.RefType;
+import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 import tura.TuraPackage;
 import tura.impl.TuraPackageImpl;
@@ -546,7 +546,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     initEReference(getReturnValue_ReturnValue(), this.getType(), null, "returnValue", null, 1, 1, ReturnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize data types
-    initEDataType(reftypeEDataType, RefType.class, "reftype", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+    initEDataType(reftypeEDataType, RefTypeImpl.class, "reftype", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

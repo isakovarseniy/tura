@@ -2,7 +2,7 @@
  */
 package typedefinition;
 
-import org.tura.metamodel.commons.types.RefType;
+import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,12 +58,12 @@ public interface TypeReference extends TypeElement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' attribute.
-   * @see #setType(RefType)
+   * @see #setType(RefTypeImpl)
    * @see typedefinition.TypedefinitionPackage#getTypeReference_Type()
    * @model dataType="typedefinition.reftype"
    * @generated
    */
-  RefType getType();
+  RefTypeImpl getType();
 
   /**
    * Sets the value of the '{@link typedefinition.TypeReference#getType <em>Type</em>}' attribute.
@@ -73,6 +73,6 @@ public interface TypeReference extends TypeElement
    * @see #getType()
    * @generated
    */
-  void setType(RefType value);
+  void setType(RefTypeImpl value);
 
 } // TypeReference

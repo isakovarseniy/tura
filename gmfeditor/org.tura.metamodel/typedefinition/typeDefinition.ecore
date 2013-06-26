@@ -72,5 +72,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" lowerBound="1"
         eType="#//Type" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="reftype" instanceClassName="org.tura.metamodel.commons.types.RefType"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="reftype" instanceClassName="org.tura.metamodel.commons.types.impl.RefTypeImpl"/>
 </ecore:EPackage>

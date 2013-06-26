@@ -115,21 +115,21 @@ public class TypedefinitionNavigatorLabelProvider extends LabelProvider
 		case TypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/typedefinition?Type", TypedefinitionElementTypes.Type_2001); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", TypedefinitionElementTypes.TypeExtension_4001); //$NON-NLS-1$
-		case Attribute2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/typedefinition?Attribute", TypedefinitionElementTypes.Attribute_3003); //$NON-NLS-1$
-		case TypeDefinitionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/typedefinition?TypeDefinition", TypedefinitionElementTypes.TypeDefinition_1000); //$NON-NLS-1$
-		case ReturnValueEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/typedefinition?ReturnValue", TypedefinitionElementTypes.ReturnValue_3004); //$NON-NLS-1$
 		case TypeReferenceEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/typedefinition?TypeReference", TypedefinitionElementTypes.TypeReference_2002); //$NON-NLS-1$
+		case TypeDefinitionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/typedefinition?TypeDefinition", TypedefinitionElementTypes.TypeDefinition_1000); //$NON-NLS-1$
+		case Attribute2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/typedefinition?Attribute", TypedefinitionElementTypes.Attribute_3003); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", TypedefinitionElementTypes.TypeExtension_4001); //$NON-NLS-1$
+		case ReturnValueEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/typedefinition?ReturnValue", TypedefinitionElementTypes.ReturnValue_3004); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -196,16 +196,16 @@ public class TypedefinitionNavigatorLabelProvider extends LabelProvider
 			return getAttribute_3001Text(view);
 		case TypeEditPart.VISUAL_ID:
 			return getType_2001Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001Text(view);
-		case Attribute2EditPart.VISUAL_ID:
-			return getAttribute_3003Text(view);
-		case TypeDefinitionEditPart.VISUAL_ID:
-			return getTypeDefinition_1000Text(view);
-		case ReturnValueEditPart.VISUAL_ID:
-			return getReturnValue_3004Text(view);
 		case TypeReferenceEditPart.VISUAL_ID:
 			return getTypeReference_2002Text(view);
+		case TypeDefinitionEditPart.VISUAL_ID:
+			return getTypeDefinition_1000Text(view);
+		case Attribute2EditPart.VISUAL_ID:
+			return getAttribute_3003Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_4001Text(view);
+		case ReturnValueEditPart.VISUAL_ID:
+			return getReturnValue_3004Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -273,7 +273,27 @@ public class TypedefinitionNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getTypeExtension_4001Text(View view) {
+	private String getTypeReference_2002Text(View view) {
+		IParser parser = TypedefinitionParserProvider.getParser(
+				TypedefinitionElementTypes.TypeReference_2002, view
+						.getElement() != null ? view.getElement() : view,
+				TypedefinitionVisualIDRegistry
+						.getType(TypeReferenceNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			TypedefinitionDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5006); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getTypeDefinition_1000Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
 
@@ -300,7 +320,7 @@ public class TypedefinitionNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getTypeDefinition_1000Text(View view) {
+	private String getTypeExtension_4001Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
 
@@ -320,26 +340,6 @@ public class TypedefinitionNavigatorLabelProvider extends LabelProvider
 		} else {
 			TypedefinitionDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 5003); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getTypeReference_2002Text(View view) {
-		IParser parser = TypedefinitionParserProvider.getParser(
-				TypedefinitionElementTypes.TypeReference_2002, view
-						.getElement() != null ? view.getElement() : view,
-				TypedefinitionVisualIDRegistry
-						.getType(TypeReferenceNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			TypedefinitionDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

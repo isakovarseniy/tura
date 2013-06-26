@@ -357,7 +357,7 @@ public interface TypedefinitionPackage extends EPackage
    * The meta object id for the '<em>reftype</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.tura.metamodel.commons.types.RefType
+   * @see org.tura.metamodel.commons.types.impl.RefTypeImpl
    * @see typedefinition.impl.TypedefinitionPackageImpl#getreftype()
    * @generated
    */
@@ -621,12 +621,12 @@ public interface TypedefinitionPackage extends EPackage
   EReference getReturnValue_ReturnValue();
 
   /**
-   * Returns the meta object for data type '{@link org.tura.metamodel.commons.types.RefType <em>reftype</em>}'.
+   * Returns the meta object for data type '{@link org.tura.metamodel.commons.types.impl.RefTypeImpl <em>reftype</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>reftype</em>'.
-   * @see org.tura.metamodel.commons.types.RefType
-   * @model instanceClass="org.tura.metamodel.commons.types.RefType"
+   * @see org.tura.metamodel.commons.types.impl.RefTypeImpl
+   * @model instanceClass="org.tura.metamodel.commons.types.impl.RefTypeImpl"
    * @generated
    */
   EDataType getreftype();
@@ -866,7 +866,7 @@ public interface TypedefinitionPackage extends EPackage
      * The meta object literal for the '<em>reftype</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.tura.metamodel.commons.types.RefType
+     * @see org.tura.metamodel.commons.types.impl.RefTypeImpl
      * @see typedefinition.impl.TypedefinitionPackageImpl#getreftype()
      * @generated
      */

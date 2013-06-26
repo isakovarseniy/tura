@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
+import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 import tura.impl.PackageImpl;
 import tura.impl.TypesImpl;
@@ -68,8 +69,12 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 	}
 
 	protected Object getFeatureValue(int index) {
-		((TypeReference) eObject).getType().setTypeName(values.get(index));
-		return ((TypeReference) eObject).getType();
+
+		RefTypeImpl tp = new RefTypeImpl();
+		tp.setPackageName(((TypeReference) eObject).getType().getPackageName());
+		tp.setTypeName(values.get(index));
+
+		return tp;
 	}
 
 	protected String getLabelText() {
