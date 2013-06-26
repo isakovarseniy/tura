@@ -5,7 +5,7 @@
           <propertyTab
              category="domain"
              id="property.tab.domain.custom"
-             label="Custom"/>
+             label="Type ref"/>
       </propertyTabs>
    </extension>
    
@@ -15,9 +15,18 @@
           <propertySection
                tab="property.tab.domain.custom"
                class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
-               id="hockeyleague.section.Shot">
+               id="type.reference">
               <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
          </propertySection>        
+ 
+          <propertySection
+               tab="property.tab.domain.custom"
+               class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
+               id="type.reference">
+              <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
+         </propertySection>        
+ 
+ 
     </propertySections>
   </extension>  
 </plugin>

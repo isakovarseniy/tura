@@ -26,8 +26,7 @@ class Type extends TypeElement{
 @gmf.node(label="name")
 class TypeReference extends TypeElement{
    attr EString name;
-   attr EString  packageName;
-   attr EString typeName;
+  attr reftype type;
  }
 
 @gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
@@ -59,3 +58,4 @@ class ReturnValue{
    val Type[1] returnValue;
 }
 
+datatype reftype:org.tura.metamodel.commons.types.RefType;

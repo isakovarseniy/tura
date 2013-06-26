@@ -31,6 +31,7 @@ public abstract class AbstractEnumerationPropertySection extends
 	 * the combo box control for the section.
 	 */
 	protected CCombo combo;
+	protected boolean updated=false;
 
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite,
@@ -75,7 +76,8 @@ public abstract class AbstractEnumerationPropertySection extends
 		int index = combo.getSelectionIndex();
 		boolean equals = isEqual(index);
 		if (!equals) {
-			
+            updated = true;
+            
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 			Object value = getFeatureValue(index);
