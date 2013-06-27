@@ -40,10 +40,12 @@ public class TypedefinitionPaletteFactory {
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createAttribute1CreationTool());
-		paletteContainer.add(createOperation2CreationTool());
-		paletteContainer.add(createReturnValue3CreationTool());
-		paletteContainer.add(createType4CreationTool());
-		paletteContainer.add(createTypeReference5CreationTool());
+		paletteContainer.add(createEnumAttribute2CreationTool());
+		paletteContainer.add(createEnumarator3CreationTool());
+		paletteContainer.add(createOperation4CreationTool());
+		paletteContainer.add(createReturnValue5CreationTool());
+		paletteContainer.add(createType6CreationTool());
+		paletteContainer.add(createTypeReference7CreationTool());
 		return paletteContainer;
 	}
 
@@ -79,13 +81,45 @@ public class TypedefinitionPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createOperation2CreationTool() {
+	private ToolEntry createEnumAttribute2CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Operation2CreationTool_title,
-				Messages.Operation2CreationTool_desc,
+				Messages.EnumAttribute2CreationTool_title,
+				Messages.EnumAttribute2CreationTool_desc,
+				Collections
+						.singletonList(TypedefinitionElementTypes.EnumAttribute_3005));
+		entry.setId("createEnumAttribute2CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(TypedefinitionElementTypes
+				.getImageDescriptor(TypedefinitionElementTypes.EnumAttribute_3005));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createEnumarator3CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Enumarator3CreationTool_title,
+				Messages.Enumarator3CreationTool_desc,
+				Collections
+						.singletonList(TypedefinitionElementTypes.Enumarator_2003));
+		entry.setId("createEnumarator3CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(TypedefinitionElementTypes
+				.getImageDescriptor(TypedefinitionElementTypes.Enumarator_2003));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createOperation4CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Operation4CreationTool_title,
+				Messages.Operation4CreationTool_desc,
 				Collections
 						.singletonList(TypedefinitionElementTypes.Operation_3002));
-		entry.setId("createOperation2CreationTool"); //$NON-NLS-1$
+		entry.setId("createOperation4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypedefinitionElementTypes
 				.getImageDescriptor(TypedefinitionElementTypes.Operation_3002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -95,13 +129,13 @@ public class TypedefinitionPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createReturnValue3CreationTool() {
+	private ToolEntry createReturnValue5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ReturnValue3CreationTool_title,
-				Messages.ReturnValue3CreationTool_desc,
+				Messages.ReturnValue5CreationTool_title,
+				Messages.ReturnValue5CreationTool_desc,
 				Collections
 						.singletonList(TypedefinitionElementTypes.ReturnValue_3004));
-		entry.setId("createReturnValue3CreationTool"); //$NON-NLS-1$
+		entry.setId("createReturnValue5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypedefinitionElementTypes
 				.getImageDescriptor(TypedefinitionElementTypes.ReturnValue_3004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -111,12 +145,12 @@ public class TypedefinitionPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createType4CreationTool() {
+	private ToolEntry createType6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Type4CreationTool_title,
-				Messages.Type4CreationTool_desc,
+				Messages.Type6CreationTool_title,
+				Messages.Type6CreationTool_desc,
 				Collections.singletonList(TypedefinitionElementTypes.Type_2001));
-		entry.setId("createType4CreationTool"); //$NON-NLS-1$
+		entry.setId("createType6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypedefinitionElementTypes
 				.getImageDescriptor(TypedefinitionElementTypes.Type_2001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -126,13 +160,13 @@ public class TypedefinitionPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypeReference5CreationTool() {
+	private ToolEntry createTypeReference7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.TypeReference5CreationTool_title,
-				Messages.TypeReference5CreationTool_desc,
+				Messages.TypeReference7CreationTool_title,
+				Messages.TypeReference7CreationTool_desc,
 				Collections
 						.singletonList(TypedefinitionElementTypes.TypeReference_2002));
-		entry.setId("createTypeReference5CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypeReference7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypedefinitionElementTypes
 				.getImageDescriptor(TypedefinitionElementTypes.TypeReference_2002));
 		entry.setLargeIcon(entry.getSmallIcon());

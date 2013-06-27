@@ -123,7 +123,7 @@ public class TypeElementItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TuraEditPlugin.INSTANCE;
+    return TypedefinitionEditPlugin.INSTANCE;
   }
 
 }

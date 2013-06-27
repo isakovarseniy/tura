@@ -11,8 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.tura.metamodel.commons.types.impl.RefTypeImpl;
+
 import typedefinition.ReturnValue;
-import typedefinition.Type;
 import typedefinition.TypedefinitionPackage;
 
 /**
@@ -52,14 +53,24 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getReturnValue() <em>Return Value</em>}' containment reference.
+   * The default value of the '{@link #getReturnValue() <em>Return Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getReturnValue()
    * @generated
    * @ordered
    */
-  protected Type returnValue;
+  protected static final RefTypeImpl RETURN_VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getReturnValue() <em>Return Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReturnValue()
+   * @generated
+   * @ordered
+   */
+  protected RefTypeImpl returnValue = RETURN_VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,7 +121,7 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type getReturnValue()
+  public RefTypeImpl getReturnValue()
   {
     return returnValue;
   }
@@ -120,53 +131,12 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReturnValue(Type newReturnValue, NotificationChain msgs)
+  public void setReturnValue(RefTypeImpl newReturnValue)
   {
-    Type oldReturnValue = returnValue;
+    RefTypeImpl oldReturnValue = returnValue;
     returnValue = newReturnValue;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE, oldReturnValue, newReturnValue);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setReturnValue(Type newReturnValue)
-  {
-    if (newReturnValue != returnValue)
-    {
-      NotificationChain msgs = null;
-      if (returnValue != null)
-        msgs = ((InternalEObject)returnValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE, null, msgs);
-      if (newReturnValue != null)
-        msgs = ((InternalEObject)newReturnValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE, null, msgs);
-      msgs = basicSetReturnValue(newReturnValue, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE, newReturnValue, newReturnValue));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE:
-        return basicSetReturnValue(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE, oldReturnValue, returnValue));
   }
 
   /**
@@ -201,7 +171,7 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue
         setName((String)newValue);
         return;
       case TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE:
-        setReturnValue((Type)newValue);
+        setReturnValue((RefTypeImpl)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -221,7 +191,7 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue
         setName(NAME_EDEFAULT);
         return;
       case TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE:
-        setReturnValue((Type)null);
+        setReturnValue(RETURN_VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -240,7 +210,7 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue
       case TypedefinitionPackage.RETURN_VALUE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE:
-        return returnValue != null;
+        return RETURN_VALUE_EDEFAULT == null ? returnValue != null : !RETURN_VALUE_EDEFAULT.equals(returnValue);
     }
     return super.eIsSet(featureID);
   }
@@ -258,6 +228,8 @@ public class ReturnValueImpl extends EObjectImpl implements ReturnValue
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", returnValue: ");
+    result.append(returnValue);
     result.append(')');
     return result.toString();
   }

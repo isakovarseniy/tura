@@ -245,6 +245,14 @@
             description="Create new Attribute"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="EnumAttribute"
+            description="Create new EnumAttribute"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Enumarator"
+            description="Create new Enumarator"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Operation"
             description="Create new Operation"/>
         <entries

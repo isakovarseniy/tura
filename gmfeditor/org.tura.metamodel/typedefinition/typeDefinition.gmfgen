@@ -223,6 +223,55 @@
         </modelFacet>
       </labels>
     </childNodes>
+    <childNodes
+        visualID="3005"
+        editPartClassName="EnumAttributeEditPart"
+        itemSemanticEditPolicyClassName="EnumAttributeItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="EnumAttributeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="EnumAttributeGraphicalNodeEditPolicy"
+        createCommandClassName="EnumAttributeCreateCommand"
+        containers="//@diagram/@compartments.4">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="EnumAttributeEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="EnumAttributeFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EnumAttributeFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEnumAttributeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EnumAttributeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(100)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEnumAttributeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEnumAttributeLabelFigure.setText(&quot;EnumAttribute&quot;);&#xA;&#xA;this.add(fFigureEnumAttributeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEnumAttributeLabelFigure() {&#xA;&#x9;&#x9;return fFigureEnumAttributeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="100"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="typeDefinition.genmodel#//typedefinition/EnumAttribute"/>
+        <containmentMetaFeature
+            href="typeDefinition.genmodel#//typedefinition/Enumarator/values"/>
+        <childMetaFeature
+            href="typeDefinition.genmodel#//typedefinition/Enumarator/values"/>
+      </modelFacet>
+      <labels
+          visualID="5008"
+          editPartClassName="EnumAttributeNameEditPart"
+          itemSemanticEditPolicyClassName="EnumAttributeNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureEnumAttributeLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="typeDefinition.genmodel#//typedefinition/EnumAttribute/name"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
     <topLevelNodes
         visualID="2001"
         editPartClassName="TypeEditPart"
@@ -309,6 +358,52 @@
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
               href="typeDefinition.genmodel#//typedefinition/TypeReference/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2003"
+        editPartClassName="EnumaratorEditPart"
+        itemSemanticEditPolicyClassName="EnumaratorItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="EnumaratorCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.4"
+        graphicalNodeEditPolicyClassName="EnumaratorGraphicalNodeEditPolicy"
+        createCommandClassName="EnumaratorCreateCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="EnumaratorEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="EnumaratorFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EnumaratorFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEnumaratorLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fEnumaratorValuesCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EnumaratorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEnumaratorLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEnumaratorLabelFigure.setText(&quot;Enumarator&quot;);&#xA;fFigureEnumaratorLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureEnumaratorLabelFigure);&#xA;&#xA;&#xA;&#xA;fEnumaratorValuesCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fEnumaratorValuesCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fEnumaratorValuesCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEnumaratorLabelFigure() {&#xA;&#x9;&#x9;return fFigureEnumaratorLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getEnumaratorValuesCompartmentFigure() {&#xA;&#x9;&#x9;return fEnumaratorValuesCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"/>
+      <modelFacet>
+        <metaClass
+            href="typeDefinition.genmodel#//typedefinition/Enumarator"/>
+        <containmentMetaFeature
+            href="typeDefinition.genmodel#//typedefinition/TypeDefinition/enums"/>
+        <childMetaFeature
+            href="typeDefinition.genmodel#//typedefinition/TypeDefinition/enums"/>
+      </modelFacet>
+      <labels
+          visualID="5007"
+          editPartClassName="EnumaratorNameEditPart"
+          itemSemanticEditPolicyClassName="EnumaratorNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureEnumaratorLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="typeDefinition.genmodel#//typedefinition/Enumarator/name"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
@@ -409,6 +504,23 @@
           getterName="getOperationReturnValueCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
+    <compartments
+        visualID="7005"
+        editPartClassName="EnumaratorEnumaratorValuesCompartmentEditPart"
+        itemSemanticEditPolicyClassName="EnumaratorEnumaratorValuesCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="EnumaratorEnumaratorValuesCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.4"
+        title="EnumaratorValuesCompartment"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.2"
+        listLayout="false">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getEnumaratorValuesCompartmentFigure"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
     <palette>
       <groups
           title="Objects"
@@ -418,6 +530,16 @@
             title="Attribute"
             description="Create new Attribute"
             genNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="EnumAttribute"
+            description="Create new EnumAttribute"
+            genNodes="//@diagram/@childNodes.4"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Enumarator"
+            description="Create new Enumarator"
+            genNodes="//@diagram/@topLevelNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Operation"
@@ -505,6 +627,12 @@
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.1"/>
     <childReferences
+        parent="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@childNodes.4"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.2"/>
+    <childReferences
         parent="//@diagram"
         child="//@diagram/@links.0"
         groupName="links"
@@ -584,7 +712,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

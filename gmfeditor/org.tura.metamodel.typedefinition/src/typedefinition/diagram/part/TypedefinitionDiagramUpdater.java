@@ -17,6 +17,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import typedefinition.Attribute;
+import typedefinition.EnumAttribute;
+import typedefinition.Enumarator;
 import typedefinition.Operation;
 import typedefinition.ReturnValue;
 import typedefinition.Type;
@@ -27,6 +29,9 @@ import typedefinition.TypeReference;
 import typedefinition.TypedefinitionPackage;
 import typedefinition.diagram.edit.parts.Attribute2EditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
+import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
+import typedefinition.diagram.edit.parts.EnumaratorEditPart;
+import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
@@ -68,6 +73,8 @@ public class TypedefinitionDiagramUpdater {
 			return getOperationOperationParametersCompartment_7003SemanticChildren(view);
 		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
 			return getOperationOperationReturnValueCompartment_7004SemanticChildren(view);
+		case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
+			return getEnumaratorEnumaratorValuesCompartment_7005SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -92,6 +99,16 @@ public class TypedefinitionDiagramUpdater {
 				continue;
 			}
 			if (visualID == TypeReferenceEditPart.VISUAL_ID) {
+				result.add(new TypedefinitionNodeDescriptor(childElement,
+						visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getEnums().iterator(); it.hasNext();) {
+			Enumarator childElement = (Enumarator) it.next();
+			int visualID = TypedefinitionVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == EnumaratorEditPart.VISUAL_ID) {
 				result.add(new TypedefinitionNodeDescriptor(childElement,
 						visualID));
 				continue;
@@ -213,6 +230,33 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<TypedefinitionNodeDescriptor> getEnumaratorEnumaratorValuesCompartment_7005SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Enumarator modelElement = (Enumarator) containerView.getElement();
+		LinkedList<TypedefinitionNodeDescriptor> result = new LinkedList<TypedefinitionNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getValues().iterator(); it.hasNext();) {
+			EnumAttribute childElement = (EnumAttribute) it.next();
+			int visualID = TypedefinitionVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == EnumAttributeEditPart.VISUAL_ID) {
+				result.add(new TypedefinitionNodeDescriptor(childElement,
+						visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<TypedefinitionLinkDescriptor> getContainedLinks(View view) {
 		switch (TypedefinitionVisualIDRegistry.getVisualID(view)) {
 		case TypeDefinitionEditPart.VISUAL_ID:
@@ -221,6 +265,8 @@ public class TypedefinitionDiagramUpdater {
 			return getType_2001ContainedLinks(view);
 		case TypeReferenceEditPart.VISUAL_ID:
 			return getTypeReference_2002ContainedLinks(view);
+		case EnumaratorEditPart.VISUAL_ID:
+			return getEnumarator_2003ContainedLinks(view);
 		case AttributeEditPart.VISUAL_ID:
 			return getAttribute_3001ContainedLinks(view);
 		case OperationEditPart.VISUAL_ID:
@@ -229,6 +275,8 @@ public class TypedefinitionDiagramUpdater {
 			return getAttribute_3003ContainedLinks(view);
 		case ReturnValueEditPart.VISUAL_ID:
 			return getReturnValue_3004ContainedLinks(view);
+		case EnumAttributeEditPart.VISUAL_ID:
+			return getEnumAttribute_3005ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_4001ContainedLinks(view);
 		}
@@ -244,6 +292,8 @@ public class TypedefinitionDiagramUpdater {
 			return getType_2001IncomingLinks(view);
 		case TypeReferenceEditPart.VISUAL_ID:
 			return getTypeReference_2002IncomingLinks(view);
+		case EnumaratorEditPart.VISUAL_ID:
+			return getEnumarator_2003IncomingLinks(view);
 		case AttributeEditPart.VISUAL_ID:
 			return getAttribute_3001IncomingLinks(view);
 		case OperationEditPart.VISUAL_ID:
@@ -252,6 +302,8 @@ public class TypedefinitionDiagramUpdater {
 			return getAttribute_3003IncomingLinks(view);
 		case ReturnValueEditPart.VISUAL_ID:
 			return getReturnValue_3004IncomingLinks(view);
+		case EnumAttributeEditPart.VISUAL_ID:
+			return getEnumAttribute_3005IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_4001IncomingLinks(view);
 		}
@@ -267,6 +319,8 @@ public class TypedefinitionDiagramUpdater {
 			return getType_2001OutgoingLinks(view);
 		case TypeReferenceEditPart.VISUAL_ID:
 			return getTypeReference_2002OutgoingLinks(view);
+		case EnumaratorEditPart.VISUAL_ID:
+			return getEnumarator_2003OutgoingLinks(view);
 		case AttributeEditPart.VISUAL_ID:
 			return getAttribute_3001OutgoingLinks(view);
 		case OperationEditPart.VISUAL_ID:
@@ -275,6 +329,8 @@ public class TypedefinitionDiagramUpdater {
 			return getAttribute_3003OutgoingLinks(view);
 		case ReturnValueEditPart.VISUAL_ID:
 			return getReturnValue_3004OutgoingLinks(view);
+		case EnumAttributeEditPart.VISUAL_ID:
+			return getEnumAttribute_3005OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_4001OutgoingLinks(view);
 		}
@@ -311,6 +367,14 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<TypedefinitionLinkDescriptor> getEnumarator_2003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<TypedefinitionLinkDescriptor> getAttribute_3001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -336,6 +400,14 @@ public class TypedefinitionDiagramUpdater {
 	 * @generated
 	 */
 	public static List<TypedefinitionLinkDescriptor> getReturnValue_3004ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<TypedefinitionLinkDescriptor> getEnumAttribute_3005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -379,6 +451,14 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<TypedefinitionLinkDescriptor> getEnumarator_2003IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<TypedefinitionLinkDescriptor> getAttribute_3001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -404,6 +484,14 @@ public class TypedefinitionDiagramUpdater {
 	 * @generated
 	 */
 	public static List<TypedefinitionLinkDescriptor> getReturnValue_3004IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<TypedefinitionLinkDescriptor> getEnumAttribute_3005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -441,6 +529,14 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<TypedefinitionLinkDescriptor> getEnumarator_2003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<TypedefinitionLinkDescriptor> getAttribute_3001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -466,6 +562,14 @@ public class TypedefinitionDiagramUpdater {
 	 * @generated
 	 */
 	public static List<TypedefinitionLinkDescriptor> getReturnValue_3004OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<TypedefinitionLinkDescriptor> getEnumAttribute_3005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

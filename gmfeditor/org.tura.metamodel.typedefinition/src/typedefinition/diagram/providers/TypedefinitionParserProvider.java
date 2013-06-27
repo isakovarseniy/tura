@@ -19,6 +19,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import typedefinition.TypedefinitionPackage;
 import typedefinition.diagram.edit.parts.AttributeName2EditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
+import typedefinition.diagram.edit.parts.EnumAttributeNameEditPart;
+import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueNameEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
@@ -66,6 +68,24 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 			typeReferenceName_5006Parser = parser;
 		}
 		return typeReferenceName_5006Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser enumaratorName_5007Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getEnumaratorName_5007Parser() {
+		if (enumaratorName_5007Parser == null) {
+			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
+					.getEnumarator_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			enumaratorName_5007Parser = parser;
+		}
+		return enumaratorName_5007Parser;
 	}
 
 	/**
@@ -143,12 +163,32 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser enumAttributeName_5008Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getEnumAttributeName_5008Parser() {
+		if (enumAttributeName_5008Parser == null) {
+			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
+					.getEnumAttribute_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			enumAttributeName_5008Parser = parser;
+		}
+		return enumAttributeName_5008Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case TypeNameEditPart.VISUAL_ID:
 			return getTypeName_5005Parser();
 		case TypeReferenceNameEditPart.VISUAL_ID:
 			return getTypeReferenceName_5006Parser();
+		case EnumaratorNameEditPart.VISUAL_ID:
+			return getEnumaratorName_5007Parser();
 		case AttributeNameEditPart.VISUAL_ID:
 			return getAttributeName_5001Parser();
 		case OperationNameEditPart.VISUAL_ID:
@@ -157,6 +197,8 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 			return getAttributeName_5002Parser();
 		case ReturnValueNameEditPart.VISUAL_ID:
 			return getReturnValueName_5003Parser();
+		case EnumAttributeNameEditPart.VISUAL_ID:
+			return getEnumAttributeName_5008Parser();
 		}
 		return null;
 	}

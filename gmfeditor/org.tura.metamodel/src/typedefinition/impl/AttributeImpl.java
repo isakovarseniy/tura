@@ -11,8 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.tura.metamodel.commons.types.impl.RefTypeImpl;
+
 import typedefinition.Attribute;
-import typedefinition.Type;
 import typedefinition.TypedefinitionPackage;
 
 /**
@@ -52,14 +53,24 @@ public class AttributeImpl extends EObjectImpl implements Attribute
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected Type type;
+  protected static final RefTypeImpl TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected RefTypeImpl type = TYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,7 +121,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type getType()
+  public RefTypeImpl getType()
   {
     return type;
   }
@@ -120,53 +131,12 @@ public class AttributeImpl extends EObjectImpl implements Attribute
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
+  public void setType(RefTypeImpl newType)
   {
-    Type oldType = type;
+    RefTypeImpl oldType = type;
     type = newType;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.ATTRIBUTE__TYPE, oldType, newType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(Type newType)
-  {
-    if (newType != type)
-    {
-      NotificationChain msgs = null;
-      if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TypedefinitionPackage.ATTRIBUTE__TYPE, null, msgs);
-      if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TypedefinitionPackage.ATTRIBUTE__TYPE, null, msgs);
-      msgs = basicSetType(newType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.ATTRIBUTE__TYPE, newType, newType));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case TypedefinitionPackage.ATTRIBUTE__TYPE:
-        return basicSetType(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.ATTRIBUTE__TYPE, oldType, type));
   }
 
   /**
@@ -201,7 +171,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute
         setName((String)newValue);
         return;
       case TypedefinitionPackage.ATTRIBUTE__TYPE:
-        setType((Type)newValue);
+        setType((RefTypeImpl)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -221,7 +191,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute
         setName(NAME_EDEFAULT);
         return;
       case TypedefinitionPackage.ATTRIBUTE__TYPE:
-        setType((Type)null);
+        setType(TYPE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -240,7 +210,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute
       case TypedefinitionPackage.ATTRIBUTE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case TypedefinitionPackage.ATTRIBUTE__TYPE:
-        return type != null;
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
     }
     return super.eIsSet(featureID);
   }
@@ -258,6 +228,8 @@ public class AttributeImpl extends EObjectImpl implements Attribute
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", type: ");
+    result.append(type);
     result.append(')');
     return result.toString();
   }

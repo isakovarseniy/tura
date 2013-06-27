@@ -39,13 +39,15 @@ public class TuraPaletteFactory {
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createAttribute1CreationTool());
-		paletteContainer.add(createOperation2CreationTool());
-		paletteContainer.add(createPackage3CreationTool());
-		paletteContainer.add(createPrimitive4CreationTool());
-		paletteContainer.add(createReturnValue5CreationTool());
-		paletteContainer.add(createType6CreationTool());
-		paletteContainer.add(createTypeReference7CreationTool());
-		paletteContainer.add(createTypes8CreationTool());
+		paletteContainer.add(createEnumAttribute2CreationTool());
+		paletteContainer.add(createEnumarator3CreationTool());
+		paletteContainer.add(createOperation4CreationTool());
+		paletteContainer.add(createPackage5CreationTool());
+		paletteContainer.add(createPrimitive6CreationTool());
+		paletteContainer.add(createReturnValue7CreationTool());
+		paletteContainer.add(createType8CreationTool());
+		paletteContainer.add(createTypeReference9CreationTool());
+		paletteContainer.add(createTypes10CreationTool());
 		return paletteContainer;
 	}
 
@@ -75,23 +77,46 @@ public class TuraPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createOperation2CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Operation2CreationTool_title,
-				Messages.Operation2CreationTool_desc, null, null) {
+	private ToolEntry createEnumAttribute2CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.EnumAttribute2CreationTool_title,
+				Messages.EnumAttribute2CreationTool_desc, null, null) {
 		};
-		entry.setId("createOperation2CreationTool"); //$NON-NLS-1$
+		entry.setId("createEnumAttribute2CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPackage3CreationTool() {
+	private ToolEntry createEnumarator3CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Enumarator3CreationTool_title,
+				Messages.Enumarator3CreationTool_desc, null, null) {
+		};
+		entry.setId("createEnumarator3CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createOperation4CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Operation4CreationTool_title,
+				Messages.Operation4CreationTool_desc, null, null) {
+		};
+		entry.setId("createOperation4CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createPackage5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Package3CreationTool_title,
-				Messages.Package3CreationTool_desc,
+				Messages.Package5CreationTool_title,
+				Messages.Package5CreationTool_desc,
 				Collections.singletonList(TuraElementTypes.Package_3001));
-		entry.setId("createPackage3CreationTool"); //$NON-NLS-1$
+		entry.setId("createPackage5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TuraElementTypes
 				.getImageDescriptor(TuraElementTypes.Package_3001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -101,12 +126,12 @@ public class TuraPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPrimitive4CreationTool() {
+	private ToolEntry createPrimitive6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Primitive4CreationTool_title,
-				Messages.Primitive4CreationTool_desc,
+				Messages.Primitive6CreationTool_title,
+				Messages.Primitive6CreationTool_desc,
 				Collections.singletonList(TuraElementTypes.Primitive_3002));
-		entry.setId("createPrimitive4CreationTool"); //$NON-NLS-1$
+		entry.setId("createPrimitive6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TuraElementTypes
 				.getImageDescriptor(TuraElementTypes.Primitive_3002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -116,47 +141,47 @@ public class TuraPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createReturnValue5CreationTool() {
+	private ToolEntry createReturnValue7CreationTool() {
 		ToolEntry entry = new ToolEntry(
-				Messages.ReturnValue5CreationTool_title,
-				Messages.ReturnValue5CreationTool_desc, null, null) {
+				Messages.ReturnValue7CreationTool_title,
+				Messages.ReturnValue7CreationTool_desc, null, null) {
 		};
-		entry.setId("createReturnValue5CreationTool"); //$NON-NLS-1$
+		entry.setId("createReturnValue7CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createType6CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Type6CreationTool_title,
-				Messages.Type6CreationTool_desc, null, null) {
+	private ToolEntry createType8CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Type8CreationTool_title,
+				Messages.Type8CreationTool_desc, null, null) {
 		};
-		entry.setId("createType6CreationTool"); //$NON-NLS-1$
+		entry.setId("createType8CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypeReference7CreationTool() {
+	private ToolEntry createTypeReference9CreationTool() {
 		ToolEntry entry = new ToolEntry(
-				Messages.TypeReference7CreationTool_title,
-				Messages.TypeReference7CreationTool_desc, null, null) {
+				Messages.TypeReference9CreationTool_title,
+				Messages.TypeReference9CreationTool_desc, null, null) {
 		};
-		entry.setId("createTypeReference7CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypeReference9CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypes8CreationTool() {
+	private ToolEntry createTypes10CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Types8CreationTool_title,
-				Messages.Types8CreationTool_desc,
+				Messages.Types10CreationTool_title,
+				Messages.Types10CreationTool_desc,
 				Collections.singletonList(TuraElementTypes.Types_2001));
-		entry.setId("createTypes8CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypes10CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TuraElementTypes
 				.getImageDescriptor(TuraElementTypes.Types_2001));
 		entry.setLargeIcon(entry.getSmallIcon());

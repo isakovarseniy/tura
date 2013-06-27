@@ -266,42 +266,62 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Operation2CreationTool_title;
+	public static String EnumAttribute2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation2CreationTool_desc;
+	public static String EnumAttribute2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ReturnValue3CreationTool_title;
+	public static String Enumarator3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ReturnValue3CreationTool_desc;
+	public static String Enumarator3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Type4CreationTool_title;
+	public static String Operation4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Type4CreationTool_desc;
+	public static String Operation4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeReference5CreationTool_title;
+	public static String ReturnValue5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeReference5CreationTool_desc;
+	public static String ReturnValue5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Type6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Type6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeReference7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeReference7CreationTool_desc;
 
 	/**
 	 * @generated
@@ -332,6 +352,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String OperationOperationReturnValueCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String EnumaratorEnumaratorValuesCompartmentEditPart_title;
 
 	/**
 	 * @generated

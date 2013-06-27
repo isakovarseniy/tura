@@ -248,6 +248,50 @@
           figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
+        name="EnumaratorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EnumaratorFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EnumaratorLabelFigure"
+            text="Enumarator"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureEnumaratorLabelFigure"
+          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="EnumAttributeFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EnumAttributeFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EnumAttributeLabelFigure"
+            text="EnumAttribute"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureEnumAttributeLabelFigure"
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="TypeExtensionFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
@@ -281,6 +325,12 @@
   <nodes
       name="ReturnValue"
       figure="ReturnValueFigure"/>
+  <nodes
+      name="Enumarator"
+      figure="EnumaratorFigure"/>
+  <nodes
+      name="EnumAttribute"
+      figure="EnumAttributeFigure"/>
   <connections
       name="TypeExtension"
       figure="TypeExtensionFigure"/>
@@ -346,4 +396,12 @@
       name="ReturnValueLabel"
       figure="ReturnValueFigure"
       accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels
+      name="EnumaratorLabel"
+      figure="EnumaratorFigure"
+      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels
+      name="EnumAttributeLabel"
+      figure="EnumAttributeFigure"
+      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
 </gmfgraph:Canvas>

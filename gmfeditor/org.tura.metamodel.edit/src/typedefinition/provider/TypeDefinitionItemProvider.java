@@ -85,6 +85,7 @@ public class TypeDefinitionItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(TypedefinitionPackage.Literals.TYPE_DEFINITION__TYPES);
+      childrenFeatures.add(TypedefinitionPackage.Literals.TYPE_DEFINITION__ENUMS);
     }
     return childrenFeatures;
   }
@@ -142,6 +143,7 @@ public class TypeDefinitionItemProvider
     switch (notification.getFeatureID(TypeDefinition.class))
     {
       case TypedefinitionPackage.TYPE_DEFINITION__TYPES:
+      case TypedefinitionPackage.TYPE_DEFINITION__ENUMS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -174,6 +176,11 @@ public class TypeDefinitionItemProvider
       (createChildParameter
         (TypedefinitionPackage.Literals.TYPE_DEFINITION__TYPES,
          TypedefinitionFactory.eINSTANCE.createTypeReference()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (TypedefinitionPackage.Literals.TYPE_DEFINITION__ENUMS,
+         TypedefinitionFactory.eINSTANCE.createEnumarator()));
   }
 
   /**
@@ -185,7 +192,7 @@ public class TypeDefinitionItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TuraEditPlugin.INSTANCE;
+    return TypedefinitionEditPlugin.INSTANCE;
   }
 
 }

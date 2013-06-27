@@ -274,6 +274,56 @@ public class TypedefinitionItemProviderAdapterFactory extends TypedefinitionAdap
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link typedefinition.Enumarator} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected EnumaratorItemProvider enumaratorItemProvider;
+
+  /**
+   * This creates an adapter for a {@link typedefinition.Enumarator}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createEnumaratorAdapter()
+  {
+    if (enumaratorItemProvider == null)
+    {
+      enumaratorItemProvider = new EnumaratorItemProvider(this);
+    }
+
+    return enumaratorItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link typedefinition.EnumAttribute} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected EnumAttributeItemProvider enumAttributeItemProvider;
+
+  /**
+   * This creates an adapter for a {@link typedefinition.EnumAttribute}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createEnumAttributeAdapter()
+  {
+    if (enumAttributeItemProvider == null)
+    {
+      enumAttributeItemProvider = new EnumAttributeItemProvider(this);
+    }
+
+    return enumAttributeItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -392,6 +442,8 @@ public class TypedefinitionItemProviderAdapterFactory extends TypedefinitionAdap
     if (attributeItemProvider != null) attributeItemProvider.dispose();
     if (operationItemProvider != null) operationItemProvider.dispose();
     if (returnValueItemProvider != null) returnValueItemProvider.dispose();
+    if (enumaratorItemProvider != null) enumaratorItemProvider.dispose();
+    if (enumAttributeItemProvider != null) enumAttributeItemProvider.dispose();
   }
 
 }

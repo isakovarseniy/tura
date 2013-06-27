@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Set;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -35,6 +37,8 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import typedefinition.TypedefinitionPackage;
 import typedefinition.diagram.edit.parts.Attribute2EditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
+import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
+import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
@@ -54,6 +58,11 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	private Set<EStructuralFeature> myFeaturesToSynchronize;
+
+	/**
+	 * @generated
+	 */
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -66,8 +75,15 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected EStructuralFeature getFeatureToSynchronize() {
-		return TypedefinitionPackage.eINSTANCE.getTypeDefinition_Types();
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(TypedefinitionPackage.eINSTANCE
+					.getTypeDefinition_Types());
+			myFeaturesToSynchronize.add(TypedefinitionPackage.eINSTANCE
+					.getTypeDefinition_Enums());
+		}
+		return myFeaturesToSynchronize;
 	}
 
 	/**
@@ -103,7 +119,8 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	private boolean isMyDiagramElement(View view) {
 		int visualID = TypedefinitionVisualIDRegistry.getVisualID(view);
 		return visualID == TypeEditPart.VISUAL_ID
-				|| visualID == TypeReferenceEditPart.VISUAL_ID;
+				|| visualID == TypeReferenceEditPart.VISUAL_ID
+				|| visualID == EnumaratorEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -291,6 +308,14 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
+		case EnumaratorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(TypedefinitionDiagramUpdater
+						.getEnumarator_2003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
 		case AttributeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
@@ -319,6 +344,14 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
 						.getReturnValue_3004ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case EnumAttributeEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(TypedefinitionDiagramUpdater
+						.getEnumAttribute_3005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

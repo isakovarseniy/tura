@@ -21,6 +21,24 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="EnumAttribute"
+          description="Create new EnumAttribute">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Enumarator"
+          description="Create new Enumarator">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Operation"
           description="Create new Operation">
         <smallIcon

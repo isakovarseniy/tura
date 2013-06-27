@@ -16,6 +16,11 @@ import typedefinition.diagram.edit.parts.Attribute2EditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.AttributeName2EditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
+import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
+import typedefinition.diagram.edit.parts.EnumAttributeNameEditPart;
+import typedefinition.diagram.edit.parts.EnumaratorEditPart;
+import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
+import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
@@ -148,6 +153,10 @@ public class TypedefinitionVisualIDRegistry {
 					.isSuperTypeOf(domainElement.eClass())) {
 				return TypeReferenceEditPart.VISUAL_ID;
 			}
+			if (TypedefinitionPackage.eINSTANCE.getEnumarator().isSuperTypeOf(
+					domainElement.eClass())) {
+				return EnumaratorEditPart.VISUAL_ID;
+			}
 			break;
 		case TypeTypeAttributesCompartmentEditPart.VISUAL_ID:
 			if (TypedefinitionPackage.eINSTANCE.getAttribute().isSuperTypeOf(
@@ -171,6 +180,12 @@ public class TypedefinitionVisualIDRegistry {
 			if (TypedefinitionPackage.eINSTANCE.getReturnValue().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ReturnValueEditPart.VISUAL_ID;
+			}
+			break;
+		case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
+			if (TypedefinitionPackage.eINSTANCE.getEnumAttribute()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return EnumAttributeEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -206,6 +221,9 @@ public class TypedefinitionVisualIDRegistry {
 			if (TypeReferenceEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (EnumaratorEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case TypeEditPart.VISUAL_ID:
 			if (TypeNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -220,6 +238,14 @@ public class TypedefinitionVisualIDRegistry {
 			break;
 		case TypeReferenceEditPart.VISUAL_ID:
 			if (TypeReferenceNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case EnumaratorEditPart.VISUAL_ID:
+			if (EnumaratorNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -249,6 +275,11 @@ public class TypedefinitionVisualIDRegistry {
 				return true;
 			}
 			break;
+		case EnumAttributeEditPart.VISUAL_ID:
+			if (EnumAttributeNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case TypeTypeAttributesCompartmentEditPart.VISUAL_ID:
 			if (AttributeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -266,6 +297,11 @@ public class TypedefinitionVisualIDRegistry {
 			break;
 		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
 			if (ReturnValueEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
+			if (EnumAttributeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -319,6 +355,7 @@ public class TypedefinitionVisualIDRegistry {
 		case TypeTypeOperationsCompartmentEditPart.VISUAL_ID:
 		case OperationOperationParametersCompartmentEditPart.VISUAL_ID:
 		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
+		case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -337,6 +374,7 @@ public class TypedefinitionVisualIDRegistry {
 		case AttributeEditPart.VISUAL_ID:
 		case Attribute2EditPart.VISUAL_ID:
 		case ReturnValueEditPart.VISUAL_ID:
+		case EnumAttributeEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

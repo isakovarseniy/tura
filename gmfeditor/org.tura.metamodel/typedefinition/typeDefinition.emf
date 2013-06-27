@@ -5,6 +5,7 @@ package typedefinition;
 @gmf.diagram
 class TypeDefinition{
    val TypeElement[*] types;
+   val Enumarator[*] enums;
 }
 
 class TypeElement{
@@ -12,7 +13,7 @@ class TypeElement{
 }
 
 @gmf.node(label="name")
-class Type extends TypeElement{
+class Type extends TypeElement {
    attr EString name;
    @gmf.compartment
    val Attribute[*] attributes;
@@ -26,7 +27,7 @@ class Type extends TypeElement{
 @gmf.node(label="name")
 class TypeReference extends TypeElement{
    attr EString name;
-  attr reftype type;
+   attr reftype type;
  }
 
 @gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
@@ -38,7 +39,7 @@ class TypeExtension {
 @gmf.node(label="name")
 class Attribute{
    attr EString name;
-   val Type type;
+   attr reftype type;
 }
 
 
@@ -51,11 +52,24 @@ class Operation{
    val ReturnValue[1] returnValue;
 }
 
-
 @gmf.node(label="name")
 class ReturnValue{
    attr EString name;
-   val Type[1] returnValue;
+   attr reftype returnValue;
 }
+
+@gmf.node(label="name")
+class Enumarator{
+   attr EString name;
+  @gmf.compartment
+   val EnumAttribute[*] values;
+}
+
+@gmf.node(label="name")
+class EnumAttribute{
+   attr EString name;
+   attr EString  value;
+}
+
 
 datatype reftype:org.tura.metamodel.commons.types.impl.RefTypeImpl;

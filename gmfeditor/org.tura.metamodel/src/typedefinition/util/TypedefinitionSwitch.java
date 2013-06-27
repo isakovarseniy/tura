@@ -130,6 +130,20 @@ public class TypedefinitionSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case TypedefinitionPackage.ENUMARATOR:
+      {
+        Enumarator enumarator = (Enumarator)theEObject;
+        T result = caseEnumarator(enumarator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TypedefinitionPackage.ENUM_ATTRIBUTE:
+      {
+        EnumAttribute enumAttribute = (EnumAttribute)theEObject;
+        T result = caseEnumAttribute(enumAttribute);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -258,6 +272,38 @@ public class TypedefinitionSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseReturnValue(ReturnValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Enumarator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enumarator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnumarator(Enumarator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Enum Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enum Attribute</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnumAttribute(EnumAttribute object)
   {
     return null;
   }

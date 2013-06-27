@@ -115,6 +115,16 @@ public class TypedefinitionAdapterFactory extends AdapterFactoryImpl
         return createReturnValueAdapter();
       }
       @Override
+      public Adapter caseEnumarator(Enumarator object)
+      {
+        return createEnumaratorAdapter();
+      }
+      @Override
+      public Adapter caseEnumAttribute(EnumAttribute object)
+      {
+        return createEnumAttributeAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -252,6 +262,36 @@ public class TypedefinitionAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createReturnValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link typedefinition.Enumarator <em>Enumarator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see typedefinition.Enumarator
+   * @generated
+   */
+  public Adapter createEnumaratorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link typedefinition.EnumAttribute <em>Enum Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see typedefinition.EnumAttribute
+   * @generated
+   */
+  public Adapter createEnumAttributeAdapter()
   {
     return null;
   }

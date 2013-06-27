@@ -4,6 +4,8 @@ package typedefinition;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.tura.metamodel.commons.types.impl.RefTypeImpl;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Return Value</b></em>'.
@@ -50,29 +52,29 @@ public interface ReturnValue extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Return Value</b></em>' containment reference.
+   * Returns the value of the '<em><b>Return Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Return Value</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Return Value</em>' containment reference.
-   * @see #setReturnValue(Type)
+   * @return the value of the '<em>Return Value</em>' attribute.
+   * @see #setReturnValue(RefTypeImpl)
    * @see typedefinition.TypedefinitionPackage#getReturnValue_ReturnValue()
-   * @model containment="true" required="true"
+   * @model dataType="typedefinition.reftype"
    * @generated
    */
-  Type getReturnValue();
+  RefTypeImpl getReturnValue();
 
   /**
-   * Sets the value of the '{@link typedefinition.ReturnValue#getReturnValue <em>Return Value</em>}' containment reference.
+   * Sets the value of the '{@link typedefinition.ReturnValue#getReturnValue <em>Return Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Return Value</em>' containment reference.
+   * @param value the new value of the '<em>Return Value</em>' attribute.
    * @see #getReturnValue()
    * @generated
    */
-  void setReturnValue(Type value);
+  void setReturnValue(RefTypeImpl value);
 
 } // ReturnValue

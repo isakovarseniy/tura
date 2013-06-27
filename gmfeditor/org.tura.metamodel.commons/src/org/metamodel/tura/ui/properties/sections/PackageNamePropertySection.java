@@ -12,26 +12,16 @@ import tura.impl.TypesImpl;
 import typedefinition.TypeReference;
 import typedefinition.TypedefinitionPackage;
 
-/**
- * A section for the shot property of a selected player Object.
- * 
- * @author Anthony Hunter
- */
+
 public class PackageNamePropertySection extends
 		AbstractEnumerationPropertySection {
 
 	private ArrayList<String> values;
 
-	/**
-	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#getFeature()
-	 */
 	protected EAttribute getFeature() {
 		return TypedefinitionPackage.eINSTANCE.getTypeReference_Type();
 	}
 
-	/**
-	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#getFeatureAsText()
-	 */
 	protected String getFeatureAsText() {
 		if (((typedefinition.TypeReference) eObject).getType() != null)
 			return ((typedefinition.TypeReference) eObject).getType()
@@ -40,25 +30,16 @@ public class PackageNamePropertySection extends
 			return null;
 	}
 
-	/**
-	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#getFeatureValue(int)
-	 */
 	protected Object getFeatureValue(int index) {
 		RefTypeImpl result = new RefTypeImpl();
 		result.setPackageName(values.get(index));
 		return result;
 	}
 
-	/**
-	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#getLabelText()
-	 */
 	protected String getLabelText() {
 		return "Package name";//$NON-NLS-1$
 	}
 
-	/**
-	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#isEqual(int)
-	 */
 	protected boolean isEqual(int index) {
 		if (((TypeReference) eObject).getType() == null)
 			return false;
@@ -66,9 +47,6 @@ public class PackageNamePropertySection extends
 				((TypeReference) eObject).getType().getPackageName());
 	}
 
-	/**
-	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractEnumerationPropertySection#getEnumerationFeatureValues()
-	 */
 	protected String[] getEnumerationFeatureValues() {
 
 		if (values == null) {

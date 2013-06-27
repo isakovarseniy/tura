@@ -75,6 +75,8 @@ public class TypedefinitionFactoryImpl extends EFactoryImpl implements Typedefin
       case TypedefinitionPackage.ATTRIBUTE: return createAttribute();
       case TypedefinitionPackage.OPERATION: return createOperation();
       case TypedefinitionPackage.RETURN_VALUE: return createReturnValue();
+      case TypedefinitionPackage.ENUMARATOR: return createEnumarator();
+      case TypedefinitionPackage.ENUM_ATTRIBUTE: return createEnumAttribute();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -200,6 +202,28 @@ public class TypedefinitionFactoryImpl extends EFactoryImpl implements Typedefin
   {
     ReturnValueImpl returnValue = new ReturnValueImpl();
     return returnValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Enumarator createEnumarator()
+  {
+    EnumaratorImpl enumarator = new EnumaratorImpl();
+    return enumarator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EnumAttribute createEnumAttribute()
+  {
+    EnumAttributeImpl enumAttribute = new EnumAttributeImpl();
+    return enumAttribute;
   }
 
   /**

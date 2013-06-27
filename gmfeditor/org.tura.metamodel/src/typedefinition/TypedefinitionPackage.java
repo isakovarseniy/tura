@@ -77,13 +77,22 @@ public interface TypedefinitionPackage extends EPackage
   int TYPE_DEFINITION__TYPES = 0;
 
   /**
+   * The feature id for the '<em><b>Enums</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_DEFINITION__ENUMS = 1;
+
+  /**
    * The number of structural features of the '<em>Type Definition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_DEFINITION_FEATURE_COUNT = 1;
+  int TYPE_DEFINITION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link typedefinition.impl.TypeElementImpl <em>Type Element</em>}' class.
@@ -253,7 +262,7 @@ public interface TypedefinitionPackage extends EPackage
   int ATTRIBUTE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -336,7 +345,7 @@ public interface TypedefinitionPackage extends EPackage
   int RETURN_VALUE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Return Value</b></em>' containment reference.
+   * The feature id for the '<em><b>Return Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -354,6 +363,80 @@ public interface TypedefinitionPackage extends EPackage
   int RETURN_VALUE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link typedefinition.impl.EnumaratorImpl <em>Enumarator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.EnumaratorImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumarator()
+   * @generated
+   */
+  int ENUMARATOR = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMARATOR__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMARATOR__VALUES = 1;
+
+  /**
+   * The number of structural features of the '<em>Enumarator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMARATOR_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link typedefinition.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.EnumAttributeImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumAttribute()
+   * @generated
+   */
+  int ENUM_ATTRIBUTE = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_ATTRIBUTE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_ATTRIBUTE__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Enum Attribute</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_ATTRIBUTE_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '<em>reftype</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -361,7 +444,7 @@ public interface TypedefinitionPackage extends EPackage
    * @see typedefinition.impl.TypedefinitionPackageImpl#getreftype()
    * @generated
    */
-  int REFTYPE = 8;
+  int REFTYPE = 10;
 
 
   /**
@@ -384,6 +467,17 @@ public interface TypedefinitionPackage extends EPackage
    * @generated
    */
   EReference getTypeDefinition_Types();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link typedefinition.TypeDefinition#getEnums <em>Enums</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Enums</em>'.
+   * @see typedefinition.TypeDefinition#getEnums()
+   * @see #getTypeDefinition()
+   * @generated
+   */
+  EReference getTypeDefinition_Enums();
 
   /**
    * Returns the meta object for class '{@link typedefinition.TypeElement <em>Type Element</em>}'.
@@ -535,15 +629,15 @@ public interface TypedefinitionPackage extends EPackage
   EAttribute getAttribute_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link typedefinition.Attribute#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link typedefinition.Attribute#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @return the meta object for the attribute '<em>Type</em>'.
    * @see typedefinition.Attribute#getType()
    * @see #getAttribute()
    * @generated
    */
-  EReference getAttribute_Type();
+  EAttribute getAttribute_Type();
 
   /**
    * Returns the meta object for class '{@link typedefinition.Operation <em>Operation</em>}'.
@@ -610,15 +704,79 @@ public interface TypedefinitionPackage extends EPackage
   EAttribute getReturnValue_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link typedefinition.ReturnValue#getReturnValue <em>Return Value</em>}'.
+   * Returns the meta object for the attribute '{@link typedefinition.ReturnValue#getReturnValue <em>Return Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Return Value</em>'.
+   * @return the meta object for the attribute '<em>Return Value</em>'.
    * @see typedefinition.ReturnValue#getReturnValue()
    * @see #getReturnValue()
    * @generated
    */
-  EReference getReturnValue_ReturnValue();
+  EAttribute getReturnValue_ReturnValue();
+
+  /**
+   * Returns the meta object for class '{@link typedefinition.Enumarator <em>Enumarator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enumarator</em>'.
+   * @see typedefinition.Enumarator
+   * @generated
+   */
+  EClass getEnumarator();
+
+  /**
+   * Returns the meta object for the attribute '{@link typedefinition.Enumarator#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see typedefinition.Enumarator#getName()
+   * @see #getEnumarator()
+   * @generated
+   */
+  EAttribute getEnumarator_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link typedefinition.Enumarator#getValues <em>Values</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Values</em>'.
+   * @see typedefinition.Enumarator#getValues()
+   * @see #getEnumarator()
+   * @generated
+   */
+  EReference getEnumarator_Values();
+
+  /**
+   * Returns the meta object for class '{@link typedefinition.EnumAttribute <em>Enum Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enum Attribute</em>'.
+   * @see typedefinition.EnumAttribute
+   * @generated
+   */
+  EClass getEnumAttribute();
+
+  /**
+   * Returns the meta object for the attribute '{@link typedefinition.EnumAttribute#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see typedefinition.EnumAttribute#getName()
+   * @see #getEnumAttribute()
+   * @generated
+   */
+  EAttribute getEnumAttribute_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link typedefinition.EnumAttribute#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see typedefinition.EnumAttribute#getValue()
+   * @see #getEnumAttribute()
+   * @generated
+   */
+  EAttribute getEnumAttribute_Value();
 
   /**
    * Returns the meta object for data type '{@link org.tura.metamodel.commons.types.impl.RefTypeImpl <em>reftype</em>}'.
@@ -671,6 +829,14 @@ public interface TypedefinitionPackage extends EPackage
      * @generated
      */
     EReference TYPE_DEFINITION__TYPES = eINSTANCE.getTypeDefinition_Types();
+
+    /**
+     * The meta object literal for the '<em><b>Enums</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_DEFINITION__ENUMS = eINSTANCE.getTypeDefinition_Enums();
 
     /**
      * The meta object literal for the '{@link typedefinition.impl.TypeElementImpl <em>Type Element</em>}' class.
@@ -795,12 +961,12 @@ public interface TypedefinitionPackage extends EPackage
     EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
+    EAttribute ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
 
     /**
      * The meta object literal for the '{@link typedefinition.impl.OperationImpl <em>Operation</em>}' class.
@@ -855,12 +1021,64 @@ public interface TypedefinitionPackage extends EPackage
     EAttribute RETURN_VALUE__NAME = eINSTANCE.getReturnValue_Name();
 
     /**
-     * The meta object literal for the '<em><b>Return Value</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Return Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RETURN_VALUE__RETURN_VALUE = eINSTANCE.getReturnValue_ReturnValue();
+    EAttribute RETURN_VALUE__RETURN_VALUE = eINSTANCE.getReturnValue_ReturnValue();
+
+    /**
+     * The meta object literal for the '{@link typedefinition.impl.EnumaratorImpl <em>Enumarator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see typedefinition.impl.EnumaratorImpl
+     * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumarator()
+     * @generated
+     */
+    EClass ENUMARATOR = eINSTANCE.getEnumarator();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUMARATOR__NAME = eINSTANCE.getEnumarator_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUMARATOR__VALUES = eINSTANCE.getEnumarator_Values();
+
+    /**
+     * The meta object literal for the '{@link typedefinition.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see typedefinition.impl.EnumAttributeImpl
+     * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumAttribute()
+     * @generated
+     */
+    EClass ENUM_ATTRIBUTE = eINSTANCE.getEnumAttribute();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUM_ATTRIBUTE__NAME = eINSTANCE.getEnumAttribute_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUM_ATTRIBUTE__VALUE = eINSTANCE.getEnumAttribute_Value();
 
     /**
      * The meta object literal for the '<em>reftype</em>' data type.

@@ -10,6 +10,7 @@ import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsComma
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
+import typedefinition.diagram.edit.commands.EnumaratorCreateCommand;
 import typedefinition.diagram.edit.commands.TypeCreateCommand;
 import typedefinition.diagram.edit.commands.TypeReferenceCreateCommand;
 import typedefinition.diagram.providers.TypedefinitionElementTypes;
@@ -37,6 +38,9 @@ public class TypeDefinitionItemSemanticEditPolicy extends
 		if (TypedefinitionElementTypes.TypeReference_2002 == req
 				.getElementType()) {
 			return getGEFWrapper(new TypeReferenceCreateCommand(req));
+		}
+		if (TypedefinitionElementTypes.Enumarator_2003 == req.getElementType()) {
+			return getGEFWrapper(new EnumaratorCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

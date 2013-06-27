@@ -95,6 +95,24 @@ public interface TypedefinitionFactory extends EFactory
   ReturnValue createReturnValue();
 
   /**
+   * Returns a new object of class '<em>Enumarator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enumarator</em>'.
+   * @generated
+   */
+  Enumarator createEnumarator();
+
+  /**
+   * Returns a new object of class '<em>Enum Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enum Attribute</em>'.
+   * @generated
+   */
+  EnumAttribute createEnumAttribute();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

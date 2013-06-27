@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import typedefinition.Enumarator;
 import typedefinition.TypeDefinition;
 import typedefinition.TypeElement;
 import typedefinition.TypedefinitionPackage;
@@ -28,6 +29,7 @@ import typedefinition.TypedefinitionPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link typedefinition.impl.TypeDefinitionImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link typedefinition.impl.TypeDefinitionImpl#getEnums <em>Enums</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +46,16 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
    * @ordered
    */
   protected EList<TypeElement> types;
+
+  /**
+   * The cached value of the '{@link #getEnums() <em>Enums</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEnums()
+   * @generated
+   * @ordered
+   */
+  protected EList<Enumarator> enums;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,6 +97,20 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Enumarator> getEnums()
+  {
+    if (enums == null)
+    {
+      enums = new EObjectContainmentEList<Enumarator>(Enumarator.class, this, TypedefinitionPackage.TYPE_DEFINITION__ENUMS);
+    }
+    return enums;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -92,6 +118,8 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
     {
       case TypedefinitionPackage.TYPE_DEFINITION__TYPES:
         return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+      case TypedefinitionPackage.TYPE_DEFINITION__ENUMS:
+        return ((InternalEList<?>)getEnums()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,6 +136,8 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
     {
       case TypedefinitionPackage.TYPE_DEFINITION__TYPES:
         return getTypes();
+      case TypedefinitionPackage.TYPE_DEFINITION__ENUMS:
+        return getEnums();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -127,6 +157,10 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
         getTypes().clear();
         getTypes().addAll((Collection<? extends TypeElement>)newValue);
         return;
+      case TypedefinitionPackage.TYPE_DEFINITION__ENUMS:
+        getEnums().clear();
+        getEnums().addAll((Collection<? extends Enumarator>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -144,6 +178,9 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
       case TypedefinitionPackage.TYPE_DEFINITION__TYPES:
         getTypes().clear();
         return;
+      case TypedefinitionPackage.TYPE_DEFINITION__ENUMS:
+        getEnums().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -160,6 +197,8 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
     {
       case TypedefinitionPackage.TYPE_DEFINITION__TYPES:
         return types != null && !types.isEmpty();
+      case TypedefinitionPackage.TYPE_DEFINITION__ENUMS:
+        return enums != null && !enums.isEmpty();
     }
     return super.eIsSet(featureID);
   }

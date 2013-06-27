@@ -160,6 +160,57 @@
           figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
+        name="EnumaratorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EnumaratorFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EnumaratorLabelFigure"
+            text="Enumarator">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="EnumaratorValuesCompartmentFigure"
+            outline="false"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureEnumaratorLabelFigure"
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getEnumaratorValuesCompartmentFigure"
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="EnumAttributeFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EnumAttributeFigure"
+          outline="false">
+        <preferredSize
+            dx="100"
+            dy="16"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EnumAttributeLabelFigure"
+            text="EnumAttribute"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureEnumAttributeLabelFigure"
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="TypeExtensionFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
@@ -184,6 +235,12 @@
   <nodes
       name="ReturnValue"
       figure="ReturnValueFigure"/>
+  <nodes
+      name="Enumarator"
+      figure="EnumaratorFigure"/>
+  <nodes
+      name="EnumAttribute"
+      figure="EnumAttributeFigure"/>
   <connections
       name="TypeExtension"
       figure="TypeExtensionFigure"/>
@@ -207,6 +264,11 @@
       figure="OperationFigure"
       collapsible="true"
       accessor="//@figures.0/@descriptors.3/@accessors.2"/>
+  <compartments
+      name="EnumaratorValuesCompartment"
+      figure="EnumaratorFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.5/@accessors.1"/>
   <labels
       name="TypeLabel"
       figure="TypeFigure"
@@ -227,4 +289,12 @@
       name="ReturnValueLabel"
       figure="ReturnValueFigure"
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels
+      name="EnumaratorLabel"
+      figure="EnumaratorFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels
+      name="EnumAttributeLabel"
+      figure="EnumAttributeFigure"
+      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
 </gmfgraph:Canvas>

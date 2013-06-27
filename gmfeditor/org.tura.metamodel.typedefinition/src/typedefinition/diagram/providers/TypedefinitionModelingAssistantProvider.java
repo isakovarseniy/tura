@@ -24,6 +24,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
+import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
@@ -47,9 +48,10 @@ public class TypedefinitionModelingAssistantProvider extends
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof TypeDefinitionEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 			types.add(TypedefinitionElementTypes.Type_2001);
 			types.add(TypedefinitionElementTypes.TypeReference_2002);
+			types.add(TypedefinitionElementTypes.Enumarator_2003);
 			return types;
 		}
 		if (editPart instanceof TypeTypeAttributesCompartmentEditPart) {
@@ -70,6 +72,11 @@ public class TypedefinitionModelingAssistantProvider extends
 		if (editPart instanceof OperationOperationReturnValueCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(TypedefinitionElementTypes.ReturnValue_3004);
+			return types;
+		}
+		if (editPart instanceof EnumaratorEnumaratorValuesCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(TypedefinitionElementTypes.EnumAttribute_3005);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

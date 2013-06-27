@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="typeDefinition.gmftool#//@palette/@tools.0/@tools.3"/>
+          href="typeDefinition.gmftool#//@palette/@tools.0/@tools.5"/>
       <diagramNode
           href="typeDefinition.gmfgraph#Type"/>
       <children
@@ -63,7 +63,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="typeDefinition.gmftool#//@palette/@tools.0/@tools.1"/>
+              href="typeDefinition.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="typeDefinition.gmfgraph#Operation"/>
           <children
@@ -88,7 +88,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="typeDefinition.gmftool#//@palette/@tools.0/@tools.2"/>
+                  href="typeDefinition.gmftool#//@palette/@tools.0/@tools.4"/>
               <diagramNode
                   href="typeDefinition.gmfgraph#ReturnValue"/>
             </ownedChild>
@@ -132,9 +132,56 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="typeDefinition.gmftool#//@palette/@tools.0/@tools.4"/>
+          href="typeDefinition.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="typeDefinition.gmfgraph#TypeReference"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="typeDefinition.ecore#//TypeDefinition/enums"/>
+    <ownedChild
+        relatedDiagrams="//@diagram">
+      <domainMetaElement
+          href="typeDefinition.ecore#//Enumarator"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="typeDefinition.gmfgraph#EnumaratorLabel"/>
+        <features
+            href="typeDefinition.ecore#//Enumarator/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="typeDefinition.gmftool#//@palette/@tools.0/@tools.2"/>
+      <diagramNode
+          href="typeDefinition.gmfgraph#Enumarator"/>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="typeDefinition.ecore#//Enumarator/values"/>
+        <ownedChild>
+          <domainMetaElement
+              href="typeDefinition.ecore#//EnumAttribute"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="typeDefinition.gmfgraph#EnumAttributeLabel"/>
+            <features
+                href="typeDefinition.ecore#//EnumAttribute/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="typeDefinition.gmftool#//@palette/@tools.0/@tools.1"/>
+          <diagramNode
+              href="typeDefinition.gmfgraph#EnumAttribute"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.2/@ownedChild/@children.0">
+        <compartment
+            href="typeDefinition.gmfgraph#EnumaratorValuesCompartment"/>
+      </compartments>
     </ownedChild>
   </nodes>
   <links>

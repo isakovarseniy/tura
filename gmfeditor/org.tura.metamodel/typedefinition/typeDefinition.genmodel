@@ -8,6 +8,7 @@
     <genDataTypes ecoreDataType="typeDefinition.ecore#//reftype"/>
     <genClasses ecoreClass="typeDefinition.ecore#//TypeDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//TypeDefinition/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//TypeDefinition/enums"/>
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//TypeElement"/>
     <genClasses ecoreClass="typeDefinition.ecore#//Type">
@@ -26,7 +27,7 @@
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Attribute/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Attribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Attribute/type"/>
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//Operation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Operation/name"/>
@@ -35,7 +36,15 @@
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//ReturnValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//ReturnValue/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//ReturnValue/returnValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//ReturnValue/returnValue"/>
+    </genClasses>
+    <genClasses ecoreClass="typeDefinition.ecore#//Enumarator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Enumarator/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//Enumarator/values"/>
+    </genClasses>
+    <genClasses ecoreClass="typeDefinition.ecore#//EnumAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//EnumAttribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//EnumAttribute/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

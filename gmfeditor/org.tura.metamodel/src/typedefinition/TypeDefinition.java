@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link typedefinition.TypeDefinition#getTypes <em>Types</em>}</li>
+ *   <li>{@link typedefinition.TypeDefinition#getEnums <em>Enums</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,5 +40,21 @@ public interface TypeDefinition extends EObject
    * @generated
    */
   EList<TypeElement> getTypes();
+
+  /**
+   * Returns the value of the '<em><b>Enums</b></em>' containment reference list.
+   * The list contents are of type {@link typedefinition.Enumarator}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Enums</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Enums</em>' containment reference list.
+   * @see typedefinition.TypedefinitionPackage#getTypeDefinition_Enums()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Enumarator> getEnums();
 
 } // TypeDefinition

@@ -16,14 +16,20 @@
                tab="property.tab.domain.custom"
                class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
                id="type.reference">
-              <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
-         </propertySection>        
+             <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
+              <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
+              <input type="typedefinition.diagram.edit.parts.Attribute2EditPart"/>
+              <input type="typedefinition.diagram.edit.parts.ReturnValueEditPart"/>
+           </propertySection>        
  
           <propertySection
                tab="property.tab.domain.custom"
                class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
                id="type.reference">
               <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
+              <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
+              <input type="typedefinition.diagram.edit.parts.Attribute2EditPart"/>
+              <input type="typedefinition.diagram.edit.parts.ReturnValueEditPart"/>
          </propertySection>        
  
  
