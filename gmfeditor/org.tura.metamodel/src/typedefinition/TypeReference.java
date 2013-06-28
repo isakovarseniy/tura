@@ -17,7 +17,6 @@ package typedefinition;
  *
  * @see typedefinition.TypedefinitionPackage#getTypeReference()
  * @model annotation="gmf.node label='name'"
- *        annotation="exeed label='return self.type;'"
  * @generated
  */
 public interface TypeReference extends TypeElement, TypePointer
