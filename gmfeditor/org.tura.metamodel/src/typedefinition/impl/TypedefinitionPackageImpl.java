@@ -168,11 +168,16 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     isInited = true;
 
+    // Obtain or create and register interdependencies
+    TuraPackageImpl theTuraPackage = (TuraPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TuraPackage.eNS_URI) instanceof TuraPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TuraPackage.eNS_URI) : TuraPackage.eINSTANCE);
+
     // Create package meta-data objects
     theTypedefinitionPackage.createPackageContents();
+    theTuraPackage.createPackageContents();
 
     // Initialize created meta-data
     theTypedefinitionPackage.initializePackageContents();
+    theTuraPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theTypedefinitionPackage.freeze();
