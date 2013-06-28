@@ -100,21 +100,21 @@ public class TuraNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (TuraVisualIDRegistry.getVisualID(view)) {
-		case TypesEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/tura?Types", TuraElementTypes.Types_2001); //$NON-NLS-1$
 		case TuraMetamodelEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://tura.org/2013/v1/tura?TuraMetamodel", TuraElementTypes.TuraMetamodel_1000); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", TuraElementTypes.TypeExtension_4001); //$NON-NLS-1$
-		case PackageEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/tura?Package", TuraElementTypes.Package_3001); //$NON-NLS-1$
 		case PrimitiveEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/tura?Primitive", TuraElementTypes.Primitive_3002); //$NON-NLS-1$
+		case PackageEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/tura?Package", TuraElementTypes.Package_3001); //$NON-NLS-1$
+		case TypesEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/tura?Types", TuraElementTypes.Types_2001); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", TuraElementTypes.TypeExtension_4001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -175,16 +175,16 @@ public class TuraNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (TuraVisualIDRegistry.getVisualID(view)) {
-		case TypesEditPart.VISUAL_ID:
-			return getTypes_2001Text(view);
 		case TuraMetamodelEditPart.VISUAL_ID:
 			return getTuraMetamodel_1000Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001Text(view);
-		case PackageEditPart.VISUAL_ID:
-			return getPackage_3001Text(view);
 		case PrimitiveEditPart.VISUAL_ID:
 			return getPrimitive_3002Text(view);
+		case PackageEditPart.VISUAL_ID:
+			return getPackage_3001Text(view);
+		case TypesEditPart.VISUAL_ID:
+			return getTypes_2001Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_4001Text(view);
 		}
 		return getUnknownElementText(view);
 	}
