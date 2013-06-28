@@ -23,9 +23,8 @@ class Type extends TypeElement {
    
 }
 
-@gmf.node(label="name")
+@gmf.node(label="type")
 class TypeReference extends TypeElement , TypePointer{
-   attr EString name;
  }
 
 @gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
@@ -49,9 +48,8 @@ class Operation{
    val ReturnValue[1] returnValue;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="type")
 class ReturnValue extends TypePointer{
-   attr EString name;
 }
 
 @gmf.node(label="name")

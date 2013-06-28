@@ -206,8 +206,8 @@
       </modelFacet>
       <labels
           visualID="5004"
-          editPartClassName="ReturnValueNameEditPart"
-          itemSemanticEditPolicyClassName="ReturnValueNameItemSemanticEditPolicy"
+          editPartClassName="ReturnValueTypeEditPart"
+          itemSemanticEditPolicyClassName="ReturnValueTypeItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -219,7 +219,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="typeDefinition.genmodel#//typedefinition/ReturnValue/name"/>
+              href="typeDefinition.genmodel#//typedefinition/TypePointer/type"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -298,8 +298,8 @@
       </modelFacet>
       <labels
           visualID="5001"
-          editPartClassName="TypeReferenceNameEditPart"
-          itemSemanticEditPolicyClassName="TypeReferenceNameItemSemanticEditPolicy"
+          editPartClassName="TypeReferenceTypeEditPart"
+          itemSemanticEditPolicyClassName="TypeReferenceTypeItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -311,7 +311,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="typeDefinition.genmodel#//typedefinition/TypeReference/name"/>
+              href="typeDefinition.genmodel#//typedefinition/TypePointer/type"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
