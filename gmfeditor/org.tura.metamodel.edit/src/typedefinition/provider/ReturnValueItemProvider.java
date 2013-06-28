@@ -36,7 +36,7 @@ import typedefinition.TypedefinitionPackage;
  * @generated
  */
 public class ReturnValueItemProvider
-  extends ItemProviderAdapter
+  extends TypePointerItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -69,7 +69,6 @@ public class ReturnValueItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addReturnValuePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -89,29 +88,6 @@ public class ReturnValueItemProvider
          getString("_UI_ReturnValue_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_ReturnValue_name_feature", "_UI_ReturnValue_type"),
          TypedefinitionPackage.Literals.RETURN_VALUE__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Return Value feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addReturnValuePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ReturnValue_returnValue_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ReturnValue_returnValue_feature", "_UI_ReturnValue_type"),
-         TypedefinitionPackage.Literals.RETURN_VALUE__RETURN_VALUE,
          true,
          false,
          false,
@@ -162,7 +138,6 @@ public class ReturnValueItemProvider
     switch (notification.getFeatureID(ReturnValue.class))
     {
       case TypedefinitionPackage.RETURN_VALUE__NAME:
-      case TypedefinitionPackage.RETURN_VALUE__RETURN_VALUE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }
@@ -180,18 +155,6 @@ public class ReturnValueItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return TypedefinitionEditPlugin.INSTANCE;
   }
 
 }

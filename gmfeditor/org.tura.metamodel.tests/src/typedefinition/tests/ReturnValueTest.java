@@ -15,16 +15,8 @@ import typedefinition.TypedefinitionFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ReturnValueTest extends TestCase
+public class ReturnValueTest extends TypePointerTest
 {
-
-  /**
-   * The fixture for this Return Value test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ReturnValue fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class ReturnValueTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Return Value test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(ReturnValue fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Return Value test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected ReturnValue getFixture()
   {
-    return fixture;
+    return (ReturnValue)fixture;
   }
 
   /**

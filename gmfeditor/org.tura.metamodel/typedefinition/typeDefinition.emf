@@ -19,15 +19,13 @@ class Type extends TypeElement {
    val Attribute[*] attributes;
    @gmf.compartment
    val Operation[*] operations;
-
    val TypeExtension[1] extension;
    
 }
 
 @gmf.node(label="name")
-class TypeReference extends TypeElement{
+class TypeReference extends TypeElement , TypePointer{
    attr EString name;
-   attr reftype type;
  }
 
 @gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
@@ -37,9 +35,8 @@ class TypeExtension {
 }
 
 @gmf.node(label="name")
-class Attribute{
+class Attribute extends  TypePointer{
    attr EString name;
-   attr reftype type;
 }
 
 
@@ -53,9 +50,8 @@ class Operation{
 }
 
 @gmf.node(label="name")
-class ReturnValue{
+class ReturnValue extends TypePointer{
    attr EString name;
-   attr reftype returnValue;
 }
 
 @gmf.node(label="name")
@@ -71,5 +67,9 @@ class EnumAttribute{
    attr EString  value;
 }
 
+
+class TypePointer{
+  attr reftype type;
+}
 
 datatype reftype:org.tura.metamodel.commons.types.impl.RefTypeImpl;

@@ -15,7 +15,6 @@ import org.tura.metamodel.commons.types.impl.RefTypeImpl;
  * The following features are supported:
  * <ul>
  *   <li>{@link typedefinition.ReturnValue#getName <em>Name</em>}</li>
- *   <li>{@link typedefinition.ReturnValue#getReturnValue <em>Return Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,7 +22,7 @@ import org.tura.metamodel.commons.types.impl.RefTypeImpl;
  * @model annotation="gmf.node label='name'"
  * @generated
  */
-public interface ReturnValue extends EObject
+public interface ReturnValue extends TypePointer
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -50,31 +49,5 @@ public interface ReturnValue extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Return Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Return Value</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Return Value</em>' attribute.
-   * @see #setReturnValue(RefTypeImpl)
-   * @see typedefinition.TypedefinitionPackage#getReturnValue_ReturnValue()
-   * @model dataType="typedefinition.reftype"
-   * @generated
-   */
-  RefTypeImpl getReturnValue();
-
-  /**
-   * Sets the value of the '{@link typedefinition.ReturnValue#getReturnValue <em>Return Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Return Value</em>' attribute.
-   * @see #getReturnValue()
-   * @generated
-   */
-  void setReturnValue(RefTypeImpl value);
 
 } // ReturnValue

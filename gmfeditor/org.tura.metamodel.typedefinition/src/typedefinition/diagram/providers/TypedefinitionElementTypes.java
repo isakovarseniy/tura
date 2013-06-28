@@ -65,16 +65,15 @@ public class TypedefinitionElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType TypeReference_2004 = getElementType("org.tura.metamodel.typedefinition.TypeReference_2004"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType Type_2001 = getElementType("org.tura.metamodel.typedefinition.Type_2001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeReference_2002 = getElementType("org.tura.metamodel.typedefinition.TypeReference_2002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
 	public static final IElementType Enumarator_2003 = getElementType("org.tura.metamodel.typedefinition.Enumarator_2003"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
@@ -95,7 +94,6 @@ public class TypedefinitionElementTypes {
 	 * @generated
 	 */
 	public static final IElementType EnumAttribute_3005 = getElementType("org.tura.metamodel.typedefinition.EnumAttribute_3005"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
@@ -215,10 +213,10 @@ public class TypedefinitionElementTypes {
 			elements.put(TypeDefinition_1000,
 					TypedefinitionPackage.eINSTANCE.getTypeDefinition());
 
-			elements.put(Type_2001, TypedefinitionPackage.eINSTANCE.getType());
-
-			elements.put(TypeReference_2002,
+			elements.put(TypeReference_2004,
 					TypedefinitionPackage.eINSTANCE.getTypeReference());
+
+			elements.put(Type_2001, TypedefinitionPackage.eINSTANCE.getType());
 
 			elements.put(Enumarator_2003,
 					TypedefinitionPackage.eINSTANCE.getEnumarator());
@@ -258,8 +256,8 @@ public class TypedefinitionElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(TypeDefinition_1000);
+			KNOWN_ELEMENT_TYPES.add(TypeReference_2004);
 			KNOWN_ELEMENT_TYPES.add(Type_2001);
-			KNOWN_ELEMENT_TYPES.add(TypeReference_2002);
 			KNOWN_ELEMENT_TYPES.add(Enumarator_2003);
 			KNOWN_ELEMENT_TYPES.add(Attribute_3001);
 			KNOWN_ELEMENT_TYPES.add(Operation_3002);
@@ -278,10 +276,10 @@ public class TypedefinitionElementTypes {
 		switch (visualID) {
 		case TypeDefinitionEditPart.VISUAL_ID:
 			return TypeDefinition_1000;
+		case TypeReferenceEditPart.VISUAL_ID:
+			return TypeReference_2004;
 		case TypeEditPart.VISUAL_ID:
 			return Type_2001;
-		case TypeReferenceEditPart.VISUAL_ID:
-			return TypeReference_2002;
 		case EnumaratorEditPart.VISUAL_ID:
 			return Enumarator_2003;
 		case AttributeEditPart.VISUAL_ID:

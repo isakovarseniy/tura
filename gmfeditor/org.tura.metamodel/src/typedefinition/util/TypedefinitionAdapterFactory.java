@@ -125,6 +125,11 @@ public class TypedefinitionAdapterFactory extends AdapterFactoryImpl
         return createEnumAttributeAdapter();
       }
       @Override
+      public Adapter caseTypePointer(TypePointer object)
+      {
+        return createTypePointerAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -292,6 +297,21 @@ public class TypedefinitionAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEnumAttributeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link typedefinition.TypePointer <em>Type Pointer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see typedefinition.TypePointer
+   * @generated
+   */
+  public Adapter createTypePointerAdapter()
   {
     return null;
   }

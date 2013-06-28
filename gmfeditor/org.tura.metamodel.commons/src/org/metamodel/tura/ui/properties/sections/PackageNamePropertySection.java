@@ -9,7 +9,7 @@ import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 import tura.impl.PackageImpl;
 import tura.impl.TypesImpl;
-import typedefinition.TypeReference;
+import typedefinition.TypePointer;
 import typedefinition.TypedefinitionPackage;
 
 
@@ -19,12 +19,12 @@ public class PackageNamePropertySection extends
 	private ArrayList<String> values;
 
 	protected EAttribute getFeature() {
-		return TypedefinitionPackage.eINSTANCE.getTypeReference_Type();
+		return TypedefinitionPackage.eINSTANCE.getTypePointer_Type();
 	}
 
 	protected String getFeatureAsText() {
-		if (((typedefinition.TypeReference) eObject).getType() != null)
-			return ((typedefinition.TypeReference) eObject).getType()
+		if (((TypePointer) eObject).getType() != null)
+			return ((TypePointer) eObject).getType()
 					.getPackageName();
 		else
 			return null;
@@ -41,10 +41,10 @@ public class PackageNamePropertySection extends
 	}
 
 	protected boolean isEqual(int index) {
-		if (((TypeReference) eObject).getType() == null)
+		if (((TypePointer) eObject).getType() == null)
 			return false;
 		return values.get(index).equals(
-				((TypeReference) eObject).getType().getPackageName());
+				((TypePointer) eObject).getType().getPackageName());
 	}
 
 	protected String[] getEnumerationFeatureValues() {

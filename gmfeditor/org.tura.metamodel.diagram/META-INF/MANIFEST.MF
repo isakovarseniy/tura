@@ -4,12 +4,15 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.diagram; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: tura.diagram.part.TuraDiagramEditorPlugin
+Bundle-Activator: typedefinition.diagram.part.TypedefinitionDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: tura.diagram.edit.parts,
  tura.diagram.part,
- tura.diagram.providers
+ tura.diagram.providers,
+ typedefinition.diagram.edit.parts,
+ typedefinition.diagram.part,
+ typedefinition.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.core.expressions,
@@ -39,7 +42,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.tura.metamodel;visibility:=reexport,
  org.tura.metamodel.edit;visibility:=reexport,
  org.eclipse.emf.validation;visibility:=reexport,
- org.eclipse.gef;visibility:=reexport
+ org.eclipse.gef;visibility:=reexport,
+ org.eclipse.ocl.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.tura.metamodel.commons,

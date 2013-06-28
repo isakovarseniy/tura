@@ -49,8 +49,8 @@ public class TypedefinitionModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof TypeDefinitionEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			types.add(TypedefinitionElementTypes.TypeReference_2004);
 			types.add(TypedefinitionElementTypes.Type_2001);
-			types.add(TypedefinitionElementTypes.TypeReference_2002);
 			types.add(TypedefinitionElementTypes.Enumarator_2003);
 			return types;
 		}
@@ -88,12 +88,12 @@ public class TypedefinitionModelingAssistantProvider extends
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
 		if (sourceEditPart instanceof TypeReferenceEditPart) {
 			return ((TypeReferenceEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof TypeEditPart) {
+			return ((TypeEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -104,12 +104,12 @@ public class TypedefinitionModelingAssistantProvider extends
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
 		if (targetEditPart instanceof TypeReferenceEditPart) {
 			return ((TypeReferenceEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof TypeEditPart) {
+			return ((TypeEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -123,12 +123,12 @@ public class TypedefinitionModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
 		if (sourceEditPart instanceof TypeReferenceEditPart) {
 			return ((TypeReferenceEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof TypeEditPart) {
+			return ((TypeEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		return Collections.EMPTY_LIST;
@@ -141,12 +141,12 @@ public class TypedefinitionModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
 		if (targetEditPart instanceof TypeReferenceEditPart) {
 			return ((TypeReferenceEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof TypeEditPart) {
+			return ((TypeEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;
@@ -159,12 +159,12 @@ public class TypedefinitionModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
 		if (sourceEditPart instanceof TypeReferenceEditPart) {
 			return ((TypeReferenceEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof TypeEditPart) {
+			return ((TypeEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

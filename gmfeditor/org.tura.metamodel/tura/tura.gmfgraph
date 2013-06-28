@@ -263,11 +263,22 @@
         <children
             xsi:type="gmfgraph:Label"
             name="EnumaratorLabelFigure"
-            text="Enumarator"/>
+            text="Enumarator">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="EnumaratorValuesCompartmentFigure"
+            outline="false"/>
       </actualFigure>
       <accessors
           accessor="getFigureEnumaratorLabelFigure"
           figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getEnumaratorValuesCompartmentFigure"
+          figure="//@figures.0/@descriptors.8/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="EnumAttributeFigure">
@@ -364,6 +375,11 @@
       figure="OperationFigure"
       collapsible="true"
       accessor="//@figures.0/@descriptors.6/@accessors.2"/>
+  <compartments
+      name="EnumaratorValuesCompartment"
+      figure="EnumaratorFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.8/@accessors.1"/>
   <labels
       name="TypesLabel"
       figure="TypesFigure"

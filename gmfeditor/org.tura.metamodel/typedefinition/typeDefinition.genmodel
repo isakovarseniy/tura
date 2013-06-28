@@ -19,7 +19,6 @@
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//TypeReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//TypeReference/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//TypeReference/type"/>
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//TypeExtension">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//TypeExtension/source"/>
@@ -27,7 +26,6 @@
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Attribute/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Attribute/type"/>
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//Operation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Operation/name"/>
@@ -36,7 +34,6 @@
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//ReturnValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//ReturnValue/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//ReturnValue/returnValue"/>
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//Enumarator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//Enumarator/name"/>
@@ -45,6 +42,9 @@
     <genClasses ecoreClass="typeDefinition.ecore#//EnumAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//EnumAttribute/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//EnumAttribute/value"/>
+    </genClasses>
+    <genClasses ecoreClass="typeDefinition.ecore#//TypePointer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//TypePointer/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

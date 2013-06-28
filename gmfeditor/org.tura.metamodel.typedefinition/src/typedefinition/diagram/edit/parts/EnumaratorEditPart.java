@@ -297,7 +297,6 @@ public class EnumaratorEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureEnumaratorLabelFigure;
-
 		/**
 		 * @generated
 		 */

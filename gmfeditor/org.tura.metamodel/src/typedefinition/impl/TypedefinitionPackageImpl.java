@@ -23,6 +23,7 @@ import typedefinition.Type;
 import typedefinition.TypeDefinition;
 import typedefinition.TypeElement;
 import typedefinition.TypeExtension;
+import typedefinition.TypePointer;
 import typedefinition.TypeReference;
 import typedefinition.TypedefinitionFactory;
 import typedefinition.TypedefinitionPackage;
@@ -104,6 +105,13 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * @generated
    */
   private EClass enumAttributeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typePointerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -290,16 +298,6 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeReference_Type()
-  {
-    return (EAttribute)typeReferenceEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getTypeExtension()
   {
     return typeExtensionEClass;
@@ -343,16 +341,6 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
   public EAttribute getAttribute_Name()
   {
     return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAttribute_Type()
-  {
-    return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -420,16 +408,6 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getReturnValue_ReturnValue()
-  {
-    return (EAttribute)returnValueEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getEnumarator()
   {
     return enumaratorEClass;
@@ -490,6 +468,26 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getTypePointer()
+  {
+    return typePointerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypePointer_Type()
+  {
+    return (EAttribute)typePointerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EDataType getreftype()
   {
     return reftypeEDataType;
@@ -539,7 +537,6 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     typeReferenceEClass = createEClass(TYPE_REFERENCE);
     createEAttribute(typeReferenceEClass, TYPE_REFERENCE__NAME);
-    createEAttribute(typeReferenceEClass, TYPE_REFERENCE__TYPE);
 
     typeExtensionEClass = createEClass(TYPE_EXTENSION);
     createEReference(typeExtensionEClass, TYPE_EXTENSION__SOURCE);
@@ -547,7 +544,6 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     attributeEClass = createEClass(ATTRIBUTE);
     createEAttribute(attributeEClass, ATTRIBUTE__NAME);
-    createEAttribute(attributeEClass, ATTRIBUTE__TYPE);
 
     operationEClass = createEClass(OPERATION);
     createEAttribute(operationEClass, OPERATION__NAME);
@@ -556,7 +552,6 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     returnValueEClass = createEClass(RETURN_VALUE);
     createEAttribute(returnValueEClass, RETURN_VALUE__NAME);
-    createEAttribute(returnValueEClass, RETURN_VALUE__RETURN_VALUE);
 
     enumaratorEClass = createEClass(ENUMARATOR);
     createEAttribute(enumaratorEClass, ENUMARATOR__NAME);
@@ -565,6 +560,9 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     enumAttributeEClass = createEClass(ENUM_ATTRIBUTE);
     createEAttribute(enumAttributeEClass, ENUM_ATTRIBUTE__NAME);
     createEAttribute(enumAttributeEClass, ENUM_ATTRIBUTE__VALUE);
+
+    typePointerEClass = createEClass(TYPE_POINTER);
+    createEAttribute(typePointerEClass, TYPE_POINTER__TYPE);
 
     // Create data types
     reftypeEDataType = createEDataType(REFTYPE);
@@ -601,6 +599,9 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     // Add supertypes to classes
     typeEClass.getESuperTypes().add(this.getTypeElement());
     typeReferenceEClass.getESuperTypes().add(this.getTypeElement());
+    typeReferenceEClass.getESuperTypes().add(this.getTypePointer());
+    attributeEClass.getESuperTypes().add(this.getTypePointer());
+    returnValueEClass.getESuperTypes().add(this.getTypePointer());
 
     // Initialize classes and features; add operations and parameters
     initEClass(typeDefinitionEClass, TypeDefinition.class, "TypeDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -617,7 +618,6 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     initEClass(typeReferenceEClass, TypeReference.class, "TypeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeReference_Name(), ecorePackage.getEString(), "name", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTypeReference_Type(), this.getreftype(), "type", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeExtensionEClass, TypeExtension.class, "TypeExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypeExtension_Source(), this.getTypeElement(), null, "source", null, 0, 1, TypeExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -625,7 +625,6 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAttribute_Type(), this.getreftype(), "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -634,7 +633,6 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     initEClass(returnValueEClass, ReturnValue.class, "ReturnValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getReturnValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReturnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getReturnValue_ReturnValue(), this.getreftype(), "returnValue", null, 0, 1, ReturnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumaratorEClass, Enumarator.class, "Enumarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnumarator_Name(), ecorePackage.getEString(), "name", null, 0, 1, Enumarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -643,6 +641,9 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     initEClass(enumAttributeEClass, EnumAttribute.class, "EnumAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnumAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEnumAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typePointerEClass, TypePointer.class, "TypePointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTypePointer_Type(), this.getreftype(), "type", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize data types
     initEDataType(reftypeEDataType, RefTypeImpl.class, "reftype", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

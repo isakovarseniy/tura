@@ -99,6 +99,7 @@ public class TypedefinitionSwitch<T> extends Switch<T>
         TypeReference typeReference = (TypeReference)theEObject;
         T result = caseTypeReference(typeReference);
         if (result == null) result = caseTypeElement(typeReference);
+        if (result == null) result = caseTypePointer(typeReference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -113,6 +114,7 @@ public class TypedefinitionSwitch<T> extends Switch<T>
       {
         Attribute attribute = (Attribute)theEObject;
         T result = caseAttribute(attribute);
+        if (result == null) result = caseTypePointer(attribute);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -127,6 +129,7 @@ public class TypedefinitionSwitch<T> extends Switch<T>
       {
         ReturnValue returnValue = (ReturnValue)theEObject;
         T result = caseReturnValue(returnValue);
+        if (result == null) result = caseTypePointer(returnValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -141,6 +144,13 @@ public class TypedefinitionSwitch<T> extends Switch<T>
       {
         EnumAttribute enumAttribute = (EnumAttribute)theEObject;
         T result = caseEnumAttribute(enumAttribute);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TypedefinitionPackage.TYPE_POINTER:
+      {
+        TypePointer typePointer = (TypePointer)theEObject;
+        T result = caseTypePointer(typePointer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -304,6 +314,22 @@ public class TypedefinitionSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEnumAttribute(EnumAttribute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Pointer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Pointer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypePointer(TypePointer object)
   {
     return null;
   }

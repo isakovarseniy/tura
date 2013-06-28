@@ -145,13 +145,13 @@ public class TypedefinitionVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case TypeDefinitionEditPart.VISUAL_ID:
-			if (TypedefinitionPackage.eINSTANCE.getType().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TypeEditPart.VISUAL_ID;
-			}
 			if (TypedefinitionPackage.eINSTANCE.getTypeReference()
 					.isSuperTypeOf(domainElement.eClass())) {
 				return TypeReferenceEditPart.VISUAL_ID;
+			}
+			if (TypedefinitionPackage.eINSTANCE.getType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return TypeEditPart.VISUAL_ID;
 			}
 			if (TypedefinitionPackage.eINSTANCE.getEnumarator().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -215,13 +215,18 @@ public class TypedefinitionVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case TypeDefinitionEditPart.VISUAL_ID:
-			if (TypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (TypeReferenceEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (TypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (EnumaratorEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case TypeReferenceEditPart.VISUAL_ID:
+			if (TypeReferenceNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -233,11 +238,6 @@ public class TypedefinitionVisualIDRegistry {
 				return true;
 			}
 			if (TypeTypeOperationsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TypeReferenceEditPart.VISUAL_ID:
-			if (TypeReferenceNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

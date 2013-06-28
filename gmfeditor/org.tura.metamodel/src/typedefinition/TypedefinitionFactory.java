@@ -113,6 +113,15 @@ public interface TypedefinitionFactory extends EFactory
   EnumAttribute createEnumAttribute();
 
   /**
+   * Returns a new object of class '<em>Type Pointer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Pointer</em>'.
+   * @generated
+   */
+  TypePointer createTypePointer();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

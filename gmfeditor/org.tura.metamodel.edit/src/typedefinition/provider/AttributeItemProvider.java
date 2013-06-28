@@ -36,7 +36,7 @@ import typedefinition.TypedefinitionPackage;
  * @generated
  */
 public class AttributeItemProvider
-  extends ItemProviderAdapter
+  extends TypePointerItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -69,7 +69,6 @@ public class AttributeItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addTypePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -89,29 +88,6 @@ public class AttributeItemProvider
          getString("_UI_Attribute_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Attribute_name_feature", "_UI_Attribute_type"),
          TypedefinitionPackage.Literals.ATTRIBUTE__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Type feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addTypePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Attribute_type_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature", "_UI_Attribute_type"),
-         TypedefinitionPackage.Literals.ATTRIBUTE__TYPE,
          true,
          false,
          false,
@@ -162,7 +138,6 @@ public class AttributeItemProvider
     switch (notification.getFeatureID(Attribute.class))
     {
       case TypedefinitionPackage.ATTRIBUTE__NAME:
-      case TypedefinitionPackage.ATTRIBUTE__TYPE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }
@@ -180,18 +155,6 @@ public class AttributeItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return TypedefinitionEditPlugin.INSTANCE;
   }
 
 }

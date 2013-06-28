@@ -28,17 +28,17 @@ public class TypedefinitionEditPartFactory implements EditPartFactory {
 			case TypeDefinitionEditPart.VISUAL_ID:
 				return new TypeDefinitionEditPart(view);
 
-			case TypeEditPart.VISUAL_ID:
-				return new TypeEditPart(view);
-
-			case TypeNameEditPart.VISUAL_ID:
-				return new TypeNameEditPart(view);
-
 			case TypeReferenceEditPart.VISUAL_ID:
 				return new TypeReferenceEditPart(view);
 
 			case TypeReferenceNameEditPart.VISUAL_ID:
 				return new TypeReferenceNameEditPart(view);
+
+			case TypeEditPart.VISUAL_ID:
+				return new TypeEditPart(view);
+
+			case TypeNameEditPart.VISUAL_ID:
+				return new TypeNameEditPart(view);
 
 			case EnumaratorEditPart.VISUAL_ID:
 				return new EnumaratorEditPart(view);

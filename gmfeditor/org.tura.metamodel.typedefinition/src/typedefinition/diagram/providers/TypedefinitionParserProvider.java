@@ -37,6 +37,24 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser typeReferenceName_5009Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTypeReferenceName_5009Parser() {
+		if (typeReferenceName_5009Parser == null) {
+			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
+					.getTypeReference_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			typeReferenceName_5009Parser = parser;
+		}
+		return typeReferenceName_5009Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser typeName_5005Parser;
 
 	/**
@@ -50,24 +68,6 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 			typeName_5005Parser = parser;
 		}
 		return typeName_5005Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser typeReferenceName_5006Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getTypeReferenceName_5006Parser() {
-		if (typeReferenceName_5006Parser == null) {
-			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getTypeReference_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			typeReferenceName_5006Parser = parser;
-		}
-		return typeReferenceName_5006Parser;
 	}
 
 	/**
@@ -183,10 +183,10 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
+		case TypeReferenceNameEditPart.VISUAL_ID:
+			return getTypeReferenceName_5009Parser();
 		case TypeNameEditPart.VISUAL_ID:
 			return getTypeName_5005Parser();
-		case TypeReferenceNameEditPart.VISUAL_ID:
-			return getTypeReferenceName_5006Parser();
 		case EnumaratorNameEditPart.VISUAL_ID:
 			return getEnumaratorName_5007Parser();
 		case AttributeNameEditPart.VISUAL_ID:

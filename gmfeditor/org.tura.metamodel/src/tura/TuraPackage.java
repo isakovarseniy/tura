@@ -180,6 +180,15 @@ public interface TuraPackage extends EPackage
   int PACKAGE__TYPES = TypedefinitionPackage.TYPE_DEFINITION__TYPES;
 
   /**
+   * The feature id for the '<em><b>Enums</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__ENUMS = TypedefinitionPackage.TYPE_DEFINITION__ENUMS;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

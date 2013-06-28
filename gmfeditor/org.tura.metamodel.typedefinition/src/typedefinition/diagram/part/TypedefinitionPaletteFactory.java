@@ -165,10 +165,10 @@ public class TypedefinitionPaletteFactory {
 				Messages.TypeReference7CreationTool_title,
 				Messages.TypeReference7CreationTool_desc,
 				Collections
-						.singletonList(TypedefinitionElementTypes.TypeReference_2002));
+						.singletonList(TypedefinitionElementTypes.TypeReference_2004));
 		entry.setId("createTypeReference7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypedefinitionElementTypes
-				.getImageDescriptor(TypedefinitionElementTypes.TypeReference_2002));
+				.getImageDescriptor(TypedefinitionElementTypes.TypeReference_2004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

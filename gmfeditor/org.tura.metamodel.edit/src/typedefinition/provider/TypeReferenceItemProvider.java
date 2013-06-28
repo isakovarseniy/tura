@@ -61,8 +61,8 @@ public class TypeReferenceItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addNamePropertyDescriptor(object);
       addTypePropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -102,9 +102,9 @@ public class TypeReferenceItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_TypeReference_type_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_TypeReference_type_feature", "_UI_TypeReference_type"),
-         TypedefinitionPackage.Literals.TYPE_REFERENCE__TYPE,
+         getString("_UI_TypePointer_type_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_type_feature", "_UI_TypePointer_type"),
+         TypedefinitionPackage.Literals.TYPE_POINTER__TYPE,
          true,
          false,
          false,
@@ -154,8 +154,8 @@ public class TypeReferenceItemProvider
 
     switch (notification.getFeatureID(TypeReference.class))
     {
-      case TypedefinitionPackage.TYPE_REFERENCE__NAME:
       case TypedefinitionPackage.TYPE_REFERENCE__TYPE:
+      case TypedefinitionPackage.TYPE_REFERENCE__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

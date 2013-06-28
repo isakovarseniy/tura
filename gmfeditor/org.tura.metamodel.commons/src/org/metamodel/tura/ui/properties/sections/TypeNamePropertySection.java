@@ -19,22 +19,22 @@ import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 import tura.impl.PackageImpl;
 import tura.impl.TypesImpl;
 import typedefinition.TypeElement;
-import typedefinition.TypeReference;
 import typedefinition.TypedefinitionPackage;
+import typedefinition.TypePointer;
 
 public class TypeNamePropertySection extends AbstractEnumerationPropertySection {
 
 	protected ArrayList<String> values;
 	private boolean isFirstTime = true;
+	private CommandStackListener commandStackListener;
 
 	protected EAttribute getFeature() {
-		return TypedefinitionPackage.eINSTANCE.getTypeReference_Type();
+		return TypedefinitionPackage.eINSTANCE.getTypePointer_Type();
 	}
 
 	protected String getFeatureAsText() {
-		if (((typedefinition.TypeReference) eObject).getType() != null)
-			return ((typedefinition.TypeReference) eObject).getType()
-					.getTypeName();
+		if (((TypePointer) eObject).getType() != null)
+			return ((TypePointer) eObject).getType().getTypeName();
 		else
 			return null;
 	}
@@ -46,9 +46,7 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 
-			editingDomain.getCommandStack().addCommandStackListener(
-
-			new CommandStackListener() {
+			commandStackListener = new CommandStackListener() {
 				public void commandStackChanged(final EventObject event) {
 					if (event.getSource() instanceof BasicCommandStack) {
 						Command cmd = ((BasicCommandStack) event.getSource())
@@ -56,14 +54,17 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 						if (cmd instanceof SetCommand) {
 							if (((SetCommand) cmd).getFeature().equals(
 									TypedefinitionPackage.eINSTANCE
-											.getTypeReference_Type())) {
+											.getTypePointer_Type())) {
 								values = null;
 								refresh();
 							}
 						}
 					}
 				}
-			});
+			};
+
+			editingDomain.getCommandStack().addCommandStackListener(
+					commandStackListener);
 		}
 
 	}
@@ -71,7 +72,7 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 	protected Object getFeatureValue(int index) {
 
 		RefTypeImpl tp = new RefTypeImpl();
-		tp.setPackageName(((TypeReference) eObject).getType().getPackageName());
+		tp.setPackageName(((TypePointer) eObject).getType().getPackageName());
 		tp.setTypeName(values.get(index));
 
 		return tp;
@@ -82,11 +83,11 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 	}
 
 	protected boolean isEqual(int index) {
-		if (((TypeReference) eObject).getType() == null)
+		if (((TypePointer) eObject).getType() == null)
 			return false;
 
 		return values.get(index).equals(
-				((TypeReference) eObject).getType().getTypeName());
+				((TypePointer) eObject).getType().getTypeName());
 	}
 
 	protected String[] getEnumerationFeatureValues() {
@@ -102,10 +103,9 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 					.hasNext();) {
 				tura.Package p = i.next();
 				if ((p.getName() != null)
-						&& (((typedefinition.TypeReference) eObject).getType() != null)) {
+						&& (((TypePointer) eObject).getType() != null)) {
 					if (p.getName().equals(
-							((typedefinition.TypeReference) eObject).getType()
-									.getPackageName())) {
+							((TypePointer) eObject).getType().getPackageName())) {
 						for (Iterator<TypeElement> j = p.getTypes().iterator(); j
 								.hasNext();) {
 							TypeElement te = j.next();
@@ -120,4 +120,18 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 
 		return values.toArray(new String[values.size()]);
 	}
+
+	public void dispose() {
+		super.dispose();
+		if (getPart() != null) {
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
+					.getEditingDomain();
+
+			if (commandStackListener != null) {
+				editingDomain.getCommandStack().removeCommandStackListener(
+						commandStackListener);
+			}
+		}
+	}
+
 }

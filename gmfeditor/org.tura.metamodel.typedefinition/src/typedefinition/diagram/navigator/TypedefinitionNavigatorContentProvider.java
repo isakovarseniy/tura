@@ -249,115 +249,6 @@ public class TypedefinitionNavigatorContentProvider implements
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (TypedefinitionVisualIDRegistry.getVisualID(view)) {
 
-		case EnumaratorEditPart.VISUAL_ID: {
-			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					TypedefinitionVisualIDRegistry
-							.getType(EnumAttributeEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case TypeReferenceEditPart.VISUAL_ID: {
-			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			TypedefinitionNavigatorGroup incominglinks = new TypedefinitionNavigatorGroup(
-					Messages.NavigatorGroupName_TypeReference_2002_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			TypedefinitionNavigatorGroup outgoinglinks = new TypedefinitionNavigatorGroup(
-					Messages.NavigatorGroupName_TypeReference_2002_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(TypeExtensionEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(TypeExtensionEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case TypeExtensionEditPart.VISUAL_ID: {
-			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			TypedefinitionNavigatorGroup target = new TypedefinitionNavigatorGroup(
-					Messages.NavigatorGroupName_TypeExtension_4001_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			TypedefinitionNavigatorGroup source = new TypedefinitionNavigatorGroup(
-					Messages.NavigatorGroupName_TypeExtension_4001_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(TypeEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(TypeReferenceEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(TypeEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(TypeReferenceEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case OperationEditPart.VISUAL_ID: {
-			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(OperationOperationParametersCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					TypedefinitionVisualIDRegistry
-							.getType(Attribute2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					TypedefinitionVisualIDRegistry
-							.getType(OperationOperationReturnValueCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					TypedefinitionVisualIDRegistry
-							.getType(ReturnValueEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
 		case TypeEditPart.VISUAL_ID: {
 			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -405,6 +296,45 @@ public class TypedefinitionNavigatorContentProvider implements
 			return result.toArray();
 		}
 
+		case TypeExtensionEditPart.VISUAL_ID: {
+			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			TypedefinitionNavigatorGroup target = new TypedefinitionNavigatorGroup(
+					Messages.NavigatorGroupName_TypeExtension_4001_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			TypedefinitionNavigatorGroup source = new TypedefinitionNavigatorGroup(
+					Messages.NavigatorGroupName_TypeExtension_4001_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(TypeReferenceEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(TypeEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(TypeReferenceEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(TypeEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
 		case TypeDefinitionEditPart.VISUAL_ID: {
 			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
 			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
@@ -415,12 +345,12 @@ public class TypedefinitionNavigatorContentProvider implements
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					TypedefinitionVisualIDRegistry
-							.getType(TypeEditPart.VISUAL_ID));
+							.getType(TypeReferenceEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					TypedefinitionVisualIDRegistry
-							.getType(TypeReferenceEditPart.VISUAL_ID));
+							.getType(TypeEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
@@ -434,6 +364,76 @@ public class TypedefinitionNavigatorContentProvider implements
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			if (!links.isEmpty()) {
 				result.add(links);
+			}
+			return result.toArray();
+		}
+
+		case EnumaratorEditPart.VISUAL_ID: {
+			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					TypedefinitionVisualIDRegistry
+							.getType(EnumAttributeEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case OperationEditPart.VISUAL_ID: {
+			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(OperationOperationParametersCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					TypedefinitionVisualIDRegistry
+							.getType(Attribute2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(OperationOperationReturnValueCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					TypedefinitionVisualIDRegistry
+							.getType(ReturnValueEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case TypeReferenceEditPart.VISUAL_ID: {
+			LinkedList<TypedefinitionAbstractNavigatorItem> result = new LinkedList<TypedefinitionAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			TypedefinitionNavigatorGroup incominglinks = new TypedefinitionNavigatorGroup(
+					Messages.NavigatorGroupName_TypeReference_2004_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			TypedefinitionNavigatorGroup outgoinglinks = new TypedefinitionNavigatorGroup(
+					Messages.NavigatorGroupName_TypeReference_2004_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(TypeExtensionEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					TypedefinitionVisualIDRegistry
+							.getType(TypeExtensionEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
 			}
 			return result.toArray();
 		}

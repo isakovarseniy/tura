@@ -24,13 +24,12 @@ import typedefinition.TypedefinitionPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link typedefinition.impl.AttributeImpl#getName <em>Name</em>}</li>
- *   <li>{@link typedefinition.impl.AttributeImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AttributeImpl extends EObjectImpl implements Attribute
+public class AttributeImpl extends TypePointerImpl implements Attribute
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -51,26 +50,6 @@ public class AttributeImpl extends EObjectImpl implements Attribute
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected static final RefTypeImpl TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected RefTypeImpl type = TYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,29 +100,6 @@ public class AttributeImpl extends EObjectImpl implements Attribute
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefTypeImpl getType()
-  {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(RefTypeImpl newType)
-  {
-    RefTypeImpl oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.ATTRIBUTE__TYPE, oldType, type));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -151,8 +107,6 @@ public class AttributeImpl extends EObjectImpl implements Attribute
     {
       case TypedefinitionPackage.ATTRIBUTE__NAME:
         return getName();
-      case TypedefinitionPackage.ATTRIBUTE__TYPE:
-        return getType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -169,9 +123,6 @@ public class AttributeImpl extends EObjectImpl implements Attribute
     {
       case TypedefinitionPackage.ATTRIBUTE__NAME:
         setName((String)newValue);
-        return;
-      case TypedefinitionPackage.ATTRIBUTE__TYPE:
-        setType((RefTypeImpl)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -190,9 +141,6 @@ public class AttributeImpl extends EObjectImpl implements Attribute
       case TypedefinitionPackage.ATTRIBUTE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case TypedefinitionPackage.ATTRIBUTE__TYPE:
-        setType(TYPE_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -209,8 +157,6 @@ public class AttributeImpl extends EObjectImpl implements Attribute
     {
       case TypedefinitionPackage.ATTRIBUTE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case TypedefinitionPackage.ATTRIBUTE__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
     }
     return super.eIsSet(featureID);
   }
@@ -228,8 +174,6 @@ public class AttributeImpl extends EObjectImpl implements Attribute
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", type: ");
-    result.append(type);
     result.append(')');
     return result.toString();
   }

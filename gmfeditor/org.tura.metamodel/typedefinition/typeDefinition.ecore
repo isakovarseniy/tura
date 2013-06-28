@@ -27,12 +27,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="extension" lowerBound="1"
         eType="#//TypeExtension" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypeReference" eSuperTypes="#//TypeElement">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeReference" eSuperTypes="#//TypeElement #//TypePointer">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//reftype"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeExtension">
     <eAnnotations source="gmf.link">
@@ -45,12 +44,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//TypeElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TypeElement"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//TypePointer">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//reftype"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
     <eAnnotations source="gmf.node">
@@ -66,12 +64,11 @@
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ReturnValue">
+  <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" eSuperTypes="#//TypePointer">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnValue" eType="#//reftype"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enumarator">
     <eAnnotations source="gmf.node">
@@ -89,6 +86,9 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypePointer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//reftype"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="reftype" instanceClassName="org.tura.metamodel.commons.types.impl.RefTypeImpl"/>
 </ecore:EPackage>

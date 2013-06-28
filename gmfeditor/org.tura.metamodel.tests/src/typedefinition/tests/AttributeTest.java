@@ -15,16 +15,8 @@ import typedefinition.TypedefinitionFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AttributeTest extends TestCase
+public class AttributeTest extends TypePointerTest
 {
-
-  /**
-   * The fixture for this Attribute test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Attribute fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class AttributeTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Attribute test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(Attribute fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Attribute test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected Attribute getFixture()
   {
-    return fixture;
+    return (Attribute)fixture;
   }
 
   /**

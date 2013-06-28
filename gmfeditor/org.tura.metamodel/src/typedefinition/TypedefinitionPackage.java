@@ -179,22 +179,22 @@ public interface TypedefinitionPackage extends EPackage
   int TYPE_REFERENCE = 3;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_REFERENCE__NAME = TYPE_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE__TYPE = TYPE_ELEMENT_FEATURE_COUNT + 1;
+  int TYPE_REFERENCE__TYPE = TYPE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_REFERENCE__NAME = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Type Reference</em>' class.
@@ -253,33 +253,6 @@ public interface TypedefinitionPackage extends EPackage
   int ATTRIBUTE = 5;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ATTRIBUTE__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ATTRIBUTE__TYPE = 1;
-
-  /**
-   * The number of structural features of the '<em>Attribute</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ATTRIBUTE_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link typedefinition.impl.OperationImpl <em>Operation</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -288,6 +261,91 @@ public interface TypedefinitionPackage extends EPackage
    * @generated
    */
   int OPERATION = 6;
+
+  /**
+   * The meta object id for the '{@link typedefinition.impl.ReturnValueImpl <em>Return Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.ReturnValueImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getReturnValue()
+   * @generated
+   */
+  int RETURN_VALUE = 7;
+
+  /**
+   * The meta object id for the '{@link typedefinition.impl.EnumaratorImpl <em>Enumarator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.EnumaratorImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumarator()
+   * @generated
+   */
+  int ENUMARATOR = 8;
+
+  /**
+   * The meta object id for the '{@link typedefinition.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.EnumAttributeImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumAttribute()
+   * @generated
+   */
+  int ENUM_ATTRIBUTE = 9;
+
+  /**
+   * The meta object id for the '{@link typedefinition.impl.TypePointerImpl <em>Type Pointer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.TypePointerImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getTypePointer()
+   * @generated
+   */
+  int TYPE_POINTER = 10;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_POINTER__TYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Type Pointer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_POINTER_FEATURE_COUNT = 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__TYPE = TYPE_POINTER__TYPE;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__NAME = TYPE_POINTER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Attribute</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -326,14 +384,13 @@ public interface TypedefinitionPackage extends EPackage
   int OPERATION_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link typedefinition.impl.ReturnValueImpl <em>Return Value</em>}' class.
+   * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see typedefinition.impl.ReturnValueImpl
-   * @see typedefinition.impl.TypedefinitionPackageImpl#getReturnValue()
    * @generated
+   * @ordered
    */
-  int RETURN_VALUE = 7;
+  int RETURN_VALUE__TYPE = TYPE_POINTER__TYPE;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -342,16 +399,7 @@ public interface TypedefinitionPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RETURN_VALUE__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Return Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RETURN_VALUE__RETURN_VALUE = 1;
+  int RETURN_VALUE__NAME = TYPE_POINTER_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Return Value</em>' class.
@@ -360,17 +408,7 @@ public interface TypedefinitionPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RETURN_VALUE_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link typedefinition.impl.EnumaratorImpl <em>Enumarator</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see typedefinition.impl.EnumaratorImpl
-   * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumarator()
-   * @generated
-   */
-  int ENUMARATOR = 8;
+  int RETURN_VALUE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -398,16 +436,6 @@ public interface TypedefinitionPackage extends EPackage
    * @ordered
    */
   int ENUMARATOR_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link typedefinition.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see typedefinition.impl.EnumAttributeImpl
-   * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumAttribute()
-   * @generated
-   */
-  int ENUM_ATTRIBUTE = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -444,7 +472,7 @@ public interface TypedefinitionPackage extends EPackage
    * @see typedefinition.impl.TypedefinitionPackageImpl#getreftype()
    * @generated
    */
-  int REFTYPE = 10;
+  int REFTYPE = 11;
 
 
   /**
@@ -565,17 +593,6 @@ public interface TypedefinitionPackage extends EPackage
   EAttribute getTypeReference_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link typedefinition.TypeReference#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see typedefinition.TypeReference#getType()
-   * @see #getTypeReference()
-   * @generated
-   */
-  EAttribute getTypeReference_Type();
-
-  /**
    * Returns the meta object for class '{@link typedefinition.TypeExtension <em>Type Extension</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -627,17 +644,6 @@ public interface TypedefinitionPackage extends EPackage
    * @generated
    */
   EAttribute getAttribute_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link typedefinition.Attribute#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see typedefinition.Attribute#getType()
-   * @see #getAttribute()
-   * @generated
-   */
-  EAttribute getAttribute_Type();
 
   /**
    * Returns the meta object for class '{@link typedefinition.Operation <em>Operation</em>}'.
@@ -704,17 +710,6 @@ public interface TypedefinitionPackage extends EPackage
   EAttribute getReturnValue_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link typedefinition.ReturnValue#getReturnValue <em>Return Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Return Value</em>'.
-   * @see typedefinition.ReturnValue#getReturnValue()
-   * @see #getReturnValue()
-   * @generated
-   */
-  EAttribute getReturnValue_ReturnValue();
-
-  /**
    * Returns the meta object for class '{@link typedefinition.Enumarator <em>Enumarator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -777,6 +772,27 @@ public interface TypedefinitionPackage extends EPackage
    * @generated
    */
   EAttribute getEnumAttribute_Value();
+
+  /**
+   * Returns the meta object for class '{@link typedefinition.TypePointer <em>Type Pointer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Pointer</em>'.
+   * @see typedefinition.TypePointer
+   * @generated
+   */
+  EClass getTypePointer();
+
+  /**
+   * Returns the meta object for the attribute '{@link typedefinition.TypePointer#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see typedefinition.TypePointer#getType()
+   * @see #getTypePointer()
+   * @generated
+   */
+  EAttribute getTypePointer_Type();
 
   /**
    * Returns the meta object for data type '{@link org.tura.metamodel.commons.types.impl.RefTypeImpl <em>reftype</em>}'.
@@ -909,14 +925,6 @@ public interface TypedefinitionPackage extends EPackage
     EAttribute TYPE_REFERENCE__NAME = eINSTANCE.getTypeReference_Name();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_REFERENCE__TYPE = eINSTANCE.getTypeReference_Type();
-
-    /**
      * The meta object literal for the '{@link typedefinition.impl.TypeExtensionImpl <em>Type Extension</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -959,14 +967,6 @@ public interface TypedefinitionPackage extends EPackage
      * @generated
      */
     EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
 
     /**
      * The meta object literal for the '{@link typedefinition.impl.OperationImpl <em>Operation</em>}' class.
@@ -1021,14 +1021,6 @@ public interface TypedefinitionPackage extends EPackage
     EAttribute RETURN_VALUE__NAME = eINSTANCE.getReturnValue_Name();
 
     /**
-     * The meta object literal for the '<em><b>Return Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute RETURN_VALUE__RETURN_VALUE = eINSTANCE.getReturnValue_ReturnValue();
-
-    /**
      * The meta object literal for the '{@link typedefinition.impl.EnumaratorImpl <em>Enumarator</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1079,6 +1071,24 @@ public interface TypedefinitionPackage extends EPackage
      * @generated
      */
     EAttribute ENUM_ATTRIBUTE__VALUE = eINSTANCE.getEnumAttribute_Value();
+
+    /**
+     * The meta object literal for the '{@link typedefinition.impl.TypePointerImpl <em>Type Pointer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see typedefinition.impl.TypePointerImpl
+     * @see typedefinition.impl.TypedefinitionPackageImpl#getTypePointer()
+     * @generated
+     */
+    EClass TYPE_POINTER = eINSTANCE.getTypePointer();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_POINTER__TYPE = eINSTANCE.getTypePointer_Type();
 
     /**
      * The meta object literal for the '<em>reftype</em>' data type.

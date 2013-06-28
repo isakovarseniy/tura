@@ -11,8 +11,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
 import java.util.Set;
+
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -118,8 +118,8 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = TypedefinitionVisualIDRegistry.getVisualID(view);
-		return visualID == TypeEditPart.VISUAL_ID
-				|| visualID == TypeReferenceEditPart.VISUAL_ID
+		return visualID == TypeReferenceEditPart.VISUAL_ID
+				|| visualID == TypeEditPart.VISUAL_ID
 				|| visualID == EnumaratorEditPart.VISUAL_ID;
 	}
 
@@ -292,18 +292,18 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case TypeEditPart.VISUAL_ID: {
+		case TypeReferenceEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getType_2001ContainedLinks(view));
+						.getTypeReference_2004ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case TypeReferenceEditPart.VISUAL_ID: {
+		case TypeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getTypeReference_2002ContainedLinks(view));
+						.getType_2001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

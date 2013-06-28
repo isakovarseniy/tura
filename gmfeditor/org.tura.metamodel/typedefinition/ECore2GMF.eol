@@ -45,3 +45,5 @@ var preferredSize = new GmfGraph!Dimension;
 preferredSize.dx = 100;
 preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
+
+

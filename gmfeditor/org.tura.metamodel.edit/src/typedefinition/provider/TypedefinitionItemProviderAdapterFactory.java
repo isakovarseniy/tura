@@ -324,6 +324,31 @@ public class TypedefinitionItemProviderAdapterFactory extends TypedefinitionAdap
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link typedefinition.TypePointer} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TypePointerItemProvider typePointerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link typedefinition.TypePointer}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTypePointerAdapter()
+  {
+    if (typePointerItemProvider == null)
+    {
+      typePointerItemProvider = new TypePointerItemProvider(this);
+    }
+
+    return typePointerItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -444,6 +469,7 @@ public class TypedefinitionItemProviderAdapterFactory extends TypedefinitionAdap
     if (returnValueItemProvider != null) returnValueItemProvider.dispose();
     if (enumaratorItemProvider != null) enumaratorItemProvider.dispose();
     if (enumAttributeItemProvider != null) enumAttributeItemProvider.dispose();
+    if (typePointerItemProvider != null) typePointerItemProvider.dispose();
   }
 
 }
