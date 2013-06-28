@@ -240,28 +240,6 @@ public class TuraNavigatorContentProvider implements ICommonContentProvider {
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (TuraVisualIDRegistry.getVisualID(view)) {
 
-		case TuraMetamodelEditPart.VISUAL_ID: {
-			LinkedList<TuraAbstractNavigatorItem> result = new LinkedList<TuraAbstractNavigatorItem>();
-			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
-			Diagram sv = (Diagram) view;
-			TuraNavigatorGroup links = new TuraNavigatorGroup(
-					Messages.NavigatorGroupName_TuraMetamodel_1000_links,
-					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					TuraVisualIDRegistry.getType(TypesEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					TuraVisualIDRegistry
-							.getType(TypeExtensionEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			if (!links.isEmpty()) {
-				result.add(links);
-			}
-			return result.toArray();
-		}
-
 		case TypesEditPart.VISUAL_ID: {
 			LinkedList<TuraAbstractNavigatorItem> result = new LinkedList<TuraAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -282,6 +260,28 @@ public class TuraNavigatorContentProvider implements ICommonContentProvider {
 					TuraVisualIDRegistry.getType(PrimitiveEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			return result.toArray();
+		}
+
+		case TuraMetamodelEditPart.VISUAL_ID: {
+			LinkedList<TuraAbstractNavigatorItem> result = new LinkedList<TuraAbstractNavigatorItem>();
+			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
+			Diagram sv = (Diagram) view;
+			TuraNavigatorGroup links = new TuraNavigatorGroup(
+					Messages.NavigatorGroupName_TuraMetamodel_1000_links,
+					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					TuraVisualIDRegistry.getType(TypesEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					TuraVisualIDRegistry
+							.getType(TypeExtensionEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			if (!links.isEmpty()) {
+				result.add(links);
+			}
 			return result.toArray();
 		}
 		}

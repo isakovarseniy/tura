@@ -149,10 +149,10 @@ public class TypedefinitionPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Type6CreationTool_title,
 				Messages.Type6CreationTool_desc,
-				Collections.singletonList(TypedefinitionElementTypes.Type_2001));
+				Collections.singletonList(TypedefinitionElementTypes.Type_2002));
 		entry.setId("createType6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypedefinitionElementTypes
-				.getImageDescriptor(TypedefinitionElementTypes.Type_2001));
+				.getImageDescriptor(TypedefinitionElementTypes.Type_2002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -165,10 +165,10 @@ public class TypedefinitionPaletteFactory {
 				Messages.TypeReference7CreationTool_title,
 				Messages.TypeReference7CreationTool_desc,
 				Collections
-						.singletonList(TypedefinitionElementTypes.TypeReference_2004));
+						.singletonList(TypedefinitionElementTypes.TypeReference_2001));
 		entry.setId("createTypeReference7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypedefinitionElementTypes
-				.getImageDescriptor(TypedefinitionElementTypes.TypeReference_2004));
+				.getImageDescriptor(TypedefinitionElementTypes.TypeReference_2001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

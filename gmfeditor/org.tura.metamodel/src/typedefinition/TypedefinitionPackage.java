@@ -243,56 +243,6 @@ public interface TypedefinitionPackage extends EPackage
   int TYPE_EXTENSION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link typedefinition.impl.AttributeImpl <em>Attribute</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see typedefinition.impl.AttributeImpl
-   * @see typedefinition.impl.TypedefinitionPackageImpl#getAttribute()
-   * @generated
-   */
-  int ATTRIBUTE = 5;
-
-  /**
-   * The meta object id for the '{@link typedefinition.impl.OperationImpl <em>Operation</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see typedefinition.impl.OperationImpl
-   * @see typedefinition.impl.TypedefinitionPackageImpl#getOperation()
-   * @generated
-   */
-  int OPERATION = 6;
-
-  /**
-   * The meta object id for the '{@link typedefinition.impl.ReturnValueImpl <em>Return Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see typedefinition.impl.ReturnValueImpl
-   * @see typedefinition.impl.TypedefinitionPackageImpl#getReturnValue()
-   * @generated
-   */
-  int RETURN_VALUE = 7;
-
-  /**
-   * The meta object id for the '{@link typedefinition.impl.EnumaratorImpl <em>Enumarator</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see typedefinition.impl.EnumaratorImpl
-   * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumarator()
-   * @generated
-   */
-  int ENUMARATOR = 8;
-
-  /**
-   * The meta object id for the '{@link typedefinition.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see typedefinition.impl.EnumAttributeImpl
-   * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumAttribute()
-   * @generated
-   */
-  int ENUM_ATTRIBUTE = 9;
-
-  /**
    * The meta object id for the '{@link typedefinition.impl.TypePointerImpl <em>Type Pointer</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -321,6 +271,16 @@ public interface TypedefinitionPackage extends EPackage
   int TYPE_POINTER_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link typedefinition.impl.AttributeImpl <em>Attribute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.AttributeImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getAttribute()
+   * @generated
+   */
+  int ATTRIBUTE = 5;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -346,6 +306,16 @@ public interface TypedefinitionPackage extends EPackage
    * @ordered
    */
   int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link typedefinition.impl.OperationImpl <em>Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.OperationImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getOperation()
+   * @generated
+   */
+  int OPERATION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -384,6 +354,16 @@ public interface TypedefinitionPackage extends EPackage
   int OPERATION_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link typedefinition.impl.ReturnValueImpl <em>Return Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.ReturnValueImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getReturnValue()
+   * @generated
+   */
+  int RETURN_VALUE = 7;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -411,6 +391,16 @@ public interface TypedefinitionPackage extends EPackage
   int RETURN_VALUE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link typedefinition.impl.EnumaratorImpl <em>Enumarator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.EnumaratorImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumarator()
+   * @generated
+   */
+  int ENUMARATOR = 8;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -436,6 +426,16 @@ public interface TypedefinitionPackage extends EPackage
    * @ordered
    */
   int ENUMARATOR_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link typedefinition.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typedefinition.impl.EnumAttributeImpl
+   * @see typedefinition.impl.TypedefinitionPackageImpl#getEnumAttribute()
+   * @generated
+   */
+  int ENUM_ATTRIBUTE = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.

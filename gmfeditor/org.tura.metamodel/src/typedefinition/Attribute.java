@@ -2,9 +2,6 @@
  */
 package typedefinition;
 
-import org.eclipse.emf.ecore.EObject;
-
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 /**
  * <!-- begin-user-doc -->

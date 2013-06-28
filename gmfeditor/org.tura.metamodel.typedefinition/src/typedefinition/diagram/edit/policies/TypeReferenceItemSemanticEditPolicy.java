@@ -32,7 +32,7 @@ public class TypeReferenceItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TypeReferenceItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.TypeReference_2004);
+		super(TypedefinitionElementTypes.TypeReference_2001);
 	}
 
 	/**

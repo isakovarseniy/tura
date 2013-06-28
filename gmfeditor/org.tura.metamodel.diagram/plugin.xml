@@ -7,13 +7,13 @@
 
    <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>
-      <fileTypes type="text" extension="typedefinition_diagram"/>
+      <fileTypes type="text" extension="tura_diagram"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
       <?gmfgen generated="true"?>
       <parser
-         type="typedefinition_diagram"
+         type="tura_diagram"
          class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
       </parser>
    </extension>
@@ -21,14 +21,14 @@
    <extension point="org.eclipse.ui.editors" id="gmf-editor">
       <?gmfgen generated="true"?>
       <editor
-         id="typedefinition.diagram.part.TypedefinitionDiagramEditorID"
+         id="tura.diagram.part.TuraDiagramEditorID"
          name="%editorName"
-         icon="icons/obj16/TypedefinitionDiagramFile.gif"
-         extensions="typedefinition_diagram"
+         icon="icons/obj16/TuraDiagramFile.gif"
+         extensions="tura_diagram"
          default="true"
-         class="typedefinition.diagram.part.TypedefinitionDiagramEditor"
-         matchingStrategy="typedefinition.diagram.part.TypedefinitionMatchingStrategy"
-         contributorClass="typedefinition.diagram.part.TypedefinitionDiagramActionBarContributor">
+         class="tura.diagram.part.TuraDiagramEditor"
+         matchingStrategy="tura.diagram.part.TuraMatchingStrategy"
+         contributorClass="tura.diagram.part.TuraDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -36,7 +36,7 @@
       <?gmfgen generated="true"?>
       <context
          description="%context.description"
-         id="typedefinition.diagram.ui.diagramContext"
+         id="tura.diagram.ui.diagramContext"
          name="%context.name"
          parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
       </context>
@@ -46,10 +46,10 @@
       <?gmfgen generated="true"?>
   	  <wizard
   	     name="%newWizardName"
-  	     icon="icons/obj16/TypedefinitionDiagramFile.gif"
+  	     icon="icons/obj16/TuraDiagramFile.gif"
   	     category="org.eclipse.ui.Examples"
-  	     class="typedefinition.diagram.part.TypedefinitionCreationWizard"
-  	     id="typedefinition.diagram.part.TypedefinitionCreationWizardID">
+  	     class="tura.diagram.part.TuraCreationWizard"
+  	     id="tura.diagram.part.TuraCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
@@ -58,11 +58,11 @@
       <?gmfgen generated="true"?>
       <objectContribution
             id="org.tura.metamodel.diagram.InitDiagram"
-            nameFilter="*.typedefinition"
+            nameFilter="*.tura"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="typedefinition.diagram.part.TypedefinitionInitDiagramFileAction"
+               class="tura.diagram.part.TuraInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="org.tura.metamodel.diagram.InitDiagramAction">
@@ -74,9 +74,9 @@
       <?gmfgen generated="true"?>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
-         id="TypedefinitionPresentation">
+         id="TuraPresentation">
          <Priority name="Lowest"/>
-         <ViewId id="typedefinition.diagram.part.TypedefinitionDiagramEditorID">
+         <ViewId id="tura.diagram.part.TuraDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="delete"/>
             </ElementType>
@@ -90,10 +90,20 @@
          </ViewId>
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
-         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
-         id="TypedefinitionPresentationIDE">
+         class="org.eclipse.gmf.runtime.diagram.ui.printing.render.providers.DiagramWithPrintGlobalActionHandlerProvider"
+         id="TuraPresentationPrint">
          <Priority name="Lowest"/>
-         <ViewId id="typedefinition.diagram.part.TypedefinitionDiagramEditorID">
+         <ViewId id="tura.diagram.part.TuraDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="print"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="TuraPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="tura.diagram.part.TuraDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="bookmark"/>
             </ElementType>
@@ -101,9 +111,9 @@
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
             class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
-            id="TypedefinitionRender">
+            id="TuraRender">
          <Priority name="Lowest"/>
-         <ViewId id="typedefinition.diagram.part.TypedefinitionDiagramEditorID">
+         <ViewId id="tura.diagram.part.TuraDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="cut"/>
                <GlobalActionId actionId="copy"/>
@@ -114,13 +124,33 @@
    </extension>
 
 
-   
-      
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="tura.diagram.providers.TuraMarkerNavigationProvider">
+         <MarkerType name="org.tura.metamodel.diagram.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
 
-   
+   <extension id="diagnostic" name="Tura Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>   
+
+   <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="tura.diagram.providers.TuraValidationDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
    <extension point="org.eclipse.core.runtime.preferences" id="prefs">
       <?gmfgen generated="true"?>
-      <initializer class="typedefinition.diagram.preferences.DiagramPreferenceInitializer"/>
+      <initializer class="tura.diagram.preferences.DiagramPreferenceInitializer"/>
    </extension>
 
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
@@ -128,31 +158,31 @@
       <page
             id="org.tura.metamodel.diagram.general"
             name="%prefpage.org.tura.metamodel.diagram.general"
-            class="typedefinition.diagram.preferences.DiagramGeneralPreferencePage">
+            class="tura.diagram.preferences.DiagramGeneralPreferencePage">
       </page>
       <page
             id="org.tura.metamodel.diagram.appearance"
             name="%prefpage.org.tura.metamodel.diagram.appearance"
             category="org.tura.metamodel.diagram.general"
-            class="typedefinition.diagram.preferences.DiagramAppearancePreferencePage">
+            class="tura.diagram.preferences.DiagramAppearancePreferencePage">
       </page>
       <page
             id="org.tura.metamodel.diagram.connections"
             name="%prefpage.org.tura.metamodel.diagram.connections"
             category="org.tura.metamodel.diagram.general"
-            class="typedefinition.diagram.preferences.DiagramConnectionsPreferencePage">
+            class="tura.diagram.preferences.DiagramConnectionsPreferencePage">
       </page>
       <page
             id="org.tura.metamodel.diagram.printing"
             name="%prefpage.org.tura.metamodel.diagram.printing"
             category="org.tura.metamodel.diagram.general"
-            class="typedefinition.diagram.preferences.DiagramPrintingPreferencePage">
+            class="tura.diagram.preferences.DiagramPrintingPreferencePage">
       </page>
       <page
             id="org.tura.metamodel.diagram.rulersAndGrid"
             name="%prefpage.org.tura.metamodel.diagram.rulersAndGrid"
             category="org.tura.metamodel.diagram.general"
-            class="typedefinition.diagram.preferences.DiagramRulersAndGridPreferencePage">
+            class="tura.diagram.preferences.DiagramRulersAndGridPreferencePage">
       </page>
    </extension>
 
@@ -160,7 +190,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="org.tura.metamodel.diagram"
-            labelProvider="typedefinition.diagram.sheet.TypedefinitionSheetLabelProvider">
+            labelProvider="tura.diagram.sheet.TuraSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -211,42 +241,46 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="typedefinition.diagram.sheet.TypedefinitionPropertySection">
+            class="tura.diagram.sheet.TuraPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="typedefinition.diagram.navigator.TypedefinitionAbstractNavigatorItem"/>
+            <input type="tura.diagram.navigator.TuraAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="typedefinition.diagram.providers.TypedefinitionViewProvider">
+      <viewProvider class="tura.diagram.providers.TuraViewProvider">
          <Priority name="Lowest"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Typedefinition"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2004,2001,2003,3001,3002,3003,3004,3005"/>
+         <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
+            <method name="getType()" value="tura"/>
+         </object>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Tura"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
       </viewProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="typedefinition.diagram.providers.TypedefinitionEditPartProvider">
+      <editpartProvider class="tura.diagram.providers.TuraEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
-            <method name="getType()" value="Typedefinition"/>
+            <method name="getType()" value="Tura"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2004,2001,2003,3001,3002,3003,3004,3005"/>
+            <method name="getType()" value="2001,3001,3002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5009,5005,5007,5001,5004,5002,5003,5008"/>
+            <method name="getType()" value="5003,5001,5002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7002,7003,7004,7005"/>
+            <method name="getType()" value="7001,7002"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -254,125 +288,81 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="typedefinition.diagram.providers.TypedefinitionModelingAssistantProvider">
+      <modelingAssistantProvider class="tura.diagram.providers.TuraModelingAssistantProvider">
          <Priority name="Lowest"/>
-         <object class="typedefinition.diagram.edit.parts.TypeDefinitionEditPart" id="TypeDefinition_1000"/>
-         <object class="typedefinition.diagram.edit.parts.TypeReferenceEditPart" id="TypeReference_2004"/>
-         <object class="typedefinition.diagram.edit.parts.TypeEditPart" id="Type_2001"/>
-         <object class="typedefinition.diagram.edit.parts.EnumaratorEditPart" id="Enumarator_2003"/>
-         <object class="typedefinition.diagram.edit.parts.AttributeEditPart" id="Attribute_3001"/>
-         <object class="typedefinition.diagram.edit.parts.OperationEditPart" id="Operation_3002"/>
-         <object class="typedefinition.diagram.edit.parts.Attribute2EditPart" id="Attribute_3003"/>
-         <object class="typedefinition.diagram.edit.parts.ReturnValueEditPart" id="ReturnValue_3004"/>
-         <object class="typedefinition.diagram.edit.parts.EnumAttributeEditPart" id="EnumAttribute_3005"/>
-         <context elements="TypeDefinition_1000,TypeReference_2004,Type_2001,Enumarator_2003,Attribute_3001,Operation_3002,Attribute_3003,ReturnValue_3004,EnumAttribute_3005"/>
+         <object class="tura.diagram.edit.parts.TuraMetamodelEditPart" id="TuraMetamodel_1000"/>
+         <object class="tura.diagram.edit.parts.TypesEditPart" id="Types_2001"/>
+         <object class="tura.diagram.edit.parts.PackageEditPart" id="Package_3001"/>
+         <object class="tura.diagram.edit.parts.PrimitiveEditPart" id="Primitive_3002"/>
+         <context elements="TuraMetamodel_1000,Types_2001,Package_3001,Primitive_3002"/>
       </modelingAssistantProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="typedefinition.diagram.providers.TypedefinitionIconProvider">
+      <IconProvider class="tura.diagram.providers.TuraIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="typedefinition.diagram.providers.TypedefinitionParserProvider">
+      <ParserProvider class="tura.diagram.providers.TuraParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
 
-   
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="tura.diagram.providers.TuraShortcutsDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
+            <method name="getType()" value="2001"/>
+         </object>
+         <context decoratorTargets="generated-top-nodes"/>
+      </decoratorProvider>
+   </extension>
+
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/tura">
          <metamodelType
-               id="org.tura.metamodel.diagram.TypeDefinition_1000"
-               name="%metatype.name.TypeDefinition_1000"
+               id="org.tura.metamodel.diagram.TuraMetamodel_1000"
+               name="%metatype.name.TuraMetamodel_1000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TypeDefinition"
-               edithelper="typedefinition.diagram.edit.helpers.TypeDefinitionEditHelper">
+               eclass="TuraMetamodel"
+               edithelper="tura.diagram.edit.helpers.TuraMetamodelEditHelper">
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/tura">
          <metamodelType
-               id="org.tura.metamodel.diagram.TypeReference_2004"
-               name="%metatype.name.TypeReference_2004"
+               id="org.tura.metamodel.diagram.Types_2001"
+               name="%metatype.name.Types_2001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TypeReference"
-               edithelper="typedefinition.diagram.edit.helpers.TypeReferenceEditHelper">
-            <param name="semanticHint" value="2004"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
-         <metamodelType
-               id="org.tura.metamodel.diagram.Type_2001"
-               name="%metatype.name.Type_2001"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Type"
-               edithelper="typedefinition.diagram.edit.helpers.TypeEditHelper">
+               eclass="Types"
+               edithelper="tura.diagram.edit.helpers.TypesEditHelper">
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/tura">
          <metamodelType
-               id="org.tura.metamodel.diagram.Enumarator_2003"
-               name="%metatype.name.Enumarator_2003"
+               id="org.tura.metamodel.diagram.Package_3001"
+               name="%metatype.name.Package_3001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Enumarator"
-               edithelper="typedefinition.diagram.edit.helpers.EnumaratorEditHelper">
-            <param name="semanticHint" value="2003"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
-         <metamodelType
-               id="org.tura.metamodel.diagram.Attribute_3001"
-               name="%metatype.name.Attribute_3001"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Attribute"
-               edithelper="typedefinition.diagram.edit.helpers.AttributeEditHelper">
+               eclass="Package"
+               edithelper="tura.diagram.edit.helpers.PackageEditHelper">
             <param name="semanticHint" value="3001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/tura">
          <metamodelType
-               id="org.tura.metamodel.diagram.Operation_3002"
-               name="%metatype.name.Operation_3002"
+               id="org.tura.metamodel.diagram.Primitive_3002"
+               name="%metatype.name.Primitive_3002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Operation"
-               edithelper="typedefinition.diagram.edit.helpers.OperationEditHelper">
+               eclass="Primitive"
+               edithelper="tura.diagram.edit.helpers.PrimitiveEditHelper">
             <param name="semanticHint" value="3002"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
-         <specializationType
-               id="org.tura.metamodel.diagram.Attribute_3003"
-               name="%metatype.name.Attribute_3003"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.tura.metamodel.diagram.Attribute_3001"/>
-            <param name="semanticHint" value="3003"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
-         <metamodelType
-               id="org.tura.metamodel.diagram.ReturnValue_3004"
-               name="%metatype.name.ReturnValue_3004"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ReturnValue"
-               edithelper="typedefinition.diagram.edit.helpers.ReturnValueEditHelper">
-            <param name="semanticHint" value="3004"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
-         <metamodelType
-               id="org.tura.metamodel.diagram.EnumAttribute_3005"
-               name="%metatype.name.EnumAttribute_3005"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="EnumAttribute"
-               edithelper="typedefinition.diagram.edit.helpers.EnumAttributeEditHelper">
-            <param name="semanticHint" value="3005"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
@@ -381,7 +371,7 @@
                name="%metatype.name.TypeExtension_4001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TypeExtension"
-               edithelper="typedefinition.diagram.edit.helpers.TypeExtensionEditHelper">
+               edithelper="tura.diagram.edit.helpers.TypeExtensionEditHelper">
             <param name="semanticHint" value="4001"/>
          </metamodelType>
       </metamodel>
@@ -397,15 +387,10 @@
          </enablement>
       </clientContext> 
       <binding context="org.tura.metamodel.diagram.TypeContext">
-         <elementType ref="org.tura.metamodel.diagram.TypeDefinition_1000"/>
-         <elementType ref="org.tura.metamodel.diagram.TypeReference_2004"/>
-         <elementType ref="org.tura.metamodel.diagram.Type_2001"/>
-         <elementType ref="org.tura.metamodel.diagram.Enumarator_2003"/>
-         <elementType ref="org.tura.metamodel.diagram.Attribute_3001"/>
-         <elementType ref="org.tura.metamodel.diagram.Operation_3002"/>
-         <elementType ref="org.tura.metamodel.diagram.Attribute_3003"/>
-         <elementType ref="org.tura.metamodel.diagram.ReturnValue_3004"/>
-         <elementType ref="org.tura.metamodel.diagram.EnumAttribute_3005"/>
+         <elementType ref="org.tura.metamodel.diagram.TuraMetamodel_1000"/>
+         <elementType ref="org.tura.metamodel.diagram.Types_2001"/>
+         <elementType ref="org.tura.metamodel.diagram.Package_3001"/>
+         <elementType ref="org.tura.metamodel.diagram.Primitive_3002"/>
          <elementType ref="org.tura.metamodel.diagram.TypeExtension_4001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
@@ -417,11 +402,21 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="org.tura.metamodel.diagram"
            properties="isURIEditorInput"
-           class="typedefinition.diagram.part.TypedefinitionUriEditorInputTester">
+           class="tura.diagram.part.TuraUriEditorInputTester">
        </propertyTester>
    </extension>
 
-	   
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isShortcut">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="org.tura.metamodel.diagram.ShortcutPropertyTester"
+           type="org.eclipse.gmf.runtime.notation.View"
+           namespace="org.tura.metamodel.diagram"
+           properties="isShortcut"
+           class="tura.diagram.part.TuraShortcutPropertyTester">
+       </propertyTester>
+   </extension>
+
 	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
       <?gmfgen generated="true"?>
       <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
@@ -444,34 +439,40 @@
             id="org.tura.metamodel.diagram.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="typedefinition.diagram.navigator.TypedefinitionNavigatorContentProvider" 
-            labelProvider="typedefinition.diagram.navigator.TypedefinitionNavigatorLabelProvider"
-            icon="icons/obj16/TypedefinitionDiagramFile.gif"
+            contentProvider="tura.diagram.navigator.TuraNavigatorContentProvider" 
+            labelProvider="tura.diagram.navigator.TuraNavigatorLabelProvider"
+            icon="icons/obj16/TuraDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="typedefinition_diagram"/>
+        	      <test property="org.eclipse.core.resources.extension" value="tura_diagram"/>
                </and>
-               <instanceof value="typedefinition.diagram.navigator.TypedefinitionAbstractNavigatorItem"/>
+               <instanceof value="tura.diagram.navigator.TuraAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="org.tura.metamodel.diagram.isShortcut"/>
+           	   </adapt>
             </or>
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="typedefinition.diagram.navigator.TypedefinitionAbstractNavigatorItem"/>
+         	   <instanceof value="tura.diagram.navigator.TuraAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="org.tura.metamodel.diagram.isShortcut"/>
+           	   </adapt>
             </or>
          </possibleChildren>
          <commonSorter 
                id="org.tura.metamodel.diagram.navigatorSorter" 
-               class="typedefinition.diagram.navigator.TypedefinitionNavigatorSorter">
+               class="tura.diagram.navigator.TuraNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="typedefinition_diagram"/>
+        	         <test property="org.eclipse.core.resources.extension" value="tura_diagram"/>
                   </and>
-                  <instanceof value="typedefinition.diagram.navigator.TypedefinitionAbstractNavigatorItem"/>
+                  <instanceof value="tura.diagram.navigator.TuraAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -480,29 +481,32 @@
             id="org.tura.metamodel.diagram.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="typedefinition.diagram.navigator.TypedefinitionDomainNavigatorContentProvider" 
-            labelProvider="typedefinition.diagram.navigator.TypedefinitionDomainNavigatorLabelProvider"
-            icon="icons/obj16/TypedefinitionDiagramFile.gif"
+            contentProvider="tura.diagram.navigator.TuraDomainNavigatorContentProvider" 
+            labelProvider="tura.diagram.navigator.TuraDomainNavigatorLabelProvider"
+            icon="icons/obj16/TuraDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="typedefinition"/>
+        	      <test property="org.eclipse.core.resources.extension" value="tura"/>
                </and>
-               <instanceof value="typedefinition.diagram.navigator.TypedefinitionDomainNavigatorItem"/>
+               <instanceof value="tura.diagram.navigator.TuraDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="typedefinition.diagram.navigator.TypedefinitionDomainNavigatorItem"/>
+            <instanceof value="tura.diagram.navigator.TuraDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="org.tura.metamodel.diagram.navigatorActionProvider"
-            class="typedefinition.diagram.navigator.TypedefinitionNavigatorActionProvider">
+            class="tura.diagram.navigator.TuraNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="typedefinition.diagram.navigator.TypedefinitionAbstractNavigatorItem"/>
+               <instanceof value="tura.diagram.navigator.TuraAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="org.tura.metamodel.diagram.isShortcut"/>
+           	   </adapt>
             </or>
          </enablement>
       </actionProvider>
@@ -512,7 +516,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="org.tura.metamodel.diagram.navigatorLinkHelper"
-            class="typedefinition.diagram.navigator.TypedefinitionNavigatorLinkHelper">
+            class="tura.diagram.navigator.TuraNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -520,7 +524,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="typedefinition.diagram.navigator.TypedefinitionAbstractNavigatorItem"/>
+            <instanceof value="tura.diagram.navigator.TuraAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -528,17 +532,17 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="typedefinition.diagram.part.TypedefinitionDiagramUpdateCommand"
+         defaultHandler="tura.diagram.part.TuraDiagramUpdateCommand"
          description="%update.diagram.description"
-         id="typedefinition.diagram.updateDiagram"
+         id="tura.diagram.updateDiagram"
          name="%update.diagram.name"/>
    </extension>
    
    <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
       <?gmfgen generated="true"?>
       <key 
-         commandId="typedefinition.diagram.updateDiagram"
-         contextId="typedefinition.diagram.ui.diagramContext"
+         commandId="tura.diagram.updateDiagram"
+         contextId="tura.diagram.ui.diagramContext"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="F5"/>
    </extension>
@@ -553,9 +557,9 @@
          <command commandId="org.tura.metamodel.diagram.LoadResourceAction">
             <visibleWhen>
                <and>
-                  <with variable="activePartId"><equals value="typedefinition.diagram.part.TypedefinitionDiagramEditorID"/></with>
+                  <with variable="activePartId"><equals value="tura.diagram.part.TuraDiagramEditorID"/></with>
                   <with variable="selection"><iterate ifEmpty="false"> 
-                     <instanceof value="typedefinition.diagram.edit.parts.TypeDefinitionEditPart"/>
+                     <instanceof value="tura.diagram.edit.parts.TuraMetamodelEditPart"/>
                   </iterate></with>
                </and>
             </visibleWhen>
@@ -565,11 +569,11 @@
 
    <extension point="org.eclipse.ui.commands" id="menu-commands">
       <?gmfgen generated="true"?>
-      <category id="typedefinition.diagram.part.TypedefinitionDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <category id="tura.diagram.part.TuraDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
       <command id="org.tura.metamodel.diagram.LoadResourceAction"
          name="Load Resource"
-         categoryId="typedefinition.diagram.part.TypedefinitionDiagramEditorID"
-         defaultHandler="typedefinition.diagram.part.LoadResourceAction"/>
+         categoryId="tura.diagram.part.TuraDiagramEditorID"
+         defaultHandler="tura.diagram.part.LoadResourceAction"/>
    </extension>
 
    <extension point="org.eclipse.ui.handlers" id="menu-handlers">

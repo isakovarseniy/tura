@@ -45,7 +45,7 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2004;
+	public static final int VISUAL_ID = 2001;
 
 	/**
 	 * @generated
@@ -290,8 +290,8 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == TypedefinitionElementTypes.TypeExtension_4001) {
-			types.add(TypedefinitionElementTypes.TypeReference_2004);
-			types.add(TypedefinitionElementTypes.Type_2001);
+			types.add(TypedefinitionElementTypes.TypeReference_2001);
+			types.add(TypedefinitionElementTypes.Type_2002);
 		}
 		return types;
 	}
@@ -311,8 +311,8 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == TypedefinitionElementTypes.TypeExtension_4001) {
-			types.add(TypedefinitionElementTypes.TypeReference_2004);
-			types.add(TypedefinitionElementTypes.Type_2001);
+			types.add(TypedefinitionElementTypes.TypeReference_2001);
+			types.add(TypedefinitionElementTypes.Type_2002);
 		}
 		return types;
 	}

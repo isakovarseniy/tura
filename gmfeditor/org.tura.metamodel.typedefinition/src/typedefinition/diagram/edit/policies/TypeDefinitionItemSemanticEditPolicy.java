@@ -32,11 +32,11 @@ public class TypeDefinitionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypedefinitionElementTypes.TypeReference_2004 == req
+		if (TypedefinitionElementTypes.TypeReference_2001 == req
 				.getElementType()) {
 			return getGEFWrapper(new TypeReferenceCreateCommand(req));
 		}
-		if (TypedefinitionElementTypes.Type_2001 == req.getElementType()) {
+		if (TypedefinitionElementTypes.Type_2002 == req.getElementType()) {
 			return getGEFWrapper(new TypeCreateCommand(req));
 		}
 		if (TypedefinitionElementTypes.Enumarator_2003 == req.getElementType()) {

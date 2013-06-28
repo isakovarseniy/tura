@@ -19,7 +19,7 @@ public class TypeTypeAttributesCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TypeTypeAttributesCompartmentItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Type_2001);
+		super(TypedefinitionElementTypes.Type_2002);
 	}
 
 	/**

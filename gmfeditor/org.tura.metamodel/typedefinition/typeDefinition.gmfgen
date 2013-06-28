@@ -60,7 +60,7 @@
             href="typeDefinition.genmodel#//typedefinition/Type/attributes"/>
       </modelFacet>
       <labels
-          visualID="5001"
+          visualID="5002"
           editPartClassName="AttributeNameEditPart"
           itemSemanticEditPolicyClassName="AttributeNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -107,7 +107,7 @@
             href="typeDefinition.genmodel#//typedefinition/Type/operations"/>
       </modelFacet>
       <labels
-          visualID="5004"
+          visualID="5005"
           editPartClassName="OperationNameEditPart"
           itemSemanticEditPolicyClassName="OperationNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -156,7 +156,7 @@
             href="typeDefinition.genmodel#//typedefinition/Operation/parameters"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="5003"
           editPartClassName="AttributeName2EditPart"
           itemSemanticEditPolicyClassName="AttributeName2ItemSemanticEditPolicy"
           elementIcon="true">
@@ -205,7 +205,7 @@
             href="typeDefinition.genmodel#//typedefinition/Operation/returnValue"/>
       </modelFacet>
       <labels
-          visualID="5003"
+          visualID="5004"
           editPartClassName="ReturnValueNameEditPart"
           itemSemanticEditPolicyClassName="ReturnValueNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -254,7 +254,7 @@
             href="typeDefinition.genmodel#//typedefinition/Enumarator/values"/>
       </modelFacet>
       <labels
-          visualID="5008"
+          visualID="5007"
           editPartClassName="EnumAttributeNameEditPart"
           itemSemanticEditPolicyClassName="EnumAttributeNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -273,7 +273,7 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="2004"
+        visualID="2001"
         editPartClassName="TypeReferenceEditPart"
         itemSemanticEditPolicyClassName="TypeReferenceItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TypeReferenceCanonicalEditPolicy"
@@ -297,7 +297,7 @@
             href="typeDefinition.genmodel#//typedefinition/TypeDefinition/types"/>
       </modelFacet>
       <labels
-          visualID="5009"
+          visualID="5001"
           editPartClassName="TypeReferenceNameEditPart"
           itemSemanticEditPolicyClassName="TypeReferenceNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -316,7 +316,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2001"
+        visualID="2002"
         editPartClassName="TypeEditPart"
         itemSemanticEditPolicyClassName="TypeItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TypeCanonicalEditPolicy"
@@ -343,7 +343,7 @@
             href="typeDefinition.genmodel#//typedefinition/TypeDefinition/types"/>
       </modelFacet>
       <labels
-          visualID="5005"
+          visualID="5006"
           editPartClassName="TypeNameEditPart"
           itemSemanticEditPolicyClassName="TypeNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -389,7 +389,7 @@
             href="typeDefinition.genmodel#//typedefinition/TypeDefinition/enums"/>
       </modelFacet>
       <labels
-          visualID="5007"
+          visualID="5008"
           editPartClassName="EnumaratorNameEditPart"
           itemSemanticEditPolicyClassName="EnumaratorNameItemSemanticEditPolicy"
           elementIcon="true">

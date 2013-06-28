@@ -38,7 +38,7 @@ public class TypeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TypeItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Type_2001);
+		super(TypedefinitionElementTypes.Type_2002);
 	}
 
 	/**

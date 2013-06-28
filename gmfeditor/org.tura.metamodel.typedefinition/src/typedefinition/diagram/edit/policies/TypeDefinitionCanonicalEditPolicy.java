@@ -295,7 +295,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case TypeReferenceEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getTypeReference_2004ContainedLinks(view));
+						.getTypeReference_2001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -303,7 +303,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case TypeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getType_2001ContainedLinks(view));
+						.getType_2002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

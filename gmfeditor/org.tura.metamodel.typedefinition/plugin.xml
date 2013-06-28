@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Typedefinition"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2004,2001,2003,3001,3002,3003,3004,3005"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,3001,3002,3003,3004,3005"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
       </viewProvider>
    </extension>
@@ -271,13 +271,13 @@
             <method name="getType()" value="Typedefinition"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2004,2001,2003,3001,3002,3003,3004,3005"/>
+            <method name="getType()" value="2001,2002,2003,3001,3002,3003,3004,3005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5009,5005,5007,5001,5004,5002,5003,5008"/>
+            <method name="getType()" value="5001,5006,5008,5002,5005,5003,5004,5007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="7001,7002,7003,7004,7005"/>
@@ -291,15 +291,15 @@
       <modelingAssistantProvider class="typedefinition.diagram.providers.TypedefinitionModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="typedefinition.diagram.edit.parts.TypeDefinitionEditPart" id="TypeDefinition_1000"/>
-         <object class="typedefinition.diagram.edit.parts.TypeReferenceEditPart" id="TypeReference_2004"/>
-         <object class="typedefinition.diagram.edit.parts.TypeEditPart" id="Type_2001"/>
+         <object class="typedefinition.diagram.edit.parts.TypeReferenceEditPart" id="TypeReference_2001"/>
+         <object class="typedefinition.diagram.edit.parts.TypeEditPart" id="Type_2002"/>
          <object class="typedefinition.diagram.edit.parts.EnumaratorEditPart" id="Enumarator_2003"/>
          <object class="typedefinition.diagram.edit.parts.AttributeEditPart" id="Attribute_3001"/>
          <object class="typedefinition.diagram.edit.parts.OperationEditPart" id="Operation_3002"/>
          <object class="typedefinition.diagram.edit.parts.Attribute2EditPart" id="Attribute_3003"/>
          <object class="typedefinition.diagram.edit.parts.ReturnValueEditPart" id="ReturnValue_3004"/>
          <object class="typedefinition.diagram.edit.parts.EnumAttributeEditPart" id="EnumAttribute_3005"/>
-         <context elements="TypeDefinition_1000,TypeReference_2004,Type_2001,Enumarator_2003,Attribute_3001,Operation_3002,Attribute_3003,ReturnValue_3004,EnumAttribute_3005"/>
+         <context elements="TypeDefinition_1000,TypeReference_2001,Type_2002,Enumarator_2003,Attribute_3001,Operation_3002,Attribute_3003,ReturnValue_3004,EnumAttribute_3005"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -322,7 +322,7 @@
       <decoratorProvider class="typedefinition.diagram.providers.TypedefinitionShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="2004,2001,2003"/>
+            <method name="getType()" value="2001,2002,2003"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -342,22 +342,22 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
          <metamodelType
-               id="org.tura.metamodel.typedefinition.TypeReference_2004"
-               name="%metatype.name.TypeReference_2004"
+               id="org.tura.metamodel.typedefinition.TypeReference_2001"
+               name="%metatype.name.TypeReference_2001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TypeReference"
                edithelper="typedefinition.diagram.edit.helpers.TypeReferenceEditHelper">
-            <param name="semanticHint" value="2004"/>
+            <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
          <metamodelType
-               id="org.tura.metamodel.typedefinition.Type_2001"
-               name="%metatype.name.Type_2001"
+               id="org.tura.metamodel.typedefinition.Type_2002"
+               name="%metatype.name.Type_2002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Type"
                edithelper="typedefinition.diagram.edit.helpers.TypeEditHelper">
-            <param name="semanticHint" value="2001"/>
+            <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
@@ -442,8 +442,8 @@
       </clientContext> 
       <binding context="org.tura.metamodel.typedefinition.TypeContext">
          <elementType ref="org.tura.metamodel.typedefinition.TypeDefinition_1000"/>
-         <elementType ref="org.tura.metamodel.typedefinition.TypeReference_2004"/>
-         <elementType ref="org.tura.metamodel.typedefinition.Type_2001"/>
+         <elementType ref="org.tura.metamodel.typedefinition.TypeReference_2001"/>
+         <elementType ref="org.tura.metamodel.typedefinition.Type_2002"/>
          <elementType ref="org.tura.metamodel.typedefinition.Enumarator_2003"/>
          <elementType ref="org.tura.metamodel.typedefinition.Attribute_3001"/>
          <elementType ref="org.tura.metamodel.typedefinition.Operation_3002"/>

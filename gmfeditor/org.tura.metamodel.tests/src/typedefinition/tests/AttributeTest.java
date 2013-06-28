@@ -2,8 +2,6 @@
  */
 package typedefinition.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import typedefinition.Attribute;

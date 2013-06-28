@@ -49,8 +49,8 @@ public class TypedefinitionModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof TypeDefinitionEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
-			types.add(TypedefinitionElementTypes.TypeReference_2004);
-			types.add(TypedefinitionElementTypes.Type_2001);
+			types.add(TypedefinitionElementTypes.TypeReference_2001);
+			types.add(TypedefinitionElementTypes.Type_2002);
 			types.add(TypedefinitionElementTypes.Enumarator_2003);
 			return types;
 		}

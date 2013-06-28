@@ -37,91 +37,55 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser typeReferenceName_5009Parser;
+	private IParser typeReferenceName_5001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTypeReferenceName_5009Parser() {
-		if (typeReferenceName_5009Parser == null) {
+	private IParser getTypeReferenceName_5001Parser() {
+		if (typeReferenceName_5001Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
 					.getTypeReference_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			typeReferenceName_5009Parser = parser;
+			typeReferenceName_5001Parser = parser;
 		}
-		return typeReferenceName_5009Parser;
+		return typeReferenceName_5001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser typeName_5005Parser;
+	private IParser typeName_5006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTypeName_5005Parser() {
-		if (typeName_5005Parser == null) {
+	private IParser getTypeName_5006Parser() {
+		if (typeName_5006Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
 					.getType_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			typeName_5005Parser = parser;
+			typeName_5006Parser = parser;
 		}
-		return typeName_5005Parser;
+		return typeName_5006Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser enumaratorName_5007Parser;
+	private IParser enumaratorName_5008Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getEnumaratorName_5007Parser() {
-		if (enumaratorName_5007Parser == null) {
+	private IParser getEnumaratorName_5008Parser() {
+		if (enumaratorName_5008Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
 					.getEnumarator_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			enumaratorName_5007Parser = parser;
+			enumaratorName_5008Parser = parser;
 		}
-		return enumaratorName_5007Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser attributeName_5001Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getAttributeName_5001Parser() {
-		if (attributeName_5001Parser == null) {
-			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getAttribute_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			attributeName_5001Parser = parser;
-		}
-		return attributeName_5001Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser operationName_5004Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getOperationName_5004Parser() {
-		if (operationName_5004Parser == null) {
-			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getOperation_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			operationName_5004Parser = parser;
-		}
-		return operationName_5004Parser;
+		return enumaratorName_5008Parser;
 	}
 
 	/**
@@ -145,37 +109,73 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser returnValueName_5003Parser;
+	private IParser operationName_5005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getReturnValueName_5003Parser() {
-		if (returnValueName_5003Parser == null) {
+	private IParser getOperationName_5005Parser() {
+		if (operationName_5005Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getReturnValue_Name() };
+					.getOperation_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			returnValueName_5003Parser = parser;
+			operationName_5005Parser = parser;
 		}
-		return returnValueName_5003Parser;
+		return operationName_5005Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser enumAttributeName_5008Parser;
+	private IParser attributeName_5003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getEnumAttributeName_5008Parser() {
-		if (enumAttributeName_5008Parser == null) {
+	private IParser getAttributeName_5003Parser() {
+		if (attributeName_5003Parser == null) {
+			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
+					.getAttribute_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			attributeName_5003Parser = parser;
+		}
+		return attributeName_5003Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser returnValueName_5004Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getReturnValueName_5004Parser() {
+		if (returnValueName_5004Parser == null) {
+			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
+					.getReturnValue_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			returnValueName_5004Parser = parser;
+		}
+		return returnValueName_5004Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser enumAttributeName_5007Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getEnumAttributeName_5007Parser() {
+		if (enumAttributeName_5007Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
 					.getEnumAttribute_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			enumAttributeName_5008Parser = parser;
+			enumAttributeName_5007Parser = parser;
 		}
-		return enumAttributeName_5008Parser;
+		return enumAttributeName_5007Parser;
 	}
 
 	/**
@@ -184,21 +184,21 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case TypeReferenceNameEditPart.VISUAL_ID:
-			return getTypeReferenceName_5009Parser();
+			return getTypeReferenceName_5001Parser();
 		case TypeNameEditPart.VISUAL_ID:
-			return getTypeName_5005Parser();
+			return getTypeName_5006Parser();
 		case EnumaratorNameEditPart.VISUAL_ID:
-			return getEnumaratorName_5007Parser();
+			return getEnumaratorName_5008Parser();
 		case AttributeNameEditPart.VISUAL_ID:
-			return getAttributeName_5001Parser();
-		case OperationNameEditPart.VISUAL_ID:
-			return getOperationName_5004Parser();
-		case AttributeName2EditPart.VISUAL_ID:
 			return getAttributeName_5002Parser();
+		case OperationNameEditPart.VISUAL_ID:
+			return getOperationName_5005Parser();
+		case AttributeName2EditPart.VISUAL_ID:
+			return getAttributeName_5003Parser();
 		case ReturnValueNameEditPart.VISUAL_ID:
-			return getReturnValueName_5003Parser();
+			return getReturnValueName_5004Parser();
 		case EnumAttributeNameEditPart.VISUAL_ID:
-			return getEnumAttributeName_5008Parser();
+			return getEnumAttributeName_5007Parser();
 		}
 		return null;
 	}
