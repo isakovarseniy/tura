@@ -32,6 +32,12 @@
               <input type="typedefinition.diagram.edit.parts.ReturnValueEditPart"/>
          </propertySection>        
  
+          <propertySection
+               tab="property.tab.domain.custom"
+               class="org.metamodel.tura.ui.properties.sections.TypeRefLabelPropertySelection"
+               id="type.reference">
+             <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
+           </propertySection>        
  
     </propertySections>
   </extension>  

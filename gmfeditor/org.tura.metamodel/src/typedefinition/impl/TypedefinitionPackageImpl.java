@@ -168,16 +168,11 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     isInited = true;
 
-    // Obtain or create and register interdependencies
-    TuraPackageImpl theTuraPackage = (TuraPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TuraPackage.eNS_URI) instanceof TuraPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TuraPackage.eNS_URI) : TuraPackage.eINSTANCE);
-
     // Create package meta-data objects
     theTypedefinitionPackage.createPackageContents();
-    theTuraPackage.createPackageContents();
 
     // Initialize created meta-data
     theTypedefinitionPackage.initializePackageContents();
-    theTuraPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theTypedefinitionPackage.freeze();
@@ -665,6 +660,8 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     createGmf_2Annotations();
     // gmf.compartment
     createGmf_3Annotations();
+    // exeed
+    createExeedAnnotations();
     // gmf.link
     createGmf_4Annotations();
   }
@@ -683,7 +680,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        source, 
        new String[] 
        {
-       });														
+       });															
   }
 
   /**
@@ -700,7 +697,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        source, 
        new String[] 
        {
-       });													
+       });														
   }
 
   /**
@@ -725,7 +722,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        new String[] 
        {
        "label", "name"
-       });			
+       });				
     addAnnotation
       (attributeEClass, 
        source, 
@@ -783,7 +780,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        source, 
        new String[] 
        {
-       });						
+       });							
     addAnnotation
       (getOperation_Parameters(), 
        source, 
@@ -805,6 +802,24 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
   }
 
   /**
+   * Initializes the annotations for <b>exeed</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createExeedAnnotations()
+  {
+    String source = "exeed";								
+    addAnnotation
+      (typeReferenceEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "return self.type;"
+       });									
+  }
+
+  /**
    * Initializes the annotations for <b>gmf.link</b>.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -812,7 +827,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    */
   protected void createGmf_4Annotations()
   {
-    String source = "gmf.link";								
+    String source = "gmf.link";									
     addAnnotation
       (typeExtensionEClass, 
        source, 

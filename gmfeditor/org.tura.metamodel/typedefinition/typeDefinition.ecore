@@ -31,6 +31,9 @@
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
+    <eAnnotations source="exeed">
+      <details key="label" value="return self.type;"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeExtension">

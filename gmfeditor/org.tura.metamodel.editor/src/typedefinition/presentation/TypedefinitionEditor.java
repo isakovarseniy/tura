@@ -567,7 +567,7 @@ public class TypedefinitionEditor
         }
         catch (CoreException exception)
         {
-          TuraEditorPlugin.INSTANCE.log(exception);
+          TypedefinitionEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -707,7 +707,7 @@ public class TypedefinitionEditor
         }
         catch (PartInitException exception)
         {
-          TuraEditorPlugin.INSTANCE.log(exception);
+          TypedefinitionEditorPlugin.INSTANCE.log(exception);
         }
       }
 
@@ -722,7 +722,7 @@ public class TypedefinitionEditor
           }
           catch (CoreException exception)
           {
-            TuraEditorPlugin.INSTANCE.log(exception);
+            TypedefinitionEditorPlugin.INSTANCE.log(exception);
           }
         }
       }
@@ -769,7 +769,6 @@ public class TypedefinitionEditor
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TuraItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
@@ -1696,7 +1695,7 @@ public class TypedefinitionEditor
     {
       // Something went wrong that shouldn't.
       //
-      TuraEditorPlugin.INSTANCE.log(exception);
+      TypedefinitionEditorPlugin.INSTANCE.log(exception);
     }
     updateProblemIndication = true;
     updateProblemIndication();
@@ -1804,7 +1803,7 @@ public class TypedefinitionEditor
     }
     catch (CoreException exception)
     {
-      TuraEditorPlugin.INSTANCE.log(exception);
+      TypedefinitionEditorPlugin.INSTANCE.log(exception);
     }
   }
 
@@ -1944,7 +1943,7 @@ public class TypedefinitionEditor
    */
   private static String getString(String key)
   {
-    return TuraEditorPlugin.INSTANCE.getString(key);
+    return TypedefinitionEditorPlugin.INSTANCE.getString(key);
   }
 
   /**
@@ -1955,7 +1954,7 @@ public class TypedefinitionEditor
    */
   private static String getString(String key, Object s1)
   {
-    return TuraEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+    return TypedefinitionEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
   }
 
   /**
