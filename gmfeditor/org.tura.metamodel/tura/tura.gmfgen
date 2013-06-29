@@ -241,22 +241,6 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Attribute"
-            description="Create new Attribute"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="EnumAttribute"
-            description="Create new EnumAttribute"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Enumarator"
-            description="Create new Enumarator"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Operation"
-            description="Create new Operation"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Package"
             description="Create new Package"
             genNodes="//@diagram/@childNodes.0"/>
@@ -265,18 +249,6 @@
             title="Primitive"
             description="Create new Primitive"
             genNodes="//@diagram/@childNodes.1"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ReturnValue"
-            description="Create new ReturnValue"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Type"
-            description="Create new Type"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="TypeReference"
-            description="Create new TypeReference"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Types"

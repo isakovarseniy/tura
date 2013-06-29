@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="tura.gmftool#//@palette/@tools.0/@tools.9"/>
+          href="tura.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
           href="tura.gmfgraph#Types"/>
       <children
@@ -41,7 +41,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="tura.gmftool#//@palette/@tools.0/@tools.4"/>
+              href="tura.gmftool#//@palette/@tools.0/@tools.0"/>
           <diagramNode
               href="tura.gmfgraph#Package"/>
         </ownedChild>
@@ -62,7 +62,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="tura.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="tura.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="tura.gmfgraph#Primitive"/>
         </ownedChild>

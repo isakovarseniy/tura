@@ -98,22 +98,36 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 					.getModel();
 			PackageImpl pckg = (PackageImpl) diagram.getElement();
 			TypesImpl types = (TypesImpl) pckg.eContainer();
-
-			for (Iterator<tura.Package> i = types.getPackages().iterator(); i
-					.hasNext();) {
-				tura.Package p = i.next();
-				if ((p.getName() != null)
-						&& (((TypePointer) eObject).getType() != null)) {
-					if (p.getName().equals(
-							((TypePointer) eObject).getType().getPackageName())) {
-						for (Iterator<TypeElement> j = p.getTypes().iterator(); j
-								.hasNext();) {
-							TypeElement te = j.next();
-							if ((te instanceof typedefinition.Type)
-									&& (((typedefinition.Type) te).getName() != null))
-								values.add(((typedefinition.Type) te).getName());
+     
+			if (  ((TypePointer) eObject).getType() == null )  return new String[]{};
+			
+			if (!(((TypePointer) eObject).getType().getPackageName())
+					.equals("Primitives")) {
+				for (Iterator<tura.Package> i = types.getPackages().iterator(); i
+						.hasNext();) {
+					tura.Package p = i.next();
+					if ((p.getName() != null)
+							&& (((TypePointer) eObject).getType() != null)) {
+						if (p.getName().equals(
+								((TypePointer) eObject).getType()
+										.getPackageName())) {
+							for (Iterator<TypeElement> j = p.getTypes()
+									.iterator(); j.hasNext();) {
+								TypeElement te = j.next();
+								if ((te instanceof typedefinition.Type)
+										&& (((typedefinition.Type) te)
+												.getName() != null))
+									values.add(((typedefinition.Type) te)
+											.getName());
+							}
 						}
 					}
+				}
+			} else {
+				for (Iterator<tura.Primitive> i = types.getPrimitives()
+						.iterator(); i.hasNext();) {
+					tura.Primitive p = i.next();
+					values.add(p.getName());
 				}
 			}
 		}

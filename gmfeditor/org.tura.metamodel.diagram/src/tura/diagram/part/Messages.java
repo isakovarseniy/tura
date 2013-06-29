@@ -256,102 +256,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Attribute1CreationTool_title;
+	public static String Package1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Attribute1CreationTool_desc;
+	public static String Package1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute2CreationTool_title;
+	public static String Primitive2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute2CreationTool_desc;
+	public static String Primitive2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator3CreationTool_title;
+	public static String Types3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Operation4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Operation4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Package5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Package5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Primitive6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Primitive6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ReturnValue7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ReturnValue7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Type8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Type8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Types10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Types10CreationTool_desc;
+	public static String Types3CreationTool_desc;
 
 	/**
 	 * @generated
