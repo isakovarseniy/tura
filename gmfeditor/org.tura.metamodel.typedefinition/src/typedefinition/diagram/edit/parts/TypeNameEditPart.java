@@ -209,6 +209,7 @@ public class TypeNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
+	//TypeNameEditPart
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();
@@ -216,6 +217,7 @@ public class TypeNameEditPart extends CompartmentEditPart implements
 			text = getParser().getPrintString(
 					new EObjectAdapter(parserElement),
 					getParserOptions().intValue());
+
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;

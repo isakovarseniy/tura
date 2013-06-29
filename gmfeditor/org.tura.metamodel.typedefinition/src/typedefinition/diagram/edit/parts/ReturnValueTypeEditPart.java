@@ -51,6 +51,7 @@ import typedefinition.diagram.edit.policies.TypedefinitionTextSelectionEditPolic
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 import typedefinition.diagram.providers.TypedefinitionElementTypes;
 import typedefinition.diagram.providers.TypedefinitionParserProvider;
+import typedefinition.impl.ReturnValueImpl;
 
 /**
  * @generated
@@ -209,13 +210,15 @@ public class ReturnValueTypeEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
+	//ReturnValueTypeEditPart
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();
 		if (parserElement != null && getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
-					getParserOptions().intValue());
+			text = ((ReturnValueImpl) parserElement).getType().getPackageName()
+					+ "."
+					+ ((ReturnValueImpl) parserElement).getType().getTypeName();
+
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;

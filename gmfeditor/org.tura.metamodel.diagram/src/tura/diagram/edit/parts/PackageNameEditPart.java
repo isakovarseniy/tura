@@ -216,6 +216,7 @@ public class PackageNameEditPart extends CompartmentEditPart implements
 			text = getParser().getPrintString(
 					new EObjectAdapter(parserElement),
 					getParserOptions().intValue());
+
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
