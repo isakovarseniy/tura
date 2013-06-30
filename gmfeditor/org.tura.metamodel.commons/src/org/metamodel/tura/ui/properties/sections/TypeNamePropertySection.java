@@ -23,9 +23,9 @@ import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.ui.IWorkbenchPart;
 import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
-import tura.TuraPackage;
-import tura.impl.PackageImpl;
-import tura.impl.TypesImpl;
+import typesrepository.TypesrepositoryPackage;
+import typesrepository.impl.PackageImpl;
+import typesrepository.impl.TypesImpl;
 import typedefinition.Type;
 import typedefinition.TypedefinitionPackage;
 import typedefinition.TypePointer;
@@ -116,18 +116,18 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
 					.createOCLHelper();
-			helper.setContext(TuraPackage.eINSTANCE.getEClassifier("Types"));
+			helper.setContext(TypesrepositoryPackage.eINSTANCE.getEClassifier("Types"));
 
 			try {
 				if ((((TypePointer) eObject).getType().getPackageName())
 						.equals("Primitives")) {
 					OCLExpression<EClassifier> query = helper
 							.createQuery("self.primitives");
-					Collection<tura.Primitive> map = (Collection<tura.Primitive>) ocl
+					Collection<typesrepository.Primitive> map = (Collection<typesrepository.Primitive>) ocl
 							.evaluate(types, query);
-					for (Iterator<tura.Primitive> i = map.iterator(); i
+					for (Iterator<typesrepository.Primitive> i = map.iterator(); i
 							.hasNext();) {
-						tura.Primitive p = i.next();
+						typesrepository.Primitive p = i.next();
 						values.add(p.getName());
 					}
 				} else {

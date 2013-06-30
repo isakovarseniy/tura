@@ -209,7 +209,7 @@ public class OperationNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	//OperationNameEditPart
+
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();

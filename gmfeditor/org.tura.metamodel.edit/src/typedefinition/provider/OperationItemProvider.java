@@ -24,10 +24,11 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import tura.provider.TuraEditPlugin;
 import typedefinition.Operation;
 import typedefinition.TypedefinitionFactory;
 import typedefinition.TypedefinitionPackage;
+
+import typesrepository.provider.TypesrepositoryEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link typedefinition.Operation} object.
@@ -214,7 +215,7 @@ public class OperationItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TuraEditPlugin.INSTANCE;
+    return TypedefinitionEditPlugin.INSTANCE;
   }
 
 }

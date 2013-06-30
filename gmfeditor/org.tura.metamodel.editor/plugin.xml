@@ -11,6 +11,32 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
+            id="typesrepository.presentation.TypesrepositoryModelWizardID"
+            name="%_UI_TypesrepositoryModelWizard_label"
+            class="typesrepository.presentation.TypesrepositoryModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TypesrepositoryModelFile.gif">
+         <description>%_UI_TypesrepositoryModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="typesrepository.presentation.TypesrepositoryEditorID"
+            name="%_UI_TypesrepositoryEditor_label"
+            icon="icons/full/obj16/TypesrepositoryModelFile.gif"
+            extensions="typesrepository"
+            class="typesrepository.presentation.TypesrepositoryEditor"
+            contributorClass="typesrepository.presentation.TypesrepositoryActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
             id="typedefinition.presentation.TypedefinitionModelWizardID"
             name="%_UI_TypedefinitionModelWizard_label"
             class="typedefinition.presentation.TypedefinitionModelWizard"

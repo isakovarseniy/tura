@@ -5,6 +5,7 @@ package typedefinition.diagram.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -45,11 +46,12 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
+
+import typedefinition.TypeReference;
 import typedefinition.diagram.edit.policies.TypedefinitionTextSelectionEditPolicy;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 import typedefinition.diagram.providers.TypedefinitionElementTypes;
 import typedefinition.diagram.providers.TypedefinitionParserProvider;
-import typedefinition.impl.TypeReferenceImpl;
 
 /**
  * @generated
@@ -212,12 +214,11 @@ public class TypeReferenceTypeEditPart extends CompartmentEditPart implements
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null && ((TypeReferenceImpl) parserElement).getType() != null ) {
-			text = ((TypeReferenceImpl) parserElement).getType()
-					.getPackageName()
+		if (parserElement != null && getParser() != null
+				&& (((TypeReference) parserElement).getType() != null)) {
+			text = ((TypeReference) parserElement).getType().getPackageName()
 					+ "."
-					+ ((TypeReferenceImpl) parserElement).getType()
-							.getTypeName();
+					+ ((TypeReference) parserElement).getType().getTypeName();
 
 		}
 		if (text == null || text.length() == 0) {

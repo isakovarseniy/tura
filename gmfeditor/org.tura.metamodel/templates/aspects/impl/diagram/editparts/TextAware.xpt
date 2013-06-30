@@ -4,14 +4,16 @@
 	protected String getLabelText() {
 		String text = null;
 		org.eclipse.emf.ecore.EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null) {
 	«IF  self.editPartClassName.indexOf('TypeReferenceTypeEditPart') > 0-»
-           text = ((typedefinition.impl.TypeReferenceImpl)parserElement).getType().getPackageName()+"."+ ((typedefinition.impl.TypeReferenceImpl)parserElement).getType().getTypeName();
+		if (parserElement != null && getParser() != null  && ( ((typedefinition.TypeReference) parserElement).getType() != null ) ) {
+           text = ((typedefinition.TypeReference)parserElement).getType().getPackageName()+"."+ ((typedefinition.TypeReference)parserElement).getType().getTypeName();
 
 	«ELSEIF  self.editPartClassName.indexOf('ReturnValueTypeEditPart') > 0-»
-          text = ((typedefinition.impl.ReturnValueImpl)parserElement).getType().getPackageName()+"."+ ((typedefinition.impl.ReturnValueImpl)parserElement).getType().getTypeName();
+		if (parserElement != null && getParser() != null  && ( ((typedefinition.ReturnValue) parserElement).getType() != null ) ) {
+          text = ((typedefinition.ReturnValue)parserElement).getType().getPackageName()+"."+ ((typedefinition.ReturnValue)parserElement).getType().getTypeName();
 
 	«ELSE-»
+	   if (parserElement != null && getParser() != null ){
 			text = getParser().getPrintString(
 				new org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter(parserElement),
 				getParserOptions().intValue());

@@ -7,9 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: tura,
- tura.impl,
- tura.util,
+Export-Package: typesrepository,
+ typesrepository.impl,
+ typesrepository.util,
  typedefinition,
  typedefinition.impl,
  typedefinition.util

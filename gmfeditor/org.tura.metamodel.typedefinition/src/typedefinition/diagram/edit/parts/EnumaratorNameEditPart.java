@@ -209,7 +209,7 @@ public class EnumaratorNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	//EnumaratorNameEditPart
+
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();

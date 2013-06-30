@@ -24,9 +24,10 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
-import tura.provider.TuraEditPlugin;
 import typedefinition.TypePointer;
 import typedefinition.TypedefinitionPackage;
+
+import typesrepository.provider.TypesrepositoryEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link typedefinition.TypePointer} object.
@@ -166,7 +167,7 @@ public class TypePointerItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TuraEditPlugin.INSTANCE;
+    return TypedefinitionEditPlugin.INSTANCE;
   }
 
 }

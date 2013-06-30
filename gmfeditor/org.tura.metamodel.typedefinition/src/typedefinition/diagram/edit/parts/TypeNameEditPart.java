@@ -209,7 +209,7 @@ public class TypeNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	//TypeNameEditPart
+
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();

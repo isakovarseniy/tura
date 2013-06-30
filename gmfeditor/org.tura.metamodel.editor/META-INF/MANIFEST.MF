@@ -4,11 +4,12 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: typedefinition.presentation.TypedefinitionEditorPlugin$Implementation
+Bundle-Activator: typesrepository.presentation.TypesrepositoryEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: typedefinition.presentation
+Export-Package: typedefinition.presentation,
+ typesrepository.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.tura.metamodel.edit;visibility:=reexport,

@@ -7,8 +7,8 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
-import tura.impl.PackageImpl;
-import tura.impl.TypesImpl;
+import typesrepository.impl.PackageImpl;
+import typesrepository.impl.TypesImpl;
 import typedefinition.TypePointer;
 import typedefinition.TypedefinitionPackage;
 
@@ -56,9 +56,9 @@ public class PackageNamePropertySection extends
 			PackageImpl pckg = (PackageImpl) diagram.getElement();
 			TypesImpl types = (TypesImpl) pckg.eContainer();
 
-			for (Iterator<tura.Package> i = types.getPackages().iterator(); i
+			for (Iterator<typesrepository.Package> i = types.getPackages().iterator(); i
 					.hasNext();) {
-				tura.Package p = i.next();
+				typesrepository.Package p = i.next();
 				if (p.getName() != null)
 					values.add(p.getName());
 			}

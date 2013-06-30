@@ -47,11 +47,11 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import typedefinition.ReturnValue;
 import typedefinition.diagram.edit.policies.TypedefinitionTextSelectionEditPolicy;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 import typedefinition.diagram.providers.TypedefinitionElementTypes;
 import typedefinition.diagram.providers.TypedefinitionParserProvider;
-import typedefinition.impl.ReturnValueImpl;
 
 /**
  * @generated
@@ -210,14 +210,15 @@ public class ReturnValueTypeEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	//ReturnValueTypeEditPart
+
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null) {
-			text = ((ReturnValueImpl) parserElement).getType().getPackageName()
+		if (parserElement != null && getParser() != null
+				&& (((ReturnValue) parserElement).getType() != null)) {
+			text = ((ReturnValue) parserElement).getType().getPackageName()
 					+ "."
-					+ ((ReturnValueImpl) parserElement).getType().getTypeName();
+					+ ((ReturnValue) parserElement).getType().getTypeName();
 
 		}
 		if (text == null || text.length() == 0) {

@@ -4,12 +4,12 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.diagram; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: tura.diagram.part.TuraDiagramEditorPlugin
+Bundle-Activator: typesrepository.diagram.part.TypesrepositoryDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: tura.diagram.edit.parts,
- tura.diagram.part,
- tura.diagram.providers
+Export-Package: typesrepository.diagram.edit.parts,
+ typesrepository.diagram.part,
+ typesrepository.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.core.expressions,

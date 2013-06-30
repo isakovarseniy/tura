@@ -12,8 +12,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
-import tura.TuraPackage;
-import tura.impl.TuraPackageImpl;
 import typedefinition.Attribute;
 import typedefinition.EnumAttribute;
 import typedefinition.Enumarator;
@@ -27,6 +25,10 @@ import typedefinition.TypePointer;
 import typedefinition.TypeReference;
 import typedefinition.TypedefinitionFactory;
 import typedefinition.TypedefinitionPackage;
+
+import typesrepository.TypesrepositoryPackage;
+
+import typesrepository.impl.TypesrepositoryPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -168,16 +170,11 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     isInited = true;
 
-    // Obtain or create and register interdependencies
-    TuraPackageImpl theTuraPackage = (TuraPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TuraPackage.eNS_URI) instanceof TuraPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TuraPackage.eNS_URI) : TuraPackage.eINSTANCE);
-
     // Create package meta-data objects
     theTypedefinitionPackage.createPackageContents();
-    theTuraPackage.createPackageContents();
 
     // Initialize created meta-data
     theTypedefinitionPackage.initializePackageContents();
-    theTuraPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theTypedefinitionPackage.freeze();

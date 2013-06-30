@@ -209,7 +209,7 @@ public class EnumAttributeNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	//EnumAttributeNameEditPart
+
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();
