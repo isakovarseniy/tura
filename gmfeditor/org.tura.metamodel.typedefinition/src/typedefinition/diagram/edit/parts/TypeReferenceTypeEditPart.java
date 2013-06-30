@@ -212,7 +212,7 @@ public class TypeReferenceTypeEditPart extends CompartmentEditPart implements
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null) {
+		if (parserElement != null && getParser() != null && ((TypeReferenceImpl) parserElement).getType() != null ) {
 			text = ((TypeReferenceImpl) parserElement).getType()
 					.getPackageName()
 					+ "."

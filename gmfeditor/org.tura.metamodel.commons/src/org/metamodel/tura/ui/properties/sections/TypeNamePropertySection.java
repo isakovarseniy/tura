@@ -134,7 +134,7 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 					OCLExpression<EClassifier> query = helper
 							.createQuery("self.packages->select(r|r.name='"
 									+ ((TypePointer) eObject).getType()
-											.getPackageName() + "').types");
+											.getPackageName() + "').types->select(oclIsKindOf(typedefinition::Type))");
 					Collection<typedefinition.Type> map = (Collection<Type>) ocl.evaluate(
 							types, query);
 
