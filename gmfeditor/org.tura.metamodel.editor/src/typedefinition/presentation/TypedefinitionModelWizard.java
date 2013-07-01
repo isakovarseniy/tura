@@ -73,7 +73,10 @@ import typedefinition.TypedefinitionFactory;
 import typedefinition.TypedefinitionPackage;
 import typedefinition.provider.TypedefinitionEditPlugin;
 import typesrepository.provider.TypesrepositoryEditPlugin;
+import businessobjects.provider.BusinessobjectsEditPlugin;
 
+
+import businessobjects.presentation.BusinessobjectsEditorPlugin;
 
 import org.eclipse.core.runtime.Path;
 
@@ -84,7 +87,6 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
-
 import typesrepository.presentation.TypesrepositoryEditorPlugin;
 
 
@@ -103,7 +105,7 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
    * @generated
    */
   public static final List<String> FILE_EXTENSIONS =
-    Collections.unmodifiableList(Arrays.asList(TypedefinitionEditorPlugin.INSTANCE.getString("_UI_TypedefinitionEditorFilenameExtensions").split("\\s*,\\s*")));
+    Collections.unmodifiableList(Arrays.asList(BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_TypedefinitionEditorFilenameExtensions").split("\\s*,\\s*")));
 
   /**
    * A formatted list of supported file extensions, suitable for display.
@@ -112,7 +114,7 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
    * @generated
    */
   public static final String FORMATTED_FILE_EXTENSIONS =
-    TypedefinitionEditorPlugin.INSTANCE.getString("_UI_TypedefinitionEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+    BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_TypedefinitionEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
   /**
    * This caches an instance of the model package.
@@ -180,8 +182,8 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
   {
     this.workbench = workbench;
     this.selection = selection;
-    setWindowTitle(TypedefinitionEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-    setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(TypedefinitionEditorPlugin.INSTANCE.getImage("full/wizban/NewTypedefinition")));
+    setWindowTitle(BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+    setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(BusinessobjectsEditorPlugin.INSTANCE.getImage("full/wizban/NewTypedefinition")));
   }
 
   /**
@@ -277,7 +279,7 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
             }
             catch (Exception exception)
             {
-              TypedefinitionEditorPlugin.INSTANCE.log(exception);
+              BusinessobjectsEditorPlugin.INSTANCE.log(exception);
             }
             finally
             {
@@ -316,7 +318,7 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
       }
       catch (PartInitException exception)
       {
-        MessageDialog.openError(workbenchWindow.getShell(), TypedefinitionEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+        MessageDialog.openError(workbenchWindow.getShell(), BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
         return false;
       }
 
@@ -324,7 +326,7 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
     }
     catch (Exception exception)
     {
-      TypedefinitionEditorPlugin.INSTANCE.log(exception);
+      BusinessobjectsEditorPlugin.INSTANCE.log(exception);
       return false;
     }
   }
@@ -363,7 +365,7 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
         if (extension == null || !FILE_EXTENSIONS.contains(extension))
         {
           String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-          setErrorMessage(TypedefinitionEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+          setErrorMessage(BusinessobjectsEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
           return false;
         }
         return true;
@@ -445,7 +447,7 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
 
       Label containerLabel = new Label(composite, SWT.LEFT);
       {
-        containerLabel.setText(TypedefinitionEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+        containerLabel.setText(BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
         GridData data = new GridData();
         data.horizontalAlignment = GridData.FILL;
@@ -473,7 +475,7 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
 
       Label encodingLabel = new Label(composite, SWT.LEFT);
       {
-        encodingLabel.setText(TypedefinitionEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+        encodingLabel.setText(BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
         GridData data = new GridData();
         data.horizontalAlignment = GridData.FILL;
@@ -586,11 +588,11 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
     {
       try
       {
-        return TypedefinitionEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+        return BusinessobjectsEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
       }
       catch(MissingResourceException mre)
       {
-        TypedefinitionEditorPlugin.INSTANCE.log(mre);
+        BusinessobjectsEditorPlugin.INSTANCE.log(mre);
       }
       return typeName;
     }
@@ -605,7 +607,7 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
       if (encodings == null)
       {
         encodings = new ArrayList<String>();
-        for (StringTokenizer stringTokenizer = new StringTokenizer(TypedefinitionEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
+        for (StringTokenizer stringTokenizer = new StringTokenizer(BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
         {
           encodings.add(stringTokenizer.nextToken());
         }
@@ -626,9 +628,9 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
     // Create a page, set the title, and the initial model file name.
     //
     newFileCreationPage = new TypedefinitionModelWizardNewFileCreationPage("Whatever", selection);
-    newFileCreationPage.setTitle(TypedefinitionEditorPlugin.INSTANCE.getString("_UI_TypedefinitionModelWizard_label"));
-    newFileCreationPage.setDescription(TypedefinitionEditorPlugin.INSTANCE.getString("_UI_TypedefinitionModelWizard_description"));
-    newFileCreationPage.setFileName(TypedefinitionEditorPlugin.INSTANCE.getString("_UI_TypedefinitionEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+    newFileCreationPage.setTitle(BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_TypedefinitionModelWizard_label"));
+    newFileCreationPage.setDescription(BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_TypedefinitionModelWizard_description"));
+    newFileCreationPage.setFileName(BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_TypedefinitionEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
     addPage(newFileCreationPage);
 
     // Try and get the resource selection to determine a current directory for the file dialog.
@@ -658,7 +660,7 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
 
           // Make up a unique new name here.
           //
-          String defaultModelBaseFilename = TypedefinitionEditorPlugin.INSTANCE.getString("_UI_TypedefinitionEditorFilenameDefaultBase");
+          String defaultModelBaseFilename = BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_TypedefinitionEditorFilenameDefaultBase");
           String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
           String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
           for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i)
@@ -670,8 +672,8 @@ public class TypedefinitionModelWizard extends Wizard implements INewWizard
       }
     }
     initialObjectCreationPage = new TypedefinitionModelWizardInitialObjectCreationPage("Whatever2");
-    initialObjectCreationPage.setTitle(TypedefinitionEditorPlugin.INSTANCE.getString("_UI_TypedefinitionModelWizard_label"));
-    initialObjectCreationPage.setDescription(TypedefinitionEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+    initialObjectCreationPage.setTitle(BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_TypedefinitionModelWizard_label"));
+    initialObjectCreationPage.setDescription(BusinessobjectsEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
     addPage(initialObjectCreationPage);
   }
 

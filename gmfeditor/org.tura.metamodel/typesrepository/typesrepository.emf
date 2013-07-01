@@ -2,6 +2,8 @@
 @gmf
 package typesrepository;
 import "platform:/resource/org.tura.metamodel/typedefinition/typeDefinition.ecore";
+import "platform:/resource/org.tura.metamodel/businessObjects/businessObjects.ecore";
+
 
 @gmf.diagram
 class TypesRepository{
@@ -15,6 +17,9 @@ class Types {
    val Primitive [*] primitives;
    @gmf.compartment
    val Package [*] packages;
+   @gmf.compartment
+   val BusinessPackage [*] businessPackages;
+   
 }
 
 
@@ -25,5 +30,11 @@ class Primitive {
 
 @gmf.node(label="name")
 class Package extends typedefinition.TypeDefinition{
+   attr EString name;
+}
+
+
+@gmf.node(label="name")
+class BusinessPackage extends businessobjects.BusinessObjects{
    attr EString name;
 }

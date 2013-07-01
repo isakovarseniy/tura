@@ -2,6 +2,8 @@
  */
 package typesrepository.impl;
 
+import businessobjects.BusinessobjectsPackage;
+import businessobjects.impl.BusinessobjectsPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -13,6 +15,7 @@ import typedefinition.TypedefinitionPackage;
 
 import typedefinition.impl.TypedefinitionPackageImpl;
 
+import typesrepository.BusinessPackage;
 import typesrepository.Primitive;
 import typesrepository.Types;
 import typesrepository.TypesRepository;
@@ -54,6 +57,13 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
    * @generated
    */
   private EClass packageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass businessPackageEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -105,14 +115,17 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
 
     // Obtain or create and register interdependencies
     TypedefinitionPackageImpl theTypedefinitionPackage = (TypedefinitionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) instanceof TypedefinitionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) : TypedefinitionPackage.eINSTANCE);
+    BusinessobjectsPackageImpl theBusinessobjectsPackage = (BusinessobjectsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) instanceof BusinessobjectsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) : BusinessobjectsPackage.eINSTANCE);
 
     // Create package meta-data objects
     theTypesrepositoryPackage.createPackageContents();
     theTypedefinitionPackage.createPackageContents();
+    theBusinessobjectsPackage.createPackageContents();
 
     // Initialize created meta-data
     theTypesrepositoryPackage.initializePackageContents();
     theTypedefinitionPackage.initializePackageContents();
+    theBusinessobjectsPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theTypesrepositoryPackage.freeze();
@@ -188,6 +201,16 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getTypes_BusinessPackages()
+  {
+    return (EReference)typesEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPrimitive()
   {
     return primitiveEClass;
@@ -228,6 +251,26 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getBusinessPackage()
+  {
+    return businessPackageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBusinessPackage_Name()
+  {
+    return (EAttribute)businessPackageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TypesrepositoryFactory getTypesrepositoryFactory()
   {
     return (TypesrepositoryFactory)getEFactoryInstance();
@@ -260,12 +303,16 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
     createEAttribute(typesEClass, TYPES__NAME);
     createEReference(typesEClass, TYPES__PRIMITIVES);
     createEReference(typesEClass, TYPES__PACKAGES);
+    createEReference(typesEClass, TYPES__BUSINESS_PACKAGES);
 
     primitiveEClass = createEClass(PRIMITIVE);
     createEAttribute(primitiveEClass, PRIMITIVE__NAME);
 
     packageEClass = createEClass(PACKAGE);
     createEAttribute(packageEClass, PACKAGE__NAME);
+
+    businessPackageEClass = createEClass(BUSINESS_PACKAGE);
+    createEAttribute(businessPackageEClass, BUSINESS_PACKAGE__NAME);
   }
 
   /**
@@ -294,6 +341,7 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
 
     // Obtain other dependent packages
     TypedefinitionPackage theTypedefinitionPackage = (TypedefinitionPackage)EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI);
+    BusinessobjectsPackage theBusinessobjectsPackage = (BusinessobjectsPackage)EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI);
 
     // Create type parameters
 
@@ -301,6 +349,7 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
 
     // Add supertypes to classes
     packageEClass.getESuperTypes().add(theTypedefinitionPackage.getTypeDefinition());
+    businessPackageEClass.getESuperTypes().add(theBusinessobjectsPackage.getBusinessObjects());
 
     // Initialize classes and features; add operations and parameters
     initEClass(typesRepositoryEClass, TypesRepository.class, "TypesRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -310,12 +359,16 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
     initEAttribute(getTypes_Name(), ecorePackage.getEString(), "name", null, 0, 1, Types.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypes_Primitives(), this.getPrimitive(), null, "primitives", null, 0, -1, Types.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypes_Packages(), this.getPackage(), null, "packages", null, 0, -1, Types.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypes_BusinessPackages(), this.getBusinessPackage(), null, "businessPackages", null, 0, -1, Types.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(primitiveEClass, Primitive.class, "Primitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPrimitive_Name(), ecorePackage.getEString(), "name", null, 0, 1, Primitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageEClass, typesrepository.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, typesrepository.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(businessPackageEClass, BusinessPackage.class, "BusinessPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBusinessPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, BusinessPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
@@ -345,7 +398,7 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
        source, 
        new String[] 
        {
-       });						
+       });								
   }
 
   /**
@@ -362,7 +415,7 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
        source, 
        new String[] 
        {
-       });					
+       });							
   }
 
   /**
@@ -380,7 +433,7 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
        new String[] 
        {
        "label", "name"
-       });				
+       });					
     addAnnotation
       (primitiveEClass, 
        source, 
@@ -390,6 +443,13 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
        });		
     addAnnotation
       (packageEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name"
+       });		
+    addAnnotation
+      (businessPackageEClass, 
        source, 
        new String[] 
        {
@@ -418,6 +478,12 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
        new String[] 
        {
        });		
+    addAnnotation
+      (getTypes_BusinessPackages(), 
+       source, 
+       new String[] 
+       {
+       });			
   }
 
 } //TypesrepositoryPackageImpl

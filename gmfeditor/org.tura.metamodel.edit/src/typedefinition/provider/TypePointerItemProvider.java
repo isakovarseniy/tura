@@ -3,6 +3,8 @@
 package typedefinition.provider;
 
 
+import businessobjects.provider.BusinessobjectsEditPlugin;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -26,7 +28,6 @@ import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 import typedefinition.TypePointer;
 import typedefinition.TypedefinitionPackage;
-
 import typesrepository.provider.TypesrepositoryEditPlugin;
 
 /**
@@ -167,7 +168,7 @@ public class TypePointerItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypedefinitionEditPlugin.INSTANCE;
+    return BusinessobjectsEditPlugin.INSTANCE;
   }
 
 }

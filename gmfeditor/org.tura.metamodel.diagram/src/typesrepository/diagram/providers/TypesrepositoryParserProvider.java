@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import typesrepository.TypesrepositoryPackage;
+import typesrepository.diagram.edit.parts.BusinessPackageNameEditPart;
 import typesrepository.diagram.edit.parts.PackageNameEditPart;
 import typesrepository.diagram.edit.parts.PrimitiveNameEditPart;
 import typesrepository.diagram.edit.parts.TypesNameEditPart;
@@ -68,6 +69,24 @@ public class TypesrepositoryParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser businessPackageName_5004Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getBusinessPackageName_5004Parser() {
+		if (businessPackageName_5004Parser == null) {
+			EAttribute[] features = new EAttribute[] { TypesrepositoryPackage.eINSTANCE
+					.getBusinessPackage_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			businessPackageName_5004Parser = parser;
+		}
+		return businessPackageName_5004Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser primitiveName_5002Parser;
 
 	/**
@@ -92,6 +111,8 @@ public class TypesrepositoryParserProvider extends AbstractProvider implements
 			return getTypesName_5003Parser();
 		case PackageNameEditPart.VISUAL_ID:
 			return getPackageName_5001Parser();
+		case BusinessPackageNameEditPart.VISUAL_ID:
+			return getBusinessPackageName_5004Parser();
 		case PrimitiveNameEditPart.VISUAL_ID:
 			return getPrimitiveName_5002Parser();
 		}

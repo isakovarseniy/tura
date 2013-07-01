@@ -111,6 +111,7 @@ public class TypesItemProvider
       super.getChildrenFeatures(object);
       childrenFeatures.add(TypesrepositoryPackage.Literals.TYPES__PRIMITIVES);
       childrenFeatures.add(TypesrepositoryPackage.Literals.TYPES__PACKAGES);
+      childrenFeatures.add(TypesrepositoryPackage.Literals.TYPES__BUSINESS_PACKAGES);
     }
     return childrenFeatures;
   }
@@ -175,6 +176,7 @@ public class TypesItemProvider
         return;
       case TypesrepositoryPackage.TYPES__PRIMITIVES:
       case TypesrepositoryPackage.TYPES__PACKAGES:
+      case TypesrepositoryPackage.TYPES__BUSINESS_PACKAGES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -202,6 +204,11 @@ public class TypesItemProvider
       (createChildParameter
         (TypesrepositoryPackage.Literals.TYPES__PACKAGES,
          TypesrepositoryFactory.eINSTANCE.createPackage()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (TypesrepositoryPackage.Literals.TYPES__BUSINESS_PACKAGES,
+         TypesrepositoryFactory.eINSTANCE.createBusinessPackage()));
   }
 
   /**

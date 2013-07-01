@@ -40,6 +40,12 @@ public class TypesrepositoryEditPartFactory implements EditPartFactory {
 			case PackageNameEditPart.VISUAL_ID:
 				return new PackageNameEditPart(view);
 
+			case BusinessPackageEditPart.VISUAL_ID:
+				return new BusinessPackageEditPart(view);
+
+			case BusinessPackageNameEditPart.VISUAL_ID:
+				return new BusinessPackageNameEditPart(view);
+
 			case PrimitiveEditPart.VISUAL_ID:
 				return new PrimitiveEditPart(view);
 
@@ -51,6 +57,9 @@ public class TypesrepositoryEditPartFactory implements EditPartFactory {
 
 			case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
 				return new TypesTypesPackagesCompartmentEditPart(view);
+
+			case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
+				return new TypesTypesBusinessPackagesCompartmentEditPart(view);
 
 			case TypeExtensionEditPart.VISUAL_ID:
 				return new TypeExtensionEditPart(view);

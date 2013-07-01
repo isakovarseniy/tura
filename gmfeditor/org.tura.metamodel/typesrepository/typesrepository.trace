@@ -15,6 +15,9 @@
     <compartmentTraces
         visualID="7002"
         queryText="true"/>
+    <compartmentTraces
+        visualID="7003"
+        queryText="true"/>
   </nodeTraces>
   <childNodeTraces
       visualID="3001"
@@ -28,6 +31,13 @@
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/typesrepository' and _eClass_.name = 'Primitive') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/typesrepository' and _eClass_.name = 'Types') and _containmentMF_.name = 'primitives')">
     <nodeLabelTraces
         visualID="5002"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3003"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/typesrepository' and _eClass_.name = 'BusinessPackage') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/typesrepository' and _eClass_.name = 'Types') and _containmentMF_.name = 'businessPackages')">
+    <nodeLabelTraces
+        visualID="5004"
         queryText="true"/>
   </childNodeTraces>
   <linkTraces

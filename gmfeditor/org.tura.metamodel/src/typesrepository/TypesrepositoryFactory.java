@@ -59,6 +59,15 @@ public interface TypesrepositoryFactory extends EFactory
   Package createPackage();
 
   /**
+   * Returns a new object of class '<em>Business Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Business Package</em>'.
+   * @generated
+   */
+  BusinessPackage createBusinessPackage();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

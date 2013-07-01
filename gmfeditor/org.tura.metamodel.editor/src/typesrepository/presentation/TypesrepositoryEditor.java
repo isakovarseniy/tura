@@ -155,6 +155,8 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import typesrepository.provider.TypesrepositoryItemProviderAdapterFactory;
 
+import businessobjects.provider.BusinessobjectsItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
@@ -771,6 +773,7 @@ public class TypesrepositoryEditor
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new TypesrepositoryItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new BusinessobjectsItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
     // Create the command stack that will notify this editor as commands are executed.

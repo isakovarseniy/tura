@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import typesrepository.diagram.edit.policies.OpenDiagramEditPolicy;
+import typesrepository.diagram.edit.policies.OpenDiagramPackageEditPolicy;
 import typesrepository.diagram.edit.policies.PackageItemSemanticEditPolicy;
 import typesrepository.diagram.part.TypesrepositoryVisualIDRegistry;
 
@@ -65,7 +66,7 @@ public class PackageEditPart extends ShapeNodeEditPart {
 				new PackageItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenDiagramEditPolicy());
+				new OpenDiagramPackageEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="businessobjects" nsURI="http://tura.org/2013/v1/businessobjects"
+    nsPrefix="tura.businessobjects">
+  <eAnnotations source="gmf"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessObjects">
+    <eAnnotations source="gmf.diagram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="businessObject" upperBound="-1"
+        eType="#//BusinessObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessObject" eSuperTypes="../typedefinition/typeDefinition.ecore#//TypePointer">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="type"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="createMethods" upperBound="-1"
+        eType="#//BusinessMethod" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="insertMethods" upperBound="-1"
+        eType="#//BusinessMethod" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="updaeteMethods" upperBound="-1"
+        eType="#//BusinessMethod" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="removetMethods" upperBound="-1"
+        eType="#//BusinessMethod" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="searchtMethods" upperBound="-1"
+        eType="#//BusinessMethod" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessMethod">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="method"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="#//refmethod"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="refmethod" instanceClassName="org.tura.metamodel.commons.types.impl.RefMethodImpl"/>
+</ecore:EPackage>

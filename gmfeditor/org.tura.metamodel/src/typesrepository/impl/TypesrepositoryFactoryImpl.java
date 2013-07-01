@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import typesrepository.BusinessPackage;
 import typesrepository.Primitive;
 import typesrepository.Types;
 import typesrepository.TypesRepository;
@@ -72,6 +73,7 @@ public class TypesrepositoryFactoryImpl extends EFactoryImpl implements Typesrep
       case TypesrepositoryPackage.TYPES: return createTypes();
       case TypesrepositoryPackage.PRIMITIVE: return createPrimitive();
       case TypesrepositoryPackage.PACKAGE: return createPackage();
+      case TypesrepositoryPackage.BUSINESS_PACKAGE: return createBusinessPackage();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -119,6 +121,17 @@ public class TypesrepositoryFactoryImpl extends EFactoryImpl implements Typesrep
   {
     PackageImpl package_ = new PackageImpl();
     return package_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BusinessPackage createBusinessPackage()
+  {
+    BusinessPackageImpl businessPackage = new BusinessPackageImpl();
+    return businessPackage;
   }
 
   /**

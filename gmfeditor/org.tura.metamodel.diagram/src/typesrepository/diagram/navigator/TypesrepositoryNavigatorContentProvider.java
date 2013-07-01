@@ -28,11 +28,13 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
+import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.edit.parts.PrimitiveEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
+import typesrepository.diagram.edit.parts.TypesTypesBusinessPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPrimitivesCompartmentEditPart;
 import typesrepository.diagram.part.Messages;
@@ -252,6 +254,15 @@ public class TypesrepositoryNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					TypesrepositoryVisualIDRegistry
 							.getType(PackageEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					TypesrepositoryVisualIDRegistry
+							.getType(TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					TypesrepositoryVisualIDRegistry
+							.getType(BusinessPackageEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(

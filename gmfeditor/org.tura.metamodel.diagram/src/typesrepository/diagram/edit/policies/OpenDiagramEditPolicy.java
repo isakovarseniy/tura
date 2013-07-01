@@ -191,14 +191,14 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 * @generated
 		 */
 		protected String getDiagramKind() {
-			return "Typedefinition";
+			return TypesRepositoryEditPart.MODEL_ID;
 		}
 
 		/**
 		 * @generated
 		 */
 		protected String getEditorID() {
-			return "typedefinition.diagram.part.TypedefinitionDiagramEditorID";
+			return TypesrepositoryDiagramEditor.ID;
 		}
 	}
 

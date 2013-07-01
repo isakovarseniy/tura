@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import typesrepository.BusinessPackage;
 import typesrepository.Primitive;
 import typesrepository.Types;
 import typesrepository.TypesrepositoryPackage;
@@ -32,6 +33,7 @@ import typesrepository.TypesrepositoryPackage;
  *   <li>{@link typesrepository.impl.TypesImpl#getName <em>Name</em>}</li>
  *   <li>{@link typesrepository.impl.TypesImpl#getPrimitives <em>Primitives</em>}</li>
  *   <li>{@link typesrepository.impl.TypesImpl#getPackages <em>Packages</em>}</li>
+ *   <li>{@link typesrepository.impl.TypesImpl#getBusinessPackages <em>Business Packages</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,6 +80,16 @@ public class TypesImpl extends EObjectImpl implements Types
    * @ordered
    */
   protected EList<typesrepository.Package> packages;
+
+  /**
+   * The cached value of the '{@link #getBusinessPackages() <em>Business Packages</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBusinessPackages()
+   * @generated
+   * @ordered
+   */
+  protected EList<BusinessPackage> businessPackages;
 
   /**
    * <!-- begin-user-doc -->
@@ -156,6 +168,20 @@ public class TypesImpl extends EObjectImpl implements Types
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<BusinessPackage> getBusinessPackages()
+  {
+    if (businessPackages == null)
+    {
+      businessPackages = new EObjectContainmentEList<BusinessPackage>(BusinessPackage.class, this, TypesrepositoryPackage.TYPES__BUSINESS_PACKAGES);
+    }
+    return businessPackages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -165,6 +191,8 @@ public class TypesImpl extends EObjectImpl implements Types
         return ((InternalEList<?>)getPrimitives()).basicRemove(otherEnd, msgs);
       case TypesrepositoryPackage.TYPES__PACKAGES:
         return ((InternalEList<?>)getPackages()).basicRemove(otherEnd, msgs);
+      case TypesrepositoryPackage.TYPES__BUSINESS_PACKAGES:
+        return ((InternalEList<?>)getBusinessPackages()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -185,6 +213,8 @@ public class TypesImpl extends EObjectImpl implements Types
         return getPrimitives();
       case TypesrepositoryPackage.TYPES__PACKAGES:
         return getPackages();
+      case TypesrepositoryPackage.TYPES__BUSINESS_PACKAGES:
+        return getBusinessPackages();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -211,6 +241,10 @@ public class TypesImpl extends EObjectImpl implements Types
         getPackages().clear();
         getPackages().addAll((Collection<? extends typesrepository.Package>)newValue);
         return;
+      case TypesrepositoryPackage.TYPES__BUSINESS_PACKAGES:
+        getBusinessPackages().clear();
+        getBusinessPackages().addAll((Collection<? extends BusinessPackage>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -234,6 +268,9 @@ public class TypesImpl extends EObjectImpl implements Types
       case TypesrepositoryPackage.TYPES__PACKAGES:
         getPackages().clear();
         return;
+      case TypesrepositoryPackage.TYPES__BUSINESS_PACKAGES:
+        getBusinessPackages().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -254,6 +291,8 @@ public class TypesImpl extends EObjectImpl implements Types
         return primitives != null && !primitives.isEmpty();
       case TypesrepositoryPackage.TYPES__PACKAGES:
         return packages != null && !packages.isEmpty();
+      case TypesrepositoryPackage.TYPES__BUSINESS_PACKAGES:
+        return businessPackages != null && !businessPackages.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -12,12 +12,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typesrepository.ecore#//Types/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typesrepository.ecore#//Types/primitives"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typesrepository.ecore#//Types/packages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typesrepository.ecore#//Types/businessPackages"/>
     </genClasses>
     <genClasses ecoreClass="typesrepository.ecore#//Primitive">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typesrepository.ecore#//Primitive/name"/>
     </genClasses>
     <genClasses ecoreClass="typesrepository.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typesrepository.ecore#//Package/name"/>
+    </genClasses>
+    <genClasses ecoreClass="typesrepository.ecore#//BusinessPackage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typesrepository.ecore#//BusinessPackage/name"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Typedefinition" disposableProviderFactory="true" ecorePackage="../typedefinition/typeDefinition.ecore#/">
@@ -57,6 +61,22 @@
     </genClasses>
     <genClasses ecoreClass="../typedefinition/typeDefinition.ecore#//TypePointer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../typedefinition/typeDefinition.ecore#//TypePointer/type"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Businessobjects" disposableProviderFactory="true" ecorePackage="../businessObjects/businessObjects.ecore#/">
+    <genDataTypes ecoreDataType="../businessObjects/businessObjects.ecore#//refmethod"/>
+    <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//BusinessObjects">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObjects/businessObject"/>
+    </genClasses>
+    <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//BusinessObject">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObject/createMethods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObject/insertMethods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObject/updaeteMethods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObject/removetMethods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObject/searchtMethods"/>
+    </genClasses>
+    <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//BusinessMethod">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../businessObjects/businessObjects.ecore#//BusinessMethod/method"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

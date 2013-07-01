@@ -27,6 +27,7 @@ import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
 import typesrepository.diagram.edit.policies.TypesrepositoryBaseItemSemanticEditPolicy;
 import typesrepository.diagram.providers.ElementInitializers;
 import typesrepository.provider.TypesrepositoryItemProviderAdapterFactory;
+import businessobjects.provider.BusinessobjectsItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -120,6 +121,7 @@ public class TypesrepositoryDiagramEditorPlugin extends AbstractUIPlugin {
 	protected void fillItemProviderFactories(List<AdapterFactory> factories) {
 		factories.add(new TypesrepositoryItemProviderAdapterFactory());
 		factories.add(new TypedefinitionItemProviderAdapterFactory());
+		factories.add(new BusinessobjectsItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}

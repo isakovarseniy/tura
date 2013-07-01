@@ -13,6 +13,8 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import typedefinition.TypedefinitionPackage;
 import typesrepository.TypesRepository;
 import typesrepository.TypesrepositoryPackage;
+import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
+import typesrepository.diagram.edit.parts.BusinessPackageNameEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.edit.parts.PackageNameEditPart;
 import typesrepository.diagram.edit.parts.PrimitiveEditPart;
@@ -21,6 +23,7 @@ import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesNameEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
+import typesrepository.diagram.edit.parts.TypesTypesBusinessPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPrimitivesCompartmentEditPart;
 
@@ -150,6 +153,12 @@ public class TypesrepositoryVisualIDRegistry {
 				return PackageEditPart.VISUAL_ID;
 			}
 			break;
+		case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
+			if (TypesrepositoryPackage.eINSTANCE.getBusinessPackage()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return BusinessPackageEditPart.VISUAL_ID;
+			}
+			break;
 		}
 		return -1;
 	}
@@ -191,9 +200,17 @@ public class TypesrepositoryVisualIDRegistry {
 			if (TypesTypesPackagesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case PackageEditPart.VISUAL_ID:
 			if (PackageNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case BusinessPackageEditPart.VISUAL_ID:
+			if (BusinessPackageNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -209,6 +226,11 @@ public class TypesrepositoryVisualIDRegistry {
 			break;
 		case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
 			if (PackageEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
+			if (BusinessPackageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -260,6 +282,7 @@ public class TypesrepositoryVisualIDRegistry {
 		switch (visualID) {
 		case TypesTypesPrimitivesCompartmentEditPart.VISUAL_ID:
 		case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
+		case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -276,6 +299,7 @@ public class TypesrepositoryVisualIDRegistry {
 			return false;
 		case PackageEditPart.VISUAL_ID:
 		case PrimitiveEditPart.VISUAL_ID:
+		case BusinessPackageEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

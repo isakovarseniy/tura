@@ -155,10 +155,12 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
 
+import businessobjects.presentation.BusinessobjectsEditorPlugin;
+
+import businessobjects.provider.BusinessobjectsItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
 import typesrepository.presentation.TypesrepositoryEditorPlugin;
-
 import typesrepository.provider.TypesrepositoryItemProviderAdapterFactory;
 
 
@@ -569,7 +571,7 @@ public class TypedefinitionEditor
         }
         catch (CoreException exception)
         {
-          TypedefinitionEditorPlugin.INSTANCE.log(exception);
+          BusinessobjectsEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -709,7 +711,7 @@ public class TypedefinitionEditor
         }
         catch (PartInitException exception)
         {
-          TypedefinitionEditorPlugin.INSTANCE.log(exception);
+          BusinessobjectsEditorPlugin.INSTANCE.log(exception);
         }
       }
 
@@ -724,7 +726,7 @@ public class TypedefinitionEditor
           }
           catch (CoreException exception)
           {
-            TypedefinitionEditorPlugin.INSTANCE.log(exception);
+            BusinessobjectsEditorPlugin.INSTANCE.log(exception);
           }
         }
       }
@@ -771,6 +773,7 @@ public class TypedefinitionEditor
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new BusinessobjectsItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
@@ -1697,7 +1700,7 @@ public class TypedefinitionEditor
     {
       // Something went wrong that shouldn't.
       //
-      TypedefinitionEditorPlugin.INSTANCE.log(exception);
+      BusinessobjectsEditorPlugin.INSTANCE.log(exception);
     }
     updateProblemIndication = true;
     updateProblemIndication();
@@ -1805,7 +1808,7 @@ public class TypedefinitionEditor
     }
     catch (CoreException exception)
     {
-      TypedefinitionEditorPlugin.INSTANCE.log(exception);
+      BusinessobjectsEditorPlugin.INSTANCE.log(exception);
     }
   }
 
@@ -1945,7 +1948,7 @@ public class TypedefinitionEditor
    */
   private static String getString(String key)
   {
-    return TypedefinitionEditorPlugin.INSTANCE.getString(key);
+    return BusinessobjectsEditorPlugin.INSTANCE.getString(key);
   }
 
   /**
@@ -1956,7 +1959,7 @@ public class TypedefinitionEditor
    */
   private static String getString(String key, Object s1)
   {
-    return TypedefinitionEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+    return BusinessobjectsEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
   }
 
   /**

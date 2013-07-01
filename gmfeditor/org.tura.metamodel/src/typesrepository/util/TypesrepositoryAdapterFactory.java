@@ -2,6 +2,7 @@
  */
 package typesrepository.util;
 
+import businessobjects.BusinessObjects;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -11,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import typedefinition.TypeDefinition;
 
+import typesrepository.BusinessPackage;
 import typesrepository.Primitive;
 import typesrepository.Types;
 import typesrepository.TypesRepository;
@@ -100,9 +102,19 @@ public class TypesrepositoryAdapterFactory extends AdapterFactoryImpl
         return createPackageAdapter();
       }
       @Override
+      public Adapter caseBusinessPackage(BusinessPackage object)
+      {
+        return createBusinessPackageAdapter();
+      }
+      @Override
       public Adapter caseTypeDefinition(TypeDefinition object)
       {
         return createTypeDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseBusinessObjects(BusinessObjects object)
+      {
+        return createBusinessObjectsAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -187,6 +199,21 @@ public class TypesrepositoryAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link typesrepository.BusinessPackage <em>Business Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see typesrepository.BusinessPackage
+   * @generated
+   */
+  public Adapter createBusinessPackageAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link typedefinition.TypeDefinition <em>Type Definition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -197,6 +224,21 @@ public class TypesrepositoryAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link businessobjects.BusinessObjects <em>Business Objects</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see businessobjects.BusinessObjects
+   * @generated
+   */
+  public Adapter createBusinessObjectsAdapter()
   {
     return null;
   }

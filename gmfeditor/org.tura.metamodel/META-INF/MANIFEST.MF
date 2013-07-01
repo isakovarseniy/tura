@@ -7,12 +7,14 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: typesrepository,
- typesrepository.impl,
- typesrepository.util,
+Export-Package: businessobjects,
+ businessobjects.util,
  typedefinition,
  typedefinition.impl,
- typedefinition.util
+ typedefinition.util,
+ typesrepository,
+ typesrepository.impl,
+ typesrepository.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.tura.metamodel.commons.types;bundle-version="1.0.0"

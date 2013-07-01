@@ -3,6 +3,8 @@
 package typedefinition.provider;
 
 
+import businessobjects.provider.BusinessobjectsEditPlugin;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -25,7 +27,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import typedefinition.TypeDefinition;
 import typedefinition.TypedefinitionFactory;
 import typedefinition.TypedefinitionPackage;
-
 import typesrepository.provider.TypesrepositoryEditPlugin;
 
 /**
@@ -193,7 +194,7 @@ public class TypeDefinitionItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypedefinitionEditPlugin.INSTANCE;
+    return BusinessobjectsEditPlugin.INSTANCE;
   }
 
 }

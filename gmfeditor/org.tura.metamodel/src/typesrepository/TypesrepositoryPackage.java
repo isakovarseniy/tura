@@ -2,6 +2,7 @@
  */
 package typesrepository;
 
+import businessobjects.BusinessobjectsPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -124,13 +125,22 @@ public interface TypesrepositoryPackage extends EPackage
   int TYPES__PACKAGES = 2;
 
   /**
+   * The feature id for the '<em><b>Business Packages</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPES__BUSINESS_PACKAGES = 3;
+
+  /**
    * The number of structural features of the '<em>Types</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPES_FEATURE_COUNT = 3;
+  int TYPES_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link typesrepository.impl.PrimitiveImpl <em>Primitive</em>}' class.
@@ -208,6 +218,44 @@ public interface TypesrepositoryPackage extends EPackage
 
 
   /**
+   * The meta object id for the '{@link typesrepository.impl.BusinessPackageImpl <em>Business Package</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see typesrepository.impl.BusinessPackageImpl
+   * @see typesrepository.impl.TypesrepositoryPackageImpl#getBusinessPackage()
+   * @generated
+   */
+  int BUSINESS_PACKAGE = 4;
+
+  /**
+   * The feature id for the '<em><b>Business Object</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_PACKAGE__BUSINESS_OBJECT = BusinessobjectsPackage.BUSINESS_OBJECTS__BUSINESS_OBJECT;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_PACKAGE__NAME = BusinessobjectsPackage.BUSINESS_OBJECTS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Business Package</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_PACKAGE_FEATURE_COUNT = BusinessobjectsPackage.BUSINESS_OBJECTS_FEATURE_COUNT + 1;
+
+
+  /**
    * Returns the meta object for class '{@link typesrepository.TypesRepository <em>Types Repository</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -272,6 +320,17 @@ public interface TypesrepositoryPackage extends EPackage
   EReference getTypes_Packages();
 
   /**
+   * Returns the meta object for the containment reference list '{@link typesrepository.Types#getBusinessPackages <em>Business Packages</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Business Packages</em>'.
+   * @see typesrepository.Types#getBusinessPackages()
+   * @see #getTypes()
+   * @generated
+   */
+  EReference getTypes_BusinessPackages();
+
+  /**
    * Returns the meta object for class '{@link typesrepository.Primitive <em>Primitive</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -312,6 +371,27 @@ public interface TypesrepositoryPackage extends EPackage
    * @generated
    */
   EAttribute getPackage_Name();
+
+  /**
+   * Returns the meta object for class '{@link typesrepository.BusinessPackage <em>Business Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Business Package</em>'.
+   * @see typesrepository.BusinessPackage
+   * @generated
+   */
+  EClass getBusinessPackage();
+
+  /**
+   * Returns the meta object for the attribute '{@link typesrepository.BusinessPackage#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see typesrepository.BusinessPackage#getName()
+   * @see #getBusinessPackage()
+   * @generated
+   */
+  EAttribute getBusinessPackage_Name();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -389,6 +469,14 @@ public interface TypesrepositoryPackage extends EPackage
     EReference TYPES__PACKAGES = eINSTANCE.getTypes_Packages();
 
     /**
+     * The meta object literal for the '<em><b>Business Packages</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPES__BUSINESS_PACKAGES = eINSTANCE.getTypes_BusinessPackages();
+
+    /**
      * The meta object literal for the '{@link typesrepository.impl.PrimitiveImpl <em>Primitive</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -423,6 +511,24 @@ public interface TypesrepositoryPackage extends EPackage
      * @generated
      */
     EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
+
+    /**
+     * The meta object literal for the '{@link typesrepository.impl.BusinessPackageImpl <em>Business Package</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see typesrepository.impl.BusinessPackageImpl
+     * @see typesrepository.impl.TypesrepositoryPackageImpl#getBusinessPackage()
+     * @generated
+     */
+    EClass BUSINESS_PACKAGE = eINSTANCE.getBusinessPackage();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUSINESS_PACKAGE__NAME = eINSTANCE.getBusinessPackage_Name();
 
   }
 

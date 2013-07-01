@@ -2,6 +2,7 @@
  */
 package typesrepository.util;
 
+import businessobjects.BusinessObjects;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -9,6 +10,7 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import typedefinition.TypeDefinition;
 
+import typesrepository.BusinessPackage;
 import typesrepository.Primitive;
 import typesrepository.Types;
 import typesrepository.TypesRepository;
@@ -106,6 +108,14 @@ public class TypesrepositorySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case TypesrepositoryPackage.BUSINESS_PACKAGE:
+      {
+        BusinessPackage businessPackage = (BusinessPackage)theEObject;
+        T result = caseBusinessPackage(businessPackage);
+        if (result == null) result = caseBusinessObjects(businessPackage);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -175,6 +185,22 @@ public class TypesrepositorySwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Business Package</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Business Package</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBusinessPackage(BusinessPackage object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Type Definition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -186,6 +212,22 @@ public class TypesrepositorySwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTypeDefinition(TypeDefinition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Business Objects</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Business Objects</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBusinessObjects(BusinessObjects object)
   {
     return null;
   }

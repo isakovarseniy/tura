@@ -1,0 +1,31 @@
+@namespace(uri="http://tura.org/2013/v1/businessobjects", prefix="tura.businessobjects")
+@gmf
+package businessobjects;
+import "platform:/resource/org.tura.metamodel/typedefinition/typeDefinition.ecore";
+
+
+@gmf.diagram
+class BusinessObjects{
+   val BusinessObject[*] businessObject;
+}
+
+@gmf.node(label="type")
+class BusinessObject extends typedefinition.TypePointer{
+   @gmf.compartment()
+   val BusinessMethod[*] createMethods;
+   @gmf.compartment()
+   val BusinessMethod[*] insertMethods;
+   @gmf.compartment()
+   val BusinessMethod[*] updaeteMethods;
+   @gmf.compartment()
+   val BusinessMethod[*] removetMethods;
+   @gmf.compartment()
+   val BusinessMethod[*] searchtMethods;
+}
+
+@gmf.node(label="method")
+class BusinessMethod {
+   attr refmethod method;
+}
+
+datatype refmethod:org.tura.metamodel.commons.types.impl.RefMethodImpl;

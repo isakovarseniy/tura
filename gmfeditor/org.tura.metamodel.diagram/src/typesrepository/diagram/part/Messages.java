@@ -256,32 +256,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Package1CreationTool_title;
+	public static String BusinessPackage1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Package1CreationTool_desc;
+	public static String BusinessPackage1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive2CreationTool_title;
+	public static String Package2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive2CreationTool_desc;
+	public static String Package2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Types3CreationTool_title;
+	public static String Primitive3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Types3CreationTool_desc;
+	public static String Primitive3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Types4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Types4CreationTool_desc;
 
 	/**
 	 * @generated
@@ -302,6 +312,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String TypesTypesPackagesCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypesTypesBusinessPackagesCompartmentEditPart_title;
 
 	/**
 	 * @generated

@@ -21,6 +21,10 @@
         eType="#//Package" containment="true">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="businessPackages" upperBound="-1"
+        eType="#//BusinessPackage" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Primitive">
     <eAnnotations source="gmf.node">
@@ -29,6 +33,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="../typedefinition/typeDefinition.ecore#//TypeDefinition">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessPackage" eSuperTypes="../businessObjects/businessObjects.ecore#//BusinessObjects">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>

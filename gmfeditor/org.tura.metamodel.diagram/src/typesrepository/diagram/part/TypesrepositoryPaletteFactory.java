@@ -38,9 +38,10 @@ public class TypesrepositoryPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createPackage1CreationTool());
-		paletteContainer.add(createPrimitive2CreationTool());
-		paletteContainer.add(createTypes3CreationTool());
+		paletteContainer.add(createBusinessPackage1CreationTool());
+		paletteContainer.add(createPackage2CreationTool());
+		paletteContainer.add(createPrimitive3CreationTool());
+		paletteContainer.add(createTypes4CreationTool());
 		return paletteContainer;
 	}
 
@@ -59,13 +60,29 @@ public class TypesrepositoryPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPackage1CreationTool() {
+	private ToolEntry createBusinessPackage1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Package1CreationTool_title,
-				Messages.Package1CreationTool_desc,
+				Messages.BusinessPackage1CreationTool_title,
+				Messages.BusinessPackage1CreationTool_desc,
+				Collections
+						.singletonList(TypesrepositoryElementTypes.BusinessPackage_3003));
+		entry.setId("createBusinessPackage1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(TypesrepositoryElementTypes
+				.getImageDescriptor(TypesrepositoryElementTypes.BusinessPackage_3003));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createPackage2CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Package2CreationTool_title,
+				Messages.Package2CreationTool_desc,
 				Collections
 						.singletonList(TypesrepositoryElementTypes.Package_3001));
-		entry.setId("createPackage1CreationTool"); //$NON-NLS-1$
+		entry.setId("createPackage2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypesrepositoryElementTypes
 				.getImageDescriptor(TypesrepositoryElementTypes.Package_3001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -75,13 +92,13 @@ public class TypesrepositoryPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPrimitive2CreationTool() {
+	private ToolEntry createPrimitive3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Primitive2CreationTool_title,
-				Messages.Primitive2CreationTool_desc,
+				Messages.Primitive3CreationTool_title,
+				Messages.Primitive3CreationTool_desc,
 				Collections
 						.singletonList(TypesrepositoryElementTypes.Primitive_3002));
-		entry.setId("createPrimitive2CreationTool"); //$NON-NLS-1$
+		entry.setId("createPrimitive3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypesrepositoryElementTypes
 				.getImageDescriptor(TypesrepositoryElementTypes.Primitive_3002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -91,13 +108,13 @@ public class TypesrepositoryPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypes3CreationTool() {
+	private ToolEntry createTypes4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Types3CreationTool_title,
-				Messages.Types3CreationTool_desc,
+				Messages.Types4CreationTool_title,
+				Messages.Types4CreationTool_desc,
 				Collections
 						.singletonList(TypesrepositoryElementTypes.Types_2001));
-		entry.setId("createTypes3CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypes4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypesrepositoryElementTypes
 				.getImageDescriptor(TypesrepositoryElementTypes.Types_2001));
 		entry.setLargeIcon(entry.getSmallIcon());

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link typesrepository.Types#getName <em>Name</em>}</li>
  *   <li>{@link typesrepository.Types#getPrimitives <em>Primitives</em>}</li>
  *   <li>{@link typesrepository.Types#getPackages <em>Packages</em>}</li>
+ *   <li>{@link typesrepository.Types#getBusinessPackages <em>Business Packages</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,5 +84,21 @@ public interface Types extends EObject
    * @generated
    */
   EList<typesrepository.Package> getPackages();
+
+  /**
+   * Returns the value of the '<em><b>Business Packages</b></em>' containment reference list.
+   * The list contents are of type {@link typesrepository.BusinessPackage}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Business Packages</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Business Packages</em>' containment reference list.
+   * @see typesrepository.TypesrepositoryPackage#getTypes_BusinessPackages()
+   * @model containment="true"
+   * @generated
+   */
+  EList<BusinessPackage> getBusinessPackages();
 
 } // Types

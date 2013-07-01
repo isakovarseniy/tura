@@ -174,6 +174,31 @@ public class TypesrepositoryItemProviderAdapterFactory extends TypesrepositoryAd
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link typesrepository.BusinessPackage} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BusinessPackageItemProvider businessPackageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link typesrepository.BusinessPackage}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBusinessPackageAdapter()
+  {
+    if (businessPackageItemProvider == null)
+    {
+      businessPackageItemProvider = new BusinessPackageItemProvider(this);
+    }
+
+    return businessPackageItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -288,6 +313,7 @@ public class TypesrepositoryItemProviderAdapterFactory extends TypesrepositoryAd
     if (typesItemProvider != null) typesItemProvider.dispose();
     if (primitiveItemProvider != null) primitiveItemProvider.dispose();
     if (packageItemProvider != null) packageItemProvider.dispose();
+    if (businessPackageItemProvider != null) businessPackageItemProvider.dispose();
   }
 
 }

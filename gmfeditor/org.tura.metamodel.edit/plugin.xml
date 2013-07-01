@@ -8,8 +8,8 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://tura.org/2013/v1/typesrepository"
-            class="typesrepository.provider.TypesrepositoryItemProviderAdapterFactory"
+            uri="http://tura.org/2013/v1/businessobjects"
+            class="businessobjects.provider.BusinessobjectsItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
