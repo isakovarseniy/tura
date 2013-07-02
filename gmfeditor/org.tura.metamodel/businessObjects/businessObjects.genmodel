@@ -5,20 +5,27 @@
     copyrightFields="false">
   <foreignModel>businessObjects.emf</foreignModel>
   <genPackages prefix="Businessobjects" disposableProviderFactory="true" ecorePackage="businessObjects.ecore#/">
-    <genDataTypes ecoreDataType="businessObjects.ecore#//refmethod"/>
     <genClasses ecoreClass="businessObjects.ecore#//BusinessObjects">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference businessObjects.ecore#//BusinessObjects/businessObject"/>
     </genClasses>
     <genClasses ecoreClass="businessObjects.ecore#//BusinessObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute businessObjects.ecore#//BusinessObject/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference businessObjects.ecore#//BusinessObject/createMethods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference businessObjects.ecore#//BusinessObject/insertMethods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference businessObjects.ecore#//BusinessObject/updaeteMethods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference businessObjects.ecore#//BusinessObject/removetMethods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference businessObjects.ecore#//BusinessObject/searchtMethods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference businessObjects.ecore#//BusinessObject/othersMethods"/>
     </genClasses>
     <genClasses ecoreClass="businessObjects.ecore#//BusinessMethod">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute businessObjects.ecore#//BusinessMethod/method"/>
     </genClasses>
+    <genClasses ecoreClass="businessObjects.ecore#//CreateMethod"/>
+    <genClasses ecoreClass="businessObjects.ecore#//InsertMethod"/>
+    <genClasses ecoreClass="businessObjects.ecore#//UpdateMethod"/>
+    <genClasses ecoreClass="businessObjects.ecore#//RemoveMethod"/>
+    <genClasses ecoreClass="businessObjects.ecore#//SearchMethod"/>
+    <genClasses ecoreClass="businessObjects.ecore#//OtherMethod"/>
   </genPackages>
   <genPackages prefix="Typedefinition" disposableProviderFactory="true" ecorePackage="../typedefinition/typeDefinition.ecore#/">
     <genDataTypes ecoreDataType="../typedefinition/typeDefinition.ecore#//reftype"/>

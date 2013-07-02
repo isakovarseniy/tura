@@ -176,7 +176,7 @@ public class TypeExtensionItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return BusinessobjectsEditPlugin.INSTANCE;
+    return TypesrepositoryEditPlugin.INSTANCE;
   }
 
 }

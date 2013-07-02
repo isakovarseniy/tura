@@ -6,7 +6,7 @@ package businessobjects.diagram.edit.policies;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-import businessobjects.diagram.edit.commands.BusinessMethod3CreateCommand;
+import businessobjects.diagram.edit.commands.UpdateMethodCreateCommand;
 import businessobjects.diagram.providers.BusinessobjectsElementTypes;
 
 /**
@@ -26,9 +26,9 @@ public class BusinessObjectBusinessObjectUpdaeteMethodsCompartmentItemSemanticEd
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (BusinessobjectsElementTypes.BusinessMethod_3005 == req
+		if (BusinessobjectsElementTypes.UpdateMethod_3011 == req
 				.getElementType()) {
-			return getGEFWrapper(new BusinessMethod3CreateCommand(req));
+			return getGEFWrapper(new UpdateMethodCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

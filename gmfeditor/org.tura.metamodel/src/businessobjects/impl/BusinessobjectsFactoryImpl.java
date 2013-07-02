@@ -5,15 +5,12 @@ package businessobjects.impl;
 import businessobjects.*;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.tura.metamodel.commons.types.impl.RefMethodImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,42 +67,14 @@ public class BusinessobjectsFactoryImpl extends EFactoryImpl implements Business
       case BusinessobjectsPackage.BUSINESS_OBJECTS: return createBusinessObjects();
       case BusinessobjectsPackage.BUSINESS_OBJECT: return createBusinessObject();
       case BusinessobjectsPackage.BUSINESS_METHOD: return createBusinessMethod();
+      case BusinessobjectsPackage.CREATE_METHOD: return createCreateMethod();
+      case BusinessobjectsPackage.INSERT_METHOD: return createInsertMethod();
+      case BusinessobjectsPackage.UPDATE_METHOD: return createUpdateMethod();
+      case BusinessobjectsPackage.REMOVE_METHOD: return createRemoveMethod();
+      case BusinessobjectsPackage.SEARCH_METHOD: return createSearchMethod();
+      case BusinessobjectsPackage.OTHER_METHOD: return createOtherMethod();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object createFromString(EDataType eDataType, String initialValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case BusinessobjectsPackage.REFMETHOD:
-        return createrefmethodFromString(eDataType, initialValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String convertToString(EDataType eDataType, Object instanceValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case BusinessobjectsPackage.REFMETHOD:
-        return convertrefmethodToString(eDataType, instanceValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -147,9 +116,10 @@ public class BusinessobjectsFactoryImpl extends EFactoryImpl implements Business
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefMethodImpl createrefmethodFromString(EDataType eDataType, String initialValue)
+  public CreateMethod createCreateMethod()
   {
-    return (RefMethodImpl)super.createFromString(eDataType, initialValue);
+    CreateMethodImpl createMethod = new CreateMethodImpl();
+    return createMethod;
   }
 
   /**
@@ -157,9 +127,54 @@ public class BusinessobjectsFactoryImpl extends EFactoryImpl implements Business
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertrefmethodToString(EDataType eDataType, Object instanceValue)
+  public InsertMethod createInsertMethod()
   {
-    return super.convertToString(eDataType, instanceValue);
+    InsertMethodImpl insertMethod = new InsertMethodImpl();
+    return insertMethod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UpdateMethod createUpdateMethod()
+  {
+    UpdateMethodImpl updateMethod = new UpdateMethodImpl();
+    return updateMethod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RemoveMethod createRemoveMethod()
+  {
+    RemoveMethodImpl removeMethod = new RemoveMethodImpl();
+    return removeMethod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SearchMethod createSearchMethod()
+  {
+    SearchMethodImpl searchMethod = new SearchMethodImpl();
+    return searchMethod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OtherMethod createOtherMethod()
+  {
+    OtherMethodImpl otherMethod = new OtherMethodImpl();
+    return otherMethod;
   }
 
   /**

@@ -12,8 +12,8 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="BusinessMethod"
-          description="Create new BusinessMethod">
+          title="BusinessObject"
+          description="Create new BusinessObject">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -21,8 +21,53 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="BusinessObject"
-          description="Create new BusinessObject">
+          title="CreateMethod"
+          description="Create new CreateMethod">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="InsertMethod"
+          description="Create new InsertMethod">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="OtherMethod"
+          description="Create new OtherMethod">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="RemoveMethod"
+          description="Create new RemoveMethod">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="SearchMethod"
+          description="Create new SearchMethod">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="UpdateMethod"
+          description="Create new UpdateMethod">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

@@ -11,22 +11,29 @@ import java.util.List;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
-import businessobjects.BusinessMethod;
 import businessobjects.BusinessObject;
 import businessobjects.BusinessObjects;
-import businessobjects.diagram.edit.parts.BusinessMethod2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodEditPart;
+import businessobjects.CreateMethod;
+import businessobjects.InsertMethod;
+import businessobjects.OtherMethod;
+import businessobjects.RemoveMethod;
+import businessobjects.SearchMethod;
+import businessobjects.UpdateMethod;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodEditPart;
 import businessobjects.diagram.edit.parts.TypeExtensionEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
 
 /**
  * @generated
@@ -59,6 +66,8 @@ public class BusinessobjectsDiagramUpdater {
 			return getBusinessObjectBusinessObjectRemovetMethodsCompartment_7006SemanticChildren(view);
 		case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
 			return getBusinessObjectBusinessObjectSearchtMethodsCompartment_7007SemanticChildren(view);
+		case BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID:
+			return getBusinessObjectBusinessObjectOthersMethodsCompartment_7008SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -104,10 +113,10 @@ public class BusinessobjectsDiagramUpdater {
 		LinkedList<BusinessobjectsNodeDescriptor> result = new LinkedList<BusinessobjectsNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getCreateMethods().iterator(); it
 				.hasNext();) {
-			BusinessMethod childElement = (BusinessMethod) it.next();
+			CreateMethod childElement = (CreateMethod) it.next();
 			int visualID = BusinessobjectsVisualIDRegistry.getNodeVisualID(
 					view, childElement);
-			if (visualID == BusinessMethodEditPart.VISUAL_ID) {
+			if (visualID == CreateMethodEditPart.VISUAL_ID) {
 				result.add(new BusinessobjectsNodeDescriptor(childElement,
 						visualID));
 				continue;
@@ -133,10 +142,10 @@ public class BusinessobjectsDiagramUpdater {
 		LinkedList<BusinessobjectsNodeDescriptor> result = new LinkedList<BusinessobjectsNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getInsertMethods().iterator(); it
 				.hasNext();) {
-			BusinessMethod childElement = (BusinessMethod) it.next();
+			InsertMethod childElement = (InsertMethod) it.next();
 			int visualID = BusinessobjectsVisualIDRegistry.getNodeVisualID(
 					view, childElement);
-			if (visualID == BusinessMethod2EditPart.VISUAL_ID) {
+			if (visualID == InsertMethodEditPart.VISUAL_ID) {
 				result.add(new BusinessobjectsNodeDescriptor(childElement,
 						visualID));
 				continue;
@@ -162,10 +171,10 @@ public class BusinessobjectsDiagramUpdater {
 		LinkedList<BusinessobjectsNodeDescriptor> result = new LinkedList<BusinessobjectsNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getUpdaeteMethods().iterator(); it
 				.hasNext();) {
-			BusinessMethod childElement = (BusinessMethod) it.next();
+			UpdateMethod childElement = (UpdateMethod) it.next();
 			int visualID = BusinessobjectsVisualIDRegistry.getNodeVisualID(
 					view, childElement);
-			if (visualID == BusinessMethod3EditPart.VISUAL_ID) {
+			if (visualID == UpdateMethodEditPart.VISUAL_ID) {
 				result.add(new BusinessobjectsNodeDescriptor(childElement,
 						visualID));
 				continue;
@@ -191,10 +200,10 @@ public class BusinessobjectsDiagramUpdater {
 		LinkedList<BusinessobjectsNodeDescriptor> result = new LinkedList<BusinessobjectsNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getRemovetMethods().iterator(); it
 				.hasNext();) {
-			BusinessMethod childElement = (BusinessMethod) it.next();
+			RemoveMethod childElement = (RemoveMethod) it.next();
 			int visualID = BusinessobjectsVisualIDRegistry.getNodeVisualID(
 					view, childElement);
-			if (visualID == BusinessMethod4EditPart.VISUAL_ID) {
+			if (visualID == RemoveMethodEditPart.VISUAL_ID) {
 				result.add(new BusinessobjectsNodeDescriptor(childElement,
 						visualID));
 				continue;
@@ -220,10 +229,39 @@ public class BusinessobjectsDiagramUpdater {
 		LinkedList<BusinessobjectsNodeDescriptor> result = new LinkedList<BusinessobjectsNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getSearchtMethods().iterator(); it
 				.hasNext();) {
-			BusinessMethod childElement = (BusinessMethod) it.next();
+			SearchMethod childElement = (SearchMethod) it.next();
 			int visualID = BusinessobjectsVisualIDRegistry.getNodeVisualID(
 					view, childElement);
-			if (visualID == BusinessMethod5EditPart.VISUAL_ID) {
+			if (visualID == SearchMethodEditPart.VISUAL_ID) {
+				result.add(new BusinessobjectsNodeDescriptor(childElement,
+						visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectOthersMethodsCompartment_7008SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		BusinessObject modelElement = (BusinessObject) containerView
+				.getElement();
+		LinkedList<BusinessobjectsNodeDescriptor> result = new LinkedList<BusinessobjectsNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getOthersMethods().iterator(); it
+				.hasNext();) {
+			OtherMethod childElement = (OtherMethod) it.next();
+			int visualID = BusinessobjectsVisualIDRegistry.getNodeVisualID(
+					view, childElement);
+			if (visualID == OtherMethodEditPart.VISUAL_ID) {
 				result.add(new BusinessobjectsNodeDescriptor(childElement,
 						visualID));
 				continue;
@@ -242,16 +280,18 @@ public class BusinessobjectsDiagramUpdater {
 			return getBusinessObjects_1000ContainedLinks(view);
 		case BusinessObjectEditPart.VISUAL_ID:
 			return getBusinessObject_2003ContainedLinks(view);
-		case BusinessMethodEditPart.VISUAL_ID:
-			return getBusinessMethod_3003ContainedLinks(view);
-		case BusinessMethod2EditPart.VISUAL_ID:
-			return getBusinessMethod_3004ContainedLinks(view);
-		case BusinessMethod3EditPart.VISUAL_ID:
-			return getBusinessMethod_3005ContainedLinks(view);
-		case BusinessMethod4EditPart.VISUAL_ID:
-			return getBusinessMethod_3006ContainedLinks(view);
-		case BusinessMethod5EditPart.VISUAL_ID:
-			return getBusinessMethod_3007ContainedLinks(view);
+		case CreateMethodEditPart.VISUAL_ID:
+			return getCreateMethod_3009ContainedLinks(view);
+		case InsertMethodEditPart.VISUAL_ID:
+			return getInsertMethod_3010ContainedLinks(view);
+		case UpdateMethodEditPart.VISUAL_ID:
+			return getUpdateMethod_3011ContainedLinks(view);
+		case RemoveMethodEditPart.VISUAL_ID:
+			return getRemoveMethod_3012ContainedLinks(view);
+		case SearchMethodEditPart.VISUAL_ID:
+			return getSearchMethod_3013ContainedLinks(view);
+		case OtherMethodEditPart.VISUAL_ID:
+			return getOtherMethod_3014ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_4001ContainedLinks(view);
 		}
@@ -265,16 +305,18 @@ public class BusinessobjectsDiagramUpdater {
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(view)) {
 		case BusinessObjectEditPart.VISUAL_ID:
 			return getBusinessObject_2003IncomingLinks(view);
-		case BusinessMethodEditPart.VISUAL_ID:
-			return getBusinessMethod_3003IncomingLinks(view);
-		case BusinessMethod2EditPart.VISUAL_ID:
-			return getBusinessMethod_3004IncomingLinks(view);
-		case BusinessMethod3EditPart.VISUAL_ID:
-			return getBusinessMethod_3005IncomingLinks(view);
-		case BusinessMethod4EditPart.VISUAL_ID:
-			return getBusinessMethod_3006IncomingLinks(view);
-		case BusinessMethod5EditPart.VISUAL_ID:
-			return getBusinessMethod_3007IncomingLinks(view);
+		case CreateMethodEditPart.VISUAL_ID:
+			return getCreateMethod_3009IncomingLinks(view);
+		case InsertMethodEditPart.VISUAL_ID:
+			return getInsertMethod_3010IncomingLinks(view);
+		case UpdateMethodEditPart.VISUAL_ID:
+			return getUpdateMethod_3011IncomingLinks(view);
+		case RemoveMethodEditPart.VISUAL_ID:
+			return getRemoveMethod_3012IncomingLinks(view);
+		case SearchMethodEditPart.VISUAL_ID:
+			return getSearchMethod_3013IncomingLinks(view);
+		case OtherMethodEditPart.VISUAL_ID:
+			return getOtherMethod_3014IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_4001IncomingLinks(view);
 		}
@@ -288,16 +330,18 @@ public class BusinessobjectsDiagramUpdater {
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(view)) {
 		case BusinessObjectEditPart.VISUAL_ID:
 			return getBusinessObject_2003OutgoingLinks(view);
-		case BusinessMethodEditPart.VISUAL_ID:
-			return getBusinessMethod_3003OutgoingLinks(view);
-		case BusinessMethod2EditPart.VISUAL_ID:
-			return getBusinessMethod_3004OutgoingLinks(view);
-		case BusinessMethod3EditPart.VISUAL_ID:
-			return getBusinessMethod_3005OutgoingLinks(view);
-		case BusinessMethod4EditPart.VISUAL_ID:
-			return getBusinessMethod_3006OutgoingLinks(view);
-		case BusinessMethod5EditPart.VISUAL_ID:
-			return getBusinessMethod_3007OutgoingLinks(view);
+		case CreateMethodEditPart.VISUAL_ID:
+			return getCreateMethod_3009OutgoingLinks(view);
+		case InsertMethodEditPart.VISUAL_ID:
+			return getInsertMethod_3010OutgoingLinks(view);
+		case UpdateMethodEditPart.VISUAL_ID:
+			return getUpdateMethod_3011OutgoingLinks(view);
+		case RemoveMethodEditPart.VISUAL_ID:
+			return getRemoveMethod_3012OutgoingLinks(view);
+		case SearchMethodEditPart.VISUAL_ID:
+			return getSearchMethod_3013OutgoingLinks(view);
+		case OtherMethodEditPart.VISUAL_ID:
+			return getOtherMethod_3014OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_4001OutgoingLinks(view);
 		}
@@ -323,7 +367,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3003ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getCreateMethod_3009ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -331,7 +375,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3004ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getInsertMethod_3010ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -339,7 +383,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3005ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getUpdateMethod_3011ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -347,7 +391,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3006ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getRemoveMethod_3012ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -355,7 +399,15 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3007ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getSearchMethod_3013ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<BusinessobjectsLinkDescriptor> getOtherMethod_3014ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -379,7 +431,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3003IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getCreateMethod_3009IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -387,7 +439,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3004IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getInsertMethod_3010IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -395,7 +447,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3005IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getUpdateMethod_3011IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -403,7 +455,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3006IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getRemoveMethod_3012IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -411,7 +463,15 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3007IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getSearchMethod_3013IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<BusinessobjectsLinkDescriptor> getOtherMethod_3014IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -435,7 +495,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3003OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getCreateMethod_3009OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -443,7 +503,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3004OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getInsertMethod_3010OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -451,7 +511,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3005OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getUpdateMethod_3011OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -459,7 +519,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3006OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getRemoveMethod_3012OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -467,7 +527,15 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessMethod_3007OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getSearchMethod_3013OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<BusinessobjectsLinkDescriptor> getOtherMethod_3014OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

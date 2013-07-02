@@ -125,7 +125,7 @@ public class TypeElementItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return BusinessobjectsEditPlugin.INSTANCE;
+    return TypesrepositoryEditPlugin.INSTANCE;
   }
 
 }

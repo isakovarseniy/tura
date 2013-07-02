@@ -13,30 +13,28 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import typedefinition.TypedefinitionPackage;
 import businessobjects.BusinessObjects;
 import businessobjects.BusinessobjectsPackage;
-import businessobjects.diagram.edit.parts.BusinessMethod2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodEditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethodEditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectTypeEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodMethodEditPart;
 import businessobjects.diagram.edit.parts.TypeExtensionEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodMethodEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -153,33 +151,39 @@ public class BusinessobjectsVisualIDRegistry {
 			}
 			break;
 		case BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart.VISUAL_ID:
-			if (BusinessobjectsPackage.eINSTANCE.getBusinessMethod()
+			if (BusinessobjectsPackage.eINSTANCE.getCreateMethod()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return BusinessMethodEditPart.VISUAL_ID;
+				return CreateMethodEditPart.VISUAL_ID;
 			}
 			break;
 		case BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart.VISUAL_ID:
-			if (BusinessobjectsPackage.eINSTANCE.getBusinessMethod()
+			if (BusinessobjectsPackage.eINSTANCE.getInsertMethod()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return BusinessMethod2EditPart.VISUAL_ID;
+				return InsertMethodEditPart.VISUAL_ID;
 			}
 			break;
 		case BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID:
-			if (BusinessobjectsPackage.eINSTANCE.getBusinessMethod()
+			if (BusinessobjectsPackage.eINSTANCE.getUpdateMethod()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return BusinessMethod3EditPart.VISUAL_ID;
+				return UpdateMethodEditPart.VISUAL_ID;
 			}
 			break;
 		case BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID:
-			if (BusinessobjectsPackage.eINSTANCE.getBusinessMethod()
+			if (BusinessobjectsPackage.eINSTANCE.getRemoveMethod()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return BusinessMethod4EditPart.VISUAL_ID;
+				return RemoveMethodEditPart.VISUAL_ID;
 			}
 			break;
 		case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
-			if (BusinessobjectsPackage.eINSTANCE.getBusinessMethod()
+			if (BusinessobjectsPackage.eINSTANCE.getSearchMethod()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return BusinessMethod5EditPart.VISUAL_ID;
+				return SearchMethodEditPart.VISUAL_ID;
+			}
+			break;
+		case BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID:
+			if (BusinessobjectsPackage.eINSTANCE.getOtherMethod()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return OtherMethodEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -214,7 +218,7 @@ public class BusinessobjectsVisualIDRegistry {
 			}
 			break;
 		case BusinessObjectEditPart.VISUAL_ID:
-			if (BusinessObjectTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (BusinessObjectNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
@@ -232,54 +236,67 @@ public class BusinessobjectsVisualIDRegistry {
 			if (BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			break;
-		case BusinessMethodEditPart.VISUAL_ID:
-			if (BusinessMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
+			if (BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case BusinessMethod2EditPart.VISUAL_ID:
-			if (BusinessMethodMethod2EditPart.VISUAL_ID == nodeVisualID) {
+		case CreateMethodEditPart.VISUAL_ID:
+			if (CreateMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case BusinessMethod3EditPart.VISUAL_ID:
-			if (BusinessMethodMethod3EditPart.VISUAL_ID == nodeVisualID) {
+		case InsertMethodEditPart.VISUAL_ID:
+			if (InsertMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case BusinessMethod4EditPart.VISUAL_ID:
-			if (BusinessMethodMethod4EditPart.VISUAL_ID == nodeVisualID) {
+		case UpdateMethodEditPart.VISUAL_ID:
+			if (UpdateMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case BusinessMethod5EditPart.VISUAL_ID:
-			if (BusinessMethodMethod5EditPart.VISUAL_ID == nodeVisualID) {
+		case RemoveMethodEditPart.VISUAL_ID:
+			if (RemoveMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SearchMethodEditPart.VISUAL_ID:
+			if (SearchMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case OtherMethodEditPart.VISUAL_ID:
+			if (OtherMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart.VISUAL_ID:
-			if (BusinessMethodEditPart.VISUAL_ID == nodeVisualID) {
+			if (CreateMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart.VISUAL_ID:
-			if (BusinessMethod2EditPart.VISUAL_ID == nodeVisualID) {
+			if (InsertMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID:
-			if (BusinessMethod3EditPart.VISUAL_ID == nodeVisualID) {
+			if (UpdateMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID:
-			if (BusinessMethod4EditPart.VISUAL_ID == nodeVisualID) {
+			if (RemoveMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
-			if (BusinessMethod5EditPart.VISUAL_ID == nodeVisualID) {
+			if (SearchMethodEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID:
+			if (OtherMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -334,6 +351,7 @@ public class BusinessobjectsVisualIDRegistry {
 		case BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID:
 		case BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID:
 		case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
+		case BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -348,11 +366,12 @@ public class BusinessobjectsVisualIDRegistry {
 		switch (visualID) {
 		case BusinessObjectsEditPart.VISUAL_ID:
 			return false;
-		case BusinessMethodEditPart.VISUAL_ID:
-		case BusinessMethod2EditPart.VISUAL_ID:
-		case BusinessMethod3EditPart.VISUAL_ID:
-		case BusinessMethod4EditPart.VISUAL_ID:
-		case BusinessMethod5EditPart.VISUAL_ID:
+		case CreateMethodEditPart.VISUAL_ID:
+		case InsertMethodEditPart.VISUAL_ID:
+		case UpdateMethodEditPart.VISUAL_ID:
+		case RemoveMethodEditPart.VISUAL_ID:
+		case SearchMethodEditPart.VISUAL_ID:
+		case OtherMethodEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

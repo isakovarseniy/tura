@@ -22,9 +22,11 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.tura.metamodel.commons.types.impl.RefMethodImpl;
+
+import org.tura.metamodel.commons.types.impl.RefTypeImpl;
+
+import typedefinition.provider.TypePointerItemProvider;
 import typesrepository.provider.TypesrepositoryEditPlugin;
 
 /**
@@ -34,7 +36,7 @@ import typesrepository.provider.TypesrepositoryEditPlugin;
  * @generated
  */
 public class BusinessMethodItemProvider
-  extends ItemProviderAdapter
+  extends TypePointerItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -115,7 +117,7 @@ public class BusinessMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    RefMethodImpl labelValue = ((BusinessMethod)object).getMethod();
+    RefTypeImpl labelValue = ((BusinessMethod)object).getType();
     String label = labelValue == null ? null : labelValue.toString();
     return label == null || label.length() == 0 ?
       getString("_UI_BusinessMethod_type") :
@@ -165,7 +167,7 @@ public class BusinessMethodItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return BusinessobjectsEditPlugin.INSTANCE;
+    return TypesrepositoryEditPlugin.INSTANCE;
   }
 
 }

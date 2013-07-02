@@ -93,6 +93,61 @@ public class BusinessobjectsSwitch<T> extends Switch<T>
       {
         BusinessMethod businessMethod = (BusinessMethod)theEObject;
         T result = caseBusinessMethod(businessMethod);
+        if (result == null) result = caseTypePointer(businessMethod);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BusinessobjectsPackage.CREATE_METHOD:
+      {
+        CreateMethod createMethod = (CreateMethod)theEObject;
+        T result = caseCreateMethod(createMethod);
+        if (result == null) result = caseBusinessMethod(createMethod);
+        if (result == null) result = caseTypePointer(createMethod);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BusinessobjectsPackage.INSERT_METHOD:
+      {
+        InsertMethod insertMethod = (InsertMethod)theEObject;
+        T result = caseInsertMethod(insertMethod);
+        if (result == null) result = caseBusinessMethod(insertMethod);
+        if (result == null) result = caseTypePointer(insertMethod);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BusinessobjectsPackage.UPDATE_METHOD:
+      {
+        UpdateMethod updateMethod = (UpdateMethod)theEObject;
+        T result = caseUpdateMethod(updateMethod);
+        if (result == null) result = caseBusinessMethod(updateMethod);
+        if (result == null) result = caseTypePointer(updateMethod);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BusinessobjectsPackage.REMOVE_METHOD:
+      {
+        RemoveMethod removeMethod = (RemoveMethod)theEObject;
+        T result = caseRemoveMethod(removeMethod);
+        if (result == null) result = caseBusinessMethod(removeMethod);
+        if (result == null) result = caseTypePointer(removeMethod);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BusinessobjectsPackage.SEARCH_METHOD:
+      {
+        SearchMethod searchMethod = (SearchMethod)theEObject;
+        T result = caseSearchMethod(searchMethod);
+        if (result == null) result = caseBusinessMethod(searchMethod);
+        if (result == null) result = caseTypePointer(searchMethod);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BusinessobjectsPackage.OTHER_METHOD:
+      {
+        OtherMethod otherMethod = (OtherMethod)theEObject;
+        T result = caseOtherMethod(otherMethod);
+        if (result == null) result = caseBusinessMethod(otherMethod);
+        if (result == null) result = caseTypePointer(otherMethod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -144,6 +199,102 @@ public class BusinessobjectsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBusinessMethod(BusinessMethod object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Create Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Create Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCreateMethod(CreateMethod object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Insert Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Insert Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInsertMethod(InsertMethod object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Update Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Update Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUpdateMethod(UpdateMethod object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Remove Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Remove Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRemoveMethod(RemoveMethod object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Search Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Search Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSearchMethod(SearchMethod object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Other Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Other Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOtherMethod(OtherMethod object)
   {
     return null;
   }

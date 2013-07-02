@@ -2,18 +2,26 @@
  */
 package businessobjects.impl;
 
-import businessobjects.BusinessMethod;
 import businessobjects.BusinessObject;
 import businessobjects.BusinessobjectsPackage;
+import businessobjects.CreateMethod;
+import businessobjects.InsertMethod;
+import businessobjects.OtherMethod;
+import businessobjects.RemoveMethod;
+import businessobjects.SearchMethod;
+import businessobjects.UpdateMethod;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -27,11 +35,13 @@ import typedefinition.impl.TypePointerImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link businessobjects.impl.BusinessObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link businessobjects.impl.BusinessObjectImpl#getCreateMethods <em>Create Methods</em>}</li>
  *   <li>{@link businessobjects.impl.BusinessObjectImpl#getInsertMethods <em>Insert Methods</em>}</li>
  *   <li>{@link businessobjects.impl.BusinessObjectImpl#getUpdaeteMethods <em>Updaete Methods</em>}</li>
  *   <li>{@link businessobjects.impl.BusinessObjectImpl#getRemovetMethods <em>Removet Methods</em>}</li>
  *   <li>{@link businessobjects.impl.BusinessObjectImpl#getSearchtMethods <em>Searcht Methods</em>}</li>
+ *   <li>{@link businessobjects.impl.BusinessObjectImpl#getOthersMethods <em>Others Methods</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,6 +50,26 @@ import typedefinition.impl.TypePointerImpl;
 public class BusinessObjectImpl extends TypePointerImpl implements BusinessObject
 {
   /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getCreateMethods() <em>Create Methods</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -47,7 +77,7 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * @generated
    * @ordered
    */
-  protected EList<BusinessMethod> createMethods;
+  protected EList<CreateMethod> createMethods;
 
   /**
    * The cached value of the '{@link #getInsertMethods() <em>Insert Methods</em>}' containment reference list.
@@ -57,7 +87,7 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * @generated
    * @ordered
    */
-  protected EList<BusinessMethod> insertMethods;
+  protected EList<InsertMethod> insertMethods;
 
   /**
    * The cached value of the '{@link #getUpdaeteMethods() <em>Updaete Methods</em>}' containment reference list.
@@ -67,7 +97,7 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * @generated
    * @ordered
    */
-  protected EList<BusinessMethod> updaeteMethods;
+  protected EList<UpdateMethod> updaeteMethods;
 
   /**
    * The cached value of the '{@link #getRemovetMethods() <em>Removet Methods</em>}' containment reference list.
@@ -77,7 +107,7 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * @generated
    * @ordered
    */
-  protected EList<BusinessMethod> removetMethods;
+  protected EList<RemoveMethod> removetMethods;
 
   /**
    * The cached value of the '{@link #getSearchtMethods() <em>Searcht Methods</em>}' containment reference list.
@@ -87,7 +117,17 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * @generated
    * @ordered
    */
-  protected EList<BusinessMethod> searchtMethods;
+  protected EList<SearchMethod> searchtMethods;
+
+  /**
+   * The cached value of the '{@link #getOthersMethods() <em>Others Methods</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOthersMethods()
+   * @generated
+   * @ordered
+   */
+  protected EList<OtherMethod> othersMethods;
 
   /**
    * <!-- begin-user-doc -->
@@ -115,11 +155,34 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<BusinessMethod> getCreateMethods()
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BusinessobjectsPackage.BUSINESS_OBJECT__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<CreateMethod> getCreateMethods()
   {
     if (createMethods == null)
     {
-      createMethods = new EObjectContainmentEList<BusinessMethod>(BusinessMethod.class, this, BusinessobjectsPackage.BUSINESS_OBJECT__CREATE_METHODS);
+      createMethods = new EObjectContainmentEList<CreateMethod>(CreateMethod.class, this, BusinessobjectsPackage.BUSINESS_OBJECT__CREATE_METHODS);
     }
     return createMethods;
   }
@@ -129,11 +192,11 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<BusinessMethod> getInsertMethods()
+  public EList<InsertMethod> getInsertMethods()
   {
     if (insertMethods == null)
     {
-      insertMethods = new EObjectContainmentEList<BusinessMethod>(BusinessMethod.class, this, BusinessobjectsPackage.BUSINESS_OBJECT__INSERT_METHODS);
+      insertMethods = new EObjectContainmentEList<InsertMethod>(InsertMethod.class, this, BusinessobjectsPackage.BUSINESS_OBJECT__INSERT_METHODS);
     }
     return insertMethods;
   }
@@ -143,11 +206,11 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<BusinessMethod> getUpdaeteMethods()
+  public EList<UpdateMethod> getUpdaeteMethods()
   {
     if (updaeteMethods == null)
     {
-      updaeteMethods = new EObjectContainmentEList<BusinessMethod>(BusinessMethod.class, this, BusinessobjectsPackage.BUSINESS_OBJECT__UPDAETE_METHODS);
+      updaeteMethods = new EObjectContainmentEList<UpdateMethod>(UpdateMethod.class, this, BusinessobjectsPackage.BUSINESS_OBJECT__UPDAETE_METHODS);
     }
     return updaeteMethods;
   }
@@ -157,11 +220,11 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<BusinessMethod> getRemovetMethods()
+  public EList<RemoveMethod> getRemovetMethods()
   {
     if (removetMethods == null)
     {
-      removetMethods = new EObjectContainmentEList<BusinessMethod>(BusinessMethod.class, this, BusinessobjectsPackage.BUSINESS_OBJECT__REMOVET_METHODS);
+      removetMethods = new EObjectContainmentEList<RemoveMethod>(RemoveMethod.class, this, BusinessobjectsPackage.BUSINESS_OBJECT__REMOVET_METHODS);
     }
     return removetMethods;
   }
@@ -171,13 +234,27 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<BusinessMethod> getSearchtMethods()
+  public EList<SearchMethod> getSearchtMethods()
   {
     if (searchtMethods == null)
     {
-      searchtMethods = new EObjectContainmentEList<BusinessMethod>(BusinessMethod.class, this, BusinessobjectsPackage.BUSINESS_OBJECT__SEARCHT_METHODS);
+      searchtMethods = new EObjectContainmentEList<SearchMethod>(SearchMethod.class, this, BusinessobjectsPackage.BUSINESS_OBJECT__SEARCHT_METHODS);
     }
     return searchtMethods;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<OtherMethod> getOthersMethods()
+  {
+    if (othersMethods == null)
+    {
+      othersMethods = new EObjectContainmentEList<OtherMethod>(OtherMethod.class, this, BusinessobjectsPackage.BUSINESS_OBJECT__OTHERS_METHODS);
+    }
+    return othersMethods;
   }
 
   /**
@@ -200,6 +277,8 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
         return ((InternalEList<?>)getRemovetMethods()).basicRemove(otherEnd, msgs);
       case BusinessobjectsPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
         return ((InternalEList<?>)getSearchtMethods()).basicRemove(otherEnd, msgs);
+      case BusinessobjectsPackage.BUSINESS_OBJECT__OTHERS_METHODS:
+        return ((InternalEList<?>)getOthersMethods()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -214,6 +293,8 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
   {
     switch (featureID)
     {
+      case BusinessobjectsPackage.BUSINESS_OBJECT__NAME:
+        return getName();
       case BusinessobjectsPackage.BUSINESS_OBJECT__CREATE_METHODS:
         return getCreateMethods();
       case BusinessobjectsPackage.BUSINESS_OBJECT__INSERT_METHODS:
@@ -224,6 +305,8 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
         return getRemovetMethods();
       case BusinessobjectsPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
         return getSearchtMethods();
+      case BusinessobjectsPackage.BUSINESS_OBJECT__OTHERS_METHODS:
+        return getOthersMethods();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -239,25 +322,32 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
   {
     switch (featureID)
     {
+      case BusinessobjectsPackage.BUSINESS_OBJECT__NAME:
+        setName((String)newValue);
+        return;
       case BusinessobjectsPackage.BUSINESS_OBJECT__CREATE_METHODS:
         getCreateMethods().clear();
-        getCreateMethods().addAll((Collection<? extends BusinessMethod>)newValue);
+        getCreateMethods().addAll((Collection<? extends CreateMethod>)newValue);
         return;
       case BusinessobjectsPackage.BUSINESS_OBJECT__INSERT_METHODS:
         getInsertMethods().clear();
-        getInsertMethods().addAll((Collection<? extends BusinessMethod>)newValue);
+        getInsertMethods().addAll((Collection<? extends InsertMethod>)newValue);
         return;
       case BusinessobjectsPackage.BUSINESS_OBJECT__UPDAETE_METHODS:
         getUpdaeteMethods().clear();
-        getUpdaeteMethods().addAll((Collection<? extends BusinessMethod>)newValue);
+        getUpdaeteMethods().addAll((Collection<? extends UpdateMethod>)newValue);
         return;
       case BusinessobjectsPackage.BUSINESS_OBJECT__REMOVET_METHODS:
         getRemovetMethods().clear();
-        getRemovetMethods().addAll((Collection<? extends BusinessMethod>)newValue);
+        getRemovetMethods().addAll((Collection<? extends RemoveMethod>)newValue);
         return;
       case BusinessobjectsPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
         getSearchtMethods().clear();
-        getSearchtMethods().addAll((Collection<? extends BusinessMethod>)newValue);
+        getSearchtMethods().addAll((Collection<? extends SearchMethod>)newValue);
+        return;
+      case BusinessobjectsPackage.BUSINESS_OBJECT__OTHERS_METHODS:
+        getOthersMethods().clear();
+        getOthersMethods().addAll((Collection<? extends OtherMethod>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -273,6 +363,9 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
   {
     switch (featureID)
     {
+      case BusinessobjectsPackage.BUSINESS_OBJECT__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case BusinessobjectsPackage.BUSINESS_OBJECT__CREATE_METHODS:
         getCreateMethods().clear();
         return;
@@ -288,6 +381,9 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
       case BusinessobjectsPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
         getSearchtMethods().clear();
         return;
+      case BusinessobjectsPackage.BUSINESS_OBJECT__OTHERS_METHODS:
+        getOthersMethods().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -302,6 +398,8 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
   {
     switch (featureID)
     {
+      case BusinessobjectsPackage.BUSINESS_OBJECT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case BusinessobjectsPackage.BUSINESS_OBJECT__CREATE_METHODS:
         return createMethods != null && !createMethods.isEmpty();
       case BusinessobjectsPackage.BUSINESS_OBJECT__INSERT_METHODS:
@@ -312,8 +410,27 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
         return removetMethods != null && !removetMethods.isEmpty();
       case BusinessobjectsPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
         return searchtMethods != null && !searchtMethods.isEmpty();
+      case BusinessobjectsPackage.BUSINESS_OBJECT__OTHERS_METHODS:
+        return othersMethods != null && !othersMethods.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //BusinessObjectImpl

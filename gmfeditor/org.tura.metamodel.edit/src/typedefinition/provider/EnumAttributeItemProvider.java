@@ -190,7 +190,7 @@ public class EnumAttributeItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return BusinessobjectsEditPlugin.INSTANCE;
+    return TypesrepositoryEditPlugin.INSTANCE;
   }
 
 }

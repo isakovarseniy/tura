@@ -15,12 +15,12 @@ public class BusinessobjectsNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 7009;
+	private static final int GROUP_CATEGORY = 7010;
 
 	/**
 	 * @generated
 	 */
-	private static final int SHORTCUTS_CATEGORY = 7008;
+	private static final int SHORTCUTS_CATEGORY = 7009;
 
 	/**
 	 * @generated

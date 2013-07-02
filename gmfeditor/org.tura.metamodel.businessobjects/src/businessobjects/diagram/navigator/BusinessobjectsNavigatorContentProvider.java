@@ -28,19 +28,21 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
-import businessobjects.diagram.edit.parts.BusinessMethod2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodEditPart;
 import businessobjects.diagram.edit.parts.TypeExtensionEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
 import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
 import businessobjects.diagram.part.Messages;
 
@@ -280,7 +282,7 @@ public class BusinessobjectsNavigatorContentProvider implements
 							.getType(BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					BusinessobjectsVisualIDRegistry
-							.getType(BusinessMethodEditPart.VISUAL_ID));
+							.getType(CreateMethodEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
@@ -289,7 +291,7 @@ public class BusinessobjectsNavigatorContentProvider implements
 							.getType(BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					BusinessobjectsVisualIDRegistry
-							.getType(BusinessMethod2EditPart.VISUAL_ID));
+							.getType(InsertMethodEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
@@ -298,7 +300,7 @@ public class BusinessobjectsNavigatorContentProvider implements
 							.getType(BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					BusinessobjectsVisualIDRegistry
-							.getType(BusinessMethod3EditPart.VISUAL_ID));
+							.getType(UpdateMethodEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
@@ -307,7 +309,7 @@ public class BusinessobjectsNavigatorContentProvider implements
 							.getType(BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					BusinessobjectsVisualIDRegistry
-							.getType(BusinessMethod4EditPart.VISUAL_ID));
+							.getType(RemoveMethodEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
@@ -316,7 +318,16 @@ public class BusinessobjectsNavigatorContentProvider implements
 							.getType(BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					BusinessobjectsVisualIDRegistry
-							.getType(BusinessMethod5EditPart.VISUAL_ID));
+							.getType(SearchMethodEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					BusinessobjectsVisualIDRegistry
+							.getType(BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					BusinessobjectsVisualIDRegistry
+							.getType(OtherMethodEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

@@ -50,6 +50,60 @@ public interface BusinessobjectsFactory extends EFactory
   BusinessMethod createBusinessMethod();
 
   /**
+   * Returns a new object of class '<em>Create Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Create Method</em>'.
+   * @generated
+   */
+  CreateMethod createCreateMethod();
+
+  /**
+   * Returns a new object of class '<em>Insert Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Insert Method</em>'.
+   * @generated
+   */
+  InsertMethod createInsertMethod();
+
+  /**
+   * Returns a new object of class '<em>Update Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Update Method</em>'.
+   * @generated
+   */
+  UpdateMethod createUpdateMethod();
+
+  /**
+   * Returns a new object of class '<em>Remove Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Remove Method</em>'.
+   * @generated
+   */
+  RemoveMethod createRemoveMethod();
+
+  /**
+   * Returns a new object of class '<em>Search Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Search Method</em>'.
+   * @generated
+   */
+  SearchMethod createSearchMethod();
+
+  /**
+   * Returns a new object of class '<em>Other Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Other Method</em>'.
+   * @generated
+   */
+  OtherMethod createOtherMethod();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -118,8 +118,8 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof BusinessObjectTypeEditPart) {
-			((BusinessObjectTypeEditPart) childEditPart)
+		if (childEditPart instanceof BusinessObjectNameEditPart) {
+			((BusinessObjectNameEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureBusinessObjectLabelFigure());
 			return true;
@@ -164,6 +164,14 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
+		if (childEditPart instanceof BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getBusinessObjectOthersMethodsCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -171,7 +179,7 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof BusinessObjectTypeEditPart) {
+		if (childEditPart instanceof BusinessObjectNameEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart) {
@@ -206,6 +214,13 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 			IFigure pane = getPrimaryShape()
 					.getBusinessObjectSearchtMethodsCompartmentFigure();
 			pane.remove(((BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getBusinessObjectOthersMethodsCompartmentFigure();
+			pane.remove(((BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -255,6 +270,10 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 		if (editPart instanceof BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart) {
 			return getPrimaryShape()
 					.getBusinessObjectSearchtMethodsCompartmentFigure();
+		}
+		if (editPart instanceof BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart) {
+			return getPrimaryShape()
+					.getBusinessObjectOthersMethodsCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -350,7 +369,7 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(BusinessobjectsVisualIDRegistry
-				.getType(BusinessObjectTypeEditPart.VISUAL_ID));
+				.getType(BusinessObjectNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -395,6 +414,10 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private RectangleFigure fBusinessObjectSearchtMethodsCompartmentFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fBusinessObjectOthersMethodsCompartmentFigure;
 
 		/**
 		 * @generated
@@ -451,6 +474,12 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 
 			this.add(fBusinessObjectSearchtMethodsCompartmentFigure);
 
+			fBusinessObjectOthersMethodsCompartmentFigure = new RectangleFigure();
+
+			fBusinessObjectOthersMethodsCompartmentFigure.setOutline(false);
+
+			this.add(fBusinessObjectOthersMethodsCompartmentFigure);
+
 		}
 
 		/**
@@ -493,6 +522,13 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 		 */
 		public RectangleFigure getBusinessObjectSearchtMethodsCompartmentFigure() {
 			return fBusinessObjectSearchtMethodsCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getBusinessObjectOthersMethodsCompartmentFigure() {
+			return fBusinessObjectOthersMethodsCompartmentFigure;
 		}
 
 	}

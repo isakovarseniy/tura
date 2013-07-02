@@ -15,16 +15,18 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import businessobjects.diagram.edit.parts.BusinessMethod2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
 import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
 import businessobjects.diagram.providers.BusinessobjectsElementTypes;
 
@@ -75,7 +77,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
-					case BusinessMethodEditPart.VISUAL_ID:
+					case CreateMethodEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true
@@ -90,7 +92,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
-					case BusinessMethod2EditPart.VISUAL_ID:
+					case InsertMethodEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true
@@ -105,7 +107,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
-					case BusinessMethod3EditPart.VISUAL_ID:
+					case UpdateMethodEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true
@@ -120,7 +122,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
-					case BusinessMethod4EditPart.VISUAL_ID:
+					case RemoveMethodEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true
@@ -135,7 +137,22 @@ public class BusinessObjectItemSemanticEditPolicy extends
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
-					case BusinessMethod5EditPart.VISUAL_ID:
+					case SearchMethodEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
+			case BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
+					case OtherMethodEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

@@ -10,9 +10,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.tura.metamodel.commons.types.impl.RefMethodImpl;
+import typedefinition.impl.TypePointerImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +26,7 @@ import org.tura.metamodel.commons.types.impl.RefMethodImpl;
  *
  * @generated
  */
-public class BusinessMethodImpl extends EObjectImpl implements BusinessMethod
+public class BusinessMethodImpl extends TypePointerImpl implements BusinessMethod
 {
   /**
    * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
@@ -37,7 +36,7 @@ public class BusinessMethodImpl extends EObjectImpl implements BusinessMethod
    * @generated
    * @ordered
    */
-  protected static final RefMethodImpl METHOD_EDEFAULT = null;
+  protected static final String METHOD_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
@@ -47,7 +46,7 @@ public class BusinessMethodImpl extends EObjectImpl implements BusinessMethod
    * @generated
    * @ordered
    */
-  protected RefMethodImpl method = METHOD_EDEFAULT;
+  protected String method = METHOD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,7 +74,7 @@ public class BusinessMethodImpl extends EObjectImpl implements BusinessMethod
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefMethodImpl getMethod()
+  public String getMethod()
   {
     return method;
   }
@@ -85,9 +84,9 @@ public class BusinessMethodImpl extends EObjectImpl implements BusinessMethod
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMethod(RefMethodImpl newMethod)
+  public void setMethod(String newMethod)
   {
-    RefMethodImpl oldMethod = method;
+    String oldMethod = method;
     method = newMethod;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BusinessobjectsPackage.BUSINESS_METHOD__METHOD, oldMethod, method));
@@ -120,7 +119,7 @@ public class BusinessMethodImpl extends EObjectImpl implements BusinessMethod
     switch (featureID)
     {
       case BusinessobjectsPackage.BUSINESS_METHOD__METHOD:
-        setMethod((RefMethodImpl)newValue);
+        setMethod((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);

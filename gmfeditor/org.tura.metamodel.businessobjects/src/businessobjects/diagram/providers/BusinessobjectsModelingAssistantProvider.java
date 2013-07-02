@@ -26,6 +26,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
@@ -52,27 +53,32 @@ public class BusinessobjectsModelingAssistantProvider extends
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.BusinessMethod_3003);
+			types.add(BusinessobjectsElementTypes.CreateMethod_3009);
 			return types;
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.BusinessMethod_3004);
+			types.add(BusinessobjectsElementTypes.InsertMethod_3010);
 			return types;
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.BusinessMethod_3005);
+			types.add(BusinessobjectsElementTypes.UpdateMethod_3011);
 			return types;
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.BusinessMethod_3006);
+			types.add(BusinessobjectsElementTypes.RemoveMethod_3012);
 			return types;
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.BusinessMethod_3007);
+			types.add(BusinessobjectsElementTypes.SearchMethod_3013);
+			return types;
+		}
+		if (editPart instanceof BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(BusinessobjectsElementTypes.OtherMethod_3014);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

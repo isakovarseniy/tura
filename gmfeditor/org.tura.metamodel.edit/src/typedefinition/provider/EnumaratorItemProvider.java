@@ -209,7 +209,7 @@ public class EnumaratorItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return BusinessobjectsEditPlugin.INSTANCE;
+    return TypesrepositoryEditPlugin.INSTANCE;
   }
 
 }

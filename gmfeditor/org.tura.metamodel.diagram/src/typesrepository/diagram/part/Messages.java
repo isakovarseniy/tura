@@ -266,32 +266,92 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Package2CreationTool_title;
+	public static String CreateMethod2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Package2CreationTool_desc;
+	public static String CreateMethod2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive3CreationTool_title;
+	public static String InsertMethod3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive3CreationTool_desc;
+	public static String InsertMethod3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Types4CreationTool_title;
+	public static String OtherMethod4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Types4CreationTool_desc;
+	public static String OtherMethod4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Package5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Package5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Primitive6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Primitive6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String RemoveMethod7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RemoveMethod7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String SearchMethod8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SearchMethod8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Types9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Types9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String UpdateMethod10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String UpdateMethod10CreationTool_desc;
 
 	/**
 	 * @generated

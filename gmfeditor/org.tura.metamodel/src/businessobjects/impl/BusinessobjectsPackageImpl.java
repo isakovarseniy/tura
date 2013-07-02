@@ -7,16 +7,19 @@ import businessobjects.BusinessObject;
 import businessobjects.BusinessObjects;
 import businessobjects.BusinessobjectsFactory;
 import businessobjects.BusinessobjectsPackage;
+import businessobjects.CreateMethod;
+import businessobjects.InsertMethod;
+import businessobjects.OtherMethod;
+import businessobjects.RemoveMethod;
+import businessobjects.SearchMethod;
+import businessobjects.UpdateMethod;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.tura.metamodel.commons.types.impl.RefMethodImpl;
 
 import typedefinition.TypedefinitionPackage;
 
@@ -58,7 +61,42 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
    * <!-- end-user-doc -->
    * @generated
    */
-  private EDataType refmethodEDataType = null;
+  private EClass createMethodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass insertMethodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass updateMethodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass removeMethodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass searchMethodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass otherMethodEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -109,14 +147,17 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
     isInited = true;
 
     // Obtain or create and register interdependencies
+    TypesrepositoryPackageImpl theTypesrepositoryPackage = (TypesrepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) instanceof TypesrepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) : TypesrepositoryPackage.eINSTANCE);
     TypedefinitionPackageImpl theTypedefinitionPackage = (TypedefinitionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) instanceof TypedefinitionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) : TypedefinitionPackage.eINSTANCE);
 
     // Create package meta-data objects
     theBusinessobjectsPackage.createPackageContents();
+    theTypesrepositoryPackage.createPackageContents();
     theTypedefinitionPackage.createPackageContents();
 
     // Initialize created meta-data
     theBusinessobjectsPackage.initializePackageContents();
+    theTypesrepositoryPackage.initializePackageContents();
     theTypedefinitionPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
@@ -163,9 +204,9 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBusinessObject_CreateMethods()
+  public EAttribute getBusinessObject_Name()
   {
-    return (EReference)businessObjectEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)businessObjectEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -173,7 +214,7 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBusinessObject_InsertMethods()
+  public EReference getBusinessObject_CreateMethods()
   {
     return (EReference)businessObjectEClass.getEStructuralFeatures().get(1);
   }
@@ -183,7 +224,7 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBusinessObject_UpdaeteMethods()
+  public EReference getBusinessObject_InsertMethods()
   {
     return (EReference)businessObjectEClass.getEStructuralFeatures().get(2);
   }
@@ -193,7 +234,7 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBusinessObject_RemovetMethods()
+  public EReference getBusinessObject_UpdaeteMethods()
   {
     return (EReference)businessObjectEClass.getEStructuralFeatures().get(3);
   }
@@ -203,9 +244,29 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBusinessObject_SearchtMethods()
+  public EReference getBusinessObject_RemovetMethods()
   {
     return (EReference)businessObjectEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBusinessObject_SearchtMethods()
+  {
+    return (EReference)businessObjectEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBusinessObject_OthersMethods()
+  {
+    return (EReference)businessObjectEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -233,9 +294,59 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
    * <!-- end-user-doc -->
    * @generated
    */
-  public EDataType getrefmethod()
+  public EClass getCreateMethod()
   {
-    return refmethodEDataType;
+    return createMethodEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInsertMethod()
+  {
+    return insertMethodEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUpdateMethod()
+  {
+    return updateMethodEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRemoveMethod()
+  {
+    return removeMethodEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSearchMethod()
+  {
+    return searchMethodEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOtherMethod()
+  {
+    return otherMethodEClass;
   }
 
   /**
@@ -272,17 +383,28 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
     createEReference(businessObjectsEClass, BUSINESS_OBJECTS__BUSINESS_OBJECT);
 
     businessObjectEClass = createEClass(BUSINESS_OBJECT);
+    createEAttribute(businessObjectEClass, BUSINESS_OBJECT__NAME);
     createEReference(businessObjectEClass, BUSINESS_OBJECT__CREATE_METHODS);
     createEReference(businessObjectEClass, BUSINESS_OBJECT__INSERT_METHODS);
     createEReference(businessObjectEClass, BUSINESS_OBJECT__UPDAETE_METHODS);
     createEReference(businessObjectEClass, BUSINESS_OBJECT__REMOVET_METHODS);
     createEReference(businessObjectEClass, BUSINESS_OBJECT__SEARCHT_METHODS);
+    createEReference(businessObjectEClass, BUSINESS_OBJECT__OTHERS_METHODS);
 
     businessMethodEClass = createEClass(BUSINESS_METHOD);
     createEAttribute(businessMethodEClass, BUSINESS_METHOD__METHOD);
 
-    // Create data types
-    refmethodEDataType = createEDataType(REFMETHOD);
+    createMethodEClass = createEClass(CREATE_METHOD);
+
+    insertMethodEClass = createEClass(INSERT_METHOD);
+
+    updateMethodEClass = createEClass(UPDATE_METHOD);
+
+    removeMethodEClass = createEClass(REMOVE_METHOD);
+
+    searchMethodEClass = createEClass(SEARCH_METHOD);
+
+    otherMethodEClass = createEClass(OTHER_METHOD);
   }
 
   /**
@@ -318,23 +440,41 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
 
     // Add supertypes to classes
     businessObjectEClass.getESuperTypes().add(theTypedefinitionPackage.getTypePointer());
+    businessMethodEClass.getESuperTypes().add(theTypedefinitionPackage.getTypePointer());
+    createMethodEClass.getESuperTypes().add(this.getBusinessMethod());
+    insertMethodEClass.getESuperTypes().add(this.getBusinessMethod());
+    updateMethodEClass.getESuperTypes().add(this.getBusinessMethod());
+    removeMethodEClass.getESuperTypes().add(this.getBusinessMethod());
+    searchMethodEClass.getESuperTypes().add(this.getBusinessMethod());
+    otherMethodEClass.getESuperTypes().add(this.getBusinessMethod());
 
     // Initialize classes and features; add operations and parameters
     initEClass(businessObjectsEClass, BusinessObjects.class, "BusinessObjects", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBusinessObjects_BusinessObject(), this.getBusinessObject(), null, "businessObject", null, 0, -1, BusinessObjects.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(businessObjectEClass, BusinessObject.class, "BusinessObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBusinessObject_CreateMethods(), this.getBusinessMethod(), null, "createMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_InsertMethods(), this.getBusinessMethod(), null, "insertMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_UpdaeteMethods(), this.getBusinessMethod(), null, "updaeteMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_RemovetMethods(), this.getBusinessMethod(), null, "removetMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_SearchtMethods(), this.getBusinessMethod(), null, "searchtMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBusinessObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBusinessObject_CreateMethods(), this.getCreateMethod(), null, "createMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBusinessObject_InsertMethods(), this.getInsertMethod(), null, "insertMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBusinessObject_UpdaeteMethods(), this.getUpdateMethod(), null, "updaeteMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBusinessObject_RemovetMethods(), this.getRemoveMethod(), null, "removetMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBusinessObject_SearchtMethods(), this.getSearchMethod(), null, "searchtMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBusinessObject_OthersMethods(), this.getOtherMethod(), null, "othersMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(businessMethodEClass, BusinessMethod.class, "BusinessMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBusinessMethod_Method(), this.getrefmethod(), "method", null, 0, 1, BusinessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBusinessMethod_Method(), ecorePackage.getEString(), "method", null, 0, 1, BusinessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    // Initialize data types
-    initEDataType(refmethodEDataType, RefMethodImpl.class, "refmethod", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+    initEClass(createMethodEClass, CreateMethod.class, "CreateMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(insertMethodEClass, InsertMethod.class, "InsertMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(updateMethodEClass, UpdateMethod.class, "UpdateMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(removeMethodEClass, RemoveMethod.class, "RemoveMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(searchMethodEClass, SearchMethod.class, "SearchMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(otherMethodEClass, OtherMethod.class, "OtherMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);
@@ -364,7 +504,7 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
        source, 
        new String[] 
        {
-       });								
+       });														
   }
 
   /**
@@ -381,7 +521,7 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
        source, 
        new String[] 
        {
-       });							
+       });													
   }
 
   /**
@@ -398,10 +538,45 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
        source, 
        new String[] 
        {
-       "label", "type"
-       });							
+       "label", "name"
+       });								
     addAnnotation
-      (businessMethodEClass, 
+      (createMethodEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "method"
+       });		
+    addAnnotation
+      (insertMethodEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "method"
+       });		
+    addAnnotation
+      (updateMethodEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "method"
+       });		
+    addAnnotation
+      (removeMethodEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "method"
+       });		
+    addAnnotation
+      (searchMethodEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "method"
+       });		
+    addAnnotation
+      (otherMethodEClass, 
        source, 
        new String[] 
        {
@@ -447,7 +622,13 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
        source, 
        new String[] 
        {
-       });	
+       });		
+    addAnnotation
+      (getBusinessObject_OthersMethods(), 
+       source, 
+       new String[] 
+       {
+       });						
   }
 
 } //BusinessobjectsPackageImpl

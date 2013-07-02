@@ -25,7 +25,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import businessobjects.BusinessobjectsPackage;
-import businessobjects.diagram.edit.parts.BusinessMethod4EditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
 import businessobjects.diagram.part.BusinessobjectsDiagramUpdater;
 import businessobjects.diagram.part.BusinessobjectsNodeDescriptor;
 import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
@@ -84,7 +84,7 @@ public class BusinessObjectBusinessObjectRemovetMethodsCompartmentCanonicalEditP
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return BusinessMethod4EditPart.VISUAL_ID == BusinessobjectsVisualIDRegistry
+		return RemoveMethodEditPart.VISUAL_ID == BusinessobjectsVisualIDRegistry
 				.getVisualID(view);
 	}
 

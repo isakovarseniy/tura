@@ -6,7 +6,7 @@ package businessobjects.diagram.edit.policies;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-import businessobjects.diagram.edit.commands.BusinessMethod5CreateCommand;
+import businessobjects.diagram.edit.commands.SearchMethodCreateCommand;
 import businessobjects.diagram.providers.BusinessobjectsElementTypes;
 
 /**
@@ -26,9 +26,9 @@ public class BusinessObjectBusinessObjectSearchtMethodsCompartmentItemSemanticEd
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (BusinessobjectsElementTypes.BusinessMethod_3007 == req
+		if (BusinessobjectsElementTypes.SearchMethod_3013 == req
 				.getElementType()) {
-			return getGEFWrapper(new BusinessMethod5CreateCommand(req));
+			return getGEFWrapper(new SearchMethodCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

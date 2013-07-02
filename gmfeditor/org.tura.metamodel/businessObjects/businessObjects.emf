@@ -9,23 +9,56 @@ class BusinessObjects{
    val BusinessObject[*] businessObject;
 }
 
-@gmf.node(label="type")
+@gmf.node(label="name")
 class BusinessObject extends typedefinition.TypePointer{
+   attr EString name;
    @gmf.compartment()
-   val BusinessMethod[*] createMethods;
+   val CreateMethod[*] createMethods;
    @gmf.compartment()
-   val BusinessMethod[*] insertMethods;
+   val InsertMethod[*] insertMethods;
    @gmf.compartment()
-   val BusinessMethod[*] updaeteMethods;
+   val UpdateMethod[*] updaeteMethods;
    @gmf.compartment()
-   val BusinessMethod[*] removetMethods;
+   val RemoveMethod[*] removetMethods;
    @gmf.compartment()
-   val BusinessMethod[*] searchtMethods;
+   val SearchMethod[*] searchtMethods;
+   @gmf.compartment()
+   val OtherMethod[*] othersMethods;
+   
+}
+
+class BusinessMethod extends typedefinition.TypePointer {
+   attr EString method;
 }
 
 @gmf.node(label="method")
-class BusinessMethod {
-   attr refmethod method;
+class CreateMethod extends BusinessMethod{
+   
 }
 
-datatype refmethod:org.tura.metamodel.commons.types.impl.RefMethodImpl;
+@gmf.node(label="method")
+class InsertMethod extends BusinessMethod{
+   
+}
+
+@gmf.node(label="method")
+class UpdateMethod extends BusinessMethod{
+   
+}
+
+@gmf.node(label="method")
+class RemoveMethod extends BusinessMethod{
+   
+}
+
+@gmf.node(label="method")
+class SearchMethod extends BusinessMethod{
+   
+}
+
+@gmf.node(label="method")
+class OtherMethod extends BusinessMethod{
+   
+}
+
+

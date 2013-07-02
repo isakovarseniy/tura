@@ -8,6 +8,7 @@ import businessobjects.BusinessobjectsFactory;
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
+import typedefinition.tests.TypePointerTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,16 +16,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BusinessMethodTest extends TestCase
+public class BusinessMethodTest extends TypePointerTest
 {
-
-  /**
-   * The fixture for this Business Method test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected BusinessMethod fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +41,15 @@ public class BusinessMethodTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Business Method test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(BusinessMethod fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Business Method test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected BusinessMethod getFixture()
   {
-    return fixture;
+    return (BusinessMethod)fixture;
   }
 
   /**

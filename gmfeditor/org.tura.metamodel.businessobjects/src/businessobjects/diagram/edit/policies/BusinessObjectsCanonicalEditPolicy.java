@@ -33,14 +33,15 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import businessobjects.BusinessobjectsPackage;
-import businessobjects.diagram.edit.parts.BusinessMethod2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodEditPart;
 import businessobjects.diagram.edit.parts.TypeExtensionEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
 import businessobjects.diagram.part.BusinessobjectsDiagramUpdater;
 import businessobjects.diagram.part.BusinessobjectsLinkDescriptor;
 import businessobjects.diagram.part.BusinessobjectsNodeDescriptor;
@@ -283,42 +284,50 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case BusinessMethodEditPart.VISUAL_ID: {
+		case CreateMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getBusinessMethod_3003ContainedLinks(view));
+						.getCreateMethod_3009ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case BusinessMethod2EditPart.VISUAL_ID: {
+		case InsertMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getBusinessMethod_3004ContainedLinks(view));
+						.getInsertMethod_3010ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case BusinessMethod3EditPart.VISUAL_ID: {
+		case UpdateMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getBusinessMethod_3005ContainedLinks(view));
+						.getUpdateMethod_3011ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case BusinessMethod4EditPart.VISUAL_ID: {
+		case RemoveMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getBusinessMethod_3006ContainedLinks(view));
+						.getRemoveMethod_3012ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case BusinessMethod5EditPart.VISUAL_ID: {
+		case SearchMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getBusinessMethod_3007ContainedLinks(view));
+						.getSearchMethod_3013ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case OtherMethodEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(BusinessobjectsDiagramUpdater
+						.getOtherMethod_3014ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
-import typesrepository.impl.PackageImpl;
 import typesrepository.impl.TypesImpl;
 import typedefinition.TypePointer;
 import typedefinition.TypedefinitionPackage;
@@ -53,7 +53,8 @@ public class PackageNamePropertySection extends
 			values = new ArrayList<String>();
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
-			PackageImpl pckg = (PackageImpl) diagram.getElement();
+			
+			EObject pckg = (EObject) diagram.getElement();
 			TypesImpl types = (TypesImpl) pckg.eContainer();
 
 			for (Iterator<typesrepository.Package> i = types.getPackages().iterator(); i

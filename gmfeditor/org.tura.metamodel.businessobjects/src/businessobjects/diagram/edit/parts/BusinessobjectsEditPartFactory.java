@@ -31,38 +31,44 @@ public class BusinessobjectsEditPartFactory implements EditPartFactory {
 			case BusinessObjectEditPart.VISUAL_ID:
 				return new BusinessObjectEditPart(view);
 
-			case BusinessObjectTypeEditPart.VISUAL_ID:
-				return new BusinessObjectTypeEditPart(view);
+			case BusinessObjectNameEditPart.VISUAL_ID:
+				return new BusinessObjectNameEditPart(view);
 
-			case BusinessMethodEditPart.VISUAL_ID:
-				return new BusinessMethodEditPart(view);
+			case CreateMethodEditPart.VISUAL_ID:
+				return new CreateMethodEditPart(view);
 
-			case BusinessMethodMethodEditPart.VISUAL_ID:
-				return new BusinessMethodMethodEditPart(view);
+			case CreateMethodMethodEditPart.VISUAL_ID:
+				return new CreateMethodMethodEditPart(view);
 
-			case BusinessMethod2EditPart.VISUAL_ID:
-				return new BusinessMethod2EditPart(view);
+			case InsertMethodEditPart.VISUAL_ID:
+				return new InsertMethodEditPart(view);
 
-			case BusinessMethodMethod2EditPart.VISUAL_ID:
-				return new BusinessMethodMethod2EditPart(view);
+			case InsertMethodMethodEditPart.VISUAL_ID:
+				return new InsertMethodMethodEditPart(view);
 
-			case BusinessMethod3EditPart.VISUAL_ID:
-				return new BusinessMethod3EditPart(view);
+			case UpdateMethodEditPart.VISUAL_ID:
+				return new UpdateMethodEditPart(view);
 
-			case BusinessMethodMethod3EditPart.VISUAL_ID:
-				return new BusinessMethodMethod3EditPart(view);
+			case UpdateMethodMethodEditPart.VISUAL_ID:
+				return new UpdateMethodMethodEditPart(view);
 
-			case BusinessMethod4EditPart.VISUAL_ID:
-				return new BusinessMethod4EditPart(view);
+			case RemoveMethodEditPart.VISUAL_ID:
+				return new RemoveMethodEditPart(view);
 
-			case BusinessMethodMethod4EditPart.VISUAL_ID:
-				return new BusinessMethodMethod4EditPart(view);
+			case RemoveMethodMethodEditPart.VISUAL_ID:
+				return new RemoveMethodMethodEditPart(view);
 
-			case BusinessMethod5EditPart.VISUAL_ID:
-				return new BusinessMethod5EditPart(view);
+			case SearchMethodEditPart.VISUAL_ID:
+				return new SearchMethodEditPart(view);
 
-			case BusinessMethodMethod5EditPart.VISUAL_ID:
-				return new BusinessMethodMethod5EditPart(view);
+			case SearchMethodMethodEditPart.VISUAL_ID:
+				return new SearchMethodMethodEditPart(view);
+
+			case OtherMethodEditPart.VISUAL_ID:
+				return new OtherMethodEditPart(view);
+
+			case OtherMethodMethodEditPart.VISUAL_ID:
+				return new OtherMethodMethodEditPart(view);
 
 			case BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart.VISUAL_ID:
 				return new BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart(
@@ -82,6 +88,10 @@ public class BusinessobjectsEditPartFactory implements EditPartFactory {
 
 			case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
 				return new BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart(
+						view);
+
+			case BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID:
+				return new BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart(
 						view);
 
 			case TypeExtensionEditPart.VISUAL_ID:

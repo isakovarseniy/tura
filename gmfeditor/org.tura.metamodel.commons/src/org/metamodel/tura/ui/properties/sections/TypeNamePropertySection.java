@@ -10,6 +10,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
@@ -24,8 +25,6 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 import typesrepository.TypesrepositoryPackage;
-import typesrepository.impl.PackageImpl;
-import typesrepository.impl.TypesImpl;
 import typedefinition.Type;
 import typedefinition.TypedefinitionPackage;
 import typedefinition.TypePointer;
@@ -106,8 +105,8 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
-			PackageImpl pckg = (PackageImpl) diagram.getElement();
-			TypesImpl types = (TypesImpl) pckg.eContainer();
+			EObject pckg = (EObject) diagram.getElement();
+			EObject types = (EObject) pckg.eContainer();
 
 			if ((((TypePointer) eObject).getType() == null)
 					|| ((TypePointer) eObject).getType().getPackageName() == null)

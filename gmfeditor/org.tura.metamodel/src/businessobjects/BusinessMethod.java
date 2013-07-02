@@ -2,9 +2,7 @@
  */
 package businessobjects;
 
-import org.eclipse.emf.ecore.EObject;
-
-import org.tura.metamodel.commons.types.impl.RefMethodImpl;
+import typedefinition.TypePointer;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,10 +17,10 @@ import org.tura.metamodel.commons.types.impl.RefMethodImpl;
  * </p>
  *
  * @see businessobjects.BusinessobjectsPackage#getBusinessMethod()
- * @model annotation="gmf.node label='method'"
+ * @model
  * @generated
  */
-public interface BusinessMethod extends EObject
+public interface BusinessMethod extends TypePointer
 {
   /**
    * Returns the value of the '<em><b>Method</b></em>' attribute.
@@ -33,12 +31,12 @@ public interface BusinessMethod extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Method</em>' attribute.
-   * @see #setMethod(RefMethodImpl)
+   * @see #setMethod(String)
    * @see businessobjects.BusinessobjectsPackage#getBusinessMethod_Method()
-   * @model dataType="businessobjects.refmethod"
+   * @model
    * @generated
    */
-  RefMethodImpl getMethod();
+  String getMethod();
 
   /**
    * Sets the value of the '{@link businessobjects.BusinessMethod#getMethod <em>Method</em>}' attribute.
@@ -48,6 +46,6 @@ public interface BusinessMethod extends EObject
    * @see #getMethod()
    * @generated
    */
-  void setMethod(RefMethodImpl value);
+  void setMethod(String value);
 
 } // BusinessMethod

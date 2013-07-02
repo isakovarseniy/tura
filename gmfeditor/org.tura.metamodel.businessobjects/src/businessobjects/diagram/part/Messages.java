@@ -256,22 +256,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String BusinessMethod1CreationTool_title;
+	public static String BusinessObject1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessMethod1CreationTool_desc;
+	public static String BusinessObject1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessObject2CreationTool_title;
+	public static String CreateMethod2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessObject2CreationTool_desc;
+	public static String CreateMethod2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String InsertMethod3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String InsertMethod3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String OtherMethod4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String OtherMethod4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String RemoveMethod5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RemoveMethod5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String SearchMethod6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SearchMethod6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String UpdateMethod7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String UpdateMethod7CreationTool_desc;
 
 	/**
 	 * @generated
@@ -307,6 +357,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart_title;
 
 	/**
 	 * @generated

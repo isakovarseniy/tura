@@ -62,6 +62,10 @@
             xsi:type="gmfgraph:Rectangle"
             name="BusinessObjectSearchtMethodsCompartmentFigure"
             outline="false"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="BusinessObjectOthersMethodsCompartmentFigure"
+            outline="false"/>
       </actualFigure>
       <accessors
           accessor="getFigureBusinessObjectLabelFigure"
@@ -81,12 +85,15 @@
       <accessors
           accessor="getBusinessObjectSearchtMethodsCompartmentFigure"
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.5"/>
+      <accessors
+          accessor="getBusinessObjectOthersMethodsCompartmentFigure"
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.6"/>
     </descriptors>
     <descriptors
-        name="BusinessMethodFigure">
+        name="CreateMethodFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
-          name="BusinessMethodFigure">
+          name="CreateMethodFigure">
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -97,12 +104,122 @@
         </border>
         <children
             xsi:type="gmfgraph:Label"
-            name="BusinessMethodLabelFigure"
-            text="BusinessMethod"/>
+            name="CreateMethodLabelFigure"
+            text="CreateMethod"/>
       </actualFigure>
       <accessors
-          accessor="getFigureBusinessMethodLabelFigure"
+          accessor="getFigureCreateMethodLabelFigure"
           figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="InsertMethodFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="InsertMethodFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="InsertMethodLabelFigure"
+            text="InsertMethod"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureInsertMethodLabelFigure"
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="UpdateMethodFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="UpdateMethodFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="UpdateMethodLabelFigure"
+            text="UpdateMethod"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureUpdateMethodLabelFigure"
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="RemoveMethodFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="RemoveMethodFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="RemoveMethodLabelFigure"
+            text="RemoveMethod"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureRemoveMethodLabelFigure"
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="SearchMethodFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="SearchMethodFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SearchMethodLabelFigure"
+            text="SearchMethod"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureSearchMethodLabelFigure"
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="OtherMethodFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="OtherMethodFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="OtherMethodLabelFigure"
+            text="OtherMethod"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureOtherMethodLabelFigure"
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="TypeFigure">
@@ -136,13 +253,13 @@
       </actualFigure>
       <accessors
           accessor="getFigureTypeLabelFigure"
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
       <accessors
           accessor="getTypeAttributesCompartmentFigure"
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
       <accessors
           accessor="getTypeOperationsCompartmentFigure"
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="TypeReferenceFigure">
@@ -164,7 +281,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureTypeReferenceLabelFigure"
-          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="AttributeFigure">
@@ -186,7 +303,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureAttributeLabelFigure"
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="OperationFigure">
@@ -220,13 +337,13 @@
       </actualFigure>
       <accessors
           accessor="getFigureOperationLabelFigure"
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
       <accessors
           accessor="getOperationParametersCompartmentFigure"
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
       <accessors
           accessor="getOperationReturnValueCompartmentFigure"
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="ReturnValueFigure">
@@ -248,7 +365,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureReturnValueLabelFigure"
-          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="EnumaratorFigure">
@@ -278,10 +395,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureEnumaratorLabelFigure"
-          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
       <accessors
           accessor="getEnumaratorValuesCompartmentFigure"
-          figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.12/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="EnumAttributeFigure">
@@ -303,7 +420,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureEnumAttributeLabelFigure"
-          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="TypeExtensionFigure">
@@ -319,8 +436,23 @@
       name="BusinessObject"
       figure="BusinessObjectFigure"/>
   <nodes
-      name="BusinessMethod"
-      figure="BusinessMethodFigure"/>
+      name="CreateMethod"
+      figure="CreateMethodFigure"/>
+  <nodes
+      name="InsertMethod"
+      figure="InsertMethodFigure"/>
+  <nodes
+      name="UpdateMethod"
+      figure="UpdateMethodFigure"/>
+  <nodes
+      name="RemoveMethod"
+      figure="RemoveMethodFigure"/>
+  <nodes
+      name="SearchMethod"
+      figure="SearchMethodFigure"/>
+  <nodes
+      name="OtherMethod"
+      figure="OtherMethodFigure"/>
   <nodes
       name="Type"
       figure="TypeFigure"/>
@@ -371,64 +503,89 @@
       collapsible="true"
       accessor="//@figures.0/@descriptors.0/@accessors.5"/>
   <compartments
+      name="BusinessObjectOthersMethodsCompartment"
+      figure="BusinessObjectFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.0/@accessors.6"/>
+  <compartments
       name="TypeAttributesCompartment"
       figure="TypeFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.7/@accessors.1"/>
   <compartments
       name="TypeOperationsCompartment"
       figure="TypeFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.2/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.7/@accessors.2"/>
   <compartments
       name="OperationParametersCompartment"
       figure="OperationFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.10/@accessors.1"/>
   <compartments
       name="OperationReturnValueCompartment"
       figure="OperationFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.5/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.10/@accessors.2"/>
   <compartments
       name="EnumaratorValuesCompartment"
       figure="EnumaratorFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.7/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.12/@accessors.1"/>
   <labels
       name="BusinessObjectLabel"
       figure="BusinessObjectFigure"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels
-      name="BusinessMethodLabel"
-      figure="BusinessMethodFigure"
+      name="CreateMethodLabel"
+      figure="CreateMethodFigure"
       accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels
+      name="InsertMethodLabel"
+      figure="InsertMethodFigure"
+      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels
+      name="UpdateMethodLabel"
+      figure="UpdateMethodFigure"
+      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels
+      name="RemoveMethodLabel"
+      figure="RemoveMethodFigure"
+      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels
+      name="SearchMethodLabel"
+      figure="SearchMethodFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels
+      name="OtherMethodLabel"
+      figure="OtherMethodFigure"
+      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
   <labels
       name="TypeLabel"
       figure="TypeFigure"
-      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
   <labels
       name="TypeReferenceLabel"
       figure="TypeReferenceFigure"
-      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
   <labels
       name="AttributeLabel"
       figure="AttributeFigure"
-      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
   <labels
       name="OperationLabel"
       figure="OperationFigure"
-      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.10/@accessors.0"/>
   <labels
       name="ReturnValueLabel"
       figure="ReturnValueFigure"
-      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.11/@accessors.0"/>
   <labels
       name="EnumaratorLabel"
       figure="EnumaratorFigure"
-      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.12/@accessors.0"/>
   <labels
       name="EnumAttributeLabel"
       figure="EnumAttributeFigure"
-      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.13/@accessors.0"/>
 </gmfgraph:Canvas>

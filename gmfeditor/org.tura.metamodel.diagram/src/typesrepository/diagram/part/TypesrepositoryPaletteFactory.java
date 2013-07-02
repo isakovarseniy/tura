@@ -39,9 +39,15 @@ public class TypesrepositoryPaletteFactory {
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createBusinessPackage1CreationTool());
-		paletteContainer.add(createPackage2CreationTool());
-		paletteContainer.add(createPrimitive3CreationTool());
-		paletteContainer.add(createTypes4CreationTool());
+		paletteContainer.add(createCreateMethod2CreationTool());
+		paletteContainer.add(createInsertMethod3CreationTool());
+		paletteContainer.add(createOtherMethod4CreationTool());
+		paletteContainer.add(createPackage5CreationTool());
+		paletteContainer.add(createPrimitive6CreationTool());
+		paletteContainer.add(createRemoveMethod7CreationTool());
+		paletteContainer.add(createSearchMethod8CreationTool());
+		paletteContainer.add(createTypes9CreationTool());
+		paletteContainer.add(createUpdateMethod10CreationTool());
 		return paletteContainer;
 	}
 
@@ -76,13 +82,49 @@ public class TypesrepositoryPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPackage2CreationTool() {
+	private ToolEntry createCreateMethod2CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.CreateMethod2CreationTool_title,
+				Messages.CreateMethod2CreationTool_desc, null, null) {
+		};
+		entry.setId("createCreateMethod2CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createInsertMethod3CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.InsertMethod3CreationTool_title,
+				Messages.InsertMethod3CreationTool_desc, null, null) {
+		};
+		entry.setId("createInsertMethod3CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createOtherMethod4CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.OtherMethod4CreationTool_title,
+				Messages.OtherMethod4CreationTool_desc, null, null) {
+		};
+		entry.setId("createOtherMethod4CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createPackage5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Package2CreationTool_title,
-				Messages.Package2CreationTool_desc,
+				Messages.Package5CreationTool_title,
+				Messages.Package5CreationTool_desc,
 				Collections
 						.singletonList(TypesrepositoryElementTypes.Package_3001));
-		entry.setId("createPackage2CreationTool"); //$NON-NLS-1$
+		entry.setId("createPackage5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypesrepositoryElementTypes
 				.getImageDescriptor(TypesrepositoryElementTypes.Package_3001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -92,13 +134,13 @@ public class TypesrepositoryPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPrimitive3CreationTool() {
+	private ToolEntry createPrimitive6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Primitive3CreationTool_title,
-				Messages.Primitive3CreationTool_desc,
+				Messages.Primitive6CreationTool_title,
+				Messages.Primitive6CreationTool_desc,
 				Collections
 						.singletonList(TypesrepositoryElementTypes.Primitive_3002));
-		entry.setId("createPrimitive3CreationTool"); //$NON-NLS-1$
+		entry.setId("createPrimitive6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypesrepositoryElementTypes
 				.getImageDescriptor(TypesrepositoryElementTypes.Primitive_3002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -108,16 +150,52 @@ public class TypesrepositoryPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypes4CreationTool() {
+	private ToolEntry createRemoveMethod7CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.RemoveMethod7CreationTool_title,
+				Messages.RemoveMethod7CreationTool_desc, null, null) {
+		};
+		entry.setId("createRemoveMethod7CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createSearchMethod8CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.SearchMethod8CreationTool_title,
+				Messages.SearchMethod8CreationTool_desc, null, null) {
+		};
+		entry.setId("createSearchMethod8CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createTypes9CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Types4CreationTool_title,
-				Messages.Types4CreationTool_desc,
+				Messages.Types9CreationTool_title,
+				Messages.Types9CreationTool_desc,
 				Collections
 						.singletonList(TypesrepositoryElementTypes.Types_2001));
-		entry.setId("createTypes4CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypes9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypesrepositoryElementTypes
 				.getImageDescriptor(TypesrepositoryElementTypes.Types_2001));
 		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createUpdateMethod10CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.UpdateMethod10CreationTool_title,
+				Messages.UpdateMethod10CreationTool_desc, null, null) {
+		};
+		entry.setId("createUpdateMethod10CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

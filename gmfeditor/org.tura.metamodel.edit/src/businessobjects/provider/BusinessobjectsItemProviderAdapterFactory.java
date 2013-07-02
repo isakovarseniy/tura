@@ -149,6 +149,156 @@ public class BusinessobjectsItemProviderAdapterFactory extends BusinessobjectsAd
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link businessobjects.CreateMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CreateMethodItemProvider createMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link businessobjects.CreateMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCreateMethodAdapter()
+  {
+    if (createMethodItemProvider == null)
+    {
+      createMethodItemProvider = new CreateMethodItemProvider(this);
+    }
+
+    return createMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link businessobjects.InsertMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected InsertMethodItemProvider insertMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link businessobjects.InsertMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createInsertMethodAdapter()
+  {
+    if (insertMethodItemProvider == null)
+    {
+      insertMethodItemProvider = new InsertMethodItemProvider(this);
+    }
+
+    return insertMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link businessobjects.UpdateMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected UpdateMethodItemProvider updateMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link businessobjects.UpdateMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createUpdateMethodAdapter()
+  {
+    if (updateMethodItemProvider == null)
+    {
+      updateMethodItemProvider = new UpdateMethodItemProvider(this);
+    }
+
+    return updateMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link businessobjects.RemoveMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RemoveMethodItemProvider removeMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link businessobjects.RemoveMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRemoveMethodAdapter()
+  {
+    if (removeMethodItemProvider == null)
+    {
+      removeMethodItemProvider = new RemoveMethodItemProvider(this);
+    }
+
+    return removeMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link businessobjects.SearchMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SearchMethodItemProvider searchMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link businessobjects.SearchMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSearchMethodAdapter()
+  {
+    if (searchMethodItemProvider == null)
+    {
+      searchMethodItemProvider = new SearchMethodItemProvider(this);
+    }
+
+    return searchMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link businessobjects.OtherMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OtherMethodItemProvider otherMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link businessobjects.OtherMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createOtherMethodAdapter()
+  {
+    if (otherMethodItemProvider == null)
+    {
+      otherMethodItemProvider = new OtherMethodItemProvider(this);
+    }
+
+    return otherMethodItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -262,6 +412,12 @@ public class BusinessobjectsItemProviderAdapterFactory extends BusinessobjectsAd
     if (businessObjectsItemProvider != null) businessObjectsItemProvider.dispose();
     if (businessObjectItemProvider != null) businessObjectItemProvider.dispose();
     if (businessMethodItemProvider != null) businessMethodItemProvider.dispose();
+    if (createMethodItemProvider != null) createMethodItemProvider.dispose();
+    if (insertMethodItemProvider != null) insertMethodItemProvider.dispose();
+    if (updateMethodItemProvider != null) updateMethodItemProvider.dispose();
+    if (removeMethodItemProvider != null) removeMethodItemProvider.dispose();
+    if (searchMethodItemProvider != null) searchMethodItemProvider.dispose();
+    if (otherMethodItemProvider != null) otherMethodItemProvider.dispose();
   }
 
 }

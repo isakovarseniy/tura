@@ -64,19 +64,26 @@
     </genClasses>
   </genPackages>
   <genPackages prefix="Businessobjects" disposableProviderFactory="true" ecorePackage="../businessObjects/businessObjects.ecore#/">
-    <genDataTypes ecoreDataType="../businessObjects/businessObjects.ecore#//refmethod"/>
     <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//BusinessObjects">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObjects/businessObject"/>
     </genClasses>
     <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//BusinessObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../businessObjects/businessObjects.ecore#//BusinessObject/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObject/createMethods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObject/insertMethods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObject/updaeteMethods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObject/removetMethods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObject/searchtMethods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../businessObjects/businessObjects.ecore#//BusinessObject/othersMethods"/>
     </genClasses>
     <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//BusinessMethod">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../businessObjects/businessObjects.ecore#//BusinessMethod/method"/>
     </genClasses>
+    <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//CreateMethod"/>
+    <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//InsertMethod"/>
+    <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//UpdateMethod"/>
+    <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//RemoveMethod"/>
+    <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//SearchMethod"/>
+    <genClasses ecoreClass="../businessObjects/businessObjects.ecore#//OtherMethod"/>
   </genPackages>
 </genmodel:GenModel>

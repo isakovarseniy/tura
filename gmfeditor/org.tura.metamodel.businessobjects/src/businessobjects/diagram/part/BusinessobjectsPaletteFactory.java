@@ -3,7 +3,6 @@
  */
 package businessobjects.diagram.part;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -39,8 +38,13 @@ public class BusinessobjectsPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createBusinessMethod1CreationTool());
-		paletteContainer.add(createBusinessObject2CreationTool());
+		paletteContainer.add(createBusinessObject1CreationTool());
+		paletteContainer.add(createCreateMethod2CreationTool());
+		paletteContainer.add(createInsertMethod3CreationTool());
+		paletteContainer.add(createOtherMethod4CreationTool());
+		paletteContainer.add(createRemoveMethod5CreationTool());
+		paletteContainer.add(createSearchMethod6CreationTool());
+		paletteContainer.add(createUpdateMethod7CreationTool());
 		return paletteContainer;
 	}
 
@@ -59,19 +63,15 @@ public class BusinessobjectsPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createBusinessMethod1CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
-		types.add(BusinessobjectsElementTypes.BusinessMethod_3003);
-		types.add(BusinessobjectsElementTypes.BusinessMethod_3004);
-		types.add(BusinessobjectsElementTypes.BusinessMethod_3005);
-		types.add(BusinessobjectsElementTypes.BusinessMethod_3006);
-		types.add(BusinessobjectsElementTypes.BusinessMethod_3007);
+	private ToolEntry createBusinessObject1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.BusinessMethod1CreationTool_title,
-				Messages.BusinessMethod1CreationTool_desc, types);
-		entry.setId("createBusinessMethod1CreationTool"); //$NON-NLS-1$
+				Messages.BusinessObject1CreationTool_title,
+				Messages.BusinessObject1CreationTool_desc,
+				Collections
+						.singletonList(BusinessobjectsElementTypes.BusinessObject_2003));
+		entry.setId("createBusinessObject1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(BusinessobjectsElementTypes
-				.getImageDescriptor(BusinessobjectsElementTypes.BusinessMethod_3003));
+				.getImageDescriptor(BusinessobjectsElementTypes.BusinessObject_2003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -79,15 +79,95 @@ public class BusinessobjectsPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createBusinessObject2CreationTool() {
+	private ToolEntry createCreateMethod2CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.BusinessObject2CreationTool_title,
-				Messages.BusinessObject2CreationTool_desc,
+				Messages.CreateMethod2CreationTool_title,
+				Messages.CreateMethod2CreationTool_desc,
 				Collections
-						.singletonList(BusinessobjectsElementTypes.BusinessObject_2003));
-		entry.setId("createBusinessObject2CreationTool"); //$NON-NLS-1$
+						.singletonList(BusinessobjectsElementTypes.CreateMethod_3009));
+		entry.setId("createCreateMethod2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(BusinessobjectsElementTypes
-				.getImageDescriptor(BusinessobjectsElementTypes.BusinessObject_2003));
+				.getImageDescriptor(BusinessobjectsElementTypes.CreateMethod_3009));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createInsertMethod3CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.InsertMethod3CreationTool_title,
+				Messages.InsertMethod3CreationTool_desc,
+				Collections
+						.singletonList(BusinessobjectsElementTypes.InsertMethod_3010));
+		entry.setId("createInsertMethod3CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(BusinessobjectsElementTypes
+				.getImageDescriptor(BusinessobjectsElementTypes.InsertMethod_3010));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createOtherMethod4CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.OtherMethod4CreationTool_title,
+				Messages.OtherMethod4CreationTool_desc,
+				Collections
+						.singletonList(BusinessobjectsElementTypes.OtherMethod_3014));
+		entry.setId("createOtherMethod4CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(BusinessobjectsElementTypes
+				.getImageDescriptor(BusinessobjectsElementTypes.OtherMethod_3014));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRemoveMethod5CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.RemoveMethod5CreationTool_title,
+				Messages.RemoveMethod5CreationTool_desc,
+				Collections
+						.singletonList(BusinessobjectsElementTypes.RemoveMethod_3012));
+		entry.setId("createRemoveMethod5CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(BusinessobjectsElementTypes
+				.getImageDescriptor(BusinessobjectsElementTypes.RemoveMethod_3012));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createSearchMethod6CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.SearchMethod6CreationTool_title,
+				Messages.SearchMethod6CreationTool_desc,
+				Collections
+						.singletonList(BusinessobjectsElementTypes.SearchMethod_3013));
+		entry.setId("createSearchMethod6CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(BusinessobjectsElementTypes
+				.getImageDescriptor(BusinessobjectsElementTypes.SearchMethod_3013));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createUpdateMethod7CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.UpdateMethod7CreationTool_title,
+				Messages.UpdateMethod7CreationTool_desc,
+				Collections
+						.singletonList(BusinessobjectsElementTypes.UpdateMethod_3011));
+		entry.setId("createUpdateMethod7CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(BusinessobjectsElementTypes
+				.getImageDescriptor(BusinessobjectsElementTypes.UpdateMethod_3011));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

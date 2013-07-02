@@ -45,30 +45,28 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
-import businessobjects.diagram.edit.parts.BusinessMethod2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodEditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethodEditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectTypeEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodMethodEditPart;
 import businessobjects.diagram.edit.parts.TypeExtensionEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodMethodEditPart;
 import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
 
 /**
@@ -166,11 +164,12 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 				}
 				switch (visualID) {
 				case BusinessObjectEditPart.VISUAL_ID:
-				case BusinessMethodEditPart.VISUAL_ID:
-				case BusinessMethod2EditPart.VISUAL_ID:
-				case BusinessMethod3EditPart.VISUAL_ID:
-				case BusinessMethod4EditPart.VISUAL_ID:
-				case BusinessMethod5EditPart.VISUAL_ID:
+				case CreateMethodEditPart.VISUAL_ID:
+				case InsertMethodEditPart.VISUAL_ID:
+				case UpdateMethodEditPart.VISUAL_ID:
+				case RemoveMethodEditPart.VISUAL_ID:
+				case SearchMethodEditPart.VISUAL_ID:
+				case OtherMethodEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != BusinessobjectsVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -184,11 +183,12 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 			}
 		}
 		return BusinessObjectEditPart.VISUAL_ID == visualID
-				|| BusinessMethodEditPart.VISUAL_ID == visualID
-				|| BusinessMethod2EditPart.VISUAL_ID == visualID
-				|| BusinessMethod3EditPart.VISUAL_ID == visualID
-				|| BusinessMethod4EditPart.VISUAL_ID == visualID
-				|| BusinessMethod5EditPart.VISUAL_ID == visualID;
+				|| CreateMethodEditPart.VISUAL_ID == visualID
+				|| InsertMethodEditPart.VISUAL_ID == visualID
+				|| UpdateMethodEditPart.VISUAL_ID == visualID
+				|| RemoveMethodEditPart.VISUAL_ID == visualID
+				|| SearchMethodEditPart.VISUAL_ID == visualID
+				|| OtherMethodEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -250,21 +250,24 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		case BusinessObjectEditPart.VISUAL_ID:
 			return createBusinessObject_2003(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case BusinessMethodEditPart.VISUAL_ID:
-			return createBusinessMethod_3003(domainElement, containerView,
-					index, persisted, preferencesHint);
-		case BusinessMethod2EditPart.VISUAL_ID:
-			return createBusinessMethod_3004(domainElement, containerView,
-					index, persisted, preferencesHint);
-		case BusinessMethod3EditPart.VISUAL_ID:
-			return createBusinessMethod_3005(domainElement, containerView,
-					index, persisted, preferencesHint);
-		case BusinessMethod4EditPart.VISUAL_ID:
-			return createBusinessMethod_3006(domainElement, containerView,
-					index, persisted, preferencesHint);
-		case BusinessMethod5EditPart.VISUAL_ID:
-			return createBusinessMethod_3007(domainElement, containerView,
-					index, persisted, preferencesHint);
+		case CreateMethodEditPart.VISUAL_ID:
+			return createCreateMethod_3009(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case InsertMethodEditPart.VISUAL_ID:
+			return createInsertMethod_3010(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case UpdateMethodEditPart.VISUAL_ID:
+			return createUpdateMethod_3011(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case RemoveMethodEditPart.VISUAL_ID:
+			return createRemoveMethod_3012(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case SearchMethodEditPart.VISUAL_ID:
+			return createSearchMethod_3013(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case OtherMethodEditPart.VISUAL_ID:
+			return createOtherMethod_3014(domainElement, containerView, index,
+					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -333,7 +336,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label5010 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
-						.getType(BusinessObjectTypeEditPart.VISUAL_ID));
+						.getType(BusinessObjectNameEditPart.VISUAL_ID));
 		createCompartment(
 				node,
 				BusinessobjectsVisualIDRegistry
@@ -359,19 +362,24 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 				BusinessobjectsVisualIDRegistry
 						.getType(BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
+		createCompartment(
+				node,
+				BusinessobjectsVisualIDRegistry
+						.getType(BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID),
+				true, false, false, false);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createBusinessMethod_3003(EObject domainElement,
+	public Node createCreateMethod_3009(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(BusinessobjectsVisualIDRegistry
-				.getType(BusinessMethodEditPart.VISUAL_ID));
+				.getType(CreateMethodEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -402,22 +410,22 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5005 = createLabel(node,
+		Node label5012 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
-						.getType(BusinessMethodMethodEditPart.VISUAL_ID));
+						.getType(CreateMethodMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createBusinessMethod_3004(EObject domainElement,
+	public Node createInsertMethod_3010(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(BusinessobjectsVisualIDRegistry
-				.getType(BusinessMethod2EditPart.VISUAL_ID));
+				.getType(InsertMethodEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -448,22 +456,22 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5006 = createLabel(node,
+		Node label5013 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
-						.getType(BusinessMethodMethod2EditPart.VISUAL_ID));
+						.getType(InsertMethodMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createBusinessMethod_3005(EObject domainElement,
+	public Node createUpdateMethod_3011(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(BusinessobjectsVisualIDRegistry
-				.getType(BusinessMethod3EditPart.VISUAL_ID));
+				.getType(UpdateMethodEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -494,22 +502,22 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5007 = createLabel(node,
+		Node label5014 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
-						.getType(BusinessMethodMethod3EditPart.VISUAL_ID));
+						.getType(UpdateMethodMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createBusinessMethod_3006(EObject domainElement,
+	public Node createRemoveMethod_3012(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(BusinessobjectsVisualIDRegistry
-				.getType(BusinessMethod4EditPart.VISUAL_ID));
+				.getType(RemoveMethodEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -540,22 +548,22 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5008 = createLabel(node,
+		Node label5015 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
-						.getType(BusinessMethodMethod4EditPart.VISUAL_ID));
+						.getType(RemoveMethodMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createBusinessMethod_3007(EObject domainElement,
+	public Node createSearchMethod_3013(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(BusinessobjectsVisualIDRegistry
-				.getType(BusinessMethod5EditPart.VISUAL_ID));
+				.getType(SearchMethodEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -586,9 +594,55 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5009 = createLabel(node,
+		Node label5016 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
-						.getType(BusinessMethodMethod5EditPart.VISUAL_ID));
+						.getType(SearchMethodMethodEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createOtherMethod_3014(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(BusinessobjectsVisualIDRegistry
+				.getType(OtherMethodEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5017 = createLabel(node,
+				BusinessobjectsVisualIDRegistry
+						.getType(OtherMethodMethodEditPart.VISUAL_ID));
 		return node;
 	}
 

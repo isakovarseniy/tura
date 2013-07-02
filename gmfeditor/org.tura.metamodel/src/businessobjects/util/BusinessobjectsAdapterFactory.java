@@ -92,6 +92,36 @@ public class BusinessobjectsAdapterFactory extends AdapterFactoryImpl
         return createBusinessMethodAdapter();
       }
       @Override
+      public Adapter caseCreateMethod(CreateMethod object)
+      {
+        return createCreateMethodAdapter();
+      }
+      @Override
+      public Adapter caseInsertMethod(InsertMethod object)
+      {
+        return createInsertMethodAdapter();
+      }
+      @Override
+      public Adapter caseUpdateMethod(UpdateMethod object)
+      {
+        return createUpdateMethodAdapter();
+      }
+      @Override
+      public Adapter caseRemoveMethod(RemoveMethod object)
+      {
+        return createRemoveMethodAdapter();
+      }
+      @Override
+      public Adapter caseSearchMethod(SearchMethod object)
+      {
+        return createSearchMethodAdapter();
+      }
+      @Override
+      public Adapter caseOtherMethod(OtherMethod object)
+      {
+        return createOtherMethodAdapter();
+      }
+      @Override
       public Adapter caseTypePointer(TypePointer object)
       {
         return createTypePointerAdapter();
@@ -159,6 +189,96 @@ public class BusinessobjectsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBusinessMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link businessobjects.CreateMethod <em>Create Method</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see businessobjects.CreateMethod
+   * @generated
+   */
+  public Adapter createCreateMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link businessobjects.InsertMethod <em>Insert Method</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see businessobjects.InsertMethod
+   * @generated
+   */
+  public Adapter createInsertMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link businessobjects.UpdateMethod <em>Update Method</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see businessobjects.UpdateMethod
+   * @generated
+   */
+  public Adapter createUpdateMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link businessobjects.RemoveMethod <em>Remove Method</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see businessobjects.RemoveMethod
+   * @generated
+   */
+  public Adapter createRemoveMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link businessobjects.SearchMethod <em>Search Method</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see businessobjects.SearchMethod
+   * @generated
+   */
+  public Adapter createSearchMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link businessobjects.OtherMethod <em>Other Method</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see businessobjects.OtherMethod
+   * @generated
+   */
+  public Adapter createOtherMethodAdapter()
   {
     return null;
   }

@@ -18,11 +18,11 @@
         <diagramLabel
             href="businessObjects.gmfgraph#BusinessObjectLabel"/>
         <features
-            href="../typedefinition/typeDefinition.ecore#//TypePointer/type"/>
+            href="businessObjects.ecore#//BusinessObject/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="businessObjects.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="businessObjects.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="businessObjects.gmfgraph#BusinessObject"/>
       <children
@@ -31,44 +31,125 @@
             href="businessObjects.ecore#//BusinessObject/createMethods"/>
         <ownedChild>
           <domainMetaElement
-              href="businessObjects.ecore#//BusinessMethod"/>
+              href="businessObjects.ecore#//CreateMethod"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="businessObjects.gmfgraph#BusinessMethodLabel"/>
+                href="businessObjects.gmfgraph#CreateMethodLabel"/>
             <features
                 href="businessObjects.ecore#//BusinessMethod/method"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="businessObjects.gmftool#//@palette/@tools.0/@tools.0"/>
+              href="businessObjects.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
-              href="businessObjects.gmfgraph#BusinessMethod"/>
+              href="businessObjects.gmfgraph#CreateMethod"/>
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.0/@ownedChild/@compartments.1"
-          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+          compartment="//@nodes.0/@ownedChild/@compartments.1">
         <containmentFeature
             href="businessObjects.ecore#//BusinessObject/insertMethods"/>
+        <ownedChild>
+          <domainMetaElement
+              href="businessObjects.ecore#//InsertMethod"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="businessObjects.gmfgraph#InsertMethodLabel"/>
+            <features
+                href="businessObjects.ecore#//BusinessMethod/method"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="businessObjects.gmftool#//@palette/@tools.0/@tools.2"/>
+          <diagramNode
+              href="businessObjects.gmfgraph#InsertMethod"/>
+        </ownedChild>
       </children>
       <children
-          compartment="//@nodes.0/@ownedChild/@compartments.2"
-          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+          compartment="//@nodes.0/@ownedChild/@compartments.2">
         <containmentFeature
             href="businessObjects.ecore#//BusinessObject/updaeteMethods"/>
+        <ownedChild>
+          <domainMetaElement
+              href="businessObjects.ecore#//UpdateMethod"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="businessObjects.gmfgraph#UpdateMethodLabel"/>
+            <features
+                href="businessObjects.ecore#//BusinessMethod/method"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="businessObjects.gmftool#//@palette/@tools.0/@tools.6"/>
+          <diagramNode
+              href="businessObjects.gmfgraph#UpdateMethod"/>
+        </ownedChild>
       </children>
       <children
-          compartment="//@nodes.0/@ownedChild/@compartments.3"
-          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+          compartment="//@nodes.0/@ownedChild/@compartments.3">
         <containmentFeature
             href="businessObjects.ecore#//BusinessObject/removetMethods"/>
+        <ownedChild>
+          <domainMetaElement
+              href="businessObjects.ecore#//RemoveMethod"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="businessObjects.gmfgraph#RemoveMethodLabel"/>
+            <features
+                href="businessObjects.ecore#//BusinessMethod/method"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="businessObjects.gmftool#//@palette/@tools.0/@tools.4"/>
+          <diagramNode
+              href="businessObjects.gmfgraph#RemoveMethod"/>
+        </ownedChild>
       </children>
       <children
-          compartment="//@nodes.0/@ownedChild/@compartments.4"
-          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+          compartment="//@nodes.0/@ownedChild/@compartments.4">
         <containmentFeature
             href="businessObjects.ecore#//BusinessObject/searchtMethods"/>
+        <ownedChild>
+          <domainMetaElement
+              href="businessObjects.ecore#//SearchMethod"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="businessObjects.gmfgraph#SearchMethodLabel"/>
+            <features
+                href="businessObjects.ecore#//BusinessMethod/method"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="businessObjects.gmftool#//@palette/@tools.0/@tools.5"/>
+          <diagramNode
+              href="businessObjects.gmfgraph#SearchMethod"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.5">
+        <containmentFeature
+            href="businessObjects.ecore#//BusinessObject/othersMethods"/>
+        <ownedChild>
+          <domainMetaElement
+              href="businessObjects.ecore#//OtherMethod"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="businessObjects.gmfgraph#OtherMethodLabel"/>
+            <features
+                href="businessObjects.ecore#//BusinessMethod/method"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="businessObjects.gmftool#//@palette/@tools.0/@tools.3"/>
+          <diagramNode
+              href="businessObjects.gmfgraph#OtherMethod"/>
+        </ownedChild>
       </children>
       <compartments
           children="//@nodes.0/@ownedChild/@children.0">
@@ -94,6 +175,11 @@
           children="//@nodes.0/@ownedChild/@children.4">
         <compartment
             href="businessObjects.gmfgraph#BusinessObjectSearchtMethodsCompartment"/>
+      </compartments>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.5">
+        <compartment
+            href="businessObjects.gmfgraph#BusinessObjectOthersMethodsCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>

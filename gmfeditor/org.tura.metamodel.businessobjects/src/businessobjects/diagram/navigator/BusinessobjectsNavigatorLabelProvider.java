@@ -20,25 +20,22 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
-import businessobjects.diagram.edit.parts.BusinessMethod2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethod5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodEditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethod5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodMethodEditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName2EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName3EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName4EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodName5EditPart;
-import businessobjects.diagram.edit.parts.BusinessMethodNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectTypeEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodMethodEditPart;
 import businessobjects.diagram.edit.parts.TypeExtensionEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodMethodEditPart;
 import businessobjects.diagram.part.BusinessobjectsDiagramEditorPlugin;
 import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
 import businessobjects.diagram.providers.BusinessobjectsElementTypes;
@@ -112,27 +109,30 @@ public class BusinessobjectsNavigatorLabelProvider extends LabelProvider
 	 */
 	public Image getImage(View view) {
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(view)) {
+		case InsertMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/businessobjects?InsertMethod", BusinessobjectsElementTypes.InsertMethod_3010); //$NON-NLS-1$
 		case BusinessObjectsEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://tura.org/2013/v1/businessobjects?BusinessObjects", BusinessobjectsElementTypes.BusinessObjects_1000); //$NON-NLS-1$
-		case BusinessMethod4EditPart.VISUAL_ID:
+		case SearchMethodEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/businessobjects?BusinessMethod", BusinessobjectsElementTypes.BusinessMethod_3006); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/businessobjects?SearchMethod", BusinessobjectsElementTypes.SearchMethod_3013); //$NON-NLS-1$
+		case UpdateMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/businessobjects?UpdateMethod", BusinessobjectsElementTypes.UpdateMethod_3011); //$NON-NLS-1$
+		case CreateMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/businessobjects?CreateMethod", BusinessobjectsElementTypes.CreateMethod_3009); //$NON-NLS-1$
+		case OtherMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/businessobjects?OtherMethod", BusinessobjectsElementTypes.OtherMethod_3014); //$NON-NLS-1$
+		case RemoveMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/businessobjects?RemoveMethod", BusinessobjectsElementTypes.RemoveMethod_3012); //$NON-NLS-1$
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", BusinessobjectsElementTypes.TypeExtension_4001); //$NON-NLS-1$
-		case BusinessMethod2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/businessobjects?BusinessMethod", BusinessobjectsElementTypes.BusinessMethod_3004); //$NON-NLS-1$
-		case BusinessMethod5EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/businessobjects?BusinessMethod", BusinessobjectsElementTypes.BusinessMethod_3007); //$NON-NLS-1$
-		case BusinessMethod3EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/businessobjects?BusinessMethod", BusinessobjectsElementTypes.BusinessMethod_3005); //$NON-NLS-1$
-		case BusinessMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/businessobjects?BusinessMethod", BusinessobjectsElementTypes.BusinessMethod_3003); //$NON-NLS-1$
 		case BusinessObjectEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/businessobjects?BusinessObject", BusinessobjectsElementTypes.BusinessObject_2003); //$NON-NLS-1$
@@ -196,20 +196,22 @@ public class BusinessobjectsNavigatorLabelProvider extends LabelProvider
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(view)) {
+		case InsertMethodEditPart.VISUAL_ID:
+			return getInsertMethod_3010Text(view);
 		case BusinessObjectsEditPart.VISUAL_ID:
 			return getBusinessObjects_1000Text(view);
-		case BusinessMethod4EditPart.VISUAL_ID:
-			return getBusinessMethod_3006Text(view);
+		case SearchMethodEditPart.VISUAL_ID:
+			return getSearchMethod_3013Text(view);
+		case UpdateMethodEditPart.VISUAL_ID:
+			return getUpdateMethod_3011Text(view);
+		case CreateMethodEditPart.VISUAL_ID:
+			return getCreateMethod_3009Text(view);
+		case OtherMethodEditPart.VISUAL_ID:
+			return getOtherMethod_3014Text(view);
+		case RemoveMethodEditPart.VISUAL_ID:
+			return getRemoveMethod_3012Text(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_4001Text(view);
-		case BusinessMethod2EditPart.VISUAL_ID:
-			return getBusinessMethod_3004Text(view);
-		case BusinessMethod5EditPart.VISUAL_ID:
-			return getBusinessMethod_3007Text(view);
-		case BusinessMethod3EditPart.VISUAL_ID:
-			return getBusinessMethod_3005Text(view);
-		case BusinessMethodEditPart.VISUAL_ID:
-			return getBusinessMethod_3003Text(view);
 		case BusinessObjectEditPart.VISUAL_ID:
 			return getBusinessObject_2003Text(view);
 		}
@@ -219,66 +221,19 @@ public class BusinessobjectsNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getBusinessMethod_3003Text(View view) {
+	private String getSearchMethod_3013Text(View view) {
 		IParser parser = BusinessobjectsParserProvider.getParser(
-				BusinessobjectsElementTypes.BusinessMethod_3003, view
+				BusinessobjectsElementTypes.SearchMethod_3013, view
 						.getElement() != null ? view.getElement() : view,
 				BusinessobjectsVisualIDRegistry
-						.getType(BusinessMethodMethodEditPart.VISUAL_ID));
+						.getType(SearchMethodMethodEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			BusinessobjectsDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5005); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getBusinessMethod_3006Text(View view) {
-		IParser parser = BusinessobjectsParserProvider.getParser(
-				BusinessobjectsElementTypes.BusinessMethod_3006, view
-						.getElement() != null ? view.getElement() : view,
-				BusinessobjectsVisualIDRegistry
-						.getType(BusinessMethodMethod4EditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			BusinessobjectsDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5008); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getBusinessObjects_1000Text(View view) {
-		return ""; //$NON-NLS-1$
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getBusinessMethod_3007Text(View view) {
-		IParser parser = BusinessobjectsParserProvider.getParser(
-				BusinessobjectsElementTypes.BusinessMethod_3007, view
-						.getElement() != null ? view.getElement() : view,
-				BusinessobjectsVisualIDRegistry
-						.getType(BusinessMethodMethod5EditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			BusinessobjectsDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5009); //$NON-NLS-1$
+					"Parser was not found for label " + 5016); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -291,7 +246,7 @@ public class BusinessobjectsNavigatorLabelProvider extends LabelProvider
 				BusinessobjectsElementTypes.BusinessObject_2003, view
 						.getElement() != null ? view.getElement() : view,
 				BusinessobjectsVisualIDRegistry
-						.getType(BusinessObjectTypeEditPart.VISUAL_ID));
+						.getType(BusinessObjectNameEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
@@ -306,19 +261,19 @@ public class BusinessobjectsNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getBusinessMethod_3004Text(View view) {
+	private String getOtherMethod_3014Text(View view) {
 		IParser parser = BusinessobjectsParserProvider.getParser(
-				BusinessobjectsElementTypes.BusinessMethod_3004, view
-						.getElement() != null ? view.getElement() : view,
+				BusinessobjectsElementTypes.OtherMethod_3014,
+				view.getElement() != null ? view.getElement() : view,
 				BusinessobjectsVisualIDRegistry
-						.getType(BusinessMethodMethod2EditPart.VISUAL_ID));
+						.getType(OtherMethodMethodEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			BusinessobjectsDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5006); //$NON-NLS-1$
+					"Parser was not found for label " + 5017); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -326,21 +281,88 @@ public class BusinessobjectsNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getBusinessMethod_3005Text(View view) {
+	private String getCreateMethod_3009Text(View view) {
 		IParser parser = BusinessobjectsParserProvider.getParser(
-				BusinessobjectsElementTypes.BusinessMethod_3005, view
+				BusinessobjectsElementTypes.CreateMethod_3009, view
 						.getElement() != null ? view.getElement() : view,
 				BusinessobjectsVisualIDRegistry
-						.getType(BusinessMethodMethod3EditPart.VISUAL_ID));
+						.getType(CreateMethodMethodEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			BusinessobjectsDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5007); //$NON-NLS-1$
+					"Parser was not found for label " + 5012); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getRemoveMethod_3012Text(View view) {
+		IParser parser = BusinessobjectsParserProvider.getParser(
+				BusinessobjectsElementTypes.RemoveMethod_3012, view
+						.getElement() != null ? view.getElement() : view,
+				BusinessobjectsVisualIDRegistry
+						.getType(RemoveMethodMethodEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			BusinessobjectsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5015); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getInsertMethod_3010Text(View view) {
+		IParser parser = BusinessobjectsParserProvider.getParser(
+				BusinessobjectsElementTypes.InsertMethod_3010, view
+						.getElement() != null ? view.getElement() : view,
+				BusinessobjectsVisualIDRegistry
+						.getType(InsertMethodMethodEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			BusinessobjectsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5013); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getUpdateMethod_3011Text(View view) {
+		IParser parser = BusinessobjectsParserProvider.getParser(
+				BusinessobjectsElementTypes.UpdateMethod_3011, view
+						.getElement() != null ? view.getElement() : view,
+				BusinessobjectsVisualIDRegistry
+						.getType(UpdateMethodMethodEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			BusinessobjectsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5014); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getBusinessObjects_1000Text(View view) {
+		return ""; //$NON-NLS-1$
 	}
 
 	/**

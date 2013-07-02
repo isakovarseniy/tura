@@ -17,15 +17,15 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 import typedefinition.provider.TypePointerItemProvider;
 import typesrepository.provider.TypesrepositoryEditPlugin;
@@ -69,8 +69,32 @@ public class BusinessObjectItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_BusinessObject_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_BusinessObject_name_feature", "_UI_BusinessObject_type"),
+         BusinessobjectsPackage.Literals.BUSINESS_OBJECT__NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -92,6 +116,7 @@ public class BusinessObjectItemProvider
       childrenFeatures.add(BusinessobjectsPackage.Literals.BUSINESS_OBJECT__UPDAETE_METHODS);
       childrenFeatures.add(BusinessobjectsPackage.Literals.BUSINESS_OBJECT__REMOVET_METHODS);
       childrenFeatures.add(BusinessobjectsPackage.Literals.BUSINESS_OBJECT__SEARCHT_METHODS);
+      childrenFeatures.add(BusinessobjectsPackage.Literals.BUSINESS_OBJECT__OTHERS_METHODS);
     }
     return childrenFeatures;
   }
@@ -131,8 +156,7 @@ public class BusinessObjectItemProvider
   @Override
   public String getText(Object object)
   {
-    RefTypeImpl labelValue = ((BusinessObject)object).getType();
-    String label = labelValue == null ? null : labelValue.toString();
+    String label = ((BusinessObject)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_BusinessObject_type") :
       getString("_UI_BusinessObject_type") + " " + label;
@@ -152,11 +176,15 @@ public class BusinessObjectItemProvider
 
     switch (notification.getFeatureID(BusinessObject.class))
     {
+      case BusinessobjectsPackage.BUSINESS_OBJECT__NAME:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
       case BusinessobjectsPackage.BUSINESS_OBJECT__CREATE_METHODS:
       case BusinessobjectsPackage.BUSINESS_OBJECT__INSERT_METHODS:
       case BusinessobjectsPackage.BUSINESS_OBJECT__UPDAETE_METHODS:
       case BusinessobjectsPackage.BUSINESS_OBJECT__REMOVET_METHODS:
       case BusinessobjectsPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
+      case BusinessobjectsPackage.BUSINESS_OBJECT__OTHERS_METHODS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -178,55 +206,32 @@ public class BusinessObjectItemProvider
     newChildDescriptors.add
       (createChildParameter
         (BusinessobjectsPackage.Literals.BUSINESS_OBJECT__CREATE_METHODS,
-         BusinessobjectsFactory.eINSTANCE.createBusinessMethod()));
+         BusinessobjectsFactory.eINSTANCE.createCreateMethod()));
 
     newChildDescriptors.add
       (createChildParameter
         (BusinessobjectsPackage.Literals.BUSINESS_OBJECT__INSERT_METHODS,
-         BusinessobjectsFactory.eINSTANCE.createBusinessMethod()));
+         BusinessobjectsFactory.eINSTANCE.createInsertMethod()));
 
     newChildDescriptors.add
       (createChildParameter
         (BusinessobjectsPackage.Literals.BUSINESS_OBJECT__UPDAETE_METHODS,
-         BusinessobjectsFactory.eINSTANCE.createBusinessMethod()));
+         BusinessobjectsFactory.eINSTANCE.createUpdateMethod()));
 
     newChildDescriptors.add
       (createChildParameter
         (BusinessobjectsPackage.Literals.BUSINESS_OBJECT__REMOVET_METHODS,
-         BusinessobjectsFactory.eINSTANCE.createBusinessMethod()));
+         BusinessobjectsFactory.eINSTANCE.createRemoveMethod()));
 
     newChildDescriptors.add
       (createChildParameter
         (BusinessobjectsPackage.Literals.BUSINESS_OBJECT__SEARCHT_METHODS,
-         BusinessobjectsFactory.eINSTANCE.createBusinessMethod()));
-  }
+         BusinessobjectsFactory.eINSTANCE.createSearchMethod()));
 
-  /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
-  {
-    Object childFeature = feature;
-    Object childObject = child;
-
-    boolean qualify =
-      childFeature == BusinessobjectsPackage.Literals.BUSINESS_OBJECT__CREATE_METHODS ||
-      childFeature == BusinessobjectsPackage.Literals.BUSINESS_OBJECT__INSERT_METHODS ||
-      childFeature == BusinessobjectsPackage.Literals.BUSINESS_OBJECT__UPDAETE_METHODS ||
-      childFeature == BusinessobjectsPackage.Literals.BUSINESS_OBJECT__REMOVET_METHODS ||
-      childFeature == BusinessobjectsPackage.Literals.BUSINESS_OBJECT__SEARCHT_METHODS;
-
-    if (qualify)
-    {
-      return getString
-        ("_UI_CreateChild_text2",
-         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-    }
-    return super.getCreateChildText(owner, feature, child, selection);
+    newChildDescriptors.add
+      (createChildParameter
+        (BusinessobjectsPackage.Literals.BUSINESS_OBJECT__OTHERS_METHODS,
+         BusinessobjectsFactory.eINSTANCE.createOtherMethod()));
   }
 
   /**
@@ -238,7 +243,7 @@ public class BusinessObjectItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return BusinessobjectsEditPlugin.INSTANCE;
+    return TypesrepositoryEditPlugin.INSTANCE;
   }
 
 }
