@@ -60,6 +60,14 @@ public class MethodNamePropertySection extends
 									TypedefinitionPackage.eINSTANCE
 											.getTypePointer_Type())) {
 								values = null;
+
+								EditingDomain editingDomain = ((DiagramEditor) getPart())
+										.getEditingDomain();
+	
+								editingDomain.getCommandStack().execute(
+								SetCommand.create(editingDomain, ((SetCommand) cmd).getOwner(),
+										getFeature(), null));
+
 								refresh();
 							}
 						}
@@ -126,8 +134,10 @@ public class MethodNamePropertySection extends
 							.createQuery("self.packages->select(r|r.name='"
 									+ ((BusinessMethod) eObject).getType()
 											.getPackageName()
-									+ "').types->select(r|r.oclIsKindOf(typedefinition::Type) and  r.oclAsType(typedefinition::Type).name='"+((BusinessMethod) eObject).getType()
-									.getTypeName() + "').oclAsType(typedefinition::Type).operations");
+									+ "').types->select(r|r.oclIsKindOf(typedefinition::Type) and  r.oclAsType(typedefinition::Type).name='"
+									+ ((BusinessMethod) eObject).getType()
+											.getTypeName()
+									+ "').oclAsType(typedefinition::Type).operations");
 					Collection<typedefinition.Operation> map = (Collection<typedefinition.Operation>) ocl
 							.evaluate(types, query);
 
