@@ -6,13 +6,10 @@ import businessobjects.BusinessobjectsPackage;
 import businessobjects.impl.BusinessobjectsPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 import typedefinition.Attribute;
 import typedefinition.EnumAttribute;
@@ -27,10 +24,6 @@ import typedefinition.TypePointer;
 import typedefinition.TypeReference;
 import typedefinition.TypedefinitionFactory;
 import typedefinition.TypedefinitionPackage;
-
-import typesrepository.TypesrepositoryPackage;
-
-import typesrepository.impl.TypesrepositoryPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -118,13 +111,6 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
   private EClass typePointerEClass = null;
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EDataType reftypeEDataType = null;
-
-  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -173,17 +159,14 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     isInited = true;
 
     // Obtain or create and register interdependencies
-    TypesrepositoryPackageImpl theTypesrepositoryPackage = (TypesrepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) instanceof TypesrepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) : TypesrepositoryPackage.eINSTANCE);
     BusinessobjectsPackageImpl theBusinessobjectsPackage = (BusinessobjectsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) instanceof BusinessobjectsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) : BusinessobjectsPackage.eINSTANCE);
 
     // Create package meta-data objects
     theTypedefinitionPackage.createPackageContents();
-    theTypesrepositoryPackage.createPackageContents();
     theBusinessobjectsPackage.createPackageContents();
 
     // Initialize created meta-data
     theTypedefinitionPackage.initializePackageContents();
-    theTypesrepositoryPackage.initializePackageContents();
     theBusinessobjectsPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
@@ -470,7 +453,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypePointer_Type()
+  public EAttribute getTypePointer_PackageName()
   {
     return (EAttribute)typePointerEClass.getEStructuralFeatures().get(0);
   }
@@ -480,9 +463,9 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
    * <!-- end-user-doc -->
    * @generated
    */
-  public EDataType getreftype()
+  public EAttribute getTypePointer_TypeName()
   {
-    return reftypeEDataType;
+    return (EAttribute)typePointerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -552,10 +535,8 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     createEAttribute(enumAttributeEClass, ENUM_ATTRIBUTE__VALUE);
 
     typePointerEClass = createEClass(TYPE_POINTER);
-    createEAttribute(typePointerEClass, TYPE_POINTER__TYPE);
-
-    // Create data types
-    reftypeEDataType = createEDataType(REFTYPE);
+    createEAttribute(typePointerEClass, TYPE_POINTER__PACKAGE_NAME);
+    createEAttribute(typePointerEClass, TYPE_POINTER__TYPE_NAME);
   }
 
   /**
@@ -631,10 +612,8 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     initEAttribute(getEnumAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typePointerEClass, TypePointer.class, "TypePointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTypePointer_Type(), this.getreftype(), "type", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    // Initialize data types
-    initEDataType(reftypeEDataType, RefTypeImpl.class, "reftype", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTypePointer_PackageName(), ecorePackage.getEString(), "packageName", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypePointer_TypeName(), ecorePackage.getEString(), "typeName", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
@@ -707,7 +686,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        source, 
        new String[] 
        {
-       "label", "type"
+       "label", "packageName"
        });			
     addAnnotation
       (attributeEClass, 
@@ -728,7 +707,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        source, 
        new String[] 
        {
-       "label", "type"
+       "label", "packageName"
        });		
     addAnnotation
       (enumaratorEClass, 

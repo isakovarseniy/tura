@@ -571,7 +571,7 @@ public class TypedefinitionEditor
         }
         catch (CoreException exception)
         {
-          TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+          BusinessobjectsEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -711,7 +711,7 @@ public class TypedefinitionEditor
         }
         catch (PartInitException exception)
         {
-          TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+          BusinessobjectsEditorPlugin.INSTANCE.log(exception);
         }
       }
 
@@ -726,7 +726,7 @@ public class TypedefinitionEditor
           }
           catch (CoreException exception)
           {
-            TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+            BusinessobjectsEditorPlugin.INSTANCE.log(exception);
           }
         }
       }
@@ -773,9 +773,8 @@ public class TypedefinitionEditor
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypesrepositoryItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new BusinessobjectsItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
     // Create the command stack that will notify this editor as commands are executed.
@@ -1701,7 +1700,7 @@ public class TypedefinitionEditor
     {
       // Something went wrong that shouldn't.
       //
-      TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+      BusinessobjectsEditorPlugin.INSTANCE.log(exception);
     }
     updateProblemIndication = true;
     updateProblemIndication();
@@ -1809,7 +1808,7 @@ public class TypedefinitionEditor
     }
     catch (CoreException exception)
     {
-      TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+      BusinessobjectsEditorPlugin.INSTANCE.log(exception);
     }
   }
 
@@ -1949,7 +1948,7 @@ public class TypedefinitionEditor
    */
   private static String getString(String key)
   {
-    return TypesrepositoryEditorPlugin.INSTANCE.getString(key);
+    return BusinessobjectsEditorPlugin.INSTANCE.getString(key);
   }
 
   /**
@@ -1960,7 +1959,7 @@ public class TypedefinitionEditor
    */
   private static String getString(String key, Object s1)
   {
-    return TypesrepositoryEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+    return BusinessobjectsEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
   }
 
   /**

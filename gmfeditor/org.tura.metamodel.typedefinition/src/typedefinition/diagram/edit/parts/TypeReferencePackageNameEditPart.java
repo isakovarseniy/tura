@@ -56,8 +56,8 @@ import typedefinition.diagram.providers.TypedefinitionParserProvider;
 /**
  * @generated
  */
-public class TypeReferenceTypeEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class TypeReferencePackageNameEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
@@ -92,7 +92,7 @@ public class TypeReferenceTypeEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public TypeReferenceTypeEditPart(View view) {
+	public TypeReferencePackageNameEditPart(View view) {
 		super(view);
 	}
 
@@ -214,11 +214,9 @@ public class TypeReferenceTypeEditPart extends CompartmentEditPart implements
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null
-				&& (((TypeReference) parserElement).getType() != null)) {
-			text = ((TypeReference) parserElement).getType().getPackageName()
-					+ "."
-					+ ((TypeReference) parserElement).getType().getTypeName();
+		if (parserElement != null && getParser() != null) {
+			text = ((TypeReference) parserElement).getPackageName() + "."
+					+ ((TypeReference) parserElement).getTypeName();
 
 		}
 		if (text == null || text.length() == 0) {
@@ -318,7 +316,7 @@ public class TypeReferenceTypeEditPart extends CompartmentEditPart implements
 							TypedefinitionElementTypes.TypeReference_2001,
 							getParserElement(),
 							TypedefinitionVisualIDRegistry
-									.getType(typedefinition.diagram.edit.parts.TypeReferenceTypeEditPart.VISUAL_ID));
+									.getType(typedefinition.diagram.edit.parts.TypeReferencePackageNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

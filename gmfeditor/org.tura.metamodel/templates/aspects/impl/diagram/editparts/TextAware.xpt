@@ -4,13 +4,13 @@
 	protected String getLabelText() {
 		String text = null;
 		org.eclipse.emf.ecore.EObject parserElement = getParserElement();
-	«IF  self.editPartClassName.indexOf('TypeReferenceTypeEditPart') > 0-»
-		if (parserElement != null && getParser() != null  && ( ((typedefinition.TypeReference) parserElement).getType() != null ) ) {
-           text = ((typedefinition.TypeReference)parserElement).getType().getPackageName()+"."+ ((typedefinition.TypeReference)parserElement).getType().getTypeName();
+	«IF  self.editPartClassName.indexOf('TypeReferencePackageNameEditPart') > 0-»
+		if (parserElement != null && getParser() != null  ) {
+           text = ((typedefinition.TypeReference)parserElement).getPackageName()+"."+ ((typedefinition.TypeReference)parserElement).getTypeName();
 
-	«ELSEIF  self.editPartClassName.indexOf('ReturnValueTypeEditPart') > 0-»
-		if (parserElement != null && getParser() != null  && ( ((typedefinition.ReturnValue) parserElement).getType() != null ) ) {
-          text = ((typedefinition.ReturnValue)parserElement).getType().getPackageName()+"."+ ((typedefinition.ReturnValue)parserElement).getType().getTypeName();
+	«ELSEIF  self.editPartClassName.indexOf('ReturnValuePackageNameEditPart') > 0-»
+		if (parserElement != null && getParser() != null   ) {
+          text = ((typedefinition.ReturnValue)parserElement).getPackageName()+"."+ ((typedefinition.ReturnValue)parserElement).getTypeName();
 
 	«ELSE-»
 	   if (parserElement != null && getParser() != null ){

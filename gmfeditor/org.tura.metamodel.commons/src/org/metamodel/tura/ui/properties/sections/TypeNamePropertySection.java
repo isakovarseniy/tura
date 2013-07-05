@@ -22,7 +22,6 @@ import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.ui.IWorkbenchPart;
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 import typesrepository.TypesrepositoryPackage;
 import typedefinition.Type;
@@ -36,14 +35,12 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 	private CommandStackListener commandStackListener;
 
 	protected EAttribute getFeature() {
-		return TypedefinitionPackage.eINSTANCE.getTypePointer_Type();
+		return TypedefinitionPackage.eINSTANCE.getTypePointer_TypeName();
 	}
 
 	protected String getFeatureAsText() {
-		if (((TypePointer) eObject).getType() != null)
-			return ((TypePointer) eObject).getType().getTypeName();
-		else
-			return null;
+			return ((TypePointer) eObject).getTypeName();
+
 	}
 
 	public void setInput(IWorkbenchPart part, ISelection selection) {
@@ -61,8 +58,16 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 						if (cmd instanceof SetCommand) {
 							if (((SetCommand) cmd).getFeature().equals(
 									TypedefinitionPackage.eINSTANCE
-											.getTypePointer_Type())) {
+											.getTypePointer_PackageName())) {
 								values = null;
+								
+								EditingDomain editingDomain = ((DiagramEditor) getPart())
+										.getEditingDomain();
+	
+								editingDomain.getCommandStack().execute(
+								SetCommand.create(editingDomain, ((SetCommand) cmd).getOwner(),
+										getFeature(), null));
+								
 								refresh();
 							}
 						}
@@ -77,12 +82,7 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 	}
 
 	protected Object getFeatureValue(int index) {
-
-		RefTypeImpl tp = new RefTypeImpl();
-		tp.setPackageName(((TypePointer) eObject).getType().getPackageName());
-		tp.setTypeName(values.get(index));
-
-		return tp;
+		return values.get(index);
 	}
 
 	protected String getLabelText() {
@@ -90,11 +90,11 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 	}
 
 	protected boolean isEqual(int index) {
-		if (((TypePointer) eObject).getType() == null)
+		if (((TypePointer) eObject).getTypeName() == null)
 			return false;
 
 		return values.get(index).equals(
-				((TypePointer) eObject).getType().getTypeName());
+				((TypePointer) eObject).getTypeName());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -108,8 +108,7 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 			EObject pckg = (EObject) diagram.getElement();
 			EObject types = (EObject) pckg.eContainer();
 
-			if ((((TypePointer) eObject).getType() == null)
-					|| ((TypePointer) eObject).getType().getPackageName() == null)
+			if (((TypePointer) eObject).getPackageName() == null)
 				return new String[] {};
 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -118,7 +117,7 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 			helper.setContext(TypesrepositoryPackage.eINSTANCE.getEClassifier("Types"));
 
 			try {
-				if ((((TypePointer) eObject).getType().getPackageName())
+				if ((((TypePointer) eObject).getPackageName())
 						.equals("Primitives")) {
 					OCLExpression<EClassifier> query = helper
 							.createQuery("self.primitives");
@@ -132,8 +131,7 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 				} else {
 					OCLExpression<EClassifier> query = helper
 							.createQuery("self.packages->select(r|r.name='"
-									+ ((TypePointer) eObject).getType()
-											.getPackageName() + "').types->select(oclIsKindOf(typedefinition::Type))");
+									+ ((TypePointer) eObject).getPackageName() + "').types->select(oclIsKindOf(typedefinition::Type))");
 					Collection<typedefinition.Type> map = (Collection<Type>) ocl.evaluate(
 							types, query);
 

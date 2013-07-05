@@ -24,10 +24,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
-
 import typedefinition.provider.TypePointerItemProvider;
-import typesrepository.provider.TypesrepositoryEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link businessobjects.BusinessMethod} object.
@@ -117,8 +114,7 @@ public class BusinessMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    RefTypeImpl labelValue = ((BusinessMethod)object).getType();
-    String label = labelValue == null ? null : labelValue.toString();
+    String label = ((BusinessMethod)object).getPackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_BusinessMethod_type") :
       getString("_UI_BusinessMethod_type") + " " + label;
@@ -167,7 +163,7 @@ public class BusinessMethodItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypesrepositoryEditPlugin.INSTANCE;
+    return BusinessobjectsEditPlugin.INSTANCE;
   }
 
 }

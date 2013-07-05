@@ -569,7 +569,7 @@ public class BusinessobjectsEditor
         }
         catch (CoreException exception)
         {
-          TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+          BusinessobjectsEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -709,7 +709,7 @@ public class BusinessobjectsEditor
         }
         catch (PartInitException exception)
         {
-          TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+          BusinessobjectsEditorPlugin.INSTANCE.log(exception);
         }
       }
 
@@ -724,7 +724,7 @@ public class BusinessobjectsEditor
           }
           catch (CoreException exception)
           {
-            TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+            BusinessobjectsEditorPlugin.INSTANCE.log(exception);
           }
         }
       }
@@ -771,9 +771,8 @@ public class BusinessobjectsEditor
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypesrepositoryItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new BusinessobjectsItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
     // Create the command stack that will notify this editor as commands are executed.
@@ -1699,7 +1698,7 @@ public class BusinessobjectsEditor
     {
       // Something went wrong that shouldn't.
       //
-      TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+      BusinessobjectsEditorPlugin.INSTANCE.log(exception);
     }
     updateProblemIndication = true;
     updateProblemIndication();
@@ -1807,7 +1806,7 @@ public class BusinessobjectsEditor
     }
     catch (CoreException exception)
     {
-      TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+      BusinessobjectsEditorPlugin.INSTANCE.log(exception);
     }
   }
 
@@ -1947,7 +1946,7 @@ public class BusinessobjectsEditor
    */
   private static String getString(String key)
   {
-    return TypesrepositoryEditorPlugin.INSTANCE.getString(key);
+    return BusinessobjectsEditorPlugin.INSTANCE.getString(key);
   }
 
   /**
@@ -1958,7 +1957,7 @@ public class BusinessobjectsEditor
    */
   private static String getString(String key, Object s1)
   {
-    return TypesrepositoryEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+    return BusinessobjectsEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
   }
 
   /**

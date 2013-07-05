@@ -17,7 +17,7 @@
         <diagramLabel
             href="typeDefinition.gmfgraph#TypeReferenceLabel"/>
         <features
-            href="typeDefinition.ecore#//TypePointer/type"/>
+            href="typeDefinition.ecore#//TypePointer/packageName"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
@@ -104,7 +104,7 @@
                 <diagramLabel
                     href="typeDefinition.gmfgraph#ReturnValueLabel"/>
                 <features
-                    href="typeDefinition.ecore#//TypePointer/type"/>
+                    href="typeDefinition.ecore#//TypePointer/packageName"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"

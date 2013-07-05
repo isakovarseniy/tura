@@ -31,8 +31,8 @@ public class TypedefinitionEditPartFactory implements EditPartFactory {
 			case TypeReferenceEditPart.VISUAL_ID:
 				return new TypeReferenceEditPart(view);
 
-			case TypeReferenceTypeEditPart.VISUAL_ID:
-				return new TypeReferenceTypeEditPart(view);
+			case TypeReferencePackageNameEditPart.VISUAL_ID:
+				return new TypeReferencePackageNameEditPart(view);
 
 			case TypeEditPart.VISUAL_ID:
 				return new TypeEditPart(view);
@@ -67,8 +67,8 @@ public class TypedefinitionEditPartFactory implements EditPartFactory {
 			case ReturnValueEditPart.VISUAL_ID:
 				return new ReturnValueEditPart(view);
 
-			case ReturnValueTypeEditPart.VISUAL_ID:
-				return new ReturnValueTypeEditPart(view);
+			case ReturnValuePackageNameEditPart.VISUAL_ID:
+				return new ReturnValuePackageNameEditPart(view);
 
 			case EnumAttributeEditPart.VISUAL_ID:
 				return new EnumAttributeEditPart(view);

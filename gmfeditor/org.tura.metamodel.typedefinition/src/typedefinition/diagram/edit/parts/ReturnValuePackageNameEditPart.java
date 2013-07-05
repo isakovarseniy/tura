@@ -56,8 +56,8 @@ import typedefinition.diagram.providers.TypedefinitionParserProvider;
 /**
  * @generated
  */
-public class ReturnValueTypeEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class ReturnValuePackageNameEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
@@ -92,7 +92,7 @@ public class ReturnValueTypeEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public ReturnValueTypeEditPart(View view) {
+	public ReturnValuePackageNameEditPart(View view) {
 		super(view);
 	}
 
@@ -214,11 +214,9 @@ public class ReturnValueTypeEditPart extends CompartmentEditPart implements
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null
-				&& (((ReturnValue) parserElement).getType() != null)) {
-			text = ((ReturnValue) parserElement).getType().getPackageName()
-					+ "."
-					+ ((ReturnValue) parserElement).getType().getTypeName();
+		if (parserElement != null && getParser() != null) {
+			text = ((ReturnValue) parserElement).getPackageName() + "."
+					+ ((ReturnValue) parserElement).getTypeName();
 
 		}
 		if (text == null || text.length() == 0) {
@@ -318,7 +316,7 @@ public class ReturnValueTypeEditPart extends CompartmentEditPart implements
 							TypedefinitionElementTypes.ReturnValue_3004,
 							getParserElement(),
 							TypedefinitionVisualIDRegistry
-									.getType(typedefinition.diagram.edit.parts.ReturnValueTypeEditPart.VISUAL_ID));
+									.getType(typedefinition.diagram.edit.parts.ReturnValuePackageNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

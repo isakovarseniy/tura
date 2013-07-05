@@ -4,7 +4,6 @@ package typedefinition;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -179,13 +178,22 @@ public interface TypedefinitionPackage extends EPackage
   int TYPE_REFERENCE = 3;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE__TYPE = TYPE_ELEMENT_FEATURE_COUNT + 0;
+  int TYPE_REFERENCE__PACKAGE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_REFERENCE__TYPE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Type Reference</em>' class.
@@ -194,7 +202,7 @@ public interface TypedefinitionPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 1;
+  int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link typedefinition.impl.TypeExtensionImpl <em>Type Extension</em>}' class.
@@ -244,13 +252,22 @@ public interface TypedefinitionPackage extends EPackage
   int TYPE_POINTER = 10;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_POINTER__TYPE = 0;
+  int TYPE_POINTER__PACKAGE_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_POINTER__TYPE_NAME = 1;
 
   /**
    * The number of structural features of the '<em>Type Pointer</em>' class.
@@ -259,7 +276,7 @@ public interface TypedefinitionPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_POINTER_FEATURE_COUNT = 1;
+  int TYPE_POINTER_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link typedefinition.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -272,13 +289,22 @@ public interface TypedefinitionPackage extends EPackage
   int ATTRIBUTE = 5;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__TYPE = TYPE_POINTER__TYPE;
+  int ATTRIBUTE__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -355,13 +381,22 @@ public interface TypedefinitionPackage extends EPackage
   int RETURN_VALUE = 7;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RETURN_VALUE__TYPE = TYPE_POINTER__TYPE;
+  int RETURN_VALUE__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN_VALUE__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
 
   /**
    * The number of structural features of the '<em>Return Value</em>' class.
@@ -445,16 +480,6 @@ public interface TypedefinitionPackage extends EPackage
    * @ordered
    */
   int ENUM_ATTRIBUTE_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '<em>reftype</em>' data type.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.tura.metamodel.commons.types.impl.RefTypeImpl
-   * @see typedefinition.impl.TypedefinitionPackageImpl#getreftype()
-   * @generated
-   */
-  int REFTYPE = 11;
 
 
   /**
@@ -744,26 +769,26 @@ public interface TypedefinitionPackage extends EPackage
   EClass getTypePointer();
 
   /**
-   * Returns the meta object for the attribute '{@link typedefinition.TypePointer#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link typedefinition.TypePointer#getPackageName <em>Package Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see typedefinition.TypePointer#getType()
+   * @return the meta object for the attribute '<em>Package Name</em>'.
+   * @see typedefinition.TypePointer#getPackageName()
    * @see #getTypePointer()
    * @generated
    */
-  EAttribute getTypePointer_Type();
+  EAttribute getTypePointer_PackageName();
 
   /**
-   * Returns the meta object for data type '{@link org.tura.metamodel.commons.types.impl.RefTypeImpl <em>reftype</em>}'.
+   * Returns the meta object for the attribute '{@link typedefinition.TypePointer#getTypeName <em>Type Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for data type '<em>reftype</em>'.
-   * @see org.tura.metamodel.commons.types.impl.RefTypeImpl
-   * @model instanceClass="org.tura.metamodel.commons.types.impl.RefTypeImpl"
+   * @return the meta object for the attribute '<em>Type Name</em>'.
+   * @see typedefinition.TypePointer#getTypeName()
+   * @see #getTypePointer()
    * @generated
    */
-  EDataType getreftype();
+  EAttribute getTypePointer_TypeName();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1027,22 +1052,20 @@ public interface TypedefinitionPackage extends EPackage
     EClass TYPE_POINTER = eINSTANCE.getTypePointer();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Package Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TYPE_POINTER__TYPE = eINSTANCE.getTypePointer_Type();
+    EAttribute TYPE_POINTER__PACKAGE_NAME = eINSTANCE.getTypePointer_PackageName();
 
     /**
-     * The meta object literal for the '<em>reftype</em>' data type.
+     * The meta object literal for the '<em><b>Type Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.tura.metamodel.commons.types.impl.RefTypeImpl
-     * @see typedefinition.impl.TypedefinitionPackageImpl#getreftype()
      * @generated
      */
-    EDataType REFTYPE = eINSTANCE.getreftype();
+    EAttribute TYPE_POINTER__TYPE_NAME = eINSTANCE.getTypePointer_TypeName();
 
   }
 

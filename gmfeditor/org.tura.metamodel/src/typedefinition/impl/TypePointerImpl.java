@@ -9,8 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
-
 import typedefinition.TypePointer;
 import typedefinition.TypedefinitionPackage;
 
@@ -21,7 +19,8 @@ import typedefinition.TypedefinitionPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link typedefinition.impl.TypePointerImpl#getType <em>Type</em>}</li>
+ *   <li>{@link typedefinition.impl.TypePointerImpl#getPackageName <em>Package Name</em>}</li>
+ *   <li>{@link typedefinition.impl.TypePointerImpl#getTypeName <em>Type Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,24 +29,44 @@ import typedefinition.TypedefinitionPackage;
 public class TypePointerImpl extends EObjectImpl implements TypePointer
 {
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getPackageName()
    * @generated
    * @ordered
    */
-  protected static final RefTypeImpl TYPE_EDEFAULT = null;
+  protected static final String PACKAGE_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getPackageName()
    * @generated
    * @ordered
    */
-  protected RefTypeImpl type = TYPE_EDEFAULT;
+  protected String packageName = PACKAGE_NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypeName()
+   * @generated
+   * @ordered
+   */
+  protected static final String TYPE_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypeName()
+   * @generated
+   * @ordered
+   */
+  protected String typeName = TYPE_NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,9 +94,9 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefTypeImpl getType()
+  public String getPackageName()
   {
-    return type;
+    return packageName;
   }
 
   /**
@@ -85,12 +104,35 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(RefTypeImpl newType)
+  public void setPackageName(String newPackageName)
   {
-    RefTypeImpl oldType = type;
-    type = newType;
+    String oldPackageName = packageName;
+    packageName = newPackageName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.TYPE_POINTER__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.TYPE_POINTER__PACKAGE_NAME, oldPackageName, packageName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getTypeName()
+  {
+    return typeName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeName(String newTypeName)
+  {
+    String oldTypeName = typeName;
+    typeName = newTypeName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TypedefinitionPackage.TYPE_POINTER__TYPE_NAME, oldTypeName, typeName));
   }
 
   /**
@@ -103,8 +145,10 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
   {
     switch (featureID)
     {
-      case TypedefinitionPackage.TYPE_POINTER__TYPE:
-        return getType();
+      case TypedefinitionPackage.TYPE_POINTER__PACKAGE_NAME:
+        return getPackageName();
+      case TypedefinitionPackage.TYPE_POINTER__TYPE_NAME:
+        return getTypeName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +163,11 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
   {
     switch (featureID)
     {
-      case TypedefinitionPackage.TYPE_POINTER__TYPE:
-        setType((RefTypeImpl)newValue);
+      case TypedefinitionPackage.TYPE_POINTER__PACKAGE_NAME:
+        setPackageName((String)newValue);
+        return;
+      case TypedefinitionPackage.TYPE_POINTER__TYPE_NAME:
+        setTypeName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +183,11 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
   {
     switch (featureID)
     {
-      case TypedefinitionPackage.TYPE_POINTER__TYPE:
-        setType(TYPE_EDEFAULT);
+      case TypedefinitionPackage.TYPE_POINTER__PACKAGE_NAME:
+        setPackageName(PACKAGE_NAME_EDEFAULT);
+        return;
+      case TypedefinitionPackage.TYPE_POINTER__TYPE_NAME:
+        setTypeName(TYPE_NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +203,10 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
   {
     switch (featureID)
     {
-      case TypedefinitionPackage.TYPE_POINTER__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case TypedefinitionPackage.TYPE_POINTER__PACKAGE_NAME:
+        return PACKAGE_NAME_EDEFAULT == null ? packageName != null : !PACKAGE_NAME_EDEFAULT.equals(packageName);
+      case TypedefinitionPackage.TYPE_POINTER__TYPE_NAME:
+        return TYPE_NAME_EDEFAULT == null ? typeName != null : !TYPE_NAME_EDEFAULT.equals(typeName);
     }
     return super.eIsSet(featureID);
   }
@@ -170,8 +222,10 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (type: ");
-    result.append(type);
+    result.append(" (packageName: ");
+    result.append(packageName);
+    result.append(", typeName: ");
+    result.append(typeName);
     result.append(')');
     return result.toString();
   }

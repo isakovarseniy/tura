@@ -18,8 +18,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
-
 /**
  * This is the item provider adapter for a {@link businessobjects.InsertMethod} object.
  * <!-- begin-user-doc -->
@@ -84,8 +82,7 @@ public class InsertMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    RefTypeImpl labelValue = ((InsertMethod)object).getType();
-    String label = labelValue == null ? null : labelValue.toString();
+    String label = ((InsertMethod)object).getPackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_InsertMethod_type") :
       getString("_UI_InsertMethod_type") + " " + label;

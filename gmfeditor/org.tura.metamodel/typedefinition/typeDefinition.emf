@@ -23,7 +23,7 @@ class Type extends TypeElement {
    
 }
 
-@gmf.node(label="type")
+@gmf.node(label="packageName")
 class TypeReference extends TypeElement , TypePointer{
  }
 
@@ -48,7 +48,7 @@ class Operation{
    val ReturnValue[1] returnValue;
 }
 
-@gmf.node(label="type")
+@gmf.node(label="packageName")
 class ReturnValue extends TypePointer{
 }
 
@@ -67,7 +67,8 @@ class EnumAttribute{
 
 
 class TypePointer{
-  attr reftype type;
+  attr EString packageName;
+  attr EString typeName;
+  
 }
 
-datatype reftype:org.tura.metamodel.commons.types.impl.RefTypeImpl;

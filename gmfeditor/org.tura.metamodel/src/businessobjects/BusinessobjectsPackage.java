@@ -97,13 +97,22 @@ public interface BusinessobjectsPackage extends EPackage
   int BUSINESS_OBJECT = 1;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__TYPE = TypedefinitionPackage.TYPE_POINTER__TYPE;
+  int BUSINESS_OBJECT__PACKAGE_NAME = TypedefinitionPackage.TYPE_POINTER__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__TYPE_NAME = TypedefinitionPackage.TYPE_POINTER__TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -188,13 +197,22 @@ public interface BusinessobjectsPackage extends EPackage
   int BUSINESS_METHOD = 2;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD__TYPE = TypedefinitionPackage.TYPE_POINTER__TYPE;
+  int BUSINESS_METHOD__PACKAGE_NAME = TypedefinitionPackage.TYPE_POINTER__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_METHOD__TYPE_NAME = TypedefinitionPackage.TYPE_POINTER__TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -225,13 +243,22 @@ public interface BusinessobjectsPackage extends EPackage
   int CREATE_METHOD = 3;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_METHOD__TYPE = BUSINESS_METHOD__TYPE;
+  int CREATE_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -262,13 +289,22 @@ public interface BusinessobjectsPackage extends EPackage
   int INSERT_METHOD = 4;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_METHOD__TYPE = BUSINESS_METHOD__TYPE;
+  int INSERT_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -299,13 +335,22 @@ public interface BusinessobjectsPackage extends EPackage
   int UPDATE_METHOD = 5;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UPDATE_METHOD__TYPE = BUSINESS_METHOD__TYPE;
+  int UPDATE_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -336,13 +381,22 @@ public interface BusinessobjectsPackage extends EPackage
   int REMOVE_METHOD = 6;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REMOVE_METHOD__TYPE = BUSINESS_METHOD__TYPE;
+  int REMOVE_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REMOVE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -373,13 +427,22 @@ public interface BusinessobjectsPackage extends EPackage
   int SEARCH_METHOD = 7;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEARCH_METHOD__TYPE = BUSINESS_METHOD__TYPE;
+  int SEARCH_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -410,13 +473,22 @@ public interface BusinessobjectsPackage extends EPackage
   int OTHER_METHOD = 8;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OTHER_METHOD__TYPE = BUSINESS_METHOD__TYPE;
+  int OTHER_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.

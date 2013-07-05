@@ -58,7 +58,7 @@ public class MethodNamePropertySection extends
 						if (cmd instanceof SetCommand) {
 							if (((SetCommand) cmd).getFeature().equals(
 									TypedefinitionPackage.eINSTANCE
-											.getTypePointer_Type())) {
+											.getTypePointer_TypeName())) {
 								values = null;
 
 								EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -107,8 +107,8 @@ public class MethodNamePropertySection extends
 			EObject pckg = (EObject) diagram.getElement();
 			EObject types = (EObject) pckg.eContainer();
 
-			if ((((BusinessMethod) eObject).getType() == null)
-					|| ((BusinessMethod) eObject).getType().getPackageName() == null)
+			if ((((BusinessMethod) eObject).getTypeName() == null)
+					|| ((BusinessMethod) eObject).getPackageName() == null)
 				return new String[] {};
 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -118,7 +118,7 @@ public class MethodNamePropertySection extends
 					.getEClassifier("Types"));
 
 			try {
-				if ((((BusinessMethod) eObject).getType().getPackageName())
+				if ((((BusinessMethod) eObject).getPackageName())
 						.equals("Primitives")) {
 					OCLExpression<EClassifier> query = helper
 							.createQuery("self.primitives");
@@ -132,11 +132,9 @@ public class MethodNamePropertySection extends
 				} else {
 					OCLExpression<EClassifier> query = helper
 							.createQuery("self.packages->select(r|r.name='"
-									+ ((BusinessMethod) eObject).getType()
-											.getPackageName()
+									+ ((BusinessMethod) eObject).getPackageName()
 									+ "').types->select(r|r.oclIsKindOf(typedefinition::Type) and  r.oclAsType(typedefinition::Type).name='"
-									+ ((BusinessMethod) eObject).getType()
-											.getTypeName()
+									+ ((BusinessMethod) eObject).getTypeName()
 									+ "').oclAsType(typedefinition::Type).operations");
 					Collection<typedefinition.Operation> map = (Collection<typedefinition.Operation>) ocl
 							.evaluate(types, query);

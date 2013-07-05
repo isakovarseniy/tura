@@ -16,6 +16,5 @@ Export-Package: businessobjects,
  typesrepository.impl,
  typesrepository.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.tura.metamodel.commons.types;bundle-version="1.0.0"
+ org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

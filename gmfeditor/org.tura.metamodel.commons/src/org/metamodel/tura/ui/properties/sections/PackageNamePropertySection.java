@@ -6,7 +6,6 @@ import java.util.Iterator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
 
 import typesrepository.impl.TypesImpl;
 import typedefinition.TypePointer;
@@ -19,21 +18,15 @@ public class PackageNamePropertySection extends
 	private ArrayList<String> values;
 
 	protected EAttribute getFeature() {
-		return TypedefinitionPackage.eINSTANCE.getTypePointer_Type();
+		return TypedefinitionPackage.eINSTANCE.getTypePointer_PackageName();
 	}
 
 	protected String getFeatureAsText() {
-		if (((TypePointer) eObject).getType() != null)
-			return ((TypePointer) eObject).getType()
-					.getPackageName();
-		else
-			return null;
+			return ((TypePointer) eObject).getPackageName();
 	}
 
 	protected Object getFeatureValue(int index) {
-		RefTypeImpl result = new RefTypeImpl();
-		result.setPackageName(values.get(index));
-		return result;
+		return values.get(index);
 	}
 
 	protected String getLabelText() {
@@ -41,10 +34,10 @@ public class PackageNamePropertySection extends
 	}
 
 	protected boolean isEqual(int index) {
-		if (((TypePointer) eObject).getType() == null)
+		if (((TypePointer) eObject).getPackageName() == null)
 			return false;
 		return values.get(index).equals(
-				((TypePointer) eObject).getType().getPackageName());
+				((TypePointer) eObject).getPackageName());
 	}
 
 	protected String[] getEnumerationFeatureValues() {

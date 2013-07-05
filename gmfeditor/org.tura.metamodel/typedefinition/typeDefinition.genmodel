@@ -5,7 +5,6 @@
     copyrightFields="false">
   <foreignModel>typeDefinition.emf</foreignModel>
   <genPackages prefix="Typedefinition" disposableProviderFactory="true" ecorePackage="typeDefinition.ecore#/">
-    <genDataTypes ecoreDataType="typeDefinition.ecore#//reftype"/>
     <genClasses ecoreClass="typeDefinition.ecore#//TypeDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//TypeDefinition/types"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeDefinition.ecore#//TypeDefinition/enums"/>
@@ -40,7 +39,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//EnumAttribute/value"/>
     </genClasses>
     <genClasses ecoreClass="typeDefinition.ecore#//TypePointer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//TypePointer/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//TypePointer/packageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeDefinition.ecore#//TypePointer/typeName"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

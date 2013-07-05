@@ -24,8 +24,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import typedefinition.TypedefinitionPackage;
 
 import typedefinition.impl.TypedefinitionPackageImpl;
-import typesrepository.TypesrepositoryPackage;
-import typesrepository.impl.TypesrepositoryPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -147,17 +145,14 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
     isInited = true;
 
     // Obtain or create and register interdependencies
-    TypesrepositoryPackageImpl theTypesrepositoryPackage = (TypesrepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) instanceof TypesrepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) : TypesrepositoryPackage.eINSTANCE);
     TypedefinitionPackageImpl theTypedefinitionPackage = (TypedefinitionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) instanceof TypedefinitionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) : TypedefinitionPackage.eINSTANCE);
 
     // Create package meta-data objects
     theBusinessobjectsPackage.createPackageContents();
-    theTypesrepositoryPackage.createPackageContents();
     theTypedefinitionPackage.createPackageContents();
 
     // Initialize created meta-data
     theBusinessobjectsPackage.initializePackageContents();
-    theTypesrepositoryPackage.initializePackageContents();
     theTypedefinitionPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed

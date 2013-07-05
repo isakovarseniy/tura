@@ -18,8 +18,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
-
 /**
  * This is the item provider adapter for a {@link businessobjects.SearchMethod} object.
  * <!-- begin-user-doc -->
@@ -84,8 +82,7 @@ public class SearchMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    RefTypeImpl labelValue = ((SearchMethod)object).getType();
-    String label = labelValue == null ? null : labelValue.toString();
+    String label = ((SearchMethod)object).getPackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_SearchMethod_type") :
       getString("_UI_SearchMethod_type") + " " + label;

@@ -4,7 +4,6 @@ package typedefinition.provider;
 
 
 import businessobjects.provider.BusinessobjectsEditPlugin;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -24,11 +23,8 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
-
 import typedefinition.TypePointer;
 import typedefinition.TypedefinitionPackage;
-import typesrepository.provider.TypesrepositoryEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link typedefinition.TypePointer} object.
@@ -69,26 +65,50 @@ public class TypePointerItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addTypePropertyDescriptor(object);
+      addPackageNamePropertyDescriptor(object);
+      addTypeNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Type feature.
+   * This adds a property descriptor for the Package Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addTypePropertyDescriptor(Object object)
+  protected void addPackageNamePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_TypePointer_type_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_type_feature", "_UI_TypePointer_type"),
-         TypedefinitionPackage.Literals.TYPE_POINTER__TYPE,
+         getString("_UI_TypePointer_packageName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_packageName_feature", "_UI_TypePointer_type"),
+         TypedefinitionPackage.Literals.TYPE_POINTER__PACKAGE_NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Type Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addTypeNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypePointer_typeName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_typeName_feature", "_UI_TypePointer_type"),
+         TypedefinitionPackage.Literals.TYPE_POINTER__TYPE_NAME,
          true,
          false,
          false,
@@ -118,8 +138,7 @@ public class TypePointerItemProvider
   @Override
   public String getText(Object object)
   {
-    RefTypeImpl labelValue = ((TypePointer)object).getType();
-    String label = labelValue == null ? null : labelValue.toString();
+    String label = ((TypePointer)object).getPackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_TypePointer_type") :
       getString("_UI_TypePointer_type") + " " + label;
@@ -139,7 +158,8 @@ public class TypePointerItemProvider
 
     switch (notification.getFeatureID(TypePointer.class))
     {
-      case TypedefinitionPackage.TYPE_POINTER__TYPE:
+      case TypedefinitionPackage.TYPE_POINTER__PACKAGE_NAME:
+      case TypedefinitionPackage.TYPE_POINTER__TYPE_NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }
@@ -168,7 +188,7 @@ public class TypePointerItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypesrepositoryEditPlugin.INSTANCE;
+    return BusinessobjectsEditPlugin.INSTANCE;
   }
 
 }

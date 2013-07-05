@@ -28,7 +28,6 @@
     <genClasses ecoreClass="businessObjects.ecore#//OtherMethod"/>
   </genPackages>
   <genPackages prefix="Typedefinition" disposableProviderFactory="true" ecorePackage="../typedefinition/typeDefinition.ecore#/">
-    <genDataTypes ecoreDataType="../typedefinition/typeDefinition.ecore#//reftype"/>
     <genClasses ecoreClass="../typedefinition/typeDefinition.ecore#//TypeDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../typedefinition/typeDefinition.ecore#//TypeDefinition/types"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../typedefinition/typeDefinition.ecore#//TypeDefinition/enums"/>
@@ -63,7 +62,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../typedefinition/typeDefinition.ecore#//EnumAttribute/value"/>
     </genClasses>
     <genClasses ecoreClass="../typedefinition/typeDefinition.ecore#//TypePointer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../typedefinition/typeDefinition.ecore#//TypePointer/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../typedefinition/typeDefinition.ecore#//TypePointer/packageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../typedefinition/typeDefinition.ecore#//TypePointer/typeName"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

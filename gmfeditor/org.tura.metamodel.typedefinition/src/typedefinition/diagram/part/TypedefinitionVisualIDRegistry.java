@@ -26,13 +26,13 @@ import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
-import typedefinition.diagram.edit.parts.ReturnValueTypeEditPart;
+import typedefinition.diagram.edit.parts.ReturnValuePackageNameEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
-import typedefinition.diagram.edit.parts.TypeReferenceTypeEditPart;
+import typedefinition.diagram.edit.parts.TypeReferencePackageNameEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
 
@@ -226,7 +226,7 @@ public class TypedefinitionVisualIDRegistry {
 			}
 			break;
 		case TypeReferenceEditPart.VISUAL_ID:
-			if (TypeReferenceTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (TypeReferencePackageNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -271,7 +271,7 @@ public class TypedefinitionVisualIDRegistry {
 			}
 			break;
 		case ReturnValueEditPart.VISUAL_ID:
-			if (ReturnValueTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (ReturnValuePackageNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

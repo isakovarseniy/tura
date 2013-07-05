@@ -59,13 +59,13 @@ import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
-import typedefinition.diagram.edit.parts.ReturnValueTypeEditPart;
+import typedefinition.diagram.edit.parts.ReturnValuePackageNameEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
-import typedefinition.diagram.edit.parts.TypeReferenceTypeEditPart;
+import typedefinition.diagram.edit.parts.TypeReferencePackageNameEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
@@ -338,7 +338,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label5001 = createLabel(node,
 				TypedefinitionVisualIDRegistry
-						.getType(TypeReferenceTypeEditPart.VISUAL_ID));
+						.getType(TypeReferencePackageNameEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -643,7 +643,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label5004 = createLabel(node,
 				TypedefinitionVisualIDRegistry
-						.getType(ReturnValueTypeEditPart.VISUAL_ID));
+						.getType(ReturnValuePackageNameEditPart.VISUAL_ID));
 		return node;
 	}
 

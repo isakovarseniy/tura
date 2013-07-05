@@ -18,8 +18,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
-
 /**
  * This is the item provider adapter for a {@link businessobjects.OtherMethod} object.
  * <!-- begin-user-doc -->
@@ -84,8 +82,7 @@ public class OtherMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    RefTypeImpl labelValue = ((OtherMethod)object).getType();
-    String label = labelValue == null ? null : labelValue.toString();
+    String label = ((OtherMethod)object).getPackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_OtherMethod_type") :
       getString("_UI_OtherMethod_type") + " " + label;

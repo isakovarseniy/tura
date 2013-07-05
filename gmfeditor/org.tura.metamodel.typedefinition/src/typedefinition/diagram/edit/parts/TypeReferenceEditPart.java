@@ -120,8 +120,8 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof TypeReferenceTypeEditPart) {
-			((TypeReferenceTypeEditPart) childEditPart)
+		if (childEditPart instanceof TypeReferencePackageNameEditPart) {
+			((TypeReferencePackageNameEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureTypeReferenceLabelFigure());
 			return true;
@@ -133,7 +133,7 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof TypeReferenceTypeEditPart) {
+		if (childEditPart instanceof TypeReferencePackageNameEditPart) {
 			return true;
 		}
 		return false;
@@ -257,7 +257,7 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(TypedefinitionVisualIDRegistry
-				.getType(TypeReferenceTypeEditPart.VISUAL_ID));
+				.getType(TypeReferencePackageNameEditPart.VISUAL_ID));
 	}
 
 	/**

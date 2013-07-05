@@ -376,17 +376,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TypeDefinition_1000_links;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_Type_2002_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Type_2002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TypeDefinition_1000_links;
 
 	/**
 	 * @generated

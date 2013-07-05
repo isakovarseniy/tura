@@ -22,9 +22,9 @@ import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
-import typedefinition.diagram.edit.parts.ReturnValueTypeEditPart;
+import typedefinition.diagram.edit.parts.ReturnValuePackageNameEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
-import typedefinition.diagram.edit.parts.TypeReferenceTypeEditPart;
+import typedefinition.diagram.edit.parts.TypeReferencePackageNameEditPart;
 import typedefinition.diagram.parsers.MessageFormatParser;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 
@@ -37,19 +37,19 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser typeReferenceType_5001Parser;
+	private IParser typeReferencePackageName_5001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTypeReferenceType_5001Parser() {
-		if (typeReferenceType_5001Parser == null) {
+	private IParser getTypeReferencePackageName_5001Parser() {
+		if (typeReferencePackageName_5001Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getTypePointer_Type() };
+					.getTypePointer_PackageName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			typeReferenceType_5001Parser = parser;
+			typeReferencePackageName_5001Parser = parser;
 		}
-		return typeReferenceType_5001Parser;
+		return typeReferencePackageName_5001Parser;
 	}
 
 	/**
@@ -145,19 +145,19 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser returnValueType_5004Parser;
+	private IParser returnValuePackageName_5004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getReturnValueType_5004Parser() {
-		if (returnValueType_5004Parser == null) {
+	private IParser getReturnValuePackageName_5004Parser() {
+		if (returnValuePackageName_5004Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getTypePointer_Type() };
+					.getTypePointer_PackageName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			returnValueType_5004Parser = parser;
+			returnValuePackageName_5004Parser = parser;
 		}
-		return returnValueType_5004Parser;
+		return returnValuePackageName_5004Parser;
 	}
 
 	/**
@@ -183,8 +183,8 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case TypeReferenceTypeEditPart.VISUAL_ID:
-			return getTypeReferenceType_5001Parser();
+		case TypeReferencePackageNameEditPart.VISUAL_ID:
+			return getTypeReferencePackageName_5001Parser();
 		case TypeNameEditPart.VISUAL_ID:
 			return getTypeName_5006Parser();
 		case EnumaratorNameEditPart.VISUAL_ID:
@@ -195,8 +195,8 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 			return getOperationName_5005Parser();
 		case AttributeName2EditPart.VISUAL_ID:
 			return getAttributeName_5003Parser();
-		case ReturnValueTypeEditPart.VISUAL_ID:
-			return getReturnValueType_5004Parser();
+		case ReturnValuePackageNameEditPart.VISUAL_ID:
+			return getReturnValuePackageName_5004Parser();
 		case EnumAttributeNameEditPart.VISUAL_ID:
 			return getEnumAttributeName_5007Parser();
 		}

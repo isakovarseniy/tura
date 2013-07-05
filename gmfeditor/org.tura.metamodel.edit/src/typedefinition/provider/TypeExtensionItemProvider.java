@@ -4,7 +4,6 @@ package typedefinition.provider;
 
 
 import businessobjects.provider.BusinessobjectsEditPlugin;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -23,7 +22,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 import typedefinition.TypedefinitionPackage;
-import typesrepository.provider.TypesrepositoryEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link typedefinition.TypeExtension} object.
@@ -176,7 +174,7 @@ public class TypeExtensionItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypesrepositoryEditPlugin.INSTANCE;
+    return BusinessobjectsEditPlugin.INSTANCE;
   }
 
 }

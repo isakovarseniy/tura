@@ -16,8 +16,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import org.tura.metamodel.commons.types.impl.RefTypeImpl;
-
 import typedefinition.ReturnValue;
 
 /**
@@ -84,8 +82,7 @@ public class ReturnValueItemProvider
   @Override
   public String getText(Object object)
   {
-    RefTypeImpl labelValue = ((ReturnValue)object).getType();
-    String label = labelValue == null ? null : labelValue.toString();
+    String label = ((ReturnValue)object).getPackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_ReturnValue_type") :
       getString("_UI_ReturnValue_type") + " " + label;

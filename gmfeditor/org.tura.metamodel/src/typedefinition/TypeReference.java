@@ -10,7 +10,7 @@ package typedefinition;
  *
  *
  * @see typedefinition.TypedefinitionPackage#getTypeReference()
- * @model annotation="gmf.node label='type'"
+ * @model annotation="gmf.node label='packageName'"
  * @generated
  */
 public interface TypeReference extends TypeElement, TypePointer
