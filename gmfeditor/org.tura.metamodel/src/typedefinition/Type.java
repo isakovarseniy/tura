@@ -94,7 +94,7 @@ public interface Type extends TypeElement
    * @return the value of the '<em>Extension</em>' containment reference.
    * @see #setExtension(TypeExtension)
    * @see typedefinition.TypedefinitionPackage#getType_Extension()
-   * @model containment="true" required="true"
+   * @model containment="true"
    * @generated
    */
   TypeExtension getExtension();

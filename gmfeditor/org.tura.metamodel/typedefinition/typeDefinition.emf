@@ -19,7 +19,7 @@ class Type extends TypeElement {
    val Attribute[*] attributes;
    @gmf.compartment
    val Operation[*] operations;
-   val TypeExtension[1] extension;
+   val TypeExtension[0..1] extension;
    
 }
 
@@ -45,7 +45,7 @@ class Operation{
    @gmf.compartment
    val Attribute[*] parameters;
    @gmf.compartment
-   val ReturnValue[1] returnValue;
+   val ReturnValue[0..1] returnValue;
 }
 
 @gmf.node(label="packageName")

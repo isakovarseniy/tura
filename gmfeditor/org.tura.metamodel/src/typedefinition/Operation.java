@@ -79,7 +79,7 @@ public interface Operation extends EObject
    * @return the value of the '<em>Return Value</em>' containment reference.
    * @see #setReturnValue(ReturnValue)
    * @see typedefinition.TypedefinitionPackage#getOperation_ReturnValue()
-   * @model containment="true" required="true"
+   * @model containment="true"
    * @generated
    */
   ReturnValue getReturnValue();
