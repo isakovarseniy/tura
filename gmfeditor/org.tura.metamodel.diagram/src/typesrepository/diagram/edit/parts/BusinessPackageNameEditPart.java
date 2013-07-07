@@ -61,7 +61,7 @@ public class BusinessPackageNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5004;
+	public static final int VISUAL_ID = 5002;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class BusinessPackageNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = TypesrepositoryParserProvider
 					.getParser(
-							TypesrepositoryElementTypes.BusinessPackage_3003,
+							TypesrepositoryElementTypes.BusinessPackage_3002,
 							getParserElement(),
 							TypesrepositoryVisualIDRegistry
 									.getType(typesrepository.diagram.edit.parts.BusinessPackageNameEditPart.VISUAL_ID));

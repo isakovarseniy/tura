@@ -26,7 +26,7 @@ public class TypesTypesPrimitivesCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypesrepositoryElementTypes.Primitive_3002 == req.getElementType()) {
+		if (TypesrepositoryElementTypes.Primitive_3003 == req.getElementType()) {
 			return getGEFWrapper(new PrimitiveCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

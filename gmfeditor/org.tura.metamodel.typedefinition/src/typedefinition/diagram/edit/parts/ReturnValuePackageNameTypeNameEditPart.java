@@ -1,7 +1,7 @@
 /*
  * 
  */
-package typesrepository.diagram.edit.parts;
+package typedefinition.diagram.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
@@ -47,16 +47,16 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import typesrepository.diagram.edit.policies.TypesrepositoryTextSelectionEditPolicy;
-import typesrepository.diagram.part.TypesrepositoryVisualIDRegistry;
-import typesrepository.diagram.providers.TypesrepositoryElementTypes;
-import typesrepository.diagram.providers.TypesrepositoryParserProvider;
+import typedefinition.diagram.edit.policies.TypedefinitionTextSelectionEditPolicy;
+import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
+import typedefinition.diagram.providers.TypedefinitionElementTypes;
+import typedefinition.diagram.providers.TypedefinitionParserProvider;
 
 /**
  * @generated
  */
-public class TypesNameEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class ReturnValuePackageNameTypeNameEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
@@ -91,7 +91,7 @@ public class TypesNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public TypesNameEditPart(View view) {
+	public ReturnValuePackageNameTypeNameEditPart(View view) {
 		super(view);
 	}
 
@@ -101,11 +101,11 @@ public class TypesNameEditPart extends CompartmentEditPart implements
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new TypesrepositoryTextSelectionEditPolicy());
+				new TypedefinitionTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new TypesRepositoryEditPart.NodeLabelDragPolicy());
+				new TypeDefinitionEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -203,7 +203,7 @@ public class TypesNameEditPart extends CompartmentEditPart implements
 		if (parserElement == null) {
 			return null;
 		}
-		return TypesrepositoryElementTypes.getImage(parserElement.eClass());
+		return TypedefinitionElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**
@@ -311,12 +311,12 @@ public class TypesNameEditPart extends CompartmentEditPart implements
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = TypesrepositoryParserProvider
+			parser = TypedefinitionParserProvider
 					.getParser(
-							TypesrepositoryElementTypes.Types_2001,
+							TypedefinitionElementTypes.ReturnValue_3004,
 							getParserElement(),
-							TypesrepositoryVisualIDRegistry
-									.getType(typesrepository.diagram.edit.parts.TypesNameEditPart.VISUAL_ID));
+							TypedefinitionVisualIDRegistry
+									.getType(typedefinition.diagram.edit.parts.ReturnValuePackageNameTypeNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -327,7 +327,7 @@ public class TypesNameEditPart extends CompartmentEditPart implements
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager2(this, null,
-					TypesrepositoryEditPartFactory
+					TypedefinitionEditPartFactory
 							.getTextCellEditorLocator(this)));
 		}
 		return manager;

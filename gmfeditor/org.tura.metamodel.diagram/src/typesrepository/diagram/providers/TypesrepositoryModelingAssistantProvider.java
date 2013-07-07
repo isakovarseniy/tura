@@ -50,7 +50,7 @@ public class TypesrepositoryModelingAssistantProvider extends
 		}
 		if (editPart instanceof TypesTypesPrimitivesCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypesrepositoryElementTypes.Primitive_3002);
+			types.add(TypesrepositoryElementTypes.Primitive_3003);
 			return types;
 		}
 		if (editPart instanceof TypesTypesPackagesCompartmentEditPart) {
@@ -60,7 +60,7 @@ public class TypesrepositoryModelingAssistantProvider extends
 		}
 		if (editPart instanceof TypesTypesBusinessPackagesCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypesrepositoryElementTypes.BusinessPackage_3003);
+			types.add(TypesrepositoryElementTypes.BusinessPackage_3002);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

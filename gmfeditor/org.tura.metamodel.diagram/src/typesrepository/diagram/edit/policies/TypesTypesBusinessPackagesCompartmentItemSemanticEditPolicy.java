@@ -26,7 +26,7 @@ public class TypesTypesBusinessPackagesCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypesrepositoryElementTypes.BusinessPackage_3003 == req
+		if (TypesrepositoryElementTypes.BusinessPackage_3002 == req
 				.getElementType()) {
 			return getGEFWrapper(new BusinessPackageCreateCommand(req));
 		}

@@ -292,7 +292,7 @@ public class TypesRepositoryCanonicalEditPolicy extends CanonicalEditPolicy {
 		case BusinessPackageEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypesrepositoryDiagramUpdater
-						.getBusinessPackage_3003ContainedLinks(view));
+						.getBusinessPackage_3002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -300,7 +300,7 @@ public class TypesRepositoryCanonicalEditPolicy extends CanonicalEditPolicy {
 		case PrimitiveEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypesrepositoryDiagramUpdater
-						.getPrimitive_3002ContainedLinks(view));
+						.getPrimitive_3003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

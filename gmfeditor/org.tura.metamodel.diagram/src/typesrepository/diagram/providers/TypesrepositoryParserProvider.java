@@ -33,19 +33,19 @@ public class TypesrepositoryParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser typesName_5003Parser;
+	private IParser typesName_5004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTypesName_5003Parser() {
-		if (typesName_5003Parser == null) {
+	private IParser getTypesName_5004Parser() {
+		if (typesName_5004Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypesrepositoryPackage.eINSTANCE
 					.getTypes_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			typesName_5003Parser = parser;
+			typesName_5004Parser = parser;
 		}
-		return typesName_5003Parser;
+		return typesName_5004Parser;
 	}
 
 	/**
@@ -69,37 +69,37 @@ public class TypesrepositoryParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser businessPackageName_5004Parser;
+	private IParser businessPackageName_5002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getBusinessPackageName_5004Parser() {
-		if (businessPackageName_5004Parser == null) {
+	private IParser getBusinessPackageName_5002Parser() {
+		if (businessPackageName_5002Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypesrepositoryPackage.eINSTANCE
 					.getBusinessPackage_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			businessPackageName_5004Parser = parser;
+			businessPackageName_5002Parser = parser;
 		}
-		return businessPackageName_5004Parser;
+		return businessPackageName_5002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser primitiveName_5002Parser;
+	private IParser primitiveName_5003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPrimitiveName_5002Parser() {
-		if (primitiveName_5002Parser == null) {
+	private IParser getPrimitiveName_5003Parser() {
+		if (primitiveName_5003Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypesrepositoryPackage.eINSTANCE
 					.getPrimitive_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			primitiveName_5002Parser = parser;
+			primitiveName_5003Parser = parser;
 		}
-		return primitiveName_5002Parser;
+		return primitiveName_5003Parser;
 	}
 
 	/**
@@ -108,13 +108,13 @@ public class TypesrepositoryParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case TypesNameEditPart.VISUAL_ID:
-			return getTypesName_5003Parser();
+			return getTypesName_5004Parser();
 		case PackageNameEditPart.VISUAL_ID:
 			return getPackageName_5001Parser();
 		case BusinessPackageNameEditPart.VISUAL_ID:
-			return getBusinessPackageName_5004Parser();
+			return getBusinessPackageName_5002Parser();
 		case PrimitiveNameEditPart.VISUAL_ID:
-			return getPrimitiveName_5002Parser();
+			return getPrimitiveName_5003Parser();
 		}
 		return null;
 	}

@@ -176,9 +176,9 @@ public class TypesrepositoryDiagramUpdater {
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_3001ContainedLinks(view);
 		case BusinessPackageEditPart.VISUAL_ID:
-			return getBusinessPackage_3003ContainedLinks(view);
+			return getBusinessPackage_3002ContainedLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
-			return getPrimitive_3002ContainedLinks(view);
+			return getPrimitive_3003ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_4001ContainedLinks(view);
 		}
@@ -195,9 +195,9 @@ public class TypesrepositoryDiagramUpdater {
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_3001IncomingLinks(view);
 		case BusinessPackageEditPart.VISUAL_ID:
-			return getBusinessPackage_3003IncomingLinks(view);
+			return getBusinessPackage_3002IncomingLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
-			return getPrimitive_3002IncomingLinks(view);
+			return getPrimitive_3003IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_4001IncomingLinks(view);
 		}
@@ -214,9 +214,9 @@ public class TypesrepositoryDiagramUpdater {
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_3001OutgoingLinks(view);
 		case BusinessPackageEditPart.VISUAL_ID:
-			return getBusinessPackage_3003OutgoingLinks(view);
+			return getBusinessPackage_3002OutgoingLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
-			return getPrimitive_3002OutgoingLinks(view);
+			return getPrimitive_3003OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_4001OutgoingLinks(view);
 		}
@@ -250,7 +250,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_3003ContainedLinks(
+	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_3002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -258,7 +258,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getPrimitive_3002ContainedLinks(
+	public static List<TypesrepositoryLinkDescriptor> getPrimitive_3003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -290,7 +290,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_3003IncomingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_3002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -298,7 +298,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getPrimitive_3002IncomingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getPrimitive_3003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -330,7 +330,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_3003OutgoingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_3002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -338,7 +338,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getPrimitive_3002OutgoingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getPrimitive_3003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

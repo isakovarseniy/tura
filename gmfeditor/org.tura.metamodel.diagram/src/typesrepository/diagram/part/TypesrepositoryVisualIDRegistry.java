@@ -298,8 +298,8 @@ public class TypesrepositoryVisualIDRegistry {
 		case TypesRepositoryEditPart.VISUAL_ID:
 			return false;
 		case PackageEditPart.VISUAL_ID:
-		case PrimitiveEditPart.VISUAL_ID:
 		case BusinessPackageEditPart.VISUAL_ID:
+		case PrimitiveEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

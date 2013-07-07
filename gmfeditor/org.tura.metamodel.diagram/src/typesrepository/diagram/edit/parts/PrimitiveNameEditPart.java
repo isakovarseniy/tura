@@ -61,7 +61,7 @@ public class PrimitiveNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5002;
+	public static final int VISUAL_ID = 5003;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class PrimitiveNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = TypesrepositoryParserProvider
 					.getParser(
-							TypesrepositoryElementTypes.Primitive_3002,
+							TypesrepositoryElementTypes.Primitive_3003,
 							getParserElement(),
 							TypesrepositoryVisualIDRegistry
 									.getType(typesrepository.diagram.edit.parts.PrimitiveNameEditPart.VISUAL_ID));

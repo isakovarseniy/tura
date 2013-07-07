@@ -60,12 +60,14 @@ import typedefinition.diagram.edit.parts.OperationOperationParametersCompartment
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.ReturnValuePackageNameEditPart;
+import typedefinition.diagram.edit.parts.ReturnValuePackageNameTypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.edit.parts.TypeReferencePackageNameEditPart;
+import typedefinition.diagram.edit.parts.TypeReferencePackageNameTypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
 import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
@@ -336,9 +338,10 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(node,
+		Node label5001 = createLabel(
+				node,
 				TypedefinitionVisualIDRegistry
-						.getType(TypeReferencePackageNameEditPart.VISUAL_ID));
+						.getType(TypeReferencePackageNameTypeNameEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -641,9 +644,10 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5004 = createLabel(node,
+		Node label5004 = createLabel(
+				node,
 				TypedefinitionVisualIDRegistry
-						.getType(ReturnValuePackageNameEditPart.VISUAL_ID));
+						.getType(ReturnValuePackageNameTypeNameEditPart.VISUAL_ID));
 		return node;
 	}
 

@@ -240,10 +240,10 @@ public class TypesrepositoryViewProvider extends AbstractProvider implements
 			return createPackage_3001(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case BusinessPackageEditPart.VISUAL_ID:
-			return createBusinessPackage_3003(domainElement, containerView,
+			return createBusinessPackage_3002(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case PrimitiveEditPart.VISUAL_ID:
-			return createPrimitive_3002(domainElement, containerView, index,
+			return createPrimitive_3003(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -310,7 +310,7 @@ public class TypesrepositoryViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5003 = createLabel(node,
+		Node label5004 = createLabel(node,
 				TypesrepositoryVisualIDRegistry
 						.getType(TypesNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -385,7 +385,7 @@ public class TypesrepositoryViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createBusinessPackage_3003(EObject domainElement,
+	public Node createBusinessPackage_3002(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -428,7 +428,7 @@ public class TypesrepositoryViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5004 = createLabel(node,
+		Node label5002 = createLabel(node,
 				TypesrepositoryVisualIDRegistry
 						.getType(BusinessPackageNameEditPart.VISUAL_ID));
 		return node;
@@ -437,7 +437,7 @@ public class TypesrepositoryViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createPrimitive_3002(EObject domainElement, View containerView,
+	public Node createPrimitive_3003(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -473,7 +473,7 @@ public class TypesrepositoryViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5002 = createLabel(node,
+		Node label5003 = createLabel(node,
 				TypesrepositoryVisualIDRegistry
 						.getType(PrimitiveNameEditPart.VISUAL_ID));
 		return node;

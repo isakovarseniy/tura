@@ -28,6 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import typedefinition.Enumarator;
 import typedefinition.TypedefinitionFactory;
 import typedefinition.TypedefinitionPackage;
+import typesrepository.provider.TypesrepositoryEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link typedefinition.Enumarator} object.
@@ -207,7 +208,7 @@ public class EnumaratorItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return BusinessobjectsEditPlugin.INSTANCE;
+    return TypesrepositoryEditPlugin.INSTANCE;
   }
 
 }

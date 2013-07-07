@@ -70,12 +70,13 @@ public class TypesrepositoryElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType BusinessPackage_3003 = getElementType("org.tura.metamodel.diagram.BusinessPackage_3003"); //$NON-NLS-1$
+	public static final IElementType BusinessPackage_3002 = getElementType("org.tura.metamodel.diagram.BusinessPackage_3002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType Primitive_3002 = getElementType("org.tura.metamodel.diagram.Primitive_3002"); //$NON-NLS-1$
+	public static final IElementType Primitive_3003 = getElementType("org.tura.metamodel.diagram.Primitive_3003"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -201,10 +202,10 @@ public class TypesrepositoryElementTypes {
 			elements.put(Package_3001,
 					TypesrepositoryPackage.eINSTANCE.getPackage());
 
-			elements.put(BusinessPackage_3003,
+			elements.put(BusinessPackage_3002,
 					TypesrepositoryPackage.eINSTANCE.getBusinessPackage());
 
-			elements.put(Primitive_3002,
+			elements.put(Primitive_3003,
 					TypesrepositoryPackage.eINSTANCE.getPrimitive());
 
 			elements.put(TypeExtension_4001,
@@ -229,8 +230,8 @@ public class TypesrepositoryElementTypes {
 			KNOWN_ELEMENT_TYPES.add(TypesRepository_1000);
 			KNOWN_ELEMENT_TYPES.add(Types_2001);
 			KNOWN_ELEMENT_TYPES.add(Package_3001);
-			KNOWN_ELEMENT_TYPES.add(BusinessPackage_3003);
-			KNOWN_ELEMENT_TYPES.add(Primitive_3002);
+			KNOWN_ELEMENT_TYPES.add(BusinessPackage_3002);
+			KNOWN_ELEMENT_TYPES.add(Primitive_3003);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -248,9 +249,9 @@ public class TypesrepositoryElementTypes {
 		case PackageEditPart.VISUAL_ID:
 			return Package_3001;
 		case BusinessPackageEditPart.VISUAL_ID:
-			return BusinessPackage_3003;
+			return BusinessPackage_3002;
 		case PrimitiveEditPart.VISUAL_ID:
-			return Primitive_3002;
+			return Primitive_3003;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_4001;
 		}

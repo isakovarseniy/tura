@@ -243,29 +243,6 @@ public class TypesrepositoryNavigatorContentProvider implements
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (TypesrepositoryVisualIDRegistry.getVisualID(view)) {
 
-		case TypesRepositoryEditPart.VISUAL_ID: {
-			LinkedList<TypesrepositoryAbstractNavigatorItem> result = new LinkedList<TypesrepositoryAbstractNavigatorItem>();
-			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
-			Diagram sv = (Diagram) view;
-			TypesrepositoryNavigatorGroup links = new TypesrepositoryNavigatorGroup(
-					Messages.NavigatorGroupName_TypesRepository_1000_links,
-					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					TypesrepositoryVisualIDRegistry
-							.getType(TypesEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					TypesrepositoryVisualIDRegistry
-							.getType(TypeExtensionEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			if (!links.isEmpty()) {
-				result.add(links);
-			}
-			return result.toArray();
-		}
-
 		case TypesEditPart.VISUAL_ID: {
 			LinkedList<TypesrepositoryAbstractNavigatorItem> result = new LinkedList<TypesrepositoryAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -297,6 +274,29 @@ public class TypesrepositoryNavigatorContentProvider implements
 							.getType(PrimitiveEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			return result.toArray();
+		}
+
+		case TypesRepositoryEditPart.VISUAL_ID: {
+			LinkedList<TypesrepositoryAbstractNavigatorItem> result = new LinkedList<TypesrepositoryAbstractNavigatorItem>();
+			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
+			Diagram sv = (Diagram) view;
+			TypesrepositoryNavigatorGroup links = new TypesrepositoryNavigatorGroup(
+					Messages.NavigatorGroupName_TypesRepository_1000_links,
+					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					TypesrepositoryVisualIDRegistry
+							.getType(TypesEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					TypesrepositoryVisualIDRegistry
+							.getType(TypeExtensionEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			if (!links.isEmpty()) {
+				result.add(links);
+			}
 			return result.toArray();
 		}
 		}
