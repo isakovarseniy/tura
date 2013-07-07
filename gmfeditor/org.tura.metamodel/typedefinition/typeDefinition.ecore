@@ -29,7 +29,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeReference" eSuperTypes="#//TypeElement #//TypePointer">
     <eAnnotations source="gmf.node">
-      <details key="label" value="packageName"/>
+      <details key="label" value="packageName,typeName"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeExtension">
@@ -65,7 +65,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" eSuperTypes="#//TypePointer">
     <eAnnotations source="gmf.node">
-      <details key="label" value="packageName"/>
+      <details key="label" value="packageName,typeName"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enumarator">

@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="typesrepository.gmftool#//@palette/@tools.0/@tools.8"/>
+          href="typesrepository.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="typesrepository.gmfgraph#Types"/>
       <children
@@ -41,7 +41,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="typesrepository.gmftool#//@palette/@tools.0/@tools.4"/>
+              href="typesrepository.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="typesrepository.gmfgraph#Package"/>
         </ownedChild>
@@ -83,7 +83,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="typesrepository.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="typesrepository.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="typesrepository.gmfgraph#Primitive"/>
         </ownedChild>

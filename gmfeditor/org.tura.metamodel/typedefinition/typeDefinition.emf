@@ -23,7 +23,7 @@ class Type extends TypeElement {
    
 }
 
-@gmf.node(label="packageName")
+@gmf.node(label="packageName,typeName")
 class TypeReference extends TypeElement , TypePointer{
  }
 
@@ -48,7 +48,7 @@ class Operation{
    val ReturnValue[0..1] returnValue;
 }
 
-@gmf.node(label="packageName")
+@gmf.node(label="packageName,typeName")
 class ReturnValue extends TypePointer{
 }
 

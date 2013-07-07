@@ -18,6 +18,8 @@
             href="typeDefinition.gmfgraph#TypeReferenceLabel"/>
         <features
             href="typeDefinition.ecore#//TypePointer/packageName"/>
+        <features
+            href="typeDefinition.ecore#//TypePointer/typeName"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
@@ -105,6 +107,8 @@
                     href="typeDefinition.gmfgraph#ReturnValueLabel"/>
                 <features
                     href="typeDefinition.ecore#//TypePointer/packageName"/>
+                <features
+                    href="typeDefinition.ecore#//TypePointer/typeName"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"

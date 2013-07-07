@@ -4,7 +4,7 @@
 	protected String getLabelText() {
 		String text = null;
 		org.eclipse.emf.ecore.EObject parserElement = getParserElement();
-	«IF  self.editPartClassName.indexOf('TypeReferencePackageNameEditPart') > 0-»
+	«IF  self.editPartClassName.indexOf('TypeReferencePackageNameTypeNameEditPart') > 0-»
 		if (parserElement != null && getParser() != null  ) {
            text = ((typedefinition.TypeReference)parserElement).getPackageName()+"."+ ((typedefinition.TypeReference)parserElement).getTypeName();
 

@@ -79,7 +79,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3003"
+        visualID="3002"
         editPartClassName="BusinessPackageEditPart"
         itemSemanticEditPolicyClassName="BusinessPackageItemSemanticEditPolicy"
         canonicalEditPolicyClassName="BusinessPackageCanonicalEditPolicy"
@@ -109,7 +109,7 @@
             href="typesrepository.genmodel#//typesrepository/Types/businessPackages"/>
       </modelFacet>
       <labels
-          visualID="5004"
+          visualID="5002"
           editPartClassName="BusinessPackageNameEditPart"
           itemSemanticEditPolicyClassName="BusinessPackageNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -128,7 +128,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3002"
+        visualID="3003"
         editPartClassName="PrimitiveEditPart"
         itemSemanticEditPolicyClassName="PrimitiveItemSemanticEditPolicy"
         canonicalEditPolicyClassName="PrimitiveCanonicalEditPolicy"
@@ -158,7 +158,7 @@
             href="typesrepository.genmodel#//typesrepository/Types/primitives"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="5003"
           editPartClassName="PrimitiveNameEditPart"
           itemSemanticEditPolicyClassName="PrimitiveNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -204,7 +204,7 @@
             href="typesrepository.genmodel#//typesrepository/TypesRepository/typeDefinition"/>
       </modelFacet>
       <labels
-          visualID="5003"
+          visualID="5004"
           editPartClassName="TypesNameEditPart"
           itemSemanticEditPolicyClassName="TypesNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -313,18 +313,6 @@
             genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="CreateMethod"
-            description="Create new CreateMethod"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="InsertMethod"
-            description="Create new InsertMethod"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="OtherMethod"
-            description="Create new OtherMethod"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Package"
             description="Create new Package"
             genNodes="//@diagram/@childNodes.0"/>
@@ -335,21 +323,9 @@
             genNodes="//@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="RemoveMethod"
-            description="Create new RemoveMethod"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="SearchMethod"
-            description="Create new SearchMethod"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Types"
             description="Create new Types"
             genNodes="//@diagram/@topLevelNodes.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="UpdateMethod"
-            description="Create new UpdateMethod"/>
       </groups>
       <groups
           title="Connections"

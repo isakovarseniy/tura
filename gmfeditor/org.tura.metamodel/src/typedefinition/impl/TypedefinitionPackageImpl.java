@@ -160,11 +160,19 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
 
     isInited = true;
 
+    // Obtain or create and register interdependencies
+    TypesrepositoryPackageImpl theTypesrepositoryPackage = (TypesrepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) instanceof TypesrepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) : TypesrepositoryPackage.eINSTANCE);
+    BusinessobjectsPackageImpl theBusinessobjectsPackage = (BusinessobjectsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) instanceof BusinessobjectsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) : BusinessobjectsPackage.eINSTANCE);
+
     // Create package meta-data objects
     theTypedefinitionPackage.createPackageContents();
+    theTypesrepositoryPackage.createPackageContents();
+    theBusinessobjectsPackage.createPackageContents();
 
     // Initialize created meta-data
     theTypedefinitionPackage.initializePackageContents();
+    theTypesrepositoryPackage.initializePackageContents();
+    theBusinessobjectsPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theTypedefinitionPackage.freeze();
@@ -683,7 +691,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        source, 
        new String[] 
        {
-       "label", "packageName"
+       "label", "packageName,typeName"
        });			
     addAnnotation
       (attributeEClass, 
@@ -704,7 +712,7 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
        source, 
        new String[] 
        {
-       "label", "packageName"
+       "label", "packageName,typeName"
        });		
     addAnnotation
       (enumaratorEClass, 

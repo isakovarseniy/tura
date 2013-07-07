@@ -32,7 +32,16 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='BusinessObject');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='BusinessMethod');
 delete tool;
-
-
-
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='CreateMethod');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InsertMethod');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='UpdateMethod');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='RemoveMethod');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='SearchMethod');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='OtherMethod');
+delete tool;
 

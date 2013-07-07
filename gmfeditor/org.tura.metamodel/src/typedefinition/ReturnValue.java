@@ -10,7 +10,7 @@ package typedefinition;
  *
  *
  * @see typedefinition.TypedefinitionPackage#getReturnValue()
- * @model annotation="gmf.node label='packageName'"
+ * @model annotation="gmf.node label='packageName,typeName'"
  * @generated
  */
 public interface ReturnValue extends TypePointer
