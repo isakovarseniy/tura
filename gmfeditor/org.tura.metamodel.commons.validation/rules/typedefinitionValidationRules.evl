@@ -1,0 +1,12 @@
+ context Type {
+
+  constraint HasName {
+
+      check : self.name <> null
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+}
+

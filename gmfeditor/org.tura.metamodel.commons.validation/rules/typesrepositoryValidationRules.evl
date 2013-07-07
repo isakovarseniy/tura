@@ -1,8 +1,8 @@
- context typedefinition::Type {
+ context Package {
 
   constraint HasName {
 
-      check : self.name <> null
+      check : self.name.isDefined()
 
       message : 'Unnamed ' + self.eClass().name + ' not allowed'
 
@@ -10,11 +10,12 @@
 
 }
 
- context Package {
+
+ context BusinessPackage {
 
   constraint HasName {
 
-      check : self.name <> null
+      check : self.name.isDefined()
 
       message : 'Unnamed ' + self.eClass().name + ' not allowed'
 
