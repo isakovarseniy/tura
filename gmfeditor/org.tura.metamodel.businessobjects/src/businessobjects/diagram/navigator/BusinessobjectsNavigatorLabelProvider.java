@@ -109,30 +109,30 @@ public class BusinessobjectsNavigatorLabelProvider extends LabelProvider
 	 */
 	public Image getImage(View view) {
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(view)) {
-		case CreateMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/businessobjects?CreateMethod", BusinessobjectsElementTypes.CreateMethod_3009); //$NON-NLS-1$
 		case RemoveMethodEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/businessobjects?RemoveMethod", BusinessobjectsElementTypes.RemoveMethod_3012); //$NON-NLS-1$
-		case OtherMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/businessobjects?OtherMethod", BusinessobjectsElementTypes.OtherMethod_3014); //$NON-NLS-1$
 		case UpdateMethodEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/businessobjects?UpdateMethod", BusinessobjectsElementTypes.UpdateMethod_3011); //$NON-NLS-1$
 		case BusinessObjectsEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://tura.org/2013/v1/businessobjects?BusinessObjects", BusinessobjectsElementTypes.BusinessObjects_1000); //$NON-NLS-1$
-		case BusinessObjectEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/businessobjects?BusinessObject", BusinessobjectsElementTypes.BusinessObject_2003); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", BusinessobjectsElementTypes.TypeExtension_4001); //$NON-NLS-1$
 		case SearchMethodEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/businessobjects?SearchMethod", BusinessobjectsElementTypes.SearchMethod_3013); //$NON-NLS-1$
+		case BusinessObjectEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/businessobjects?BusinessObject", BusinessobjectsElementTypes.BusinessObject_2003); //$NON-NLS-1$
+		case CreateMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/businessobjects?CreateMethod", BusinessobjectsElementTypes.CreateMethod_3009); //$NON-NLS-1$
+		case OtherMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/businessobjects?OtherMethod", BusinessobjectsElementTypes.OtherMethod_3014); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", BusinessobjectsElementTypes.TypeExtension_4001); //$NON-NLS-1$
 		case InsertMethodEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/businessobjects?InsertMethod", BusinessobjectsElementTypes.InsertMethod_3010); //$NON-NLS-1$
@@ -196,22 +196,22 @@ public class BusinessobjectsNavigatorLabelProvider extends LabelProvider
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(view)) {
-		case CreateMethodEditPart.VISUAL_ID:
-			return getCreateMethod_3009Text(view);
 		case RemoveMethodEditPart.VISUAL_ID:
 			return getRemoveMethod_3012Text(view);
-		case OtherMethodEditPart.VISUAL_ID:
-			return getOtherMethod_3014Text(view);
 		case UpdateMethodEditPart.VISUAL_ID:
 			return getUpdateMethod_3011Text(view);
 		case BusinessObjectsEditPart.VISUAL_ID:
 			return getBusinessObjects_1000Text(view);
-		case BusinessObjectEditPart.VISUAL_ID:
-			return getBusinessObject_2003Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001Text(view);
 		case SearchMethodEditPart.VISUAL_ID:
 			return getSearchMethod_3013Text(view);
+		case BusinessObjectEditPart.VISUAL_ID:
+			return getBusinessObject_2003Text(view);
+		case CreateMethodEditPart.VISUAL_ID:
+			return getCreateMethod_3009Text(view);
+		case OtherMethodEditPart.VISUAL_ID:
+			return getOtherMethod_3014Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_4001Text(view);
 		case InsertMethodEditPart.VISUAL_ID:
 			return getInsertMethod_3010Text(view);
 		}

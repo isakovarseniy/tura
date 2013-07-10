@@ -587,6 +587,7 @@ public class TypedefinitionDocumentProvider extends AbstractDocumentProvider
 	 */
 	protected void doSaveDocument(IProgressMonitor monitor, Object element,
 			IDocument document, boolean overwrite) throws CoreException {
+		ValidateAction.runValidation((View) document.getContent());
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
 			if (!overwrite && !info.isSynchronized()) {

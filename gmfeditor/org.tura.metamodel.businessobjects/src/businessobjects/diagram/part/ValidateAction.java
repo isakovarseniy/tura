@@ -5,6 +5,7 @@ package businessobjects.diagram.part;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -89,19 +90,19 @@ public class ValidateAction extends Action {
 	 */
 	public static void runValidation(View view) {
 		try {
-			if (BusinessobjectsDiagramEditorUtil.openDiagram(view.eResource())) {
-				IEditorPart editorPart = PlatformUI.getWorkbench()
-						.getActiveWorkbenchWindow().getActivePage()
-						.getActiveEditor();
-				if (editorPart instanceof IDiagramWorkbenchPart) {
-					runValidation(
-							((IDiagramWorkbenchPart) editorPart)
-									.getDiagramEditPart(),
-							view);
-				} else {
-					runNonUIValidation(view);
-				}
+			//			if (businessobjects.diagram.part.BusinessobjectsDiagramEditorUtil.openDiagram(view.eResource())) {
+			IEditorPart editorPart = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage()
+					.getActiveEditor();
+			if (editorPart instanceof IDiagramWorkbenchPart) {
+				runValidation(
+						((IDiagramWorkbenchPart) editorPart)
+								.getDiagramEditPart(),
+						view);
+			} else {
+				runNonUIValidation(view);
 			}
+			//			}
 		} catch (Exception e) {
 			BusinessobjectsDiagramEditorPlugin.getInstance().logError(
 					"Validation action failed", e); //$NON-NLS-1$
@@ -203,11 +204,26 @@ public class ValidateAction extends Action {
 		}
 		final Diagnostic rootStatus = emfValidationStatus;
 		List allDiagnostics = new ArrayList();
+
+		HashMap<String, Diagnostic> hash = new HashMap();
+		for (Iterator it = emfValidationStatus.getChildren().iterator(); it
+				.hasNext();) {
+			Diagnostic nextDiagnostic = (Diagnostic) it.next();
+			List data = nextDiagnostic.getData();
+			if (data != null && !data.isEmpty()
+					&& data.get(0) instanceof EObject) {
+				EObject element = (EObject) data.get(0);
+
+				hash.put(
+						EMFCoreUtil.getProxyID(element)
+								+ nextDiagnostic.getMessage(), nextDiagnostic);
+			}
+		}
+
 		BusinessobjectsDiagramEditorUtil.LazyElement2ViewMap element2ViewMap = new BusinessobjectsDiagramEditorUtil.LazyElement2ViewMap(
 				diagramEditPart.getDiagramView(), collectTargetElements(
 						rootStatus, new HashSet<EObject>(), allDiagnostics));
-		for (Iterator it = emfValidationStatus.getChildren().iterator(); it
-				.hasNext();) {
+		for (Iterator it = hash.values().iterator(); it.hasNext();) {
 			Diagnostic nextDiagnostic = (Diagnostic) it.next();
 			List data = nextDiagnostic.getData();
 			if (data != null && !data.isEmpty()

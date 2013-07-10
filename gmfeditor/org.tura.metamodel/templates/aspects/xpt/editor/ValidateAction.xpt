@@ -1,0 +1,70 @@
+«AROUND runValidation FOR gmfgen::GenDiagram-»
+
+	«EXPAND xpt::Common::generatedMemberComment»
+	public static void runValidation(org.eclipse.gmf.runtime.notation.View view) {
+		try {
+//			if («getDiagramEditorUtilQualifiedClassName()».openDiagram(view.eResource())) {
+				org.eclipse.ui.IEditorPart editorPart = org.eclipse.ui.PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+				if (editorPart instanceof org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart) {
+					runValidation(((org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart) editorPart).
+							getDiagramEditPart(), view);
+				} else {
+					runNonUIValidation(view);
+				}
+//			}
+		} catch (Exception e) {
+			«editorGen.plugin.getActivatorQualifiedClassName()».getInstance().logError(
+					"Validation action failed", e); «EXPAND xpt::Common::nonNLS»
+		}
+	}
+«ENDAROUND»
+
+
+
+«AROUND createMarkersForDiagnostic FOR gmfgen::GenDiagram-»
+
+	«EXPAND xpt::Common::generatedMemberComment»
+	private static void createMarkers(
+			«IF editorGen.application = null»org.eclipse.core.resources.IFile
+			«ELSE»org.eclipse.gmf.runtime.notation.View«ENDIF» target,
+			org.eclipse.emf.common.util.Diagnostic emfValidationStatus,
+			org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart diagramEditPart) {
+		if (emfValidationStatus.getSeverity() == org.eclipse.emf.common.util.Diagnostic.OK) {
+			return;
+		}
+		final org.eclipse.emf.common.util.Diagnostic rootStatus = emfValidationStatus;
+		java.util.List allDiagnostics = new java.util.ArrayList();
+		
+		java.util.HashMap<String, Diagnostic> hash = new java.util.HashMap();
+		for (Iterator it = emfValidationStatus.getChildren().iterator(); it
+				.hasNext();) {
+			Diagnostic nextDiagnostic = (Diagnostic) it.next();
+			List data = nextDiagnostic.getData();
+			if (data != null && !data.isEmpty()
+					&& data.get(0) instanceof EObject) {
+				EObject element = (EObject) data.get(0);
+
+				hash.put(EMFCoreUtil.getProxyID(element)+nextDiagnostic.getMessage(),
+						nextDiagnostic);
+			}
+		}
+		
+		«getDiagramEditorUtilQualifiedClassName()».LazyElement2ViewMap element2ViewMap =
+				new «getDiagramEditorUtilQualifiedClassName()».LazyElement2ViewMap(
+						diagramEditPart.getDiagramView(),
+						collectTargetElements(rootStatus, new «EXPAND CodeStyle::G('java.util.HashSet', 'org.eclipse.emf.ecore.EObject')»(), allDiagnostics));
+		for (java.util.Iterator it = hash.values().iterator(); it.hasNext();) {
+			org.eclipse.emf.common.util.Diagnostic nextDiagnostic = (org.eclipse.emf.common.util.Diagnostic) it.next();
+			java.util.List data = nextDiagnostic.getData();
+			if (data != null && !data.isEmpty() && data.get(0) instanceof org.eclipse.emf.ecore.EObject) {
+				org.eclipse.emf.ecore.EObject element = (org.eclipse.emf.ecore.EObject) data.get(0);
+				org.eclipse.gmf.runtime.notation.View view = «getDiagramEditorUtilQualifiedClassName()».findView(
+						diagramEditPart, element, element2ViewMap);
+				addMarker(diagramEditPart.getViewer(), target, view.eResource().getURIFragment(view),
+						org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil.getQualifiedName(element, true),
+						nextDiagnostic.getMessage(), diagnosticToStatusSeverity(nextDiagnostic.getSeverity()));
+			}
+		}
+	}
+«ENDAROUND»
