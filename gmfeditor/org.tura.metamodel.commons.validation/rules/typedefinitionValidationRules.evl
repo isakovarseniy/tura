@@ -1,8 +1,8 @@
- context Type {
+ context typedefinition::Type {
 
   constraint HasName {
 
-      check : self.name <> null
+      check :  self.name.isDefined()
 
       message : 'Unnamed ' + self.eClass().name + ' not allowed'
 

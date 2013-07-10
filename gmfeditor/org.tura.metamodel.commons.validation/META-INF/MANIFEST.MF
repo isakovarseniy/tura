@@ -9,3 +9,4 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.epsilon.evl.emf.validation;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Activator: org.tura.metamodel.commons.validation.Activator
