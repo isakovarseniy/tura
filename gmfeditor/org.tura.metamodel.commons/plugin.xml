@@ -15,7 +15,7 @@
           <propertySection
                tab="property.tab.domain.custom"
                class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
-               id="type.reference1">
+               id="org.tura.metamodel.typedefinition.package.reference">
              <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
               <input type="typedefinition.diagram.edit.parts.Attribute2EditPart"/>
@@ -25,21 +25,13 @@
           <propertySection
                tab="property.tab.domain.custom"
                class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
-               id="type.reference2">
+               id="org.tura.metamodel.typedefinition.type.reference">
               <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
               <input type="typedefinition.diagram.edit.parts.Attribute2EditPart"/>
               <input type="typedefinition.diagram.edit.parts.ReturnValueEditPart"/>
          </propertySection>        
- 
-
-          <propertySection
-               tab="property.tab.domain.custom"
-               class="org.metamodel.tura.ui.properties.sections.MethodNamePropertySection"
-               id="type.reference3">
-              <input type="businessobjects.diagram.edit.parts.CreateMethodEditPart"/>
-         </propertySection>        
-
+  
     </propertySections>
   </extension>  
 
@@ -56,28 +48,61 @@
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="org.tura.metamodel.businessobjects">
-          <propertySection
+      
+            <propertySection
                tab="property.tab.domain.custom"
                class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
-               id="type.reference1">
-              <input type="businessobjects.diagram.edit.parts.CreateMethodEditPart"/>
+               id="org.tura.metamodel.businessobjects.package.reference">
+             <input type="businessobjects.diagram.edit.parts.BusinessObjectEditPart"/>
            </propertySection>        
  
           <propertySection
                tab="property.tab.domain.custom"
                class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
-               id="type.reference2">
+               id="org.tura.metamodel.businessobjects.type.reference">
+              <input type="businessobjects.diagram.edit.parts.BusinessObjectEditPart"/>
+         </propertySection>        
+      
+      
+          <propertySection
+               tab="property.tab.domain.custom"
+               class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
+               id="org.tura.metamodel.businessobjects.create">
               <input type="businessobjects.diagram.edit.parts.CreateMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.InsertMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.UpdateMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.RemoveMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.SearchMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.OtherMethodEditPart"/>
+           </propertySection>        
+ 
+          <propertySection
+               tab="property.tab.domain.custom"
+               class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
+               id="org.tura.metamodel.businessobjects.insert">
+              <input type="businessobjects.diagram.edit.parts.CreateMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.InsertMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.UpdateMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.RemoveMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.SearchMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.OtherMethodEditPart"/>
          </propertySection>        
  
 
           <propertySection
                tab="property.tab.domain.custom"
                class="org.metamodel.tura.ui.properties.sections.MethodNamePropertySection"
-               id="type.reference3">
+               id="org.tura.metamodel.businessobjects.update">
               <input type="businessobjects.diagram.edit.parts.CreateMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.InsertMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.UpdateMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.RemoveMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.SearchMethodEditPart"/>
+              <input type="businessobjects.diagram.edit.parts.OtherMethodEditPart"/>
          </propertySection>        
 
+
+ 
     </propertySections>
   </extension>  
 

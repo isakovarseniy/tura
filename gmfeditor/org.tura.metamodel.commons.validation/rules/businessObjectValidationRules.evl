@@ -1,0 +1,11 @@
+ context businessobjects::BusinessObject {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+}
