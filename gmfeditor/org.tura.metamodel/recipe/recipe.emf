@@ -1,0 +1,60 @@
+@namespace(uri="http://tura.org/2013/v1/recipe", prefix="tura.recipe")
+@gmf
+package recipe;
+
+@gmf.diagram
+class Recipes{
+  val Recipe[*] recipe;
+  val Configuration[*] configurations;
+}
+
+@gmf.node(label="name")
+class Recipe{
+  attr EString name;
+  @gmf.compartment
+  val Component[*] components;
+  @gmf.link(target.decoration="arrow", style="dash")
+  ref Configuration recipeConfig;
+}
+
+
+@gmf.node(label="name")
+class Component{
+   attr EString name;
+     @gmf.compartment
+  val Component[*] components;
+  @gmf.compartment(layout="list")
+   val ModelMapper[*] mappers;
+}
+
+@gmf.node(label="name")
+class ModelMapper{
+   attr EString name;
+   val ArtifactRef artifactRef;
+   val Specifier[*] specifiers;
+}
+
+@gmf.node(label="name")
+class Configuration{
+   attr EString name;
+   @gmf.compartment(layout="list")
+   val Property[*] properties; 
+  @gmf.link(style="dot", width="2" ,target.decoration="closedarrow")
+   ref Configuration configExtension;
+}
+
+@gmf.node(label="name")
+class Property{
+   attr EString name;
+   attr EString value;
+}
+
+class Specifier{
+   attr EString name;
+   attr EString value;
+}
+
+class ArtifactRef{
+   attr EString name;
+}
+

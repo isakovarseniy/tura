@@ -9,6 +9,8 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: businessobjects,
  businessobjects.util,
+ recipe,
+ recipe.util,
  typedefinition,
  typedefinition.impl,
  typedefinition.util,

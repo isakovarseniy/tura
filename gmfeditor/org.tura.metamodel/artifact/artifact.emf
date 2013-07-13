@@ -1,0 +1,31 @@
+@namespace(uri="http://tura.org/2013/v1/artifact", prefix="tura.artifact")
+@gmf
+package artifact;
+
+
+@gmf.diagram
+class Artifacts{
+   val Artifact[*] artifacts;
+}
+
+
+@gmf.node(label="name")
+class Artifact{
+   attr EString name;
+   @gmf.compartment
+   val   Variable[*] variables;
+   @gmf.compartment
+   val   Specifier[*] specifiers;
+ 
+   attr EString template;
+}
+
+@gmf.node(label="name")
+class Variable{
+   attr EString name;
+}
+
+@gmf.node(label="name")
+class Specifier{
+   attr EString name;
+}

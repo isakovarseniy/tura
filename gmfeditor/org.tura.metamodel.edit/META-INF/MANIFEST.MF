@@ -9,6 +9,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: businessobjects.provider,
+ recipe.provider,
  typedefinition.provider,
  typesrepository.provider
 Require-Bundle: org.eclipse.core.runtime,
