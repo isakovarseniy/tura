@@ -1,0 +1,23 @@
+@namespace(uri="http://tura.org/2013/v1/recipe", prefix="tura.mapper")
+@gmf
+package mapper;
+import "platform:/resource/org.tura.metamodel/typedefinition/typeDefinition.ecore";
+
+
+@gmf.diagram
+class Mappers{
+   val Mapper[*] mappers;
+}
+
+class Mapper extends typedefinition.TypePointer{
+         
+}
+
+class JavaMapper{
+   attr EString packageName;
+   attr EString className;
+   attr EString artifactId;
+   attr EString groupId;
+   attr EString version;
+   attr EString libraryName;
+}

@@ -6,8 +6,11 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import typedefinition.TypeDefinition;
 import typedefinition.impl.TypeDefinitionImpl;
 
 import typesrepository.TypesrepositoryPackage;
@@ -20,12 +23,13 @@ import typesrepository.TypesrepositoryPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link typesrepository.impl.PackageImpl#getName <em>Name</em>}</li>
+ *   <li>{@link typesrepository.impl.PackageImpl#getTypedefinition <em>Typedefinition</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PackageImpl extends TypeDefinitionImpl implements typesrepository.Package
+public class PackageImpl extends EObjectImpl implements typesrepository.Package
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -46,6 +50,16 @@ public class PackageImpl extends TypeDefinitionImpl implements typesrepository.P
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTypedefinition() <em>Typedefinition</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypedefinition()
+   * @generated
+   * @ordered
+   */
+  protected TypeDefinition typedefinition;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,6 +110,49 @@ public class PackageImpl extends TypeDefinitionImpl implements typesrepository.P
    * <!-- end-user-doc -->
    * @generated
    */
+  public TypeDefinition getTypedefinition()
+  {
+    if (typedefinition != null && typedefinition.eIsProxy())
+    {
+      InternalEObject oldTypedefinition = (InternalEObject)typedefinition;
+      typedefinition = (TypeDefinition)eResolveProxy(oldTypedefinition);
+      if (typedefinition != oldTypedefinition)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesrepositoryPackage.PACKAGE__TYPEDEFINITION, oldTypedefinition, typedefinition));
+      }
+    }
+    return typedefinition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeDefinition basicGetTypedefinition()
+  {
+    return typedefinition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypedefinition(TypeDefinition newTypedefinition)
+  {
+    TypeDefinition oldTypedefinition = typedefinition;
+    typedefinition = newTypedefinition;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TypesrepositoryPackage.PACKAGE__TYPEDEFINITION, oldTypedefinition, typedefinition));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -103,6 +160,9 @@ public class PackageImpl extends TypeDefinitionImpl implements typesrepository.P
     {
       case TypesrepositoryPackage.PACKAGE__NAME:
         return getName();
+      case TypesrepositoryPackage.PACKAGE__TYPEDEFINITION:
+        if (resolve) return getTypedefinition();
+        return basicGetTypedefinition();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,6 +179,9 @@ public class PackageImpl extends TypeDefinitionImpl implements typesrepository.P
     {
       case TypesrepositoryPackage.PACKAGE__NAME:
         setName((String)newValue);
+        return;
+      case TypesrepositoryPackage.PACKAGE__TYPEDEFINITION:
+        setTypedefinition((TypeDefinition)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,6 +200,9 @@ public class PackageImpl extends TypeDefinitionImpl implements typesrepository.P
       case TypesrepositoryPackage.PACKAGE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case TypesrepositoryPackage.PACKAGE__TYPEDEFINITION:
+        setTypedefinition((TypeDefinition)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -153,6 +219,8 @@ public class PackageImpl extends TypeDefinitionImpl implements typesrepository.P
     {
       case TypesrepositoryPackage.PACKAGE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case TypesrepositoryPackage.PACKAGE__TYPEDEFINITION:
+        return typedefinition != null;
     }
     return super.eIsSet(featureID);
   }

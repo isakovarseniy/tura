@@ -26,27 +26,6 @@
       <diagramNode
           href="typesrepository.gmfgraph#Types"/>
       <children
-          compartment="//@nodes.0/@ownedChild/@compartments.1">
-        <containmentFeature
-            href="typesrepository.ecore#//Types/packages"/>
-        <ownedChild>
-          <domainMetaElement
-              href="typesrepository.ecore#//Package"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="typesrepository.gmfgraph#PackageLabel"/>
-            <features
-                href="typesrepository.ecore#//Package/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="typesrepository.gmftool#//@palette/@tools.0/@tools.1"/>
-          <diagramNode
-              href="typesrepository.gmfgraph#Package"/>
-        </ownedChild>
-      </children>
-      <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
             href="typesrepository.ecore#//Types/primitives"/>
@@ -65,6 +44,27 @@
               href="typesrepository.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="typesrepository.gmfgraph#Primitive"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.1">
+        <containmentFeature
+            href="typesrepository.ecore#//Types/packages"/>
+        <ownedChild>
+          <domainMetaElement
+              href="typesrepository.ecore#//Package"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="typesrepository.gmfgraph#PackageLabel"/>
+            <features
+                href="typesrepository.ecore#//Package/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="typesrepository.gmftool#//@palette/@tools.0/@tools.1"/>
+          <diagramNode
+              href="typesrepository.gmfgraph#Package"/>
         </ownedChild>
       </children>
       <children
@@ -89,12 +89,12 @@
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.1">
+          children="//@nodes.0/@ownedChild/@children.0">
         <compartment
             href="typesrepository.gmfgraph#TypesPrimitivesCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.0">
+          children="//@nodes.0/@ownedChild/@children.1">
         <compartment
             href="typesrepository.gmfgraph#TypesPackagesCompartment"/>
       </compartments>

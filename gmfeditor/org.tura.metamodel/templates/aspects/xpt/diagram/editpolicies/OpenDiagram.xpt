@@ -40,7 +40,7 @@
 
 		«EXPAND xpt::Common::generatedMemberComment»
 		protected org.eclipse.gmf.runtime.notation.Diagram intializeNewDiagram() throws org.eclipse.core.commands.ExecutionException {
-        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
+        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
  			«EXPAND sourceObject» sourceObject = («EXPAND sourceObject») ((org.eclipse.gmf.runtime.notation.impl.ShapeImpl) (diagramFacet
 					.eContainer())).basicGetElement();
 			if (sourceObject.getName() == null) {
@@ -195,6 +195,8 @@
 «DEFINE sourceObject FOR gmfgen::OpenDiagramBehaviour»
            «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
            typesrepository.BusinessPackage
+           «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
+           typesrepository.Package
            «ELSE»
            null
            «ENDIF»
@@ -203,6 +205,8 @@
 «DEFINE sourceObjectSetMethod FOR gmfgen::OpenDiagramBehaviour»
            «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
            setBusinessobjects
+           «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
+           setTypedefinition
            «ELSE»
            null
            «ENDIF»
@@ -211,6 +215,8 @@
 «DEFINE targetObject FOR gmfgen::OpenDiagramBehaviour»
            «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
            businessobjects.BusinessObjects
+           «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
+           typedefinition.TypeDefinition
            «ELSE»
            null
            «ENDIF»
@@ -219,6 +225,8 @@
 «DEFINE targetObjectGenerator FOR gmfgen::OpenDiagramBehaviour»
            «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
             businessobjects.BusinessobjectsFactory.eINSTANCE.createBusinessObjects()
+           «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
+           typedefinition.TypedefinitionFactory.eINSTANCE.createTypeDefinition()
            «ELSE»
            null
            «ENDIF»
@@ -227,6 +235,8 @@
 «DEFINE diagramNameExtension FOR gmfgen::OpenDiagramBehaviour»
            «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
            "businessobjects"
+           «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
+           "typedefinition"
            «ELSE»
            null
            «ENDIF»

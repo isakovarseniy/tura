@@ -1,0 +1,29 @@
+@namespace(uri="http://tura.org/2013/v1/application", prefix="tura.application")
+@gmf
+package application;
+import "platform:/resource/org.tura.metamodel/recipe/recipe.ecore";
+import "platform:/resource/org.tura.metamodel/mapper/mapper.ecore";
+
+
+@gmf.diagram
+class Application{
+   val ApplicationRecipes applicationRecipes;
+}
+
+class ApplicationRecipes{
+   val ApplicationRecipes[*] recipes;
+}
+
+class ApplicationRecipe{
+   attr EString name;
+   ref recipe.Recipe recipes;
+}
+
+class ApplicationMappers{
+   
+   val ApplicationMapper[*] mappers;
+}
+class ApplicationMapper{
+   
+   ref mapper.Mappers mapper; 
+}

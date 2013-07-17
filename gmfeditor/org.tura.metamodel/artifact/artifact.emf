@@ -12,11 +12,12 @@ class Artifacts{
 @gmf.node(label="name")
 class Artifact{
    attr EString name;
+   attr EString description;
    @gmf.compartment
    val   Variable[*] variables;
    @gmf.compartment
+   //For navigation in the template (for example choosing specific technologies EclipseLink vs Hibernate)
    val   Specifier[*] specifiers;
- 
    attr EString template;
 }
 

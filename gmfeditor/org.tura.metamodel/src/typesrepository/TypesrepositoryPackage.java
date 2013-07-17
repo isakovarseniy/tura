@@ -181,31 +181,22 @@ public interface TypesrepositoryPackage extends EPackage
   int PACKAGE = 3;
 
   /**
-   * The feature id for the '<em><b>Types</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PACKAGE__TYPES = TypedefinitionPackage.TYPE_DEFINITION__TYPES;
-
-  /**
-   * The feature id for the '<em><b>Enums</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PACKAGE__ENUMS = TypedefinitionPackage.TYPE_DEFINITION__ENUMS;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE__NAME = TypedefinitionPackage.TYPE_DEFINITION_FEATURE_COUNT + 0;
+  int PACKAGE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Typedefinition</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__TYPEDEFINITION = 1;
 
   /**
    * The number of structural features of the '<em>Package</em>' class.
@@ -214,7 +205,7 @@ public interface TypesrepositoryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_FEATURE_COUNT = TypedefinitionPackage.TYPE_DEFINITION_FEATURE_COUNT + 1;
+  int PACKAGE_FEATURE_COUNT = 2;
 
 
   /**
@@ -373,6 +364,17 @@ public interface TypesrepositoryPackage extends EPackage
   EAttribute getPackage_Name();
 
   /**
+   * Returns the meta object for the reference '{@link typesrepository.Package#getTypedefinition <em>Typedefinition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Typedefinition</em>'.
+   * @see typesrepository.Package#getTypedefinition()
+   * @see #getPackage()
+   * @generated
+   */
+  EReference getPackage_Typedefinition();
+
+  /**
    * Returns the meta object for class '{@link typesrepository.BusinessPackage <em>Business Package</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -522,6 +524,14 @@ public interface TypesrepositoryPackage extends EPackage
      * @generated
      */
     EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Typedefinition</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PACKAGE__TYPEDEFINITION = eINSTANCE.getPackage_Typedefinition();
 
     /**
      * The meta object literal for the '{@link typesrepository.impl.BusinessPackageImpl <em>Business Package</em>}' class.

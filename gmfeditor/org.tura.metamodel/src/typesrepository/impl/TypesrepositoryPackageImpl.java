@@ -251,6 +251,16 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getPackage_Typedefinition()
+  {
+    return (EReference)packageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getBusinessPackage()
   {
     return businessPackageEClass;
@@ -320,6 +330,7 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
 
     packageEClass = createEClass(PACKAGE);
     createEAttribute(packageEClass, PACKAGE__NAME);
+    createEReference(packageEClass, PACKAGE__TYPEDEFINITION);
 
     businessPackageEClass = createEClass(BUSINESS_PACKAGE);
     createEAttribute(businessPackageEClass, BUSINESS_PACKAGE__NAME);
@@ -359,7 +370,6 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    packageEClass.getESuperTypes().add(theTypedefinitionPackage.getTypeDefinition());
 
     // Initialize classes and features; add operations and parameters
     initEClass(typesRepositoryEClass, TypesRepository.class, "TypesRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -376,6 +386,7 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
 
     initEClass(packageEClass, typesrepository.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, typesrepository.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackage_Typedefinition(), theTypedefinitionPackage.getTypeDefinition(), null, "typedefinition", null, 0, 1, typesrepository.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(businessPackageEClass, BusinessPackage.class, "BusinessPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBusinessPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, BusinessPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -30,55 +30,6 @@
     <domainDiagramElement
         href="typesrepository.genmodel#//typesrepository/TypesRepository"/>
     <childNodes
-        visualID="3001"
-        editPartClassName="PackageEditPart"
-        itemSemanticEditPolicyClassName="PackageItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="PackageCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="PackageGraphicalNodeEditPolicy"
-        createCommandClassName="PackageCreateCommand"
-        containers="//@diagram/@compartments.1">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PackageEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="PackageFigure"
-          classBody="public class PackageFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePackageLabelFigure; public PackageFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigurePackageLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigurePackageLabelFigure.setText(&quot;Package&quot;); this.add(fFigurePackageLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePackageLabelFigure() {return fFigurePackageLabelFigure;}}"/>
-      <behaviour
-          xsi:type="gmfgen:OpenDiagramBehaviour"
-          editPolicyClassName="OpenDiagramPackageEditPolicy"
-          diagramKind="Typedefinition"
-          editorID="typedefinition.diagram.part.TypedefinitionDiagramEditorID"/>
-      <modelFacet>
-        <metaClass
-            href="typesrepository.genmodel#//typesrepository/Package"/>
-        <containmentMetaFeature
-            href="typesrepository.genmodel#//typesrepository/Types/packages"/>
-        <childMetaFeature
-            href="typesrepository.genmodel#//typesrepository/Types/packages"/>
-      </modelFacet>
-      <labels
-          visualID="5001"
-          editPartClassName="PackageNameEditPart"
-          itemSemanticEditPolicyClassName="PackageNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigurePackageLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="typesrepository.genmodel#//typesrepository/Package/name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
         visualID="3003"
         editPartClassName="PrimitiveEditPart"
         itemSemanticEditPolicyClassName="PrimitiveItemSemanticEditPolicy"
@@ -124,6 +75,55 @@
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
               href="typesrepository.genmodel#//typesrepository/Primitive/name"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="3001"
+        editPartClassName="PackageEditPart"
+        itemSemanticEditPolicyClassName="PackageItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PackageCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PackageGraphicalNodeEditPolicy"
+        createCommandClassName="PackageCreateCommand"
+        containers="//@diagram/@compartments.1">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PackageEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="PackageFigure"
+          classBody="public class PackageFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePackageLabelFigure; public PackageFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigurePackageLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigurePackageLabelFigure.setText(&quot;Package&quot;); this.add(fFigurePackageLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePackageLabelFigure() {return fFigurePackageLabelFigure;}}"/>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"
+          editPolicyClassName="OpenDiagramPackageEditPolicy"
+          diagramKind="Typedefinition"
+          editorID="typedefinition.diagram.part.TypedefinitionDiagramEditorID"/>
+      <modelFacet>
+        <metaClass
+            href="typesrepository.genmodel#//typesrepository/Package"/>
+        <containmentMetaFeature
+            href="typesrepository.genmodel#//typesrepository/Types/packages"/>
+        <childMetaFeature
+            href="typesrepository.genmodel#//typesrepository/Types/packages"/>
+      </modelFacet>
+      <labels
+          visualID="5001"
+          editPartClassName="PackageNameEditPart"
+          itemSemanticEditPolicyClassName="PackageNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigurePackageLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="typesrepository.genmodel#//typesrepository/Package/name"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -256,7 +256,7 @@
         editPartClassName="TypesTypesPrimitivesCompartmentEditPart"
         itemSemanticEditPolicyClassName="TypesTypesPrimitivesCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TypesTypesPrimitivesCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.1"
+        childNodes="//@diagram/@childNodes.0"
         title="TypesPrimitivesCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0"
@@ -273,7 +273,7 @@
         editPartClassName="TypesTypesPackagesCompartmentEditPart"
         itemSemanticEditPolicyClassName="TypesTypesPackagesCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TypesTypesPackagesCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0"
+        childNodes="//@diagram/@childNodes.1"
         title="TypesPackagesCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0"
@@ -315,12 +315,12 @@
             xsi:type="gmfgen:ToolEntry"
             title="Package"
             description="Create new Package"
-            genNodes="//@diagram/@childNodes.0"/>
+            genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Primitive"
             description="Create new Primitive"
-            genNodes="//@diagram/@childNodes.1"/>
+            genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Types"

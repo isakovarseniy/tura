@@ -1,0 +1,35 @@
+@namespace(uri="http://tura.org/2013/v1/domain", prefix="tura.domain")
+@gmf
+package domain;
+import "platform:/resource/org.tura.metamodel/artifact/artifact.ecore";
+import "platform:/resource/org.tura.metamodel/typesrepository/typesrepository.ecore";
+import "platform:/resource/org.tura.metamodel/application/application.ecore";
+
+@gmf.diagram
+class Domain{
+  val DomainArtifacts[1] domainArtifacts;
+  val DomainTypes[1] domainTypes;
+  val DomainApplications[1] domainApplications;
+}
+
+class DomainArtifacts{
+   ref artifact.Artifacts artifact;
+}
+
+class DomainTypes{
+   ref typesrepository.TypesRepository typesrepository;
+}
+
+class DomainApplications{
+   attr EString name;  
+   val DomainApplication[*] applications;
+}
+
+class DomainApplication{
+   attr EString name;  
+   ref application.Application application;
+}
+
+
+
+

@@ -29,8 +29,9 @@ class Primitive {
 }
 
 @gmf.node(label="name")
-class Package extends typedefinition.TypeDefinition{
+class Package{
    attr EString name;
+   ref typedefinition.TypeDefinition typedefinition;
 }
 
 
