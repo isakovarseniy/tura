@@ -79,55 +79,6 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3002"
-        editPartClassName="BusinessPackageEditPart"
-        itemSemanticEditPolicyClassName="BusinessPackageItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="BusinessPackageCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="BusinessPackageGraphicalNodeEditPolicy"
-        createCommandClassName="BusinessPackageCreateCommand"
-        containers="//@diagram/@compartments.2">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="BusinessPackageEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="BusinessPackageFigure"
-          classBody="public class BusinessPackageFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBusinessPackageLabelFigure; public BusinessPackageFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureBusinessPackageLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureBusinessPackageLabelFigure.setText(&quot;Package&quot;); this.add(fFigureBusinessPackageLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBusinessPackageLabelFigure() {return fFigureBusinessPackageLabelFigure;}}"/>
-      <behaviour
-          xsi:type="gmfgen:OpenDiagramBehaviour"
-          editPolicyClassName="OpenDiagramBusinessPackageEditPolicy"
-          diagramKind="Businessobjects"
-          editorID="businessobjects.diagram.part.BusinessobjectsDiagramEditorID"/>
-      <modelFacet>
-        <metaClass
-            href="typesrepository.genmodel#//typesrepository/BusinessPackage"/>
-        <containmentMetaFeature
-            href="typesrepository.genmodel#//typesrepository/Types/businessPackages"/>
-        <childMetaFeature
-            href="typesrepository.genmodel#//typesrepository/Types/businessPackages"/>
-      </modelFacet>
-      <labels
-          visualID="5002"
-          editPartClassName="BusinessPackageNameEditPart"
-          itemSemanticEditPolicyClassName="BusinessPackageNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureBusinessPackageLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="typesrepository.genmodel#//typesrepository/BusinessPackage/name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
         visualID="3003"
         editPartClassName="PrimitiveEditPart"
         itemSemanticEditPolicyClassName="PrimitiveItemSemanticEditPolicy"
@@ -173,6 +124,55 @@
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
               href="typesrepository.genmodel#//typesrepository/Primitive/name"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="3002"
+        editPartClassName="BusinessPackageEditPart"
+        itemSemanticEditPolicyClassName="BusinessPackageItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="BusinessPackageCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="BusinessPackageGraphicalNodeEditPolicy"
+        createCommandClassName="BusinessPackageCreateCommand"
+        containers="//@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="BusinessPackageEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="BusinessPackageFigure"
+          classBody="public class BusinessPackageFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBusinessPackageLabelFigure; public BusinessPackageFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureBusinessPackageLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureBusinessPackageLabelFigure.setText(&quot;Package&quot;); this.add(fFigureBusinessPackageLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBusinessPackageLabelFigure() {return fFigureBusinessPackageLabelFigure;}}"/>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"
+          editPolicyClassName="OpenDiagramBusinessPackageEditPolicy"
+          diagramKind="Businessobjects"
+          editorID="businessobjects.diagram.part.BusinessobjectsDiagramEditorID"/>
+      <modelFacet>
+        <metaClass
+            href="typesrepository.genmodel#//typesrepository/BusinessPackage"/>
+        <containmentMetaFeature
+            href="typesrepository.genmodel#//typesrepository/Types/businessPackages"/>
+        <childMetaFeature
+            href="typesrepository.genmodel#//typesrepository/Types/businessPackages"/>
+      </modelFacet>
+      <labels
+          visualID="5002"
+          editPartClassName="BusinessPackageNameEditPart"
+          itemSemanticEditPolicyClassName="BusinessPackageNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureBusinessPackageLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="typesrepository.genmodel#//typesrepository/BusinessPackage/name"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -256,7 +256,7 @@
         editPartClassName="TypesTypesPrimitivesCompartmentEditPart"
         itemSemanticEditPolicyClassName="TypesTypesPrimitivesCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TypesTypesPrimitivesCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.2"
+        childNodes="//@diagram/@childNodes.1"
         title="TypesPrimitivesCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0"
@@ -290,7 +290,7 @@
         editPartClassName="TypesTypesBusinessPackagesCompartmentEditPart"
         itemSemanticEditPolicyClassName="TypesTypesBusinessPackagesCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TypesTypesBusinessPackagesCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.1"
+        childNodes="//@diagram/@childNodes.2"
         title="TypesBusinessPackagesCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0"
@@ -310,7 +310,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="BusinessPackage"
             description="Create new BusinessPackage"
-            genNodes="//@diagram/@childNodes.1"/>
+            genNodes="//@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Package"
@@ -320,7 +320,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="Primitive"
             description="Create new Primitive"
-            genNodes="//@diagram/@childNodes.2"/>
+            genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Types"

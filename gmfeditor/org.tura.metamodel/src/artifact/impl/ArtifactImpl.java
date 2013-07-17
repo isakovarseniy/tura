@@ -1,36 +1,42 @@
 /**
  */
-package typesrepository.impl;
+package artifact.impl;
 
-import businessobjects.BusinessObjects;
-import businessobjects.impl.BusinessObjectsImpl;
+import artifact.Artifact;
+import artifact.ArtifactPackage;
+import artifact.Variable;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import typesrepository.BusinessPackage;
-import typesrepository.TypesrepositoryPackage;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Business Package</b></em>'.
+ * An implementation of the model object '<em><b>Artifact</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link typesrepository.impl.BusinessPackageImpl#getName <em>Name</em>}</li>
- *   <li>{@link typesrepository.impl.BusinessPackageImpl#getBusinessobjects <em>Businessobjects</em>}</li>
+ *   <li>{@link artifact.impl.ArtifactImpl#getName <em>Name</em>}</li>
+ *   <li>{@link artifact.impl.ArtifactImpl#getVariables <em>Variables</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class BusinessPackageImpl extends EObjectImpl implements BusinessPackage
+public class ArtifactImpl extends EObjectImpl implements Artifact
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -53,21 +59,21 @@ public class BusinessPackageImpl extends EObjectImpl implements BusinessPackage
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getBusinessobjects() <em>Businessobjects</em>}' reference.
+   * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBusinessobjects()
+   * @see #getVariables()
    * @generated
    * @ordered
    */
-  protected BusinessObjects businessobjects;
+  protected EList<Variable> variables;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BusinessPackageImpl()
+  protected ArtifactImpl()
   {
     super();
   }
@@ -80,7 +86,7 @@ public class BusinessPackageImpl extends EObjectImpl implements BusinessPackage
   @Override
   protected EClass eStaticClass()
   {
-    return TypesrepositoryPackage.Literals.BUSINESS_PACKAGE;
+    return ArtifactPackage.Literals.ARTIFACT;
   }
 
   /**
@@ -103,7 +109,7 @@ public class BusinessPackageImpl extends EObjectImpl implements BusinessPackage
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TypesrepositoryPackage.BUSINESS_PACKAGE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.ARTIFACT__NAME, oldName, name));
   }
 
   /**
@@ -111,19 +117,13 @@ public class BusinessPackageImpl extends EObjectImpl implements BusinessPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public BusinessObjects getBusinessobjects()
+  public EList<Variable> getVariables()
   {
-    if (businessobjects != null && businessobjects.eIsProxy())
+    if (variables == null)
     {
-      InternalEObject oldBusinessobjects = (InternalEObject)businessobjects;
-      businessobjects = (BusinessObjects)eResolveProxy(oldBusinessobjects);
-      if (businessobjects != oldBusinessobjects)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesrepositoryPackage.BUSINESS_PACKAGE__BUSINESSOBJECTS, oldBusinessobjects, businessobjects));
-      }
+      variables = new EObjectContainmentEList<Variable>(Variable.class, this, ArtifactPackage.ARTIFACT__VARIABLES);
     }
-    return businessobjects;
+    return variables;
   }
 
   /**
@@ -131,22 +131,15 @@ public class BusinessPackageImpl extends EObjectImpl implements BusinessPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public BusinessObjects basicGetBusinessobjects()
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    return businessobjects;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBusinessobjects(BusinessObjects newBusinessobjects)
-  {
-    BusinessObjects oldBusinessobjects = businessobjects;
-    businessobjects = newBusinessobjects;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TypesrepositoryPackage.BUSINESS_PACKAGE__BUSINESSOBJECTS, oldBusinessobjects, businessobjects));
+    switch (featureID)
+    {
+      case ArtifactPackage.ARTIFACT__VARIABLES:
+        return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -159,11 +152,10 @@ public class BusinessPackageImpl extends EObjectImpl implements BusinessPackage
   {
     switch (featureID)
     {
-      case TypesrepositoryPackage.BUSINESS_PACKAGE__NAME:
+      case ArtifactPackage.ARTIFACT__NAME:
         return getName();
-      case TypesrepositoryPackage.BUSINESS_PACKAGE__BUSINESSOBJECTS:
-        if (resolve) return getBusinessobjects();
-        return basicGetBusinessobjects();
+      case ArtifactPackage.ARTIFACT__VARIABLES:
+        return getVariables();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -173,16 +165,18 @@ public class BusinessPackageImpl extends EObjectImpl implements BusinessPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case TypesrepositoryPackage.BUSINESS_PACKAGE__NAME:
+      case ArtifactPackage.ARTIFACT__NAME:
         setName((String)newValue);
         return;
-      case TypesrepositoryPackage.BUSINESS_PACKAGE__BUSINESSOBJECTS:
-        setBusinessobjects((BusinessObjects)newValue);
+      case ArtifactPackage.ARTIFACT__VARIABLES:
+        getVariables().clear();
+        getVariables().addAll((Collection<? extends Variable>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -198,11 +192,11 @@ public class BusinessPackageImpl extends EObjectImpl implements BusinessPackage
   {
     switch (featureID)
     {
-      case TypesrepositoryPackage.BUSINESS_PACKAGE__NAME:
+      case ArtifactPackage.ARTIFACT__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case TypesrepositoryPackage.BUSINESS_PACKAGE__BUSINESSOBJECTS:
-        setBusinessobjects((BusinessObjects)null);
+      case ArtifactPackage.ARTIFACT__VARIABLES:
+        getVariables().clear();
         return;
     }
     super.eUnset(featureID);
@@ -218,10 +212,10 @@ public class BusinessPackageImpl extends EObjectImpl implements BusinessPackage
   {
     switch (featureID)
     {
-      case TypesrepositoryPackage.BUSINESS_PACKAGE__NAME:
+      case ArtifactPackage.ARTIFACT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case TypesrepositoryPackage.BUSINESS_PACKAGE__BUSINESSOBJECTS:
-        return businessobjects != null;
+      case ArtifactPackage.ARTIFACT__VARIABLES:
+        return variables != null && !variables.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -243,4 +237,4 @@ public class BusinessPackageImpl extends EObjectImpl implements BusinessPackage
     return result.toString();
   }
 
-} //BusinessPackageImpl
+} //ArtifactImpl

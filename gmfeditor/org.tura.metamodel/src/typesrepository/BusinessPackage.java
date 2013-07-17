@@ -3,6 +3,7 @@
 package typesrepository;
 
 import businessobjects.BusinessObjects;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,7 @@ import businessobjects.BusinessObjects;
  * The following features are supported:
  * <ul>
  *   <li>{@link typesrepository.BusinessPackage#getName <em>Name</em>}</li>
+ *   <li>{@link typesrepository.BusinessPackage#getBusinessobjects <em>Businessobjects</em>}</li>
  * </ul>
  * </p>
  *
@@ -20,7 +22,7 @@ import businessobjects.BusinessObjects;
  * @model annotation="gmf.node label='name'"
  * @generated
  */
-public interface BusinessPackage extends BusinessObjects
+public interface BusinessPackage extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -47,5 +49,31 @@ public interface BusinessPackage extends BusinessObjects
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Businessobjects</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Businessobjects</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Businessobjects</em>' reference.
+   * @see #setBusinessobjects(BusinessObjects)
+   * @see typesrepository.TypesrepositoryPackage#getBusinessPackage_Businessobjects()
+   * @model
+   * @generated
+   */
+  BusinessObjects getBusinessobjects();
+
+  /**
+   * Sets the value of the '{@link typesrepository.BusinessPackage#getBusinessobjects <em>Businessobjects</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Businessobjects</em>' reference.
+   * @see #getBusinessobjects()
+   * @generated
+   */
+  void setBusinessobjects(BusinessObjects value);
 
 } // BusinessPackage

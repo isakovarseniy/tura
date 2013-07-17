@@ -38,10 +38,11 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BusinessPackage" eSuperTypes="../businessObjects/businessObjects.ecore#//BusinessObjects">
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessPackage">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="businessobjects" eType="ecore:EClass ../businessObjects/businessObjects.ecore#//BusinessObjects"/>
   </eClassifiers>
 </ecore:EPackage>

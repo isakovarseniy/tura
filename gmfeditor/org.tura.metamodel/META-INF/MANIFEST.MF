@@ -7,7 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: businessobjects,
+Export-Package: artifact,
+ artifact.util,
+ businessobjects,
  businessobjects.util,
  recipe,
  recipe.util,

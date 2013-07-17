@@ -1,0 +1,233 @@
+«EXTENSION xpt::diagram::editpolicies::Utils»
+
+«AROUND openCommandClass FOR gmfgen::OpenDiagramBehaviour»
+	«EXPAND xpt::Common::generatedMemberComment»
+	private static class OpenDiagramCommand extends org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand {
+
+		«EXPAND xpt::Common::generatedMemberComment»
+		private final org.eclipse.gmf.runtime.notation.HintedDiagramLinkStyle diagramFacet;
+
+		«EXPAND xpt::Common::generatedMemberComment»
+		OpenDiagramCommand(org.eclipse.gmf.runtime.notation.HintedDiagramLinkStyle linkStyle) {
+			// editing domain is taken for original diagram, 
+			// if we open diagram from another file, we should use another editing domain
+			super(org.eclipse.emf.transaction.util.TransactionUtil.getEditingDomain(linkStyle), «EXPAND xpt::Externalizer::accessorCall(i18nKeyForOpenCommandName()) FOR subject.getDiagram().editorGen», null);
+			diagramFacet = linkStyle;
+		}
+
+		// FIXME canExecute if  !(readOnly && getDiagramToOpen == null), i.e. open works on ro diagrams only when there's associated diagram already
+
+		«EXPAND xpt::Common::generatedMemberComment»
+		protected org.eclipse.gmf.runtime.common.core.command.CommandResult doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor monitor, org.eclipse.core.runtime.IAdaptable info) throws org.eclipse.core.commands.ExecutionException {
+			try {
+				org.eclipse.gmf.runtime.notation.Diagram diagram = getDiagramToOpen();
+				if (diagram == null) {
+					diagram = intializeNewDiagram();
+				}
+				«EXPAND xpt::navigator::getEditorInput::defineURIEditorInput('diagram', 'editorInput') FOR subject.getDiagram()-»
+				org.eclipse.ui.IWorkbenchPage page = org.eclipse.ui.PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+				page.openEditor(editorInput, getEditorID());
+				return org.eclipse.gmf.runtime.common.core.command.CommandResult.newOKCommandResult();
+			} catch (Exception ex) {
+				throw new org.eclipse.core.commands.ExecutionException("Can't open diagram", ex);
+			}
+		}
+
+		«EXPAND xpt::Common::generatedMemberComment»
+		protected org.eclipse.gmf.runtime.notation.Diagram getDiagramToOpen() {
+			return diagramFacet.getDiagramLink();
+		}
+
+		«EXPAND xpt::Common::generatedMemberComment»
+		protected org.eclipse.gmf.runtime.notation.Diagram intializeNewDiagram() throws org.eclipse.core.commands.ExecutionException {
+        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
+ 			«EXPAND sourceObject» sourceObject = («EXPAND sourceObject») ((org.eclipse.gmf.runtime.notation.impl.ShapeImpl) (diagramFacet
+					.eContainer())).basicGetElement();
+			if (sourceObject.getName() == null) {
+
+				org.eclipse.jface.dialogs.MessageDialog dialog = new org.eclipse.jface.dialogs.MessageDialog(org.eclipse.swt.widgets.Display.getCurrent()
+						.getActiveShell(), "Error", null, "Name is undefined",
+						org.eclipse.jface.dialogs.MessageDialog.ERROR, new String[] { "ok" }, 0);
+				dialog.open();
+				throw new org.eclipse.core.commands.ExecutionException("Can't create diagram of '"
+						+ getDiagramKind() + "' kind");
+
+			}
+
+			org.eclipse.gmf.runtime.notation.Diagram d = org.eclipse.gmf.runtime.diagram.core.services.ViewService.createDiagram(
+					«EXPAND targetObjectGenerator»,
+					getDiagramKind(), getPreferencesHint());
+			if (d == null) {
+				throw new org.eclipse.core.commands.ExecutionException("Can't create diagram of '"
+						+ getDiagramKind() + "' kind");
+			}
+
+			String filename = sourceObject.getName();
+
+			java.util.List<String> segments = diagramFacet.eResource().getURI()
+					.segmentsList();
+			String projectName = segments.get(1);
+			org.eclipse.core.resources.IProject project = org.eclipse.core.resources.ResourcesPlugin.getWorkspace().getRoot()
+					.getProject(projectName);
+
+			try {
+				org.eclipse.core.resources.IFolder folder = project.getFolder("model");
+				folder = folder.getFolder(«EXPAND diagramNameExtension»);
+				if (!folder.exists()) {
+					folder.create(true, true, null);
+				}
+
+				org.eclipse.core.resources.IFile modelFile = folder.getFile(filename + "."+«EXPAND diagramNameExtension»);
+				org.eclipse.core.resources.IFile diagramFile = folder.getFile(filename
+						+ "."+«EXPAND diagramNameExtension»+"_diagram");
+
+				org.eclipse.emf.common.util.URI modelURI = org.eclipse.emf.common.util.URI.createFileURI(modelFile.getLocation()
+						.toOSString());
+				org.eclipse.emf.common.util.URI diagramURI = org.eclipse.emf.common.util.URI.createFileURI(diagramFile.getLocation()
+						.toOSString());
+				org.eclipse.emf.ecore.resource.Resource diagramResource = null;
+
+				if (modelFile.exists())
+					modelFile.delete(true, null);
+
+				if (diagramFile.exists())
+					diagramFile.delete(true, null);
+
+				diagramResource = diagramFacet.eResource().getResourceSet()
+						.createResource(diagramURI);
+				String header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\"/>";
+				java.io.ByteArrayInputStream in = new java.io.ByteArrayInputStream(
+						header.getBytes());
+				modelFile.create(in, true, null);
+
+				diagramFacet.setDiagramLink(d);
+				diagramResource.getContents().add(d);
+
+				«EXPAND targetObject» targetObject = («EXPAND targetObject») d
+						.getElement();
+				sourceObject.«EXPAND sourceObjectSetMethod»(targetObject);
+				final org.eclipse.emf.ecore.resource.Resource modelResource = sourceObject.eResource()
+						.getResourceSet().getResource(modelURI, true);
+				modelResource.getContents().add(targetObject);
+
+				org.eclipse.emf.ecore.EObject container = diagramFacet.eContainer();
+				while (container instanceof org.eclipse.gmf.runtime.notation.View) {
+					((org.eclipse.gmf.runtime.notation.View) container).persist();
+					container = container.eContainer();
+				}
+
+			} catch (Exception e) {
+				throw new org.eclipse.core.commands.ExecutionException("Can't create diagram of '"
+						+ getDiagramKind() + "' kind", e);
+
+			}
+		«ELSE-»
+			org.eclipse.gmf.runtime.notation.Diagram d = org.eclipse.gmf.runtime.diagram.core.services.ViewService.createDiagram(getDiagramDomainElement(), getDiagramKind(), getPreferencesHint());
+			if (d == null) {
+				throw new org.eclipse.core.commands.ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind");
+			}
+			diagramFacet.setDiagramLink(d);
+			«EXPAND xpt::Common::_assert('diagramFacet.eResource() != null')-»
+			diagramFacet.eResource().getContents().add(d);
+			org.eclipse.emf.ecore.EObject container = diagramFacet.eContainer();
+			while (container instanceof org.eclipse.gmf.runtime.notation.View) {
+				((org.eclipse.gmf.runtime.notation.View) container).persist();
+				container = container.eContainer();
+			}
+		«ENDIF-»
+
+
+			try {
+			«IF null = subject.getDiagram().editorGen.application-»
+				new org.eclipse.ui.actions.WorkspaceModifyOperation() {
+					protected void execute(org.eclipse.core.runtime.IProgressMonitor monitor) throws org.eclipse.core.runtime.CoreException, java.lang.reflect.InvocationTargetException, InterruptedException {
+						try {
+			«ENDIF-»
+				for (java.util.Iterator it = diagramFacet.eResource().getResourceSet().getResources().iterator(); it.hasNext();) {
+					org.eclipse.emf.ecore.resource.Resource nextResource = (org.eclipse.emf.ecore.resource.Resource) it.next();
+					if (nextResource.isLoaded() && !getEditingDomain().isReadOnly(nextResource)) {
+						nextResource.save(«EXPAND xpt::Common::getSaveOptions FOR subject.getDiagram()»);
+					}
+				}
+			«IF null = subject.getDiagram().editorGen.application-»
+						} catch (java.io.IOException ex) {
+							throw new java.lang.reflect.InvocationTargetException(ex, "Save operation failed");
+						}		
+					}
+				}.run(null);
+			} catch (java.lang.reflect.InvocationTargetException e) {
+				throw new org.eclipse.core.commands.ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind", e);
+			} catch (InterruptedException e) {
+				throw new org.eclipse.core.commands.ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind", e);
+			}
+			«ELSE-»
+			} catch (java.io.IOException ex) {
+				throw new org.eclipse.core.commands.ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind", ex);
+			}
+			«ENDIF-»
+			return d;
+		}
+
+		«EXPAND xpt::Common::generatedMemberComment»
+		protected org.eclipse.emf.ecore.EObject getDiagramDomainElement() {
+			// use same element as associated with EP
+			return ((org.eclipse.gmf.runtime.notation.View) diagramFacet.eContainer()).getElement();
+		}
+
+		«EXPAND xpt::Common::generatedMemberComment»
+		protected org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint getPreferencesHint() {
+			// XXX prefhint from target diagram's editor?
+			return «EXPAND xpt::plugin::Activator::preferenceHintAccess FOR subject.getDiagram().editorGen»;
+		}
+
+		«EXPAND xpt::Common::generatedMemberComment»
+		protected String getDiagramKind() {
+			return «IF diagramKind = null»«EXPAND xpt::editor::VisualIDRegistry::modelID FOR subject.getDiagram()»«ELSE»"«diagramKind»"«ENDIF»;
+		}
+
+		«EXPAND xpt::Common::generatedMemberComment»
+		protected String getEditorID() {
+			return «IF editorID = null»«subject.getDiagram().editorGen.editor.getQualifiedClassName()».ID«ELSE»"«editorID»"«ENDIF»;
+		}
+	}
+«ENDAROUND»
+
+«DEFINE sourceObject FOR gmfgen::OpenDiagramBehaviour»
+           «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
+           typesrepository.BusinessPackage
+           «ELSE»
+           null
+           «ENDIF»
+«ENDDEFINE»
+
+«DEFINE sourceObjectSetMethod FOR gmfgen::OpenDiagramBehaviour»
+           «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
+           setBusinessobjects
+           «ELSE»
+           null
+           «ENDIF»
+«ENDDEFINE»
+
+«DEFINE targetObject FOR gmfgen::OpenDiagramBehaviour»
+           «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
+           businessobjects.BusinessObjects
+           «ELSE»
+           null
+           «ENDIF»
+«ENDDEFINE»
+
+«DEFINE targetObjectGenerator FOR gmfgen::OpenDiagramBehaviour»
+           «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
+            businessobjects.BusinessobjectsFactory.eINSTANCE.createBusinessObjects()
+           «ELSE»
+           null
+           «ENDIF»
+«ENDDEFINE»
+
+«DEFINE diagramNameExtension FOR gmfgen::OpenDiagramBehaviour»
+           «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
+           "businessobjects"
+           «ELSE»
+           null
+           «ENDIF»
+«ENDDEFINE»

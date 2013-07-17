@@ -271,6 +271,16 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getBusinessPackage_Businessobjects()
+  {
+    return (EReference)businessPackageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TypesrepositoryFactory getTypesrepositoryFactory()
   {
     return (TypesrepositoryFactory)getEFactoryInstance();
@@ -313,6 +323,7 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
 
     businessPackageEClass = createEClass(BUSINESS_PACKAGE);
     createEAttribute(businessPackageEClass, BUSINESS_PACKAGE__NAME);
+    createEReference(businessPackageEClass, BUSINESS_PACKAGE__BUSINESSOBJECTS);
   }
 
   /**
@@ -349,7 +360,6 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
 
     // Add supertypes to classes
     packageEClass.getESuperTypes().add(theTypedefinitionPackage.getTypeDefinition());
-    businessPackageEClass.getESuperTypes().add(theBusinessobjectsPackage.getBusinessObjects());
 
     // Initialize classes and features; add operations and parameters
     initEClass(typesRepositoryEClass, TypesRepository.class, "TypesRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -369,6 +379,7 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
 
     initEClass(businessPackageEClass, BusinessPackage.class, "BusinessPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBusinessPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, BusinessPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBusinessPackage_Businessobjects(), theBusinessobjectsPackage.getBusinessObjects(), null, "businessobjects", null, 0, 1, BusinessPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

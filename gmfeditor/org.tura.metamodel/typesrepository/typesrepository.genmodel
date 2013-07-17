@@ -22,6 +22,7 @@
     </genClasses>
     <genClasses ecoreClass="typesrepository.ecore#//BusinessPackage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typesrepository.ecore#//BusinessPackage/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference typesrepository.ecore#//BusinessPackage/businessobjects"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Typedefinition" disposableProviderFactory="true" ecorePackage="../typedefinition/typeDefinition.ecore#/">

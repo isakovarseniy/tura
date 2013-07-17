@@ -228,22 +228,22 @@ public interface TypesrepositoryPackage extends EPackage
   int BUSINESS_PACKAGE = 4;
 
   /**
-   * The feature id for the '<em><b>Business Object</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_PACKAGE__BUSINESS_OBJECT = BusinessobjectsPackage.BUSINESS_OBJECTS__BUSINESS_OBJECT;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_PACKAGE__NAME = BusinessobjectsPackage.BUSINESS_OBJECTS_FEATURE_COUNT + 0;
+  int BUSINESS_PACKAGE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Businessobjects</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_PACKAGE__BUSINESSOBJECTS = 1;
 
   /**
    * The number of structural features of the '<em>Business Package</em>' class.
@@ -252,7 +252,7 @@ public interface TypesrepositoryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_PACKAGE_FEATURE_COUNT = BusinessobjectsPackage.BUSINESS_OBJECTS_FEATURE_COUNT + 1;
+  int BUSINESS_PACKAGE_FEATURE_COUNT = 2;
 
 
   /**
@@ -394,6 +394,17 @@ public interface TypesrepositoryPackage extends EPackage
   EAttribute getBusinessPackage_Name();
 
   /**
+   * Returns the meta object for the reference '{@link typesrepository.BusinessPackage#getBusinessobjects <em>Businessobjects</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Businessobjects</em>'.
+   * @see typesrepository.BusinessPackage#getBusinessobjects()
+   * @see #getBusinessPackage()
+   * @generated
+   */
+  EReference getBusinessPackage_Businessobjects();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -529,6 +540,14 @@ public interface TypesrepositoryPackage extends EPackage
      * @generated
      */
     EAttribute BUSINESS_PACKAGE__NAME = eINSTANCE.getBusinessPackage_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Businessobjects</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUSINESS_PACKAGE__BUSINESSOBJECTS = eINSTANCE.getBusinessPackage_Businessobjects();
 
   }
 
