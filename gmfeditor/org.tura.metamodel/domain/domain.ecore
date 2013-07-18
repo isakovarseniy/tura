@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="domain" nsURI="http://tura.org/2013/v1/domain" nsPrefix="tura.domain">
+  <eAnnotations source="gmf"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Dammy1" eSuperTypes="../typedefinition/typeDefinition.ecore#//TypeDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Dammy2" eSuperTypes="../businessObjects/businessObjects.ecore#//BusinessObjects"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Dammy3" eSuperTypes="../recipe/recipe.ecore#//Recipes"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Dammy4" eSuperTypes="../mapper/mapper.ecore#//Mappers"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Domain">
+    <eAnnotations source="gmf.diagram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainArtifacts" lowerBound="1"
+        eType="#//DomainArtifacts" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainTypes" lowerBound="1"
+        eType="#//DomainTypes" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainApplications" lowerBound="1"
+        eType="#//DomainApplications" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainArtifacts">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="artifacrs" eType="#//DomainArtifact"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainArtifact">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" eType="ecore:EClass ../artifact/artifact.ecore#//Artifacts"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainTypes">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typesrepository" eType="ecore:EClass ../typesrepository/typesrepository.ecore#//TypesRepository"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainApplications">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applications" upperBound="-1"
+        eType="#//DomainApplication" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainApplication">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="application" eType="ecore:EClass ../application/application.ecore#//Application"/>
+  </eClassifiers>
+</ecore:EPackage>

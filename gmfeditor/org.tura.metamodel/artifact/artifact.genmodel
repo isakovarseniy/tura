@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/org.tura.metamodel/src" modelPluginID="org.tura.metamodel"
+    modelName="Artifact" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>artifact.emf</foreignModel>
+  <genPackages prefix="Artifact" disposableProviderFactory="true" ecorePackage="artifact.ecore#/">
+    <genClasses ecoreClass="artifact.ecore#//Artifacts">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//Artifacts/artifacts"/>
+    </genClasses>
+    <genClasses ecoreClass="artifact.ecore#//Artifact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//Artifact/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//Artifact/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//Artifact/configVariables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//Artifact/modelQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//Artifact/specifiers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//Artifact/template"/>
+    </genClasses>
+    <genClasses ecoreClass="artifact.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//Variable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="artifact.ecore#//Specifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//Specifier/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//Specifier/options"/>
+    </genClasses>
+    <genClasses ecoreClass="artifact.ecore#//Option">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//Option/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

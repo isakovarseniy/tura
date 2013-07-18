@@ -86,6 +86,15 @@ public interface RecipeFactory extends EFactory
   Specifier createSpecifier();
 
   /**
+   * Returns a new object of class '<em>Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable</em>'.
+   * @generated
+   */
+  Variable createVariable();
+
+  /**
    * Returns a new object of class '<em>Artifact Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

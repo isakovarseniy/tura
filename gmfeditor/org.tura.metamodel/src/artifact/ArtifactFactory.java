@@ -50,6 +50,24 @@ public interface ArtifactFactory extends EFactory
   Variable createVariable();
 
   /**
+   * Returns a new object of class '<em>Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Specifier</em>'.
+   * @generated
+   */
+  Specifier createSpecifier();
+
+  /**
+   * Returns a new object of class '<em>Option</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Option</em>'.
+   * @generated
+   */
+  Option createOption();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

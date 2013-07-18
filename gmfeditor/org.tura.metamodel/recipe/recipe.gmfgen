@@ -30,7 +30,7 @@
     <domainDiagramElement
         href="recipe.genmodel#//recipe/Recipes"/>
     <childNodes
-        visualID="3001"
+        visualID="3004"
         editPartClassName="ComponentEditPart"
         itemSemanticEditPolicyClassName="ComponentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentCanonicalEditPolicy"
@@ -58,7 +58,7 @@
             href="recipe.genmodel#//recipe/Recipe/components"/>
       </modelFacet>
       <labels
-          visualID="5003"
+          visualID="5008"
           editPartClassName="ComponentNameEditPart"
           itemSemanticEditPolicyClassName="ComponentNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -172,57 +172,8 @@
         </modelFacet>
       </labels>
     </childNodes>
-    <childNodes
-        visualID="3004"
-        editPartClassName="PropertyEditPart"
-        itemSemanticEditPolicyClassName="PropertyItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="PropertyCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="PropertyGraphicalNodeEditPolicy"
-        createCommandClassName="PropertyCreateCommand"
-        containers="//@diagram/@compartments.5">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PropertyEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="PropertyFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PropertyFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePropertyLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PropertyFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(100)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePropertyLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePropertyLabelFigure.setText(&quot;Property&quot;);&#xA;&#xA;this.add(fFigurePropertyLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePropertyLabelFigure() {&#xA;&#x9;&#x9;return fFigurePropertyLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="100"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="recipe.genmodel#//recipe/Property"/>
-        <containmentMetaFeature
-            href="recipe.genmodel#//recipe/Configuration/properties"/>
-        <childMetaFeature
-            href="recipe.genmodel#//recipe/Configuration/properties"/>
-      </modelFacet>
-      <labels
-          visualID="5005"
-          editPartClassName="PropertyNameEditPart"
-          itemSemanticEditPolicyClassName="PropertyNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigurePropertyLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="recipe.genmodel#//recipe/Property/name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
     <topLevelNodes
-        visualID="2001"
+        visualID="2004"
         editPartClassName="RecipeEditPart"
         itemSemanticEditPolicyClassName="RecipeItemSemanticEditPolicy"
         canonicalEditPolicyClassName="RecipeCanonicalEditPolicy"
@@ -249,7 +200,7 @@
             href="recipe.genmodel#//recipe/Recipes/recipe"/>
       </modelFacet>
       <labels
-          visualID="5004"
+          visualID="5009"
           editPartClassName="RecipeNameEditPart"
           itemSemanticEditPolicyClassName="RecipeNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -264,52 +215,6 @@
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
               href="recipe.genmodel#//recipe/Recipe/name"/>
-        </modelFacet>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2002"
-        editPartClassName="ConfigurationEditPart"
-        itemSemanticEditPolicyClassName="ConfigurationItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="ConfigurationCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.5"
-        graphicalNodeEditPolicyClassName="ConfigurationGraphicalNodeEditPolicy"
-        createCommandClassName="ConfigurationCreateCommand">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="ConfigurationEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="ConfigurationFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ConfigurationFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureConfigurationLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fConfigurationPropertiesCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ConfigurationFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureConfigurationLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureConfigurationLabelFigure.setText(&quot;Configuration&quot;);&#xA;fFigureConfigurationLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureConfigurationLabelFigure);&#xA;&#xA;&#xA;&#xA;fConfigurationPropertiesCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fConfigurationPropertiesCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fConfigurationPropertiesCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureConfigurationLabelFigure() {&#xA;&#x9;&#x9;return fFigureConfigurationLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getConfigurationPropertiesCompartmentFigure() {&#xA;&#x9;&#x9;return fConfigurationPropertiesCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <behaviour
-          xsi:type="gmfgen:OpenDiagramBehaviour"/>
-      <modelFacet>
-        <metaClass
-            href="recipe.genmodel#//recipe/Configuration"/>
-        <containmentMetaFeature
-            href="recipe.genmodel#//recipe/Recipes/configurations"/>
-        <childMetaFeature
-            href="recipe.genmodel#//recipe/Recipes/configurations"/>
-      </modelFacet>
-      <labels
-          visualID="5006"
-          editPartClassName="ConfigurationNameEditPart"
-          itemSemanticEditPolicyClassName="ConfigurationNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureConfigurationLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="recipe.genmodel#//recipe/Configuration/name"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
@@ -390,7 +295,7 @@
       </labels>
     </links>
     <compartments
-        visualID="7001"
+        visualID="7009"
         editPartClassName="RecipeRecipeComponentsCompartmentEditPart"
         itemSemanticEditPolicyClassName="RecipeRecipeComponentsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="RecipeRecipeComponentsCompartmentCanonicalEditPolicy"
@@ -407,7 +312,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7002"
+        visualID="7010"
         editPartClassName="ComponentComponentComponentsCompartmentEditPart"
         itemSemanticEditPolicyClassName="ComponentComponentComponentsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentComponentComponentsCompartmentCanonicalEditPolicy"
@@ -424,7 +329,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7003"
+        visualID="7011"
         editPartClassName="ComponentComponentMappersCompartmentEditPart"
         itemSemanticEditPolicyClassName="ComponentComponentMappersCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentComponentMappersCompartmentCanonicalEditPolicy"
@@ -472,22 +377,6 @@
           getterName="getComponentMappersCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
-    <compartments
-        visualID="7006"
-        editPartClassName="ConfigurationConfigurationPropertiesCompartmentEditPart"
-        itemSemanticEditPolicyClassName="ConfigurationConfigurationPropertiesCompartmentItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="ConfigurationConfigurationPropertiesCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.3"
-        title="ConfigurationPropertiesCompartment"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.1">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getConfigurationPropertiesCompartmentFigure"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
     <palette>
       <groups
           title="Objects"
@@ -500,8 +389,7 @@
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Configuration"
-            description="Create new Configuration"
-            genNodes="//@diagram/@topLevelNodes.1"/>
+            description="Create new Configuration"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ModelMapper"
@@ -510,8 +398,7 @@
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Property"
-            description="Create new Property"
-            genNodes="//@diagram/@childNodes.3"/>
+            description="Create new Property"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Recipe"
@@ -589,28 +476,10 @@
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.1"
-        child="//@diagram/@childNodes.3"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.1"/>
-    <childReferences
         parent="//@diagram"
         child="//@diagram/@links.0"
         groupName="links"
         groupIcon="icons/linksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.1"
-        referenceType="out_target"
-        groupName="target"
-        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.1"
-        child="//@diagram/@links.0"
-        referenceType="in_source"
-        groupName="incoming links"
-        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
         child="//@diagram/@topLevelNodes.0"
@@ -628,30 +497,6 @@
         child="//@diagram/@links.1"
         groupName="links"
         groupIcon="icons/linksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.1"
-        child="//@diagram/@topLevelNodes.1"
-        referenceType="out_target"
-        groupName="target"
-        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.1"
-        child="//@diagram/@links.1"
-        referenceType="in_source"
-        groupName="incoming links"
-        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.1"
-        child="//@diagram/@topLevelNodes.1"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.1"
-        child="//@diagram/@links.1"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>
@@ -679,7 +524,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet"/>
     <implementations
         xsi:type="gmfgen:ExternalParser"
         uses="//@diagram/@links.0/@labels.0/@modelFacet //@diagram/@links.1/@labels.0/@modelFacet"/>

@@ -67,6 +67,8 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
       case ArtifactPackage.ARTIFACTS: return createArtifacts();
       case ArtifactPackage.ARTIFACT: return createArtifact();
       case ArtifactPackage.VARIABLE: return createVariable();
+      case ArtifactPackage.SPECIFIER: return createSpecifier();
+      case ArtifactPackage.OPTION: return createOption();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -103,6 +105,28 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
   {
     VariableImpl variable = new VariableImpl();
     return variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Specifier createSpecifier()
+  {
+    SpecifierImpl specifier = new SpecifierImpl();
+    return specifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Option createOption()
+  {
+    OptionImpl option = new OptionImpl();
+    return option;
   }
 
   /**

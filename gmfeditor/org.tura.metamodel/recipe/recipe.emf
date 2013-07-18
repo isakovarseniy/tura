@@ -3,6 +3,13 @@
 package recipe;
 
 @gmf.diagram
+class Recipes{
+  val Recipe recipe;
+}
+
+
+
+@gmf.node(label="name")
 class Recipe{
   attr EString name;
   @gmf.compartment

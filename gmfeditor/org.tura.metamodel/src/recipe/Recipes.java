@@ -2,8 +2,6 @@
  */
 package recipe;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link recipe.Recipes#getRecipe <em>Recipe</em>}</li>
- *   <li>{@link recipe.Recipes#getConfigurations <em>Configurations</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,35 +23,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Recipes extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Recipe</b></em>' containment reference list.
-   * The list contents are of type {@link recipe.Recipe}.
+   * Returns the value of the '<em><b>Recipe</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Recipe</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Recipe</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Recipe</em>' containment reference list.
+   * @return the value of the '<em>Recipe</em>' containment reference.
+   * @see #setRecipe(Recipe)
    * @see recipe.RecipePackage#getRecipes_Recipe()
    * @model containment="true"
    * @generated
    */
-  EList<Recipe> getRecipe();
+  Recipe getRecipe();
 
   /**
-   * Returns the value of the '<em><b>Configurations</b></em>' containment reference list.
-   * The list contents are of type {@link recipe.Configuration}.
+   * Sets the value of the '{@link recipe.Recipes#getRecipe <em>Recipe</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Configurations</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Configurations</em>' containment reference list.
-   * @see recipe.RecipePackage#getRecipes_Configurations()
-   * @model containment="true"
+   * @param value the new value of the '<em>Recipe</em>' containment reference.
+   * @see #getRecipe()
    * @generated
    */
-  EList<Configuration> getConfigurations();
+  void setRecipe(Recipe value);
 
 } // Recipes

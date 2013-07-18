@@ -3,22 +3,26 @@
 package recipe.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import recipe.ArtifactRef;
 import recipe.ModelMapper;
 import recipe.RecipePackage;
 import recipe.Specifier;
+import recipe.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +34,7 @@ import recipe.Specifier;
  *   <li>{@link recipe.impl.ModelMapperImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactRef <em>Artifact Ref</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getSpecifiers <em>Specifiers</em>}</li>
+ *   <li>{@link recipe.impl.ModelMapperImpl#getVariables <em>Variables</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,6 +81,16 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
    * @ordered
    */
   protected EList<Specifier> specifiers;
+
+  /**
+   * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVariables()
+   * @generated
+   * @ordered
+   */
+  protected EList<Variable> variables;
 
   /**
    * <!-- begin-user-doc -->
@@ -188,6 +203,20 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Variable> getVariables()
+  {
+    if (variables == null)
+    {
+      variables = new EObjectContainmentEList<Variable>(Variable.class, this, RecipePackage.MODEL_MAPPER__VARIABLES);
+    }
+    return variables;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -197,6 +226,8 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
         return basicSetArtifactRef(null, msgs);
       case RecipePackage.MODEL_MAPPER__SPECIFIERS:
         return ((InternalEList<?>)getSpecifiers()).basicRemove(otherEnd, msgs);
+      case RecipePackage.MODEL_MAPPER__VARIABLES:
+        return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -217,6 +248,8 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
         return getArtifactRef();
       case RecipePackage.MODEL_MAPPER__SPECIFIERS:
         return getSpecifiers();
+      case RecipePackage.MODEL_MAPPER__VARIABLES:
+        return getVariables();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -242,6 +275,10 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
         getSpecifiers().clear();
         getSpecifiers().addAll((Collection<? extends Specifier>)newValue);
         return;
+      case RecipePackage.MODEL_MAPPER__VARIABLES:
+        getVariables().clear();
+        getVariables().addAll((Collection<? extends Variable>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -265,6 +302,9 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
       case RecipePackage.MODEL_MAPPER__SPECIFIERS:
         getSpecifiers().clear();
         return;
+      case RecipePackage.MODEL_MAPPER__VARIABLES:
+        getVariables().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -285,6 +325,8 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
         return artifactRef != null;
       case RecipePackage.MODEL_MAPPER__SPECIFIERS:
         return specifiers != null && !specifiers.isEmpty();
+      case RecipePackage.MODEL_MAPPER__VARIABLES:
+        return variables != null && !variables.isEmpty();
     }
     return super.eIsSet(featureID);
   }

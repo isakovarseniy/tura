@@ -3,6 +3,7 @@
 package recipe;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link recipe.ModelMapper#getName <em>Name</em>}</li>
  *   <li>{@link recipe.ModelMapper#getArtifactRef <em>Artifact Ref</em>}</li>
  *   <li>{@link recipe.ModelMapper#getSpecifiers <em>Specifiers</em>}</li>
+ *   <li>{@link recipe.ModelMapper#getVariables <em>Variables</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,5 +94,21 @@ public interface ModelMapper extends EObject
    * @generated
    */
   EList<Specifier> getSpecifiers();
+
+  /**
+   * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+   * The list contents are of type {@link recipe.Variable}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Variables</em>' containment reference list.
+   * @see recipe.RecipePackage#getModelMapper_Variables()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Variable> getVariables();
 
 } // ModelMapper

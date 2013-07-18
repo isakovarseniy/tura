@@ -2,6 +2,16 @@
  */
 package recipe.impl;
 
+import application.ApplicationPackage;
+import application.impl.ApplicationPackageImpl;
+import artifact.ArtifactPackage;
+import artifact.impl.ArtifactPackageImpl;
+import businessobjects.BusinessobjectsPackage;
+import businessobjects.impl.BusinessobjectsPackageImpl;
+import domain.DomainPackage;
+import domain.impl.DomainPackageImpl;
+import mapper.MapperPackage;
+import mapper.impl.MapperPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -19,6 +29,11 @@ import recipe.RecipeFactory;
 import recipe.RecipePackage;
 import recipe.Recipes;
 import recipe.Specifier;
+import recipe.Variable;
+import typedefinition.TypedefinitionPackage;
+import typedefinition.impl.TypedefinitionPackageImpl;
+import typesrepository.TypesrepositoryPackage;
+import typesrepository.impl.TypesrepositoryPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,6 +97,13 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass variableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass artifactRefEClass = null;
 
   /**
@@ -132,11 +154,34 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
 
     isInited = true;
 
+    // Obtain or create and register interdependencies
+    DomainPackageImpl theDomainPackage = (DomainPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) instanceof DomainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) : DomainPackage.eINSTANCE);
+    TypedefinitionPackageImpl theTypedefinitionPackage = (TypedefinitionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) instanceof TypedefinitionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) : TypedefinitionPackage.eINSTANCE);
+    BusinessobjectsPackageImpl theBusinessobjectsPackage = (BusinessobjectsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) instanceof BusinessobjectsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) : BusinessobjectsPackage.eINSTANCE);
+    MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
+    ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
+    TypesrepositoryPackageImpl theTypesrepositoryPackage = (TypesrepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) instanceof TypesrepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) : TypesrepositoryPackage.eINSTANCE);
+    ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
+
     // Create package meta-data objects
     theRecipePackage.createPackageContents();
+    theDomainPackage.createPackageContents();
+    theTypedefinitionPackage.createPackageContents();
+    theBusinessobjectsPackage.createPackageContents();
+    theMapperPackage.createPackageContents();
+    theArtifactPackage.createPackageContents();
+    theTypesrepositoryPackage.createPackageContents();
+    theApplicationPackage.createPackageContents();
 
     // Initialize created meta-data
     theRecipePackage.initializePackageContents();
+    theDomainPackage.initializePackageContents();
+    theTypedefinitionPackage.initializePackageContents();
+    theBusinessobjectsPackage.initializePackageContents();
+    theMapperPackage.initializePackageContents();
+    theArtifactPackage.initializePackageContents();
+    theTypesrepositoryPackage.initializePackageContents();
+    theApplicationPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theRecipePackage.freeze();
@@ -165,16 +210,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
   public EReference getRecipes_Recipe()
   {
     return (EReference)recipesEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRecipes_Configurations()
-  {
-    return (EReference)recipesEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -302,6 +337,16 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getModelMapper_Variables()
+  {
+    return (EReference)modelMapperEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getConfiguration()
   {
     return configurationEClass;
@@ -402,6 +447,36 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getVariable()
+  {
+    return variableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVariable_Name()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVariable_Value()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getArtifactRef()
   {
     return artifactRefEClass;
@@ -449,7 +524,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
     // Create classes and their features
     recipesEClass = createEClass(RECIPES);
     createEReference(recipesEClass, RECIPES__RECIPE);
-    createEReference(recipesEClass, RECIPES__CONFIGURATIONS);
 
     recipeEClass = createEClass(RECIPE);
     createEAttribute(recipeEClass, RECIPE__NAME);
@@ -465,6 +539,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
     createEAttribute(modelMapperEClass, MODEL_MAPPER__NAME);
     createEReference(modelMapperEClass, MODEL_MAPPER__ARTIFACT_REF);
     createEReference(modelMapperEClass, MODEL_MAPPER__SPECIFIERS);
+    createEReference(modelMapperEClass, MODEL_MAPPER__VARIABLES);
 
     configurationEClass = createEClass(CONFIGURATION);
     createEAttribute(configurationEClass, CONFIGURATION__NAME);
@@ -478,6 +553,10 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
     specifierEClass = createEClass(SPECIFIER);
     createEAttribute(specifierEClass, SPECIFIER__NAME);
     createEAttribute(specifierEClass, SPECIFIER__VALUE);
+
+    variableEClass = createEClass(VARIABLE);
+    createEAttribute(variableEClass, VARIABLE__NAME);
+    createEAttribute(variableEClass, VARIABLE__VALUE);
 
     artifactRefEClass = createEClass(ARTIFACT_REF);
     createEAttribute(artifactRefEClass, ARTIFACT_REF__NAME);
@@ -515,8 +594,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(recipesEClass, Recipes.class, "Recipes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRecipes_Recipe(), this.getRecipe(), null, "recipe", null, 0, -1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRecipes_Configurations(), this.getConfiguration(), null, "configurations", null, 0, -1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRecipes_Recipe(), this.getRecipe(), null, "recipe", null, 0, 1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(recipeEClass, Recipe.class, "Recipe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRecipe_Name(), ecorePackage.getEString(), "name", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -532,6 +610,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
     initEAttribute(getModelMapper_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelMapper_ArtifactRef(), this.getArtifactRef(), null, "artifactRef", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelMapper_Specifiers(), this.getSpecifier(), null, "specifiers", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModelMapper_Variables(), this.getVariable(), null, "variables", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConfiguration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -545,6 +624,10 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
     initEClass(specifierEClass, Specifier.class, "Specifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSpecifier_Name(), ecorePackage.getEString(), "name", null, 0, 1, Specifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSpecifier_Value(), ecorePackage.getEString(), "value", null, 0, 1, Specifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_Value(), ecorePackage.getEString(), "value", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(artifactRefEClass, ArtifactRef.class, "ArtifactRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getArtifactRef_Name(), ecorePackage.getEString(), "name", null, 0, 1, ArtifactRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

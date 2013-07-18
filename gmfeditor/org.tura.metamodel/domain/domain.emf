@@ -2,8 +2,21 @@
 @gmf
 package domain;
 import "platform:/resource/org.tura.metamodel/artifact/artifact.ecore";
-import "platform:/resource/org.tura.metamodel/typesrepository/typesrepository.ecore";
 import "platform:/resource/org.tura.metamodel/application/application.ecore";
+import "platform:/resource/org.tura.metamodel/typesrepository/typesrepository.ecore";
+import "platform:/resource/org.tura.metamodel/typedefinition/typeDefinition.ecore";
+import "platform:/resource/org.tura.metamodel/businessObjects/businessObjects.ecore";
+import "platform:/resource/org.tura.metamodel/recipe/recipe.ecore";
+import "platform:/resource/org.tura.metamodel/mapper/mapper.ecore";
+
+class Dammy1 extends typedefinition.TypeDefinition{
+}
+class Dammy2 extends businessobjects.BusinessObjects{
+}
+class Dammy3 extends recipe.Recipes{
+}
+class Dammy4 extends mapper.Mappers{
+}
 
 @gmf.diagram
 class Domain{

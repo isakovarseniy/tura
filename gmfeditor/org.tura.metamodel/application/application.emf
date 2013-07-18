@@ -8,22 +8,29 @@ import "platform:/resource/org.tura.metamodel/mapper/mapper.ecore";
 @gmf.diagram
 class Application{
    val ApplicationRecipes applicationRecipes;
+   val ApplicationMappers applicationMappers;
 }
 
+@gmf.node(label="name")
 class ApplicationRecipes{
-   val ApplicationRecipes[*] recipes;
+   attr EString name;
+   val ApplicationRecipe[*] recipes;
 }
 
+@gmf.node(label="name")
 class ApplicationRecipe{
    attr EString name;
    ref recipe.Recipe recipes;
 }
 
+@gmf.node(label="name")
 class ApplicationMappers{
-   
+   attr EString name;
    val ApplicationMapper[*] mappers;
 }
+
+@gmf.node(label="name")
 class ApplicationMapper{
-   
+   attr EString name;
    ref mapper.Mappers mapper; 
 }

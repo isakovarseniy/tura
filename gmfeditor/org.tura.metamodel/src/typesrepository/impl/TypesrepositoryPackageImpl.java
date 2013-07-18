@@ -2,8 +2,16 @@
  */
 package typesrepository.impl;
 
+import application.ApplicationPackage;
+import application.impl.ApplicationPackageImpl;
+import artifact.ArtifactPackage;
+import artifact.impl.ArtifactPackageImpl;
 import businessobjects.BusinessobjectsPackage;
 import businessobjects.impl.BusinessobjectsPackageImpl;
+import domain.DomainPackage;
+import domain.impl.DomainPackageImpl;
+import mapper.MapperPackage;
+import mapper.impl.MapperPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -11,6 +19,8 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import recipe.RecipePackage;
+import recipe.impl.RecipePackageImpl;
 import typedefinition.TypedefinitionPackage;
 
 import typedefinition.impl.TypedefinitionPackageImpl;
@@ -114,18 +124,33 @@ public class TypesrepositoryPackageImpl extends EPackageImpl implements Typesrep
     isInited = true;
 
     // Obtain or create and register interdependencies
+    DomainPackageImpl theDomainPackage = (DomainPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) instanceof DomainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) : DomainPackage.eINSTANCE);
     TypedefinitionPackageImpl theTypedefinitionPackage = (TypedefinitionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) instanceof TypedefinitionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) : TypedefinitionPackage.eINSTANCE);
     BusinessobjectsPackageImpl theBusinessobjectsPackage = (BusinessobjectsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) instanceof BusinessobjectsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) : BusinessobjectsPackage.eINSTANCE);
+    RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
+    MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
+    ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
+    ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
 
     // Create package meta-data objects
     theTypesrepositoryPackage.createPackageContents();
+    theDomainPackage.createPackageContents();
     theTypedefinitionPackage.createPackageContents();
     theBusinessobjectsPackage.createPackageContents();
+    theRecipePackage.createPackageContents();
+    theMapperPackage.createPackageContents();
+    theArtifactPackage.createPackageContents();
+    theApplicationPackage.createPackageContents();
 
     // Initialize created meta-data
     theTypesrepositoryPackage.initializePackageContents();
+    theDomainPackage.initializePackageContents();
     theTypedefinitionPackage.initializePackageContents();
     theBusinessobjectsPackage.initializePackageContents();
+    theRecipePackage.initializePackageContents();
+    theMapperPackage.initializePackageContents();
+    theArtifactPackage.initializePackageContents();
+    theApplicationPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theTypesrepositoryPackage.freeze();

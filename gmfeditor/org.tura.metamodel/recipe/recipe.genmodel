@@ -7,7 +7,6 @@
   <genPackages prefix="Recipe" disposableProviderFactory="true" ecorePackage="recipe.ecore#/">
     <genClasses ecoreClass="recipe.ecore#//Recipes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipes/recipe"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipes/configurations"/>
     </genClasses>
     <genClasses ecoreClass="recipe.ecore#//Recipe">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Recipe/name"/>
@@ -23,6 +22,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//ModelMapper/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//ModelMapper/artifactRef"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//ModelMapper/specifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//ModelMapper/variables"/>
     </genClasses>
     <genClasses ecoreClass="recipe.ecore#//Configuration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Configuration/name"/>
@@ -36,6 +36,10 @@
     <genClasses ecoreClass="recipe.ecore#//Specifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Specifier/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Specifier/value"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Variable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Variable/value"/>
     </genClasses>
     <genClasses ecoreClass="recipe.ecore#//ArtifactRef">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//ArtifactRef/name"/>

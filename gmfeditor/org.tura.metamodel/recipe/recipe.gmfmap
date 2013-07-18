@@ -91,53 +91,6 @@
       </compartments>
     </ownedChild>
   </nodes>
-  <nodes>
-    <containmentFeature
-        href="recipe.ecore#//Recipes/configurations"/>
-    <ownedChild
-        relatedDiagrams="//@diagram">
-      <domainMetaElement
-          href="recipe.ecore#//Configuration"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="recipe.gmfgraph#ConfigurationLabel"/>
-        <features
-            href="recipe.ecore#//Configuration/name"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="recipe.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="recipe.gmfgraph#Configuration"/>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="recipe.ecore#//Configuration/properties"/>
-        <ownedChild>
-          <domainMetaElement
-              href="recipe.ecore#//Property"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="recipe.gmfgraph#PropertyLabel"/>
-            <features
-                href="recipe.ecore#//Property/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="recipe.gmftool#//@palette/@tools.0/@tools.3"/>
-          <diagramNode
-              href="recipe.gmfgraph#Property"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.1/@ownedChild/@children.0">
-        <compartment
-            href="recipe.gmfgraph#ConfigurationPropertiesCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
   <links>
     <labelMappings
         xsi:type="gmfmap:DesignLabelMapping"

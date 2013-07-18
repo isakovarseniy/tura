@@ -67,7 +67,7 @@ public interface RecipePackage extends EPackage
   int RECIPES = 0;
 
   /**
-   * The feature id for the '<em><b>Recipe</b></em>' containment reference list.
+   * The feature id for the '<em><b>Recipe</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -76,22 +76,13 @@ public interface RecipePackage extends EPackage
   int RECIPES__RECIPE = 0;
 
   /**
-   * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECIPES__CONFIGURATIONS = 1;
-
-  /**
    * The number of structural features of the '<em>Recipes</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECIPES_FEATURE_COUNT = 2;
+  int RECIPES_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link recipe.impl.RecipeImpl <em>Recipe</em>}' class.
@@ -223,13 +214,22 @@ public interface RecipePackage extends EPackage
   int MODEL_MAPPER__SPECIFIERS = 2;
 
   /**
+   * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__VARIABLES = 3;
+
+  /**
    * The number of structural features of the '<em>Model Mapper</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_MAPPER_FEATURE_COUNT = 3;
+  int MODEL_MAPPER_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link recipe.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -314,7 +314,6 @@ public interface RecipePackage extends EPackage
    */
   int PROPERTY_FEATURE_COUNT = 2;
 
-
   /**
    * The meta object id for the '{@link recipe.impl.SpecifierImpl <em>Specifier</em>}' class.
    * <!-- begin-user-doc -->
@@ -353,6 +352,43 @@ public interface RecipePackage extends EPackage
   int SPECIFIER_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link recipe.impl.VariableImpl <em>Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see recipe.impl.VariableImpl
+   * @see recipe.impl.RecipePackageImpl#getVariable()
+   * @generated
+   */
+  int VARIABLE = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link recipe.impl.ArtifactRefImpl <em>Artifact Ref</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -360,7 +396,7 @@ public interface RecipePackage extends EPackage
    * @see recipe.impl.RecipePackageImpl#getArtifactRef()
    * @generated
    */
-  int ARTIFACT_REF = 7;
+  int ARTIFACT_REF = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -392,26 +428,15 @@ public interface RecipePackage extends EPackage
   EClass getRecipes();
 
   /**
-   * Returns the meta object for the containment reference list '{@link recipe.Recipes#getRecipe <em>Recipe</em>}'.
+   * Returns the meta object for the containment reference '{@link recipe.Recipes#getRecipe <em>Recipe</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Recipe</em>'.
+   * @return the meta object for the containment reference '<em>Recipe</em>'.
    * @see recipe.Recipes#getRecipe()
    * @see #getRecipes()
    * @generated
    */
   EReference getRecipes_Recipe();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link recipe.Recipes#getConfigurations <em>Configurations</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Configurations</em>'.
-   * @see recipe.Recipes#getConfigurations()
-   * @see #getRecipes()
-   * @generated
-   */
-  EReference getRecipes_Configurations();
 
   /**
    * Returns the meta object for class '{@link recipe.Recipe <em>Recipe</em>}'.
@@ -543,6 +568,17 @@ public interface RecipePackage extends EPackage
   EReference getModelMapper_Specifiers();
 
   /**
+   * Returns the meta object for the containment reference list '{@link recipe.ModelMapper#getVariables <em>Variables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Variables</em>'.
+   * @see recipe.ModelMapper#getVariables()
+   * @see #getModelMapper()
+   * @generated
+   */
+  EReference getModelMapper_Variables();
+
+  /**
    * Returns the meta object for class '{@link recipe.Configuration <em>Configuration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -650,6 +686,38 @@ public interface RecipePackage extends EPackage
   EAttribute getSpecifier_Value();
 
   /**
+   * Returns the meta object for class '{@link recipe.Variable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Variable</em>'.
+   * @see recipe.Variable
+   * @generated
+   */
+  EClass getVariable();
+
+  /**
+   * Returns the meta object for the attribute '{@link recipe.Variable#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see recipe.Variable#getName()
+   * @see #getVariable()
+   * @generated
+   */
+  EAttribute getVariable_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link recipe.Variable#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see recipe.Variable#getValue()
+   * @see #getVariable()
+   * @generated
+   */
+  EAttribute getVariable_Value();
+
+  /**
    * Returns the meta object for class '{@link recipe.ArtifactRef <em>Artifact Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -704,20 +772,12 @@ public interface RecipePackage extends EPackage
     EClass RECIPES = eINSTANCE.getRecipes();
 
     /**
-     * The meta object literal for the '<em><b>Recipe</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Recipe</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference RECIPES__RECIPE = eINSTANCE.getRecipes_Recipe();
-
-    /**
-     * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RECIPES__CONFIGURATIONS = eINSTANCE.getRecipes_Configurations();
 
     /**
      * The meta object literal for the '{@link recipe.impl.RecipeImpl <em>Recipe</em>}' class.
@@ -822,6 +882,14 @@ public interface RecipePackage extends EPackage
     EReference MODEL_MAPPER__SPECIFIERS = eINSTANCE.getModelMapper_Specifiers();
 
     /**
+     * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL_MAPPER__VARIABLES = eINSTANCE.getModelMapper_Variables();
+
+    /**
      * The meta object literal for the '{@link recipe.impl.ConfigurationImpl <em>Configuration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -906,6 +974,32 @@ public interface RecipePackage extends EPackage
      * @generated
      */
     EAttribute SPECIFIER__VALUE = eINSTANCE.getSpecifier_Value();
+
+    /**
+     * The meta object literal for the '{@link recipe.impl.VariableImpl <em>Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see recipe.impl.VariableImpl
+     * @see recipe.impl.RecipePackageImpl#getVariable()
+     * @generated
+     */
+    EClass VARIABLE = eINSTANCE.getVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE__VALUE = eINSTANCE.getVariable_Value();
 
     /**
      * The meta object literal for the '{@link recipe.impl.ArtifactRefImpl <em>Artifact Ref</em>}' class.

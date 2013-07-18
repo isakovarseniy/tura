@@ -71,6 +71,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory
       case RecipePackage.CONFIGURATION: return createConfiguration();
       case RecipePackage.PROPERTY: return createProperty();
       case RecipePackage.SPECIFIER: return createSpecifier();
+      case RecipePackage.VARIABLE: return createVariable();
       case RecipePackage.ARTIFACT_REF: return createArtifactRef();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -152,6 +153,17 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory
   {
     SpecifierImpl specifier = new SpecifierImpl();
     return specifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Variable createVariable()
+  {
+    VariableImpl variable = new VariableImpl();
+    return variable;
   }
 
   /**

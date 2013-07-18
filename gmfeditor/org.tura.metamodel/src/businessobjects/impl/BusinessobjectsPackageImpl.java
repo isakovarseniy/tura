@@ -2,6 +2,10 @@
  */
 package businessobjects.impl;
 
+import application.ApplicationPackage;
+import application.impl.ApplicationPackageImpl;
+import artifact.ArtifactPackage;
+import artifact.impl.ArtifactPackageImpl;
 import businessobjects.BusinessMethod;
 import businessobjects.BusinessObject;
 import businessobjects.BusinessObjects;
@@ -14,6 +18,10 @@ import businessobjects.RemoveMethod;
 import businessobjects.SearchMethod;
 import businessobjects.UpdateMethod;
 
+import domain.DomainPackage;
+import domain.impl.DomainPackageImpl;
+import mapper.MapperPackage;
+import mapper.impl.MapperPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -21,6 +29,8 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import recipe.RecipePackage;
+import recipe.impl.RecipePackageImpl;
 import typedefinition.TypedefinitionPackage;
 
 import typedefinition.impl.TypedefinitionPackageImpl;
@@ -147,18 +157,33 @@ public class BusinessobjectsPackageImpl extends EPackageImpl implements Business
     isInited = true;
 
     // Obtain or create and register interdependencies
-    TypesrepositoryPackageImpl theTypesrepositoryPackage = (TypesrepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) instanceof TypesrepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) : TypesrepositoryPackage.eINSTANCE);
+    DomainPackageImpl theDomainPackage = (DomainPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) instanceof DomainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) : DomainPackage.eINSTANCE);
     TypedefinitionPackageImpl theTypedefinitionPackage = (TypedefinitionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) instanceof TypedefinitionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) : TypedefinitionPackage.eINSTANCE);
+    RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
+    MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
+    ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
+    TypesrepositoryPackageImpl theTypesrepositoryPackage = (TypesrepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) instanceof TypesrepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) : TypesrepositoryPackage.eINSTANCE);
+    ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
 
     // Create package meta-data objects
     theBusinessobjectsPackage.createPackageContents();
-    theTypesrepositoryPackage.createPackageContents();
+    theDomainPackage.createPackageContents();
     theTypedefinitionPackage.createPackageContents();
+    theRecipePackage.createPackageContents();
+    theMapperPackage.createPackageContents();
+    theArtifactPackage.createPackageContents();
+    theTypesrepositoryPackage.createPackageContents();
+    theApplicationPackage.createPackageContents();
 
     // Initialize created meta-data
     theBusinessobjectsPackage.initializePackageContents();
-    theTypesrepositoryPackage.initializePackageContents();
+    theDomainPackage.initializePackageContents();
     theTypedefinitionPackage.initializePackageContents();
+    theRecipePackage.initializePackageContents();
+    theMapperPackage.initializePackageContents();
+    theArtifactPackage.initializePackageContents();
+    theTypesrepositoryPackage.initializePackageContents();
+    theApplicationPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theBusinessobjectsPackage.freeze();
