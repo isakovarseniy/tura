@@ -19,7 +19,7 @@ public class ComponentComponentComponentsCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	public ComponentComponentComponentsCompartmentItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Component_3001);
+		super(RecipeElementTypes.Component_3004);
 	}
 
 	/**

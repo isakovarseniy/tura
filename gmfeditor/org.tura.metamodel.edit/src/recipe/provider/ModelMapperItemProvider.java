@@ -3,6 +3,8 @@
 package recipe.provider;
 
 
+import domain.provider.DomainEditPlugin;
+import application.provider.ApplicationEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -110,6 +113,7 @@ public class ModelMapperItemProvider
       super.getChildrenFeatures(object);
       childrenFeatures.add(RecipePackage.Literals.MODEL_MAPPER__ARTIFACT_REF);
       childrenFeatures.add(RecipePackage.Literals.MODEL_MAPPER__SPECIFIERS);
+      childrenFeatures.add(RecipePackage.Literals.MODEL_MAPPER__VARIABLES);
     }
     return childrenFeatures;
   }
@@ -174,6 +178,7 @@ public class ModelMapperItemProvider
         return;
       case RecipePackage.MODEL_MAPPER__ARTIFACT_REF:
       case RecipePackage.MODEL_MAPPER__SPECIFIERS:
+      case RecipePackage.MODEL_MAPPER__VARIABLES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -201,6 +206,11 @@ public class ModelMapperItemProvider
       (createChildParameter
         (RecipePackage.Literals.MODEL_MAPPER__SPECIFIERS,
          RecipeFactory.eINSTANCE.createSpecifier()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (RecipePackage.Literals.MODEL_MAPPER__VARIABLES,
+         RecipeFactory.eINSTANCE.createVariable()));
   }
 
   /**
@@ -212,7 +222,7 @@ public class ModelMapperItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return RecipeEditPlugin.INSTANCE;
+    return DomainEditPlugin.INSTANCE;
   }
 
 }

@@ -3,6 +3,8 @@
 package recipe.provider;
 
 
+import domain.provider.DomainEditPlugin;
+import application.provider.ApplicationEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -230,7 +232,7 @@ public class RecipeItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return RecipeEditPlugin.INSTANCE;
+    return DomainEditPlugin.INSTANCE;
   }
 
 }

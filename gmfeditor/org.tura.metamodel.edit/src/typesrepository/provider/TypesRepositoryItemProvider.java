@@ -3,6 +3,7 @@
 package typesrepository.provider;
 
 
+import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -174,7 +175,7 @@ public class TypesRepositoryItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypesrepositoryEditPlugin.INSTANCE;
+    return DomainEditPlugin.INSTANCE;
   }
 
 }

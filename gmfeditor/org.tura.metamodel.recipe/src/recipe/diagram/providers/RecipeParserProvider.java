@@ -19,9 +19,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import recipe.RecipePackage;
 import recipe.diagram.edit.parts.ComponentName2EditPart;
 import recipe.diagram.edit.parts.ComponentNameEditPart;
-import recipe.diagram.edit.parts.ConfigurationNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
-import recipe.diagram.edit.parts.PropertyNameEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
 import recipe.diagram.parsers.MessageFormatParser;
 import recipe.diagram.part.RecipeVisualIDRegistry;
@@ -35,55 +33,37 @@ public class RecipeParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser recipeName_5004Parser;
+	private IParser recipeName_5009Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRecipeName_5004Parser() {
-		if (recipeName_5004Parser == null) {
+	private IParser getRecipeName_5009Parser() {
+		if (recipeName_5009Parser == null) {
 			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
 					.getRecipe_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			recipeName_5004Parser = parser;
+			recipeName_5009Parser = parser;
 		}
-		return recipeName_5004Parser;
+		return recipeName_5009Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser configurationName_5006Parser;
+	private IParser componentName_5008Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getConfigurationName_5006Parser() {
-		if (configurationName_5006Parser == null) {
-			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
-					.getConfiguration_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			configurationName_5006Parser = parser;
-		}
-		return configurationName_5006Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser componentName_5003Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getComponentName_5003Parser() {
-		if (componentName_5003Parser == null) {
+	private IParser getComponentName_5008Parser() {
+		if (componentName_5008Parser == null) {
 			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
 					.getComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			componentName_5003Parser = parser;
+			componentName_5008Parser = parser;
 		}
-		return componentName_5003Parser;
+		return componentName_5008Parser;
 	}
 
 	/**
@@ -125,38 +105,16 @@ public class RecipeParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser propertyName_5005Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getPropertyName_5005Parser() {
-		if (propertyName_5005Parser == null) {
-			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
-					.getProperty_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			propertyName_5005Parser = parser;
-		}
-		return propertyName_5005Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case RecipeNameEditPart.VISUAL_ID:
-			return getRecipeName_5004Parser();
-		case ConfigurationNameEditPart.VISUAL_ID:
-			return getConfigurationName_5006Parser();
+			return getRecipeName_5009Parser();
 		case ComponentNameEditPart.VISUAL_ID:
-			return getComponentName_5003Parser();
+			return getComponentName_5008Parser();
 		case ComponentName2EditPart.VISUAL_ID:
 			return getComponentName_5002Parser();
 		case ModelMapperNameEditPart.VISUAL_ID:
 			return getModelMapperName_5001Parser();
-		case PropertyNameEditPart.VISUAL_ID:
-			return getPropertyName_5005Parser();
 		}
 		return null;
 	}

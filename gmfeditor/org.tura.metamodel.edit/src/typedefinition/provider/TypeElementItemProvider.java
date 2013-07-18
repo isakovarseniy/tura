@@ -3,10 +3,12 @@
 package typedefinition.provider;
 
 
+import domain.provider.DomainEditPlugin;
 import businessobjects.provider.BusinessobjectsEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
+import mapper.provider.MapperEditPlugin;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -19,6 +21,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+
 import typesrepository.provider.TypesrepositoryEditPlugin;
 
 /**
@@ -124,7 +127,7 @@ public class TypeElementItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypesrepositoryEditPlugin.INSTANCE;
+    return DomainEditPlugin.INSTANCE;
   }
 
 }

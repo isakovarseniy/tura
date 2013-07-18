@@ -3,6 +3,7 @@
 package typesrepository.provider;
 
 
+import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -19,9 +20,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import typedefinition.provider.TypeDefinitionItemProvider;
 
 import typesrepository.TypesrepositoryPackage;
 
@@ -32,7 +32,7 @@ import typesrepository.TypesrepositoryPackage;
  * @generated
  */
 public class PackageItemProvider
-  extends TypeDefinitionItemProvider
+  extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -65,6 +65,7 @@ public class PackageItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
+      addTypedefinitionPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -88,6 +89,29 @@ public class PackageItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Typedefinition feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addTypedefinitionPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Package_typedefinition_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Package_typedefinition_feature", "_UI_Package_type"),
+         TypesrepositoryPackage.Literals.PACKAGE__TYPEDEFINITION,
+         true,
+         false,
+         true,
+         null,
          null,
          null));
   }
@@ -162,7 +186,7 @@ public class PackageItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypesrepositoryEditPlugin.INSTANCE;
+    return DomainEditPlugin.INSTANCE;
   }
 
 }

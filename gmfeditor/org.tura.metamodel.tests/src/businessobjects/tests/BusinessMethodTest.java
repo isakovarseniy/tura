@@ -5,9 +5,8 @@ package businessobjects.tests;
 import businessobjects.BusinessMethod;
 import businessobjects.BusinessobjectsFactory;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
+
 import typedefinition.tests.TypePointerTest;
 
 /**

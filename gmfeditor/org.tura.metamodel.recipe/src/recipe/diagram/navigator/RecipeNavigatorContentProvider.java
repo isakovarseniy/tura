@@ -35,10 +35,7 @@ import recipe.diagram.edit.parts.ComponentComponentMappersCompartment2EditPart;
 import recipe.diagram.edit.parts.ComponentComponentMappersCompartmentEditPart;
 import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
-import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
-import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeConfigEditPart;
@@ -260,11 +257,6 @@ public class RecipeNavigatorContentProvider implements ICommonContentProvider {
 					RecipeVisualIDRegistry.getType(RecipeEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					RecipeVisualIDRegistry
-							.getType(ConfigurationEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					RecipeVisualIDRegistry
 							.getType(RecipeRecipeConfigEditPart.VISUAL_ID));
@@ -284,7 +276,7 @@ public class RecipeNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<RecipeAbstractNavigatorItem> result = new LinkedList<RecipeAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			RecipeNavigatorGroup outgoinglinks = new RecipeNavigatorGroup(
-					Messages.NavigatorGroupName_Recipe_2001_outgoinglinks,
+					Messages.NavigatorGroupName_Recipe_2004_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
@@ -302,34 +294,6 @@ public class RecipeNavigatorContentProvider implements ICommonContentProvider {
 					outgoinglinks, true));
 			if (!outgoinglinks.isEmpty()) {
 				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case RecipeRecipeConfigEditPart.VISUAL_ID: {
-			LinkedList<RecipeAbstractNavigatorItem> result = new LinkedList<RecipeAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			RecipeNavigatorGroup target = new RecipeNavigatorGroup(
-					Messages.NavigatorGroupName_RecipeRecipeConfig_4001_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			RecipeNavigatorGroup source = new RecipeNavigatorGroup(
-					Messages.NavigatorGroupName_RecipeRecipeConfig_4001_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					RecipeVisualIDRegistry
-							.getType(ConfigurationEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					RecipeVisualIDRegistry.getType(RecipeEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
 			}
 			return result.toArray();
 		}
@@ -359,75 +323,19 @@ public class RecipeNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID: {
+		case RecipeRecipeConfigEditPart.VISUAL_ID: {
 			LinkedList<RecipeAbstractNavigatorItem> result = new LinkedList<RecipeAbstractNavigatorItem>();
 			Edge sv = (Edge) view;
-			RecipeNavigatorGroup target = new RecipeNavigatorGroup(
-					Messages.NavigatorGroupName_ConfigurationConfigExtension_4002_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			RecipeNavigatorGroup source = new RecipeNavigatorGroup(
-					Messages.NavigatorGroupName_ConfigurationConfigExtension_4002_source,
+					Messages.NavigatorGroupName_RecipeRecipeConfig_4001_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					RecipeVisualIDRegistry
-							.getType(ConfigurationEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					RecipeVisualIDRegistry
-							.getType(ConfigurationEditPart.VISUAL_ID));
+					RecipeVisualIDRegistry.getType(RecipeEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
 			if (!source.isEmpty()) {
 				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case ConfigurationEditPart.VISUAL_ID: {
-			LinkedList<RecipeAbstractNavigatorItem> result = new LinkedList<RecipeAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			RecipeNavigatorGroup incominglinks = new RecipeNavigatorGroup(
-					Messages.NavigatorGroupName_Configuration_2002_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			RecipeNavigatorGroup outgoinglinks = new RecipeNavigatorGroup(
-					Messages.NavigatorGroupName_Configuration_2002_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					RecipeVisualIDRegistry
-							.getType(ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					RecipeVisualIDRegistry.getType(PropertyEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					RecipeVisualIDRegistry
-							.getType(RecipeRecipeConfigEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					RecipeVisualIDRegistry
-							.getType(ConfigurationConfigExtensionEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					RecipeVisualIDRegistry
-							.getType(ConfigurationConfigExtensionEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
 			}
 			return result.toArray();
 		}

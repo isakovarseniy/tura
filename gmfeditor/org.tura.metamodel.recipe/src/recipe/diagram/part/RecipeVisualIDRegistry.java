@@ -21,13 +21,8 @@ import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.ComponentName2EditPart;
 import recipe.diagram.edit.parts.ComponentNameEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
-import recipe.diagram.edit.parts.ConfigurationEditPart;
-import recipe.diagram.edit.parts.ConfigurationNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
-import recipe.diagram.edit.parts.PropertyEditPart;
-import recipe.diagram.edit.parts.PropertyNameEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeComponentsCompartmentEditPart;
@@ -149,10 +144,6 @@ public class RecipeVisualIDRegistry {
 					domainElement.eClass())) {
 				return RecipeEditPart.VISUAL_ID;
 			}
-			if (RecipePackage.eINSTANCE.getConfiguration().isSuperTypeOf(
-					domainElement.eClass())) {
-				return ConfigurationEditPart.VISUAL_ID;
-			}
 			break;
 		case RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID:
 			if (RecipePackage.eINSTANCE.getComponent().isSuperTypeOf(
@@ -182,12 +173,6 @@ public class RecipeVisualIDRegistry {
 			if (RecipePackage.eINSTANCE.getModelMapper().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ModelMapperEditPart.VISUAL_ID;
-			}
-			break;
-		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
-			if (RecipePackage.eINSTANCE.getProperty().isSuperTypeOf(
-					domainElement.eClass())) {
-				return PropertyEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -220,23 +205,12 @@ public class RecipeVisualIDRegistry {
 			if (RecipeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ConfigurationEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			break;
 		case RecipeEditPart.VISUAL_ID:
 			if (RecipeNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ConfigurationEditPart.VISUAL_ID:
-			if (ConfigurationNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -267,11 +241,6 @@ public class RecipeVisualIDRegistry {
 				return true;
 			}
 			break;
-		case PropertyEditPart.VISUAL_ID:
-			if (PropertyNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID:
 			if (ComponentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -294,11 +263,6 @@ public class RecipeVisualIDRegistry {
 			break;
 		case ComponentComponentMappersCompartment2EditPart.VISUAL_ID:
 			if (ModelMapperEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
-			if (PropertyEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -359,7 +323,6 @@ public class RecipeVisualIDRegistry {
 		case ComponentComponentMappersCompartmentEditPart.VISUAL_ID:
 		case ComponentComponentComponentsCompartment2EditPart.VISUAL_ID:
 		case ComponentComponentMappersCompartment2EditPart.VISUAL_ID:
-		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -375,7 +338,6 @@ public class RecipeVisualIDRegistry {
 		case RecipesEditPart.VISUAL_ID:
 			return false;
 		case ModelMapperEditPart.VISUAL_ID:
-		case PropertyEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

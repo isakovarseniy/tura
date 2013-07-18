@@ -63,7 +63,7 @@ public class ComponentComponentMappersCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<RecipeNodeDescriptor> childDescriptors = RecipeDiagramUpdater
-				.getComponentComponentMappersCompartment_7003SemanticChildren(viewObject);
+				.getComponentComponentMappersCompartment_7011SemanticChildren(viewObject);
 		for (RecipeNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -96,7 +96,7 @@ public class ComponentComponentMappersCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<RecipeNodeDescriptor> childDescriptors = RecipeDiagramUpdater
-				.getComponentComponentMappersCompartment_7003SemanticChildren((View) getHost()
+				.getComponentComponentMappersCompartment_7011SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

@@ -71,6 +71,8 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 
 import typesrepository.TypesrepositoryFactory;
 import typesrepository.TypesrepositoryPackage;
+import domain.provider.DomainEditPlugin;
+import domain.presentation.DomainEditorPlugin;
 import typesrepository.provider.TypesrepositoryEditPlugin;
 
 
@@ -100,7 +102,7 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
    * @generated
    */
   public static final List<String> FILE_EXTENSIONS =
-    Collections.unmodifiableList(Arrays.asList(TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryEditorFilenameExtensions").split("\\s*,\\s*")));
+    Collections.unmodifiableList(Arrays.asList(DomainEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryEditorFilenameExtensions").split("\\s*,\\s*")));
 
   /**
    * A formatted list of supported file extensions, suitable for display.
@@ -109,7 +111,7 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
    * @generated
    */
   public static final String FORMATTED_FILE_EXTENSIONS =
-    TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+    DomainEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
   /**
    * This caches an instance of the model package.
@@ -177,8 +179,8 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
   {
     this.workbench = workbench;
     this.selection = selection;
-    setWindowTitle(TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-    setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(TypesrepositoryEditorPlugin.INSTANCE.getImage("full/wizban/NewTypesrepository")));
+    setWindowTitle(DomainEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+    setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(DomainEditorPlugin.INSTANCE.getImage("full/wizban/NewTypesrepository")));
   }
 
   /**
@@ -274,7 +276,7 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
             }
             catch (Exception exception)
             {
-              TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+              DomainEditorPlugin.INSTANCE.log(exception);
             }
             finally
             {
@@ -313,7 +315,7 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
       }
       catch (PartInitException exception)
       {
-        MessageDialog.openError(workbenchWindow.getShell(), TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+        MessageDialog.openError(workbenchWindow.getShell(), DomainEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
         return false;
       }
 
@@ -321,7 +323,7 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
     }
     catch (Exception exception)
     {
-      TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+      DomainEditorPlugin.INSTANCE.log(exception);
       return false;
     }
   }
@@ -360,7 +362,7 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
         if (extension == null || !FILE_EXTENSIONS.contains(extension))
         {
           String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-          setErrorMessage(TypesrepositoryEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+          setErrorMessage(DomainEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
           return false;
         }
         return true;
@@ -442,7 +444,7 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
 
       Label containerLabel = new Label(composite, SWT.LEFT);
       {
-        containerLabel.setText(TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+        containerLabel.setText(DomainEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
         GridData data = new GridData();
         data.horizontalAlignment = GridData.FILL;
@@ -470,7 +472,7 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
 
       Label encodingLabel = new Label(composite, SWT.LEFT);
       {
-        encodingLabel.setText(TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+        encodingLabel.setText(DomainEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
         GridData data = new GridData();
         data.horizontalAlignment = GridData.FILL;
@@ -583,11 +585,11 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
     {
       try
       {
-        return TypesrepositoryEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+        return DomainEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
       }
       catch(MissingResourceException mre)
       {
-        TypesrepositoryEditorPlugin.INSTANCE.log(mre);
+        DomainEditorPlugin.INSTANCE.log(mre);
       }
       return typeName;
     }
@@ -602,7 +604,7 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
       if (encodings == null)
       {
         encodings = new ArrayList<String>();
-        for (StringTokenizer stringTokenizer = new StringTokenizer(TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
+        for (StringTokenizer stringTokenizer = new StringTokenizer(DomainEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
         {
           encodings.add(stringTokenizer.nextToken());
         }
@@ -623,9 +625,9 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
     // Create a page, set the title, and the initial model file name.
     //
     newFileCreationPage = new TypesrepositoryModelWizardNewFileCreationPage("Whatever", selection);
-    newFileCreationPage.setTitle(TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryModelWizard_label"));
-    newFileCreationPage.setDescription(TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryModelWizard_description"));
-    newFileCreationPage.setFileName(TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+    newFileCreationPage.setTitle(DomainEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryModelWizard_label"));
+    newFileCreationPage.setDescription(DomainEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryModelWizard_description"));
+    newFileCreationPage.setFileName(DomainEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
     addPage(newFileCreationPage);
 
     // Try and get the resource selection to determine a current directory for the file dialog.
@@ -655,7 +657,7 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
 
           // Make up a unique new name here.
           //
-          String defaultModelBaseFilename = TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryEditorFilenameDefaultBase");
+          String defaultModelBaseFilename = DomainEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryEditorFilenameDefaultBase");
           String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
           String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
           for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i)
@@ -667,8 +669,8 @@ public class TypesrepositoryModelWizard extends Wizard implements INewWizard
       }
     }
     initialObjectCreationPage = new TypesrepositoryModelWizardInitialObjectCreationPage("Whatever2");
-    initialObjectCreationPage.setTitle(TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryModelWizard_label"));
-    initialObjectCreationPage.setDescription(TypesrepositoryEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+    initialObjectCreationPage.setTitle(DomainEditorPlugin.INSTANCE.getString("_UI_TypesrepositoryModelWizard_label"));
+    initialObjectCreationPage.setDescription(DomainEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
     addPage(initialObjectCreationPage);
   }
 

@@ -23,9 +23,7 @@ import recipe.RecipePackage;
 import recipe.diagram.edit.parts.Component2EditPart;
 import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
-import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeConfigEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
@@ -64,15 +62,11 @@ public class RecipeElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Recipe_2001 = getElementType("org.tura.metamodel.recipe.Recipe_2001"); //$NON-NLS-1$
+	public static final IElementType Recipe_2004 = getElementType("org.tura.metamodel.recipe.Recipe_2004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Configuration_2002 = getElementType("org.tura.metamodel.recipe.Configuration_2002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Component_3001 = getElementType("org.tura.metamodel.recipe.Component_3001"); //$NON-NLS-1$
+	public static final IElementType Component_3004 = getElementType("org.tura.metamodel.recipe.Component_3004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -81,10 +75,6 @@ public class RecipeElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ModelMapper_3003 = getElementType("org.tura.metamodel.recipe.ModelMapper_3003"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Property_3004 = getElementType("org.tura.metamodel.recipe.Property_3004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -207,19 +197,14 @@ public class RecipeElementTypes {
 
 			elements.put(Recipes_1000, RecipePackage.eINSTANCE.getRecipes());
 
-			elements.put(Recipe_2001, RecipePackage.eINSTANCE.getRecipe());
+			elements.put(Recipe_2004, RecipePackage.eINSTANCE.getRecipe());
 
-			elements.put(Configuration_2002,
-					RecipePackage.eINSTANCE.getConfiguration());
-
-			elements.put(Component_3001, RecipePackage.eINSTANCE.getComponent());
+			elements.put(Component_3004, RecipePackage.eINSTANCE.getComponent());
 
 			elements.put(Component_3002, RecipePackage.eINSTANCE.getComponent());
 
 			elements.put(ModelMapper_3003,
 					RecipePackage.eINSTANCE.getModelMapper());
-
-			elements.put(Property_3004, RecipePackage.eINSTANCE.getProperty());
 
 			elements.put(RecipeRecipeConfig_4001,
 					RecipePackage.eINSTANCE.getRecipe_RecipeConfig());
@@ -244,12 +229,10 @@ public class RecipeElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(Recipes_1000);
-			KNOWN_ELEMENT_TYPES.add(Recipe_2001);
-			KNOWN_ELEMENT_TYPES.add(Configuration_2002);
-			KNOWN_ELEMENT_TYPES.add(Component_3001);
+			KNOWN_ELEMENT_TYPES.add(Recipe_2004);
+			KNOWN_ELEMENT_TYPES.add(Component_3004);
 			KNOWN_ELEMENT_TYPES.add(Component_3002);
 			KNOWN_ELEMENT_TYPES.add(ModelMapper_3003);
-			KNOWN_ELEMENT_TYPES.add(Property_3004);
 			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_4001);
 			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_4002);
 		}
@@ -264,17 +247,13 @@ public class RecipeElementTypes {
 		case RecipesEditPart.VISUAL_ID:
 			return Recipes_1000;
 		case RecipeEditPart.VISUAL_ID:
-			return Recipe_2001;
-		case ConfigurationEditPart.VISUAL_ID:
-			return Configuration_2002;
+			return Recipe_2004;
 		case ComponentEditPart.VISUAL_ID:
-			return Component_3001;
+			return Component_3004;
 		case Component2EditPart.VISUAL_ID:
 			return Component_3002;
 		case ModelMapperEditPart.VISUAL_ID:
 			return ModelMapper_3003;
-		case PropertyEditPart.VISUAL_ID:
-			return Property_3004;
 		case RecipeRecipeConfigEditPart.VISUAL_ID:
 			return RecipeRecipeConfig_4001;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:

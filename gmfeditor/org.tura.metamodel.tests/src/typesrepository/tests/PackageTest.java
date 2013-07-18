@@ -2,9 +2,9 @@
  */
 package typesrepository.tests;
 
-import junit.textui.TestRunner;
+import junit.framework.TestCase;
 
-import typedefinition.tests.TypeDefinitionTest;
+import junit.textui.TestRunner;
 
 import typesrepository.TypesrepositoryFactory;
 
@@ -14,8 +14,16 @@ import typesrepository.TypesrepositoryFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PackageTest extends TypeDefinitionTest
+public class PackageTest extends TestCase
 {
+
+  /**
+   * The fixture for this Package test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected typesrepository.Package fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -39,15 +47,25 @@ public class PackageTest extends TypeDefinitionTest
   }
 
   /**
+   * Sets the fixture for this Package test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(typesrepository.Package fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this Package test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected typesrepository.Package getFixture()
   {
-    return (typesrepository.Package)fixture;
+    return fixture;
   }
 
   /**

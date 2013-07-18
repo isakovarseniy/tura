@@ -1,0 +1,7 @@
+# Tracing options for the org.tura.metamodel.mapper plug-in
+
+# Common issues
+org.tura.metamodel.mapper/debug=false
+
+# Visual IDs
+org.tura.metamodel.mapper/debug/visualID=false

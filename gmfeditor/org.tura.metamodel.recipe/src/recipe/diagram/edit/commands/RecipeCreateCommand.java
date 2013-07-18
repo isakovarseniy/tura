@@ -48,6 +48,10 @@ public class RecipeCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
+		Recipes container = (Recipes) getElementToEdit();
+		if (container.getRecipe() != null) {
+			return false;
+		}
 		return true;
 
 	}
@@ -60,7 +64,7 @@ public class RecipeCreateCommand extends EditElementCommand {
 		Recipe newElement = RecipeFactory.eINSTANCE.createRecipe();
 
 		Recipes owner = (Recipes) getElementToEdit();
-		owner.getRecipe().add(newElement);
+		owner.setRecipe(newElement);
 
 		doConfigure(newElement, monitor, info);
 

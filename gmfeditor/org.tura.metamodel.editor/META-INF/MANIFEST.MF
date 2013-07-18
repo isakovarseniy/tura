@@ -4,12 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: businessobjects.presentation.BusinessobjectsEditorPlugin$Implementation
+Bundle-Activator: domain.presentation.DomainEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: businessobjects.presentation,
- typedefinition.presentation
+Export-Package: domain.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.tura.metamodel.edit;visibility:=reexport,

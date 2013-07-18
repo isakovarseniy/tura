@@ -1,0 +1,7 @@
+# Tracing options for the org.tura.metamodel.application plug-in
+
+# Common issues
+org.tura.metamodel.application/debug=false
+
+# Visual IDs
+org.tura.metamodel.application/debug/visualID=false

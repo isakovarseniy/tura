@@ -155,12 +155,20 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
 
+import application.provider.ApplicationItemProviderAdapterFactory;
+import artifact.provider.ArtifactItemProviderAdapterFactory;
+import mapper.presentation.MapperEditorPlugin;
+import mapper.provider.MapperItemProviderAdapterFactory;
 import businessobjects.presentation.BusinessobjectsEditorPlugin;
-
 import businessobjects.provider.BusinessobjectsItemProviderAdapterFactory;
 
+import domain.presentation.DomainEditorPlugin;
+import domain.provider.DomainItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+
+import recipe.provider.RecipeItemProviderAdapterFactory;
 import typesrepository.presentation.TypesrepositoryEditorPlugin;
+
 import typesrepository.provider.TypesrepositoryItemProviderAdapterFactory;
 
 
@@ -571,7 +579,7 @@ public class TypedefinitionEditor
         }
         catch (CoreException exception)
         {
-          TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+          DomainEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -711,7 +719,7 @@ public class TypedefinitionEditor
         }
         catch (PartInitException exception)
         {
-          TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+          DomainEditorPlugin.INSTANCE.log(exception);
         }
       }
 
@@ -726,7 +734,7 @@ public class TypedefinitionEditor
           }
           catch (CoreException exception)
           {
-            TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+            DomainEditorPlugin.INSTANCE.log(exception);
           }
         }
       }
@@ -773,9 +781,14 @@ public class TypedefinitionEditor
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypesrepositoryItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new DomainItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new BusinessobjectsItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new RecipeItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new TypesrepositoryItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
     // Create the command stack that will notify this editor as commands are executed.
@@ -1701,7 +1714,7 @@ public class TypedefinitionEditor
     {
       // Something went wrong that shouldn't.
       //
-      TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+      DomainEditorPlugin.INSTANCE.log(exception);
     }
     updateProblemIndication = true;
     updateProblemIndication();
@@ -1809,7 +1822,7 @@ public class TypedefinitionEditor
     }
     catch (CoreException exception)
     {
-      TypesrepositoryEditorPlugin.INSTANCE.log(exception);
+      DomainEditorPlugin.INSTANCE.log(exception);
     }
   }
 
@@ -1949,7 +1962,7 @@ public class TypedefinitionEditor
    */
   private static String getString(String key)
   {
-    return TypesrepositoryEditorPlugin.INSTANCE.getString(key);
+    return DomainEditorPlugin.INSTANCE.getString(key);
   }
 
   /**
@@ -1960,7 +1973,7 @@ public class TypedefinitionEditor
    */
   private static String getString(String key, Object s1)
   {
-    return TypesrepositoryEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+    return DomainEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
   }
 
   /**

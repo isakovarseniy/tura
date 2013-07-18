@@ -7,6 +7,7 @@ import businessobjects.BusinessObject;
 import businessobjects.BusinessobjectsFactory;
 import businessobjects.BusinessobjectsPackage;
 
+import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import typedefinition.provider.TypePointerItemProvider;
+
 import typesrepository.provider.TypesrepositoryEditPlugin;
 
 /**
@@ -243,7 +245,7 @@ public class BusinessObjectItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypesrepositoryEditPlugin.INSTANCE;
+    return DomainEditPlugin.INSTANCE;
   }
 
 }

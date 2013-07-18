@@ -13,8 +13,8 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
-
 import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
+
 import recipe.diagram.edit.policies.RecipeRecipeComponentsCompartmentCanonicalEditPolicy;
 import recipe.diagram.edit.policies.RecipeRecipeComponentsCompartmentItemSemanticEditPolicy;
 import recipe.diagram.part.Messages;
@@ -29,7 +29,7 @@ public class RecipeRecipeComponentsCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7001;
+	public static final int VISUAL_ID = 7009;
 
 	/**
 	 * @generated

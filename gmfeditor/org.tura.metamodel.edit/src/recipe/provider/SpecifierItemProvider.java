@@ -3,6 +3,8 @@
 package recipe.provider;
 
 
+import domain.provider.DomainEditPlugin;
+import application.provider.ApplicationEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -187,7 +189,7 @@ public class SpecifierItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return RecipeEditPlugin.INSTANCE;
+    return DomainEditPlugin.INSTANCE;
   }
 
 }

@@ -4,11 +4,15 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: businessobjects.provider.BusinessobjectsEditPlugin$Implementation
+Bundle-Activator: domain.provider.DomainEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: businessobjects.provider,
+Export-Package: application.provider,
+ artifact.provider,
+ businessobjects.provider,
+ domain.provider,
+ mapper.provider,
  recipe.provider,
  typedefinition.provider,
  typesrepository.provider

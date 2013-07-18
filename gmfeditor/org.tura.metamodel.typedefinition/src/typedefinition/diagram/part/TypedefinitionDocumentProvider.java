@@ -585,6 +585,7 @@ public class TypedefinitionDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+
 	protected void doSaveDocument(IProgressMonitor monitor, Object element,
 			IDocument document, boolean overwrite) throws CoreException {
 		ValidateAction.runValidation((View) document.getContent());

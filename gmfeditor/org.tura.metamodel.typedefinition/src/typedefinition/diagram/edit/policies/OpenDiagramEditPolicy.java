@@ -137,6 +137,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 				((View) container).persist();
 				container = container.eContainer();
 			}
+
 			try {
 				new WorkspaceModifyOperation() {
 					protected void execute(IProgressMonitor monitor)

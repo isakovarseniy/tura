@@ -10,7 +10,6 @@ import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsComma
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
-import recipe.diagram.edit.commands.ConfigurationCreateCommand;
 import recipe.diagram.edit.commands.RecipeCreateCommand;
 import recipe.diagram.providers.RecipeElementTypes;
 
@@ -31,11 +30,8 @@ public class RecipesItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RecipeElementTypes.Recipe_2001 == req.getElementType()) {
+		if (RecipeElementTypes.Recipe_2004 == req.getElementType()) {
 			return getGEFWrapper(new RecipeCreateCommand(req));
-		}
-		if (RecipeElementTypes.Configuration_2002 == req.getElementType()) {
-			return getGEFWrapper(new ConfigurationCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

@@ -205,7 +205,7 @@ public class ValidateAction extends Action {
 		final Diagnostic rootStatus = emfValidationStatus;
 		List allDiagnostics = new ArrayList();
 
-		HashMap<String, Diagnostic> hash = new HashMap();
+		HashMap<String, Diagnostic> hash = new HashMap<String, Diagnostic>();
 		for (Iterator it = emfValidationStatus.getChildren().iterator(); it
 				.hasNext();) {
 			Diagnostic nextDiagnostic = (Diagnostic) it.next();

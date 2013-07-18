@@ -249,29 +249,6 @@ public class BusinessobjectsNavigatorContentProvider implements
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(view)) {
 
-		case BusinessObjectsEditPart.VISUAL_ID: {
-			LinkedList<BusinessobjectsAbstractNavigatorItem> result = new LinkedList<BusinessobjectsAbstractNavigatorItem>();
-			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
-			Diagram sv = (Diagram) view;
-			BusinessobjectsNavigatorGroup links = new BusinessobjectsNavigatorGroup(
-					Messages.NavigatorGroupName_BusinessObjects_1000_links,
-					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					BusinessobjectsVisualIDRegistry
-							.getType(BusinessObjectEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					BusinessobjectsVisualIDRegistry
-							.getType(TypeExtensionEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			if (!links.isEmpty()) {
-				result.add(links);
-			}
-			return result.toArray();
-		}
-
 		case BusinessObjectEditPart.VISUAL_ID: {
 			LinkedList<BusinessobjectsAbstractNavigatorItem> result = new LinkedList<BusinessobjectsAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -330,6 +307,29 @@ public class BusinessobjectsNavigatorContentProvider implements
 							.getType(OtherMethodEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			return result.toArray();
+		}
+
+		case BusinessObjectsEditPart.VISUAL_ID: {
+			LinkedList<BusinessobjectsAbstractNavigatorItem> result = new LinkedList<BusinessobjectsAbstractNavigatorItem>();
+			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
+			Diagram sv = (Diagram) view;
+			BusinessobjectsNavigatorGroup links = new BusinessobjectsNavigatorGroup(
+					Messages.NavigatorGroupName_BusinessObjects_1000_links,
+					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					BusinessobjectsVisualIDRegistry
+							.getType(BusinessObjectEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					BusinessobjectsVisualIDRegistry
+							.getType(TypeExtensionEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			if (!links.isEmpty()) {
+				result.add(links);
+			}
 			return result.toArray();
 		}
 		}

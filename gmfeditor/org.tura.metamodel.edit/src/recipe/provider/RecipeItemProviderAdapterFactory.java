@@ -249,6 +249,31 @@ public class RecipeItemProviderAdapterFactory extends RecipeAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link recipe.Variable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected VariableItemProvider variableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link recipe.Variable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createVariableAdapter()
+  {
+    if (variableItemProvider == null)
+    {
+      variableItemProvider = new VariableItemProvider(this);
+    }
+
+    return variableItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link recipe.ArtifactRef} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -391,6 +416,7 @@ public class RecipeItemProviderAdapterFactory extends RecipeAdapterFactory imple
     if (configurationItemProvider != null) configurationItemProvider.dispose();
     if (propertyItemProvider != null) propertyItemProvider.dispose();
     if (specifierItemProvider != null) specifierItemProvider.dispose();
+    if (variableItemProvider != null) variableItemProvider.dispose();
     if (artifactRefItemProvider != null) artifactRefItemProvider.dispose();
   }
 

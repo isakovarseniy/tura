@@ -3,8 +3,7 @@
 package typesrepository.provider;
 
 
-import businessobjects.provider.BusinessObjectsItemProvider;
-
+import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -21,6 +20,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import typesrepository.BusinessPackage;
@@ -33,7 +33,7 @@ import typesrepository.TypesrepositoryPackage;
  * @generated
  */
 public class BusinessPackageItemProvider
-  extends BusinessObjectsItemProvider
+  extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -66,6 +66,7 @@ public class BusinessPackageItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
+      addBusinessobjectsPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -89,6 +90,29 @@ public class BusinessPackageItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Businessobjects feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addBusinessobjectsPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_BusinessPackage_businessobjects_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_BusinessPackage_businessobjects_feature", "_UI_BusinessPackage_type"),
+         TypesrepositoryPackage.Literals.BUSINESS_PACKAGE__BUSINESSOBJECTS,
+         true,
+         false,
+         true,
+         null,
          null,
          null));
   }
@@ -163,7 +187,7 @@ public class BusinessPackageItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return TypesrepositoryEditPlugin.INSTANCE;
+    return DomainEditPlugin.INSTANCE;
   }
 
 }

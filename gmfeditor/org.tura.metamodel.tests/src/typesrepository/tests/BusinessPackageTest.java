@@ -2,7 +2,7 @@
  */
 package typesrepository.tests;
 
-import businessobjects.tests.BusinessObjectsTest;
+import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
@@ -15,8 +15,16 @@ import typesrepository.TypesrepositoryFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BusinessPackageTest extends BusinessObjectsTest
+public class BusinessPackageTest extends TestCase
 {
+
+  /**
+   * The fixture for this Business Package test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BusinessPackage fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -40,15 +48,25 @@ public class BusinessPackageTest extends BusinessObjectsTest
   }
 
   /**
+   * Sets the fixture for this Business Package test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(BusinessPackage fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this Business Package test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected BusinessPackage getFixture()
   {
-    return (BusinessPackage)fixture;
+    return fixture;
   }
 
   /**

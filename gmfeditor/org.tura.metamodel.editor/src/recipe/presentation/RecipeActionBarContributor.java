@@ -2,6 +2,8 @@
  */
 package recipe.presentation;
 
+import domain.presentation.DomainEditorPlugin;
+import application.presentation.ApplicationEditorPlugin;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -72,7 +74,7 @@ public class RecipeActionBarContributor
    * @generated
    */
   protected IAction showPropertiesViewAction =
-    new Action(RecipeEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item"))
+    new Action(DomainEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item"))
     {
       @Override
       public void run()
@@ -83,7 +85,7 @@ public class RecipeActionBarContributor
         }
         catch (PartInitException exception)
         {
-          RecipeEditorPlugin.INSTANCE.log(exception);
+          DomainEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -96,7 +98,7 @@ public class RecipeActionBarContributor
    * @generated
    */
   protected IAction refreshViewerAction =
-    new Action(RecipeEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item"))
+    new Action(DomainEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item"))
     {
       @Override
       public boolean isEnabled()
@@ -191,7 +193,7 @@ public class RecipeActionBarContributor
   {
     super.contributeToMenu(menuManager);
 
-    IMenuManager submenuManager = new MenuManager(RecipeEditorPlugin.INSTANCE.getString("_UI_RecipeEditor_menu"), "recipeMenuID");
+    IMenuManager submenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_RecipeEditor_menu"), "recipeMenuID");
     menuManager.insertAfter("additions", submenuManager);
     submenuManager.add(new Separator("settings"));
     submenuManager.add(new Separator("actions"));
@@ -200,12 +202,12 @@ public class RecipeActionBarContributor
 
     // Prepare for CreateChild item addition or removal.
     //
-    createChildMenuManager = new MenuManager(RecipeEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+    createChildMenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
     submenuManager.insertBefore("additions", createChildMenuManager);
 
     // Prepare for CreateSibling item addition or removal.
     //
-    createSiblingMenuManager = new MenuManager(RecipeEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+    createSiblingMenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
     submenuManager.insertBefore("additions", createSiblingMenuManager);
 
     // Force an update because Eclipse hides empty menus now.
@@ -427,11 +429,11 @@ public class RecipeActionBarContributor
     super.menuAboutToShow(menuManager);
     MenuManager submenuManager = null;
 
-    submenuManager = new MenuManager(RecipeEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+    submenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
     populateManager(submenuManager, createChildActions, null);
     menuManager.insertBefore("edit", submenuManager);
 
-    submenuManager = new MenuManager(RecipeEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+    submenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
     populateManager(submenuManager, createSiblingActions, null);
     menuManager.insertBefore("edit", submenuManager);
   }

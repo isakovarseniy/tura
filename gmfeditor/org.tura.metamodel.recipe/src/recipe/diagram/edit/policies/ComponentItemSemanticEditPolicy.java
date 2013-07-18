@@ -32,7 +32,7 @@ public class ComponentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ComponentItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Component_3001);
+		super(RecipeElementTypes.Component_3004);
 	}
 
 	/**

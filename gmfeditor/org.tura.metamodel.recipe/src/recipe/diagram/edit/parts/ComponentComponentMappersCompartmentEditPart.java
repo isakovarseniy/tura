@@ -14,7 +14,6 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
-import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
 import recipe.diagram.edit.policies.ComponentComponentMappersCompartmentCanonicalEditPolicy;
 import recipe.diagram.edit.policies.ComponentComponentMappersCompartmentItemSemanticEditPolicy;
@@ -30,7 +29,7 @@ public class ComponentComponentMappersCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7003;
+	public static final int VISUAL_ID = 7011;
 
 	/**
 	 * @generated

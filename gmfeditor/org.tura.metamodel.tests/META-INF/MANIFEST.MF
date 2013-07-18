@@ -7,8 +7,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: businessobjects.tests,
- typedefinition.tests
+Export-Package: domain.tests
 Require-Bundle: org.eclipse.core.runtime,
  org.tura.metamodel;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
