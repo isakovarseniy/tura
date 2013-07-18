@@ -26,6 +26,7 @@ class ModelMapper{
    attr EString name;
    val ArtifactRef artifactRef;
    val Specifier[*] specifiers;
+   val Variable[*] variables;
 }
 
 @gmf.node(label="name")
@@ -44,6 +45,11 @@ class Property{
 }
 
 class Specifier{
+   attr EString name;
+   attr EString value;
+}
+
+class Variable{
    attr EString name;
    attr EString value;
 }

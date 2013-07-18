@@ -3,6 +3,11 @@ var genEditorGenerator = GmfGen!GenEditorGenerator.all.first;
 genEditorGenerator.setDynamicTemplates(true);
 genEditorGenerator.setTemplateDirectory('/org.tura.metamodel/templates/');
 
+var plugin = GmfGen!GenPlugin.all.first;
+plugin.id = 'org.tura.metamodel.typesrepository';
+
+
+
 //Enable diagram partition for Package element
 var genTopLevelNode = GmfGen!GenChildNode.all.select(n|n.createCommandClassName = 'PackageCreateCommand').first;
 var behaviour = new GmfGen!OpenDiagramBehaviour;

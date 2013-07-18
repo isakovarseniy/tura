@@ -13,11 +13,19 @@ class Artifacts{
 class Artifact{
    attr EString name;
    attr EString description;
+   
+   // Variables resolved by configuration of recipe (for example server IP)  
    @gmf.compartment
-   val   Variable[*] variables;
+   val   Variable[*] configVariables;
+   
+   // Variables to query model ( for example FormName or service name)
    @gmf.compartment
+   val   Variable[*] modelQuery;
+   
    //For navigation in the template (for example choosing specific technologies EclipseLink vs Hibernate)
+   @gmf.compartment
    val   Specifier[*] specifiers;
+
    attr EString template;
 }
 
@@ -29,4 +37,10 @@ class Variable{
 @gmf.node(label="name")
 class Specifier{
    attr EString name;
+   val  Option[1..*] options;  
+}
+
+@gmf.node(label="name")
+class Option{
+   attr EString value;
 }

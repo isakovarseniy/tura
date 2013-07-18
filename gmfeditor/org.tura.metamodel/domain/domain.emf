@@ -12,19 +12,32 @@ class Domain{
   val DomainApplications[1] domainApplications;
 }
 
+@gmf.node(label="name")
 class DomainArtifacts{
+   attr EString name;  
+   val DomainArtifact artifacrs;
+}
+
+
+@gmf.node(label="name")
+class DomainArtifact{
+   attr EString name;  
    ref artifact.Artifacts artifact;
 }
 
+@gmf.node(label="name")
 class DomainTypes{
+   attr EString name;  
    ref typesrepository.TypesRepository typesrepository;
 }
 
+@gmf.node(label="name")
 class DomainApplications{
    attr EString name;  
    val DomainApplication[*] applications;
 }
 
+@gmf.node(label="name")
 class DomainApplication{
    attr EString name;  
    ref application.Application application;
