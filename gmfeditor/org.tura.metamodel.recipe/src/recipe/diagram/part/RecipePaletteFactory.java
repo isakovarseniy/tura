@@ -81,11 +81,15 @@ public class RecipePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createConfiguration2CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Configuration2CreationTool_title,
-				Messages.Configuration2CreationTool_desc, null, null) {
-		};
+				Messages.Configuration2CreationTool_desc,
+				Collections
+						.singletonList(RecipeElementTypes.Configuration_2005));
 		entry.setId("createConfiguration2CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(RecipeElementTypes
+				.getImageDescriptor(RecipeElementTypes.Configuration_2005));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -108,10 +112,14 @@ public class RecipePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createProperty4CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Property4CreationTool_title,
-				Messages.Property4CreationTool_desc, null, null) {
-		};
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Property4CreationTool_title,
+				Messages.Property4CreationTool_desc,
+				Collections.singletonList(RecipeElementTypes.Property_3005));
 		entry.setId("createProperty4CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(RecipeElementTypes
+				.getImageDescriptor(RecipeElementTypes.Property_3005));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

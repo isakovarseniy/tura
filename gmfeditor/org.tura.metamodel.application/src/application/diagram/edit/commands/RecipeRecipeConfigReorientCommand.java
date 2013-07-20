@@ -78,7 +78,7 @@ public class RecipeRecipeConfigReorientCommand extends EditElementCommand {
 		}
 		return ApplicationBaseItemSemanticEditPolicy
 				.getLinkConstraints()
-				.canExistRecipeRecipeConfig_4001(getNewSource(), getOldTarget());
+				.canExistRecipeRecipeConfig_4002(getNewSource(), getOldTarget());
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class RecipeRecipeConfigReorientCommand extends EditElementCommand {
 		}
 		return ApplicationBaseItemSemanticEditPolicy
 				.getLinkConstraints()
-				.canExistRecipeRecipeConfig_4001(getOldSource(), getNewTarget());
+				.canExistRecipeRecipeConfig_4002(getOldSource(), getNewTarget());
 	}
 
 	/**

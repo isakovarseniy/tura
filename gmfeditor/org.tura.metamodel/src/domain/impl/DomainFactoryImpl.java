@@ -64,19 +64,29 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     switch (eClass.getClassifierID())
     {
+      case DomainPackage.DOMAIN: return createDomain();
       case DomainPackage.DAMMY1: return createDammy1();
       case DomainPackage.DAMMY2: return createDammy2();
       case DomainPackage.DAMMY3: return createDammy3();
       case DomainPackage.DAMMY4: return createDammy4();
-      case DomainPackage.DOMAIN: return createDomain();
       case DomainPackage.DOMAIN_ARTIFACTS: return createDomainArtifacts();
-      case DomainPackage.DOMAIN_ARTIFACT: return createDomainArtifact();
       case DomainPackage.DOMAIN_TYPES: return createDomainTypes();
       case DomainPackage.DOMAIN_APPLICATIONS: return createDomainApplications();
       case DomainPackage.DOMAIN_APPLICATION: return createDomainApplication();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Domain createDomain()
+  {
+    DomainImpl domain = new DomainImpl();
+    return domain;
   }
 
   /**
@@ -128,32 +138,10 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Domain createDomain()
-  {
-    DomainImpl domain = new DomainImpl();
-    return domain;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public DomainArtifacts createDomainArtifacts()
   {
     DomainArtifactsImpl domainArtifacts = new DomainArtifactsImpl();
     return domainArtifacts;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DomainArtifact createDomainArtifact()
-  {
-    DomainArtifactImpl domainArtifact = new DomainArtifactImpl();
-    return domainArtifact;
   }
 
   /**

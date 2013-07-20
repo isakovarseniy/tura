@@ -32,6 +32,15 @@ public interface ApplicationFactory extends EFactory
   Application createApplication();
 
   /**
+   * Returns a new object of class '<em>Dummy5</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dummy5</em>'.
+   * @generated
+   */
+  Dummy5 createDummy5();
+
+  /**
    * Returns a new object of class '<em>Recipes</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

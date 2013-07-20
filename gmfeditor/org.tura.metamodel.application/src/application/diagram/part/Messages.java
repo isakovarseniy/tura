@@ -296,56 +296,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Component5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Component5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Configuration6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Configuration6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String JavaMapper7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String JavaMapper7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ModelMapper8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ModelMapper8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Property9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Property9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
 	public static String ConfigExtension1CreationTool_title;
 
 	/**
@@ -362,6 +312,26 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String RecipeConfig2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationMappersApplicationMappersMappersCompartmentEditPart_title;
 
 	/**
 	 * @generated

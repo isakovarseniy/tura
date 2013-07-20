@@ -181,7 +181,7 @@ public class MappersItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return DomainEditPlugin.INSTANCE;
+    return MapperEditPlugin.INSTANCE;
   }
 
 }

@@ -2,7 +2,6 @@
  */
 package domain.tests;
 
-import domain.Dammy1;
 import domain.Domain;
 import domain.DomainFactory;
 import domain.DomainPackage;
@@ -65,7 +64,7 @@ public class DomainExample
       try
       {
         Resource resource = resourceSet.createResource(URI.createURI("http:///My.domain"));
-        Dammy1 root = DomainFactory.eINSTANCE.createDammy1();
+        Domain root = DomainFactory.eINSTANCE.createDomain();
         resource.getContents().add(root);
         resource.save(System.out, null);
       }

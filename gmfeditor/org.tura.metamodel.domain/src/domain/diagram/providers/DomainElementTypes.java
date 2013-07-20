@@ -22,18 +22,14 @@ import org.eclipse.swt.graphics.Image;
 import recipe.RecipePackage;
 import typedefinition.TypedefinitionPackage;
 import domain.DomainPackage;
-import domain.diagram.edit.parts.Attribute2EditPart;
-import domain.diagram.edit.parts.AttributeEditPart;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import domain.diagram.edit.parts.Dammy1EditPart;
-import domain.diagram.edit.parts.EnumAttributeEditPart;
-import domain.diagram.edit.parts.EnumaratorEditPart;
-import domain.diagram.edit.parts.OperationEditPart;
+import domain.diagram.edit.parts.DomainApplicationEditPart;
+import domain.diagram.edit.parts.DomainApplicationsEditPart;
+import domain.diagram.edit.parts.DomainArtifactsEditPart;
+import domain.diagram.edit.parts.DomainEditPart;
+import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.RecipeRecipeConfigEditPart;
-import domain.diagram.edit.parts.ReturnValueEditPart;
-import domain.diagram.edit.parts.TypeEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
-import domain.diagram.edit.parts.TypeReferenceEditPart;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 
 /**
@@ -65,39 +61,23 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Dammy1_1000 = getElementType("org.tura.metamodel.domain.Dammy1_1000"); //$NON-NLS-1$
+	public static final IElementType Domain_1000 = getElementType("org.tura.metamodel.domain.Domain_1000"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeReference_2004 = getElementType("org.tura.metamodel.domain.TypeReference_2004"); //$NON-NLS-1$
+	public static final IElementType DomainArtifacts_2007 = getElementType("org.tura.metamodel.domain.DomainArtifacts_2007"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Type_2005 = getElementType("org.tura.metamodel.domain.Type_2005"); //$NON-NLS-1$
+	public static final IElementType DomainTypes_2008 = getElementType("org.tura.metamodel.domain.DomainTypes_2008"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Enumarator_2006 = getElementType("org.tura.metamodel.domain.Enumarator_2006"); //$NON-NLS-1$
+	public static final IElementType DomainApplications_2009 = getElementType("org.tura.metamodel.domain.DomainApplications_2009"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Attribute_3001 = getElementType("org.tura.metamodel.domain.Attribute_3001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Operation_3002 = getElementType("org.tura.metamodel.domain.Operation_3002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Attribute_3003 = getElementType("org.tura.metamodel.domain.Attribute_3003"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType ReturnValue_3004 = getElementType("org.tura.metamodel.domain.ReturnValue_3004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType EnumAttribute_3005 = getElementType("org.tura.metamodel.domain.EnumAttribute_3005"); //$NON-NLS-1$
+	public static final IElementType DomainApplication_3002 = getElementType("org.tura.metamodel.domain.DomainApplication_3002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -222,30 +202,19 @@ public class DomainElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Dammy1_1000, DomainPackage.eINSTANCE.getDammy1());
+			elements.put(Domain_1000, DomainPackage.eINSTANCE.getDomain());
 
-			elements.put(TypeReference_2004,
-					TypedefinitionPackage.eINSTANCE.getTypeReference());
+			elements.put(DomainArtifacts_2007,
+					DomainPackage.eINSTANCE.getDomainArtifacts());
 
-			elements.put(Type_2005, TypedefinitionPackage.eINSTANCE.getType());
+			elements.put(DomainTypes_2008,
+					DomainPackage.eINSTANCE.getDomainTypes());
 
-			elements.put(Enumarator_2006,
-					TypedefinitionPackage.eINSTANCE.getEnumarator());
+			elements.put(DomainApplications_2009,
+					DomainPackage.eINSTANCE.getDomainApplications());
 
-			elements.put(Attribute_3001,
-					TypedefinitionPackage.eINSTANCE.getAttribute());
-
-			elements.put(Operation_3002,
-					TypedefinitionPackage.eINSTANCE.getOperation());
-
-			elements.put(Attribute_3003,
-					TypedefinitionPackage.eINSTANCE.getAttribute());
-
-			elements.put(ReturnValue_3004,
-					TypedefinitionPackage.eINSTANCE.getReturnValue());
-
-			elements.put(EnumAttribute_3005,
-					TypedefinitionPackage.eINSTANCE.getEnumAttribute());
+			elements.put(DomainApplication_3002,
+					DomainPackage.eINSTANCE.getDomainApplication());
 
 			elements.put(TypeExtension_4001,
 					TypedefinitionPackage.eINSTANCE.getTypeExtension());
@@ -272,15 +241,11 @@ public class DomainElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(Dammy1_1000);
-			KNOWN_ELEMENT_TYPES.add(TypeReference_2004);
-			KNOWN_ELEMENT_TYPES.add(Type_2005);
-			KNOWN_ELEMENT_TYPES.add(Enumarator_2006);
-			KNOWN_ELEMENT_TYPES.add(Attribute_3001);
-			KNOWN_ELEMENT_TYPES.add(Operation_3002);
-			KNOWN_ELEMENT_TYPES.add(Attribute_3003);
-			KNOWN_ELEMENT_TYPES.add(ReturnValue_3004);
-			KNOWN_ELEMENT_TYPES.add(EnumAttribute_3005);
+			KNOWN_ELEMENT_TYPES.add(Domain_1000);
+			KNOWN_ELEMENT_TYPES.add(DomainArtifacts_2007);
+			KNOWN_ELEMENT_TYPES.add(DomainTypes_2008);
+			KNOWN_ELEMENT_TYPES.add(DomainApplications_2009);
+			KNOWN_ELEMENT_TYPES.add(DomainApplication_3002);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_4001);
 			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_4002);
 			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_4003);
@@ -293,24 +258,16 @@ public class DomainElementTypes {
 	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
-		case Dammy1EditPart.VISUAL_ID:
-			return Dammy1_1000;
-		case TypeReferenceEditPart.VISUAL_ID:
-			return TypeReference_2004;
-		case TypeEditPart.VISUAL_ID:
-			return Type_2005;
-		case EnumaratorEditPart.VISUAL_ID:
-			return Enumarator_2006;
-		case AttributeEditPart.VISUAL_ID:
-			return Attribute_3001;
-		case OperationEditPart.VISUAL_ID:
-			return Operation_3002;
-		case Attribute2EditPart.VISUAL_ID:
-			return Attribute_3003;
-		case ReturnValueEditPart.VISUAL_ID:
-			return ReturnValue_3004;
-		case EnumAttributeEditPart.VISUAL_ID:
-			return EnumAttribute_3005;
+		case DomainEditPart.VISUAL_ID:
+			return Domain_1000;
+		case DomainArtifactsEditPart.VISUAL_ID:
+			return DomainArtifacts_2007;
+		case DomainTypesEditPart.VISUAL_ID:
+			return DomainTypes_2008;
+		case DomainApplicationsEditPart.VISUAL_ID:
+			return DomainApplications_2009;
+		case DomainApplicationEditPart.VISUAL_ID:
+			return DomainApplication_3002;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_4001;
 		case RecipeRecipeConfigEditPart.VISUAL_ID:

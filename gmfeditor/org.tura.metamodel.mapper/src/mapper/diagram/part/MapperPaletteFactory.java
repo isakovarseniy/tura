@@ -38,14 +38,7 @@ public class MapperPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createAttribute1CreationTool());
-		paletteContainer.add(createEnumAttribute2CreationTool());
-		paletteContainer.add(createEnumarator3CreationTool());
-		paletteContainer.add(createJavaMapper4CreationTool());
-		paletteContainer.add(createOperation5CreationTool());
-		paletteContainer.add(createReturnValue6CreationTool());
-		paletteContainer.add(createType7CreationTool());
-		paletteContainer.add(createTypeReference8CreationTool());
+		paletteContainer.add(createJavaMapper1CreationTool());
 		return paletteContainer;
 	}
 
@@ -64,95 +57,15 @@ public class MapperPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createAttribute1CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Attribute1CreationTool_title,
-				Messages.Attribute1CreationTool_desc, null, null) {
-		};
-		entry.setId("createAttribute1CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createEnumAttribute2CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.EnumAttribute2CreationTool_title,
-				Messages.EnumAttribute2CreationTool_desc, null, null) {
-		};
-		entry.setId("createEnumAttribute2CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createEnumarator3CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Enumarator3CreationTool_title,
-				Messages.Enumarator3CreationTool_desc, null, null) {
-		};
-		entry.setId("createEnumarator3CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createJavaMapper4CreationTool() {
+	private ToolEntry createJavaMapper1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.JavaMapper4CreationTool_title,
-				Messages.JavaMapper4CreationTool_desc,
+				Messages.JavaMapper1CreationTool_title,
+				Messages.JavaMapper1CreationTool_desc,
 				Collections.singletonList(MapperElementTypes.JavaMapper_2002));
-		entry.setId("createJavaMapper4CreationTool"); //$NON-NLS-1$
+		entry.setId("createJavaMapper1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(MapperElementTypes
 				.getImageDescriptor(MapperElementTypes.JavaMapper_2002));
 		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createOperation5CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Operation5CreationTool_title,
-				Messages.Operation5CreationTool_desc, null, null) {
-		};
-		entry.setId("createOperation5CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createReturnValue6CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.ReturnValue6CreationTool_title,
-				Messages.ReturnValue6CreationTool_desc, null, null) {
-		};
-		entry.setId("createReturnValue6CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createType7CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Type7CreationTool_title,
-				Messages.Type7CreationTool_desc, null, null) {
-		};
-		entry.setId("createType7CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createTypeReference8CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.TypeReference8CreationTool_title,
-				Messages.TypeReference8CreationTool_desc, null, null) {
-		};
-		entry.setId("createTypeReference8CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

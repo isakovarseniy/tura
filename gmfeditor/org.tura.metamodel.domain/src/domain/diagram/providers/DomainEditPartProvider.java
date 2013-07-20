@@ -14,7 +14,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpart.CreateGraphicEditPar
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.IEditPartOperation;
 import org.eclipse.gmf.runtime.notation.View;
 
-import domain.diagram.edit.parts.Dammy1EditPart;
+import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.edit.parts.DomainEditPartFactory;
 import domain.diagram.part.DomainVisualIDRegistry;
 
@@ -125,7 +125,7 @@ public class DomainEditPartProvider extends AbstractEditPartProvider {
 	public synchronized boolean provides(IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
 			View view = ((IEditPartOperation) operation).getView();
-			if (!Dammy1EditPart.MODEL_ID.equals(DomainVisualIDRegistry
+			if (!DomainEditPart.MODEL_ID.equals(DomainVisualIDRegistry
 					.getModelID(view))) {
 				return false;
 			}

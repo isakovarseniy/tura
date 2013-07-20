@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import typedefinition.TypeDefinition;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Switch</b> for the model's inheritance hierarchy.
@@ -79,6 +81,14 @@ public class ApplicationSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ApplicationPackage.DUMMY5:
+      {
+        Dummy5 dummy5 = (Dummy5)theEObject;
+        T result = caseDummy5(dummy5);
+        if (result == null) result = caseTypeDefinition(dummy5);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ApplicationPackage.APPLICATION_RECIPES:
       {
         ApplicationRecipes applicationRecipes = (ApplicationRecipes)theEObject;
@@ -123,6 +133,22 @@ public class ApplicationSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseApplication(Application object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Dummy5</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Dummy5</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDummy5(Dummy5 object)
   {
     return null;
   }
@@ -187,6 +213,22 @@ public class ApplicationSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseApplicationMapper(ApplicationMapper object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeDefinition(TypeDefinition object)
   {
     return null;
   }

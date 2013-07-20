@@ -24,12 +24,8 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import domain.diagram.edit.parts.Dammy1EditPart;
-import domain.diagram.edit.parts.EnumaratorEditPart;
-import domain.diagram.edit.parts.OperationEditPart;
-import domain.diagram.edit.parts.TypeEditPart;
-import domain.diagram.edit.parts.TypeReferenceEditPart;
-import domain.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
+import domain.diagram.edit.parts.DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart;
+import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.Messages;
 
@@ -44,32 +40,16 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof Dammy1EditPart) {
+		if (editPart instanceof DomainEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
-			types.add(DomainElementTypes.TypeReference_2004);
-			types.add(DomainElementTypes.Type_2005);
-			types.add(DomainElementTypes.Enumarator_2006);
+			types.add(DomainElementTypes.DomainArtifacts_2007);
+			types.add(DomainElementTypes.DomainTypes_2008);
+			types.add(DomainElementTypes.DomainApplications_2009);
 			return types;
 		}
-		if (editPart instanceof TypeEditPart) {
+		if (editPart instanceof DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Attribute_3001);
-			return types;
-		}
-		if (editPart instanceof EnumaratorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.EnumAttribute_3005);
-			return types;
-		}
-		if (editPart instanceof OperationEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(DomainElementTypes.Attribute_3003);
-			types.add(DomainElementTypes.ReturnValue_3004);
-			return types;
-		}
-		if (editPart instanceof TypeTypeOperationsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Operation_3002);
+			types.add(DomainElementTypes.DomainApplication_3002);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
@@ -81,13 +61,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof TypeReferenceEditPart) {
-			return ((TypeReferenceEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -97,13 +70,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof TypeReferenceEditPart) {
-			return ((TypeReferenceEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -116,14 +82,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof TypeReferenceEditPart) {
-			return ((TypeReferenceEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -134,14 +92,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof TypeReferenceEditPart) {
-			return ((TypeReferenceEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -152,14 +102,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof TypeReferenceEditPart) {
-			return ((TypeReferenceEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof TypeEditPart) {
-			return ((TypeEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
 		return Collections.EMPTY_LIST;
 	}
 

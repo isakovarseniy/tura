@@ -117,7 +117,7 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
 				new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new Dammy1EditPart.LinkLabelDragPolicy());
+				new DomainEditPart.LinkLabelDragPolicy());
 	}
 
 	/**

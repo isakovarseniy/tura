@@ -3,6 +3,7 @@
 package domain;
 
 import org.eclipse.emf.ecore.EObject;
+
 import typesrepository.TypesRepository;
 
 /**

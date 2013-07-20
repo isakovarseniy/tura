@@ -37,6 +37,9 @@ import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
 import recipe.Configuration;
 import recipe.Recipe;
+import typedefinition.Type;
+import typedefinition.TypeElement;
+import typedefinition.TypeExtension;
 import application.diagram.part.ApplicationDiagramEditorPlugin;
 import application.diagram.part.ApplicationVisualIDRegistry;
 import application.diagram.providers.ApplicationElementTypes;
@@ -327,7 +330,20 @@ public class ApplicationBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateRecipeRecipeConfig_4001(Recipe source,
+		public boolean canCreateTypeExtension_4001(Type container,
+				TypeElement source, TypeElement target) {
+			if (container != null) {
+				if (container.getExtension() != null) {
+					return false;
+				}
+			}
+			return canExistTypeExtension_4001(container, null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateRecipeRecipeConfig_4002(Recipe source,
 				Configuration target) {
 			if (source != null) {
 				if (source.getRecipeConfig() != null) {
@@ -335,13 +351,13 @@ public class ApplicationBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				}
 			}
 
-			return canExistRecipeRecipeConfig_4001(source, target);
+			return canExistRecipeRecipeConfig_4002(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateConfigurationConfigExtension_4002(
+		public boolean canCreateConfigurationConfigExtension_4003(
 				Configuration source, Configuration target) {
 			if (source != null) {
 				if (source.getConfigExtension() != null) {
@@ -349,13 +365,22 @@ public class ApplicationBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				}
 			}
 
-			return canExistConfigurationConfigExtension_4002(source, target);
+			return canExistConfigurationConfigExtension_4003(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canExistRecipeRecipeConfig_4001(Recipe source,
+		public boolean canExistTypeExtension_4001(Type container,
+				TypeExtension linkInstance, TypeElement source,
+				TypeElement target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistRecipeRecipeConfig_4002(Recipe source,
 				Configuration target) {
 			return true;
 		}
@@ -363,7 +388,7 @@ public class ApplicationBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistConfigurationConfigExtension_4002(
+		public boolean canExistConfigurationConfigExtension_4003(
 				Configuration source, Configuration target) {
 			return true;
 		}

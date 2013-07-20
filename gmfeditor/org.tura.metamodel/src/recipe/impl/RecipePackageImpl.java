@@ -154,34 +154,11 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
 
     isInited = true;
 
-    // Obtain or create and register interdependencies
-    DomainPackageImpl theDomainPackage = (DomainPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) instanceof DomainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) : DomainPackage.eINSTANCE);
-    TypedefinitionPackageImpl theTypedefinitionPackage = (TypedefinitionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) instanceof TypedefinitionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) : TypedefinitionPackage.eINSTANCE);
-    BusinessobjectsPackageImpl theBusinessobjectsPackage = (BusinessobjectsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) instanceof BusinessobjectsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) : BusinessobjectsPackage.eINSTANCE);
-    MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
-    ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
-    TypesrepositoryPackageImpl theTypesrepositoryPackage = (TypesrepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) instanceof TypesrepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) : TypesrepositoryPackage.eINSTANCE);
-    ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
-
     // Create package meta-data objects
     theRecipePackage.createPackageContents();
-    theDomainPackage.createPackageContents();
-    theTypedefinitionPackage.createPackageContents();
-    theBusinessobjectsPackage.createPackageContents();
-    theMapperPackage.createPackageContents();
-    theArtifactPackage.createPackageContents();
-    theTypesrepositoryPackage.createPackageContents();
-    theApplicationPackage.createPackageContents();
 
     // Initialize created meta-data
     theRecipePackage.initializePackageContents();
-    theDomainPackage.initializePackageContents();
-    theTypedefinitionPackage.initializePackageContents();
-    theBusinessobjectsPackage.initializePackageContents();
-    theMapperPackage.initializePackageContents();
-    theArtifactPackage.initializePackageContents();
-    theTypesrepositoryPackage.initializePackageContents();
-    theApplicationPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theRecipePackage.freeze();
@@ -210,6 +187,16 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
   public EReference getRecipes_Recipe()
   {
     return (EReference)recipesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRecipes_Configurations()
+  {
+    return (EReference)recipesEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -524,6 +511,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
     // Create classes and their features
     recipesEClass = createEClass(RECIPES);
     createEReference(recipesEClass, RECIPES__RECIPE);
+    createEReference(recipesEClass, RECIPES__CONFIGURATIONS);
 
     recipeEClass = createEClass(RECIPE);
     createEAttribute(recipeEClass, RECIPE__NAME);
@@ -595,6 +583,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
     // Initialize classes and features; add operations and parameters
     initEClass(recipesEClass, Recipes.class, "Recipes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRecipes_Recipe(), this.getRecipe(), null, "recipe", null, 0, 1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRecipes_Configurations(), this.getConfiguration(), null, "configurations", null, 0, -1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(recipeEClass, Recipe.class, "Recipe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRecipe_Name(), ecorePackage.getEString(), "name", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

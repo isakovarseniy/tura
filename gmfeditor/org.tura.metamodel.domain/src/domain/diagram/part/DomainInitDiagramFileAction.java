@@ -21,7 +21,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
-import domain.diagram.edit.parts.Dammy1EditPart;
+import domain.diagram.edit.parts.DomainEditPart;
 
 /**
  * @generated
@@ -93,7 +93,7 @@ public class DomainInitDiagramFileAction implements IObjectActionDelegate {
 		Wizard wizard = new DomainNewDiagramFileWizard(domainModelURI,
 				diagramRoot, editingDomain);
 		wizard.setWindowTitle(NLS.bind(Messages.InitDiagramFile_WizardTitle,
-				Dammy1EditPart.MODEL_ID));
+				DomainEditPart.MODEL_ID));
 		DomainDiagramEditorUtil
 				.runWizard(getShell(), wizard, "InitDiagramFile"); //$NON-NLS-1$
 	}

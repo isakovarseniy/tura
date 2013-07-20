@@ -7,17 +7,10 @@
 	private static «EXPAND MetaModel::QualifiedClassName FOR domainDiagramElement» createInitialModel() {
 
 	«IF  self.editPartClassName.indexOf('TypesRepositoryEditPart') > 0-»
-
-		typesrepository.TypesRepository model = typesrepository.TypesrepositoryFactory.eINSTANCE.createTypesRepository();
-		typesrepository.Types types = typesrepository.TypesrepositoryFactory.eINSTANCE.createTypes();
-		model.setTypeDefinition(types);
-		
-		for (int i=0; i < org.tura.metamodel.commons.PlatformPrimetiveTypes.values().length;i++){
-			typesrepository.Primitive primitive =typesrepository.TypesrepositoryFactory.eINSTANCE.createPrimitive();
-			primitive.setName(org.tura.metamodel.commons.PlatformPrimetiveTypes.values()[i].name());
-			types.getPrimitives().add(primitive);
-		}
-		return model;
+		return org.tura.metamodel.commons.initdiagram.InitDiagram.initTypesRepositoryDiagram();
+	}
+	«ELSEIF  self.editPartClassName.indexOf('DomainEditPart') > 0-»
+		return org.tura.metamodel.commons.initdiagram.InitDiagram.initDomainDiagram();
 	}
 	«ELSE-»
 		return «EXPAND MetaModel::NewInstance FOR domainDiagramElement»;

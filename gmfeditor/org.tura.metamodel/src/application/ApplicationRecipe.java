@@ -4,6 +4,7 @@ package application;
 
 import org.eclipse.emf.ecore.EObject;
 
+import recipe.Recipes;
 import recipe.Recipe;
 
 /**
@@ -60,12 +61,12 @@ public interface ApplicationRecipe extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Recipes</em>' reference.
-   * @see #setRecipes(Recipe)
+   * @see #setRecipes(Recipes)
    * @see application.ApplicationPackage#getApplicationRecipe_Recipes()
    * @model
    * @generated
    */
-  Recipe getRecipes();
+  Recipes getRecipes();
 
   /**
    * Sets the value of the '{@link application.ApplicationRecipe#getRecipes <em>Recipes</em>}' reference.
@@ -75,6 +76,6 @@ public interface ApplicationRecipe extends EObject
    * @see #getRecipes()
    * @generated
    */
-  void setRecipes(Recipe value);
+  void setRecipes(Recipes value);
 
 } // ApplicationRecipe

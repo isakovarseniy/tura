@@ -156,16 +156,12 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import application.provider.ApplicationItemProviderAdapterFactory;
 
 import mapper.provider.MapperItemProviderAdapterFactory;
-import artifact.provider.ArtifactItemProviderAdapterFactory;
-import businessobjects.provider.BusinessobjectsItemProviderAdapterFactory;
-import domain.presentation.DomainEditorPlugin;
-
-import domain.provider.DomainItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+
 import recipe.provider.RecipeItemProviderAdapterFactory;
+
 import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
-import typesrepository.provider.TypesrepositoryItemProviderAdapterFactory;
 
 
 /**
@@ -575,7 +571,7 @@ public class ApplicationEditor
         }
         catch (CoreException exception)
         {
-          DomainEditorPlugin.INSTANCE.log(exception);
+          ApplicationEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -715,7 +711,7 @@ public class ApplicationEditor
         }
         catch (PartInitException exception)
         {
-          DomainEditorPlugin.INSTANCE.log(exception);
+          ApplicationEditorPlugin.INSTANCE.log(exception);
         }
       }
 
@@ -730,7 +726,7 @@ public class ApplicationEditor
           }
           catch (CoreException exception)
           {
-            DomainEditorPlugin.INSTANCE.log(exception);
+            ApplicationEditorPlugin.INSTANCE.log(exception);
           }
         }
       }
@@ -777,14 +773,10 @@ public class ApplicationEditor
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new DomainItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new BusinessobjectsItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new RecipeItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypesrepositoryItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
     // Create the command stack that will notify this editor as commands are executed.
@@ -1710,7 +1702,7 @@ public class ApplicationEditor
     {
       // Something went wrong that shouldn't.
       //
-      DomainEditorPlugin.INSTANCE.log(exception);
+      ApplicationEditorPlugin.INSTANCE.log(exception);
     }
     updateProblemIndication = true;
     updateProblemIndication();
@@ -1818,7 +1810,7 @@ public class ApplicationEditor
     }
     catch (CoreException exception)
     {
-      DomainEditorPlugin.INSTANCE.log(exception);
+      ApplicationEditorPlugin.INSTANCE.log(exception);
     }
   }
 
@@ -1958,7 +1950,7 @@ public class ApplicationEditor
    */
   private static String getString(String key)
   {
-    return DomainEditorPlugin.INSTANCE.getString(key);
+    return ApplicationEditorPlugin.INSTANCE.getString(key);
   }
 
   /**
@@ -1969,7 +1961,7 @@ public class ApplicationEditor
    */
   private static String getString(String key, Object s1)
   {
-    return DomainEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+    return ApplicationEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
   }
 
   /**

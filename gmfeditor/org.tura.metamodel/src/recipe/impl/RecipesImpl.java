@@ -2,15 +2,20 @@
  */
 package recipe.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import recipe.Configuration;
 import recipe.Recipe;
 import recipe.RecipePackage;
 import recipe.Recipes;
@@ -23,6 +28,7 @@ import recipe.Recipes;
  * The following features are implemented:
  * <ul>
  *   <li>{@link recipe.impl.RecipesImpl#getRecipe <em>Recipe</em>}</li>
+ *   <li>{@link recipe.impl.RecipesImpl#getConfigurations <em>Configurations</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,6 +45,16 @@ public class RecipesImpl extends EObjectImpl implements Recipes
    * @ordered
    */
   protected Recipe recipe;
+
+  /**
+   * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConfigurations()
+   * @generated
+   * @ordered
+   */
+  protected EList<Configuration> configurations;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,6 +130,20 @@ public class RecipesImpl extends EObjectImpl implements Recipes
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Configuration> getConfigurations()
+  {
+    if (configurations == null)
+    {
+      configurations = new EObjectContainmentEList<Configuration>(Configuration.class, this, RecipePackage.RECIPES__CONFIGURATIONS);
+    }
+    return configurations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -121,6 +151,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes
     {
       case RecipePackage.RECIPES__RECIPE:
         return basicSetRecipe(null, msgs);
+      case RecipePackage.RECIPES__CONFIGURATIONS:
+        return ((InternalEList<?>)getConfigurations()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,6 +169,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes
     {
       case RecipePackage.RECIPES__RECIPE:
         return getRecipe();
+      case RecipePackage.RECIPES__CONFIGURATIONS:
+        return getConfigurations();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -146,6 +180,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -153,6 +188,10 @@ public class RecipesImpl extends EObjectImpl implements Recipes
     {
       case RecipePackage.RECIPES__RECIPE:
         setRecipe((Recipe)newValue);
+        return;
+      case RecipePackage.RECIPES__CONFIGURATIONS:
+        getConfigurations().clear();
+        getConfigurations().addAll((Collection<? extends Configuration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,6 +210,9 @@ public class RecipesImpl extends EObjectImpl implements Recipes
       case RecipePackage.RECIPES__RECIPE:
         setRecipe((Recipe)null);
         return;
+      case RecipePackage.RECIPES__CONFIGURATIONS:
+        getConfigurations().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -187,6 +229,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes
     {
       case RecipePackage.RECIPES__RECIPE:
         return recipe != null;
+      case RecipePackage.RECIPES__CONFIGURATIONS:
+        return configurations != null && !configurations.isEmpty();
     }
     return super.eIsSet(featureID);
   }

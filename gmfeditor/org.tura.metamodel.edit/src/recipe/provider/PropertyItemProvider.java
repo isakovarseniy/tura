@@ -189,7 +189,7 @@ public class PropertyItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return DomainEditPlugin.INSTANCE;
+    return RecipeEditPlugin.INSTANCE;
   }
 
 }

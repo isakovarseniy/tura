@@ -103,18 +103,18 @@ public class TypesrepositoryNavigatorLabelProvider extends LabelProvider
 	 */
 	public Image getImage(View view) {
 		switch (TypesrepositoryVisualIDRegistry.getVisualID(view)) {
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", TypesrepositoryElementTypes.TypeExtension_4001); //$NON-NLS-1$
-		case PackageEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/typesrepository?Package", TypesrepositoryElementTypes.Package_3001); //$NON-NLS-1$
 		case TypesEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/typesrepository?Types", TypesrepositoryElementTypes.Types_2001); //$NON-NLS-1$
 		case PrimitiveEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/typesrepository?Primitive", TypesrepositoryElementTypes.Primitive_3003); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", TypesrepositoryElementTypes.TypeExtension_4001); //$NON-NLS-1$
+		case PackageEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/typesrepository?Package", TypesrepositoryElementTypes.Package_3001); //$NON-NLS-1$
 		case BusinessPackageEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/typesrepository?BusinessPackage", TypesrepositoryElementTypes.BusinessPackage_3002); //$NON-NLS-1$
@@ -181,20 +181,40 @@ public class TypesrepositoryNavigatorLabelProvider extends LabelProvider
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (TypesrepositoryVisualIDRegistry.getVisualID(view)) {
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001Text(view);
-		case PackageEditPart.VISUAL_ID:
-			return getPackage_3001Text(view);
 		case TypesEditPart.VISUAL_ID:
 			return getTypes_2001Text(view);
 		case PrimitiveEditPart.VISUAL_ID:
 			return getPrimitive_3003Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_4001Text(view);
+		case PackageEditPart.VISUAL_ID:
+			return getPackage_3001Text(view);
 		case BusinessPackageEditPart.VISUAL_ID:
 			return getBusinessPackage_3002Text(view);
 		case TypesRepositoryEditPart.VISUAL_ID:
 			return getTypesRepository_1000Text(view);
 		}
 		return getUnknownElementText(view);
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getPrimitive_3003Text(View view) {
+		IParser parser = TypesrepositoryParserProvider.getParser(
+				TypesrepositoryElementTypes.Primitive_3003,
+				view.getElement() != null ? view.getElement() : view,
+				TypesrepositoryVisualIDRegistry
+						.getType(PrimitiveNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			TypesrepositoryDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5003); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**
@@ -240,26 +260,6 @@ public class TypesrepositoryNavigatorLabelProvider extends LabelProvider
 		} else {
 			TypesrepositoryDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 5004); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getPrimitive_3003Text(View view) {
-		IParser parser = TypesrepositoryParserProvider.getParser(
-				TypesrepositoryElementTypes.Primitive_3003,
-				view.getElement() != null ? view.getElement() : view,
-				TypesrepositoryVisualIDRegistry
-						.getType(PrimitiveNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			TypesrepositoryDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

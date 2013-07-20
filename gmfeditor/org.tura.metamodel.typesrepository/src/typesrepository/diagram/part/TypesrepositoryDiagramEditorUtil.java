@@ -51,12 +51,9 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
-import org.tura.metamodel.commons.PlatformPrimetiveTypes;
+import org.tura.metamodel.commons.initdiagram.InitDiagram;
 
-import typesrepository.Primitive;
-import typesrepository.Types;
 import typesrepository.TypesRepository;
-import typesrepository.TypesrepositoryFactory;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
 
 /**
@@ -232,18 +229,7 @@ public class TypesrepositoryDiagramEditorUtil {
 
 	private static TypesRepository createInitialModel() {
 
-		TypesRepository model = TypesrepositoryFactory.eINSTANCE
-				.createTypesRepository();
-		Types types = TypesrepositoryFactory.eINSTANCE.createTypes();
-		model.setTypeDefinition(types);
-
-		for (int i = 0; i < PlatformPrimetiveTypes.values().length; i++) {
-			Primitive primitive = TypesrepositoryFactory.eINSTANCE
-					.createPrimitive();
-			primitive.setName(PlatformPrimetiveTypes.values()[i].name());
-			types.getPrimitives().add(primitive);
-		}
-		return model;
+		return InitDiagram.initTypesRepositoryDiagram();
 	}
 
 	/**

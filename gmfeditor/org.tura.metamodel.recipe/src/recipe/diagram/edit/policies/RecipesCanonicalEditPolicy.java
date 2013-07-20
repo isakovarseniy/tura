@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Set;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -35,7 +37,9 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import recipe.RecipePackage;
 import recipe.diagram.edit.parts.Component2EditPart;
 import recipe.diagram.edit.parts.ComponentEditPart;
+import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
+import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
 import recipe.diagram.part.RecipeDiagramUpdater;
@@ -47,6 +51,11 @@ import recipe.diagram.part.RecipeVisualIDRegistry;
  * @generated
  */
 public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
+
+	/**
+	 * @generated
+	 */
+	private Set<EStructuralFeature> myFeaturesToSynchronize;
 
 	/**
 	 * @generated
@@ -63,8 +72,15 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected EStructuralFeature getFeatureToSynchronize() {
-		return RecipePackage.eINSTANCE.getRecipes_Recipe();
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(RecipePackage.eINSTANCE
+					.getRecipes_Recipe());
+			myFeaturesToSynchronize.add(RecipePackage.eINSTANCE
+					.getRecipes_Configurations());
+		}
+		return myFeaturesToSynchronize;
 	}
 
 	/**
@@ -98,8 +114,9 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return RecipeEditPart.VISUAL_ID == RecipeVisualIDRegistry
-				.getVisualID(view);
+		int visualID = RecipeVisualIDRegistry.getVisualID(view);
+		return visualID == RecipeEditPart.VISUAL_ID
+				|| visualID == ConfigurationEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -276,6 +293,14 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
+		case ConfigurationEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(RecipeDiagramUpdater
+						.getConfiguration_2005ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
 		case ComponentEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RecipeDiagramUpdater
@@ -296,6 +321,14 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RecipeDiagramUpdater
 						.getModelMapper_3003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case PropertyEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(RecipeDiagramUpdater
+						.getProperty_3005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

@@ -76,13 +76,22 @@ public interface RecipePackage extends EPackage
   int RECIPES__RECIPE = 0;
 
   /**
+   * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPES__CONFIGURATIONS = 1;
+
+  /**
    * The number of structural features of the '<em>Recipes</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECIPES_FEATURE_COUNT = 1;
+  int RECIPES_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link recipe.impl.RecipeImpl <em>Recipe</em>}' class.
@@ -439,6 +448,17 @@ public interface RecipePackage extends EPackage
   EReference getRecipes_Recipe();
 
   /**
+   * Returns the meta object for the containment reference list '{@link recipe.Recipes#getConfigurations <em>Configurations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Configurations</em>'.
+   * @see recipe.Recipes#getConfigurations()
+   * @see #getRecipes()
+   * @generated
+   */
+  EReference getRecipes_Configurations();
+
+  /**
    * Returns the meta object for class '{@link recipe.Recipe <em>Recipe</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -778,6 +798,14 @@ public interface RecipePackage extends EPackage
      * @generated
      */
     EReference RECIPES__RECIPE = eINSTANCE.getRecipes_Recipe();
+
+    /**
+     * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECIPES__CONFIGURATIONS = eINSTANCE.getRecipes_Configurations();
 
     /**
      * The meta object literal for the '{@link recipe.impl.RecipeImpl <em>Recipe</em>}' class.

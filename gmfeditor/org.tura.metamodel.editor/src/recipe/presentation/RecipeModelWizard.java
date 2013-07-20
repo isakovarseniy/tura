@@ -104,7 +104,7 @@ public class RecipeModelWizard extends Wizard implements INewWizard
    * @generated
    */
   public static final List<String> FILE_EXTENSIONS =
-    Collections.unmodifiableList(Arrays.asList(DomainEditorPlugin.INSTANCE.getString("_UI_RecipeEditorFilenameExtensions").split("\\s*,\\s*")));
+    Collections.unmodifiableList(Arrays.asList(RecipeEditorPlugin.INSTANCE.getString("_UI_RecipeEditorFilenameExtensions").split("\\s*,\\s*")));
 
   /**
    * A formatted list of supported file extensions, suitable for display.
@@ -113,7 +113,7 @@ public class RecipeModelWizard extends Wizard implements INewWizard
    * @generated
    */
   public static final String FORMATTED_FILE_EXTENSIONS =
-    DomainEditorPlugin.INSTANCE.getString("_UI_RecipeEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+    RecipeEditorPlugin.INSTANCE.getString("_UI_RecipeEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
   /**
    * This caches an instance of the model package.
@@ -181,8 +181,8 @@ public class RecipeModelWizard extends Wizard implements INewWizard
   {
     this.workbench = workbench;
     this.selection = selection;
-    setWindowTitle(DomainEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-    setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(DomainEditorPlugin.INSTANCE.getImage("full/wizban/NewRecipe")));
+    setWindowTitle(RecipeEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+    setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(RecipeEditorPlugin.INSTANCE.getImage("full/wizban/NewRecipe")));
   }
 
   /**
@@ -278,7 +278,7 @@ public class RecipeModelWizard extends Wizard implements INewWizard
             }
             catch (Exception exception)
             {
-              DomainEditorPlugin.INSTANCE.log(exception);
+              RecipeEditorPlugin.INSTANCE.log(exception);
             }
             finally
             {
@@ -317,7 +317,7 @@ public class RecipeModelWizard extends Wizard implements INewWizard
       }
       catch (PartInitException exception)
       {
-        MessageDialog.openError(workbenchWindow.getShell(), DomainEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+        MessageDialog.openError(workbenchWindow.getShell(), RecipeEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
         return false;
       }
 
@@ -325,7 +325,7 @@ public class RecipeModelWizard extends Wizard implements INewWizard
     }
     catch (Exception exception)
     {
-      DomainEditorPlugin.INSTANCE.log(exception);
+      RecipeEditorPlugin.INSTANCE.log(exception);
       return false;
     }
   }
@@ -364,7 +364,7 @@ public class RecipeModelWizard extends Wizard implements INewWizard
         if (extension == null || !FILE_EXTENSIONS.contains(extension))
         {
           String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-          setErrorMessage(DomainEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+          setErrorMessage(RecipeEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
           return false;
         }
         return true;
@@ -446,7 +446,7 @@ public class RecipeModelWizard extends Wizard implements INewWizard
 
       Label containerLabel = new Label(composite, SWT.LEFT);
       {
-        containerLabel.setText(DomainEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+        containerLabel.setText(RecipeEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
         GridData data = new GridData();
         data.horizontalAlignment = GridData.FILL;
@@ -474,7 +474,7 @@ public class RecipeModelWizard extends Wizard implements INewWizard
 
       Label encodingLabel = new Label(composite, SWT.LEFT);
       {
-        encodingLabel.setText(DomainEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+        encodingLabel.setText(RecipeEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
         GridData data = new GridData();
         data.horizontalAlignment = GridData.FILL;
@@ -587,11 +587,11 @@ public class RecipeModelWizard extends Wizard implements INewWizard
     {
       try
       {
-        return DomainEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+        return RecipeEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
       }
       catch(MissingResourceException mre)
       {
-        DomainEditorPlugin.INSTANCE.log(mre);
+        RecipeEditorPlugin.INSTANCE.log(mre);
       }
       return typeName;
     }
@@ -606,7 +606,7 @@ public class RecipeModelWizard extends Wizard implements INewWizard
       if (encodings == null)
       {
         encodings = new ArrayList<String>();
-        for (StringTokenizer stringTokenizer = new StringTokenizer(DomainEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
+        for (StringTokenizer stringTokenizer = new StringTokenizer(RecipeEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
         {
           encodings.add(stringTokenizer.nextToken());
         }
@@ -627,9 +627,9 @@ public class RecipeModelWizard extends Wizard implements INewWizard
     // Create a page, set the title, and the initial model file name.
     //
     newFileCreationPage = new RecipeModelWizardNewFileCreationPage("Whatever", selection);
-    newFileCreationPage.setTitle(DomainEditorPlugin.INSTANCE.getString("_UI_RecipeModelWizard_label"));
-    newFileCreationPage.setDescription(DomainEditorPlugin.INSTANCE.getString("_UI_RecipeModelWizard_description"));
-    newFileCreationPage.setFileName(DomainEditorPlugin.INSTANCE.getString("_UI_RecipeEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+    newFileCreationPage.setTitle(RecipeEditorPlugin.INSTANCE.getString("_UI_RecipeModelWizard_label"));
+    newFileCreationPage.setDescription(RecipeEditorPlugin.INSTANCE.getString("_UI_RecipeModelWizard_description"));
+    newFileCreationPage.setFileName(RecipeEditorPlugin.INSTANCE.getString("_UI_RecipeEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
     addPage(newFileCreationPage);
 
     // Try and get the resource selection to determine a current directory for the file dialog.
@@ -659,7 +659,7 @@ public class RecipeModelWizard extends Wizard implements INewWizard
 
           // Make up a unique new name here.
           //
-          String defaultModelBaseFilename = DomainEditorPlugin.INSTANCE.getString("_UI_RecipeEditorFilenameDefaultBase");
+          String defaultModelBaseFilename = RecipeEditorPlugin.INSTANCE.getString("_UI_RecipeEditorFilenameDefaultBase");
           String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
           String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
           for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i)
@@ -671,8 +671,8 @@ public class RecipeModelWizard extends Wizard implements INewWizard
       }
     }
     initialObjectCreationPage = new RecipeModelWizardInitialObjectCreationPage("Whatever2");
-    initialObjectCreationPage.setTitle(DomainEditorPlugin.INSTANCE.getString("_UI_RecipeModelWizard_label"));
-    initialObjectCreationPage.setDescription(DomainEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+    initialObjectCreationPage.setTitle(RecipeEditorPlugin.INSTANCE.getString("_UI_RecipeModelWizard_label"));
+    initialObjectCreationPage.setDescription(RecipeEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
     addPage(initialObjectCreationPage);
   }
 

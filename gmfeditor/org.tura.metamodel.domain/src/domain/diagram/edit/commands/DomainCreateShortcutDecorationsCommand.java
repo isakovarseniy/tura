@@ -18,7 +18,7 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.notation.View;
 
-import domain.diagram.edit.parts.Dammy1EditPart;
+import domain.diagram.edit.parts.DomainEditPart;
 
 /**
  * @generated
@@ -65,7 +65,7 @@ public class DomainCreateShortcutDecorationsCommand extends
 						.createEAnnotation();
 				shortcutAnnotation.setSource("Shortcut"); //$NON-NLS-1$
 				shortcutAnnotation.getDetails().put(
-						"modelID", Dammy1EditPart.MODEL_ID); //$NON-NLS-1$
+						"modelID", DomainEditPart.MODEL_ID); //$NON-NLS-1$
 				view.getEAnnotations().add(shortcutAnnotation);
 			}
 		}

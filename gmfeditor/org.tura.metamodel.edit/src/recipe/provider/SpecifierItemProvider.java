@@ -189,7 +189,7 @@ public class SpecifierItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return DomainEditPlugin.INSTANCE;
+    return RecipeEditPlugin.INSTANCE;
   }
 
 }

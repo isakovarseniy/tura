@@ -256,82 +256,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Attribute1CreationTool_title;
+	public static String JavaMapper1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Attribute1CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String EnumAttribute2CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String EnumAttribute2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Enumarator3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Enumarator3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String JavaMapper4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String JavaMapper4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Operation5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Operation5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ReturnValue6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ReturnValue6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Type7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Type7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference8CreationTool_desc;
+	public static String JavaMapper1CreationTool_desc;
 
 	/**
 	 * @generated

@@ -16,7 +16,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Image;
 
-import domain.diagram.edit.parts.Dammy1EditPart;
+import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.DomainVisualIDRegistry;
 
@@ -42,7 +42,7 @@ public class DomainShortcutsDecoratorProvider extends AbstractProvider
 				.getDecoratorTarget();
 		View view = (View) decoratorTarget.getAdapter(View.class);
 		return view != null
-				&& Dammy1EditPart.MODEL_ID.equals(DomainVisualIDRegistry
+				&& DomainEditPart.MODEL_ID.equals(DomainVisualIDRegistry
 						.getModelID(view));
 	}
 

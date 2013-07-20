@@ -11,33 +11,21 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import typedefinition.TypedefinitionPackage;
-import domain.Dammy1;
+import domain.Domain;
 import domain.DomainPackage;
-import domain.diagram.edit.parts.Attribute2EditPart;
-import domain.diagram.edit.parts.AttributeEditPart;
-import domain.diagram.edit.parts.AttributeName2EditPart;
-import domain.diagram.edit.parts.AttributeNameEditPart;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import domain.diagram.edit.parts.Dammy1EditPart;
-import domain.diagram.edit.parts.EnumAttributeEditPart;
-import domain.diagram.edit.parts.EnumAttributeNameEditPart;
-import domain.diagram.edit.parts.EnumaratorEditPart;
-import domain.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
-import domain.diagram.edit.parts.EnumaratorNameEditPart;
-import domain.diagram.edit.parts.OperationEditPart;
-import domain.diagram.edit.parts.OperationNameEditPart;
-import domain.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
-import domain.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
+import domain.diagram.edit.parts.DomainApplicationEditPart;
+import domain.diagram.edit.parts.DomainApplicationNameEditPart;
+import domain.diagram.edit.parts.DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart;
+import domain.diagram.edit.parts.DomainApplicationsEditPart;
+import domain.diagram.edit.parts.DomainApplicationsNameEditPart;
+import domain.diagram.edit.parts.DomainArtifactsEditPart;
+import domain.diagram.edit.parts.DomainArtifactsNameEditPart;
+import domain.diagram.edit.parts.DomainEditPart;
+import domain.diagram.edit.parts.DomainTypesEditPart;
+import domain.diagram.edit.parts.DomainTypesNameEditPart;
 import domain.diagram.edit.parts.RecipeRecipeConfigEditPart;
-import domain.diagram.edit.parts.ReturnValueEditPart;
-import domain.diagram.edit.parts.ReturnValuePackageNameTypeNameEditPart;
-import domain.diagram.edit.parts.TypeEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
-import domain.diagram.edit.parts.TypeNameEditPart;
-import domain.diagram.edit.parts.TypeReferenceEditPart;
-import domain.diagram.edit.parts.TypeReferencePackageNameTypeNameEditPart;
-import domain.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
-import domain.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
 import domain.diagram.edit.parts.WrappingLabel2EditPart;
 import domain.diagram.edit.parts.WrappingLabelEditPart;
 
@@ -60,8 +48,8 @@ public class DomainVisualIDRegistry {
 	 */
 	public static int getVisualID(View view) {
 		if (view instanceof Diagram) {
-			if (Dammy1EditPart.MODEL_ID.equals(view.getType())) {
-				return Dammy1EditPart.VISUAL_ID;
+			if (DomainEditPart.MODEL_ID.equals(view.getType())) {
+				return DomainEditPart.VISUAL_ID;
 			} else {
 				return -1;
 			}
@@ -116,10 +104,10 @@ public class DomainVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (DomainPackage.eINSTANCE.getDammy1().isSuperTypeOf(
+		if (DomainPackage.eINSTANCE.getDomain().isSuperTypeOf(
 				domainElement.eClass())
-				&& isDiagram((Dammy1) domainElement)) {
-			return Dammy1EditPart.VISUAL_ID;
+				&& isDiagram((Domain) domainElement)) {
+			return DomainEditPart.VISUAL_ID;
 		}
 		return -1;
 	}
@@ -133,64 +121,40 @@ public class DomainVisualIDRegistry {
 		}
 		String containerModelID = domain.diagram.part.DomainVisualIDRegistry
 				.getModelID(containerView);
-		if (!Dammy1EditPart.MODEL_ID.equals(containerModelID)
+		if (!DomainEditPart.MODEL_ID.equals(containerModelID)
 				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return -1;
 		}
 		int containerVisualID;
-		if (Dammy1EditPart.MODEL_ID.equals(containerModelID)) {
+		if (DomainEditPart.MODEL_ID.equals(containerModelID)) {
 			containerVisualID = domain.diagram.part.DomainVisualIDRegistry
 					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
-				containerVisualID = Dammy1EditPart.VISUAL_ID;
+				containerVisualID = DomainEditPart.VISUAL_ID;
 			} else {
 				return -1;
 			}
 		}
 		switch (containerVisualID) {
-		case Dammy1EditPart.VISUAL_ID:
-			if (TypedefinitionPackage.eINSTANCE.getTypeReference()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return TypeReferenceEditPart.VISUAL_ID;
-			}
-			if (TypedefinitionPackage.eINSTANCE.getType().isSuperTypeOf(
+		case DomainEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getDomainArtifacts().isSuperTypeOf(
 					domainElement.eClass())) {
-				return TypeEditPart.VISUAL_ID;
+				return DomainArtifactsEditPart.VISUAL_ID;
 			}
-			if (TypedefinitionPackage.eINSTANCE.getEnumarator().isSuperTypeOf(
+			if (DomainPackage.eINSTANCE.getDomainTypes().isSuperTypeOf(
 					domainElement.eClass())) {
-				return EnumaratorEditPart.VISUAL_ID;
+				return DomainTypesEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getDomainApplications().isSuperTypeOf(
+					domainElement.eClass())) {
+				return DomainApplicationsEditPart.VISUAL_ID;
 			}
 			break;
-		case TypeTypeAttributesCompartmentEditPart.VISUAL_ID:
-			if (TypedefinitionPackage.eINSTANCE.getAttribute().isSuperTypeOf(
+		case DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getDomainApplication().isSuperTypeOf(
 					domainElement.eClass())) {
-				return AttributeEditPart.VISUAL_ID;
-			}
-			break;
-		case TypeTypeOperationsCompartmentEditPart.VISUAL_ID:
-			if (TypedefinitionPackage.eINSTANCE.getOperation().isSuperTypeOf(
-					domainElement.eClass())) {
-				return OperationEditPart.VISUAL_ID;
-			}
-			break;
-		case OperationOperationParametersCompartmentEditPart.VISUAL_ID:
-			if (TypedefinitionPackage.eINSTANCE.getAttribute().isSuperTypeOf(
-					domainElement.eClass())) {
-				return Attribute2EditPart.VISUAL_ID;
-			}
-			break;
-		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
-			if (TypedefinitionPackage.eINSTANCE.getReturnValue().isSuperTypeOf(
-					domainElement.eClass())) {
-				return ReturnValueEditPart.VISUAL_ID;
-			}
-			break;
-		case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
-			if (TypedefinitionPackage.eINSTANCE.getEnumAttribute()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return EnumAttributeEditPart.VISUAL_ID;
+				return DomainApplicationEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -203,110 +167,58 @@ public class DomainVisualIDRegistry {
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
 		String containerModelID = domain.diagram.part.DomainVisualIDRegistry
 				.getModelID(containerView);
-		if (!Dammy1EditPart.MODEL_ID.equals(containerModelID)
+		if (!DomainEditPart.MODEL_ID.equals(containerModelID)
 				&& !"domain".equals(containerModelID)) { //$NON-NLS-1$
 			return false;
 		}
 		int containerVisualID;
-		if (Dammy1EditPart.MODEL_ID.equals(containerModelID)) {
+		if (DomainEditPart.MODEL_ID.equals(containerModelID)) {
 			containerVisualID = domain.diagram.part.DomainVisualIDRegistry
 					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
-				containerVisualID = Dammy1EditPart.VISUAL_ID;
+				containerVisualID = DomainEditPart.VISUAL_ID;
 			} else {
 				return false;
 			}
 		}
 		switch (containerVisualID) {
-		case Dammy1EditPart.VISUAL_ID:
-			if (TypeReferenceEditPart.VISUAL_ID == nodeVisualID) {
+		case DomainEditPart.VISUAL_ID:
+			if (DomainArtifactsEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (TypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (DomainTypesEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (EnumaratorEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TypeReferenceEditPart.VISUAL_ID:
-			if (TypeReferencePackageNameTypeNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (DomainApplicationsEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case TypeEditPart.VISUAL_ID:
-			if (TypeNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TypeTypeAttributesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TypeTypeOperationsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+		case DomainArtifactsEditPart.VISUAL_ID:
+			if (DomainArtifactsNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case EnumaratorEditPart.VISUAL_ID:
-			if (EnumaratorNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+		case DomainTypesEditPart.VISUAL_ID:
+			if (DomainTypesNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case AttributeEditPart.VISUAL_ID:
-			if (AttributeNameEditPart.VISUAL_ID == nodeVisualID) {
+		case DomainApplicationsEditPart.VISUAL_ID:
+			if (DomainApplicationsNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case OperationEditPart.VISUAL_ID:
-			if (OperationNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (OperationOperationParametersCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (OperationOperationReturnValueCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+		case DomainApplicationEditPart.VISUAL_ID:
+			if (DomainApplicationNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case Attribute2EditPart.VISUAL_ID:
-			if (AttributeName2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ReturnValueEditPart.VISUAL_ID:
-			if (ReturnValuePackageNameTypeNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case EnumAttributeEditPart.VISUAL_ID:
-			if (EnumAttributeNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TypeTypeAttributesCompartmentEditPart.VISUAL_ID:
-			if (AttributeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TypeTypeOperationsCompartmentEditPart.VISUAL_ID:
-			if (OperationEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case OperationOperationParametersCompartmentEditPart.VISUAL_ID:
-			if (Attribute2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
-			if (ReturnValueEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
-			if (EnumAttributeEditPart.VISUAL_ID == nodeVisualID) {
+		case DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID:
+			if (DomainApplicationEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -344,7 +256,7 @@ public class DomainVisualIDRegistry {
 	 * 
 	 * @generated
 	 */
-	private static boolean isDiagram(Dammy1 element) {
+	private static boolean isDiagram(Domain element) {
 		return true;
 	}
 
@@ -366,11 +278,7 @@ public class DomainVisualIDRegistry {
 	 */
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
-		case TypeTypeAttributesCompartmentEditPart.VISUAL_ID:
-		case TypeTypeOperationsCompartmentEditPart.VISUAL_ID:
-		case OperationOperationParametersCompartmentEditPart.VISUAL_ID:
-		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
-		case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
+		case DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -383,13 +291,11 @@ public class DomainVisualIDRegistry {
 	 */
 	public static boolean isSemanticLeafVisualID(int visualID) {
 		switch (visualID) {
-		case Dammy1EditPart.VISUAL_ID:
+		case DomainEditPart.VISUAL_ID:
 			return false;
-		case TypeReferenceEditPart.VISUAL_ID:
-		case AttributeEditPart.VISUAL_ID:
-		case Attribute2EditPart.VISUAL_ID:
-		case ReturnValueEditPart.VISUAL_ID:
-		case EnumAttributeEditPart.VISUAL_ID:
+		case DomainArtifactsEditPart.VISUAL_ID:
+		case DomainTypesEditPart.VISUAL_ID:
+		case DomainApplicationEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

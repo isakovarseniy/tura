@@ -19,7 +19,9 @@ import org.eclipse.gmf.runtime.notation.View;
 import recipe.RecipePackage;
 import recipe.diagram.edit.parts.ComponentName2EditPart;
 import recipe.diagram.edit.parts.ComponentNameEditPart;
+import recipe.diagram.edit.parts.ConfigurationNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
+import recipe.diagram.edit.parts.PropertyNameEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
 import recipe.diagram.parsers.MessageFormatParser;
 import recipe.diagram.part.RecipeVisualIDRegistry;
@@ -46,6 +48,24 @@ public class RecipeParserProvider extends AbstractProvider implements
 			recipeName_5009Parser = parser;
 		}
 		return recipeName_5009Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser configurationName_5011Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getConfigurationName_5011Parser() {
+		if (configurationName_5011Parser == null) {
+			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
+					.getConfiguration_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			configurationName_5011Parser = parser;
+		}
+		return configurationName_5011Parser;
 	}
 
 	/**
@@ -105,16 +125,38 @@ public class RecipeParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser propertyName_5010Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getPropertyName_5010Parser() {
+		if (propertyName_5010Parser == null) {
+			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
+					.getProperty_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			propertyName_5010Parser = parser;
+		}
+		return propertyName_5010Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case RecipeNameEditPart.VISUAL_ID:
 			return getRecipeName_5009Parser();
+		case ConfigurationNameEditPart.VISUAL_ID:
+			return getConfigurationName_5011Parser();
 		case ComponentNameEditPart.VISUAL_ID:
 			return getComponentName_5008Parser();
 		case ComponentName2EditPart.VISUAL_ID:
 			return getComponentName_5002Parser();
 		case ModelMapperNameEditPart.VISUAL_ID:
 			return getModelMapperName_5001Parser();
+		case PropertyNameEditPart.VISUAL_ID:
+			return getPropertyName_5010Parser();
 		}
 		return null;
 	}

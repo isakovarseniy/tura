@@ -5,3 +5,47 @@ genEditorGenerator.setTemplateDirectory('/org.tura.metamodel/templates/');
 
 var plugin = GmfGen!GenPlugin.all.first;
 plugin.id = 'org.tura.metamodel.domain';
+
+//Enable diagram partition for DomainArtifacts element
+var genTopLevelNode = GmfGen!GenTopLevelNode.all.select(n|n.createCommandClassName = 'DomainArtifactsCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'artifact.diagram.part.ArtifactDiagramEditorID';
+behaviour.diagramKind='Artifact';
+behaviour.editPolicyClassName= 'OpenDiagramDomainArtifactsEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for DomainArtifacts element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'DomainArtifactsFigure').first;
+innerClass.classBody='public class DomainArtifactsFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDomainArtifactsLabelFigure; public DomainArtifactsFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureDomainArtifactsLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureDomainArtifactsLabelFigure.setText("Package"); this.add(fFigureDomainArtifactsLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDomainArtifactsLabelFigure() {return fFigureDomainArtifactsLabelFigure;}}';
+
+
+//Enable diagram partition for DomainTypes element
+var genTopLevelNode = GmfGen!GenTopLevelNode.all.select(n|n.createCommandClassName = 'DomainTypesCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'typesrepository.diagram.part.TypesrepositoryDiagramEditorID';
+behaviour.diagramKind='Typesrepository';
+behaviour.editPolicyClassName= 'OpenDiagramDomainTypesEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for DomainTypes element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'DomainTypesFigure').first;
+innerClass.classBody='public class DomainTypesFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDomainTypesLabelFigure; public DomainTypesFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureDomainTypesLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureDomainTypesLabelFigure.setText("Package"); this.add(fFigureDomainTypesLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDomainTypesLabelFigure() {return fFigureDomainTypesLabelFigure;}}';
+
+
+//Enable diagram partition for DomainApplication element
+var genTopLevelNode = GmfGen!GenChildNode.all.select(n|n.createCommandClassName = 'DomainApplicationCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'application.diagram.part.ApplicationDiagramEditorID';
+behaviour.diagramKind='Application';
+behaviour.editPolicyClassName= 'OpenDiagramDomainApplicationEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for DomainTypes element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'DomainApplicationFigure').first;
+innerClass.classBody='public class DomainApplicationFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDomainApplicationLabelFigure; public DomainApplicationFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureDomainApplicationLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureDomainApplicationLabelFigure.setText("Application"); this.add(fFigureDomainApplicationLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDomainApplicationLabelFigure() {return fFigureDomainApplicationLabelFigure;}}';
+
+
+

@@ -28,6 +28,8 @@ import recipe.diagram.edit.parts.Component2EditPart;
 import recipe.diagram.edit.parts.ComponentComponentComponentsCompartment2EditPart;
 import recipe.diagram.edit.parts.ComponentComponentComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.ComponentEditPart;
+import recipe.diagram.edit.parts.ConfigurationEditPart;
+import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
 import recipe.diagram.part.Messages;
@@ -45,8 +47,14 @@ public class RecipeModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof RecipesEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 			types.add(RecipeElementTypes.Recipe_2004);
+			types.add(RecipeElementTypes.Configuration_2005);
+			return types;
+		}
+		if (editPart instanceof ConfigurationEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(RecipeElementTypes.Property_3005);
 			return types;
 		}
 		if (editPart instanceof ComponentEditPart) {
@@ -83,6 +91,13 @@ public class RecipeModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof RecipeEditPart) {
+			return ((RecipeEditPart) sourceEditPart).getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof ConfigurationEditPart) {
+			return ((ConfigurationEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -92,6 +107,10 @@ public class RecipeModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof ConfigurationEditPart) {
+			return ((ConfigurationEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -104,6 +123,14 @@ public class RecipeModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof RecipeEditPart) {
+			return ((RecipeEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof ConfigurationEditPart) {
+			return ((ConfigurationEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -114,6 +141,10 @@ public class RecipeModelingAssistantProvider extends ModelingAssistantProvider {
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof ConfigurationEditPart) {
+			return ((ConfigurationEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -124,6 +155,14 @@ public class RecipeModelingAssistantProvider extends ModelingAssistantProvider {
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof RecipeEditPart) {
+			return ((RecipeEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof ConfigurationEditPart) {
+			return ((ConfigurationEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
 		return Collections.EMPTY_LIST;
 	}
 

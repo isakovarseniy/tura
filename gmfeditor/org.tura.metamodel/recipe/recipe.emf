@@ -5,6 +5,7 @@ package recipe;
 @gmf.diagram
 class Recipes{
   val Recipe recipe;
+  val Configuration[*] configurations;
 }
 
 
@@ -55,7 +56,6 @@ class Specifier{
    attr EString name;
    attr EString value;
 }
-
 class Variable{
    attr EString name;
    attr EString value;

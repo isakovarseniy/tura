@@ -155,6 +155,7 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
 
+import application.presentation.ApplicationEditorPlugin;
 import application.provider.ApplicationItemProviderAdapterFactory;
 import artifact.provider.ArtifactItemProviderAdapterFactory;
 import mapper.presentation.MapperEditorPlugin;
@@ -579,7 +580,7 @@ public class TypedefinitionEditor
         }
         catch (CoreException exception)
         {
-          DomainEditorPlugin.INSTANCE.log(exception);
+          MapperEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -719,7 +720,7 @@ public class TypedefinitionEditor
         }
         catch (PartInitException exception)
         {
-          DomainEditorPlugin.INSTANCE.log(exception);
+          MapperEditorPlugin.INSTANCE.log(exception);
         }
       }
 
@@ -734,7 +735,7 @@ public class TypedefinitionEditor
           }
           catch (CoreException exception)
           {
-            DomainEditorPlugin.INSTANCE.log(exception);
+            MapperEditorPlugin.INSTANCE.log(exception);
           }
         }
       }
@@ -781,14 +782,8 @@ public class TypedefinitionEditor
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new DomainItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new BusinessobjectsItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new RecipeItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypesrepositoryItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
     // Create the command stack that will notify this editor as commands are executed.
@@ -1714,7 +1709,7 @@ public class TypedefinitionEditor
     {
       // Something went wrong that shouldn't.
       //
-      DomainEditorPlugin.INSTANCE.log(exception);
+      MapperEditorPlugin.INSTANCE.log(exception);
     }
     updateProblemIndication = true;
     updateProblemIndication();
@@ -1822,7 +1817,7 @@ public class TypedefinitionEditor
     }
     catch (CoreException exception)
     {
-      DomainEditorPlugin.INSTANCE.log(exception);
+      MapperEditorPlugin.INSTANCE.log(exception);
     }
   }
 
@@ -1962,7 +1957,7 @@ public class TypedefinitionEditor
    */
   private static String getString(String key)
   {
-    return DomainEditorPlugin.INSTANCE.getString(key);
+    return MapperEditorPlugin.INSTANCE.getString(key);
   }
 
   /**
@@ -1973,7 +1968,7 @@ public class TypedefinitionEditor
    */
   private static String getString(String key, Object s1)
   {
-    return DomainEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+    return MapperEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
   }
 
   /**

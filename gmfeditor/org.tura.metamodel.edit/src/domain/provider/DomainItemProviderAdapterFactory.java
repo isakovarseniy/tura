@@ -74,6 +74,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.Domain} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DomainItemProvider domainItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Domain}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDomainAdapter()
+  {
+    if (domainItemProvider == null)
+    {
+      domainItemProvider = new DomainItemProvider(this);
+    }
+
+    return domainItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Dammy1} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -174,31 +199,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.Domain} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected DomainItemProvider domainItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Domain}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createDomainAdapter()
-  {
-    if (domainItemProvider == null)
-    {
-      domainItemProvider = new DomainItemProvider(this);
-    }
-
-    return domainItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link domain.DomainArtifacts} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -221,31 +221,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return domainArtifactsItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.DomainArtifact} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected DomainArtifactItemProvider domainArtifactItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.DomainArtifact}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createDomainArtifactAdapter()
-  {
-    if (domainArtifactItemProvider == null)
-    {
-      domainArtifactItemProvider = new DomainArtifactItemProvider(this);
-    }
-
-    return domainArtifactItemProvider;
   }
 
   /**
@@ -434,13 +409,12 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
    */
   public void dispose()
   {
+    if (domainItemProvider != null) domainItemProvider.dispose();
     if (dammy1ItemProvider != null) dammy1ItemProvider.dispose();
     if (dammy2ItemProvider != null) dammy2ItemProvider.dispose();
     if (dammy3ItemProvider != null) dammy3ItemProvider.dispose();
     if (dammy4ItemProvider != null) dammy4ItemProvider.dispose();
-    if (domainItemProvider != null) domainItemProvider.dispose();
     if (domainArtifactsItemProvider != null) domainArtifactsItemProvider.dispose();
-    if (domainArtifactItemProvider != null) domainArtifactItemProvider.dispose();
     if (domainTypesItemProvider != null) domainTypesItemProvider.dispose();
     if (domainApplicationsItemProvider != null) domainApplicationsItemProvider.dispose();
     if (domainApplicationItemProvider != null) domainApplicationItemProvider.dispose();

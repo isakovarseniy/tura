@@ -34,6 +34,12 @@ public class RecipeEditPartFactory implements EditPartFactory {
 			case RecipeNameEditPart.VISUAL_ID:
 				return new RecipeNameEditPart(view);
 
+			case ConfigurationEditPart.VISUAL_ID:
+				return new ConfigurationEditPart(view);
+
+			case ConfigurationNameEditPart.VISUAL_ID:
+				return new ConfigurationNameEditPart(view);
+
 			case ComponentEditPart.VISUAL_ID:
 				return new ComponentEditPart(view);
 
@@ -52,6 +58,12 @@ public class RecipeEditPartFactory implements EditPartFactory {
 			case ModelMapperNameEditPart.VISUAL_ID:
 				return new ModelMapperNameEditPart(view);
 
+			case PropertyEditPart.VISUAL_ID:
+				return new PropertyEditPart(view);
+
+			case PropertyNameEditPart.VISUAL_ID:
+				return new PropertyNameEditPart(view);
+
 			case RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID:
 				return new RecipeRecipeComponentsCompartmentEditPart(view);
 
@@ -67,6 +79,10 @@ public class RecipeEditPartFactory implements EditPartFactory {
 
 			case ComponentComponentMappersCompartment2EditPart.VISUAL_ID:
 				return new ComponentComponentMappersCompartment2EditPart(view);
+
+			case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
+				return new ConfigurationConfigurationPropertiesCompartmentEditPart(
+						view);
 
 			case RecipeRecipeConfigEditPart.VISUAL_ID:
 				return new RecipeRecipeConfigEditPart(view);

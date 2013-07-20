@@ -11,6 +11,8 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import typedefinition.TypeDefinition;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
@@ -80,6 +82,11 @@ public class ApplicationAdapterFactory extends AdapterFactoryImpl
         return createApplicationAdapter();
       }
       @Override
+      public Adapter caseDummy5(Dummy5 object)
+      {
+        return createDummy5Adapter();
+      }
+      @Override
       public Adapter caseApplicationRecipes(ApplicationRecipes object)
       {
         return createApplicationRecipesAdapter();
@@ -98,6 +105,11 @@ public class ApplicationAdapterFactory extends AdapterFactoryImpl
       public Adapter caseApplicationMapper(ApplicationMapper object)
       {
         return createApplicationMapperAdapter();
+      }
+      @Override
+      public Adapter caseTypeDefinition(TypeDefinition object)
+      {
+        return createTypeDefinitionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -132,6 +144,21 @@ public class ApplicationAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createApplicationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link application.Dummy5 <em>Dummy5</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see application.Dummy5
+   * @generated
+   */
+  public Adapter createDummy5Adapter()
   {
     return null;
   }
@@ -192,6 +219,21 @@ public class ApplicationAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createApplicationMapperAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link typedefinition.TypeDefinition <em>Type Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see typedefinition.TypeDefinition
+   * @generated
+   */
+  public Adapter createTypeDefinitionAdapter()
   {
     return null;
   }

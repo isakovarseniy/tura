@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Domain"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2004,2005,2006,3001,3002,3003,3004,3005"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009,3002"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003"/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="Domain"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2004,2005,2006,3001,3002,3003,3004,3005"/>
+            <method name="getType()" value="2007,2008,2009,3002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001,4002,4003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5004,5009,5011,5005,5008,5006,5007,5010"/>
+            <method name="getType()" value="5012,5013,5014,5016"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7002,7003,7004,7005"/>
+            <method name="getType()" value="7002"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -290,16 +290,12 @@
       <?gmfgen generated="true"?>
       <modelingAssistantProvider class="domain.diagram.providers.DomainModelingAssistantProvider">
          <Priority name="Lowest"/>
-         <object class="domain.diagram.edit.parts.Dammy1EditPart" id="Dammy1_1000"/>
-         <object class="domain.diagram.edit.parts.TypeReferenceEditPart" id="TypeReference_2004"/>
-         <object class="domain.diagram.edit.parts.TypeEditPart" id="Type_2005"/>
-         <object class="domain.diagram.edit.parts.EnumaratorEditPart" id="Enumarator_2006"/>
-         <object class="domain.diagram.edit.parts.AttributeEditPart" id="Attribute_3001"/>
-         <object class="domain.diagram.edit.parts.OperationEditPart" id="Operation_3002"/>
-         <object class="domain.diagram.edit.parts.Attribute2EditPart" id="Attribute_3003"/>
-         <object class="domain.diagram.edit.parts.ReturnValueEditPart" id="ReturnValue_3004"/>
-         <object class="domain.diagram.edit.parts.EnumAttributeEditPart" id="EnumAttribute_3005"/>
-         <context elements="Dammy1_1000,TypeReference_2004,Type_2005,Enumarator_2006,Attribute_3001,Operation_3002,Attribute_3003,ReturnValue_3004,EnumAttribute_3005"/>
+         <object class="domain.diagram.edit.parts.DomainEditPart" id="Domain_1000"/>
+         <object class="domain.diagram.edit.parts.DomainArtifactsEditPart" id="DomainArtifacts_2007"/>
+         <object class="domain.diagram.edit.parts.DomainTypesEditPart" id="DomainTypes_2008"/>
+         <object class="domain.diagram.edit.parts.DomainApplicationsEditPart" id="DomainApplications_2009"/>
+         <object class="domain.diagram.edit.parts.DomainApplicationEditPart" id="DomainApplication_3002"/>
+         <context elements="Domain_1000,DomainArtifacts_2007,DomainTypes_2008,DomainApplications_2009,DomainApplication_3002"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -322,7 +318,7 @@
       <decoratorProvider class="domain.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="2004,2005,2006"/>
+            <method name="getType()" value="2007,2008,2009"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -332,91 +328,52 @@
       <?gmfgen generated="true"?>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.domain.Dammy1_1000"
-               name="%metatype.name.Dammy1_1000"
+               id="org.tura.metamodel.domain.Domain_1000"
+               name="%metatype.name.Domain_1000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Dammy1"
-               edithelper="domain.diagram.edit.helpers.Dammy1EditHelper">
+               eclass="Domain"
+               edithelper="domain.diagram.edit.helpers.DomainEditHelper">
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.domain.TypeReference_2004"
-               name="%metatype.name.TypeReference_2004"
+               id="org.tura.metamodel.domain.DomainArtifacts_2007"
+               name="%metatype.name.DomainArtifacts_2007"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TypeReference"
-               edithelper="domain.diagram.edit.helpers.TypeReferenceEditHelper">
-            <param name="semanticHint" value="2004"/>
+               eclass="DomainArtifacts"
+               edithelper="domain.diagram.edit.helpers.DomainArtifactsEditHelper">
+            <param name="semanticHint" value="2007"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.domain.Type_2005"
-               name="%metatype.name.Type_2005"
+               id="org.tura.metamodel.domain.DomainTypes_2008"
+               name="%metatype.name.DomainTypes_2008"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Type"
-               edithelper="domain.diagram.edit.helpers.TypeEditHelper">
-            <param name="semanticHint" value="2005"/>
+               eclass="DomainTypes"
+               edithelper="domain.diagram.edit.helpers.DomainTypesEditHelper">
+            <param name="semanticHint" value="2008"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.domain.Enumarator_2006"
-               name="%metatype.name.Enumarator_2006"
+               id="org.tura.metamodel.domain.DomainApplications_2009"
+               name="%metatype.name.DomainApplications_2009"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Enumarator"
-               edithelper="domain.diagram.edit.helpers.EnumaratorEditHelper">
-            <param name="semanticHint" value="2006"/>
+               eclass="DomainApplications"
+               edithelper="domain.diagram.edit.helpers.DomainApplicationsEditHelper">
+            <param name="semanticHint" value="2009"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.domain.Attribute_3001"
-               name="%metatype.name.Attribute_3001"
+               id="org.tura.metamodel.domain.DomainApplication_3002"
+               name="%metatype.name.DomainApplication_3002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Attribute"
-               edithelper="domain.diagram.edit.helpers.AttributeEditHelper">
-            <param name="semanticHint" value="3001"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
-         <metamodelType
-               id="org.tura.metamodel.domain.Operation_3002"
-               name="%metatype.name.Operation_3002"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Operation"
-               edithelper="domain.diagram.edit.helpers.OperationEditHelper">
+               eclass="DomainApplication"
+               edithelper="domain.diagram.edit.helpers.DomainApplicationEditHelper">
             <param name="semanticHint" value="3002"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
-         <specializationType
-               id="org.tura.metamodel.domain.Attribute_3003"
-               name="%metatype.name.Attribute_3003"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.tura.metamodel.domain.Attribute_3001"/>
-            <param name="semanticHint" value="3003"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
-         <metamodelType
-               id="org.tura.metamodel.domain.ReturnValue_3004"
-               name="%metatype.name.ReturnValue_3004"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ReturnValue"
-               edithelper="domain.diagram.edit.helpers.ReturnValueEditHelper">
-            <param name="semanticHint" value="3004"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
-         <metamodelType
-               id="org.tura.metamodel.domain.EnumAttribute_3005"
-               name="%metatype.name.EnumAttribute_3005"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="EnumAttribute"
-               edithelper="domain.diagram.edit.helpers.EnumAttributeEditHelper">
-            <param name="semanticHint" value="3005"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
@@ -459,15 +416,11 @@
          </enablement>
       </clientContext> 
       <binding context="org.tura.metamodel.domain.TypeContext">
-         <elementType ref="org.tura.metamodel.domain.Dammy1_1000"/>
-         <elementType ref="org.tura.metamodel.domain.TypeReference_2004"/>
-         <elementType ref="org.tura.metamodel.domain.Type_2005"/>
-         <elementType ref="org.tura.metamodel.domain.Enumarator_2006"/>
-         <elementType ref="org.tura.metamodel.domain.Attribute_3001"/>
-         <elementType ref="org.tura.metamodel.domain.Operation_3002"/>
-         <elementType ref="org.tura.metamodel.domain.Attribute_3003"/>
-         <elementType ref="org.tura.metamodel.domain.ReturnValue_3004"/>
-         <elementType ref="org.tura.metamodel.domain.EnumAttribute_3005"/>
+         <elementType ref="org.tura.metamodel.domain.Domain_1000"/>
+         <elementType ref="org.tura.metamodel.domain.DomainArtifacts_2007"/>
+         <elementType ref="org.tura.metamodel.domain.DomainTypes_2008"/>
+         <elementType ref="org.tura.metamodel.domain.DomainApplications_2009"/>
+         <elementType ref="org.tura.metamodel.domain.DomainApplication_3002"/>
          <elementType ref="org.tura.metamodel.domain.TypeExtension_4001"/>
          <elementType ref="org.tura.metamodel.domain.RecipeRecipeConfig_4002"/>
          <elementType ref="org.tura.metamodel.domain.ConfigurationConfigExtension_4003"/>
@@ -638,7 +591,7 @@
                <and>
                   <with variable="activePartId"><equals value="domain.diagram.part.DomainDiagramEditorID"/></with>
                   <with variable="selection"><iterate ifEmpty="false"> 
-                     <instanceof value="domain.diagram.edit.parts.Dammy1EditPart"/>
+                     <instanceof value="domain.diagram.edit.parts.DomainEditPart"/>
                   </iterate></with>
                </and>
             </visibleWhen>

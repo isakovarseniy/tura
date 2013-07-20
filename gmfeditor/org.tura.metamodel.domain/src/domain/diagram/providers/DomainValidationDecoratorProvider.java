@@ -40,7 +40,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 
-import domain.diagram.edit.parts.Dammy1EditPart;
+import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.part.DomainDiagramEditor;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.DomainVisualIDRegistry;
@@ -109,7 +109,7 @@ public class DomainValidationDecoratorProvider extends AbstractProvider
 				.getDecoratorTarget();
 		View view = (View) decoratorTarget.getAdapter(View.class);
 		return view != null
-				&& Dammy1EditPart.MODEL_ID.equals(DomainVisualIDRegistry
+				&& DomainEditPart.MODEL_ID.equals(DomainVisualIDRegistry
 						.getModelID(view));
 	}
 

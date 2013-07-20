@@ -7,6 +7,7 @@
   <genPackages prefix="Recipe" disposableProviderFactory="true" ecorePackage="recipe.ecore#/">
     <genClasses ecoreClass="recipe.ecore#//Recipes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipes/recipe"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipes/configurations"/>
     </genClasses>
     <genClasses ecoreClass="recipe.ecore#//Recipe">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Recipe/name"/>

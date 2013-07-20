@@ -25,6 +25,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import application.diagram.edit.parts.ApplicationEditPart;
+import application.diagram.edit.parts.ApplicationMappersApplicationMappersMappersCompartmentEditPart;
+import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
 import application.diagram.part.ApplicationDiagramEditorPlugin;
 import application.diagram.part.Messages;
 
@@ -44,6 +46,16 @@ public class ApplicationModelingAssistantProvider extends
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 			types.add(ApplicationElementTypes.ApplicationRecipes_2001);
 			types.add(ApplicationElementTypes.ApplicationMappers_2002);
+			return types;
+		}
+		if (editPart instanceof ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(ApplicationElementTypes.ApplicationRecipe_3001);
+			return types;
+		}
+		if (editPart instanceof ApplicationMappersApplicationMappersMappersCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(ApplicationElementTypes.ApplicationMapper_3002);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

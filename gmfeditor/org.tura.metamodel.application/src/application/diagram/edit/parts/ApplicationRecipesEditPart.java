@@ -5,6 +5,7 @@ package application.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -29,6 +30,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import application.diagram.edit.policies.ApplicationRecipesItemSemanticEditPolicy;
+import application.diagram.edit.policies.OpenDiagramEditPolicy;
 import application.diagram.part.ApplicationVisualIDRegistry;
 
 /**
@@ -66,6 +68,8 @@ public class ApplicationRecipesEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ApplicationRecipesItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -120,6 +124,14 @@ public class ApplicationRecipesEditPart extends ShapeNodeEditPart {
 							.getFigureApplicationRecipesLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getApplicationRecipesRecipesCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -128,6 +140,13 @@ public class ApplicationRecipesEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ApplicationRecipesNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getApplicationRecipesRecipesCompartmentFigure();
+			pane.remove(((ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -157,6 +176,10 @@ public class ApplicationRecipesEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart) {
+			return getPrimaryShape()
+					.getApplicationRecipesRecipesCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -280,6 +303,11 @@ public class ApplicationRecipesEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fApplicationRecipesRecipesCompartmentFigure;
+
+		/**
+		 * @generated
+		 */
 		public ApplicationRecipesFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
@@ -297,8 +325,16 @@ public class ApplicationRecipesEditPart extends ShapeNodeEditPart {
 			fFigureApplicationRecipesLabelFigure = new WrappingLabel();
 
 			fFigureApplicationRecipesLabelFigure.setText("ApplicationRecipes");
+			fFigureApplicationRecipesLabelFigure.setMaximumSize(new Dimension(
+					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureApplicationRecipesLabelFigure);
+
+			fApplicationRecipesRecipesCompartmentFigure = new RectangleFigure();
+
+			fApplicationRecipesRecipesCompartmentFigure.setOutline(false);
+
+			this.add(fApplicationRecipesRecipesCompartmentFigure);
 
 		}
 
@@ -307,6 +343,13 @@ public class ApplicationRecipesEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureApplicationRecipesLabelFigure() {
 			return fFigureApplicationRecipesLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getApplicationRecipesRecipesCompartmentFigure() {
+			return fApplicationRecipesRecipesCompartmentFigure;
 		}
 
 	}

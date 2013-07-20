@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mapper.provider.MapperItemProviderAdapterFactory;
+
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
@@ -25,6 +26,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import recipe.provider.RecipeItemProviderAdapterFactory;
+import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
 import application.diagram.edit.policies.ApplicationBaseItemSemanticEditPolicy;
 import application.diagram.providers.ElementInitializers;
 import application.provider.ApplicationItemProviderAdapterFactory;
@@ -120,6 +122,7 @@ public class ApplicationDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	protected void fillItemProviderFactories(List<AdapterFactory> factories) {
 		factories.add(new ApplicationItemProviderAdapterFactory());
+		factories.add(new TypedefinitionItemProviderAdapterFactory());
 		factories.add(new RecipeItemProviderAdapterFactory());
 		factories.add(new MapperItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());

@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import recipe.Recipes;
 import recipe.Recipe;
 
 /**
@@ -59,7 +60,7 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
    * @generated
    * @ordered
    */
-  protected Recipe recipes;
+  protected Recipes recipes;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,12 +111,12 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
    * <!-- end-user-doc -->
    * @generated
    */
-  public Recipe getRecipes()
+  public Recipes getRecipes()
   {
     if (recipes != null && recipes.eIsProxy())
     {
       InternalEObject oldRecipes = (InternalEObject)recipes;
-      recipes = (Recipe)eResolveProxy(oldRecipes);
+      recipes = (Recipes)eResolveProxy(oldRecipes);
       if (recipes != oldRecipes)
       {
         if (eNotificationRequired())
@@ -130,7 +131,7 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
    * <!-- end-user-doc -->
    * @generated
    */
-  public Recipe basicGetRecipes()
+  public Recipes basicGetRecipes()
   {
     return recipes;
   }
@@ -140,9 +141,9 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRecipes(Recipe newRecipes)
+  public void setRecipes(Recipes newRecipes)
   {
-    Recipe oldRecipes = recipes;
+    Recipes oldRecipes = recipes;
     recipes = newRecipes;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_RECIPE__RECIPES, oldRecipes, recipes));
@@ -181,7 +182,7 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
         setName((String)newValue);
         return;
       case ApplicationPackage.APPLICATION_RECIPE__RECIPES:
-        setRecipes((Recipe)newValue);
+        setRecipes((Recipes)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -201,7 +202,7 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
         setName(NAME_EDEFAULT);
         return;
       case ApplicationPackage.APPLICATION_RECIPE__RECIPES:
-        setRecipes((Recipe)null);
+        setRecipes((Recipes)null);
         return;
     }
     super.eUnset(featureID);

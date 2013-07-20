@@ -36,7 +36,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
-import domain.diagram.edit.parts.Dammy1EditPart;
+import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.part.DomainDiagramEditor;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.DomainDiagramEditorUtil;
@@ -191,7 +191,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 * @generated
 		 */
 		protected String getDiagramKind() {
-			return Dammy1EditPart.MODEL_ID;
+			return DomainEditPart.MODEL_ID;
 		}
 
 		/**

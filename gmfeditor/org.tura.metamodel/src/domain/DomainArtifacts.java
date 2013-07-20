@@ -2,6 +2,8 @@
  */
 package domain;
 
+import artifact.Artifacts;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.DomainArtifacts#getName <em>Name</em>}</li>
- *   <li>{@link domain.DomainArtifacts#getArtifacrs <em>Artifacrs</em>}</li>
+ *   <li>{@link domain.DomainArtifacts#getArtifact <em>Artifact</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,29 +52,29 @@ public interface DomainArtifacts extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Artifacrs</b></em>' containment reference.
+   * Returns the value of the '<em><b>Artifact</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Artifacrs</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Artifact</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Artifacrs</em>' containment reference.
-   * @see #setArtifacrs(DomainArtifact)
-   * @see domain.DomainPackage#getDomainArtifacts_Artifacrs()
-   * @model containment="true"
+   * @return the value of the '<em>Artifact</em>' reference.
+   * @see #setArtifact(Artifacts)
+   * @see domain.DomainPackage#getDomainArtifacts_Artifact()
+   * @model
    * @generated
    */
-  DomainArtifact getArtifacrs();
+  Artifacts getArtifact();
 
   /**
-   * Sets the value of the '{@link domain.DomainArtifacts#getArtifacrs <em>Artifacrs</em>}' containment reference.
+   * Sets the value of the '{@link domain.DomainArtifacts#getArtifact <em>Artifact</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Artifacrs</em>' containment reference.
-   * @see #getArtifacrs()
+   * @param value the new value of the '<em>Artifact</em>' reference.
+   * @see #getArtifact()
    * @generated
    */
-  void setArtifacrs(DomainArtifact value);
+  void setArtifact(Artifacts value);
 
 } // DomainArtifacts

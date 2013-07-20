@@ -7,31 +7,28 @@ import application.ApplicationFactory;
 import application.ApplicationMapper;
 import application.ApplicationMappers;
 import application.ApplicationPackage;
-
 import application.ApplicationRecipe;
 import application.ApplicationRecipes;
+import application.Dummy5;
+
 import mapper.MapperPackage;
+
 import mapper.impl.MapperPackageImpl;
+
 import org.eclipse.emf.ecore.EAttribute;
-import artifact.ArtifactPackage;
-import artifact.impl.ArtifactPackageImpl;
-import businessobjects.BusinessobjectsPackage;
-import businessobjects.impl.BusinessobjectsPackageImpl;
-import domain.DomainPackage;
-
-import domain.impl.DomainPackageImpl;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import recipe.RecipePackage;
+
 import recipe.impl.RecipePackageImpl;
+
 import typedefinition.TypedefinitionPackage;
+
 import typedefinition.impl.TypedefinitionPackageImpl;
-import typesrepository.TypesrepositoryPackage;
-import typesrepository.impl.TypesrepositoryPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,19 +50,29 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass dummy5EClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass applicationRecipesEClass = null;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   private EClass applicationRecipeEClass = null;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   private EClass applicationMappersEClass = null;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -122,33 +129,21 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
     isInited = true;
 
     // Obtain or create and register interdependencies
-    DomainPackageImpl theDomainPackage = (DomainPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) instanceof DomainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) : DomainPackage.eINSTANCE);
     TypedefinitionPackageImpl theTypedefinitionPackage = (TypedefinitionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) instanceof TypedefinitionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) : TypedefinitionPackage.eINSTANCE);
-    BusinessobjectsPackageImpl theBusinessobjectsPackage = (BusinessobjectsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) instanceof BusinessobjectsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) : BusinessobjectsPackage.eINSTANCE);
     RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
     MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
-    ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
-    TypesrepositoryPackageImpl theTypesrepositoryPackage = (TypesrepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) instanceof TypesrepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) : TypesrepositoryPackage.eINSTANCE);
 
     // Create package meta-data objects
     theApplicationPackage.createPackageContents();
-    theDomainPackage.createPackageContents();
     theTypedefinitionPackage.createPackageContents();
-    theBusinessobjectsPackage.createPackageContents();
     theRecipePackage.createPackageContents();
     theMapperPackage.createPackageContents();
-    theArtifactPackage.createPackageContents();
-    theTypesrepositoryPackage.createPackageContents();
 
     // Initialize created meta-data
     theApplicationPackage.initializePackageContents();
-    theDomainPackage.initializePackageContents();
     theTypedefinitionPackage.initializePackageContents();
-    theBusinessobjectsPackage.initializePackageContents();
     theRecipePackage.initializePackageContents();
     theMapperPackage.initializePackageContents();
-    theArtifactPackage.initializePackageContents();
-    theTypesrepositoryPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theApplicationPackage.freeze();
@@ -187,6 +182,16 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
   public EReference getApplication_ApplicationMappers()
   {
     return (EReference)applicationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDummy5()
+  {
+    return dummy5EClass;
   }
 
   /**
@@ -343,6 +348,8 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
     createEReference(applicationEClass, APPLICATION__APPLICATION_RECIPES);
     createEReference(applicationEClass, APPLICATION__APPLICATION_MAPPERS);
 
+    dummy5EClass = createEClass(DUMMY5);
+
     applicationRecipesEClass = createEClass(APPLICATION_RECIPES);
     createEAttribute(applicationRecipesEClass, APPLICATION_RECIPES__NAME);
     createEReference(applicationRecipesEClass, APPLICATION_RECIPES__RECIPES);
@@ -385,6 +392,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
     setNsURI(eNS_URI);
 
     // Obtain other dependent packages
+    TypedefinitionPackage theTypedefinitionPackage = (TypedefinitionPackage)EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI);
     RecipePackage theRecipePackage = (RecipePackage)EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI);
     MapperPackage theMapperPackage = (MapperPackage)EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI);
 
@@ -393,11 +401,14 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    dummy5EClass.getESuperTypes().add(theTypedefinitionPackage.getTypeDefinition());
 
     // Initialize classes and features; add operations and parameters
     initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getApplication_ApplicationRecipes(), this.getApplicationRecipes(), null, "applicationRecipes", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_ApplicationMappers(), this.getApplicationMappers(), null, "applicationMappers", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dummy5EClass, Dummy5.class, "Dummy5", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(applicationRecipesEClass, ApplicationRecipes.class, "ApplicationRecipes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getApplicationRecipes_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationRecipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -405,7 +416,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 
     initEClass(applicationRecipeEClass, ApplicationRecipe.class, "ApplicationRecipe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getApplicationRecipe_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationRecipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getApplicationRecipe_Recipes(), theRecipePackage.getRecipe(), null, "recipes", null, 0, 1, ApplicationRecipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationRecipe_Recipes(), theRecipePackage.getRecipes(), null, "recipes", null, 0, 1, ApplicationRecipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(applicationMappersEClass, ApplicationMappers.class, "ApplicationMappers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getApplicationMappers_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationMappers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -425,6 +436,8 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
     createGmf_1Annotations();
     // gmf.node
     createGmf_2Annotations();
+    // gmf.compartment
+    createGmf_3Annotations();
   }
 
   /**
@@ -441,7 +454,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
        source, 
        new String[] 
        {
-       });					
+       });							
   }
 
   /**
@@ -458,7 +471,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
        source, 
        new String[] 
        {
-       });				
+       });						
   }
 
   /**
@@ -476,7 +489,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
        new String[] 
        {
        "label", "name"
-       });		
+       });			
     addAnnotation
       (applicationRecipeEClass, 
        source, 
@@ -490,7 +503,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
        new String[] 
        {
        "label", "name"
-       });		
+       });			
     addAnnotation
       (applicationMapperEClass, 
        source, 
@@ -498,6 +511,29 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
        {
        "label", "name"
        });
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.compartment</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_3Annotations()
+  {
+    String source = "gmf.compartment";					
+    addAnnotation
+      (getApplicationRecipes_Recipes(), 
+       source, 
+       new String[] 
+       {
+       });				
+    addAnnotation
+      (getApplicationMappers_Mappers(), 
+       source, 
+       new String[] 
+       {
+       });	
   }
 
 } //ApplicationPackageImpl

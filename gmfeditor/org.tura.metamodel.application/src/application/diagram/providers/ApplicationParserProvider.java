@@ -17,7 +17,9 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import application.ApplicationPackage;
+import application.diagram.edit.parts.ApplicationMapperNameEditPart;
 import application.diagram.edit.parts.ApplicationMappersNameEditPart;
+import application.diagram.edit.parts.ApplicationRecipeNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipesNameEditPart;
 import application.diagram.parsers.MessageFormatParser;
 import application.diagram.part.ApplicationVisualIDRegistry;
@@ -67,12 +69,52 @@ public class ApplicationParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser applicationRecipeName_5003Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getApplicationRecipeName_5003Parser() {
+		if (applicationRecipeName_5003Parser == null) {
+			EAttribute[] features = new EAttribute[] { ApplicationPackage.eINSTANCE
+					.getApplicationRecipe_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			applicationRecipeName_5003Parser = parser;
+		}
+		return applicationRecipeName_5003Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser applicationMapperName_5004Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getApplicationMapperName_5004Parser() {
+		if (applicationMapperName_5004Parser == null) {
+			EAttribute[] features = new EAttribute[] { ApplicationPackage.eINSTANCE
+					.getApplicationMapper_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			applicationMapperName_5004Parser = parser;
+		}
+		return applicationMapperName_5004Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ApplicationRecipesNameEditPart.VISUAL_ID:
 			return getApplicationRecipesName_5001Parser();
 		case ApplicationMappersNameEditPart.VISUAL_ID:
 			return getApplicationMappersName_5002Parser();
+		case ApplicationRecipeNameEditPart.VISUAL_ID:
+			return getApplicationRecipeName_5003Parser();
+		case ApplicationMapperNameEditPart.VISUAL_ID:
+			return getApplicationMapperName_5004Parser();
 		}
 		return null;
 	}

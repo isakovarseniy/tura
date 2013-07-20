@@ -21,6 +21,7 @@ import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IMemento;
@@ -28,10 +29,15 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
 import application.diagram.edit.parts.ApplicationEditPart;
+import application.diagram.edit.parts.ApplicationMapperEditPart;
+import application.diagram.edit.parts.ApplicationMappersApplicationMappersMappersCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
+import application.diagram.edit.parts.ApplicationRecipeEditPart;
+import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
 import application.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import application.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import application.diagram.edit.parts.TypeExtensionEditPart;
 import application.diagram.part.ApplicationVisualIDRegistry;
 import application.diagram.part.Messages;
 
@@ -258,6 +264,10 @@ public class ApplicationNavigatorContentProvider implements
 					false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					ApplicationVisualIDRegistry
+							.getType(TypeExtensionEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					ApplicationVisualIDRegistry
 							.getType(RecipeRecipeConfigEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(
@@ -268,6 +278,38 @@ public class ApplicationNavigatorContentProvider implements
 			if (!links.isEmpty()) {
 				result.add(links);
 			}
+			return result.toArray();
+		}
+
+		case ApplicationMappersEditPart.VISUAL_ID: {
+			LinkedList<ApplicationAbstractNavigatorItem> result = new LinkedList<ApplicationAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					ApplicationVisualIDRegistry
+							.getType(ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					ApplicationVisualIDRegistry
+							.getType(ApplicationMapperEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ApplicationRecipesEditPart.VISUAL_ID: {
+			LinkedList<ApplicationAbstractNavigatorItem> result = new LinkedList<ApplicationAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					ApplicationVisualIDRegistry
+							.getType(ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					ApplicationVisualIDRegistry
+							.getType(ApplicationRecipeEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 		}

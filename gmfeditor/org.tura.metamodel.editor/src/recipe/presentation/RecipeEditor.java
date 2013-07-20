@@ -574,7 +574,7 @@ public class RecipeEditor
         }
         catch (CoreException exception)
         {
-          DomainEditorPlugin.INSTANCE.log(exception);
+          RecipeEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -714,7 +714,7 @@ public class RecipeEditor
         }
         catch (PartInitException exception)
         {
-          DomainEditorPlugin.INSTANCE.log(exception);
+          RecipeEditorPlugin.INSTANCE.log(exception);
         }
       }
 
@@ -729,7 +729,7 @@ public class RecipeEditor
           }
           catch (CoreException exception)
           {
-            DomainEditorPlugin.INSTANCE.log(exception);
+            RecipeEditorPlugin.INSTANCE.log(exception);
           }
         }
       }
@@ -776,14 +776,7 @@ public class RecipeEditor
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new DomainItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new BusinessobjectsItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new RecipeItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypesrepositoryItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
     // Create the command stack that will notify this editor as commands are executed.
@@ -1709,7 +1702,7 @@ public class RecipeEditor
     {
       // Something went wrong that shouldn't.
       //
-      DomainEditorPlugin.INSTANCE.log(exception);
+      RecipeEditorPlugin.INSTANCE.log(exception);
     }
     updateProblemIndication = true;
     updateProblemIndication();
@@ -1817,7 +1810,7 @@ public class RecipeEditor
     }
     catch (CoreException exception)
     {
-      DomainEditorPlugin.INSTANCE.log(exception);
+      RecipeEditorPlugin.INSTANCE.log(exception);
     }
   }
 
@@ -1957,7 +1950,7 @@ public class RecipeEditor
    */
   private static String getString(String key)
   {
-    return DomainEditorPlugin.INSTANCE.getString(key);
+    return RecipeEditorPlugin.INSTANCE.getString(key);
   }
 
   /**
@@ -1968,7 +1961,7 @@ public class RecipeEditor
    */
   private static String getString(String key, Object s1)
   {
-    return DomainEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+    return RecipeEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
   }
 
   /**

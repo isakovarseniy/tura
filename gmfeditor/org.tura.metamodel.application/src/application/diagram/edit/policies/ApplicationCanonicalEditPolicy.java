@@ -32,12 +32,15 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
+
 import application.ApplicationPackage;
 import application.diagram.edit.parts.ApplicationEditPart;
+import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
+import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
+import application.diagram.edit.parts.TypeExtensionEditPart;
 import application.diagram.part.ApplicationDiagramUpdater;
 import application.diagram.part.ApplicationLinkDescriptor;
 import application.diagram.part.ApplicationNodeDescriptor;
@@ -296,6 +299,30 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ApplicationDiagramUpdater
 						.getApplicationMappers_2002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ApplicationRecipeEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(ApplicationDiagramUpdater
+						.getApplicationRecipe_3001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ApplicationMapperEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(ApplicationDiagramUpdater
+						.getApplicationMapper_3002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TypeExtensionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(ApplicationDiagramUpdater
+						.getTypeExtension_4001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

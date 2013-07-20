@@ -109,33 +109,15 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage
     isInited = true;
 
     // Obtain or create and register interdependencies
-    DomainPackageImpl theDomainPackage = (DomainPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) instanceof DomainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) : DomainPackage.eINSTANCE);
     TypedefinitionPackageImpl theTypedefinitionPackage = (TypedefinitionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) instanceof TypedefinitionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) : TypedefinitionPackage.eINSTANCE);
-    BusinessobjectsPackageImpl theBusinessobjectsPackage = (BusinessobjectsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) instanceof BusinessobjectsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BusinessobjectsPackage.eNS_URI) : BusinessobjectsPackage.eINSTANCE);
-    RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
-    ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
-    TypesrepositoryPackageImpl theTypesrepositoryPackage = (TypesrepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) instanceof TypesrepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesrepositoryPackage.eNS_URI) : TypesrepositoryPackage.eINSTANCE);
-    ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
 
     // Create package meta-data objects
     theMapperPackage.createPackageContents();
-    theDomainPackage.createPackageContents();
     theTypedefinitionPackage.createPackageContents();
-    theBusinessobjectsPackage.createPackageContents();
-    theRecipePackage.createPackageContents();
-    theArtifactPackage.createPackageContents();
-    theTypesrepositoryPackage.createPackageContents();
-    theApplicationPackage.createPackageContents();
 
     // Initialize created meta-data
     theMapperPackage.initializePackageContents();
-    theDomainPackage.initializePackageContents();
     theTypedefinitionPackage.initializePackageContents();
-    theBusinessobjectsPackage.initializePackageContents();
-    theRecipePackage.initializePackageContents();
-    theArtifactPackage.initializePackageContents();
-    theTypesrepositoryPackage.initializePackageContents();
-    theApplicationPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theMapperPackage.freeze();

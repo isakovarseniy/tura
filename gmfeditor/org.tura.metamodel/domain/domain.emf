@@ -9,6 +9,14 @@ import "platform:/resource/org.tura.metamodel/businessObjects/businessObjects.ec
 import "platform:/resource/org.tura.metamodel/recipe/recipe.ecore";
 import "platform:/resource/org.tura.metamodel/mapper/mapper.ecore";
 
+
+@gmf.diagram
+class Domain{
+  val DomainArtifacts[1] domainArtifacts;
+  val DomainTypes[1] domainTypes;
+  val DomainApplications[1] domainApplications;
+}
+
 class Dammy1 extends typedefinition.TypeDefinition{
 }
 class Dammy2 extends businessobjects.BusinessObjects{
@@ -18,22 +26,9 @@ class Dammy3 extends recipe.Recipes{
 class Dammy4 extends mapper.Mappers{
 }
 
-@gmf.diagram
-class Domain{
-  val DomainArtifacts[1] domainArtifacts;
-  val DomainTypes[1] domainTypes;
-  val DomainApplications[1] domainApplications;
-}
 
 @gmf.node(label="name")
 class DomainArtifacts{
-   attr EString name;  
-   val DomainArtifact artifacrs;
-}
-
-
-@gmf.node(label="name")
-class DomainArtifact{
    attr EString name;  
    ref artifact.Artifacts artifact;
 }
@@ -47,6 +42,7 @@ class DomainTypes{
 @gmf.node(label="name")
 class DomainApplications{
    attr EString name;  
+   @gmf.compartment
    val DomainApplication[*] applications;
 }
 

@@ -3,6 +3,7 @@
 package recipe.provider;
 
 
+import application.provider.ApplicationEditPlugin;
 import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
@@ -85,6 +86,7 @@ public class RecipesItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(RecipePackage.Literals.RECIPES__RECIPE);
+      childrenFeatures.add(RecipePackage.Literals.RECIPES__CONFIGURATIONS);
     }
     return childrenFeatures;
   }
@@ -142,6 +144,7 @@ public class RecipesItemProvider
     switch (notification.getFeatureID(Recipes.class))
     {
       case RecipePackage.RECIPES__RECIPE:
+      case RecipePackage.RECIPES__CONFIGURATIONS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -164,6 +167,11 @@ public class RecipesItemProvider
       (createChildParameter
         (RecipePackage.Literals.RECIPES__RECIPE,
          RecipeFactory.eINSTANCE.createRecipe()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (RecipePackage.Literals.RECIPES__CONFIGURATIONS,
+         RecipeFactory.eINSTANCE.createConfiguration()));
   }
 
   /**
@@ -175,7 +183,7 @@ public class RecipesItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return DomainEditPlugin.INSTANCE;
+    return RecipeEditPlugin.INSTANCE;
   }
 
 }

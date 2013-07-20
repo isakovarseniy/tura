@@ -99,6 +99,31 @@ public class ApplicationItemProviderAdapterFactory extends ApplicationAdapterFac
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link application.Dummy5} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected Dummy5ItemProvider dummy5ItemProvider;
+
+  /**
+   * This creates an adapter for a {@link application.Dummy5}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDummy5Adapter()
+  {
+    if (dummy5ItemProvider == null)
+    {
+      dummy5ItemProvider = new Dummy5ItemProvider(this);
+    }
+
+    return dummy5ItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link application.ApplicationRecipes} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -310,6 +335,7 @@ public class ApplicationItemProviderAdapterFactory extends ApplicationAdapterFac
   public void dispose()
   {
     if (applicationItemProvider != null) applicationItemProvider.dispose();
+    if (dummy5ItemProvider != null) dummy5ItemProvider.dispose();
     if (applicationRecipesItemProvider != null) applicationRecipesItemProvider.dispose();
     if (applicationRecipeItemProvider != null) applicationRecipeItemProvider.dispose();
     if (applicationMappersItemProvider != null) applicationMappersItemProvider.dispose();

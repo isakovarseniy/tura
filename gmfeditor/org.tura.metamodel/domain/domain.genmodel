@@ -5,22 +5,18 @@
     copyrightFields="false">
   <foreignModel>domain.emf</foreignModel>
   <genPackages prefix="Domain" disposableProviderFactory="true" ecorePackage="domain.ecore#/">
-    <genClasses ecoreClass="domain.ecore#//Dammy1"/>
-    <genClasses ecoreClass="domain.ecore#//Dammy2"/>
-    <genClasses ecoreClass="domain.ecore#//Dammy3"/>
-    <genClasses ecoreClass="domain.ecore#//Dammy4"/>
     <genClasses ecoreClass="domain.ecore#//Domain">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainArtifacts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainApplications"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Dammy1"/>
+    <genClasses ecoreClass="domain.ecore#//Dammy2"/>
+    <genClasses ecoreClass="domain.ecore#//Dammy3"/>
+    <genClasses ecoreClass="domain.ecore#//Dammy4"/>
     <genClasses ecoreClass="domain.ecore#//DomainArtifacts">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifacts/artifacrs"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//DomainArtifact">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifact/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifact/artifact"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifacts/artifact"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainTypes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainTypes/name"/>

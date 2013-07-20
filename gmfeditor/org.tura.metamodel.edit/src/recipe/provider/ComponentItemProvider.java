@@ -215,7 +215,7 @@ public class ComponentItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return DomainEditPlugin.INSTANCE;
+    return RecipeEditPlugin.INSTANCE;
   }
 
 }

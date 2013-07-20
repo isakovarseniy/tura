@@ -25,72 +25,36 @@ public class DomainEditPartFactory implements EditPartFactory {
 			View view = (View) model;
 			switch (DomainVisualIDRegistry.getVisualID(view)) {
 
-			case Dammy1EditPart.VISUAL_ID:
-				return new Dammy1EditPart(view);
+			case DomainEditPart.VISUAL_ID:
+				return new DomainEditPart(view);
 
-			case TypeReferenceEditPart.VISUAL_ID:
-				return new TypeReferenceEditPart(view);
+			case DomainArtifactsEditPart.VISUAL_ID:
+				return new DomainArtifactsEditPart(view);
 
-			case TypeReferencePackageNameTypeNameEditPart.VISUAL_ID:
-				return new TypeReferencePackageNameTypeNameEditPart(view);
+			case DomainArtifactsNameEditPart.VISUAL_ID:
+				return new DomainArtifactsNameEditPart(view);
 
-			case TypeEditPart.VISUAL_ID:
-				return new TypeEditPart(view);
+			case DomainTypesEditPart.VISUAL_ID:
+				return new DomainTypesEditPart(view);
 
-			case TypeNameEditPart.VISUAL_ID:
-				return new TypeNameEditPart(view);
+			case DomainTypesNameEditPart.VISUAL_ID:
+				return new DomainTypesNameEditPart(view);
 
-			case EnumaratorEditPart.VISUAL_ID:
-				return new EnumaratorEditPart(view);
+			case DomainApplicationsEditPart.VISUAL_ID:
+				return new DomainApplicationsEditPart(view);
 
-			case EnumaratorNameEditPart.VISUAL_ID:
-				return new EnumaratorNameEditPart(view);
+			case DomainApplicationsNameEditPart.VISUAL_ID:
+				return new DomainApplicationsNameEditPart(view);
 
-			case AttributeEditPart.VISUAL_ID:
-				return new AttributeEditPart(view);
+			case DomainApplicationEditPart.VISUAL_ID:
+				return new DomainApplicationEditPart(view);
 
-			case AttributeNameEditPart.VISUAL_ID:
-				return new AttributeNameEditPart(view);
+			case DomainApplicationNameEditPart.VISUAL_ID:
+				return new DomainApplicationNameEditPart(view);
 
-			case OperationEditPart.VISUAL_ID:
-				return new OperationEditPart(view);
-
-			case OperationNameEditPart.VISUAL_ID:
-				return new OperationNameEditPart(view);
-
-			case Attribute2EditPart.VISUAL_ID:
-				return new Attribute2EditPart(view);
-
-			case AttributeName2EditPart.VISUAL_ID:
-				return new AttributeName2EditPart(view);
-
-			case ReturnValueEditPart.VISUAL_ID:
-				return new ReturnValueEditPart(view);
-
-			case ReturnValuePackageNameTypeNameEditPart.VISUAL_ID:
-				return new ReturnValuePackageNameTypeNameEditPart(view);
-
-			case EnumAttributeEditPart.VISUAL_ID:
-				return new EnumAttributeEditPart(view);
-
-			case EnumAttributeNameEditPart.VISUAL_ID:
-				return new EnumAttributeNameEditPart(view);
-
-			case TypeTypeAttributesCompartmentEditPart.VISUAL_ID:
-				return new TypeTypeAttributesCompartmentEditPart(view);
-
-			case TypeTypeOperationsCompartmentEditPart.VISUAL_ID:
-				return new TypeTypeOperationsCompartmentEditPart(view);
-
-			case OperationOperationParametersCompartmentEditPart.VISUAL_ID:
-				return new OperationOperationParametersCompartmentEditPart(view);
-
-			case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
-				return new OperationOperationReturnValueCompartmentEditPart(
+			case DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID:
+				return new DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart(
 						view);
-
-			case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
-				return new EnumaratorEnumaratorValuesCompartmentEditPart(view);
 
 			case TypeExtensionEditPart.VISUAL_ID:
 				return new TypeExtensionEditPart(view);

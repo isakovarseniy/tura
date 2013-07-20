@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Domain extends EObject
 {
-
   /**
    * Returns the value of the '<em><b>Domain Artifacts</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -102,4 +101,5 @@ public interface Domain extends EObject
    * @generated
    */
   void setDomainApplications(DomainApplications value);
+
 } // Domain

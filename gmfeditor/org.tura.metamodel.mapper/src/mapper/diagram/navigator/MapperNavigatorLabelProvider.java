@@ -96,12 +96,12 @@ public class MapperNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (MapperVisualIDRegistry.getVisualID(view)) {
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", MapperElementTypes.TypeExtension_4001); //$NON-NLS-1$
 		case JavaMapperEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/mapper?JavaMapper", MapperElementTypes.JavaMapper_2002); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", MapperElementTypes.TypeExtension_4001); //$NON-NLS-1$
 		case MappersEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://tura.org/2013/v1/mapper?Mappers", MapperElementTypes.Mappers_1000); //$NON-NLS-1$
@@ -165,10 +165,10 @@ public class MapperNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (MapperVisualIDRegistry.getVisualID(view)) {
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001Text(view);
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_2002Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_4001Text(view);
 		case MappersEditPart.VISUAL_ID:
 			return getMappers_1000Text(view);
 		}

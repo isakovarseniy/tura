@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: mapper.diagram.part.MapperDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: mapper.diagram.edit.parts, 
+Export-Package: mapper.diagram.edit.parts,
  mapper.diagram.part,
  mapper.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,

@@ -9,20 +9,23 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="applicationMappers" eType="#//ApplicationMappers"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dummy5" eSuperTypes="../typedefinition/typeDefinition.ecore#//TypeDefinition"/>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationRecipes">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recipes" upperBound="-1"
-        eType="#//ApplicationRecipe" containment="true"/>
+        eType="#//ApplicationRecipe" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationRecipe">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recipes" eType="ecore:EClass ../recipe/recipe.ecore#//Recipe"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recipes" eType="ecore:EClass ../recipe/recipe.ecore#//Recipes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationMappers">
     <eAnnotations source="gmf.node">
@@ -30,7 +33,9 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappers" upperBound="-1"
-        eType="#//ApplicationMapper" containment="true"/>
+        eType="#//ApplicationMapper" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationMapper">
     <eAnnotations source="gmf.node">

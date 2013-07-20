@@ -6,7 +6,6 @@ package application.provider;
 import application.ApplicationPackage;
 import application.ApplicationRecipe;
 
-import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -187,7 +186,7 @@ public class ApplicationRecipeItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return DomainEditPlugin.INSTANCE;
+    return ApplicationEditPlugin.INSTANCE;
   }
 
 }

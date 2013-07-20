@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import typedefinition.TypedefinitionPackage;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Package</b> for the model.
@@ -93,6 +95,42 @@ public interface ApplicationPackage extends EPackage
    */
   int APPLICATION_FEATURE_COUNT = 2;
 
+  /**
+   * The meta object id for the '{@link application.impl.Dummy5Impl <em>Dummy5</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see application.impl.Dummy5Impl
+   * @see application.impl.ApplicationPackageImpl#getDummy5()
+   * @generated
+   */
+  int DUMMY5 = 1;
+
+  /**
+   * The feature id for the '<em><b>Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DUMMY5__TYPES = TypedefinitionPackage.TYPE_DEFINITION__TYPES;
+
+  /**
+   * The feature id for the '<em><b>Enums</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DUMMY5__ENUMS = TypedefinitionPackage.TYPE_DEFINITION__ENUMS;
+
+  /**
+   * The number of structural features of the '<em>Dummy5</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DUMMY5_FEATURE_COUNT = TypedefinitionPackage.TYPE_DEFINITION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link application.impl.ApplicationRecipesImpl <em>Recipes</em>}' class.
@@ -102,7 +140,7 @@ public interface ApplicationPackage extends EPackage
    * @see application.impl.ApplicationPackageImpl#getApplicationRecipes()
    * @generated
    */
-  int APPLICATION_RECIPES = 1;
+  int APPLICATION_RECIPES = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -139,7 +177,7 @@ public interface ApplicationPackage extends EPackage
    * @see application.impl.ApplicationPackageImpl#getApplicationRecipe()
    * @generated
    */
-  int APPLICATION_RECIPE = 2;
+  int APPLICATION_RECIPE = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -176,7 +214,7 @@ public interface ApplicationPackage extends EPackage
    * @see application.impl.ApplicationPackageImpl#getApplicationMappers()
    * @generated
    */
-  int APPLICATION_MAPPERS = 3;
+  int APPLICATION_MAPPERS = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -213,7 +251,7 @@ public interface ApplicationPackage extends EPackage
    * @see application.impl.ApplicationPackageImpl#getApplicationMapper()
    * @generated
    */
-  int APPLICATION_MAPPER = 4;
+  int APPLICATION_MAPPER = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -274,6 +312,16 @@ public interface ApplicationPackage extends EPackage
    * @generated
    */
   EReference getApplication_ApplicationMappers();
+
+  /**
+   * Returns the meta object for class '{@link application.Dummy5 <em>Dummy5</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Dummy5</em>'.
+   * @see application.Dummy5
+   * @generated
+   */
+  EClass getDummy5();
 
   /**
    * Returns the meta object for class '{@link application.ApplicationRecipes <em>Recipes</em>}'.
@@ -435,6 +483,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EClass APPLICATION = eINSTANCE.getApplication();
+
     /**
      * The meta object literal for the '<em><b>Application Recipes</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
@@ -442,6 +491,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EReference APPLICATION__APPLICATION_RECIPES = eINSTANCE.getApplication_ApplicationRecipes();
+
     /**
      * The meta object literal for the '<em><b>Application Mappers</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
@@ -449,6 +499,17 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EReference APPLICATION__APPLICATION_MAPPERS = eINSTANCE.getApplication_ApplicationMappers();
+
+    /**
+     * The meta object literal for the '{@link application.impl.Dummy5Impl <em>Dummy5</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see application.impl.Dummy5Impl
+     * @see application.impl.ApplicationPackageImpl#getDummy5()
+     * @generated
+     */
+    EClass DUMMY5 = eINSTANCE.getDummy5();
+
     /**
      * The meta object literal for the '{@link application.impl.ApplicationRecipesImpl <em>Recipes</em>}' class.
      * <!-- begin-user-doc -->
@@ -458,6 +519,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EClass APPLICATION_RECIPES = eINSTANCE.getApplicationRecipes();
+
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
@@ -465,6 +527,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EAttribute APPLICATION_RECIPES__NAME = eINSTANCE.getApplicationRecipes_Name();
+
     /**
      * The meta object literal for the '<em><b>Recipes</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
@@ -472,6 +535,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EReference APPLICATION_RECIPES__RECIPES = eINSTANCE.getApplicationRecipes_Recipes();
+
     /**
      * The meta object literal for the '{@link application.impl.ApplicationRecipeImpl <em>Recipe</em>}' class.
      * <!-- begin-user-doc -->
@@ -481,6 +545,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EClass APPLICATION_RECIPE = eINSTANCE.getApplicationRecipe();
+
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
@@ -488,6 +553,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EAttribute APPLICATION_RECIPE__NAME = eINSTANCE.getApplicationRecipe_Name();
+
     /**
      * The meta object literal for the '<em><b>Recipes</b></em>' reference feature.
      * <!-- begin-user-doc -->
@@ -495,6 +561,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EReference APPLICATION_RECIPE__RECIPES = eINSTANCE.getApplicationRecipe_Recipes();
+
     /**
      * The meta object literal for the '{@link application.impl.ApplicationMappersImpl <em>Mappers</em>}' class.
      * <!-- begin-user-doc -->
@@ -504,6 +571,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EClass APPLICATION_MAPPERS = eINSTANCE.getApplicationMappers();
+
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
@@ -511,6 +579,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EAttribute APPLICATION_MAPPERS__NAME = eINSTANCE.getApplicationMappers_Name();
+
     /**
      * The meta object literal for the '<em><b>Mappers</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
@@ -518,6 +587,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EReference APPLICATION_MAPPERS__MAPPERS = eINSTANCE.getApplicationMappers_Mappers();
+
     /**
      * The meta object literal for the '{@link application.impl.ApplicationMapperImpl <em>Mapper</em>}' class.
      * <!-- begin-user-doc -->
@@ -527,6 +597,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EClass APPLICATION_MAPPER = eINSTANCE.getApplicationMapper();
+
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
@@ -534,6 +605,7 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EAttribute APPLICATION_MAPPER__NAME = eINSTANCE.getApplicationMapper_Name();
+
     /**
      * The meta object literal for the '<em><b>Mapper</b></em>' reference feature.
      * <!-- begin-user-doc -->

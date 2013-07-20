@@ -15,12 +15,12 @@ public class RecipeNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 7013;
+	private static final int GROUP_CATEGORY = 7014;
 
 	/**
 	 * @generated
 	 */
-	private static final int SHORTCUTS_CATEGORY = 7012;
+	private static final int SHORTCUTS_CATEGORY = 7013;
 
 	/**
 	 * @generated

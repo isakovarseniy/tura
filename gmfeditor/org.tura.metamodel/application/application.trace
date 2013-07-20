@@ -9,6 +9,9 @@
     <nodeLabelTraces
         visualID="5001"
         queryText="true"/>
+    <compartmentTraces
+        visualID="7001"
+        queryText="true"/>
   </nodeTraces>
   <nodeTraces
       visualID="2002"
@@ -16,16 +19,36 @@
     <nodeLabelTraces
         visualID="5002"
         queryText="true"/>
+    <compartmentTraces
+        visualID="7002"
+        queryText="true"/>
   </nodeTraces>
+  <childNodeTraces
+      visualID="3001"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/application' and _eClass_.name = 'ApplicationRecipe') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/application' and _eClass_.name = 'ApplicationRecipes') and _containmentMF_.name = 'recipes')">
+    <nodeLabelTraces
+        visualID="5003"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3002"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/application' and _eClass_.name = 'ApplicationMapper') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/application' and _eClass_.name = 'ApplicationMappers') and _containmentMF_.name = 'mappers')">
+    <nodeLabelTraces
+        visualID="5004"
+        queryText="true"/>
+  </childNodeTraces>
   <linkTraces
       visualID="4001"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/typedefinition' and _eClass_.name = 'TypeExtension')"/>
+  <linkTraces
+      visualID="4002"
       queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/recipe' and _eClass_.name = 'Recipe') and _feature_.name = 'recipeConfig')">
     <linkLabelTraces
         visualID="6001"
         queryText="true"/>
   </linkTraces>
   <linkTraces
-      visualID="4002"
+      visualID="4003"
       queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/recipe' and _eClass_.name = 'Configuration') and _feature_.name = 'configExtension')">
     <linkLabelTraces
         visualID="6002"

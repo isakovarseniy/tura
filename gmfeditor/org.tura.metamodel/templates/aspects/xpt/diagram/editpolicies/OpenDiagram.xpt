@@ -40,7 +40,7 @@
 
 		«EXPAND xpt::Common::generatedMemberComment»
 		protected org.eclipse.gmf.runtime.notation.Diagram intializeNewDiagram() throws org.eclipse.core.commands.ExecutionException {
-        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
+        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'   or editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'  or editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy' or editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
  			«EXPAND sourceObject» sourceObject = («EXPAND sourceObject») ((org.eclipse.gmf.runtime.notation.impl.ShapeImpl) (diagramFacet
 					.eContainer())).basicGetElement();
 			if (sourceObject.getName() == null) {
@@ -192,11 +192,23 @@
 	}
 «ENDAROUND»
 
+
+
 «DEFINE sourceObject FOR gmfgen::OpenDiagramBehaviour»
            «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
            typesrepository.BusinessPackage
            «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
            typesrepository.Package
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'-»
+           domain.DomainArtifacts
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
+           domain.DomainTypes
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»
+           domain.DomainApplication
+          «ELSEIF editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy'-» 
+          application.ApplicationMapper
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
+          application.ApplicationRecipe
            «ELSE»
            null
            «ENDIF»
@@ -207,6 +219,16 @@
            setBusinessobjects
            «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
            setTypedefinition
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'-»
+           setArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
+           setTypesrepository
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»
+           setApplication
+          «ELSEIF editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy'-» 
+          setMapper
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
+          setRecipes
            «ELSE»
            null
            «ENDIF»
@@ -217,6 +239,16 @@
            businessobjects.BusinessObjects
            «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
            typedefinition.TypeDefinition
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'-»
+           artifact.Artifacts
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
+           typesrepository.TypesRepository
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»
+           application.Application
+          «ELSEIF editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy'-» 
+          mapper.Mappers
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
+          recipe.Recipes
            «ELSE»
            null
            «ENDIF»
@@ -227,6 +259,16 @@
             businessobjects.BusinessobjectsFactory.eINSTANCE.createBusinessObjects()
            «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
            typedefinition.TypedefinitionFactory.eINSTANCE.createTypeDefinition()
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'-»
+           artifact.ArtifactFactory.eINSTANCE.createArtifacts()
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
+           org.tura.metamodel.commons.initdiagram.InitDiagram.initTypesRepositoryDiagram()
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»
+           org.tura.metamodel.commons.initdiagram.InitDiagram.initApplicationDiagram()
+          «ELSEIF editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy'-» 
+           mapper.MapperFactory.eINSTANCE.createMappers()
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
+           recipe.RecipeFactory.eINSTANCE.createRecipes()
            «ELSE»
            null
            «ENDIF»
@@ -237,6 +279,16 @@
            "businessobjects"
            «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
            "typedefinition"
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'-»
+           "artifact"
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
+           "typesrepository"
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»
+           "application"
+          «ELSEIF editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy'-» 
+          "mapper"
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
+          "recipe"
            «ELSE»
            null
            «ENDIF»

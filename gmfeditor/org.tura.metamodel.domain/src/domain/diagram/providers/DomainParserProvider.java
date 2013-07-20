@@ -16,15 +16,11 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typedefinition.TypedefinitionPackage;
-import domain.diagram.edit.parts.AttributeName2EditPart;
-import domain.diagram.edit.parts.AttributeNameEditPart;
-import domain.diagram.edit.parts.EnumAttributeNameEditPart;
-import domain.diagram.edit.parts.EnumaratorNameEditPart;
-import domain.diagram.edit.parts.OperationNameEditPart;
-import domain.diagram.edit.parts.ReturnValuePackageNameTypeNameEditPart;
-import domain.diagram.edit.parts.TypeNameEditPart;
-import domain.diagram.edit.parts.TypeReferencePackageNameTypeNameEditPart;
+import domain.DomainPackage;
+import domain.diagram.edit.parts.DomainApplicationNameEditPart;
+import domain.diagram.edit.parts.DomainApplicationsNameEditPart;
+import domain.diagram.edit.parts.DomainArtifactsNameEditPart;
+import domain.diagram.edit.parts.DomainTypesNameEditPart;
 import domain.diagram.parsers.MessageFormatParser;
 import domain.diagram.part.DomainVisualIDRegistry;
 
@@ -37,149 +33,73 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser typeReferencePackageNameTypeName_5004Parser;
+	private IParser domainArtifactsName_5012Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTypeReferencePackageNameTypeName_5004Parser() {
-		if (typeReferencePackageNameTypeName_5004Parser == null) {
-			EAttribute[] features = new EAttribute[] {
-					TypedefinitionPackage.eINSTANCE
-							.getTypePointer_PackageName(),
-					TypedefinitionPackage.eINSTANCE.getTypePointer_TypeName() };
+	private IParser getDomainArtifactsName_5012Parser() {
+		if (domainArtifactsName_5012Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getDomainArtifacts_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			typeReferencePackageNameTypeName_5004Parser = parser;
+			domainArtifactsName_5012Parser = parser;
 		}
-		return typeReferencePackageNameTypeName_5004Parser;
+		return domainArtifactsName_5012Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser typeName_5009Parser;
+	private IParser domainTypesName_5013Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTypeName_5009Parser() {
-		if (typeName_5009Parser == null) {
-			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getType_Name() };
+	private IParser getDomainTypesName_5013Parser() {
+		if (domainTypesName_5013Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getDomainTypes_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			typeName_5009Parser = parser;
+			domainTypesName_5013Parser = parser;
 		}
-		return typeName_5009Parser;
+		return domainTypesName_5013Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser enumaratorName_5011Parser;
+	private IParser domainApplicationsName_5014Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getEnumaratorName_5011Parser() {
-		if (enumaratorName_5011Parser == null) {
-			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getEnumarator_Name() };
+	private IParser getDomainApplicationsName_5014Parser() {
+		if (domainApplicationsName_5014Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getDomainApplications_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			enumaratorName_5011Parser = parser;
+			domainApplicationsName_5014Parser = parser;
 		}
-		return enumaratorName_5011Parser;
+		return domainApplicationsName_5014Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser attributeName_5005Parser;
+	private IParser domainApplicationName_5016Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAttributeName_5005Parser() {
-		if (attributeName_5005Parser == null) {
-			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getAttribute_Name() };
+	private IParser getDomainApplicationName_5016Parser() {
+		if (domainApplicationName_5016Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getDomainApplication_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			attributeName_5005Parser = parser;
+			domainApplicationName_5016Parser = parser;
 		}
-		return attributeName_5005Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser operationName_5008Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getOperationName_5008Parser() {
-		if (operationName_5008Parser == null) {
-			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getOperation_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			operationName_5008Parser = parser;
-		}
-		return operationName_5008Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser attributeName_5006Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getAttributeName_5006Parser() {
-		if (attributeName_5006Parser == null) {
-			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getAttribute_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			attributeName_5006Parser = parser;
-		}
-		return attributeName_5006Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser returnValuePackageNameTypeName_5007Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getReturnValuePackageNameTypeName_5007Parser() {
-		if (returnValuePackageNameTypeName_5007Parser == null) {
-			EAttribute[] features = new EAttribute[] {
-					TypedefinitionPackage.eINSTANCE
-							.getTypePointer_PackageName(),
-					TypedefinitionPackage.eINSTANCE.getTypePointer_TypeName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			returnValuePackageNameTypeName_5007Parser = parser;
-		}
-		return returnValuePackageNameTypeName_5007Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser enumAttributeName_5010Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getEnumAttributeName_5010Parser() {
-		if (enumAttributeName_5010Parser == null) {
-			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
-					.getEnumAttribute_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			enumAttributeName_5010Parser = parser;
-		}
-		return enumAttributeName_5010Parser;
+		return domainApplicationName_5016Parser;
 	}
 
 	/**
@@ -187,22 +107,14 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case TypeReferencePackageNameTypeNameEditPart.VISUAL_ID:
-			return getTypeReferencePackageNameTypeName_5004Parser();
-		case TypeNameEditPart.VISUAL_ID:
-			return getTypeName_5009Parser();
-		case EnumaratorNameEditPart.VISUAL_ID:
-			return getEnumaratorName_5011Parser();
-		case AttributeNameEditPart.VISUAL_ID:
-			return getAttributeName_5005Parser();
-		case OperationNameEditPart.VISUAL_ID:
-			return getOperationName_5008Parser();
-		case AttributeName2EditPart.VISUAL_ID:
-			return getAttributeName_5006Parser();
-		case ReturnValuePackageNameTypeNameEditPart.VISUAL_ID:
-			return getReturnValuePackageNameTypeName_5007Parser();
-		case EnumAttributeNameEditPart.VISUAL_ID:
-			return getEnumAttributeName_5010Parser();
+		case DomainArtifactsNameEditPart.VISUAL_ID:
+			return getDomainArtifactsName_5012Parser();
+		case DomainTypesNameEditPart.VISUAL_ID:
+			return getDomainTypesName_5013Parser();
+		case DomainApplicationsNameEditPart.VISUAL_ID:
+			return getDomainApplicationsName_5014Parser();
+		case DomainApplicationNameEditPart.VISUAL_ID:
+			return getDomainApplicationName_5016Parser();
 		}
 		return null;
 	}

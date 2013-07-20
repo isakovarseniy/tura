@@ -6,7 +6,7 @@ package domain.diagram.providers;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.notation.View;
 
-import domain.diagram.edit.parts.Dammy1EditPart;
+import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.DomainVisualIDRegistry;
 
@@ -64,7 +64,7 @@ public class DomainValidationProvider {
 		}
 		if (object instanceof View) {
 			return constraintsActive
-					&& Dammy1EditPart.MODEL_ID.equals(DomainVisualIDRegistry
+					&& DomainEditPart.MODEL_ID.equals(DomainVisualIDRegistry
 							.getModelID((View) object));
 		}
 		return true;

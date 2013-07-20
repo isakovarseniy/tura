@@ -7,7 +7,6 @@ import application.ApplicationFactory;
 import application.ApplicationMappers;
 import application.ApplicationPackage;
 
-import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -207,7 +206,7 @@ public class ApplicationMappersItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return DomainEditPlugin.INSTANCE;
+    return ApplicationEditPlugin.INSTANCE;
   }
 
 }

@@ -256,372 +256,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ApplicationMapper1CreationTool_title;
+	public static String DomainApplication1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationMapper1CreationTool_desc;
+	public static String DomainApplication1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationMappers2CreationTool_title;
+	public static String DomainApplications2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationMappers2CreationTool_desc;
+	public static String DomainApplications2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipe3CreationTool_title;
+	public static String DomainArtifacts3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipe3CreationTool_desc;
+	public static String DomainArtifacts3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipes4CreationTool_title;
+	public static String DomainTypes4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipes4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Artifact5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Artifact5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Attribute6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Attribute6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String BusinessObject7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String BusinessObject7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String BusinessPackage8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String BusinessPackage8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Component9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Component9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Configuration10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Configuration10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CreateMethod11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CreateMethod11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String DomainApplication12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String DomainApplication12CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String DomainApplications13CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String DomainApplications13CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String DomainArtifact14CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String DomainArtifact14CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String DomainArtifacts15CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String DomainArtifacts15CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String DomainTypes16CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String DomainTypes16CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String EnumAttribute17CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String EnumAttribute17CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Enumarator18CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Enumarator18CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String InsertMethod19CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String InsertMethod19CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String JavaMapper20CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String JavaMapper20CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ModelMapper21CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ModelMapper21CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Operation22CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Operation22CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Option23CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Option23CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String OtherMethod24CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String OtherMethod24CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Package25CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Package25CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Primitive26CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Primitive26CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Property27CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Property27CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Recipe28CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Recipe28CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String RemoveMethod29CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String RemoveMethod29CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ReturnValue30CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ReturnValue30CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String SearchMethod31CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String SearchMethod31CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Specifier32CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Specifier32CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Type33CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Type33CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference34CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference34CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Types35CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Types35CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String UpdateMethod36CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String UpdateMethod36CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Variable37CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Variable37CreationTool_desc;
+	public static String DomainTypes4CreationTool_desc;
 
 	/**
 	 * @generated
@@ -656,27 +326,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypeTypeAttributesCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeTypeOperationsCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String OperationOperationParametersCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String OperationOperationReturnValueCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String EnumaratorEnumaratorValuesCompartmentEditPart_title;
+	public static String DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -686,37 +336,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Dammy1_1000_links;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TypeReference_2004_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TypeReference_2004_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TypeExtension_4001_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TypeExtension_4001_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Type_2005_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Type_2005_outgoinglinks;
+	public static String NavigatorGroupName_Domain_1000_links;
 
 	/**
 	 * @generated

@@ -3,16 +3,20 @@
 package domain.util;
 
 import businessobjects.BusinessObjects;
+
 import domain.*;
 
 import mapper.Mappers;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
+
 import recipe.Recipes;
+
 import typedefinition.TypeDefinition;
 
 /**
@@ -79,6 +83,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
     new DomainSwitch<Adapter>()
     {
       @Override
+      public Adapter caseDomain(Domain object)
+      {
+        return createDomainAdapter();
+      }
+      @Override
       public Adapter caseDammy1(Dammy1 object)
       {
         return createDammy1Adapter();
@@ -99,19 +108,9 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createDammy4Adapter();
       }
       @Override
-      public Adapter caseDomain(Domain object)
-      {
-        return createDomainAdapter();
-      }
-      @Override
       public Adapter caseDomainArtifacts(DomainArtifacts object)
       {
         return createDomainArtifactsAdapter();
-      }
-      @Override
-      public Adapter caseDomainArtifact(DomainArtifact object)
-      {
-        return createDomainArtifactAdapter();
       }
       @Override
       public Adapter caseDomainTypes(DomainTypes object)
@@ -169,6 +168,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Domain <em>Domain</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Domain
+   * @generated
+   */
+  public Adapter createDomainAdapter()
+  {
+    return null;
+  }
 
   /**
    * Creates a new adapter for an object of class '{@link domain.Dammy1 <em>Dammy1</em>}'.
@@ -231,21 +245,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link domain.Domain <em>Domain</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.Domain
-   * @generated
-   */
-  public Adapter createDomainAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link domain.DomainArtifacts <em>Artifacts</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -256,21 +255,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDomainArtifactsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.DomainArtifact <em>Artifact</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.DomainArtifact
-   * @generated
-   */
-  public Adapter createDomainArtifactAdapter()
   {
     return null;
   }

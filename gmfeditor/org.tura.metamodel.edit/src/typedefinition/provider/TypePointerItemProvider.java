@@ -3,6 +3,7 @@
 package typedefinition.provider;
 
 
+import application.provider.ApplicationEditPlugin;
 import domain.provider.DomainEditPlugin;
 import businessobjects.provider.BusinessobjectsEditPlugin;
 import java.util.Collection;
@@ -192,7 +193,7 @@ public class TypePointerItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return DomainEditPlugin.INSTANCE;
+    return MapperEditPlugin.INSTANCE;
   }
 
 }

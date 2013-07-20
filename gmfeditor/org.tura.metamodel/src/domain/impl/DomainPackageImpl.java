@@ -3,11 +3,17 @@
 package domain.impl;
 
 import application.ApplicationPackage;
+
 import application.impl.ApplicationPackageImpl;
+
 import artifact.ArtifactPackage;
+
 import artifact.impl.ArtifactPackageImpl;
+
 import businessobjects.BusinessobjectsPackage;
+
 import businessobjects.impl.BusinessobjectsPackageImpl;
+
 import domain.Dammy1;
 import domain.Dammy2;
 import domain.Dammy3;
@@ -15,25 +21,32 @@ import domain.Dammy4;
 import domain.Domain;
 import domain.DomainApplication;
 import domain.DomainApplications;
-import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainFactory;
 import domain.DomainPackage;
-
 import domain.DomainTypes;
+
 import mapper.MapperPackage;
+
 import mapper.impl.MapperPackageImpl;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import recipe.RecipePackage;
+
 import recipe.impl.RecipePackageImpl;
+
 import typedefinition.TypedefinitionPackage;
+
 import typedefinition.impl.TypedefinitionPackageImpl;
+
 import typesrepository.TypesrepositoryPackage;
+
 import typesrepository.impl.TypesrepositoryPackageImpl;
 
 /**
@@ -44,6 +57,13 @@ import typesrepository.impl.TypesrepositoryPackageImpl;
  */
 public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 {
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass domainEClass = null;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -77,26 +97,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass domainEClass = null;
+  private EClass domainArtifactsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass domainArtifactsEClass = null;
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass domainArtifactEClass = null;
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass domainTypesEClass = null;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -202,46 +211,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDammy1()
-  {
-    return dammy1EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDammy2()
-  {
-    return dammy2EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDammy3()
-  {
-    return dammy3EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDammy4()
-  {
-    return dammy4EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDomain()
   {
     return domainEClass;
@@ -282,6 +251,46 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getDammy1()
+  {
+    return dammy1EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDammy2()
+  {
+    return dammy2EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDammy3()
+  {
+    return dammy3EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDammy4()
+  {
+    return dammy4EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDomainArtifacts()
   {
     return domainArtifactsEClass;
@@ -302,39 +311,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDomainArtifacts_Artifacrs()
+  public EReference getDomainArtifacts_Artifact()
   {
     return (EReference)domainArtifactsEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDomainArtifact()
-  {
-    return domainArtifactEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getDomainArtifact_Name()
-  {
-    return (EAttribute)domainArtifactEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDomainArtifact_Artifact()
-  {
-    return (EReference)domainArtifactEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -457,6 +436,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     isCreated = true;
 
     // Create classes and their features
+    domainEClass = createEClass(DOMAIN);
+    createEReference(domainEClass, DOMAIN__DOMAIN_ARTIFACTS);
+    createEReference(domainEClass, DOMAIN__DOMAIN_TYPES);
+    createEReference(domainEClass, DOMAIN__DOMAIN_APPLICATIONS);
+
     dammy1EClass = createEClass(DAMMY1);
 
     dammy2EClass = createEClass(DAMMY2);
@@ -465,18 +449,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     dammy4EClass = createEClass(DAMMY4);
 
-    domainEClass = createEClass(DOMAIN);
-    createEReference(domainEClass, DOMAIN__DOMAIN_ARTIFACTS);
-    createEReference(domainEClass, DOMAIN__DOMAIN_TYPES);
-    createEReference(domainEClass, DOMAIN__DOMAIN_APPLICATIONS);
-
     domainArtifactsEClass = createEClass(DOMAIN_ARTIFACTS);
     createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__NAME);
-    createEReference(domainArtifactsEClass, DOMAIN_ARTIFACTS__ARTIFACRS);
-
-    domainArtifactEClass = createEClass(DOMAIN_ARTIFACT);
-    createEAttribute(domainArtifactEClass, DOMAIN_ARTIFACT__NAME);
-    createEReference(domainArtifactEClass, DOMAIN_ARTIFACT__ARTIFACT);
+    createEReference(domainArtifactsEClass, DOMAIN_ARTIFACTS__ARTIFACT);
 
     domainTypesEClass = createEClass(DOMAIN_TYPES);
     createEAttribute(domainTypesEClass, DOMAIN_TYPES__NAME);
@@ -535,6 +510,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     dammy4EClass.getESuperTypes().add(theMapperPackage.getMappers());
 
     // Initialize classes and features; add operations and parameters
+    initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDomain_DomainArtifacts(), this.getDomainArtifacts(), null, "domainArtifacts", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDomain_DomainTypes(), this.getDomainTypes(), null, "domainTypes", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDomain_DomainApplications(), this.getDomainApplications(), null, "domainApplications", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(dammy1EClass, Dammy1.class, "Dammy1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(dammy2EClass, Dammy2.class, "Dammy2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -543,18 +523,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(dammy4EClass, Dammy4.class, "Dammy4", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDomain_DomainArtifacts(), this.getDomainArtifacts(), null, "domainArtifacts", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDomain_DomainTypes(), this.getDomainTypes(), null, "domainTypes", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDomain_DomainApplications(), this.getDomainApplications(), null, "domainApplications", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(domainArtifactsEClass, DomainArtifacts.class, "DomainArtifacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDomainArtifacts_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDomainArtifacts_Artifacrs(), this.getDomainArtifact(), null, "artifacrs", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(domainArtifactEClass, DomainArtifact.class, "DomainArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDomainArtifact_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDomainArtifact_Artifact(), theArtifactPackage.getArtifacts(), null, "artifact", null, 0, 1, DomainArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDomainArtifacts_Artifact(), theArtifactPackage.getArtifacts(), null, "artifact", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainTypesEClass, DomainTypes.class, "DomainTypes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDomainTypes_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -578,6 +549,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createGmf_1Annotations();
     // gmf.node
     createGmf_2Annotations();
+    // gmf.compartment
+    createGmf_3Annotations();
   }
 
   /**
@@ -631,13 +604,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name"
        });		
     addAnnotation
-      (domainArtifactEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "name"
-       });		
-    addAnnotation
       (domainTypesEClass, 
        source, 
        new String[] 
@@ -650,7 +616,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "label", "name"
-       });		
+       });			
     addAnnotation
       (domainApplicationEClass, 
        source, 
@@ -658,6 +624,23 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "label", "name"
        });
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.compartment</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_3Annotations()
+  {
+    String source = "gmf.compartment";							
+    addAnnotation
+      (getDomainApplications_Applications(), 
+       source, 
+       new String[] 
+       {
+       });	
   }
 
 } //DomainPackageImpl

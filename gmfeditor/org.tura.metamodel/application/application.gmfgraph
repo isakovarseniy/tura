@@ -8,6 +8,20 @@
   <figures
       name="Default">
     <figures
+        xsi:type="gmfgraph:PolygonDecoration"
+        name="ClosedArrow">
+      <backgroundColor
+          xsi:type="gmfgraph:ConstantColor"/>
+      <template/>
+      <template
+          x="-2"
+          y="2"/>
+      <template
+          x="-2"
+          y="-2"/>
+      <template/>
+    </figures>
+    <figures
         xsi:type="gmfgraph:PolylineDecoration"
         name="RecipeRecipeConfigFigureTargetDecoration"/>
     <figures
@@ -40,11 +54,22 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ApplicationRecipesLabelFigure"
-            text="ApplicationRecipes"/>
+            text="ApplicationRecipes">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ApplicationRecipesRecipesCompartmentFigure"
+            outline="false"/>
       </actualFigure>
       <accessors
           accessor="getFigureApplicationRecipesLabelFigure"
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getApplicationRecipesRecipesCompartmentFigure"
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ApplicationRecipeFigure">
@@ -84,11 +109,22 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ApplicationMappersLabelFigure"
-            text="ApplicationMappers"/>
+            text="ApplicationMappers">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ApplicationMappersMappersCompartmentFigure"
+            outline="false"/>
       </actualFigure>
       <accessors
           accessor="getFigureApplicationMappersLabelFigure"
           figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getApplicationMappersMappersCompartmentFigure"
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ApplicationMapperFigure">
@@ -111,6 +147,240 @@
       <accessors
           accessor="getFigureApplicationMapperLabelFigure"
           figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="TypeFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="TypeFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="TypeLabelFigure"
+            text="Type">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="TypeAttributesCompartmentFigure"
+            outline="false"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="TypeOperationsCompartmentFigure"
+            outline="false"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureTypeLabelFigure"
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getTypeAttributesCompartmentFigure"
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
+      <accessors
+          accessor="getTypeOperationsCompartmentFigure"
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors
+        name="TypeReferenceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="TypeReferenceFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="TypeReferenceLabelFigure"
+            text="TypeReference"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureTypeReferenceLabelFigure"
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="AttributeFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="AttributeFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="AttributeLabelFigure"
+            text="Attribute"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureAttributeLabelFigure"
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="OperationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="OperationFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="OperationLabelFigure"
+            text="Operation">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="OperationParametersCompartmentFigure"
+            outline="false"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="OperationReturnValueCompartmentFigure"
+            outline="false"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureOperationLabelFigure"
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getOperationParametersCompartmentFigure"
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+      <accessors
+          accessor="getOperationReturnValueCompartmentFigure"
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors
+        name="ReturnValueFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ReturnValueFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ReturnValueLabelFigure"
+            text="ReturnValue"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureReturnValueLabelFigure"
+          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="EnumaratorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EnumaratorFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EnumaratorLabelFigure"
+            text="Enumarator">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="EnumaratorValuesCompartmentFigure"
+            outline="false"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureEnumaratorLabelFigure"
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getEnumaratorValuesCompartmentFigure"
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="EnumAttributeFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EnumAttributeFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EnumAttributeLabelFigure"
+            text="EnumAttribute"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureEnumAttributeLabelFigure"
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="RecipeFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="RecipeFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="RecipeLabelFigure"
+            text="Recipe">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="RecipeComponentsCompartmentFigure"
+            outline="false"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureRecipeLabelFigure"
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getRecipeComponentsCompartmentFigure"
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ComponentFigure">
@@ -144,13 +414,13 @@
       </actualFigure>
       <accessors
           accessor="getFigureComponentLabelFigure"
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
       <accessors
           accessor="getComponentComponentsCompartmentFigure"
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.12/@actualFigure/@children.1"/>
       <accessors
           accessor="getComponentMappersCompartmentFigure"
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.12/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="ModelMapperFigure">
@@ -172,7 +442,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureModelMapperLabelFigure"
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="ConfigurationFigure">
@@ -202,10 +472,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureConfigurationLabelFigure"
-          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.14/@actualFigure/@children.0"/>
       <accessors
           accessor="getConfigurationPropertiesCompartmentFigure"
-          figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.14/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="PropertyFigure">
@@ -227,7 +497,7 @@
       </actualFigure>
       <accessors
           accessor="getFigurePropertyLabelFigure"
-          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="JavaMapperFigure">
@@ -249,7 +519,16 @@
       </actualFigure>
       <accessors
           accessor="getFigureJavaMapperLabelFigure"
-          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="TypeExtensionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="TypeExtensionFigure"
+          lineWidth="2"
+          lineKind="LINE_DOT"
+          targetDecoration="//@figures.0/@figures.0"/>
     </descriptors>
     <descriptors
         name="RecipeRecipeConfigFigure">
@@ -257,7 +536,7 @@
           xsi:type="gmfgraph:PolylineConnection"
           name="RecipeRecipeConfigFigure"
           lineKind="LINE_DASH"
-          targetDecoration="//@figures.0/@figures.0"/>
+          targetDecoration="//@figures.0/@figures.1"/>
     </descriptors>
     <descriptors
         name="RecipeRecipeConfigExternalLabelFigure">
@@ -272,7 +551,7 @@
           name="ConfigurationConfigExtensionFigure"
           lineWidth="2"
           lineKind="LINE_DOT"
-          targetDecoration="//@figures.0/@figures.1"/>
+          targetDecoration="//@figures.0/@figures.2"/>
     </descriptors>
     <descriptors
         name="ConfigurationConfigExtensionExternalLabelFigure">
@@ -294,6 +573,30 @@
       name="ApplicationMapper"
       figure="ApplicationMapperFigure"/>
   <nodes
+      name="Type"
+      figure="TypeFigure"/>
+  <nodes
+      name="TypeReference"
+      figure="TypeReferenceFigure"/>
+  <nodes
+      name="Attribute"
+      figure="AttributeFigure"/>
+  <nodes
+      name="Operation"
+      figure="OperationFigure"/>
+  <nodes
+      name="ReturnValue"
+      figure="ReturnValueFigure"/>
+  <nodes
+      name="Enumarator"
+      figure="EnumaratorFigure"/>
+  <nodes
+      name="EnumAttribute"
+      figure="EnumAttributeFigure"/>
+  <nodes
+      name="Recipe"
+      figure="RecipeFigure"/>
+  <nodes
       name="Component"
       figure="ComponentFigure"/>
   <nodes
@@ -309,26 +612,69 @@
       name="JavaMapper"
       figure="JavaMapperFigure"/>
   <connections
+      name="TypeExtension"
+      figure="TypeExtensionFigure"/>
+  <connections
       name="RecipeRecipeConfig"
       figure="RecipeRecipeConfigFigure"/>
   <connections
       name="ConfigurationConfigExtension"
       figure="ConfigurationConfigExtensionFigure"/>
   <compartments
+      name="ApplicationRecipesRecipesCompartment"
+      figure="ApplicationRecipesFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <compartments
+      name="ApplicationMappersMappersCompartment"
+      figure="ApplicationMappersFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <compartments
+      name="TypeAttributesCompartment"
+      figure="TypeFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+  <compartments
+      name="TypeOperationsCompartment"
+      figure="TypeFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.4/@accessors.2"/>
+  <compartments
+      name="OperationParametersCompartment"
+      figure="OperationFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.7/@accessors.1"/>
+  <compartments
+      name="OperationReturnValueCompartment"
+      figure="OperationFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.7/@accessors.2"/>
+  <compartments
+      name="EnumaratorValuesCompartment"
+      figure="EnumaratorFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.9/@accessors.1"/>
+  <compartments
+      name="RecipeComponentsCompartment"
+      figure="RecipeFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.11/@accessors.1"/>
+  <compartments
       name="ComponentComponentsCompartment"
       figure="ComponentFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.12/@accessors.1"/>
   <compartments
       name="ComponentMappersCompartment"
       figure="ComponentFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.4/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.12/@accessors.2"/>
   <compartments
       name="ConfigurationPropertiesCompartment"
       figure="ConfigurationFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.14/@accessors.1"/>
   <labels
       name="ApplicationRecipesLabel"
       figure="ApplicationRecipesFigure"
@@ -346,25 +692,57 @@
       figure="ApplicationMapperFigure"
       accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <labels
+      name="TypeLabel"
+      figure="TypeFigure"
+      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels
+      name="TypeReferenceLabel"
+      figure="TypeReferenceFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels
+      name="AttributeLabel"
+      figure="AttributeFigure"
+      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels
+      name="OperationLabel"
+      figure="OperationFigure"
+      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels
+      name="ReturnValueLabel"
+      figure="ReturnValueFigure"
+      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels
+      name="EnumaratorLabel"
+      figure="EnumaratorFigure"
+      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels
+      name="EnumAttributeLabel"
+      figure="EnumAttributeFigure"
+      accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+  <labels
+      name="RecipeLabel"
+      figure="RecipeFigure"
+      accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+  <labels
       name="ComponentLabel"
       figure="ComponentFigure"
-      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.12/@accessors.0"/>
   <labels
       name="ModelMapperLabel"
       figure="ModelMapperFigure"
-      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.13/@accessors.0"/>
   <labels
       name="ConfigurationLabel"
       figure="ConfigurationFigure"
-      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.14/@accessors.0"/>
   <labels
       name="PropertyLabel"
       figure="PropertyFigure"
-      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.15/@accessors.0"/>
   <labels
       name="JavaMapperLabel"
       figure="JavaMapperFigure"
-      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.16/@accessors.0"/>
   <labels
       name="RecipeRecipeConfigExternalLabel"
       figure="RecipeRecipeConfigExternalLabelFigure"

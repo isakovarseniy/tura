@@ -25,7 +25,7 @@ import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
 import org.eclipse.ui.part.FileEditorInput;
 
-import domain.diagram.edit.parts.Dammy1EditPart;
+import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.part.DomainDiagramEditor;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.DomainVisualIDRegistry;
@@ -127,7 +127,7 @@ public class DomainNavigatorActionProvider extends CommonActionProvider {
 				}
 				if (selectedElement instanceof Diagram) {
 					Diagram diagram = (Diagram) selectedElement;
-					if (Dammy1EditPart.MODEL_ID.equals(DomainVisualIDRegistry
+					if (DomainEditPart.MODEL_ID.equals(DomainVisualIDRegistry
 							.getModelID(diagram))) {
 						myDiagram = diagram;
 					}

@@ -2,12 +2,12 @@
  */
 package domain.impl;
 
-import domain.DomainArtifact;
+import artifact.Artifacts;
+
 import domain.DomainArtifacts;
 import domain.DomainPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.DomainArtifactsImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.DomainArtifactsImpl#getArtifacrs <em>Artifacrs</em>}</li>
+ *   <li>{@link domain.impl.DomainArtifactsImpl#getArtifact <em>Artifact</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,14 +52,14 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getArtifacrs() <em>Artifacrs</em>}' containment reference.
+   * The cached value of the '{@link #getArtifact() <em>Artifact</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArtifacrs()
+   * @see #getArtifact()
    * @generated
    * @ordered
    */
-  protected DomainArtifact artifacrs;
+  protected Artifacts artifact;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,9 +110,19 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts
    * <!-- end-user-doc -->
    * @generated
    */
-  public DomainArtifact getArtifacrs()
+  public Artifacts getArtifact()
   {
-    return artifacrs;
+    if (artifact != null && artifact.eIsProxy())
+    {
+      InternalEObject oldArtifact = (InternalEObject)artifact;
+      artifact = (Artifacts)eResolveProxy(oldArtifact);
+      if (artifact != oldArtifact)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.DOMAIN_ARTIFACTS__ARTIFACT, oldArtifact, artifact));
+      }
+    }
+    return artifact;
   }
 
   /**
@@ -120,53 +130,22 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetArtifacrs(DomainArtifact newArtifacrs, NotificationChain msgs)
+  public Artifacts basicGetArtifact()
   {
-    DomainArtifact oldArtifacrs = artifacrs;
-    artifacrs = newArtifacrs;
+    return artifact;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setArtifact(Artifacts newArtifact)
+  {
+    Artifacts oldArtifact = artifact;
+    artifact = newArtifact;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACTS__ARTIFACRS, oldArtifacrs, newArtifacrs);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setArtifacrs(DomainArtifact newArtifacrs)
-  {
-    if (newArtifacrs != artifacrs)
-    {
-      NotificationChain msgs = null;
-      if (artifacrs != null)
-        msgs = ((InternalEObject)artifacrs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN_ARTIFACTS__ARTIFACRS, null, msgs);
-      if (newArtifacrs != null)
-        msgs = ((InternalEObject)newArtifacrs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN_ARTIFACTS__ARTIFACRS, null, msgs);
-      msgs = basicSetArtifacrs(newArtifacrs, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACTS__ARTIFACRS, newArtifacrs, newArtifacrs));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case DomainPackage.DOMAIN_ARTIFACTS__ARTIFACRS:
-        return basicSetArtifacrs(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACTS__ARTIFACT, oldArtifact, artifact));
   }
 
   /**
@@ -181,8 +160,9 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts
     {
       case DomainPackage.DOMAIN_ARTIFACTS__NAME:
         return getName();
-      case DomainPackage.DOMAIN_ARTIFACTS__ARTIFACRS:
-        return getArtifacrs();
+      case DomainPackage.DOMAIN_ARTIFACTS__ARTIFACT:
+        if (resolve) return getArtifact();
+        return basicGetArtifact();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -200,8 +180,8 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts
       case DomainPackage.DOMAIN_ARTIFACTS__NAME:
         setName((String)newValue);
         return;
-      case DomainPackage.DOMAIN_ARTIFACTS__ARTIFACRS:
-        setArtifacrs((DomainArtifact)newValue);
+      case DomainPackage.DOMAIN_ARTIFACTS__ARTIFACT:
+        setArtifact((Artifacts)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -220,8 +200,8 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts
       case DomainPackage.DOMAIN_ARTIFACTS__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DomainPackage.DOMAIN_ARTIFACTS__ARTIFACRS:
-        setArtifacrs((DomainArtifact)null);
+      case DomainPackage.DOMAIN_ARTIFACTS__ARTIFACT:
+        setArtifact((Artifacts)null);
         return;
     }
     super.eUnset(featureID);
@@ -239,8 +219,8 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts
     {
       case DomainPackage.DOMAIN_ARTIFACTS__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.DOMAIN_ARTIFACTS__ARTIFACRS:
-        return artifacrs != null;
+      case DomainPackage.DOMAIN_ARTIFACTS__ARTIFACT:
+        return artifact != null;
     }
     return super.eIsSet(featureID);
   }

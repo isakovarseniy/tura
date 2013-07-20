@@ -40,6 +40,29 @@ public class ApplicationEditPartFactory implements EditPartFactory {
 			case ApplicationMappersNameEditPart.VISUAL_ID:
 				return new ApplicationMappersNameEditPart(view);
 
+			case ApplicationRecipeEditPart.VISUAL_ID:
+				return new ApplicationRecipeEditPart(view);
+
+			case ApplicationRecipeNameEditPart.VISUAL_ID:
+				return new ApplicationRecipeNameEditPart(view);
+
+			case ApplicationMapperEditPart.VISUAL_ID:
+				return new ApplicationMapperEditPart(view);
+
+			case ApplicationMapperNameEditPart.VISUAL_ID:
+				return new ApplicationMapperNameEditPart(view);
+
+			case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
+				return new ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart(
+						view);
+
+			case ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID:
+				return new ApplicationMappersApplicationMappersMappersCompartmentEditPart(
+						view);
+
+			case TypeExtensionEditPart.VISUAL_ID:
+				return new TypeExtensionEditPart(view);
+
 			case RecipeRecipeConfigEditPart.VISUAL_ID:
 				return new RecipeRecipeConfigEditPart(view);
 

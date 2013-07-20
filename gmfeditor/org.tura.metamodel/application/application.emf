@@ -3,7 +3,7 @@
 package application;
 import "platform:/resource/org.tura.metamodel/recipe/recipe.ecore";
 import "platform:/resource/org.tura.metamodel/mapper/mapper.ecore";
-
+import "platform:/resource/org.tura.metamodel/typedefinition/typeDefinition.ecore";
 
 @gmf.diagram
 class Application{
@@ -11,21 +11,27 @@ class Application{
    val ApplicationMappers applicationMappers;
 }
 
+class Dummy5 extends typedefinition.TypeDefinition{
+   
+}
+
 @gmf.node(label="name")
 class ApplicationRecipes{
    attr EString name;
+   @gmf.compartment
    val ApplicationRecipe[*] recipes;
 }
 
 @gmf.node(label="name")
 class ApplicationRecipe{
    attr EString name;
-   ref recipe.Recipe recipes;
+   ref recipe.Recipes recipes;
 }
 
 @gmf.node(label="name")
 class ApplicationMappers{
    attr EString name;
+   @gmf.compartment
    val ApplicationMapper[*] mappers;
 }
 

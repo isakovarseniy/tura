@@ -7,7 +7,7 @@ import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gmf.runtime.notation.View;
 
-import domain.diagram.edit.parts.Dammy1EditPart;
+import domain.diagram.edit.parts.DomainEditPart;
 
 /**
  * @generated
@@ -31,7 +31,7 @@ public class DomainShortcutPropertyTester extends PropertyTester {
 		if (SHORTCUT_PROPERTY.equals(method)) {
 			EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 			if (annotation != null) {
-				return Dammy1EditPart.MODEL_ID.equals(annotation.getDetails()
+				return DomainEditPart.MODEL_ID.equals(annotation.getDetails()
 						.get("modelID")); //$NON-NLS-1$
 			}
 		}

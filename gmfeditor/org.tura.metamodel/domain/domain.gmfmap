@@ -8,183 +8,88 @@
     xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
   <nodes>
     <containmentFeature
-        href="../typedefinition/typeDefinition.ecore#//TypeDefinition/types"/>
+        href="domain.ecore#//Domain/domainArtifacts"/>
     <ownedChild>
       <domainMetaElement
-          href="../typedefinition/typeDefinition.ecore#//TypeReference"/>
+          href="domain.ecore#//DomainArtifacts"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="domain.gmfgraph#TypeReferenceLabel"/>
+            href="domain.gmfgraph#DomainArtifactsLabel"/>
         <features
-            href="../typedefinition/typeDefinition.ecore#//TypePointer/packageName"/>
-        <features
-            href="../typedefinition/typeDefinition.ecore#//TypePointer/typeName"/>
+            href="domain.ecore#//DomainArtifacts/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.33"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
-          href="domain.gmfgraph#TypeReference"/>
+          href="domain.gmfgraph#DomainArtifacts"/>
     </ownedChild>
   </nodes>
   <nodes>
     <containmentFeature
-        href="../typedefinition/typeDefinition.ecore#//TypeDefinition/types"/>
-    <ownedChild
-        relatedDiagrams="//@diagram">
+        href="domain.ecore#//Domain/domainTypes"/>
+    <ownedChild>
       <domainMetaElement
-          href="../typedefinition/typeDefinition.ecore#//Type"/>
+          href="domain.ecore#//DomainTypes"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="domain.gmfgraph#TypeLabel"/>
+            href="domain.gmfgraph#DomainTypesLabel"/>
         <features
-            href="../typedefinition/typeDefinition.ecore#//Type/name"/>
+            href="domain.ecore#//DomainTypes/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.32"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
-          href="domain.gmfgraph#Type"/>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="../typedefinition/typeDefinition.ecore#//Type/attributes"/>
-        <ownedChild>
-          <domainMetaElement
-              href="../typedefinition/typeDefinition.ecore#//Attribute"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#AttributeLabel"/>
-            <features
-                href="../typedefinition/typeDefinition.ecore#//Attribute/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
-          <diagramNode
-              href="domain.gmfgraph#Attribute"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.1">
-        <containmentFeature
-            href="../typedefinition/typeDefinition.ecore#//Type/operations"/>
-        <ownedChild
-            relatedDiagrams="//@diagram">
-          <domainMetaElement
-              href="../typedefinition/typeDefinition.ecore#//Operation"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#OperationLabel"/>
-            <features
-                href="../typedefinition/typeDefinition.ecore#//Operation/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.21"/>
-          <diagramNode
-              href="domain.gmfgraph#Operation"/>
-          <children
-              compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.1/@ownedChild/@children.0/@ownedChild">
-            <containmentFeature
-                href="../typedefinition/typeDefinition.ecore#//Operation/parameters"/>
-          </children>
-          <children
-              compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@compartments.1">
-            <containmentFeature
-                href="../typedefinition/typeDefinition.ecore#//Operation/returnValue"/>
-            <ownedChild>
-              <domainMetaElement
-                  href="../typedefinition/typeDefinition.ecore#//ReturnValue"/>
-              <labelMappings
-                  xsi:type="gmfmap:FeatureLabelMapping">
-                <diagramLabel
-                    href="domain.gmfgraph#ReturnValueLabel"/>
-                <features
-                    href="../typedefinition/typeDefinition.ecore#//TypePointer/packageName"/>
-                <features
-                    href="../typedefinition/typeDefinition.ecore#//TypePointer/typeName"/>
-              </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.29"/>
-              <diagramNode
-                  href="domain.gmfgraph#ReturnValue"/>
-            </ownedChild>
-          </children>
-          <compartments
-              children="//@nodes.1/@ownedChild/@children.1/@ownedChild/@children.0">
-            <compartment
-                href="domain.gmfgraph#OperationParametersCompartment"/>
-          </compartments>
-          <compartments
-              children="//@nodes.1/@ownedChild/@children.1/@ownedChild/@children.1">
-            <compartment
-                href="domain.gmfgraph#OperationReturnValueCompartment"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.1/@ownedChild/@children.0">
-        <compartment
-            href="domain.gmfgraph#TypeAttributesCompartment"/>
-      </compartments>
-      <compartments
-          children="//@nodes.1/@ownedChild/@children.1">
-        <compartment
-            href="domain.gmfgraph#TypeOperationsCompartment"/>
-      </compartments>
+          href="domain.gmfgraph#DomainTypes"/>
     </ownedChild>
   </nodes>
   <nodes>
     <containmentFeature
-        href="../typedefinition/typeDefinition.ecore#//TypeDefinition/enums"/>
+        href="domain.ecore#//Domain/domainApplications"/>
     <ownedChild
         relatedDiagrams="//@diagram">
       <domainMetaElement
-          href="../typedefinition/typeDefinition.ecore#//Enumarator"/>
+          href="domain.ecore#//DomainApplications"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="domain.gmfgraph#EnumaratorLabel"/>
+            href="domain.gmfgraph#DomainApplicationsLabel"/>
         <features
-            href="../typedefinition/typeDefinition.ecore#//Enumarator/name"/>
+            href="domain.ecore#//DomainApplications/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.17"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
-          href="domain.gmfgraph#Enumarator"/>
+          href="domain.gmfgraph#DomainApplications"/>
       <children
           compartment="//@nodes.2/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../typedefinition/typeDefinition.ecore#//Enumarator/values"/>
+            href="domain.ecore#//DomainApplications/applications"/>
         <ownedChild>
           <domainMetaElement
-              href="../typedefinition/typeDefinition.ecore#//EnumAttribute"/>
+              href="domain.ecore#//DomainApplication"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="domain.gmfgraph#EnumAttributeLabel"/>
+                href="domain.gmfgraph#DomainApplicationLabel"/>
             <features
-                href="../typedefinition/typeDefinition.ecore#//EnumAttribute/name"/>
+                href="domain.ecore#//DomainApplication/name"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.16"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
           <diagramNode
-              href="domain.gmfgraph#EnumAttribute"/>
+              href="domain.gmfgraph#DomainApplication"/>
         </ownedChild>
       </children>
       <compartments
           children="//@nodes.2/@ownedChild/@children.0">
         <compartment
-            href="domain.gmfgraph#EnumaratorValuesCompartment"/>
+            href="domain.gmfgraph#DomainApplicationsApplicationsCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -243,7 +148,7 @@
     <domainModel
         href="domain.ecore#/"/>
     <domainMetaElement
-        href="domain.ecore#//Dammy1"/>
+        href="domain.ecore#//Domain"/>
     <palette
         href="domain.gmftool#//@palette"/>
   </diagram>

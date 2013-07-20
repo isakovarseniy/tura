@@ -10,15 +10,23 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
+import typedefinition.TypedefinitionPackage;
 import application.Application;
 import application.ApplicationPackage;
 import application.diagram.edit.parts.ApplicationEditPart;
+import application.diagram.edit.parts.ApplicationMapperEditPart;
+import application.diagram.edit.parts.ApplicationMapperNameEditPart;
+import application.diagram.edit.parts.ApplicationMappersApplicationMappersMappersCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationMappersNameEditPart;
+import application.diagram.edit.parts.ApplicationRecipeEditPart;
+import application.diagram.edit.parts.ApplicationRecipeNameEditPart;
+import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
 import application.diagram.edit.parts.ApplicationRecipesNameEditPart;
 import application.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import application.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import application.diagram.edit.parts.TypeExtensionEditPart;
 import application.diagram.edit.parts.WrappingLabel2EditPart;
 import application.diagram.edit.parts.WrappingLabelEditPart;
 
@@ -140,6 +148,18 @@ public class ApplicationVisualIDRegistry {
 				return ApplicationMappersEditPart.VISUAL_ID;
 			}
 			break;
+		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
+			if (ApplicationPackage.eINSTANCE.getApplicationRecipe()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ApplicationRecipeEditPart.VISUAL_ID;
+			}
+			break;
+		case ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID:
+			if (ApplicationPackage.eINSTANCE.getApplicationMapper()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ApplicationMapperEditPart.VISUAL_ID;
+			}
+			break;
 		}
 		return -1;
 	}
@@ -178,9 +198,35 @@ public class ApplicationVisualIDRegistry {
 			if (ApplicationRecipesNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case ApplicationMappersEditPart.VISUAL_ID:
 			if (ApplicationMappersNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ApplicationRecipeEditPart.VISUAL_ID:
+			if (ApplicationRecipeNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ApplicationMapperEditPart.VISUAL_ID:
+			if (ApplicationMapperNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
+			if (ApplicationRecipeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID:
+			if (ApplicationMapperEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -204,6 +250,10 @@ public class ApplicationVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
+		}
+		if (TypedefinitionPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
+				domainElement.eClass())) {
+			return TypeExtensionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}
@@ -235,6 +285,13 @@ public class ApplicationVisualIDRegistry {
 	 * @generated
 	 */
 	public static boolean isCompartmentVisualID(int visualID) {
+		switch (visualID) {
+		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
+		case ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID:
+			return true;
+		default:
+			break;
+		}
 		return false;
 	}
 
@@ -245,8 +302,8 @@ public class ApplicationVisualIDRegistry {
 		switch (visualID) {
 		case ApplicationEditPart.VISUAL_ID:
 			return false;
-		case ApplicationRecipesEditPart.VISUAL_ID:
-		case ApplicationMappersEditPart.VISUAL_ID:
+		case ApplicationRecipeEditPart.VISUAL_ID:
+		case ApplicationMapperEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

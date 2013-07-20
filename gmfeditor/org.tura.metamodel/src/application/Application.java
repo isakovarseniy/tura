@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Application extends EObject
 {
-
   /**
    * Returns the value of the '<em><b>Application Recipes</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -75,4 +74,5 @@ public interface Application extends EObject
    * @generated
    */
   void setApplicationMappers(ApplicationMappers value);
+
 } // Application

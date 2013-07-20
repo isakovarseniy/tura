@@ -351,6 +351,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ConfigurationConfigurationPropertiesCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
@@ -361,7 +366,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Configuration_2005_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Configuration_2005_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConfigurationConfigExtension_4002_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConfigurationConfigExtension_4002_source;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Recipe_2004_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipeRecipeConfig_4001_target;
 
 	/**
 	 * @generated

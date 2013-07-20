@@ -31,7 +31,7 @@ import org.eclipse.osgi.util.NLS;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
-import domain.diagram.edit.parts.Dammy1EditPart;
+import domain.diagram.edit.parts.DomainEditPart;
 
 /**
  * @generated
@@ -69,7 +69,7 @@ public class DomainNewDiagramFileWizard extends Wizard {
 				.setTitle(Messages.DomainNewDiagramFileWizard_CreationPageTitle);
 		myFileCreationPage.setDescription(NLS.bind(
 				Messages.DomainNewDiagramFileWizard_CreationPageDescription,
-				Dammy1EditPart.MODEL_ID));
+				DomainEditPart.MODEL_ID));
 		IPath filePath;
 		String fileName = URI.decode(domainModelURI.trimFileExtension()
 				.lastSegment());
@@ -130,13 +130,13 @@ public class DomainNewDiagramFileWizard extends Wizard {
 				int diagramVID = DomainVisualIDRegistry
 						.getDiagramVisualID(diagramRootElementSelectionPage
 								.getModelElement());
-				if (diagramVID != Dammy1EditPart.VISUAL_ID) {
+				if (diagramVID != DomainEditPart.VISUAL_ID) {
 					return CommandResult
 							.newErrorCommandResult(Messages.DomainNewDiagramFileWizard_IncorrectRootError);
 				}
 				Diagram diagram = ViewService.createDiagram(
 						diagramRootElementSelectionPage.getModelElement(),
-						Dammy1EditPart.MODEL_ID,
+						DomainEditPart.MODEL_ID,
 						DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
 				return CommandResult.newOKCommandResult();
@@ -193,7 +193,7 @@ public class DomainNewDiagramFileWizard extends Wizard {
 					.provides(
 							new CreateDiagramViewOperation(
 									new EObjectAdapter(selectedModelElement),
-									Dammy1EditPart.MODEL_ID,
+									DomainEditPart.MODEL_ID,
 									DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
 			setErrorMessage(result ? null
 					: Messages.DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);

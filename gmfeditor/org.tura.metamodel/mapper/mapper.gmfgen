@@ -107,37 +107,9 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Attribute"
-            description="Create new Attribute"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="EnumAttribute"
-            description="Create new EnumAttribute"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Enumarator"
-            description="Create new Enumarator"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="JavaMapper"
             description="Create new JavaMapper"
             genNodes="//@diagram/@topLevelNodes.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Operation"
-            description="Create new Operation"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ReturnValue"
-            description="Create new ReturnValue"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Type"
-            description="Create new Type"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="TypeReference"
-            description="Create new TypeReference"/>
       </groups>
       <groups
           title="Connections"

@@ -52,9 +52,9 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
-import domain.Dammy1;
-import domain.DomainFactory;
-import domain.diagram.edit.parts.Dammy1EditPart;
+import org.tura.metamodel.commons.initdiagram.InitDiagram;
+import domain.Domain;
+import domain.diagram.edit.parts.DomainEditPart;
 
 /**
  * @generated
@@ -176,11 +176,11 @@ public class DomainDiagramEditorUtil {
 			protected CommandResult doExecuteWithResult(
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				Dammy1 model = createInitialModel();
+				Domain model = createInitialModel();
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService.createDiagram(model,
-						Dammy1EditPart.MODEL_ID,
+						DomainEditPart.MODEL_ID,
 						DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				if (diagram != null) {
 					diagramResource.getContents().add(diagram);
@@ -222,9 +222,9 @@ public class DomainDiagramEditorUtil {
 	 * @generated
 	 */
 
-	private static Dammy1 createInitialModel() {
+	private static Domain createInitialModel() {
 
-		return DomainFactory.eINSTANCE.createDammy1();
+		return InitDiagram.initDomainDiagram();
 	}
 
 	/**
@@ -233,7 +233,7 @@ public class DomainDiagramEditorUtil {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static void attachModelToResource(Dammy1 model, Resource resource) {
+	private static void attachModelToResource(Domain model, Resource resource) {
 		resource.getContents().add(model);
 	}
 

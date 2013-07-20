@@ -21,7 +21,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="mapper.gmftool#//@palette/@tools.0/@tools.3"/>
+          href="mapper.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="mapper.gmfgraph#JavaMapper"/>
     </ownedChild>

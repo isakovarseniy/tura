@@ -65,6 +65,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
     switch (eClass.getClassifierID())
     {
       case ApplicationPackage.APPLICATION: return createApplication();
+      case ApplicationPackage.DUMMY5: return createDummy5();
       case ApplicationPackage.APPLICATION_RECIPES: return createApplicationRecipes();
       case ApplicationPackage.APPLICATION_RECIPE: return createApplicationRecipe();
       case ApplicationPackage.APPLICATION_MAPPERS: return createApplicationMappers();
@@ -83,6 +84,17 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
   {
     ApplicationImpl application = new ApplicationImpl();
     return application;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Dummy5 createDummy5()
+  {
+    Dummy5Impl dummy5 = new Dummy5Impl();
+    return dummy5;
   }
 
   /**

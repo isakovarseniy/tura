@@ -72,10 +72,7 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import application.ApplicationFactory;
 import application.ApplicationPackage;
 import application.provider.ApplicationEditPlugin;
-import domain.provider.DomainEditPlugin;
 
-
-import domain.presentation.DomainEditorPlugin;
 
 import org.eclipse.core.runtime.Path;
 
@@ -103,7 +100,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
    * @generated
    */
   public static final List<String> FILE_EXTENSIONS =
-    Collections.unmodifiableList(Arrays.asList(DomainEditorPlugin.INSTANCE.getString("_UI_ApplicationEditorFilenameExtensions").split("\\s*,\\s*")));
+    Collections.unmodifiableList(Arrays.asList(ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationEditorFilenameExtensions").split("\\s*,\\s*")));
 
   /**
    * A formatted list of supported file extensions, suitable for display.
@@ -112,7 +109,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
    * @generated
    */
   public static final String FORMATTED_FILE_EXTENSIONS =
-    DomainEditorPlugin.INSTANCE.getString("_UI_ApplicationEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+    ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
   /**
    * This caches an instance of the model package.
@@ -180,8 +177,8 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
   {
     this.workbench = workbench;
     this.selection = selection;
-    setWindowTitle(DomainEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-    setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(DomainEditorPlugin.INSTANCE.getImage("full/wizban/NewApplication")));
+    setWindowTitle(ApplicationEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+    setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(ApplicationEditorPlugin.INSTANCE.getImage("full/wizban/NewApplication")));
   }
 
   /**
@@ -277,7 +274,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
             }
             catch (Exception exception)
             {
-              DomainEditorPlugin.INSTANCE.log(exception);
+              ApplicationEditorPlugin.INSTANCE.log(exception);
             }
             finally
             {
@@ -316,7 +313,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
       }
       catch (PartInitException exception)
       {
-        MessageDialog.openError(workbenchWindow.getShell(), DomainEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+        MessageDialog.openError(workbenchWindow.getShell(), ApplicationEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
         return false;
       }
 
@@ -324,7 +321,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
     }
     catch (Exception exception)
     {
-      DomainEditorPlugin.INSTANCE.log(exception);
+      ApplicationEditorPlugin.INSTANCE.log(exception);
       return false;
     }
   }
@@ -363,7 +360,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
         if (extension == null || !FILE_EXTENSIONS.contains(extension))
         {
           String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-          setErrorMessage(DomainEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+          setErrorMessage(ApplicationEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
           return false;
         }
         return true;
@@ -445,7 +442,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
 
       Label containerLabel = new Label(composite, SWT.LEFT);
       {
-        containerLabel.setText(DomainEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+        containerLabel.setText(ApplicationEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
         GridData data = new GridData();
         data.horizontalAlignment = GridData.FILL;
@@ -473,7 +470,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
 
       Label encodingLabel = new Label(composite, SWT.LEFT);
       {
-        encodingLabel.setText(DomainEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+        encodingLabel.setText(ApplicationEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
         GridData data = new GridData();
         data.horizontalAlignment = GridData.FILL;
@@ -586,11 +583,11 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
     {
       try
       {
-        return DomainEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+        return ApplicationEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
       }
       catch(MissingResourceException mre)
       {
-        DomainEditorPlugin.INSTANCE.log(mre);
+        ApplicationEditorPlugin.INSTANCE.log(mre);
       }
       return typeName;
     }
@@ -605,7 +602,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
       if (encodings == null)
       {
         encodings = new ArrayList<String>();
-        for (StringTokenizer stringTokenizer = new StringTokenizer(DomainEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
+        for (StringTokenizer stringTokenizer = new StringTokenizer(ApplicationEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
         {
           encodings.add(stringTokenizer.nextToken());
         }
@@ -626,9 +623,9 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
     // Create a page, set the title, and the initial model file name.
     //
     newFileCreationPage = new ApplicationModelWizardNewFileCreationPage("Whatever", selection);
-    newFileCreationPage.setTitle(DomainEditorPlugin.INSTANCE.getString("_UI_ApplicationModelWizard_label"));
-    newFileCreationPage.setDescription(DomainEditorPlugin.INSTANCE.getString("_UI_ApplicationModelWizard_description"));
-    newFileCreationPage.setFileName(DomainEditorPlugin.INSTANCE.getString("_UI_ApplicationEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+    newFileCreationPage.setTitle(ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationModelWizard_label"));
+    newFileCreationPage.setDescription(ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationModelWizard_description"));
+    newFileCreationPage.setFileName(ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
     addPage(newFileCreationPage);
 
     // Try and get the resource selection to determine a current directory for the file dialog.
@@ -658,7 +655,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
 
           // Make up a unique new name here.
           //
-          String defaultModelBaseFilename = DomainEditorPlugin.INSTANCE.getString("_UI_ApplicationEditorFilenameDefaultBase");
+          String defaultModelBaseFilename = ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationEditorFilenameDefaultBase");
           String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
           String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
           for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i)
@@ -670,8 +667,8 @@ public class ApplicationModelWizard extends Wizard implements INewWizard
       }
     }
     initialObjectCreationPage = new ApplicationModelWizardInitialObjectCreationPage("Whatever2");
-    initialObjectCreationPage.setTitle(DomainEditorPlugin.INSTANCE.getString("_UI_ApplicationModelWizard_label"));
-    initialObjectCreationPage.setDescription(DomainEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+    initialObjectCreationPage.setTitle(ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationModelWizard_label"));
+    initialObjectCreationPage.setDescription(ApplicationEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
     addPage(initialObjectCreationPage);
   }
 

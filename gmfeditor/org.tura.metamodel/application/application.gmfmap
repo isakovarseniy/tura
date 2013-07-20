@@ -9,7 +9,8 @@
   <nodes>
     <containmentFeature
         href="application.ecore#//Application/applicationRecipes"/>
-    <ownedChild>
+    <ownedChild
+        relatedDiagrams="//@diagram">
       <domainMetaElement
           href="application.ecore#//ApplicationRecipes"/>
       <labelMappings
@@ -24,12 +25,39 @@
           href="application.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="application.gmfgraph#ApplicationRecipes"/>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="application.ecore#//ApplicationRecipes/recipes"/>
+        <ownedChild>
+          <domainMetaElement
+              href="application.ecore#//ApplicationRecipe"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="application.gmfgraph#ApplicationRecipeLabel"/>
+            <features
+                href="application.ecore#//ApplicationRecipe/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="application.gmftool#//@palette/@tools.0/@tools.2"/>
+          <diagramNode
+              href="application.gmfgraph#ApplicationRecipe"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.0">
+        <compartment
+            href="application.gmfgraph#ApplicationRecipesRecipesCompartment"/>
+      </compartments>
     </ownedChild>
   </nodes>
   <nodes>
     <containmentFeature
         href="application.ecore#//Application/applicationMappers"/>
-    <ownedChild>
+    <ownedChild
+        relatedDiagrams="//@diagram">
       <domainMetaElement
           href="application.ecore#//ApplicationMappers"/>
       <labelMappings
@@ -44,8 +72,51 @@
           href="application.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
           href="application.gmfgraph#ApplicationMappers"/>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="application.ecore#//ApplicationMappers/mappers"/>
+        <ownedChild>
+          <domainMetaElement
+              href="application.ecore#//ApplicationMapper"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="application.gmfgraph#ApplicationMapperLabel"/>
+            <features
+                href="application.ecore#//ApplicationMapper/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="application.gmftool#//@palette/@tools.0/@tools.0"/>
+          <diagramNode
+              href="application.gmfgraph#ApplicationMapper"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.0">
+        <compartment
+            href="application.gmfgraph#ApplicationMappersMappersCompartment"/>
+      </compartments>
     </ownedChild>
   </nodes>
+  <links>
+    <domainMetaElement
+        href="../typedefinition/typeDefinition.ecore#//TypeExtension"/>
+    <containmentFeature
+        href="../typedefinition/typeDefinition.ecore#//Type/extension"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="application.gmftool#//@palette/@tools.1/@tools.2"/>
+    <diagramLink
+        href="application.gmfgraph#TypeExtension"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="../typedefinition/typeDefinition.ecore#//TypeExtension/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="../typedefinition/typeDefinition.ecore#//TypeExtension/target"/>
+  </links>
   <links>
     <labelMappings
         xsi:type="gmfmap:DesignLabelMapping"

@@ -327,7 +327,7 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	public IParser getParser() {
 		if (parser == null) {
 			parser = ApplicationParserProvider.getParser(
-					ApplicationElementTypes.RecipeRecipeConfig_4001,
+					ApplicationElementTypes.RecipeRecipeConfig_4002,
 					getParserElement(), CommonParserHint.DESCRIPTION);
 		}
 		return parser;

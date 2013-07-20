@@ -23,6 +23,15 @@ public interface DomainFactory extends EFactory
   DomainFactory eINSTANCE = domain.impl.DomainFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>Domain</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Domain</em>'.
+   * @generated
+   */
+  Domain createDomain();
+
+  /**
    * Returns a new object of class '<em>Dammy1</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -59,15 +68,6 @@ public interface DomainFactory extends EFactory
   Dammy4 createDammy4();
 
   /**
-   * Returns a new object of class '<em>Domain</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Domain</em>'.
-   * @generated
-   */
-  Domain createDomain();
-
-  /**
    * Returns a new object of class '<em>Artifacts</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -75,15 +75,6 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   DomainArtifacts createDomainArtifacts();
-
-  /**
-   * Returns a new object of class '<em>Artifact</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Artifact</em>'.
-   * @generated
-   */
-  DomainArtifact createDomainArtifact();
 
   /**
    * Returns a new object of class '<em>Types</em>'.

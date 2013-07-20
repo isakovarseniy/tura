@@ -6,13 +6,14 @@ import domain.Domain;
 import domain.DomainApplications;
 import domain.DomainArtifacts;
 import domain.DomainPackage;
-
 import domain.DomainTypes;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -42,6 +43,7 @@ public class DomainImpl extends EObjectImpl implements Domain
    * @ordered
    */
   protected DomainArtifacts domainArtifacts;
+
   /**
    * The cached value of the '{@link #getDomainTypes() <em>Domain Types</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -51,6 +53,7 @@ public class DomainImpl extends EObjectImpl implements Domain
    * @ordered
    */
   protected DomainTypes domainTypes;
+
   /**
    * The cached value of the '{@link #getDomainApplications() <em>Domain Applications</em>}' containment reference.
    * <!-- begin-user-doc -->

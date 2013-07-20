@@ -3,14 +3,18 @@
 package domain.util;
 
 import businessobjects.BusinessObjects;
+
 import domain.*;
 
 import mapper.Mappers;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
+
 import recipe.Recipes;
+
 import typedefinition.TypeDefinition;
 
 /**
@@ -76,6 +80,13 @@ public class DomainSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case DomainPackage.DOMAIN:
+      {
+        Domain domain = (Domain)theEObject;
+        T result = caseDomain(domain);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.DAMMY1:
       {
         Dammy1 dammy1 = (Dammy1)theEObject;
@@ -108,24 +119,10 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.DOMAIN:
-      {
-        Domain domain = (Domain)theEObject;
-        T result = caseDomain(domain);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DomainPackage.DOMAIN_ARTIFACTS:
       {
         DomainArtifacts domainArtifacts = (DomainArtifacts)theEObject;
         T result = caseDomainArtifacts(domainArtifacts);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.DOMAIN_ARTIFACT:
-      {
-        DomainArtifact domainArtifact = (DomainArtifact)theEObject;
-        T result = caseDomainArtifact(domainArtifact);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -152,6 +149,22 @@ public class DomainSwitch<T> extends Switch<T>
       }
       default: return defaultCase(theEObject);
     }
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Domain</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Domain</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDomain(Domain object)
+  {
+    return null;
   }
 
   /**
@@ -219,22 +232,6 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Domain</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Domain</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDomain(Domain object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Artifacts</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -246,22 +243,6 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDomainArtifacts(DomainArtifacts object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Artifact</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Artifact</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDomainArtifact(DomainArtifact object)
   {
     return null;
   }
