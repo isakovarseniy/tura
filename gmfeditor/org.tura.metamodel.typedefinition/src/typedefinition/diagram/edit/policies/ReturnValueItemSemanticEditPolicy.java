@@ -23,7 +23,7 @@ public class ReturnValueItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ReturnValueItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.ReturnValue_3004);
+		super(TypedefinitionElementTypes.ReturnValue_103004);
 	}
 
 	/**

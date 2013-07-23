@@ -330,20 +330,20 @@ public class TypesrepositoryBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTypeExtension_4001(Type container,
+		public boolean canCreateTypeExtension_204001(Type container,
 				TypeElement source, TypeElement target) {
 			if (container != null) {
 				if (container.getExtension() != null) {
 					return false;
 				}
 			}
-			return canExistTypeExtension_4001(container, null, source, target);
+			return canExistTypeExtension_204001(container, null, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canExistTypeExtension_4001(Type container,
+		public boolean canExistTypeExtension_204001(Type container,
 				TypeExtension linkInstance, TypeElement source,
 				TypeElement target) {
 			return true;

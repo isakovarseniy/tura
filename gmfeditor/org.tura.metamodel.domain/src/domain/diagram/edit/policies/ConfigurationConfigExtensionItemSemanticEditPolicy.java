@@ -19,7 +19,7 @@ public class ConfigurationConfigExtensionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ConfigurationConfigExtensionItemSemanticEditPolicy() {
-		super(DomainElementTypes.ConfigurationConfigExtension_4003);
+		super(DomainElementTypes.ConfigurationConfigExtension_504003);
 	}
 
 	/**

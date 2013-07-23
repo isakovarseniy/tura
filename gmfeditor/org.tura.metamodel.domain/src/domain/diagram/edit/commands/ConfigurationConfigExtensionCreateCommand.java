@@ -58,7 +58,7 @@ public class ConfigurationConfigExtensionCreateCommand extends
 		}
 		// target may be null here but it's possible to check constraint
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateConfigurationConfigExtension_4003(getSource(),
+				.canCreateConfigurationConfigExtension_504003(getSource(),
 						getTarget());
 	}
 

@@ -51,10 +51,10 @@ public class ArtifactPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Artifact1CreationTool_title,
 				Messages.Artifact1CreationTool_desc,
-				Collections.singletonList(ArtifactElementTypes.Artifact_2001));
+				Collections.singletonList(ArtifactElementTypes.Artifact_702001));
 		entry.setId("createArtifact1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ArtifactElementTypes
-				.getImageDescriptor(ArtifactElementTypes.Artifact_2001));
+				.getImageDescriptor(ArtifactElementTypes.Artifact_702001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -77,10 +77,11 @@ public class ArtifactPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Specifier3CreationTool_title,
 				Messages.Specifier3CreationTool_desc,
-				Collections.singletonList(ArtifactElementTypes.Specifier_3003));
+				Collections
+						.singletonList(ArtifactElementTypes.Specifier_703003));
 		entry.setId("createSpecifier3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ArtifactElementTypes
-				.getImageDescriptor(ArtifactElementTypes.Specifier_3003));
+				.getImageDescriptor(ArtifactElementTypes.Specifier_703003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -90,14 +91,14 @@ public class ArtifactPaletteFactory {
 	 */
 	private ToolEntry createVariable4CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(ArtifactElementTypes.Variable_3001);
-		types.add(ArtifactElementTypes.Variable_3002);
+		types.add(ArtifactElementTypes.Variable_703001);
+		types.add(ArtifactElementTypes.Variable_703002);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Variable4CreationTool_title,
 				Messages.Variable4CreationTool_desc, types);
 		entry.setId("createVariable4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ArtifactElementTypes
-				.getImageDescriptor(ArtifactElementTypes.Variable_3001));
+				.getImageDescriptor(ArtifactElementTypes.Variable_703001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

@@ -73,7 +73,7 @@ public class MappersCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<MapperNodeDescriptor> childDescriptors = MapperDiagramUpdater
-				.getMappers_1000SemanticChildren(viewObject);
+				.getMappers_401000SemanticChildren(viewObject);
 		for (MapperNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -116,7 +116,7 @@ public class MappersCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<MapperNodeDescriptor> childDescriptors = MapperDiagramUpdater
-				.getMappers_1000SemanticChildren((View) getHost().getModel());
+				.getMappers_401000SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours and not shortcuts
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
@@ -261,7 +261,7 @@ public class MappersCanonicalEditPolicy extends CanonicalEditPolicy {
 		case MappersEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(MapperDiagramUpdater
-						.getMappers_1000ContainedLinks(view));
+						.getMappers_401000ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -269,7 +269,7 @@ public class MappersCanonicalEditPolicy extends CanonicalEditPolicy {
 		case JavaMapperEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(MapperDiagramUpdater
-						.getJavaMapper_2002ContainedLinks(view));
+						.getJavaMapper_402002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -277,7 +277,7 @@ public class MappersCanonicalEditPolicy extends CanonicalEditPolicy {
 		case TypeExtensionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(MapperDiagramUpdater
-						.getTypeExtension_4001ContainedLinks(view));
+						.getTypeExtension_404001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

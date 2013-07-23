@@ -17,13 +17,17 @@ class Domain{
   val DomainApplications[1] domainApplications;
 }
 
-class Dammy1 extends typedefinition.TypeDefinition{
+class Dammy1 {
+  ref typedefinition.TypeDefinition d1;
 }
-class Dammy2 extends businessobjects.BusinessObjects{
+class Dammy2 {
+  ref businessobjects.BusinessObjects d2;
 }
-class Dammy3 extends recipe.Recipes{
+class Dammy3{
+   ref  recipe.Recipes d3;
 }
-class Dammy4 extends mapper.Mappers{
+class Dammy4 {
+   ref mapper.Mappers d4;
 }
 
 

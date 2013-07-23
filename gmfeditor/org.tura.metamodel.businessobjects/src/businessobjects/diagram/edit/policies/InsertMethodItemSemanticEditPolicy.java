@@ -23,7 +23,7 @@ public class InsertMethodItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public InsertMethodItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.InsertMethod_3010);
+		super(BusinessobjectsElementTypes.InsertMethod_603010);
 	}
 
 	/**

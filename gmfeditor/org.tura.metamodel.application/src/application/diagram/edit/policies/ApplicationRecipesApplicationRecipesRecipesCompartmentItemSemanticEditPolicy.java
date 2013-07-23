@@ -19,14 +19,14 @@ public class ApplicationRecipesApplicationRecipesRecipesCompartmentItemSemanticE
 	 * @generated
 	 */
 	public ApplicationRecipesApplicationRecipesRecipesCompartmentItemSemanticEditPolicy() {
-		super(ApplicationElementTypes.ApplicationRecipes_2001);
+		super(ApplicationElementTypes.ApplicationRecipes_802001);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (ApplicationElementTypes.ApplicationRecipe_3001 == req
+		if (ApplicationElementTypes.ApplicationRecipe_803001 == req
 				.getElementType()) {
 			return getGEFWrapper(new ApplicationRecipeCreateCommand(req));
 		}

@@ -155,6 +155,10 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import application.provider.ApplicationItemProviderAdapterFactory;
 
+import artifact.provider.ArtifactItemProviderAdapterFactory;
+import businessobjects.provider.BusinessobjectsItemProviderAdapterFactory;
+import domain.presentation.DomainEditorPlugin;
+import domain.provider.DomainItemProviderAdapterFactory;
 import mapper.provider.MapperItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -162,6 +166,7 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import recipe.provider.RecipeItemProviderAdapterFactory;
 
 import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
+import typesrepository.provider.TypesrepositoryItemProviderAdapterFactory;
 
 
 /**

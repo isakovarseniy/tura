@@ -48,38 +48,38 @@ public class RecipeModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof RecipesEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(RecipeElementTypes.Recipe_2004);
-			types.add(RecipeElementTypes.Configuration_2005);
+			types.add(RecipeElementTypes.Recipe_302004);
+			types.add(RecipeElementTypes.Configuration_302005);
 			return types;
 		}
 		if (editPart instanceof ConfigurationEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(RecipeElementTypes.Property_3005);
+			types.add(RecipeElementTypes.Property_303005);
 			return types;
 		}
 		if (editPart instanceof ComponentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(RecipeElementTypes.ModelMapper_3003);
+			types.add(RecipeElementTypes.ModelMapper_303003);
 			return types;
 		}
 		if (editPart instanceof Component2EditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(RecipeElementTypes.ModelMapper_3003);
+			types.add(RecipeElementTypes.ModelMapper_303003);
 			return types;
 		}
 		if (editPart instanceof RecipeRecipeComponentsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(RecipeElementTypes.Component_3004);
+			types.add(RecipeElementTypes.Component_303004);
 			return types;
 		}
 		if (editPart instanceof ComponentComponentComponentsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(RecipeElementTypes.Component_3002);
+			types.add(RecipeElementTypes.Component_303002);
 			return types;
 		}
 		if (editPart instanceof ComponentComponentComponentsCompartment2EditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(RecipeElementTypes.Component_3002);
+			types.add(RecipeElementTypes.Component_303002);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

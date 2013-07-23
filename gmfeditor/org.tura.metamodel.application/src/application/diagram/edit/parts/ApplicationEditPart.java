@@ -44,7 +44,7 @@ public class ApplicationEditPart extends DiagramEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1000;
+	public static final int VISUAL_ID = 801000;
 
 	/**
 	 * @generated

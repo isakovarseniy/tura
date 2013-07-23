@@ -371,7 +371,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_BusinessObjects_1000_links;
+	public static String NavigatorGroupName_BusinessObjects_601000_links;
 
 	/**
 	 * @generated

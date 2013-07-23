@@ -61,7 +61,7 @@ public class AttributeNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5002;
+	public static final int VISUAL_ID = 105002;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class AttributeNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = TypedefinitionParserProvider
 					.getParser(
-							TypedefinitionElementTypes.Attribute_3001,
+							TypedefinitionElementTypes.Attribute_103001,
 							getParserElement(),
 							TypedefinitionVisualIDRegistry
 									.getType(typedefinition.diagram.edit.parts.AttributeNameEditPart.VISUAL_ID));

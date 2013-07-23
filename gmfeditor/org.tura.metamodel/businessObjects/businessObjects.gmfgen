@@ -8,7 +8,7 @@
     templateDirectory="/org.tura.metamodel/templates/"
     copyrightText="">
   <diagram
-      visualID="1000"
+      visualID="601000"
       editPartClassName="BusinessObjectsEditPart"
       itemSemanticEditPolicyClassName="BusinessObjectsItemSemanticEditPolicy"
       canonicalEditPolicyClassName="BusinessObjectsCanonicalEditPolicy"
@@ -30,7 +30,7 @@
     <domainDiagramElement
         href="businessObjects.genmodel#//businessobjects/BusinessObjects"/>
     <childNodes
-        visualID="3009"
+        visualID="603009"
         editPartClassName="CreateMethodEditPart"
         itemSemanticEditPolicyClassName="CreateMethodItemSemanticEditPolicy"
         canonicalEditPolicyClassName="CreateMethodCanonicalEditPolicy"
@@ -55,7 +55,7 @@
             href="businessObjects.genmodel#//businessobjects/BusinessObject/createMethods"/>
       </modelFacet>
       <labels
-          visualID="5012"
+          visualID="605012"
           editPartClassName="CreateMethodMethodEditPart"
           itemSemanticEditPolicyClassName="CreateMethodMethodItemSemanticEditPolicy"
           elementIcon="true">
@@ -74,7 +74,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3010"
+        visualID="603010"
         editPartClassName="InsertMethodEditPart"
         itemSemanticEditPolicyClassName="InsertMethodItemSemanticEditPolicy"
         canonicalEditPolicyClassName="InsertMethodCanonicalEditPolicy"
@@ -99,7 +99,7 @@
             href="businessObjects.genmodel#//businessobjects/BusinessObject/insertMethods"/>
       </modelFacet>
       <labels
-          visualID="5013"
+          visualID="605013"
           editPartClassName="InsertMethodMethodEditPart"
           itemSemanticEditPolicyClassName="InsertMethodMethodItemSemanticEditPolicy"
           elementIcon="true">
@@ -118,7 +118,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3011"
+        visualID="603011"
         editPartClassName="UpdateMethodEditPart"
         itemSemanticEditPolicyClassName="UpdateMethodItemSemanticEditPolicy"
         canonicalEditPolicyClassName="UpdateMethodCanonicalEditPolicy"
@@ -143,7 +143,7 @@
             href="businessObjects.genmodel#//businessobjects/BusinessObject/updaeteMethods"/>
       </modelFacet>
       <labels
-          visualID="5014"
+          visualID="605014"
           editPartClassName="UpdateMethodMethodEditPart"
           itemSemanticEditPolicyClassName="UpdateMethodMethodItemSemanticEditPolicy"
           elementIcon="true">
@@ -162,7 +162,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3012"
+        visualID="603012"
         editPartClassName="RemoveMethodEditPart"
         itemSemanticEditPolicyClassName="RemoveMethodItemSemanticEditPolicy"
         canonicalEditPolicyClassName="RemoveMethodCanonicalEditPolicy"
@@ -187,7 +187,7 @@
             href="businessObjects.genmodel#//businessobjects/BusinessObject/removetMethods"/>
       </modelFacet>
       <labels
-          visualID="5015"
+          visualID="605015"
           editPartClassName="RemoveMethodMethodEditPart"
           itemSemanticEditPolicyClassName="RemoveMethodMethodItemSemanticEditPolicy"
           elementIcon="true">
@@ -206,7 +206,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3013"
+        visualID="603013"
         editPartClassName="SearchMethodEditPart"
         itemSemanticEditPolicyClassName="SearchMethodItemSemanticEditPolicy"
         canonicalEditPolicyClassName="SearchMethodCanonicalEditPolicy"
@@ -231,7 +231,7 @@
             href="businessObjects.genmodel#//businessobjects/BusinessObject/searchtMethods"/>
       </modelFacet>
       <labels
-          visualID="5016"
+          visualID="605016"
           editPartClassName="SearchMethodMethodEditPart"
           itemSemanticEditPolicyClassName="SearchMethodMethodItemSemanticEditPolicy"
           elementIcon="true">
@@ -250,7 +250,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3014"
+        visualID="603014"
         editPartClassName="OtherMethodEditPart"
         itemSemanticEditPolicyClassName="OtherMethodItemSemanticEditPolicy"
         canonicalEditPolicyClassName="OtherMethodCanonicalEditPolicy"
@@ -275,7 +275,7 @@
             href="businessObjects.genmodel#//businessobjects/BusinessObject/othersMethods"/>
       </modelFacet>
       <labels
-          visualID="5017"
+          visualID="605017"
           editPartClassName="OtherMethodMethodEditPart"
           itemSemanticEditPolicyClassName="OtherMethodMethodItemSemanticEditPolicy"
           elementIcon="true">
@@ -294,7 +294,7 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="2003"
+        visualID="602003"
         editPartClassName="BusinessObjectEditPart"
         itemSemanticEditPolicyClassName="BusinessObjectItemSemanticEditPolicy"
         canonicalEditPolicyClassName="BusinessObjectCanonicalEditPolicy"
@@ -321,7 +321,7 @@
             href="businessObjects.genmodel#//businessobjects/BusinessObjects/businessObject"/>
       </modelFacet>
       <labels
-          visualID="5010"
+          visualID="605010"
           editPartClassName="BusinessObjectNameEditPart"
           itemSemanticEditPolicyClassName="BusinessObjectNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -340,7 +340,7 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="4001"
+        visualID="604001"
         editPartClassName="TypeExtensionEditPart"
         itemSemanticEditPolicyClassName="TypeExtensionItemSemanticEditPolicy"
         createCommandClassName="TypeExtensionCreateCommand"
@@ -369,7 +369,7 @@
       </modelFacet>
     </links>
     <compartments
-        visualID="7003"
+        visualID="607003"
         editPartClassName="BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart"
         itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectCreateMethodsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="BusinessObjectBusinessObjectCreateMethodsCompartmentCanonicalEditPolicy"
@@ -386,7 +386,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7004"
+        visualID="607004"
         editPartClassName="BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart"
         itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectInsertMethodsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="BusinessObjectBusinessObjectInsertMethodsCompartmentCanonicalEditPolicy"
@@ -403,7 +403,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7005"
+        visualID="607005"
         editPartClassName="BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart"
         itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectUpdaeteMethodsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="BusinessObjectBusinessObjectUpdaeteMethodsCompartmentCanonicalEditPolicy"
@@ -420,7 +420,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7006"
+        visualID="607006"
         editPartClassName="BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart"
         itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectRemovetMethodsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="BusinessObjectBusinessObjectRemovetMethodsCompartmentCanonicalEditPolicy"
@@ -437,7 +437,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7007"
+        visualID="607007"
         editPartClassName="BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart"
         itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectSearchtMethodsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="BusinessObjectBusinessObjectSearchtMethodsCompartmentCanonicalEditPolicy"
@@ -454,7 +454,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7008"
+        visualID="607008"
         editPartClassName="BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart"
         itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectOthersMethodsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="BusinessObjectBusinessObjectOthersMethodsCompartmentCanonicalEditPolicy"

@@ -19,7 +19,7 @@ public class TypeExtensionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TypeExtensionItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.TypeExtension_4001);
+		super(BusinessobjectsElementTypes.TypeExtension_604001);
 	}
 
 	/**

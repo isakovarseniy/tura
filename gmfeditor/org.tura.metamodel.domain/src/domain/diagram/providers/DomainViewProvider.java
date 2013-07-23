@@ -231,16 +231,16 @@ public class DomainViewProvider extends AbstractProvider implements
 		}
 		switch (visualID) {
 		case DomainArtifactsEditPart.VISUAL_ID:
-			return createDomainArtifacts_2007(domainElement, containerView,
+			return createDomainArtifacts_502001(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case DomainTypesEditPart.VISUAL_ID:
-			return createDomainTypes_2008(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case DomainApplicationsEditPart.VISUAL_ID:
-			return createDomainApplications_2009(domainElement, containerView,
+			return createDomainTypes_502002(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case DomainApplicationsEditPart.VISUAL_ID:
+			return createDomainApplications_502003(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case DomainApplicationEditPart.VISUAL_ID:
-			return createDomainApplication_3002(domainElement, containerView,
+			return createDomainApplication_503001(domainElement, containerView,
 					index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -257,14 +257,14 @@ public class DomainViewProvider extends AbstractProvider implements
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (DomainVisualIDRegistry.getVisualID(elementTypeHint)) {
 		case TypeExtensionEditPart.VISUAL_ID:
-			return createTypeExtension_4001(
+			return createTypeExtension_504001(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return createRecipeRecipeConfig_4002(containerView, index,
+			return createRecipeRecipeConfig_504002(containerView, index,
 					persisted, preferencesHint);
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return createConfigurationConfigExtension_4003(containerView,
+			return createConfigurationConfigExtension_504003(containerView,
 					index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
@@ -274,7 +274,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createDomainArtifacts_2007(EObject domainElement,
+	public Node createDomainArtifacts_502001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -318,7 +318,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5012 = createLabel(node,
+		Node label505001 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(DomainArtifactsNameEditPart.VISUAL_ID));
 		return node;
@@ -327,7 +327,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createDomainTypes_2008(EObject domainElement,
+	public Node createDomainTypes_502002(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -371,7 +371,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5013 = createLabel(node,
+		Node label505002 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(DomainTypesNameEditPart.VISUAL_ID));
 		return node;
@@ -380,7 +380,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createDomainApplications_2009(EObject domainElement,
+	public Node createDomainApplications_502003(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -420,7 +420,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5014 = createLabel(node,
+		Node label505004 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(DomainApplicationsNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -434,7 +434,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createDomainApplication_3002(EObject domainElement,
+	public Node createDomainApplication_503001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -477,7 +477,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5016 = createLabel(node,
+		Node label505003 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(DomainApplicationNameEditPart.VISUAL_ID));
 		return node;
@@ -486,7 +486,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createTypeExtension_4001(EObject domainElement,
+	public Edge createTypeExtension_504001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -539,7 +539,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createRecipeRecipeConfig_4002(View containerView, int index,
+	public Edge createRecipeRecipeConfig_504002(View containerView, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -585,22 +585,22 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label6001 = createLabel(edge,
+		Node label506001 = createLabel(edge,
 				DomainVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
-		label6001.getStyles().add(
+		label506001.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6001.setLayoutConstraint(NotationFactory.eINSTANCE
+		label506001.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location6001 = (Location) label6001.getLayoutConstraint();
-		location6001.setX(0);
-		location6001.setY(40);
+		Location location506001 = (Location) label506001.getLayoutConstraint();
+		location506001.setX(0);
+		location506001.setY(40);
 		return edge;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Edge createConfigurationConfigExtension_4003(View containerView,
+	public Edge createConfigurationConfigExtension_504003(View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -646,16 +646,16 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label6002 = createLabel(edge,
+		Node label506002 = createLabel(edge,
 				DomainVisualIDRegistry
 						.getType(WrappingLabel2EditPart.VISUAL_ID));
-		label6002.getStyles().add(
+		label506002.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6002.setLayoutConstraint(NotationFactory.eINSTANCE
+		label506002.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location6002 = (Location) label6002.getLayoutConstraint();
-		location6002.setX(0);
-		location6002.setY(40);
+		Location location506002 = (Location) label506002.getLayoutConstraint();
+		location506002.setX(0);
+		location506002.setY(40);
 		return edge;
 	}
 

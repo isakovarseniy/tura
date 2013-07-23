@@ -105,30 +105,30 @@ public class ApplicationNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (ApplicationVisualIDRegistry.getVisualID(view)) {
-		case ApplicationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/application?Application", ApplicationElementTypes.Application_1000); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", ApplicationElementTypes.TypeExtension_4001); //$NON-NLS-1$
-		case ApplicationMapperEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/application?ApplicationMapper", ApplicationElementTypes.ApplicationMapper_3002); //$NON-NLS-1$
-		case ApplicationMappersEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/application?ApplicationMappers", ApplicationElementTypes.ApplicationMappers_2002); //$NON-NLS-1$
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/recipe?Recipe?recipeConfig", ApplicationElementTypes.RecipeRecipeConfig_4002); //$NON-NLS-1$
-		case ApplicationRecipeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/application?ApplicationRecipe", ApplicationElementTypes.ApplicationRecipe_3001); //$NON-NLS-1$
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/recipe?Configuration?configExtension", ApplicationElementTypes.ConfigurationConfigExtension_4003); //$NON-NLS-1$
+					"Navigator?Link?http://tura.org/2013/v1/recipe?Configuration?configExtension", ApplicationElementTypes.ConfigurationConfigExtension_804003); //$NON-NLS-1$
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/recipe?Recipe?recipeConfig", ApplicationElementTypes.RecipeRecipeConfig_804002); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", ApplicationElementTypes.TypeExtension_804001); //$NON-NLS-1$
+		case ApplicationRecipeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/application?ApplicationRecipe", ApplicationElementTypes.ApplicationRecipe_803001); //$NON-NLS-1$
+		case ApplicationMapperEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/application?ApplicationMapper", ApplicationElementTypes.ApplicationMapper_803002); //$NON-NLS-1$
+		case ApplicationMappersEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/application?ApplicationMappers", ApplicationElementTypes.ApplicationMappers_802002); //$NON-NLS-1$
+		case ApplicationEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/application?Application", ApplicationElementTypes.Application_801000); //$NON-NLS-1$
 		case ApplicationRecipesEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/application?ApplicationRecipes", ApplicationElementTypes.ApplicationRecipes_2001); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/application?ApplicationRecipes", ApplicationElementTypes.ApplicationRecipes_802001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -189,22 +189,22 @@ public class ApplicationNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (ApplicationVisualIDRegistry.getVisualID(view)) {
-		case ApplicationEditPart.VISUAL_ID:
-			return getApplication_1000Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001Text(view);
-		case ApplicationMapperEditPart.VISUAL_ID:
-			return getApplicationMapper_3002Text(view);
-		case ApplicationMappersEditPart.VISUAL_ID:
-			return getApplicationMappers_2002Text(view);
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return getRecipeRecipeConfig_4002Text(view);
-		case ApplicationRecipeEditPart.VISUAL_ID:
-			return getApplicationRecipe_3001Text(view);
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_4003Text(view);
+			return getConfigurationConfigExtension_804003Text(view);
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getRecipeRecipeConfig_804002Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_804001Text(view);
+		case ApplicationRecipeEditPart.VISUAL_ID:
+			return getApplicationRecipe_803001Text(view);
+		case ApplicationMapperEditPart.VISUAL_ID:
+			return getApplicationMapper_803002Text(view);
+		case ApplicationMappersEditPart.VISUAL_ID:
+			return getApplicationMappers_802002Text(view);
+		case ApplicationEditPart.VISUAL_ID:
+			return getApplication_801000Text(view);
 		case ApplicationRecipesEditPart.VISUAL_ID:
-			return getApplicationRecipes_2001Text(view);
+			return getApplicationRecipes_802001Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -212,35 +212,16 @@ public class ApplicationNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getTypeExtension_4001Text(View view) {
+	private String getTypeExtension_804001Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
 
 	/**
 	 * @generated
 	 */
-	private String getConfigurationConfigExtension_4003Text(View view) {
+	private String getApplicationMappers_802002Text(View view) {
 		IParser parser = ApplicationParserProvider.getParser(
-				ApplicationElementTypes.ConfigurationConfigExtension_4003,
-				view.getElement() != null ? view.getElement() : view,
-				CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			ApplicationDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 6002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getApplicationMappers_2002Text(View view) {
-		IParser parser = ApplicationParserProvider.getParser(
-				ApplicationElementTypes.ApplicationMappers_2002, view
+				ApplicationElementTypes.ApplicationMappers_802002, view
 						.getElement() != null ? view.getElement() : view,
 				ApplicationVisualIDRegistry
 						.getType(ApplicationMappersNameEditPart.VISUAL_ID));
@@ -250,7 +231,7 @@ public class ApplicationNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			ApplicationDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5002); //$NON-NLS-1$
+					"Parser was not found for label " + 805002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -258,16 +239,9 @@ public class ApplicationNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getApplication_1000Text(View view) {
-		return ""; //$NON-NLS-1$
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getRecipeRecipeConfig_4002Text(View view) {
+	private String getConfigurationConfigExtension_804003Text(View view) {
 		IParser parser = ApplicationParserProvider.getParser(
-				ApplicationElementTypes.RecipeRecipeConfig_4002,
+				ApplicationElementTypes.ConfigurationConfigExtension_804003,
 				view.getElement() != null ? view.getElement() : view,
 				CommonParserHint.DESCRIPTION);
 		if (parser != null) {
@@ -276,7 +250,7 @@ public class ApplicationNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			ApplicationDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 6001); //$NON-NLS-1$
+					"Parser was not found for label " + 806002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -284,19 +258,18 @@ public class ApplicationNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getApplicationMapper_3002Text(View view) {
+	private String getRecipeRecipeConfig_804002Text(View view) {
 		IParser parser = ApplicationParserProvider.getParser(
-				ApplicationElementTypes.ApplicationMapper_3002, view
-						.getElement() != null ? view.getElement() : view,
-				ApplicationVisualIDRegistry
-						.getType(ApplicationMapperNameEditPart.VISUAL_ID));
+				ApplicationElementTypes.RecipeRecipeConfig_804002,
+				view.getElement() != null ? view.getElement() : view,
+				CommonParserHint.DESCRIPTION);
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			ApplicationDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5004); //$NON-NLS-1$
+					"Parser was not found for label " + 806001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -304,29 +277,9 @@ public class ApplicationNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getApplicationRecipes_2001Text(View view) {
+	private String getApplicationRecipe_803001Text(View view) {
 		IParser parser = ApplicationParserProvider.getParser(
-				ApplicationElementTypes.ApplicationRecipes_2001, view
-						.getElement() != null ? view.getElement() : view,
-				ApplicationVisualIDRegistry
-						.getType(ApplicationRecipesNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			ApplicationDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getApplicationRecipe_3001Text(View view) {
-		IParser parser = ApplicationParserProvider.getParser(
-				ApplicationElementTypes.ApplicationRecipe_3001, view
+				ApplicationElementTypes.ApplicationRecipe_803001, view
 						.getElement() != null ? view.getElement() : view,
 				ApplicationVisualIDRegistry
 						.getType(ApplicationRecipeNameEditPart.VISUAL_ID));
@@ -336,7 +289,54 @@ public class ApplicationNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			ApplicationDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5003); //$NON-NLS-1$
+					"Parser was not found for label " + 805003); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getApplicationMapper_803002Text(View view) {
+		IParser parser = ApplicationParserProvider.getParser(
+				ApplicationElementTypes.ApplicationMapper_803002, view
+						.getElement() != null ? view.getElement() : view,
+				ApplicationVisualIDRegistry
+						.getType(ApplicationMapperNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ApplicationDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 805004); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getApplication_801000Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getApplicationRecipes_802001Text(View view) {
+		IParser parser = ApplicationParserProvider.getParser(
+				ApplicationElementTypes.ApplicationRecipes_802001, view
+						.getElement() != null ? view.getElement() : view,
+				ApplicationVisualIDRegistry
+						.getType(ApplicationRecipesNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ApplicationDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 805001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

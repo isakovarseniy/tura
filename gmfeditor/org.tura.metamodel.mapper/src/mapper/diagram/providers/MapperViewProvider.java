@@ -211,7 +211,7 @@ public class MapperViewProvider extends AbstractProvider implements
 		}
 		switch (visualID) {
 		case JavaMapperEditPart.VISUAL_ID:
-			return createJavaMapper_2002(domainElement, containerView, index,
+			return createJavaMapper_402002(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -228,7 +228,7 @@ public class MapperViewProvider extends AbstractProvider implements
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (MapperVisualIDRegistry.getVisualID(elementTypeHint)) {
 		case TypeExtensionEditPart.VISUAL_ID:
-			return createTypeExtension_4001(
+			return createTypeExtension_404001(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		}
@@ -239,7 +239,7 @@ public class MapperViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createJavaMapper_2002(EObject domainElement,
+	public Node createJavaMapper_402002(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -277,7 +277,7 @@ public class MapperViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5002 = createLabel(node,
+		Node label405002 = createLabel(node,
 				MapperVisualIDRegistry
 						.getType(JavaMapperPackageNameEditPart.VISUAL_ID));
 		return node;
@@ -286,7 +286,7 @@ public class MapperViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createTypeExtension_4001(EObject domainElement,
+	public Edge createTypeExtension_404001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();

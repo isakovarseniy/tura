@@ -8,7 +8,7 @@
     templateDirectory="/org.tura.metamodel/templates/"
     copyrightText="">
   <diagram
-      visualID="1000"
+      visualID="701000"
       editPartClassName="ArtifactsEditPart"
       itemSemanticEditPolicyClassName="ArtifactsItemSemanticEditPolicy"
       canonicalEditPolicyClassName="ArtifactsCanonicalEditPolicy"
@@ -30,7 +30,7 @@
     <domainDiagramElement
         href="artifact.genmodel#//artifact/Artifacts"/>
     <childNodes
-        visualID="3001"
+        visualID="703001"
         editPartClassName="VariableEditPart"
         itemSemanticEditPolicyClassName="VariableItemSemanticEditPolicy"
         canonicalEditPolicyClassName="VariableCanonicalEditPolicy"
@@ -55,7 +55,7 @@
             href="artifact.genmodel#//artifact/Artifact/configVariables"/>
       </modelFacet>
       <labels
-          visualID="5001"
+          visualID="705001"
           editPartClassName="VariableNameEditPart"
           itemSemanticEditPolicyClassName="VariableNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -74,7 +74,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3002"
+        visualID="703002"
         editPartClassName="Variable2EditPart"
         itemSemanticEditPolicyClassName="Variable2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="Variable2CanonicalEditPolicy"
@@ -99,7 +99,7 @@
             href="artifact.genmodel#//artifact/Artifact/modelQuery"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="705002"
           editPartClassName="VariableName2EditPart"
           itemSemanticEditPolicyClassName="VariableName2ItemSemanticEditPolicy"
           elementIcon="true">
@@ -118,7 +118,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3003"
+        visualID="703003"
         editPartClassName="SpecifierEditPart"
         itemSemanticEditPolicyClassName="SpecifierItemSemanticEditPolicy"
         canonicalEditPolicyClassName="SpecifierCanonicalEditPolicy"
@@ -143,7 +143,7 @@
             href="artifact.genmodel#//artifact/Artifact/specifiers"/>
       </modelFacet>
       <labels
-          visualID="5003"
+          visualID="705003"
           editPartClassName="SpecifierNameEditPart"
           itemSemanticEditPolicyClassName="SpecifierNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -162,7 +162,7 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="2001"
+        visualID="702001"
         editPartClassName="ArtifactEditPart"
         itemSemanticEditPolicyClassName="ArtifactItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ArtifactCanonicalEditPolicy"
@@ -189,7 +189,7 @@
             href="artifact.genmodel#//artifact/Artifacts/artifacts"/>
       </modelFacet>
       <labels
-          visualID="5004"
+          visualID="705004"
           editPartClassName="ArtifactNameEditPart"
           itemSemanticEditPolicyClassName="ArtifactNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -208,7 +208,7 @@
       </labels>
     </topLevelNodes>
     <compartments
-        visualID="7001"
+        visualID="707001"
         editPartClassName="ArtifactArtifactConfigVariablesCompartmentEditPart"
         itemSemanticEditPolicyClassName="ArtifactArtifactConfigVariablesCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ArtifactArtifactConfigVariablesCompartmentCanonicalEditPolicy"
@@ -225,7 +225,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7002"
+        visualID="707002"
         editPartClassName="ArtifactArtifactModelQueryCompartmentEditPart"
         itemSemanticEditPolicyClassName="ArtifactArtifactModelQueryCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ArtifactArtifactModelQueryCompartmentCanonicalEditPolicy"
@@ -242,7 +242,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7003"
+        visualID="707003"
         editPartClassName="ArtifactArtifactSpecifiersCompartmentEditPart"
         itemSemanticEditPolicyClassName="ArtifactArtifactSpecifiersCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ArtifactArtifactSpecifiersCompartmentCanonicalEditPolicy"

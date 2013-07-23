@@ -61,7 +61,7 @@ public class DomainArtifactsNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5012;
+	public static final int VISUAL_ID = 505001;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class DomainArtifactsNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.DomainArtifacts_2007,
+							DomainElementTypes.DomainArtifacts_502001,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(domain.diagram.edit.parts.DomainArtifactsNameEditPart.VISUAL_ID));

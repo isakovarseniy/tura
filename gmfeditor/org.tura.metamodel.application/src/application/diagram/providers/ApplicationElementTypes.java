@@ -61,37 +61,42 @@ public class ApplicationElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Application_1000 = getElementType("org.tura.metamodel.application.Application_1000"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType ApplicationRecipes_2001 = getElementType("org.tura.metamodel.application.ApplicationRecipes_2001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType ApplicationMappers_2002 = getElementType("org.tura.metamodel.application.ApplicationMappers_2002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType ApplicationRecipe_3001 = getElementType("org.tura.metamodel.application.ApplicationRecipe_3001"); //$NON-NLS-1$
+	public static final IElementType Application_801000 = getElementType("org.tura.metamodel.application.Application_801000"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ApplicationMapper_3002 = getElementType("org.tura.metamodel.application.ApplicationMapper_3002"); //$NON-NLS-1$
+	public static final IElementType ApplicationRecipes_802001 = getElementType("org.tura.metamodel.application.ApplicationRecipes_802001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeExtension_4001 = getElementType("org.tura.metamodel.application.TypeExtension_4001"); //$NON-NLS-1$
+	public static final IElementType ApplicationMappers_802002 = getElementType("org.tura.metamodel.application.ApplicationMappers_802002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeRecipeConfig_4002 = getElementType("org.tura.metamodel.application.RecipeRecipeConfig_4002"); //$NON-NLS-1$
+	public static final IElementType ApplicationRecipe_803001 = getElementType("org.tura.metamodel.application.ApplicationRecipe_803001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType ConfigurationConfigExtension_4003 = getElementType("org.tura.metamodel.application.ConfigurationConfigExtension_4003"); //$NON-NLS-1$
+	public static final IElementType ApplicationMapper_803002 = getElementType("org.tura.metamodel.application.ApplicationMapper_803002"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType TypeExtension_804001 = getElementType("org.tura.metamodel.application.TypeExtension_804001"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipeRecipeConfig_804002 = getElementType("org.tura.metamodel.application.RecipeRecipeConfig_804002"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ConfigurationConfigExtension_804003 = getElementType("org.tura.metamodel.application.ConfigurationConfigExtension_804003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -204,28 +209,28 @@ public class ApplicationElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Application_1000,
+			elements.put(Application_801000,
 					ApplicationPackage.eINSTANCE.getApplication());
 
-			elements.put(ApplicationRecipes_2001,
+			elements.put(ApplicationRecipes_802001,
 					ApplicationPackage.eINSTANCE.getApplicationRecipes());
 
-			elements.put(ApplicationMappers_2002,
+			elements.put(ApplicationMappers_802002,
 					ApplicationPackage.eINSTANCE.getApplicationMappers());
 
-			elements.put(ApplicationRecipe_3001,
+			elements.put(ApplicationRecipe_803001,
 					ApplicationPackage.eINSTANCE.getApplicationRecipe());
 
-			elements.put(ApplicationMapper_3002,
+			elements.put(ApplicationMapper_803002,
 					ApplicationPackage.eINSTANCE.getApplicationMapper());
 
-			elements.put(TypeExtension_4001,
+			elements.put(TypeExtension_804001,
 					TypedefinitionPackage.eINSTANCE.getTypeExtension());
 
-			elements.put(RecipeRecipeConfig_4002,
+			elements.put(RecipeRecipeConfig_804002,
 					RecipePackage.eINSTANCE.getRecipe_RecipeConfig());
 
-			elements.put(ConfigurationConfigExtension_4003,
+			elements.put(ConfigurationConfigExtension_804003,
 					RecipePackage.eINSTANCE.getConfiguration_ConfigExtension());
 		}
 		return (ENamedElement) elements.get(type);
@@ -244,14 +249,14 @@ public class ApplicationElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(Application_1000);
-			KNOWN_ELEMENT_TYPES.add(ApplicationRecipes_2001);
-			KNOWN_ELEMENT_TYPES.add(ApplicationMappers_2002);
-			KNOWN_ELEMENT_TYPES.add(ApplicationRecipe_3001);
-			KNOWN_ELEMENT_TYPES.add(ApplicationMapper_3002);
-			KNOWN_ELEMENT_TYPES.add(TypeExtension_4001);
-			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_4002);
-			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_4003);
+			KNOWN_ELEMENT_TYPES.add(Application_801000);
+			KNOWN_ELEMENT_TYPES.add(ApplicationRecipes_802001);
+			KNOWN_ELEMENT_TYPES.add(ApplicationMappers_802002);
+			KNOWN_ELEMENT_TYPES.add(ApplicationRecipe_803001);
+			KNOWN_ELEMENT_TYPES.add(ApplicationMapper_803002);
+			KNOWN_ELEMENT_TYPES.add(TypeExtension_804001);
+			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_804002);
+			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_804003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -262,21 +267,21 @@ public class ApplicationElementTypes {
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case ApplicationEditPart.VISUAL_ID:
-			return Application_1000;
+			return Application_801000;
 		case ApplicationRecipesEditPart.VISUAL_ID:
-			return ApplicationRecipes_2001;
+			return ApplicationRecipes_802001;
 		case ApplicationMappersEditPart.VISUAL_ID:
-			return ApplicationMappers_2002;
+			return ApplicationMappers_802002;
 		case ApplicationRecipeEditPart.VISUAL_ID:
-			return ApplicationRecipe_3001;
+			return ApplicationRecipe_803001;
 		case ApplicationMapperEditPart.VISUAL_ID:
-			return ApplicationMapper_3002;
+			return ApplicationMapper_803002;
 		case TypeExtensionEditPart.VISUAL_ID:
-			return TypeExtension_4001;
+			return TypeExtension_804001;
 		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return RecipeRecipeConfig_4002;
+			return RecipeRecipeConfig_804002;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return ConfigurationConfigExtension_4003;
+			return ConfigurationConfigExtension_804003;
 		}
 		return null;
 	}

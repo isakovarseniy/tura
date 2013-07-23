@@ -19,14 +19,14 @@ public class ConfigurationConfigurationPropertiesCompartmentItemSemanticEditPoli
 	 * @generated
 	 */
 	public ConfigurationConfigurationPropertiesCompartmentItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Configuration_2005);
+		super(RecipeElementTypes.Configuration_302005);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RecipeElementTypes.Property_3005 == req.getElementType()) {
+		if (RecipeElementTypes.Property_303005 == req.getElementType()) {
 			return getGEFWrapper(new PropertyCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

@@ -5,9 +5,9 @@ package domain.tests;
 import domain.Dammy3;
 import domain.DomainFactory;
 
-import junit.textui.TestRunner;
+import junit.framework.TestCase;
 
-import recipe.tests.RecipesTest;
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,8 +15,16 @@ import recipe.tests.RecipesTest;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Dammy3Test extends RecipesTest
+public class Dammy3Test extends TestCase
 {
+
+  /**
+   * The fixture for this Dammy3 test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected Dammy3 fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -40,15 +48,25 @@ public class Dammy3Test extends RecipesTest
   }
 
   /**
+   * Sets the fixture for this Dammy3 test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(Dammy3 fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this Dammy3 test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected Dammy3 getFixture()
   {
-    return (Dammy3)fixture;
+    return fixture;
   }
 
   /**

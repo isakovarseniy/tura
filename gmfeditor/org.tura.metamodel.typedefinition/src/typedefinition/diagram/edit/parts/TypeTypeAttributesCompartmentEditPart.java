@@ -29,7 +29,7 @@ public class TypeTypeAttributesCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7001;
+	public static final int VISUAL_ID = 107001;
 
 	/**
 	 * @generated

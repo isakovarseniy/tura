@@ -63,7 +63,7 @@ public class DomainApplicationsDomainApplicationsApplicationsCompartmentCanonica
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getDomainApplicationsDomainApplicationsApplicationsCompartment_7002SemanticChildren(viewObject);
+				.getDomainApplicationsDomainApplicationsApplicationsCompartment_507001SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -96,7 +96,7 @@ public class DomainApplicationsDomainApplicationsApplicationsCompartmentCanonica
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getDomainApplicationsDomainApplicationsApplicationsCompartment_7002SemanticChildren((View) getHost()
+				.getDomainApplicationsDomainApplicationsApplicationsCompartment_507001SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

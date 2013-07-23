@@ -23,7 +23,7 @@ public class ModelMapperItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ModelMapperItemSemanticEditPolicy() {
-		super(RecipeElementTypes.ModelMapper_3003);
+		super(RecipeElementTypes.ModelMapper_303003);
 	}
 
 	/**

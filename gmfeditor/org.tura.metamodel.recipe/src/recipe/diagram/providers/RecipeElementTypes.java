@@ -60,41 +60,47 @@ public class RecipeElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Recipes_1000 = getElementType("org.tura.metamodel.recipe.Recipes_1000"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Recipe_2004 = getElementType("org.tura.metamodel.recipe.Recipe_2004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Configuration_2005 = getElementType("org.tura.metamodel.recipe.Configuration_2005"); //$NON-NLS-1$
+	public static final IElementType Recipes_301000 = getElementType("org.tura.metamodel.recipe.Recipes_301000"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType Component_3004 = getElementType("org.tura.metamodel.recipe.Component_3004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Component_3002 = getElementType("org.tura.metamodel.recipe.Component_3002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType ModelMapper_3003 = getElementType("org.tura.metamodel.recipe.ModelMapper_3003"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Property_3005 = getElementType("org.tura.metamodel.recipe.Property_3005"); //$NON-NLS-1$
+	public static final IElementType Recipe_302004 = getElementType("org.tura.metamodel.recipe.Recipe_302004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeRecipeConfig_4001 = getElementType("org.tura.metamodel.recipe.RecipeRecipeConfig_4001"); //$NON-NLS-1$
+	public static final IElementType Configuration_302005 = getElementType("org.tura.metamodel.recipe.Configuration_302005"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType ConfigurationConfigExtension_4002 = getElementType("org.tura.metamodel.recipe.ConfigurationConfigExtension_4002"); //$NON-NLS-1$
+	public static final IElementType Component_303004 = getElementType("org.tura.metamodel.recipe.Component_303004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Component_303002 = getElementType("org.tura.metamodel.recipe.Component_303002"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ModelMapper_303003 = getElementType("org.tura.metamodel.recipe.ModelMapper_303003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Property_303005 = getElementType("org.tura.metamodel.recipe.Property_303005"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipeRecipeConfig_304001 = getElementType("org.tura.metamodel.recipe.RecipeRecipeConfig_304001"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ConfigurationConfigExtension_304002 = getElementType("org.tura.metamodel.recipe.ConfigurationConfigExtension_304002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -207,26 +213,28 @@ public class RecipeElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Recipes_1000, RecipePackage.eINSTANCE.getRecipes());
+			elements.put(Recipes_301000, RecipePackage.eINSTANCE.getRecipes());
 
-			elements.put(Recipe_2004, RecipePackage.eINSTANCE.getRecipe());
+			elements.put(Recipe_302004, RecipePackage.eINSTANCE.getRecipe());
 
-			elements.put(Configuration_2005,
+			elements.put(Configuration_302005,
 					RecipePackage.eINSTANCE.getConfiguration());
 
-			elements.put(Component_3004, RecipePackage.eINSTANCE.getComponent());
+			elements.put(Component_303004,
+					RecipePackage.eINSTANCE.getComponent());
 
-			elements.put(Component_3002, RecipePackage.eINSTANCE.getComponent());
+			elements.put(Component_303002,
+					RecipePackage.eINSTANCE.getComponent());
 
-			elements.put(ModelMapper_3003,
+			elements.put(ModelMapper_303003,
 					RecipePackage.eINSTANCE.getModelMapper());
 
-			elements.put(Property_3005, RecipePackage.eINSTANCE.getProperty());
+			elements.put(Property_303005, RecipePackage.eINSTANCE.getProperty());
 
-			elements.put(RecipeRecipeConfig_4001,
+			elements.put(RecipeRecipeConfig_304001,
 					RecipePackage.eINSTANCE.getRecipe_RecipeConfig());
 
-			elements.put(ConfigurationConfigExtension_4002,
+			elements.put(ConfigurationConfigExtension_304002,
 					RecipePackage.eINSTANCE.getConfiguration_ConfigExtension());
 		}
 		return (ENamedElement) elements.get(type);
@@ -245,15 +253,15 @@ public class RecipeElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(Recipes_1000);
-			KNOWN_ELEMENT_TYPES.add(Recipe_2004);
-			KNOWN_ELEMENT_TYPES.add(Configuration_2005);
-			KNOWN_ELEMENT_TYPES.add(Component_3004);
-			KNOWN_ELEMENT_TYPES.add(Component_3002);
-			KNOWN_ELEMENT_TYPES.add(ModelMapper_3003);
-			KNOWN_ELEMENT_TYPES.add(Property_3005);
-			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_4001);
-			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_4002);
+			KNOWN_ELEMENT_TYPES.add(Recipes_301000);
+			KNOWN_ELEMENT_TYPES.add(Recipe_302004);
+			KNOWN_ELEMENT_TYPES.add(Configuration_302005);
+			KNOWN_ELEMENT_TYPES.add(Component_303004);
+			KNOWN_ELEMENT_TYPES.add(Component_303002);
+			KNOWN_ELEMENT_TYPES.add(ModelMapper_303003);
+			KNOWN_ELEMENT_TYPES.add(Property_303005);
+			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_304001);
+			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_304002);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -264,23 +272,23 @@ public class RecipeElementTypes {
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case RecipesEditPart.VISUAL_ID:
-			return Recipes_1000;
+			return Recipes_301000;
 		case RecipeEditPart.VISUAL_ID:
-			return Recipe_2004;
+			return Recipe_302004;
 		case ConfigurationEditPart.VISUAL_ID:
-			return Configuration_2005;
+			return Configuration_302005;
 		case ComponentEditPart.VISUAL_ID:
-			return Component_3004;
+			return Component_303004;
 		case Component2EditPart.VISUAL_ID:
-			return Component_3002;
+			return Component_303002;
 		case ModelMapperEditPart.VISUAL_ID:
-			return ModelMapper_3003;
+			return ModelMapper_303003;
 		case PropertyEditPart.VISUAL_ID:
-			return Property_3005;
+			return Property_303005;
 		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return RecipeRecipeConfig_4001;
+			return RecipeRecipeConfig_304001;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return ConfigurationConfigExtension_4002;
+			return ConfigurationConfigExtension_304002;
 		}
 		return null;
 	}

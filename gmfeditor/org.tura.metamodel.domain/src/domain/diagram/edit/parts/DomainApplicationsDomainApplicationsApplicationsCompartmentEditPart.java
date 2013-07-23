@@ -28,7 +28,7 @@ public class DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7002;
+	public static final int VISUAL_ID = 507001;
 
 	/**
 	 * @generated

@@ -103,19 +103,19 @@ public class ArtifactNavigatorLabelProvider extends LabelProvider implements
 		switch (ArtifactVisualIDRegistry.getVisualID(view)) {
 		case ArtifactsEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/artifact?Artifacts", ArtifactElementTypes.Artifacts_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http://tura.org/2013/v1/artifact?Artifacts", ArtifactElementTypes.Artifacts_701000); //$NON-NLS-1$
 		case ArtifactEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/artifact?Artifact", ArtifactElementTypes.Artifact_2001); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/artifact?Artifact", ArtifactElementTypes.Artifact_702001); //$NON-NLS-1$
 		case VariableEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/artifact?Variable", ArtifactElementTypes.Variable_3001); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/artifact?Variable", ArtifactElementTypes.Variable_703001); //$NON-NLS-1$
 		case Variable2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/artifact?Variable", ArtifactElementTypes.Variable_3002); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/artifact?Variable", ArtifactElementTypes.Variable_703002); //$NON-NLS-1$
 		case SpecifierEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/artifact?Specifier", ArtifactElementTypes.Specifier_3003); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/artifact?Specifier", ArtifactElementTypes.Specifier_703003); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -177,15 +177,15 @@ public class ArtifactNavigatorLabelProvider extends LabelProvider implements
 		}
 		switch (ArtifactVisualIDRegistry.getVisualID(view)) {
 		case ArtifactsEditPart.VISUAL_ID:
-			return getArtifacts_1000Text(view);
+			return getArtifacts_701000Text(view);
 		case ArtifactEditPart.VISUAL_ID:
-			return getArtifact_2001Text(view);
+			return getArtifact_702001Text(view);
 		case VariableEditPart.VISUAL_ID:
-			return getVariable_3001Text(view);
+			return getVariable_703001Text(view);
 		case Variable2EditPart.VISUAL_ID:
-			return getVariable_3002Text(view);
+			return getVariable_703002Text(view);
 		case SpecifierEditPart.VISUAL_ID:
-			return getSpecifier_3003Text(view);
+			return getSpecifier_703003Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -193,16 +193,16 @@ public class ArtifactNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getArtifacts_1000Text(View view) {
+	private String getArtifacts_701000Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
 
 	/**
 	 * @generated
 	 */
-	private String getArtifact_2001Text(View view) {
+	private String getArtifact_702001Text(View view) {
 		IParser parser = ArtifactParserProvider.getParser(
-				ArtifactElementTypes.Artifact_2001,
+				ArtifactElementTypes.Artifact_702001,
 				view.getElement() != null ? view.getElement() : view,
 				ArtifactVisualIDRegistry
 						.getType(ArtifactNameEditPart.VISUAL_ID));
@@ -212,7 +212,7 @@ public class ArtifactNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			ArtifactDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5004); //$NON-NLS-1$
+					"Parser was not found for label " + 705004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -220,9 +220,9 @@ public class ArtifactNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getVariable_3001Text(View view) {
+	private String getVariable_703001Text(View view) {
 		IParser parser = ArtifactParserProvider.getParser(
-				ArtifactElementTypes.Variable_3001,
+				ArtifactElementTypes.Variable_703001,
 				view.getElement() != null ? view.getElement() : view,
 				ArtifactVisualIDRegistry
 						.getType(VariableNameEditPart.VISUAL_ID));
@@ -232,7 +232,7 @@ public class ArtifactNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			ArtifactDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5001); //$NON-NLS-1$
+					"Parser was not found for label " + 705001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -240,9 +240,9 @@ public class ArtifactNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getVariable_3002Text(View view) {
+	private String getVariable_703002Text(View view) {
 		IParser parser = ArtifactParserProvider.getParser(
-				ArtifactElementTypes.Variable_3002,
+				ArtifactElementTypes.Variable_703002,
 				view.getElement() != null ? view.getElement() : view,
 				ArtifactVisualIDRegistry
 						.getType(VariableName2EditPart.VISUAL_ID));
@@ -252,7 +252,7 @@ public class ArtifactNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			ArtifactDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5002); //$NON-NLS-1$
+					"Parser was not found for label " + 705002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -260,9 +260,9 @@ public class ArtifactNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getSpecifier_3003Text(View view) {
+	private String getSpecifier_703003Text(View view) {
 		IParser parser = ArtifactParserProvider.getParser(
-				ArtifactElementTypes.Specifier_3003,
+				ArtifactElementTypes.Specifier_703003,
 				view.getElement() != null ? view.getElement() : view,
 				ArtifactVisualIDRegistry
 						.getType(SpecifierNameEditPart.VISUAL_ID));
@@ -272,7 +272,7 @@ public class ArtifactNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			ArtifactDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5003); //$NON-NLS-1$
+					"Parser was not found for label " + 705003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

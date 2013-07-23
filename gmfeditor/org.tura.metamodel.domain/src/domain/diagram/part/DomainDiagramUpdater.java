@@ -43,9 +43,9 @@ public class DomainDiagramUpdater {
 	public static List<DomainNodeDescriptor> getSemanticChildren(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case DomainEditPart.VISUAL_ID:
-			return getDomain_1000SemanticChildren(view);
+			return getDomain_501000SemanticChildren(view);
 		case DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID:
-			return getDomainApplicationsDomainApplicationsApplicationsCompartment_7002SemanticChildren(view);
+			return getDomainApplicationsDomainApplicationsApplicationsCompartment_507001SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -53,7 +53,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getDomain_1000SemanticChildren(
+	public static List<DomainNodeDescriptor> getDomain_501000SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -91,7 +91,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getDomainApplicationsDomainApplicationsApplicationsCompartment_7002SemanticChildren(
+	public static List<DomainNodeDescriptor> getDomainApplicationsDomainApplicationsApplicationsCompartment_507001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -122,17 +122,17 @@ public class DomainDiagramUpdater {
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case DomainEditPart.VISUAL_ID:
-			return getDomain_1000ContainedLinks(view);
+			return getDomain_501000ContainedLinks(view);
 		case DomainArtifactsEditPart.VISUAL_ID:
-			return getDomainArtifacts_2007ContainedLinks(view);
+			return getDomainArtifacts_502001ContainedLinks(view);
 		case DomainTypesEditPart.VISUAL_ID:
-			return getDomainTypes_2008ContainedLinks(view);
+			return getDomainTypes_502002ContainedLinks(view);
 		case DomainApplicationsEditPart.VISUAL_ID:
-			return getDomainApplications_2009ContainedLinks(view);
+			return getDomainApplications_502003ContainedLinks(view);
 		case DomainApplicationEditPart.VISUAL_ID:
-			return getDomainApplication_3002ContainedLinks(view);
+			return getDomainApplication_503001ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001ContainedLinks(view);
+			return getTypeExtension_504001ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -143,15 +143,15 @@ public class DomainDiagramUpdater {
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case DomainArtifactsEditPart.VISUAL_ID:
-			return getDomainArtifacts_2007IncomingLinks(view);
+			return getDomainArtifacts_502001IncomingLinks(view);
 		case DomainTypesEditPart.VISUAL_ID:
-			return getDomainTypes_2008IncomingLinks(view);
+			return getDomainTypes_502002IncomingLinks(view);
 		case DomainApplicationsEditPart.VISUAL_ID:
-			return getDomainApplications_2009IncomingLinks(view);
+			return getDomainApplications_502003IncomingLinks(view);
 		case DomainApplicationEditPart.VISUAL_ID:
-			return getDomainApplication_3002IncomingLinks(view);
+			return getDomainApplication_503001IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001IncomingLinks(view);
+			return getTypeExtension_504001IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -162,15 +162,15 @@ public class DomainDiagramUpdater {
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case DomainArtifactsEditPart.VISUAL_ID:
-			return getDomainArtifacts_2007OutgoingLinks(view);
+			return getDomainArtifacts_502001OutgoingLinks(view);
 		case DomainTypesEditPart.VISUAL_ID:
-			return getDomainTypes_2008OutgoingLinks(view);
+			return getDomainTypes_502002OutgoingLinks(view);
 		case DomainApplicationsEditPart.VISUAL_ID:
-			return getDomainApplications_2009OutgoingLinks(view);
+			return getDomainApplications_502003OutgoingLinks(view);
 		case DomainApplicationEditPart.VISUAL_ID:
-			return getDomainApplication_3002OutgoingLinks(view);
+			return getDomainApplication_503001OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001OutgoingLinks(view);
+			return getTypeExtension_504001OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -178,7 +178,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomain_1000ContainedLinks(
+	public static List<DomainLinkDescriptor> getDomain_501000ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -186,7 +186,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainArtifacts_2007ContainedLinks(
+	public static List<DomainLinkDescriptor> getDomainArtifacts_502001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -194,7 +194,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainTypes_2008ContainedLinks(
+	public static List<DomainLinkDescriptor> getDomainTypes_502002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -202,7 +202,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplications_2009ContainedLinks(
+	public static List<DomainLinkDescriptor> getDomainApplications_502003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -210,7 +210,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplication_3002ContainedLinks(
+	public static List<DomainLinkDescriptor> getDomainApplication_503001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -218,7 +218,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_4001ContainedLinks(
+	public static List<DomainLinkDescriptor> getTypeExtension_504001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -226,7 +226,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainArtifacts_2007IncomingLinks(
+	public static List<DomainLinkDescriptor> getDomainArtifacts_502001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -234,7 +234,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainTypes_2008IncomingLinks(
+	public static List<DomainLinkDescriptor> getDomainTypes_502002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -242,7 +242,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplications_2009IncomingLinks(
+	public static List<DomainLinkDescriptor> getDomainApplications_502003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -250,7 +250,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplication_3002IncomingLinks(
+	public static List<DomainLinkDescriptor> getDomainApplication_503001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -258,7 +258,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_4001IncomingLinks(
+	public static List<DomainLinkDescriptor> getTypeExtension_504001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -266,7 +266,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainArtifacts_2007OutgoingLinks(
+	public static List<DomainLinkDescriptor> getDomainArtifacts_502001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -274,7 +274,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainTypes_2008OutgoingLinks(
+	public static List<DomainLinkDescriptor> getDomainTypes_502002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -282,7 +282,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplications_2009OutgoingLinks(
+	public static List<DomainLinkDescriptor> getDomainApplications_502003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -290,7 +290,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplication_3002OutgoingLinks(
+	public static List<DomainLinkDescriptor> getDomainApplication_503001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -298,7 +298,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_4001OutgoingLinks(
+	public static List<DomainLinkDescriptor> getTypeExtension_504001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

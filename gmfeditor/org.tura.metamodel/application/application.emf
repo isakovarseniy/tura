@@ -11,8 +11,8 @@ class Application{
    val ApplicationMappers applicationMappers;
 }
 
-class Dummy5 extends typedefinition.TypeDefinition{
-   
+class Dummy5 {
+   ref typedefinition.TypeDefinition d5;
 }
 
 @gmf.node(label="name")

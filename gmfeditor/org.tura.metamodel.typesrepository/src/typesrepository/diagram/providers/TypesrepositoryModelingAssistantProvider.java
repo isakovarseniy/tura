@@ -45,22 +45,22 @@ public class TypesrepositoryModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof TypesRepositoryEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypesrepositoryElementTypes.Types_2001);
+			types.add(TypesrepositoryElementTypes.Types_202001);
 			return types;
 		}
 		if (editPart instanceof TypesTypesPrimitivesCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypesrepositoryElementTypes.Primitive_3003);
+			types.add(TypesrepositoryElementTypes.Primitive_203003);
 			return types;
 		}
 		if (editPart instanceof TypesTypesPackagesCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypesrepositoryElementTypes.Package_3001);
+			types.add(TypesrepositoryElementTypes.Package_203001);
 			return types;
 		}
 		if (editPart instanceof TypesTypesBusinessPackagesCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypesrepositoryElementTypes.BusinessPackage_3002);
+			types.add(TypesrepositoryElementTypes.BusinessPackage_203002);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

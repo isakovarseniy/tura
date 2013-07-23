@@ -5,9 +5,9 @@ package domain.tests;
 import domain.Dammy1;
 import domain.DomainFactory;
 
-import junit.textui.TestRunner;
+import junit.framework.TestCase;
 
-import typedefinition.tests.TypeDefinitionTest;
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,8 +15,16 @@ import typedefinition.tests.TypeDefinitionTest;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Dammy1Test extends TypeDefinitionTest
+public class Dammy1Test extends TestCase
 {
+
+  /**
+   * The fixture for this Dammy1 test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected Dammy1 fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -40,15 +48,25 @@ public class Dammy1Test extends TypeDefinitionTest
   }
 
   /**
+   * Sets the fixture for this Dammy1 test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(Dammy1 fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this Dammy1 test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected Dammy1 getFixture()
   {
-    return (Dammy1)fixture;
+    return fixture;
   }
 
   /**

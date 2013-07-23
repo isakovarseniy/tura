@@ -61,7 +61,7 @@ public class SpecifierNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5003;
+	public static final int VISUAL_ID = 705003;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class SpecifierNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = ArtifactParserProvider
 					.getParser(
-							ArtifactElementTypes.Specifier_3003,
+							ArtifactElementTypes.Specifier_703003,
 							getParserElement(),
 							ArtifactVisualIDRegistry
 									.getType(artifact.diagram.edit.parts.SpecifierNameEditPart.VISUAL_ID));

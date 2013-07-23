@@ -23,14 +23,14 @@ public class ArtifactsItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ArtifactsItemSemanticEditPolicy() {
-		super(ArtifactElementTypes.Artifacts_1000);
+		super(ArtifactElementTypes.Artifacts_701000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (ArtifactElementTypes.Artifact_2001 == req.getElementType()) {
+		if (ArtifactElementTypes.Artifact_702001 == req.getElementType()) {
 			return getGEFWrapper(new ArtifactCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

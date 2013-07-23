@@ -30,7 +30,7 @@ public class EnumaratorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public EnumaratorItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Enumarator_2003);
+		super(TypedefinitionElementTypes.Enumarator_102003);
 	}
 
 	/**

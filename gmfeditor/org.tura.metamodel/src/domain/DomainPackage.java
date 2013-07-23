@@ -121,22 +121,13 @@ public interface DomainPackage extends EPackage
   int DAMMY1 = 1;
 
   /**
-   * The feature id for the '<em><b>Types</b></em>' containment reference list.
+   * The feature id for the '<em><b>D1</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DAMMY1__TYPES = TypedefinitionPackage.TYPE_DEFINITION__TYPES;
-
-  /**
-   * The feature id for the '<em><b>Enums</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DAMMY1__ENUMS = TypedefinitionPackage.TYPE_DEFINITION__ENUMS;
+  int DAMMY1__D1 = 0;
 
   /**
    * The number of structural features of the '<em>Dammy1</em>' class.
@@ -145,7 +136,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DAMMY1_FEATURE_COUNT = TypedefinitionPackage.TYPE_DEFINITION_FEATURE_COUNT + 0;
+  int DAMMY1_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link domain.impl.Dammy2Impl <em>Dammy2</em>}' class.
@@ -158,13 +149,13 @@ public interface DomainPackage extends EPackage
   int DAMMY2 = 2;
 
   /**
-   * The feature id for the '<em><b>Business Object</b></em>' containment reference list.
+   * The feature id for the '<em><b>D2</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DAMMY2__BUSINESS_OBJECT = BusinessobjectsPackage.BUSINESS_OBJECTS__BUSINESS_OBJECT;
+  int DAMMY2__D2 = 0;
 
   /**
    * The number of structural features of the '<em>Dammy2</em>' class.
@@ -173,7 +164,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DAMMY2_FEATURE_COUNT = BusinessobjectsPackage.BUSINESS_OBJECTS_FEATURE_COUNT + 0;
+  int DAMMY2_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link domain.impl.Dammy3Impl <em>Dammy3</em>}' class.
@@ -186,13 +177,13 @@ public interface DomainPackage extends EPackage
   int DAMMY3 = 3;
 
   /**
-   * The feature id for the '<em><b>Recipe</b></em>' containment reference.
+   * The feature id for the '<em><b>D3</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DAMMY3__RECIPE = RecipePackage.RECIPES__RECIPE;
+  int DAMMY3__D3 = 0;
 
   /**
    * The number of structural features of the '<em>Dammy3</em>' class.
@@ -201,7 +192,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DAMMY3_FEATURE_COUNT = RecipePackage.RECIPES_FEATURE_COUNT + 0;
+  int DAMMY3_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link domain.impl.Dammy4Impl <em>Dammy4</em>}' class.
@@ -214,13 +205,13 @@ public interface DomainPackage extends EPackage
   int DAMMY4 = 4;
 
   /**
-   * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
+   * The feature id for the '<em><b>D4</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DAMMY4__MAPPERS = MapperPackage.MAPPERS__MAPPERS;
+  int DAMMY4__D4 = 0;
 
   /**
    * The number of structural features of the '<em>Dammy4</em>' class.
@@ -229,7 +220,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DAMMY4_FEATURE_COUNT = MapperPackage.MAPPERS_FEATURE_COUNT + 0;
+  int DAMMY4_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link domain.impl.DomainArtifactsImpl <em>Artifacts</em>}' class.
@@ -434,6 +425,17 @@ public interface DomainPackage extends EPackage
   EClass getDammy1();
 
   /**
+   * Returns the meta object for the reference '{@link domain.Dammy1#getD1 <em>D1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>D1</em>'.
+   * @see domain.Dammy1#getD1()
+   * @see #getDammy1()
+   * @generated
+   */
+  EReference getDammy1_D1();
+
+  /**
    * Returns the meta object for class '{@link domain.Dammy2 <em>Dammy2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -442,6 +444,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getDammy2();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Dammy2#getD2 <em>D2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>D2</em>'.
+   * @see domain.Dammy2#getD2()
+   * @see #getDammy2()
+   * @generated
+   */
+  EReference getDammy2_D2();
 
   /**
    * Returns the meta object for class '{@link domain.Dammy3 <em>Dammy3</em>}'.
@@ -454,6 +467,17 @@ public interface DomainPackage extends EPackage
   EClass getDammy3();
 
   /**
+   * Returns the meta object for the reference '{@link domain.Dammy3#getD3 <em>D3</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>D3</em>'.
+   * @see domain.Dammy3#getD3()
+   * @see #getDammy3()
+   * @generated
+   */
+  EReference getDammy3_D3();
+
+  /**
    * Returns the meta object for class '{@link domain.Dammy4 <em>Dammy4</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -462,6 +486,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getDammy4();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Dammy4#getD4 <em>D4</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>D4</em>'.
+   * @see domain.Dammy4#getD4()
+   * @see #getDammy4()
+   * @generated
+   */
+  EReference getDammy4_D4();
 
   /**
    * Returns the meta object for class '{@link domain.DomainArtifacts <em>Artifacts</em>}'.
@@ -659,6 +694,14 @@ public interface DomainPackage extends EPackage
     EClass DAMMY1 = eINSTANCE.getDammy1();
 
     /**
+     * The meta object literal for the '<em><b>D1</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DAMMY1__D1 = eINSTANCE.getDammy1_D1();
+
+    /**
      * The meta object literal for the '{@link domain.impl.Dammy2Impl <em>Dammy2</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -667,6 +710,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass DAMMY2 = eINSTANCE.getDammy2();
+
+    /**
+     * The meta object literal for the '<em><b>D2</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DAMMY2__D2 = eINSTANCE.getDammy2_D2();
 
     /**
      * The meta object literal for the '{@link domain.impl.Dammy3Impl <em>Dammy3</em>}' class.
@@ -679,6 +730,14 @@ public interface DomainPackage extends EPackage
     EClass DAMMY3 = eINSTANCE.getDammy3();
 
     /**
+     * The meta object literal for the '<em><b>D3</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DAMMY3__D3 = eINSTANCE.getDammy3_D3();
+
+    /**
      * The meta object literal for the '{@link domain.impl.Dammy4Impl <em>Dammy4</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -687,6 +746,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass DAMMY4 = eINSTANCE.getDammy4();
+
+    /**
+     * The meta object literal for the '<em><b>D4</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DAMMY4__D4 = eINSTANCE.getDammy4_D4();
 
     /**
      * The meta object literal for the '{@link domain.impl.DomainArtifactsImpl <em>Artifacts</em>}' class.

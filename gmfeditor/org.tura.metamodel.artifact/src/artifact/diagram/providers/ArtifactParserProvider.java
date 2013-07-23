@@ -33,73 +33,73 @@ public class ArtifactParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser artifactName_5004Parser;
+	private IParser artifactName_705004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getArtifactName_5004Parser() {
-		if (artifactName_5004Parser == null) {
+	private IParser getArtifactName_705004Parser() {
+		if (artifactName_705004Parser == null) {
 			EAttribute[] features = new EAttribute[] { ArtifactPackage.eINSTANCE
 					.getArtifact_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			artifactName_5004Parser = parser;
+			artifactName_705004Parser = parser;
 		}
-		return artifactName_5004Parser;
+		return artifactName_705004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser variableName_5001Parser;
+	private IParser variableName_705001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getVariableName_5001Parser() {
-		if (variableName_5001Parser == null) {
+	private IParser getVariableName_705001Parser() {
+		if (variableName_705001Parser == null) {
 			EAttribute[] features = new EAttribute[] { ArtifactPackage.eINSTANCE
 					.getVariable_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			variableName_5001Parser = parser;
+			variableName_705001Parser = parser;
 		}
-		return variableName_5001Parser;
+		return variableName_705001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser variableName_5002Parser;
+	private IParser variableName_705002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getVariableName_5002Parser() {
-		if (variableName_5002Parser == null) {
+	private IParser getVariableName_705002Parser() {
+		if (variableName_705002Parser == null) {
 			EAttribute[] features = new EAttribute[] { ArtifactPackage.eINSTANCE
 					.getVariable_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			variableName_5002Parser = parser;
+			variableName_705002Parser = parser;
 		}
-		return variableName_5002Parser;
+		return variableName_705002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser specifierName_5003Parser;
+	private IParser specifierName_705003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSpecifierName_5003Parser() {
-		if (specifierName_5003Parser == null) {
+	private IParser getSpecifierName_705003Parser() {
+		if (specifierName_705003Parser == null) {
 			EAttribute[] features = new EAttribute[] { ArtifactPackage.eINSTANCE
 					.getSpecifier_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			specifierName_5003Parser = parser;
+			specifierName_705003Parser = parser;
 		}
-		return specifierName_5003Parser;
+		return specifierName_705003Parser;
 	}
 
 	/**
@@ -108,13 +108,13 @@ public class ArtifactParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ArtifactNameEditPart.VISUAL_ID:
-			return getArtifactName_5004Parser();
+			return getArtifactName_705004Parser();
 		case VariableNameEditPart.VISUAL_ID:
-			return getVariableName_5001Parser();
+			return getVariableName_705001Parser();
 		case VariableName2EditPart.VISUAL_ID:
-			return getVariableName_5002Parser();
+			return getVariableName_705002Parser();
 		case SpecifierNameEditPart.VISUAL_ID:
-			return getSpecifierName_5003Parser();
+			return getSpecifierName_705003Parser();
 		}
 		return null;
 	}

@@ -574,7 +574,7 @@ public class RecipeEditor
         }
         catch (CoreException exception)
         {
-          RecipeEditorPlugin.INSTANCE.log(exception);
+          ApplicationEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -714,7 +714,7 @@ public class RecipeEditor
         }
         catch (PartInitException exception)
         {
-          RecipeEditorPlugin.INSTANCE.log(exception);
+          ApplicationEditorPlugin.INSTANCE.log(exception);
         }
       }
 
@@ -729,7 +729,7 @@ public class RecipeEditor
           }
           catch (CoreException exception)
           {
-            RecipeEditorPlugin.INSTANCE.log(exception);
+            ApplicationEditorPlugin.INSTANCE.log(exception);
           }
         }
       }
@@ -776,7 +776,10 @@ public class RecipeEditor
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new RecipeItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
     // Create the command stack that will notify this editor as commands are executed.
@@ -1702,7 +1705,7 @@ public class RecipeEditor
     {
       // Something went wrong that shouldn't.
       //
-      RecipeEditorPlugin.INSTANCE.log(exception);
+      ApplicationEditorPlugin.INSTANCE.log(exception);
     }
     updateProblemIndication = true;
     updateProblemIndication();
@@ -1810,7 +1813,7 @@ public class RecipeEditor
     }
     catch (CoreException exception)
     {
-      RecipeEditorPlugin.INSTANCE.log(exception);
+      ApplicationEditorPlugin.INSTANCE.log(exception);
     }
   }
 
@@ -1950,7 +1953,7 @@ public class RecipeEditor
    */
   private static String getString(String key)
   {
-    return RecipeEditorPlugin.INSTANCE.getString(key);
+    return ApplicationEditorPlugin.INSTANCE.getString(key);
   }
 
   /**
@@ -1961,7 +1964,7 @@ public class RecipeEditor
    */
   private static String getString(String key, Object s1)
   {
-    return RecipeEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+    return ApplicationEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
   }
 
   /**

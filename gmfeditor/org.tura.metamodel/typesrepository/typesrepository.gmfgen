@@ -8,7 +8,7 @@
     templateDirectory="/org.tura.metamodel/templates/"
     copyrightText="">
   <diagram
-      visualID="1000"
+      visualID="201000"
       editPartClassName="TypesRepositoryEditPart"
       itemSemanticEditPolicyClassName="TypesRepositoryItemSemanticEditPolicy"
       canonicalEditPolicyClassName="TypesRepositoryCanonicalEditPolicy"
@@ -30,7 +30,7 @@
     <domainDiagramElement
         href="typesrepository.genmodel#//typesrepository/TypesRepository"/>
     <childNodes
-        visualID="3003"
+        visualID="203003"
         editPartClassName="PrimitiveEditPart"
         itemSemanticEditPolicyClassName="PrimitiveItemSemanticEditPolicy"
         canonicalEditPolicyClassName="PrimitiveCanonicalEditPolicy"
@@ -60,7 +60,7 @@
             href="typesrepository.genmodel#//typesrepository/Types/primitives"/>
       </modelFacet>
       <labels
-          visualID="5003"
+          visualID="205003"
           editPartClassName="PrimitiveNameEditPart"
           itemSemanticEditPolicyClassName="PrimitiveNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -79,7 +79,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3001"
+        visualID="203001"
         editPartClassName="PackageEditPart"
         itemSemanticEditPolicyClassName="PackageItemSemanticEditPolicy"
         canonicalEditPolicyClassName="PackageCanonicalEditPolicy"
@@ -109,7 +109,7 @@
             href="typesrepository.genmodel#//typesrepository/Types/packages"/>
       </modelFacet>
       <labels
-          visualID="5001"
+          visualID="205001"
           editPartClassName="PackageNameEditPart"
           itemSemanticEditPolicyClassName="PackageNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -128,7 +128,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3002"
+        visualID="203002"
         editPartClassName="BusinessPackageEditPart"
         itemSemanticEditPolicyClassName="BusinessPackageItemSemanticEditPolicy"
         canonicalEditPolicyClassName="BusinessPackageCanonicalEditPolicy"
@@ -158,7 +158,7 @@
             href="typesrepository.genmodel#//typesrepository/Types/businessPackages"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="205002"
           editPartClassName="BusinessPackageNameEditPart"
           itemSemanticEditPolicyClassName="BusinessPackageNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -177,7 +177,7 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="2001"
+        visualID="202001"
         editPartClassName="TypesEditPart"
         itemSemanticEditPolicyClassName="TypesItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TypesCanonicalEditPolicy"
@@ -204,7 +204,7 @@
             href="typesrepository.genmodel#//typesrepository/TypesRepository/typeDefinition"/>
       </modelFacet>
       <labels
-          visualID="5004"
+          visualID="205004"
           editPartClassName="TypesNameEditPart"
           itemSemanticEditPolicyClassName="TypesNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -223,7 +223,7 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="4001"
+        visualID="204001"
         editPartClassName="TypeExtensionEditPart"
         itemSemanticEditPolicyClassName="TypeExtensionItemSemanticEditPolicy"
         createCommandClassName="TypeExtensionCreateCommand"
@@ -252,7 +252,7 @@
       </modelFacet>
     </links>
     <compartments
-        visualID="7001"
+        visualID="207001"
         editPartClassName="TypesTypesPrimitivesCompartmentEditPart"
         itemSemanticEditPolicyClassName="TypesTypesPrimitivesCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TypesTypesPrimitivesCompartmentCanonicalEditPolicy"
@@ -269,7 +269,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7002"
+        visualID="207002"
         editPartClassName="TypesTypesPackagesCompartmentEditPart"
         itemSemanticEditPolicyClassName="TypesTypesPackagesCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TypesTypesPackagesCompartmentCanonicalEditPolicy"
@@ -286,7 +286,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7003"
+        visualID="207003"
         editPartClassName="TypesTypesBusinessPackagesCompartmentEditPart"
         itemSemanticEditPolicyClassName="TypesTypesBusinessPackagesCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="TypesTypesBusinessPackagesCompartmentCanonicalEditPolicy"

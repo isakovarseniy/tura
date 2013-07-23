@@ -128,7 +128,7 @@ public class TypeElementItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return MapperEditPlugin.INSTANCE;
+    return ApplicationEditPlugin.INSTANCE;
   }
 
 }

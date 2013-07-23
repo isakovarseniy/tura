@@ -575,7 +575,7 @@ public class MapperEditor
         }
         catch (CoreException exception)
         {
-          MapperEditorPlugin.INSTANCE.log(exception);
+          ApplicationEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -715,7 +715,7 @@ public class MapperEditor
         }
         catch (PartInitException exception)
         {
-          MapperEditorPlugin.INSTANCE.log(exception);
+          ApplicationEditorPlugin.INSTANCE.log(exception);
         }
       }
 
@@ -730,7 +730,7 @@ public class MapperEditor
           }
           catch (CoreException exception)
           {
-            MapperEditorPlugin.INSTANCE.log(exception);
+            ApplicationEditorPlugin.INSTANCE.log(exception);
           }
         }
       }
@@ -777,8 +777,10 @@ public class MapperEditor
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new RecipeItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
     // Create the command stack that will notify this editor as commands are executed.
@@ -1704,7 +1706,7 @@ public class MapperEditor
     {
       // Something went wrong that shouldn't.
       //
-      MapperEditorPlugin.INSTANCE.log(exception);
+      ApplicationEditorPlugin.INSTANCE.log(exception);
     }
     updateProblemIndication = true;
     updateProblemIndication();
@@ -1812,7 +1814,7 @@ public class MapperEditor
     }
     catch (CoreException exception)
     {
-      MapperEditorPlugin.INSTANCE.log(exception);
+      ApplicationEditorPlugin.INSTANCE.log(exception);
     }
   }
 
@@ -1952,7 +1954,7 @@ public class MapperEditor
    */
   private static String getString(String key)
   {
-    return MapperEditorPlugin.INSTANCE.getString(key);
+    return ApplicationEditorPlugin.INSTANCE.getString(key);
   }
 
   /**
@@ -1963,7 +1965,7 @@ public class MapperEditor
    */
   private static String getString(String key, Object s1)
   {
-    return MapperEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+    return ApplicationEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
   }
 
   /**

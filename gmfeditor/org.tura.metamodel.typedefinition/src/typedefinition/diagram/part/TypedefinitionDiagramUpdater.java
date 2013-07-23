@@ -64,17 +64,17 @@ public class TypedefinitionDiagramUpdater {
 			View view) {
 		switch (TypedefinitionVisualIDRegistry.getVisualID(view)) {
 		case TypeDefinitionEditPart.VISUAL_ID:
-			return getTypeDefinition_1000SemanticChildren(view);
+			return getTypeDefinition_101000SemanticChildren(view);
 		case TypeTypeAttributesCompartmentEditPart.VISUAL_ID:
-			return getTypeTypeAttributesCompartment_7001SemanticChildren(view);
+			return getTypeTypeAttributesCompartment_107001SemanticChildren(view);
 		case TypeTypeOperationsCompartmentEditPart.VISUAL_ID:
-			return getTypeTypeOperationsCompartment_7002SemanticChildren(view);
+			return getTypeTypeOperationsCompartment_107002SemanticChildren(view);
 		case OperationOperationParametersCompartmentEditPart.VISUAL_ID:
-			return getOperationOperationParametersCompartment_7003SemanticChildren(view);
+			return getOperationOperationParametersCompartment_107003SemanticChildren(view);
 		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
-			return getOperationOperationReturnValueCompartment_7004SemanticChildren(view);
+			return getOperationOperationReturnValueCompartment_107004SemanticChildren(view);
 		case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
-			return getEnumaratorEnumaratorValuesCompartment_7005SemanticChildren(view);
+			return getEnumaratorEnumaratorValuesCompartment_107005SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -82,7 +82,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionNodeDescriptor> getTypeDefinition_1000SemanticChildren(
+	public static List<TypedefinitionNodeDescriptor> getTypeDefinition_101000SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -120,7 +120,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionNodeDescriptor> getTypeTypeAttributesCompartment_7001SemanticChildren(
+	public static List<TypedefinitionNodeDescriptor> getTypeTypeAttributesCompartment_107001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -148,7 +148,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionNodeDescriptor> getTypeTypeOperationsCompartment_7002SemanticChildren(
+	public static List<TypedefinitionNodeDescriptor> getTypeTypeOperationsCompartment_107002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -176,7 +176,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionNodeDescriptor> getOperationOperationParametersCompartment_7003SemanticChildren(
+	public static List<TypedefinitionNodeDescriptor> getOperationOperationParametersCompartment_107003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -204,7 +204,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionNodeDescriptor> getOperationOperationReturnValueCompartment_7004SemanticChildren(
+	public static List<TypedefinitionNodeDescriptor> getOperationOperationReturnValueCompartment_107004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -230,7 +230,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionNodeDescriptor> getEnumaratorEnumaratorValuesCompartment_7005SemanticChildren(
+	public static List<TypedefinitionNodeDescriptor> getEnumaratorEnumaratorValuesCompartment_107005SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -260,25 +260,25 @@ public class TypedefinitionDiagramUpdater {
 	public static List<TypedefinitionLinkDescriptor> getContainedLinks(View view) {
 		switch (TypedefinitionVisualIDRegistry.getVisualID(view)) {
 		case TypeDefinitionEditPart.VISUAL_ID:
-			return getTypeDefinition_1000ContainedLinks(view);
+			return getTypeDefinition_101000ContainedLinks(view);
 		case TypeReferenceEditPart.VISUAL_ID:
-			return getTypeReference_2001ContainedLinks(view);
+			return getTypeReference_102001ContainedLinks(view);
 		case TypeEditPart.VISUAL_ID:
-			return getType_2002ContainedLinks(view);
+			return getType_102002ContainedLinks(view);
 		case EnumaratorEditPart.VISUAL_ID:
-			return getEnumarator_2003ContainedLinks(view);
+			return getEnumarator_102003ContainedLinks(view);
 		case AttributeEditPart.VISUAL_ID:
-			return getAttribute_3001ContainedLinks(view);
+			return getAttribute_103001ContainedLinks(view);
 		case OperationEditPart.VISUAL_ID:
-			return getOperation_3002ContainedLinks(view);
+			return getOperation_103002ContainedLinks(view);
 		case Attribute2EditPart.VISUAL_ID:
-			return getAttribute_3003ContainedLinks(view);
+			return getAttribute_103003ContainedLinks(view);
 		case ReturnValueEditPart.VISUAL_ID:
-			return getReturnValue_3004ContainedLinks(view);
+			return getReturnValue_103004ContainedLinks(view);
 		case EnumAttributeEditPart.VISUAL_ID:
-			return getEnumAttribute_3005ContainedLinks(view);
+			return getEnumAttribute_103005ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001ContainedLinks(view);
+			return getTypeExtension_104001ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -289,23 +289,23 @@ public class TypedefinitionDiagramUpdater {
 	public static List<TypedefinitionLinkDescriptor> getIncomingLinks(View view) {
 		switch (TypedefinitionVisualIDRegistry.getVisualID(view)) {
 		case TypeReferenceEditPart.VISUAL_ID:
-			return getTypeReference_2001IncomingLinks(view);
+			return getTypeReference_102001IncomingLinks(view);
 		case TypeEditPart.VISUAL_ID:
-			return getType_2002IncomingLinks(view);
+			return getType_102002IncomingLinks(view);
 		case EnumaratorEditPart.VISUAL_ID:
-			return getEnumarator_2003IncomingLinks(view);
+			return getEnumarator_102003IncomingLinks(view);
 		case AttributeEditPart.VISUAL_ID:
-			return getAttribute_3001IncomingLinks(view);
+			return getAttribute_103001IncomingLinks(view);
 		case OperationEditPart.VISUAL_ID:
-			return getOperation_3002IncomingLinks(view);
+			return getOperation_103002IncomingLinks(view);
 		case Attribute2EditPart.VISUAL_ID:
-			return getAttribute_3003IncomingLinks(view);
+			return getAttribute_103003IncomingLinks(view);
 		case ReturnValueEditPart.VISUAL_ID:
-			return getReturnValue_3004IncomingLinks(view);
+			return getReturnValue_103004IncomingLinks(view);
 		case EnumAttributeEditPart.VISUAL_ID:
-			return getEnumAttribute_3005IncomingLinks(view);
+			return getEnumAttribute_103005IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001IncomingLinks(view);
+			return getTypeExtension_104001IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -316,23 +316,23 @@ public class TypedefinitionDiagramUpdater {
 	public static List<TypedefinitionLinkDescriptor> getOutgoingLinks(View view) {
 		switch (TypedefinitionVisualIDRegistry.getVisualID(view)) {
 		case TypeReferenceEditPart.VISUAL_ID:
-			return getTypeReference_2001OutgoingLinks(view);
+			return getTypeReference_102001OutgoingLinks(view);
 		case TypeEditPart.VISUAL_ID:
-			return getType_2002OutgoingLinks(view);
+			return getType_102002OutgoingLinks(view);
 		case EnumaratorEditPart.VISUAL_ID:
-			return getEnumarator_2003OutgoingLinks(view);
+			return getEnumarator_102003OutgoingLinks(view);
 		case AttributeEditPart.VISUAL_ID:
-			return getAttribute_3001OutgoingLinks(view);
+			return getAttribute_103001OutgoingLinks(view);
 		case OperationEditPart.VISUAL_ID:
-			return getOperation_3002OutgoingLinks(view);
+			return getOperation_103002OutgoingLinks(view);
 		case Attribute2EditPart.VISUAL_ID:
-			return getAttribute_3003OutgoingLinks(view);
+			return getAttribute_103003OutgoingLinks(view);
 		case ReturnValueEditPart.VISUAL_ID:
-			return getReturnValue_3004OutgoingLinks(view);
+			return getReturnValue_103004OutgoingLinks(view);
 		case EnumAttributeEditPart.VISUAL_ID:
-			return getEnumAttribute_3005OutgoingLinks(view);
+			return getEnumAttribute_103005OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001OutgoingLinks(view);
+			return getTypeExtension_104001OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -340,7 +340,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getTypeDefinition_1000ContainedLinks(
+	public static List<TypedefinitionLinkDescriptor> getTypeDefinition_101000ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -348,7 +348,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getTypeReference_2001ContainedLinks(
+	public static List<TypedefinitionLinkDescriptor> getTypeReference_102001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -356,18 +356,18 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getType_2002ContainedLinks(
+	public static List<TypedefinitionLinkDescriptor> getType_102002ContainedLinks(
 			View view) {
 		Type modelElement = (Type) view.getElement();
 		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
-		result.addAll(getContainedTypeModelFacetLinks_TypeExtension_4001(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_TypeExtension_104001(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getEnumarator_2003ContainedLinks(
+	public static List<TypedefinitionLinkDescriptor> getEnumarator_102003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -375,7 +375,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getAttribute_3001ContainedLinks(
+	public static List<TypedefinitionLinkDescriptor> getAttribute_103001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -383,7 +383,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getOperation_3002ContainedLinks(
+	public static List<TypedefinitionLinkDescriptor> getOperation_103002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -391,7 +391,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getAttribute_3003ContainedLinks(
+	public static List<TypedefinitionLinkDescriptor> getAttribute_103003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -399,7 +399,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getReturnValue_3004ContainedLinks(
+	public static List<TypedefinitionLinkDescriptor> getReturnValue_103004ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -407,7 +407,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getEnumAttribute_3005ContainedLinks(
+	public static List<TypedefinitionLinkDescriptor> getEnumAttribute_103005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -415,7 +415,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getTypeExtension_4001ContainedLinks(
+	public static List<TypedefinitionLinkDescriptor> getTypeExtension_104001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -423,13 +423,13 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getTypeReference_2001IncomingLinks(
+	public static List<TypedefinitionLinkDescriptor> getTypeReference_102001IncomingLinks(
 			View view) {
 		TypeReference modelElement = (TypeReference) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_4001(
+		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -437,13 +437,13 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getType_2002IncomingLinks(
+	public static List<TypedefinitionLinkDescriptor> getType_102002IncomingLinks(
 			View view) {
 		Type modelElement = (Type) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_4001(
+		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -451,7 +451,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getEnumarator_2003IncomingLinks(
+	public static List<TypedefinitionLinkDescriptor> getEnumarator_102003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -459,7 +459,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getAttribute_3001IncomingLinks(
+	public static List<TypedefinitionLinkDescriptor> getAttribute_103001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -467,7 +467,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getOperation_3002IncomingLinks(
+	public static List<TypedefinitionLinkDescriptor> getOperation_103002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -475,7 +475,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getAttribute_3003IncomingLinks(
+	public static List<TypedefinitionLinkDescriptor> getAttribute_103003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -483,7 +483,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getReturnValue_3004IncomingLinks(
+	public static List<TypedefinitionLinkDescriptor> getReturnValue_103004IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -491,7 +491,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getEnumAttribute_3005IncomingLinks(
+	public static List<TypedefinitionLinkDescriptor> getEnumAttribute_103005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -499,7 +499,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getTypeExtension_4001IncomingLinks(
+	public static List<TypedefinitionLinkDescriptor> getTypeExtension_104001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -507,29 +507,29 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getTypeReference_2001OutgoingLinks(
+	public static List<TypedefinitionLinkDescriptor> getTypeReference_102001OutgoingLinks(
 			View view) {
 		TypeReference modelElement = (TypeReference) view.getElement();
 		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
-		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_4001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getType_2002OutgoingLinks(
+	public static List<TypedefinitionLinkDescriptor> getType_102002OutgoingLinks(
 			View view) {
 		Type modelElement = (Type) view.getElement();
 		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
-		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_4001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getEnumarator_2003OutgoingLinks(
+	public static List<TypedefinitionLinkDescriptor> getEnumarator_102003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -537,7 +537,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getAttribute_3001OutgoingLinks(
+	public static List<TypedefinitionLinkDescriptor> getAttribute_103001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -545,7 +545,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getOperation_3002OutgoingLinks(
+	public static List<TypedefinitionLinkDescriptor> getOperation_103002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -553,7 +553,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getAttribute_3003OutgoingLinks(
+	public static List<TypedefinitionLinkDescriptor> getAttribute_103003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -561,7 +561,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getReturnValue_3004OutgoingLinks(
+	public static List<TypedefinitionLinkDescriptor> getReturnValue_103004OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -569,7 +569,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getEnumAttribute_3005OutgoingLinks(
+	public static List<TypedefinitionLinkDescriptor> getEnumAttribute_103005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -577,7 +577,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypedefinitionLinkDescriptor> getTypeExtension_4001OutgoingLinks(
+	public static List<TypedefinitionLinkDescriptor> getTypeExtension_104001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -585,7 +585,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<TypedefinitionLinkDescriptor> getContainedTypeModelFacetLinks_TypeExtension_4001(
+	private static Collection<TypedefinitionLinkDescriptor> getContainedTypeModelFacetLinks_TypeExtension_104001(
 			Type container) {
 		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
 		TypeExtension link = container.getExtension();
@@ -596,7 +596,7 @@ public class TypedefinitionDiagramUpdater {
 		TypeElement dst = link.getTarget();
 		TypeElement src = link.getSource();
 		result.add(new TypedefinitionLinkDescriptor(src, dst, link,
-				TypedefinitionElementTypes.TypeExtension_4001,
+				TypedefinitionElementTypes.TypeExtension_104001,
 				TypeExtensionEditPart.VISUAL_ID));
 		return result;
 	}
@@ -604,7 +604,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<TypedefinitionLinkDescriptor> getIncomingTypeModelFacetLinks_TypeExtension_4001(
+	private static Collection<TypedefinitionLinkDescriptor> getIncomingTypeModelFacetLinks_TypeExtension_104001(
 			TypeElement target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
@@ -623,7 +623,7 @@ public class TypedefinitionDiagramUpdater {
 			}
 			TypeElement src = link.getSource();
 			result.add(new TypedefinitionLinkDescriptor(src, target, link,
-					TypedefinitionElementTypes.TypeExtension_4001,
+					TypedefinitionElementTypes.TypeExtension_104001,
 					TypeExtensionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -632,7 +632,7 @@ public class TypedefinitionDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<TypedefinitionLinkDescriptor> getOutgoingTypeModelFacetLinks_TypeExtension_4001(
+	private static Collection<TypedefinitionLinkDescriptor> getOutgoingTypeModelFacetLinks_TypeExtension_104001(
 			TypeElement source) {
 		Type container = null;
 		// Find container element for the link.
@@ -659,7 +659,7 @@ public class TypedefinitionDiagramUpdater {
 			return result;
 		}
 		result.add(new TypedefinitionLinkDescriptor(src, dst, link,
-				TypedefinitionElementTypes.TypeExtension_4001,
+				TypedefinitionElementTypes.TypeExtension_104001,
 				TypeExtensionEditPart.VISUAL_ID));
 		return result;
 	}

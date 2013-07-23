@@ -45,22 +45,22 @@ public class ArtifactModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof ArtifactsEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(ArtifactElementTypes.Artifact_2001);
+			types.add(ArtifactElementTypes.Artifact_702001);
 			return types;
 		}
 		if (editPart instanceof ArtifactArtifactConfigVariablesCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(ArtifactElementTypes.Variable_3001);
+			types.add(ArtifactElementTypes.Variable_703001);
 			return types;
 		}
 		if (editPart instanceof ArtifactArtifactModelQueryCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(ArtifactElementTypes.Variable_3002);
+			types.add(ArtifactElementTypes.Variable_703002);
 			return types;
 		}
 		if (editPart instanceof ArtifactArtifactSpecifiersCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(ArtifactElementTypes.Specifier_3003);
+			types.add(ArtifactElementTypes.Specifier_703003);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

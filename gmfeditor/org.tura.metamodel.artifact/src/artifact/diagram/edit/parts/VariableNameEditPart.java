@@ -61,7 +61,7 @@ public class VariableNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 705001;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class VariableNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = ArtifactParserProvider
 					.getParser(
-							ArtifactElementTypes.Variable_3001,
+							ArtifactElementTypes.Variable_703001,
 							getParserElement(),
 							ArtifactVisualIDRegistry
 									.getType(artifact.diagram.edit.parts.VariableNameEditPart.VISUAL_ID));

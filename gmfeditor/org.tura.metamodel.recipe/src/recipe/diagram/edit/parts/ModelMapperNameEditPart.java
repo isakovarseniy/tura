@@ -61,7 +61,7 @@ public class ModelMapperNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 305001;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class ModelMapperNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = RecipeParserProvider
 					.getParser(
-							RecipeElementTypes.ModelMapper_3003,
+							RecipeElementTypes.ModelMapper_303003,
 							getParserElement(),
 							RecipeVisualIDRegistry
 									.getType(recipe.diagram.edit.parts.ModelMapperNameEditPart.VISUAL_ID));

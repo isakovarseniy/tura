@@ -36,7 +36,7 @@ public class MapperDiagramUpdater {
 	public static List<MapperNodeDescriptor> getSemanticChildren(View view) {
 		switch (MapperVisualIDRegistry.getVisualID(view)) {
 		case MappersEditPart.VISUAL_ID:
-			return getMappers_1000SemanticChildren(view);
+			return getMappers_401000SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -44,7 +44,7 @@ public class MapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MapperNodeDescriptor> getMappers_1000SemanticChildren(
+	public static List<MapperNodeDescriptor> getMappers_401000SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -70,11 +70,11 @@ public class MapperDiagramUpdater {
 	public static List<MapperLinkDescriptor> getContainedLinks(View view) {
 		switch (MapperVisualIDRegistry.getVisualID(view)) {
 		case MappersEditPart.VISUAL_ID:
-			return getMappers_1000ContainedLinks(view);
+			return getMappers_401000ContainedLinks(view);
 		case JavaMapperEditPart.VISUAL_ID:
-			return getJavaMapper_2002ContainedLinks(view);
+			return getJavaMapper_402002ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001ContainedLinks(view);
+			return getTypeExtension_404001ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -85,9 +85,9 @@ public class MapperDiagramUpdater {
 	public static List<MapperLinkDescriptor> getIncomingLinks(View view) {
 		switch (MapperVisualIDRegistry.getVisualID(view)) {
 		case JavaMapperEditPart.VISUAL_ID:
-			return getJavaMapper_2002IncomingLinks(view);
+			return getJavaMapper_402002IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001IncomingLinks(view);
+			return getTypeExtension_404001IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -98,9 +98,9 @@ public class MapperDiagramUpdater {
 	public static List<MapperLinkDescriptor> getOutgoingLinks(View view) {
 		switch (MapperVisualIDRegistry.getVisualID(view)) {
 		case JavaMapperEditPart.VISUAL_ID:
-			return getJavaMapper_2002OutgoingLinks(view);
+			return getJavaMapper_402002OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001OutgoingLinks(view);
+			return getTypeExtension_404001OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -108,7 +108,7 @@ public class MapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MapperLinkDescriptor> getMappers_1000ContainedLinks(
+	public static List<MapperLinkDescriptor> getMappers_401000ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -116,7 +116,7 @@ public class MapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MapperLinkDescriptor> getJavaMapper_2002ContainedLinks(
+	public static List<MapperLinkDescriptor> getJavaMapper_402002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -124,7 +124,7 @@ public class MapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MapperLinkDescriptor> getTypeExtension_4001ContainedLinks(
+	public static List<MapperLinkDescriptor> getTypeExtension_404001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -132,7 +132,7 @@ public class MapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MapperLinkDescriptor> getJavaMapper_2002IncomingLinks(
+	public static List<MapperLinkDescriptor> getJavaMapper_402002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -140,7 +140,7 @@ public class MapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MapperLinkDescriptor> getTypeExtension_4001IncomingLinks(
+	public static List<MapperLinkDescriptor> getTypeExtension_404001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -148,7 +148,7 @@ public class MapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MapperLinkDescriptor> getJavaMapper_2002OutgoingLinks(
+	public static List<MapperLinkDescriptor> getJavaMapper_402002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -156,7 +156,7 @@ public class MapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MapperLinkDescriptor> getTypeExtension_4001OutgoingLinks(
+	public static List<MapperLinkDescriptor> getTypeExtension_404001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

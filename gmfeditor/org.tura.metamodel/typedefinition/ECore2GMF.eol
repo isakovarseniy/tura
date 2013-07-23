@@ -47,3 +47,4 @@ preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
 
 
+

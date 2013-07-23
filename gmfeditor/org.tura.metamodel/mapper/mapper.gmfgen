@@ -8,7 +8,7 @@
     templateDirectory="/org.tura.metamodel/templates/"
     copyrightText="">
   <diagram
-      visualID="1000"
+      visualID="401000"
       editPartClassName="MappersEditPart"
       itemSemanticEditPolicyClassName="MappersItemSemanticEditPolicy"
       canonicalEditPolicyClassName="MappersCanonicalEditPolicy"
@@ -30,7 +30,7 @@
     <domainDiagramElement
         href="mapper.genmodel#//mapper/Mappers"/>
     <topLevelNodes
-        visualID="2002"
+        visualID="402002"
         editPartClassName="JavaMapperEditPart"
         itemSemanticEditPolicyClassName="JavaMapperItemSemanticEditPolicy"
         canonicalEditPolicyClassName="JavaMapperCanonicalEditPolicy"
@@ -54,7 +54,7 @@
             href="mapper.genmodel#//mapper/Mappers/mappers"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="405002"
           editPartClassName="JavaMapperPackageNameEditPart"
           itemSemanticEditPolicyClassName="JavaMapperPackageNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -73,7 +73,7 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="4001"
+        visualID="404001"
         editPartClassName="TypeExtensionEditPart"
         itemSemanticEditPolicyClassName="TypeExtensionItemSemanticEditPolicy"
         createCommandClassName="TypeExtensionCreateCommand"

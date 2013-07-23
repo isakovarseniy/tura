@@ -33,7 +33,10 @@ var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'Applicatio
 innerClass.classBody='public class ApplicationMapperFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureApplicationMapperLabelFigure; public ApplicationMapperFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureApplicationMapperLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureApplicationMapperLabelFigure.setText("ApplicationMapper"); this.add(fFigureApplicationMapperLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureApplicationMapperLabelFigure() {return fFigureApplicationMapperLabelFigure;}}';
 
 
-
+ -- distinct visual ID
+for (c in GmfGen!GenCommonBase.allInstances) {
+  c.setVisualID (c.getVisualID()+800000);
+}
 
 
 

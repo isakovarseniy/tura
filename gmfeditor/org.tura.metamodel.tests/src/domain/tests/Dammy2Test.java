@@ -2,10 +2,10 @@
  */
 package domain.tests;
 
-import businessobjects.tests.BusinessObjectsTest;
-
 import domain.Dammy2;
 import domain.DomainFactory;
+
+import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
@@ -15,8 +15,16 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Dammy2Test extends BusinessObjectsTest
+public class Dammy2Test extends TestCase
 {
+
+  /**
+   * The fixture for this Dammy2 test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected Dammy2 fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -40,15 +48,25 @@ public class Dammy2Test extends BusinessObjectsTest
   }
 
   /**
+   * Sets the fixture for this Dammy2 test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(Dammy2 fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this Dammy2 test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected Dammy2 getFixture()
   {
-    return (Dammy2)fixture;
+    return fixture;
   }
 
   /**

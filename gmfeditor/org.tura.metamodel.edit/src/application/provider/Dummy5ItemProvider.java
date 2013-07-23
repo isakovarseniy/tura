@@ -3,6 +3,8 @@
 package application.provider;
 
 
+import application.ApplicationPackage;
+import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -11,6 +13,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -18,6 +21,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import typedefinition.provider.TypeDefinitionItemProvider;
 
 /**
@@ -27,7 +31,7 @@ import typedefinition.provider.TypeDefinitionItemProvider;
  * @generated
  */
 public class Dummy5ItemProvider
-  extends TypeDefinitionItemProvider
+  extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -59,8 +63,32 @@ public class Dummy5ItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addD5PropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the D5 feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addD5PropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Dummy5_d5_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Dummy5_d5_feature", "_UI_Dummy5_type"),
+         ApplicationPackage.Literals.DUMMY5__D5,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**

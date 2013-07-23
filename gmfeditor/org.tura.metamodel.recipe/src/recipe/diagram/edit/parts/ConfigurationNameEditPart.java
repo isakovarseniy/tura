@@ -61,7 +61,7 @@ public class ConfigurationNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5011;
+	public static final int VISUAL_ID = 305011;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class ConfigurationNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = RecipeParserProvider
 					.getParser(
-							RecipeElementTypes.Configuration_2005,
+							RecipeElementTypes.Configuration_302005,
 							getParserElement(),
 							RecipeVisualIDRegistry
 									.getType(recipe.diagram.edit.parts.ConfigurationNameEditPart.VISUAL_ID));

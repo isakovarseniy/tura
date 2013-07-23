@@ -65,10 +65,10 @@ public class TypesrepositoryPaletteFactory {
 				Messages.BusinessPackage1CreationTool_title,
 				Messages.BusinessPackage1CreationTool_desc,
 				Collections
-						.singletonList(TypesrepositoryElementTypes.BusinessPackage_3002));
+						.singletonList(TypesrepositoryElementTypes.BusinessPackage_203002));
 		entry.setId("createBusinessPackage1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypesrepositoryElementTypes
-				.getImageDescriptor(TypesrepositoryElementTypes.BusinessPackage_3002));
+				.getImageDescriptor(TypesrepositoryElementTypes.BusinessPackage_203002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -81,10 +81,10 @@ public class TypesrepositoryPaletteFactory {
 				Messages.Package2CreationTool_title,
 				Messages.Package2CreationTool_desc,
 				Collections
-						.singletonList(TypesrepositoryElementTypes.Package_3001));
+						.singletonList(TypesrepositoryElementTypes.Package_203001));
 		entry.setId("createPackage2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypesrepositoryElementTypes
-				.getImageDescriptor(TypesrepositoryElementTypes.Package_3001));
+				.getImageDescriptor(TypesrepositoryElementTypes.Package_203001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -97,10 +97,10 @@ public class TypesrepositoryPaletteFactory {
 				Messages.Primitive3CreationTool_title,
 				Messages.Primitive3CreationTool_desc,
 				Collections
-						.singletonList(TypesrepositoryElementTypes.Primitive_3003));
+						.singletonList(TypesrepositoryElementTypes.Primitive_203003));
 		entry.setId("createPrimitive3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypesrepositoryElementTypes
-				.getImageDescriptor(TypesrepositoryElementTypes.Primitive_3003));
+				.getImageDescriptor(TypesrepositoryElementTypes.Primitive_203003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -113,10 +113,10 @@ public class TypesrepositoryPaletteFactory {
 				Messages.Types4CreationTool_title,
 				Messages.Types4CreationTool_desc,
 				Collections
-						.singletonList(TypesrepositoryElementTypes.Types_2001));
+						.singletonList(TypesrepositoryElementTypes.Types_202001));
 		entry.setId("createTypes4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypesrepositoryElementTypes
-				.getImageDescriptor(TypesrepositoryElementTypes.Types_2001));
+				.getImageDescriptor(TypesrepositoryElementTypes.Types_202001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -129,10 +129,10 @@ public class TypesrepositoryPaletteFactory {
 				Messages.TypeExtension1CreationTool_title,
 				Messages.TypeExtension1CreationTool_desc,
 				Collections
-						.singletonList(TypesrepositoryElementTypes.TypeExtension_4001));
+						.singletonList(TypesrepositoryElementTypes.TypeExtension_204001));
 		entry.setId("createTypeExtension1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(TypesrepositoryElementTypes
-				.getImageDescriptor(TypesrepositoryElementTypes.TypeExtension_4001));
+				.getImageDescriptor(TypesrepositoryElementTypes.TypeExtension_204001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

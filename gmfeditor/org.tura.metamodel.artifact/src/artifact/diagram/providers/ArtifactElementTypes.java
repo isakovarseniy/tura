@@ -56,23 +56,27 @@ public class ArtifactElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Artifacts_1000 = getElementType("org.tura.metamodel.artifact.Artifacts_1000"); //$NON-NLS-1$
+	public static final IElementType Artifacts_701000 = getElementType("org.tura.metamodel.artifact.Artifacts_701000"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Artifact_2001 = getElementType("org.tura.metamodel.artifact.Artifact_2001"); //$NON-NLS-1$
+	public static final IElementType Artifact_702001 = getElementType("org.tura.metamodel.artifact.Artifact_702001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Variable_3001 = getElementType("org.tura.metamodel.artifact.Variable_3001"); //$NON-NLS-1$
+	public static final IElementType Variable_703001 = getElementType("org.tura.metamodel.artifact.Variable_703001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Variable_3002 = getElementType("org.tura.metamodel.artifact.Variable_3002"); //$NON-NLS-1$
+	public static final IElementType Variable_703002 = getElementType("org.tura.metamodel.artifact.Variable_703002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Specifier_3003 = getElementType("org.tura.metamodel.artifact.Specifier_3003"); //$NON-NLS-1$
+	public static final IElementType Specifier_703003 = getElementType("org.tura.metamodel.artifact.Specifier_703003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -185,16 +189,19 @@ public class ArtifactElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Artifacts_1000,
+			elements.put(Artifacts_701000,
 					ArtifactPackage.eINSTANCE.getArtifacts());
 
-			elements.put(Artifact_2001, ArtifactPackage.eINSTANCE.getArtifact());
+			elements.put(Artifact_702001,
+					ArtifactPackage.eINSTANCE.getArtifact());
 
-			elements.put(Variable_3001, ArtifactPackage.eINSTANCE.getVariable());
+			elements.put(Variable_703001,
+					ArtifactPackage.eINSTANCE.getVariable());
 
-			elements.put(Variable_3002, ArtifactPackage.eINSTANCE.getVariable());
+			elements.put(Variable_703002,
+					ArtifactPackage.eINSTANCE.getVariable());
 
-			elements.put(Specifier_3003,
+			elements.put(Specifier_703003,
 					ArtifactPackage.eINSTANCE.getSpecifier());
 		}
 		return (ENamedElement) elements.get(type);
@@ -213,11 +220,11 @@ public class ArtifactElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(Artifacts_1000);
-			KNOWN_ELEMENT_TYPES.add(Artifact_2001);
-			KNOWN_ELEMENT_TYPES.add(Variable_3001);
-			KNOWN_ELEMENT_TYPES.add(Variable_3002);
-			KNOWN_ELEMENT_TYPES.add(Specifier_3003);
+			KNOWN_ELEMENT_TYPES.add(Artifacts_701000);
+			KNOWN_ELEMENT_TYPES.add(Artifact_702001);
+			KNOWN_ELEMENT_TYPES.add(Variable_703001);
+			KNOWN_ELEMENT_TYPES.add(Variable_703002);
+			KNOWN_ELEMENT_TYPES.add(Specifier_703003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -228,15 +235,15 @@ public class ArtifactElementTypes {
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case ArtifactsEditPart.VISUAL_ID:
-			return Artifacts_1000;
+			return Artifacts_701000;
 		case ArtifactEditPart.VISUAL_ID:
-			return Artifact_2001;
+			return Artifact_702001;
 		case VariableEditPart.VISUAL_ID:
-			return Variable_3001;
+			return Variable_703001;
 		case Variable2EditPart.VISUAL_ID:
-			return Variable_3002;
+			return Variable_703002;
 		case SpecifierEditPart.VISUAL_ID:
-			return Specifier_3003;
+			return Specifier_703003;
 		}
 		return null;
 	}

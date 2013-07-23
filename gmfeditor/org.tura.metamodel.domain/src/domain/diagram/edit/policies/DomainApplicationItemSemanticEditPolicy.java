@@ -23,7 +23,7 @@ public class DomainApplicationItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public DomainApplicationItemSemanticEditPolicy() {
-		super(DomainElementTypes.DomainApplication_3002);
+		super(DomainElementTypes.DomainApplication_503001);
 	}
 
 	/**

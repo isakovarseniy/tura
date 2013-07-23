@@ -34,7 +34,7 @@ public class TypesItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TypesItemSemanticEditPolicy() {
-		super(TypesrepositoryElementTypes.Types_2001);
+		super(TypesrepositoryElementTypes.Types_202001);
 	}
 
 	/**

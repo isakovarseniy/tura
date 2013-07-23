@@ -23,7 +23,7 @@ public class DomainArtifactsItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public DomainArtifactsItemSemanticEditPolicy() {
-		super(DomainElementTypes.DomainArtifacts_2007);
+		super(DomainElementTypes.DomainArtifacts_502001);
 	}
 
 	/**

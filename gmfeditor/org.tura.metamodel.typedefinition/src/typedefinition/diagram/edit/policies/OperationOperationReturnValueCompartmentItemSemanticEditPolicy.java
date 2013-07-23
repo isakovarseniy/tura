@@ -19,14 +19,15 @@ public class OperationOperationReturnValueCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	public OperationOperationReturnValueCompartmentItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Operation_3002);
+		super(TypedefinitionElementTypes.Operation_103002);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypedefinitionElementTypes.ReturnValue_3004 == req.getElementType()) {
+		if (TypedefinitionElementTypes.ReturnValue_103004 == req
+				.getElementType()) {
 			return getGEFWrapper(new ReturnValueCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

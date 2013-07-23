@@ -23,7 +23,7 @@ public class BusinessPackageItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public BusinessPackageItemSemanticEditPolicy() {
-		super(TypesrepositoryElementTypes.BusinessPackage_3002);
+		super(TypesrepositoryElementTypes.BusinessPackage_203002);
 	}
 
 	/**

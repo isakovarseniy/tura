@@ -23,7 +23,7 @@ public class OtherMethodItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public OtherMethodItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.OtherMethod_3014);
+		super(BusinessobjectsElementTypes.OtherMethod_603014);
 	}
 
 	/**

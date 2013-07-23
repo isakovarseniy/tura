@@ -61,7 +61,7 @@ public class ApplicationMapperNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5004;
+	public static final int VISUAL_ID = 805004;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class ApplicationMapperNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = ApplicationParserProvider
 					.getParser(
-							ApplicationElementTypes.ApplicationMapper_3002,
+							ApplicationElementTypes.ApplicationMapper_803002,
 							getParserElement(),
 							ApplicationVisualIDRegistry
 									.getType(application.diagram.edit.parts.ApplicationMapperNameEditPart.VISUAL_ID));

@@ -32,7 +32,7 @@ public class OperationItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public OperationItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Operation_3002);
+		super(TypedefinitionElementTypes.Operation_103002);
 	}
 
 	/**

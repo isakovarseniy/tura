@@ -3,6 +3,7 @@
 package domain.provider;
 
 
+import domain.DomainPackage;
 import businessobjects.provider.BusinessObjectsItemProvider;
 
 import java.util.Collection;
@@ -13,12 +14,14 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link domain.Dammy2} object.
@@ -27,7 +30,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class Dammy2ItemProvider
-  extends BusinessObjectsItemProvider
+  extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -59,8 +62,32 @@ public class Dammy2ItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addD2PropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the D2 feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addD2PropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Dammy2_d2_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Dammy2_d2_feature", "_UI_Dammy2_type"),
+         DomainPackage.Literals.DAMMY2__D2,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**

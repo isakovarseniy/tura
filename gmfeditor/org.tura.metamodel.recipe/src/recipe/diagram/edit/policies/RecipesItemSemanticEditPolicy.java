@@ -24,17 +24,17 @@ public class RecipesItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public RecipesItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Recipes_1000);
+		super(RecipeElementTypes.Recipes_301000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RecipeElementTypes.Recipe_2004 == req.getElementType()) {
+		if (RecipeElementTypes.Recipe_302004 == req.getElementType()) {
 			return getGEFWrapper(new RecipeCreateCommand(req));
 		}
-		if (RecipeElementTypes.Configuration_2005 == req.getElementType()) {
+		if (RecipeElementTypes.Configuration_302005 == req.getElementType()) {
 			return getGEFWrapper(new ConfigurationCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

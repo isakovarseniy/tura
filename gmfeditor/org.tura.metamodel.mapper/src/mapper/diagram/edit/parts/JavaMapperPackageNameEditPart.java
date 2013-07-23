@@ -61,7 +61,7 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5002;
+	public static final int VISUAL_ID = 405002;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = MapperParserProvider
 					.getParser(
-							MapperElementTypes.JavaMapper_2002,
+							MapperElementTypes.JavaMapper_402002,
 							getParserElement(),
 							MapperVisualIDRegistry
 									.getType(mapper.diagram.edit.parts.JavaMapperPackageNameEditPart.VISUAL_ID));

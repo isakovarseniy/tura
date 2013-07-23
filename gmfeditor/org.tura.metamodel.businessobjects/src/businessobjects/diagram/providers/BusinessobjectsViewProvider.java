@@ -248,26 +248,26 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		}
 		switch (visualID) {
 		case BusinessObjectEditPart.VISUAL_ID:
-			return createBusinessObject_2003(domainElement, containerView,
+			return createBusinessObject_602003(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case CreateMethodEditPart.VISUAL_ID:
-			return createCreateMethod_3009(domainElement, containerView, index,
-					persisted, preferencesHint);
+			return createCreateMethod_603009(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case InsertMethodEditPart.VISUAL_ID:
-			return createInsertMethod_3010(domainElement, containerView, index,
-					persisted, preferencesHint);
+			return createInsertMethod_603010(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case UpdateMethodEditPart.VISUAL_ID:
-			return createUpdateMethod_3011(domainElement, containerView, index,
-					persisted, preferencesHint);
+			return createUpdateMethod_603011(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case RemoveMethodEditPart.VISUAL_ID:
-			return createRemoveMethod_3012(domainElement, containerView, index,
-					persisted, preferencesHint);
+			return createRemoveMethod_603012(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case SearchMethodEditPart.VISUAL_ID:
-			return createSearchMethod_3013(domainElement, containerView, index,
-					persisted, preferencesHint);
+			return createSearchMethod_603013(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case OtherMethodEditPart.VISUAL_ID:
-			return createOtherMethod_3014(domainElement, containerView, index,
-					persisted, preferencesHint);
+			return createOtherMethod_603014(domainElement, containerView,
+					index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -283,7 +283,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(elementTypeHint)) {
 		case TypeExtensionEditPart.VISUAL_ID:
-			return createTypeExtension_4001(
+			return createTypeExtension_604001(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		}
@@ -294,7 +294,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createBusinessObject_2003(EObject domainElement,
+	public Node createBusinessObject_602003(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -334,7 +334,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5010 = createLabel(node,
+		Node label605010 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
 						.getType(BusinessObjectNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -373,7 +373,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createCreateMethod_3009(EObject domainElement,
+	public Node createCreateMethod_603009(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -410,7 +410,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5012 = createLabel(node,
+		Node label605012 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
 						.getType(CreateMethodMethodEditPart.VISUAL_ID));
 		return node;
@@ -419,7 +419,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createInsertMethod_3010(EObject domainElement,
+	public Node createInsertMethod_603010(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -456,7 +456,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5013 = createLabel(node,
+		Node label605013 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
 						.getType(InsertMethodMethodEditPart.VISUAL_ID));
 		return node;
@@ -465,7 +465,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createUpdateMethod_3011(EObject domainElement,
+	public Node createUpdateMethod_603011(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -502,7 +502,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5014 = createLabel(node,
+		Node label605014 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
 						.getType(UpdateMethodMethodEditPart.VISUAL_ID));
 		return node;
@@ -511,7 +511,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createRemoveMethod_3012(EObject domainElement,
+	public Node createRemoveMethod_603012(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -548,7 +548,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5015 = createLabel(node,
+		Node label605015 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
 						.getType(RemoveMethodMethodEditPart.VISUAL_ID));
 		return node;
@@ -557,7 +557,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createSearchMethod_3013(EObject domainElement,
+	public Node createSearchMethod_603013(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -594,7 +594,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5016 = createLabel(node,
+		Node label605016 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
 						.getType(SearchMethodMethodEditPart.VISUAL_ID));
 		return node;
@@ -603,7 +603,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createOtherMethod_3014(EObject domainElement,
+	public Node createOtherMethod_603014(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -640,7 +640,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5017 = createLabel(node,
+		Node label605017 = createLabel(node,
 				BusinessobjectsVisualIDRegistry
 						.getType(OtherMethodMethodEditPart.VISUAL_ID));
 		return node;
@@ -649,7 +649,7 @@ public class BusinessobjectsViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createTypeExtension_4001(EObject domainElement,
+	public Edge createTypeExtension_604001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();

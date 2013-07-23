@@ -23,7 +23,7 @@ public class ApplicationMapperItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ApplicationMapperItemSemanticEditPolicy() {
-		super(ApplicationElementTypes.ApplicationMapper_3002);
+		super(ApplicationElementTypes.ApplicationMapper_803002);
 	}
 
 	/**

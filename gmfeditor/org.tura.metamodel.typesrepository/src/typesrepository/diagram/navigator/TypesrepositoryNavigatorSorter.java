@@ -15,12 +15,12 @@ public class TypesrepositoryNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 7005;
+	private static final int GROUP_CATEGORY = 207005;
 
 	/**
 	 * @generated
 	 */
-	private static final int SHORTCUTS_CATEGORY = 7004;
+	private static final int SHORTCUTS_CATEGORY = 207004;
 
 	/**
 	 * @generated

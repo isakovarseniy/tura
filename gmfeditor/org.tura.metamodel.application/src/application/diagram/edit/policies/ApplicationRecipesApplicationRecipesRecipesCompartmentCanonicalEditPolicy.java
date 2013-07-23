@@ -63,7 +63,7 @@ public class ApplicationRecipesApplicationRecipesRecipesCompartmentCanonicalEdit
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<ApplicationNodeDescriptor> childDescriptors = ApplicationDiagramUpdater
-				.getApplicationRecipesApplicationRecipesRecipesCompartment_7001SemanticChildren(viewObject);
+				.getApplicationRecipesApplicationRecipesRecipesCompartment_807001SemanticChildren(viewObject);
 		for (ApplicationNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -96,7 +96,7 @@ public class ApplicationRecipesApplicationRecipesRecipesCompartmentCanonicalEdit
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<ApplicationNodeDescriptor> childDescriptors = ApplicationDiagramUpdater
-				.getApplicationRecipesApplicationRecipesRecipesCompartment_7001SemanticChildren((View) getHost()
+				.getApplicationRecipesApplicationRecipesRecipesCompartment_807001SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

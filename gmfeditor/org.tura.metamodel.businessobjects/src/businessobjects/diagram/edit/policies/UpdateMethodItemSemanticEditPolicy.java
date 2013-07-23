@@ -23,7 +23,7 @@ public class UpdateMethodItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public UpdateMethodItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.UpdateMethod_3011);
+		super(BusinessobjectsElementTypes.UpdateMethod_603011);
 	}
 
 	/**

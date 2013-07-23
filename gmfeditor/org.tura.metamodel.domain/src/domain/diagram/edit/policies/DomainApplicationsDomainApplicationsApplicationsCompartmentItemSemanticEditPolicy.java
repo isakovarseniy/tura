@@ -19,14 +19,14 @@ public class DomainApplicationsDomainApplicationsApplicationsCompartmentItemSema
 	 * @generated
 	 */
 	public DomainApplicationsDomainApplicationsApplicationsCompartmentItemSemanticEditPolicy() {
-		super(DomainElementTypes.DomainApplications_2009);
+		super(DomainElementTypes.DomainApplications_502003);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.DomainApplication_3002 == req.getElementType()) {
+		if (DomainElementTypes.DomainApplication_503001 == req.getElementType()) {
 			return getGEFWrapper(new DomainApplicationCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

@@ -61,39 +61,47 @@ public class BusinessobjectsElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType BusinessObjects_1000 = getElementType("org.tura.metamodel.businessobjects.BusinessObjects_1000"); //$NON-NLS-1$
+	public static final IElementType BusinessObjects_601000 = getElementType("org.tura.metamodel.businessobjects.BusinessObjects_601000"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType BusinessObject_2003 = getElementType("org.tura.metamodel.businessobjects.BusinessObject_2003"); //$NON-NLS-1$
+	public static final IElementType BusinessObject_602003 = getElementType("org.tura.metamodel.businessobjects.BusinessObject_602003"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType CreateMethod_3009 = getElementType("org.tura.metamodel.businessobjects.CreateMethod_3009"); //$NON-NLS-1$
+	public static final IElementType CreateMethod_603009 = getElementType("org.tura.metamodel.businessobjects.CreateMethod_603009"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType InsertMethod_3010 = getElementType("org.tura.metamodel.businessobjects.InsertMethod_3010"); //$NON-NLS-1$
+	public static final IElementType InsertMethod_603010 = getElementType("org.tura.metamodel.businessobjects.InsertMethod_603010"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType UpdateMethod_3011 = getElementType("org.tura.metamodel.businessobjects.UpdateMethod_3011"); //$NON-NLS-1$
+	public static final IElementType UpdateMethod_603011 = getElementType("org.tura.metamodel.businessobjects.UpdateMethod_603011"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType RemoveMethod_3012 = getElementType("org.tura.metamodel.businessobjects.RemoveMethod_3012"); //$NON-NLS-1$
+	public static final IElementType RemoveMethod_603012 = getElementType("org.tura.metamodel.businessobjects.RemoveMethod_603012"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType SearchMethod_3013 = getElementType("org.tura.metamodel.businessobjects.SearchMethod_3013"); //$NON-NLS-1$
+	public static final IElementType SearchMethod_603013 = getElementType("org.tura.metamodel.businessobjects.SearchMethod_603013"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType OtherMethod_3014 = getElementType("org.tura.metamodel.businessobjects.OtherMethod_3014"); //$NON-NLS-1$
+	public static final IElementType OtherMethod_603014 = getElementType("org.tura.metamodel.businessobjects.OtherMethod_603014"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeExtension_4001 = getElementType("org.tura.metamodel.businessobjects.TypeExtension_4001"); //$NON-NLS-1$
+	public static final IElementType TypeExtension_604001 = getElementType("org.tura.metamodel.businessobjects.TypeExtension_604001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -206,31 +214,31 @@ public class BusinessobjectsElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(BusinessObjects_1000,
+			elements.put(BusinessObjects_601000,
 					BusinessobjectsPackage.eINSTANCE.getBusinessObjects());
 
-			elements.put(BusinessObject_2003,
+			elements.put(BusinessObject_602003,
 					BusinessobjectsPackage.eINSTANCE.getBusinessObject());
 
-			elements.put(CreateMethod_3009,
+			elements.put(CreateMethod_603009,
 					BusinessobjectsPackage.eINSTANCE.getCreateMethod());
 
-			elements.put(InsertMethod_3010,
+			elements.put(InsertMethod_603010,
 					BusinessobjectsPackage.eINSTANCE.getInsertMethod());
 
-			elements.put(UpdateMethod_3011,
+			elements.put(UpdateMethod_603011,
 					BusinessobjectsPackage.eINSTANCE.getUpdateMethod());
 
-			elements.put(RemoveMethod_3012,
+			elements.put(RemoveMethod_603012,
 					BusinessobjectsPackage.eINSTANCE.getRemoveMethod());
 
-			elements.put(SearchMethod_3013,
+			elements.put(SearchMethod_603013,
 					BusinessobjectsPackage.eINSTANCE.getSearchMethod());
 
-			elements.put(OtherMethod_3014,
+			elements.put(OtherMethod_603014,
 					BusinessobjectsPackage.eINSTANCE.getOtherMethod());
 
-			elements.put(TypeExtension_4001,
+			elements.put(TypeExtension_604001,
 					TypedefinitionPackage.eINSTANCE.getTypeExtension());
 		}
 		return (ENamedElement) elements.get(type);
@@ -249,15 +257,15 @@ public class BusinessobjectsElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(BusinessObjects_1000);
-			KNOWN_ELEMENT_TYPES.add(BusinessObject_2003);
-			KNOWN_ELEMENT_TYPES.add(CreateMethod_3009);
-			KNOWN_ELEMENT_TYPES.add(InsertMethod_3010);
-			KNOWN_ELEMENT_TYPES.add(UpdateMethod_3011);
-			KNOWN_ELEMENT_TYPES.add(RemoveMethod_3012);
-			KNOWN_ELEMENT_TYPES.add(SearchMethod_3013);
-			KNOWN_ELEMENT_TYPES.add(OtherMethod_3014);
-			KNOWN_ELEMENT_TYPES.add(TypeExtension_4001);
+			KNOWN_ELEMENT_TYPES.add(BusinessObjects_601000);
+			KNOWN_ELEMENT_TYPES.add(BusinessObject_602003);
+			KNOWN_ELEMENT_TYPES.add(CreateMethod_603009);
+			KNOWN_ELEMENT_TYPES.add(InsertMethod_603010);
+			KNOWN_ELEMENT_TYPES.add(UpdateMethod_603011);
+			KNOWN_ELEMENT_TYPES.add(RemoveMethod_603012);
+			KNOWN_ELEMENT_TYPES.add(SearchMethod_603013);
+			KNOWN_ELEMENT_TYPES.add(OtherMethod_603014);
+			KNOWN_ELEMENT_TYPES.add(TypeExtension_604001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -268,23 +276,23 @@ public class BusinessobjectsElementTypes {
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case BusinessObjectsEditPart.VISUAL_ID:
-			return BusinessObjects_1000;
+			return BusinessObjects_601000;
 		case BusinessObjectEditPart.VISUAL_ID:
-			return BusinessObject_2003;
+			return BusinessObject_602003;
 		case CreateMethodEditPart.VISUAL_ID:
-			return CreateMethod_3009;
+			return CreateMethod_603009;
 		case InsertMethodEditPart.VISUAL_ID:
-			return InsertMethod_3010;
+			return InsertMethod_603010;
 		case UpdateMethodEditPart.VISUAL_ID:
-			return UpdateMethod_3011;
+			return UpdateMethod_603011;
 		case RemoveMethodEditPart.VISUAL_ID:
-			return RemoveMethod_3012;
+			return RemoveMethod_603012;
 		case SearchMethodEditPart.VISUAL_ID:
-			return SearchMethod_3013;
+			return SearchMethod_603013;
 		case OtherMethodEditPart.VISUAL_ID:
-			return OtherMethod_3014;
+			return OtherMethod_603014;
 		case TypeExtensionEditPart.VISUAL_ID:
-			return TypeExtension_4001;
+			return TypeExtension_604001;
 		}
 		return null;
 	}

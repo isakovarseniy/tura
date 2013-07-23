@@ -19,14 +19,14 @@ public class EnumaratorEnumaratorValuesCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public EnumaratorEnumaratorValuesCompartmentItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Enumarator_2003);
+		super(TypedefinitionElementTypes.Enumarator_102003);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypedefinitionElementTypes.EnumAttribute_3005 == req
+		if (TypedefinitionElementTypes.EnumAttribute_103005 == req
 				.getElementType()) {
 			return getGEFWrapper(new EnumAttributeCreateCommand(req));
 		}

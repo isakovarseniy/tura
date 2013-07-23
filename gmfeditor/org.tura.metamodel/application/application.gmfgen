@@ -8,7 +8,7 @@
     templateDirectory="/org.tura.metamodel/templates/"
     copyrightText="">
   <diagram
-      visualID="1000"
+      visualID="801000"
       editPartClassName="ApplicationEditPart"
       itemSemanticEditPolicyClassName="ApplicationItemSemanticEditPolicy"
       canonicalEditPolicyClassName="ApplicationCanonicalEditPolicy"
@@ -30,7 +30,7 @@
     <domainDiagramElement
         href="application.genmodel#//application/Application"/>
     <childNodes
-        visualID="3001"
+        visualID="803001"
         editPartClassName="ApplicationRecipeEditPart"
         itemSemanticEditPolicyClassName="ApplicationRecipeItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ApplicationRecipeCanonicalEditPolicy"
@@ -60,7 +60,7 @@
             href="application.genmodel#//application/ApplicationRecipes/recipes"/>
       </modelFacet>
       <labels
-          visualID="5003"
+          visualID="805003"
           editPartClassName="ApplicationRecipeNameEditPart"
           itemSemanticEditPolicyClassName="ApplicationRecipeNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -79,7 +79,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3002"
+        visualID="803002"
         editPartClassName="ApplicationMapperEditPart"
         itemSemanticEditPolicyClassName="ApplicationMapperItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ApplicationMapperCanonicalEditPolicy"
@@ -109,7 +109,7 @@
             href="application.genmodel#//application/ApplicationMappers/mappers"/>
       </modelFacet>
       <labels
-          visualID="5004"
+          visualID="805004"
           editPartClassName="ApplicationMapperNameEditPart"
           itemSemanticEditPolicyClassName="ApplicationMapperNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -128,7 +128,7 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="2001"
+        visualID="802001"
         editPartClassName="ApplicationRecipesEditPart"
         itemSemanticEditPolicyClassName="ApplicationRecipesItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ApplicationRecipesCanonicalEditPolicy"
@@ -155,7 +155,7 @@
             href="application.genmodel#//application/Application/applicationRecipes"/>
       </modelFacet>
       <labels
-          visualID="5001"
+          visualID="805001"
           editPartClassName="ApplicationRecipesNameEditPart"
           itemSemanticEditPolicyClassName="ApplicationRecipesNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -174,7 +174,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2002"
+        visualID="802002"
         editPartClassName="ApplicationMappersEditPart"
         itemSemanticEditPolicyClassName="ApplicationMappersItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ApplicationMappersCanonicalEditPolicy"
@@ -201,7 +201,7 @@
             href="application.genmodel#//application/Application/applicationMappers"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="805002"
           editPartClassName="ApplicationMappersNameEditPart"
           itemSemanticEditPolicyClassName="ApplicationMappersNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -220,7 +220,7 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="4001"
+        visualID="804001"
         editPartClassName="TypeExtensionEditPart"
         itemSemanticEditPolicyClassName="TypeExtensionItemSemanticEditPolicy"
         createCommandClassName="TypeExtensionCreateCommand"
@@ -249,7 +249,7 @@
       </modelFacet>
     </links>
     <links
-        visualID="4002"
+        visualID="804002"
         editPartClassName="RecipeRecipeConfigEditPart"
         itemSemanticEditPolicyClassName="RecipeRecipeConfigItemSemanticEditPolicy"
         createCommandClassName="RecipeRecipeConfigCreateCommand"
@@ -268,7 +268,7 @@
             href="application.genmodel#//recipe/Recipe/recipeConfig"/>
       </modelFacet>
       <labels
-          visualID="6001"
+          visualID="806001"
           editPartClassName="WrappingLabelEditPart"
           itemSemanticEditPolicyClassName="WrappingLabelItemSemanticEditPolicy"
           readOnly="true">
@@ -287,7 +287,7 @@
       </labels>
     </links>
     <links
-        visualID="4003"
+        visualID="804003"
         editPartClassName="ConfigurationConfigExtensionEditPart"
         itemSemanticEditPolicyClassName="ConfigurationConfigExtensionItemSemanticEditPolicy"
         createCommandClassName="ConfigurationConfigExtensionCreateCommand"
@@ -306,7 +306,7 @@
             href="application.genmodel#//recipe/Configuration/configExtension"/>
       </modelFacet>
       <labels
-          visualID="6002"
+          visualID="806002"
           editPartClassName="WrappingLabel2EditPart"
           itemSemanticEditPolicyClassName="WrappingLabel2ItemSemanticEditPolicy"
           readOnly="true">
@@ -325,7 +325,7 @@
       </labels>
     </links>
     <compartments
-        visualID="7001"
+        visualID="807001"
         editPartClassName="ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart"
         itemSemanticEditPolicyClassName="ApplicationRecipesApplicationRecipesRecipesCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ApplicationRecipesApplicationRecipesRecipesCompartmentCanonicalEditPolicy"
@@ -342,7 +342,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7002"
+        visualID="807002"
         editPartClassName="ApplicationMappersApplicationMappersMappersCompartmentEditPart"
         itemSemanticEditPolicyClassName="ApplicationMappersApplicationMappersMappersCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ApplicationMappersApplicationMappersMappersCompartmentCanonicalEditPolicy"

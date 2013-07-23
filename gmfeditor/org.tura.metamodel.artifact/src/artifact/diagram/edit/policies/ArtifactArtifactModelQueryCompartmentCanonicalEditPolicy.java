@@ -63,7 +63,7 @@ public class ArtifactArtifactModelQueryCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<ArtifactNodeDescriptor> childDescriptors = ArtifactDiagramUpdater
-				.getArtifactArtifactModelQueryCompartment_7002SemanticChildren(viewObject);
+				.getArtifactArtifactModelQueryCompartment_707002SemanticChildren(viewObject);
 		for (ArtifactNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -96,7 +96,7 @@ public class ArtifactArtifactModelQueryCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<ArtifactNodeDescriptor> childDescriptors = ArtifactDiagramUpdater
-				.getArtifactArtifactModelQueryCompartment_7002SemanticChildren((View) getHost()
+				.getArtifactArtifactModelQueryCompartment_707002SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

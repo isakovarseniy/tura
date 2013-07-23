@@ -41,7 +41,7 @@ public class ConfigurationItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ConfigurationItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Configuration_2005);
+		super(RecipeElementTypes.Configuration_302005);
 	}
 
 	/**
@@ -137,10 +137,11 @@ public class ConfigurationItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RecipeElementTypes.RecipeRecipeConfig_4001 == req.getElementType()) {
+		if (RecipeElementTypes.RecipeRecipeConfig_304001 == req
+				.getElementType()) {
 			return null;
 		}
-		if (RecipeElementTypes.ConfigurationConfigExtension_4002 == req
+		if (RecipeElementTypes.ConfigurationConfigExtension_304002 == req
 				.getElementType()) {
 			return getGEFWrapper(new ConfigurationConfigExtensionCreateCommand(
 					req, req.getSource(), req.getTarget()));
@@ -153,11 +154,12 @@ public class ConfigurationItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RecipeElementTypes.RecipeRecipeConfig_4001 == req.getElementType()) {
+		if (RecipeElementTypes.RecipeRecipeConfig_304001 == req
+				.getElementType()) {
 			return getGEFWrapper(new RecipeRecipeConfigCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (RecipeElementTypes.ConfigurationConfigExtension_4002 == req
+		if (RecipeElementTypes.ConfigurationConfigExtension_304002 == req
 				.getElementType()) {
 			return getGEFWrapper(new ConfigurationConfigExtensionCreateCommand(
 					req, req.getSource(), req.getTarget()));

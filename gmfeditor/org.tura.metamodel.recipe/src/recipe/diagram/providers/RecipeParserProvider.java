@@ -35,109 +35,109 @@ public class RecipeParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser recipeName_5009Parser;
+	private IParser recipeName_305009Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRecipeName_5009Parser() {
-		if (recipeName_5009Parser == null) {
+	private IParser getRecipeName_305009Parser() {
+		if (recipeName_305009Parser == null) {
 			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
 					.getRecipe_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			recipeName_5009Parser = parser;
+			recipeName_305009Parser = parser;
 		}
-		return recipeName_5009Parser;
+		return recipeName_305009Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser configurationName_5011Parser;
+	private IParser configurationName_305011Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getConfigurationName_5011Parser() {
-		if (configurationName_5011Parser == null) {
+	private IParser getConfigurationName_305011Parser() {
+		if (configurationName_305011Parser == null) {
 			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
 					.getConfiguration_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			configurationName_5011Parser = parser;
+			configurationName_305011Parser = parser;
 		}
-		return configurationName_5011Parser;
+		return configurationName_305011Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser componentName_5008Parser;
+	private IParser componentName_305008Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getComponentName_5008Parser() {
-		if (componentName_5008Parser == null) {
+	private IParser getComponentName_305008Parser() {
+		if (componentName_305008Parser == null) {
 			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
 					.getComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			componentName_5008Parser = parser;
+			componentName_305008Parser = parser;
 		}
-		return componentName_5008Parser;
+		return componentName_305008Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser componentName_5002Parser;
+	private IParser componentName_305002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getComponentName_5002Parser() {
-		if (componentName_5002Parser == null) {
+	private IParser getComponentName_305002Parser() {
+		if (componentName_305002Parser == null) {
 			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
 					.getComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			componentName_5002Parser = parser;
+			componentName_305002Parser = parser;
 		}
-		return componentName_5002Parser;
+		return componentName_305002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser modelMapperName_5001Parser;
+	private IParser modelMapperName_305001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getModelMapperName_5001Parser() {
-		if (modelMapperName_5001Parser == null) {
+	private IParser getModelMapperName_305001Parser() {
+		if (modelMapperName_305001Parser == null) {
 			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
 					.getModelMapper_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			modelMapperName_5001Parser = parser;
+			modelMapperName_305001Parser = parser;
 		}
-		return modelMapperName_5001Parser;
+		return modelMapperName_305001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser propertyName_5010Parser;
+	private IParser propertyName_305010Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPropertyName_5010Parser() {
-		if (propertyName_5010Parser == null) {
+	private IParser getPropertyName_305010Parser() {
+		if (propertyName_305010Parser == null) {
 			EAttribute[] features = new EAttribute[] { RecipePackage.eINSTANCE
 					.getProperty_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			propertyName_5010Parser = parser;
+			propertyName_305010Parser = parser;
 		}
-		return propertyName_5010Parser;
+		return propertyName_305010Parser;
 	}
 
 	/**
@@ -146,17 +146,17 @@ public class RecipeParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case RecipeNameEditPart.VISUAL_ID:
-			return getRecipeName_5009Parser();
+			return getRecipeName_305009Parser();
 		case ConfigurationNameEditPart.VISUAL_ID:
-			return getConfigurationName_5011Parser();
+			return getConfigurationName_305011Parser();
 		case ComponentNameEditPart.VISUAL_ID:
-			return getComponentName_5008Parser();
+			return getComponentName_305008Parser();
 		case ComponentName2EditPart.VISUAL_ID:
-			return getComponentName_5002Parser();
+			return getComponentName_305002Parser();
 		case ModelMapperNameEditPart.VISUAL_ID:
-			return getModelMapperName_5001Parser();
+			return getModelMapperName_305001Parser();
 		case PropertyNameEditPart.VISUAL_ID:
-			return getPropertyName_5010Parser();
+			return getPropertyName_305010Parser();
 		}
 		return null;
 	}

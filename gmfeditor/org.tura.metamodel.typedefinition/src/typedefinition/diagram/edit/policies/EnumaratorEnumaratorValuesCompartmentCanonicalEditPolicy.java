@@ -63,7 +63,7 @@ public class EnumaratorEnumaratorValuesCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<TypedefinitionNodeDescriptor> childDescriptors = TypedefinitionDiagramUpdater
-				.getEnumaratorEnumaratorValuesCompartment_7005SemanticChildren(viewObject);
+				.getEnumaratorEnumaratorValuesCompartment_107005SemanticChildren(viewObject);
 		for (TypedefinitionNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -96,7 +96,7 @@ public class EnumaratorEnumaratorValuesCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<TypedefinitionNodeDescriptor> childDescriptors = TypedefinitionDiagramUpdater
-				.getEnumaratorEnumaratorValuesCompartment_7005SemanticChildren((View) getHost()
+				.getEnumaratorEnumaratorValuesCompartment_107005SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

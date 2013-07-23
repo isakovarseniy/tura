@@ -261,9 +261,29 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getDammy1_D1()
+  {
+    return (EReference)dammy1EClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDammy2()
   {
     return dammy2EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDammy2_D2()
+  {
+    return (EReference)dammy2EClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -281,9 +301,29 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getDammy3_D3()
+  {
+    return (EReference)dammy3EClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDammy4()
   {
     return dammy4EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDammy4_D4()
+  {
+    return (EReference)dammy4EClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -442,12 +482,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(domainEClass, DOMAIN__DOMAIN_APPLICATIONS);
 
     dammy1EClass = createEClass(DAMMY1);
+    createEReference(dammy1EClass, DAMMY1__D1);
 
     dammy2EClass = createEClass(DAMMY2);
+    createEReference(dammy2EClass, DAMMY2__D2);
 
     dammy3EClass = createEClass(DAMMY3);
+    createEReference(dammy3EClass, DAMMY3__D3);
 
     dammy4EClass = createEClass(DAMMY4);
+    createEReference(dammy4EClass, DAMMY4__D4);
 
     domainArtifactsEClass = createEClass(DOMAIN_ARTIFACTS);
     createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__NAME);
@@ -504,10 +548,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    dammy1EClass.getESuperTypes().add(theTypedefinitionPackage.getTypeDefinition());
-    dammy2EClass.getESuperTypes().add(theBusinessobjectsPackage.getBusinessObjects());
-    dammy3EClass.getESuperTypes().add(theRecipePackage.getRecipes());
-    dammy4EClass.getESuperTypes().add(theMapperPackage.getMappers());
 
     // Initialize classes and features; add operations and parameters
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -516,12 +556,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getDomain_DomainApplications(), this.getDomainApplications(), null, "domainApplications", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dammy1EClass, Dammy1.class, "Dammy1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDammy1_D1(), theTypedefinitionPackage.getTypeDefinition(), null, "d1", null, 0, 1, Dammy1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dammy2EClass, Dammy2.class, "Dammy2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDammy2_D2(), theBusinessobjectsPackage.getBusinessObjects(), null, "d2", null, 0, 1, Dammy2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dammy3EClass, Dammy3.class, "Dammy3", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDammy3_D3(), theRecipePackage.getRecipes(), null, "d3", null, 0, 1, Dammy3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dammy4EClass, Dammy4.class, "Dammy4", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDammy4_D4(), theMapperPackage.getMappers(), null, "d4", null, 0, 1, Dammy4.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainArtifactsEClass, DomainArtifacts.class, "DomainArtifacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDomainArtifacts_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

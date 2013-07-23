@@ -28,7 +28,7 @@ public class BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7006;
+	public static final int VISUAL_ID = 607006;
 
 	/**
 	 * @generated

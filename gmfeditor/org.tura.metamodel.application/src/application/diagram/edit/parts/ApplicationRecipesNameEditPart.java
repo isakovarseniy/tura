@@ -61,7 +61,7 @@ public class ApplicationRecipesNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 805001;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class ApplicationRecipesNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = ApplicationParserProvider
 					.getParser(
-							ApplicationElementTypes.ApplicationRecipes_2001,
+							ApplicationElementTypes.ApplicationRecipes_802001,
 							getParserElement(),
 							ApplicationVisualIDRegistry
 									.getType(application.diagram.edit.parts.ApplicationRecipesNameEditPart.VISUAL_ID));

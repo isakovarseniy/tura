@@ -25,20 +25,21 @@ public class DomainItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public DomainItemSemanticEditPolicy() {
-		super(DomainElementTypes.Domain_1000);
+		super(DomainElementTypes.Domain_501000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.DomainArtifacts_2007 == req.getElementType()) {
+		if (DomainElementTypes.DomainArtifacts_502001 == req.getElementType()) {
 			return getGEFWrapper(new DomainArtifactsCreateCommand(req));
 		}
-		if (DomainElementTypes.DomainTypes_2008 == req.getElementType()) {
+		if (DomainElementTypes.DomainTypes_502002 == req.getElementType()) {
 			return getGEFWrapper(new DomainTypesCreateCommand(req));
 		}
-		if (DomainElementTypes.DomainApplications_2009 == req.getElementType()) {
+		if (DomainElementTypes.DomainApplications_502003 == req
+				.getElementType()) {
 			return getGEFWrapper(new DomainApplicationsCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

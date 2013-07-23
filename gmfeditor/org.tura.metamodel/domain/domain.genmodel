@@ -10,10 +10,18 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainApplications"/>
     </genClasses>
-    <genClasses ecoreClass="domain.ecore#//Dammy1"/>
-    <genClasses ecoreClass="domain.ecore#//Dammy2"/>
-    <genClasses ecoreClass="domain.ecore#//Dammy3"/>
-    <genClasses ecoreClass="domain.ecore#//Dammy4"/>
+    <genClasses ecoreClass="domain.ecore#//Dammy1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Dammy1/d1"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Dammy2">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Dammy2/d2"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Dammy3">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Dammy3/d3"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Dammy4">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Dammy4/d4"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainArtifacts">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifacts/artifact"/>
@@ -96,6 +104,7 @@
   <genPackages prefix="Recipe" disposableProviderFactory="true" ecorePackage="../recipe/recipe.ecore#/">
     <genClasses ecoreClass="../recipe/recipe.ecore#//Recipes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../recipe/recipe.ecore#//Recipes/recipe"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../recipe/recipe.ecore#//Recipes/configurations"/>
     </genClasses>
     <genClasses ecoreClass="../recipe/recipe.ecore#//Recipe">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../recipe/recipe.ecore#//Recipe/name"/>
@@ -198,6 +207,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../application/application.ecore#//Application/applicationRecipes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../application/application.ecore#//Application/applicationMappers"/>
     </genClasses>
+    <genClasses ecoreClass="../application/application.ecore#//Dummy5"/>
     <genClasses ecoreClass="../application/application.ecore#//ApplicationRecipes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../application/application.ecore#//ApplicationRecipes/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../application/application.ecore#//ApplicationRecipes/recipes"/>

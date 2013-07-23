@@ -61,10 +61,10 @@ public class MapperPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.JavaMapper1CreationTool_title,
 				Messages.JavaMapper1CreationTool_desc,
-				Collections.singletonList(MapperElementTypes.JavaMapper_2002));
+				Collections.singletonList(MapperElementTypes.JavaMapper_402002));
 		entry.setId("createJavaMapper1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(MapperElementTypes
-				.getImageDescriptor(MapperElementTypes.JavaMapper_2002));
+				.getImageDescriptor(MapperElementTypes.JavaMapper_402002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -77,10 +77,10 @@ public class MapperPaletteFactory {
 				Messages.TypeExtension1CreationTool_title,
 				Messages.TypeExtension1CreationTool_desc,
 				Collections
-						.singletonList(MapperElementTypes.TypeExtension_4001));
+						.singletonList(MapperElementTypes.TypeExtension_404001));
 		entry.setId("createTypeExtension1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(MapperElementTypes
-				.getImageDescriptor(MapperElementTypes.TypeExtension_4001));
+				.getImageDescriptor(MapperElementTypes.TypeExtension_404001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

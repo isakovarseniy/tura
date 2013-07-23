@@ -23,7 +23,7 @@ public class PropertyItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public PropertyItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Property_3005);
+		super(RecipeElementTypes.Property_303005);
 	}
 
 	/**

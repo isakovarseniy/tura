@@ -75,7 +75,7 @@ public class TypeExtensionReorientCommand extends EditElementCommand {
 		}
 		Type container = (Type) getLink().eContainer();
 		return BusinessobjectsBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistTypeExtension_4001(container, getLink(),
+				.canExistTypeExtension_604001(container, getLink(),
 						getNewSource(), target);
 	}
 
@@ -92,7 +92,7 @@ public class TypeExtensionReorientCommand extends EditElementCommand {
 		}
 		Type container = (Type) getLink().eContainer();
 		return BusinessobjectsBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistTypeExtension_4001(container, getLink(), source,
+				.canExistTypeExtension_604001(container, getLink(), source,
 						getNewTarget());
 	}
 

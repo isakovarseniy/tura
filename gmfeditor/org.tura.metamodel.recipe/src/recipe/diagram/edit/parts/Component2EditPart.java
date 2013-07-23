@@ -44,7 +44,7 @@ public class Component2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3002;
+	public static final int VISUAL_ID = 303002;
 
 	/**
 	 * @generated
@@ -309,7 +309,7 @@ public class Component2EditPart extends ShapeNodeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
-			if (type == RecipeElementTypes.ModelMapper_3003) {
+			if (type == RecipeElementTypes.ModelMapper_303003) {
 				return getChildBySemanticHint(RecipeVisualIDRegistry
 						.getType(ComponentComponentMappersCompartment2EditPart.VISUAL_ID));
 			}

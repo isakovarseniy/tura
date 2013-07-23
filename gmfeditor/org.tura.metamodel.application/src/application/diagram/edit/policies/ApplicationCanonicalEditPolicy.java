@@ -90,7 +90,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<ApplicationNodeDescriptor> childDescriptors = ApplicationDiagramUpdater
-				.getApplication_1000SemanticChildren(viewObject);
+				.getApplication_801000SemanticChildren(viewObject);
 		for (ApplicationNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -134,7 +134,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<ApplicationNodeDescriptor> childDescriptors = ApplicationDiagramUpdater
-				.getApplication_1000SemanticChildren((View) getHost()
+				.getApplication_801000SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours and not shortcuts
@@ -282,7 +282,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ApplicationEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ApplicationDiagramUpdater
-						.getApplication_1000ContainedLinks(view));
+						.getApplication_801000ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -290,7 +290,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ApplicationRecipesEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ApplicationDiagramUpdater
-						.getApplicationRecipes_2001ContainedLinks(view));
+						.getApplicationRecipes_802001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -298,7 +298,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ApplicationMappersEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ApplicationDiagramUpdater
-						.getApplicationMappers_2002ContainedLinks(view));
+						.getApplicationMappers_802002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -306,7 +306,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ApplicationRecipeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ApplicationDiagramUpdater
-						.getApplicationRecipe_3001ContainedLinks(view));
+						.getApplicationRecipe_803001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -314,7 +314,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ApplicationMapperEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ApplicationDiagramUpdater
-						.getApplicationMapper_3002ContainedLinks(view));
+						.getApplicationMapper_803002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -322,7 +322,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		case TypeExtensionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ApplicationDiagramUpdater
-						.getTypeExtension_4001ContainedLinks(view));
+						.getTypeExtension_804001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

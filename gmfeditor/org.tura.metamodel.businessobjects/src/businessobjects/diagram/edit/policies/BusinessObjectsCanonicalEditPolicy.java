@@ -80,7 +80,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<BusinessobjectsNodeDescriptor> childDescriptors = BusinessobjectsDiagramUpdater
-				.getBusinessObjects_1000SemanticChildren(viewObject);
+				.getBusinessObjects_601000SemanticChildren(viewObject);
 		for (BusinessobjectsNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -123,7 +123,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<BusinessobjectsNodeDescriptor> childDescriptors = BusinessobjectsDiagramUpdater
-				.getBusinessObjects_1000SemanticChildren((View) getHost()
+				.getBusinessObjects_601000SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours and not shortcuts
@@ -271,7 +271,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case BusinessObjectsEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getBusinessObjects_1000ContainedLinks(view));
+						.getBusinessObjects_601000ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -279,7 +279,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case BusinessObjectEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getBusinessObject_2003ContainedLinks(view));
+						.getBusinessObject_602003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -287,7 +287,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case CreateMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getCreateMethod_3009ContainedLinks(view));
+						.getCreateMethod_603009ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -295,7 +295,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case InsertMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getInsertMethod_3010ContainedLinks(view));
+						.getInsertMethod_603010ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -303,7 +303,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case UpdateMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getUpdateMethod_3011ContainedLinks(view));
+						.getUpdateMethod_603011ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -311,7 +311,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case RemoveMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getRemoveMethod_3012ContainedLinks(view));
+						.getRemoveMethod_603012ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -319,7 +319,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case SearchMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getSearchMethod_3013ContainedLinks(view));
+						.getSearchMethod_603013ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -327,7 +327,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case OtherMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getOtherMethod_3014ContainedLinks(view));
+						.getOtherMethod_603014ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -335,7 +335,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case TypeExtensionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(BusinessobjectsDiagramUpdater
-						.getTypeExtension_4001ContainedLinks(view));
+						.getTypeExtension_604001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

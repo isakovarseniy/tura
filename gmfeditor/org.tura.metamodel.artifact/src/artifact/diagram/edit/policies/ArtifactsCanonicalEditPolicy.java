@@ -63,7 +63,7 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<ArtifactNodeDescriptor> childDescriptors = ArtifactDiagramUpdater
-				.getArtifacts_1000SemanticChildren(viewObject);
+				.getArtifacts_701000SemanticChildren(viewObject);
 		for (ArtifactNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -106,7 +106,8 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<ArtifactNodeDescriptor> childDescriptors = ArtifactDiagramUpdater
-				.getArtifacts_1000SemanticChildren((View) getHost().getModel());
+				.getArtifacts_701000SemanticChildren((View) getHost()
+						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours and not shortcuts
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

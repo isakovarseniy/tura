@@ -7,6 +7,7 @@ import application.Application;
 import application.ApplicationFactory;
 import application.ApplicationPackage;
 
+import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
 

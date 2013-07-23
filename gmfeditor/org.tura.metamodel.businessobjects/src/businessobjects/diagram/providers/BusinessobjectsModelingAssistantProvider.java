@@ -48,37 +48,37 @@ public class BusinessobjectsModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof BusinessObjectsEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.BusinessObject_2003);
+			types.add(BusinessobjectsElementTypes.BusinessObject_602003);
 			return types;
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.CreateMethod_3009);
+			types.add(BusinessobjectsElementTypes.CreateMethod_603009);
 			return types;
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.InsertMethod_3010);
+			types.add(BusinessobjectsElementTypes.InsertMethod_603010);
 			return types;
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.UpdateMethod_3011);
+			types.add(BusinessobjectsElementTypes.UpdateMethod_603011);
 			return types;
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.RemoveMethod_3012);
+			types.add(BusinessobjectsElementTypes.RemoveMethod_603012);
 			return types;
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.SearchMethod_3013);
+			types.add(BusinessobjectsElementTypes.SearchMethod_603013);
 			return types;
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(BusinessobjectsElementTypes.OtherMethod_3014);
+			types.add(BusinessobjectsElementTypes.OtherMethod_603014);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

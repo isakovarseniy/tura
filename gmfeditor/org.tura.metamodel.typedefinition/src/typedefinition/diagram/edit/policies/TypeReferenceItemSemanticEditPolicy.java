@@ -32,7 +32,7 @@ public class TypeReferenceItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TypeReferenceItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.TypeReference_2001);
+		super(TypedefinitionElementTypes.TypeReference_102001);
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class TypeReferenceItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (TypedefinitionElementTypes.TypeExtension_4001 == req
+		if (TypedefinitionElementTypes.TypeExtension_104001 == req
 				.getElementType()) {
 			return getGEFWrapper(new TypeExtensionCreateCommand(req,
 					req.getSource(), req.getTarget()));
@@ -103,7 +103,7 @@ public class TypeReferenceItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (TypedefinitionElementTypes.TypeExtension_4001 == req
+		if (TypedefinitionElementTypes.TypeExtension_104001 == req
 				.getElementType()) {
 			return getGEFWrapper(new TypeExtensionCreateCommand(req,
 					req.getSource(), req.getTarget()));

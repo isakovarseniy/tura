@@ -109,15 +109,21 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage
     isInited = true;
 
     // Obtain or create and register interdependencies
+    ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
     TypedefinitionPackageImpl theTypedefinitionPackage = (TypedefinitionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) instanceof TypedefinitionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypedefinitionPackage.eNS_URI) : TypedefinitionPackage.eINSTANCE);
+    RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
 
     // Create package meta-data objects
     theMapperPackage.createPackageContents();
+    theApplicationPackage.createPackageContents();
     theTypedefinitionPackage.createPackageContents();
+    theRecipePackage.createPackageContents();
 
     // Initialize created meta-data
     theMapperPackage.initializePackageContents();
+    theApplicationPackage.initializePackageContents();
     theTypedefinitionPackage.initializePackageContents();
+    theRecipePackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theMapperPackage.freeze();

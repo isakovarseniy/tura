@@ -282,7 +282,7 @@ public class TypesrepositoryNavigatorContentProvider implements
 			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
 			Diagram sv = (Diagram) view;
 			TypesrepositoryNavigatorGroup links = new TypesrepositoryNavigatorGroup(
-					Messages.NavigatorGroupName_TypesRepository_1000_links,
+					Messages.NavigatorGroupName_TypesRepository_201000_links,
 					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),

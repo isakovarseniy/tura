@@ -29,7 +29,7 @@ public class RecipeRecipeComponentsCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7009;
+	public static final int VISUAL_ID = 307009;
 
 	/**
 	 * @generated

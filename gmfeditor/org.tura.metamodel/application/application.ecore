@@ -9,7 +9,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="applicationMappers" eType="#//ApplicationMappers"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Dummy5" eSuperTypes="../typedefinition/typeDefinition.ecore#//TypeDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Dummy5">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="d5" eType="ecore:EClass ../typedefinition/typeDefinition.ecore#//TypeDefinition"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationRecipes">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>

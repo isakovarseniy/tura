@@ -41,7 +41,7 @@ public class DomainApplicationsEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2009;
+	public static final int VISUAL_ID = 502003;
 
 	/**
 	 * @generated

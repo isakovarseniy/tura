@@ -67,10 +67,10 @@ public class ApplicationPaletteFactory {
 				Messages.ApplicationMapper1CreationTool_title,
 				Messages.ApplicationMapper1CreationTool_desc,
 				Collections
-						.singletonList(ApplicationElementTypes.ApplicationMapper_3002));
+						.singletonList(ApplicationElementTypes.ApplicationMapper_803002));
 		entry.setId("createApplicationMapper1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ApplicationElementTypes
-				.getImageDescriptor(ApplicationElementTypes.ApplicationMapper_3002));
+				.getImageDescriptor(ApplicationElementTypes.ApplicationMapper_803002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -83,10 +83,10 @@ public class ApplicationPaletteFactory {
 				Messages.ApplicationMappers2CreationTool_title,
 				Messages.ApplicationMappers2CreationTool_desc,
 				Collections
-						.singletonList(ApplicationElementTypes.ApplicationMappers_2002));
+						.singletonList(ApplicationElementTypes.ApplicationMappers_802002));
 		entry.setId("createApplicationMappers2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ApplicationElementTypes
-				.getImageDescriptor(ApplicationElementTypes.ApplicationMappers_2002));
+				.getImageDescriptor(ApplicationElementTypes.ApplicationMappers_802002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -99,10 +99,10 @@ public class ApplicationPaletteFactory {
 				Messages.ApplicationRecipe3CreationTool_title,
 				Messages.ApplicationRecipe3CreationTool_desc,
 				Collections
-						.singletonList(ApplicationElementTypes.ApplicationRecipe_3001));
+						.singletonList(ApplicationElementTypes.ApplicationRecipe_803001));
 		entry.setId("createApplicationRecipe3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ApplicationElementTypes
-				.getImageDescriptor(ApplicationElementTypes.ApplicationRecipe_3001));
+				.getImageDescriptor(ApplicationElementTypes.ApplicationRecipe_803001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -115,10 +115,10 @@ public class ApplicationPaletteFactory {
 				Messages.ApplicationRecipes4CreationTool_title,
 				Messages.ApplicationRecipes4CreationTool_desc,
 				Collections
-						.singletonList(ApplicationElementTypes.ApplicationRecipes_2001));
+						.singletonList(ApplicationElementTypes.ApplicationRecipes_802001));
 		entry.setId("createApplicationRecipes4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ApplicationElementTypes
-				.getImageDescriptor(ApplicationElementTypes.ApplicationRecipes_2001));
+				.getImageDescriptor(ApplicationElementTypes.ApplicationRecipes_802001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -131,10 +131,10 @@ public class ApplicationPaletteFactory {
 				Messages.ConfigExtension1CreationTool_title,
 				Messages.ConfigExtension1CreationTool_desc,
 				Collections
-						.singletonList(ApplicationElementTypes.ConfigurationConfigExtension_4003));
+						.singletonList(ApplicationElementTypes.ConfigurationConfigExtension_804003));
 		entry.setId("createConfigExtension1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ApplicationElementTypes
-				.getImageDescriptor(ApplicationElementTypes.ConfigurationConfigExtension_4003));
+				.getImageDescriptor(ApplicationElementTypes.ConfigurationConfigExtension_804003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -147,10 +147,10 @@ public class ApplicationPaletteFactory {
 				Messages.RecipeConfig2CreationTool_title,
 				Messages.RecipeConfig2CreationTool_desc,
 				Collections
-						.singletonList(ApplicationElementTypes.RecipeRecipeConfig_4002));
+						.singletonList(ApplicationElementTypes.RecipeRecipeConfig_804002));
 		entry.setId("createRecipeConfig2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ApplicationElementTypes
-				.getImageDescriptor(ApplicationElementTypes.RecipeRecipeConfig_4002));
+				.getImageDescriptor(ApplicationElementTypes.RecipeRecipeConfig_804002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -163,10 +163,10 @@ public class ApplicationPaletteFactory {
 				Messages.TypeExtension3CreationTool_title,
 				Messages.TypeExtension3CreationTool_desc,
 				Collections
-						.singletonList(ApplicationElementTypes.TypeExtension_4001));
+						.singletonList(ApplicationElementTypes.TypeExtension_804001));
 		entry.setId("createTypeExtension3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ApplicationElementTypes
-				.getImageDescriptor(ApplicationElementTypes.TypeExtension_4001));
+				.getImageDescriptor(ApplicationElementTypes.TypeExtension_804001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

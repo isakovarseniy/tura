@@ -23,7 +23,7 @@ public class VariableItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public VariableItemSemanticEditPolicy() {
-		super(ArtifactElementTypes.Variable_3001);
+		super(ArtifactElementTypes.Variable_703001);
 	}
 
 	/**

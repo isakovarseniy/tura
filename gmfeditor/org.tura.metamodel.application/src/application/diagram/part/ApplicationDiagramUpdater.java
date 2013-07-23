@@ -44,11 +44,11 @@ public class ApplicationDiagramUpdater {
 	public static List<ApplicationNodeDescriptor> getSemanticChildren(View view) {
 		switch (ApplicationVisualIDRegistry.getVisualID(view)) {
 		case ApplicationEditPart.VISUAL_ID:
-			return getApplication_1000SemanticChildren(view);
+			return getApplication_801000SemanticChildren(view);
 		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
-			return getApplicationRecipesApplicationRecipesRecipesCompartment_7001SemanticChildren(view);
+			return getApplicationRecipesApplicationRecipesRecipesCompartment_807001SemanticChildren(view);
 		case ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID:
-			return getApplicationMappersApplicationMappersMappersCompartment_7002SemanticChildren(view);
+			return getApplicationMappersApplicationMappersMappersCompartment_807002SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -56,7 +56,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationNodeDescriptor> getApplication_1000SemanticChildren(
+	public static List<ApplicationNodeDescriptor> getApplication_801000SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -87,7 +87,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationNodeDescriptor> getApplicationRecipesApplicationRecipesRecipesCompartment_7001SemanticChildren(
+	public static List<ApplicationNodeDescriptor> getApplicationRecipesApplicationRecipesRecipesCompartment_807001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -115,7 +115,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationNodeDescriptor> getApplicationMappersApplicationMappersMappersCompartment_7002SemanticChildren(
+	public static List<ApplicationNodeDescriptor> getApplicationMappersApplicationMappersMappersCompartment_807002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -146,17 +146,17 @@ public class ApplicationDiagramUpdater {
 	public static List<ApplicationLinkDescriptor> getContainedLinks(View view) {
 		switch (ApplicationVisualIDRegistry.getVisualID(view)) {
 		case ApplicationEditPart.VISUAL_ID:
-			return getApplication_1000ContainedLinks(view);
+			return getApplication_801000ContainedLinks(view);
 		case ApplicationRecipesEditPart.VISUAL_ID:
-			return getApplicationRecipes_2001ContainedLinks(view);
+			return getApplicationRecipes_802001ContainedLinks(view);
 		case ApplicationMappersEditPart.VISUAL_ID:
-			return getApplicationMappers_2002ContainedLinks(view);
+			return getApplicationMappers_802002ContainedLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
-			return getApplicationRecipe_3001ContainedLinks(view);
+			return getApplicationRecipe_803001ContainedLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
-			return getApplicationMapper_3002ContainedLinks(view);
+			return getApplicationMapper_803002ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001ContainedLinks(view);
+			return getTypeExtension_804001ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -167,15 +167,15 @@ public class ApplicationDiagramUpdater {
 	public static List<ApplicationLinkDescriptor> getIncomingLinks(View view) {
 		switch (ApplicationVisualIDRegistry.getVisualID(view)) {
 		case ApplicationRecipesEditPart.VISUAL_ID:
-			return getApplicationRecipes_2001IncomingLinks(view);
+			return getApplicationRecipes_802001IncomingLinks(view);
 		case ApplicationMappersEditPart.VISUAL_ID:
-			return getApplicationMappers_2002IncomingLinks(view);
+			return getApplicationMappers_802002IncomingLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
-			return getApplicationRecipe_3001IncomingLinks(view);
+			return getApplicationRecipe_803001IncomingLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
-			return getApplicationMapper_3002IncomingLinks(view);
+			return getApplicationMapper_803002IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001IncomingLinks(view);
+			return getTypeExtension_804001IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -186,15 +186,15 @@ public class ApplicationDiagramUpdater {
 	public static List<ApplicationLinkDescriptor> getOutgoingLinks(View view) {
 		switch (ApplicationVisualIDRegistry.getVisualID(view)) {
 		case ApplicationRecipesEditPart.VISUAL_ID:
-			return getApplicationRecipes_2001OutgoingLinks(view);
+			return getApplicationRecipes_802001OutgoingLinks(view);
 		case ApplicationMappersEditPart.VISUAL_ID:
-			return getApplicationMappers_2002OutgoingLinks(view);
+			return getApplicationMappers_802002OutgoingLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
-			return getApplicationRecipe_3001OutgoingLinks(view);
+			return getApplicationRecipe_803001OutgoingLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
-			return getApplicationMapper_3002OutgoingLinks(view);
+			return getApplicationMapper_803002OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001OutgoingLinks(view);
+			return getTypeExtension_804001OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -202,7 +202,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplication_1000ContainedLinks(
+	public static List<ApplicationLinkDescriptor> getApplication_801000ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -210,7 +210,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationRecipes_2001ContainedLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationRecipes_802001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -218,7 +218,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationMappers_2002ContainedLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationMappers_802002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -226,7 +226,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationRecipe_3001ContainedLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationRecipe_803001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -234,7 +234,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationMapper_3002ContainedLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationMapper_803002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -242,7 +242,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getTypeExtension_4001ContainedLinks(
+	public static List<ApplicationLinkDescriptor> getTypeExtension_804001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -250,7 +250,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationRecipes_2001IncomingLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationRecipes_802001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -258,7 +258,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationMappers_2002IncomingLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationMappers_802002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -266,7 +266,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationRecipe_3001IncomingLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationRecipe_803001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -274,7 +274,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationMapper_3002IncomingLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationMapper_803002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -282,7 +282,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getTypeExtension_4001IncomingLinks(
+	public static List<ApplicationLinkDescriptor> getTypeExtension_804001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -290,7 +290,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationRecipes_2001OutgoingLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationRecipes_802001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -298,7 +298,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationMappers_2002OutgoingLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationMappers_802002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -306,7 +306,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationRecipe_3001OutgoingLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationRecipe_803001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -314,7 +314,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getApplicationMapper_3002OutgoingLinks(
+	public static List<ApplicationLinkDescriptor> getApplicationMapper_803002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -322,7 +322,7 @@ public class ApplicationDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ApplicationLinkDescriptor> getTypeExtension_4001OutgoingLinks(
+	public static List<ApplicationLinkDescriptor> getTypeExtension_804001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

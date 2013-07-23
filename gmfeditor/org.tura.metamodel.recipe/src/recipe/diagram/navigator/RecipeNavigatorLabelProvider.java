@@ -108,33 +108,33 @@ public class RecipeNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (RecipeVisualIDRegistry.getVisualID(view)) {
-		case Component2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/recipe?Component", RecipeElementTypes.Component_3002); //$NON-NLS-1$
-		case RecipeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/recipe?Recipe", RecipeElementTypes.Recipe_2004); //$NON-NLS-1$
 		case RecipesEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/recipe?Recipes", RecipeElementTypes.Recipes_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http://tura.org/2013/v1/recipe?Recipes", RecipeElementTypes.Recipes_301000); //$NON-NLS-1$
 		case ConfigurationEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/recipe?Configuration", RecipeElementTypes.Configuration_2005); //$NON-NLS-1$
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/recipe?Configuration", RecipeElementTypes.Configuration_302005); //$NON-NLS-1$
+		case Component2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/recipe?Recipe?recipeConfig", RecipeElementTypes.RecipeRecipeConfig_4001); //$NON-NLS-1$
-		case ModelMapperEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/recipe?ModelMapper", RecipeElementTypes.ModelMapper_3003); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/recipe?Component", RecipeElementTypes.Component_303002); //$NON-NLS-1$
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/recipe?Configuration?configExtension", RecipeElementTypes.ConfigurationConfigExtension_4002); //$NON-NLS-1$
+					"Navigator?Link?http://tura.org/2013/v1/recipe?Configuration?configExtension", RecipeElementTypes.ConfigurationConfigExtension_304002); //$NON-NLS-1$
 		case ComponentEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/recipe?Component", RecipeElementTypes.Component_3004); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/recipe?Component", RecipeElementTypes.Component_303004); //$NON-NLS-1$
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/recipe?Recipe?recipeConfig", RecipeElementTypes.RecipeRecipeConfig_304001); //$NON-NLS-1$
 		case PropertyEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/recipe?Property", RecipeElementTypes.Property_3005); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/recipe?Property", RecipeElementTypes.Property_303005); //$NON-NLS-1$
+		case RecipeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/recipe?Recipe", RecipeElementTypes.Recipe_302004); //$NON-NLS-1$
+		case ModelMapperEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/recipe?ModelMapper", RecipeElementTypes.ModelMapper_303003); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -195,24 +195,24 @@ public class RecipeNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (RecipeVisualIDRegistry.getVisualID(view)) {
-		case Component2EditPart.VISUAL_ID:
-			return getComponent_3002Text(view);
-		case RecipeEditPart.VISUAL_ID:
-			return getRecipe_2004Text(view);
 		case RecipesEditPart.VISUAL_ID:
-			return getRecipes_1000Text(view);
+			return getRecipes_301000Text(view);
 		case ConfigurationEditPart.VISUAL_ID:
-			return getConfiguration_2005Text(view);
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return getRecipeRecipeConfig_4001Text(view);
-		case ModelMapperEditPart.VISUAL_ID:
-			return getModelMapper_3003Text(view);
+			return getConfiguration_302005Text(view);
+		case Component2EditPart.VISUAL_ID:
+			return getComponent_303002Text(view);
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_4002Text(view);
+			return getConfigurationConfigExtension_304002Text(view);
 		case ComponentEditPart.VISUAL_ID:
-			return getComponent_3004Text(view);
+			return getComponent_303004Text(view);
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getRecipeRecipeConfig_304001Text(view);
 		case PropertyEditPart.VISUAL_ID:
-			return getProperty_3005Text(view);
+			return getProperty_303005Text(view);
+		case RecipeEditPart.VISUAL_ID:
+			return getRecipe_302004Text(view);
+		case ModelMapperEditPart.VISUAL_ID:
+			return getModelMapper_303003Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -220,16 +220,16 @@ public class RecipeNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getRecipes_1000Text(View view) {
+	private String getRecipes_301000Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
 
 	/**
 	 * @generated
 	 */
-	private String getConfiguration_2005Text(View view) {
+	private String getConfiguration_302005Text(View view) {
 		IParser parser = RecipeParserProvider.getParser(
-				RecipeElementTypes.Configuration_2005,
+				RecipeElementTypes.Configuration_302005,
 				view.getElement() != null ? view.getElement() : view,
 				RecipeVisualIDRegistry
 						.getType(ConfigurationNameEditPart.VISUAL_ID));
@@ -239,7 +239,7 @@ public class RecipeNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			RecipeDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5011); //$NON-NLS-1$
+					"Parser was not found for label " + 305011); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -247,106 +247,9 @@ public class RecipeNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getModelMapper_3003Text(View view) {
+	private String getComponent_303002Text(View view) {
 		IParser parser = RecipeParserProvider.getParser(
-				RecipeElementTypes.ModelMapper_3003,
-				view.getElement() != null ? view.getElement() : view,
-				RecipeVisualIDRegistry
-						.getType(ModelMapperNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RecipeDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getRecipe_2004Text(View view) {
-		IParser parser = RecipeParserProvider.getParser(
-				RecipeElementTypes.Recipe_2004,
-				view.getElement() != null ? view.getElement() : view,
-				RecipeVisualIDRegistry.getType(RecipeNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RecipeDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5009); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getConfigurationConfigExtension_4002Text(View view) {
-		IParser parser = RecipeParserProvider.getParser(
-				RecipeElementTypes.ConfigurationConfigExtension_4002,
-				view.getElement() != null ? view.getElement() : view,
-				CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RecipeDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 6002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getComponent_3004Text(View view) {
-		IParser parser = RecipeParserProvider
-				.getParser(RecipeElementTypes.Component_3004,
-						view.getElement() != null ? view.getElement() : view,
-						RecipeVisualIDRegistry
-								.getType(ComponentNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RecipeDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5008); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getRecipeRecipeConfig_4001Text(View view) {
-		IParser parser = RecipeParserProvider.getParser(
-				RecipeElementTypes.RecipeRecipeConfig_4001,
-				view.getElement() != null ? view.getElement() : view,
-				CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RecipeDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 6001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getComponent_3002Text(View view) {
-		IParser parser = RecipeParserProvider.getParser(
-				RecipeElementTypes.Component_3002,
+				RecipeElementTypes.Component_303002,
 				view.getElement() != null ? view.getElement() : view,
 				RecipeVisualIDRegistry
 						.getType(ComponentName2EditPart.VISUAL_ID));
@@ -356,7 +259,7 @@ public class RecipeNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			RecipeDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5002); //$NON-NLS-1$
+					"Parser was not found for label " + 305002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -364,9 +267,67 @@ public class RecipeNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getProperty_3005Text(View view) {
+	private String getConfigurationConfigExtension_304002Text(View view) {
 		IParser parser = RecipeParserProvider.getParser(
-				RecipeElementTypes.Property_3005,
+				RecipeElementTypes.ConfigurationConfigExtension_304002,
+				view.getElement() != null ? view.getElement() : view,
+				CommonParserHint.DESCRIPTION);
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RecipeDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 306002); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getComponent_303004Text(View view) {
+		IParser parser = RecipeParserProvider
+				.getParser(RecipeElementTypes.Component_303004, view
+						.getElement() != null ? view.getElement() : view,
+						RecipeVisualIDRegistry
+								.getType(ComponentNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RecipeDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 305008); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getRecipeRecipeConfig_304001Text(View view) {
+		IParser parser = RecipeParserProvider.getParser(
+				RecipeElementTypes.RecipeRecipeConfig_304001,
+				view.getElement() != null ? view.getElement() : view,
+				CommonParserHint.DESCRIPTION);
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RecipeDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 306001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getProperty_303005Text(View view) {
+		IParser parser = RecipeParserProvider.getParser(
+				RecipeElementTypes.Property_303005,
 				view.getElement() != null ? view.getElement() : view,
 				RecipeVisualIDRegistry.getType(PropertyNameEditPart.VISUAL_ID));
 		if (parser != null) {
@@ -375,7 +336,46 @@ public class RecipeNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			RecipeDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5010); //$NON-NLS-1$
+					"Parser was not found for label " + 305010); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getRecipe_302004Text(View view) {
+		IParser parser = RecipeParserProvider.getParser(
+				RecipeElementTypes.Recipe_302004,
+				view.getElement() != null ? view.getElement() : view,
+				RecipeVisualIDRegistry.getType(RecipeNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RecipeDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 305009); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getModelMapper_303003Text(View view) {
+		IParser parser = RecipeParserProvider.getParser(
+				RecipeElementTypes.ModelMapper_303003,
+				view.getElement() != null ? view.getElement() : view,
+				RecipeVisualIDRegistry
+						.getType(ModelMapperNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RecipeDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 305001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

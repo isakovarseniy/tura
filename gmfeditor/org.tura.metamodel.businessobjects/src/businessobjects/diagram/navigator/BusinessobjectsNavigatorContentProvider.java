@@ -315,7 +315,7 @@ public class BusinessobjectsNavigatorContentProvider implements
 			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
 			Diagram sv = (Diagram) view;
 			BusinessobjectsNavigatorGroup links = new BusinessobjectsNavigatorGroup(
-					Messages.NavigatorGroupName_BusinessObjects_1000_links,
+					Messages.NavigatorGroupName_BusinessObjects_601000_links,
 					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),

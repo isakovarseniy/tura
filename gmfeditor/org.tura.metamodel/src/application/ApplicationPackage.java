@@ -106,22 +106,13 @@ public interface ApplicationPackage extends EPackage
   int DUMMY5 = 1;
 
   /**
-   * The feature id for the '<em><b>Types</b></em>' containment reference list.
+   * The feature id for the '<em><b>D5</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DUMMY5__TYPES = TypedefinitionPackage.TYPE_DEFINITION__TYPES;
-
-  /**
-   * The feature id for the '<em><b>Enums</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DUMMY5__ENUMS = TypedefinitionPackage.TYPE_DEFINITION__ENUMS;
+  int DUMMY5__D5 = 0;
 
   /**
    * The number of structural features of the '<em>Dummy5</em>' class.
@@ -130,7 +121,7 @@ public interface ApplicationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DUMMY5_FEATURE_COUNT = TypedefinitionPackage.TYPE_DEFINITION_FEATURE_COUNT + 0;
+  int DUMMY5_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link application.impl.ApplicationRecipesImpl <em>Recipes</em>}' class.
@@ -324,6 +315,17 @@ public interface ApplicationPackage extends EPackage
   EClass getDummy5();
 
   /**
+   * Returns the meta object for the reference '{@link application.Dummy5#getD5 <em>D5</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>D5</em>'.
+   * @see application.Dummy5#getD5()
+   * @see #getDummy5()
+   * @generated
+   */
+  EReference getDummy5_D5();
+
+  /**
    * Returns the meta object for class '{@link application.ApplicationRecipes <em>Recipes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -509,6 +511,14 @@ public interface ApplicationPackage extends EPackage
      * @generated
      */
     EClass DUMMY5 = eINSTANCE.getDummy5();
+
+    /**
+     * The meta object literal for the '<em><b>D5</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DUMMY5__D5 = eINSTANCE.getDummy5_D5();
 
     /**
      * The meta object literal for the '{@link application.impl.ApplicationRecipesImpl <em>Recipes</em>}' class.

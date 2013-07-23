@@ -62,7 +62,7 @@ public class TypeReferencePackageNameTypeNameEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 105001;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class TypeReferencePackageNameTypeNameEditPart extends
 		if (parser == null) {
 			parser = TypedefinitionParserProvider
 					.getParser(
-							TypedefinitionElementTypes.TypeReference_2001,
+							TypedefinitionElementTypes.TypeReference_102001,
 							getParserElement(),
 							TypedefinitionVisualIDRegistry
 									.getType(typedefinition.diagram.edit.parts.TypeReferencePackageNameTypeNameEditPart.VISUAL_ID));

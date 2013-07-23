@@ -19,14 +19,14 @@ public class TypeTypeAttributesCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TypeTypeAttributesCompartmentItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Type_2002);
+		super(TypedefinitionElementTypes.Type_102002);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypedefinitionElementTypes.Attribute_3001 == req.getElementType()) {
+		if (TypedefinitionElementTypes.Attribute_103001 == req.getElementType()) {
 			return getGEFWrapper(new AttributeCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

@@ -5,9 +5,9 @@ package domain.tests;
 import domain.Dammy4;
 import domain.DomainFactory;
 
-import junit.textui.TestRunner;
+import junit.framework.TestCase;
 
-import mapper.tests.MappersTest;
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,8 +15,16 @@ import mapper.tests.MappersTest;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Dammy4Test extends MappersTest
+public class Dammy4Test extends TestCase
 {
+
+  /**
+   * The fixture for this Dammy4 test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected Dammy4 fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -40,15 +48,25 @@ public class Dammy4Test extends MappersTest
   }
 
   /**
+   * Sets the fixture for this Dammy4 test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(Dammy4 fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this Dammy4 test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected Dammy4 getFixture()
   {
-    return (Dammy4)fixture;
+    return fixture;
   }
 
   /**

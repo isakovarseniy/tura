@@ -23,14 +23,14 @@ public class BusinessObjectsItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public BusinessObjectsItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.BusinessObjects_1000);
+		super(BusinessobjectsElementTypes.BusinessObjects_601000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (BusinessobjectsElementTypes.BusinessObject_2003 == req
+		if (BusinessobjectsElementTypes.BusinessObject_602003 == req
 				.getElementType()) {
 			return getGEFWrapper(new BusinessObjectCreateCommand(req));
 		}

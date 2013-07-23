@@ -43,13 +43,13 @@ public class ArtifactDiagramUpdater {
 	public static List<ArtifactNodeDescriptor> getSemanticChildren(View view) {
 		switch (ArtifactVisualIDRegistry.getVisualID(view)) {
 		case ArtifactsEditPart.VISUAL_ID:
-			return getArtifacts_1000SemanticChildren(view);
+			return getArtifacts_701000SemanticChildren(view);
 		case ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID:
-			return getArtifactArtifactConfigVariablesCompartment_7001SemanticChildren(view);
+			return getArtifactArtifactConfigVariablesCompartment_707001SemanticChildren(view);
 		case ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID:
-			return getArtifactArtifactModelQueryCompartment_7002SemanticChildren(view);
+			return getArtifactArtifactModelQueryCompartment_707002SemanticChildren(view);
 		case ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID:
-			return getArtifactArtifactSpecifiersCompartment_7003SemanticChildren(view);
+			return getArtifactArtifactSpecifiersCompartment_707003SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -57,7 +57,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactNodeDescriptor> getArtifacts_1000SemanticChildren(
+	public static List<ArtifactNodeDescriptor> getArtifacts_701000SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -80,7 +80,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactNodeDescriptor> getArtifactArtifactConfigVariablesCompartment_7001SemanticChildren(
+	public static List<ArtifactNodeDescriptor> getArtifactArtifactConfigVariablesCompartment_707001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -107,7 +107,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactNodeDescriptor> getArtifactArtifactModelQueryCompartment_7002SemanticChildren(
+	public static List<ArtifactNodeDescriptor> getArtifactArtifactModelQueryCompartment_707002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -134,7 +134,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactNodeDescriptor> getArtifactArtifactSpecifiersCompartment_7003SemanticChildren(
+	public static List<ArtifactNodeDescriptor> getArtifactArtifactSpecifiersCompartment_707003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -164,15 +164,15 @@ public class ArtifactDiagramUpdater {
 	public static List<ArtifactLinkDescriptor> getContainedLinks(View view) {
 		switch (ArtifactVisualIDRegistry.getVisualID(view)) {
 		case ArtifactsEditPart.VISUAL_ID:
-			return getArtifacts_1000ContainedLinks(view);
+			return getArtifacts_701000ContainedLinks(view);
 		case ArtifactEditPart.VISUAL_ID:
-			return getArtifact_2001ContainedLinks(view);
+			return getArtifact_702001ContainedLinks(view);
 		case VariableEditPart.VISUAL_ID:
-			return getVariable_3001ContainedLinks(view);
+			return getVariable_703001ContainedLinks(view);
 		case Variable2EditPart.VISUAL_ID:
-			return getVariable_3002ContainedLinks(view);
+			return getVariable_703002ContainedLinks(view);
 		case SpecifierEditPart.VISUAL_ID:
-			return getSpecifier_3003ContainedLinks(view);
+			return getSpecifier_703003ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -183,13 +183,13 @@ public class ArtifactDiagramUpdater {
 	public static List<ArtifactLinkDescriptor> getIncomingLinks(View view) {
 		switch (ArtifactVisualIDRegistry.getVisualID(view)) {
 		case ArtifactEditPart.VISUAL_ID:
-			return getArtifact_2001IncomingLinks(view);
+			return getArtifact_702001IncomingLinks(view);
 		case VariableEditPart.VISUAL_ID:
-			return getVariable_3001IncomingLinks(view);
+			return getVariable_703001IncomingLinks(view);
 		case Variable2EditPart.VISUAL_ID:
-			return getVariable_3002IncomingLinks(view);
+			return getVariable_703002IncomingLinks(view);
 		case SpecifierEditPart.VISUAL_ID:
-			return getSpecifier_3003IncomingLinks(view);
+			return getSpecifier_703003IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -200,13 +200,13 @@ public class ArtifactDiagramUpdater {
 	public static List<ArtifactLinkDescriptor> getOutgoingLinks(View view) {
 		switch (ArtifactVisualIDRegistry.getVisualID(view)) {
 		case ArtifactEditPart.VISUAL_ID:
-			return getArtifact_2001OutgoingLinks(view);
+			return getArtifact_702001OutgoingLinks(view);
 		case VariableEditPart.VISUAL_ID:
-			return getVariable_3001OutgoingLinks(view);
+			return getVariable_703001OutgoingLinks(view);
 		case Variable2EditPart.VISUAL_ID:
-			return getVariable_3002OutgoingLinks(view);
+			return getVariable_703002OutgoingLinks(view);
 		case SpecifierEditPart.VISUAL_ID:
-			return getSpecifier_3003OutgoingLinks(view);
+			return getSpecifier_703003OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -214,7 +214,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getArtifacts_1000ContainedLinks(
+	public static List<ArtifactLinkDescriptor> getArtifacts_701000ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -222,7 +222,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getArtifact_2001ContainedLinks(
+	public static List<ArtifactLinkDescriptor> getArtifact_702001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -230,7 +230,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getVariable_3001ContainedLinks(
+	public static List<ArtifactLinkDescriptor> getVariable_703001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -238,7 +238,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getVariable_3002ContainedLinks(
+	public static List<ArtifactLinkDescriptor> getVariable_703002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -246,7 +246,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getSpecifier_3003ContainedLinks(
+	public static List<ArtifactLinkDescriptor> getSpecifier_703003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -254,7 +254,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getArtifact_2001IncomingLinks(
+	public static List<ArtifactLinkDescriptor> getArtifact_702001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -262,7 +262,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getVariable_3001IncomingLinks(
+	public static List<ArtifactLinkDescriptor> getVariable_703001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -270,7 +270,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getVariable_3002IncomingLinks(
+	public static List<ArtifactLinkDescriptor> getVariable_703002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -278,7 +278,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getSpecifier_3003IncomingLinks(
+	public static List<ArtifactLinkDescriptor> getSpecifier_703003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -286,7 +286,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getArtifact_2001OutgoingLinks(
+	public static List<ArtifactLinkDescriptor> getArtifact_702001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -294,7 +294,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getVariable_3001OutgoingLinks(
+	public static List<ArtifactLinkDescriptor> getVariable_703001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -302,7 +302,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getVariable_3002OutgoingLinks(
+	public static List<ArtifactLinkDescriptor> getVariable_703002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -310,7 +310,7 @@ public class ArtifactDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ArtifactLinkDescriptor> getSpecifier_3003OutgoingLinks(
+	public static List<ArtifactLinkDescriptor> getSpecifier_703003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

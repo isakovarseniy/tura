@@ -42,14 +42,14 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof DomainEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
-			types.add(DomainElementTypes.DomainArtifacts_2007);
-			types.add(DomainElementTypes.DomainTypes_2008);
-			types.add(DomainElementTypes.DomainApplications_2009);
+			types.add(DomainElementTypes.DomainArtifacts_502001);
+			types.add(DomainElementTypes.DomainTypes_502002);
+			types.add(DomainElementTypes.DomainApplications_502003);
 			return types;
 		}
 		if (editPart instanceof DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.DomainApplication_3002);
+			types.add(DomainElementTypes.DomainApplication_503001);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

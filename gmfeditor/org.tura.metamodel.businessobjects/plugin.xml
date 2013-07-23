@@ -258,8 +258,8 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Businessobjects"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2003,3009,3010,3011,3012,3013,3014"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="602003,603009,603010,603011,603012,603013,603014"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="604001"/>
       </viewProvider>
    </extension>
 
@@ -271,16 +271,16 @@
             <method name="getType()" value="Businessobjects"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2003,3009,3010,3011,3012,3013,3014"/>
+            <method name="getType()" value="602003,603009,603010,603011,603012,603013,603014"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4001"/>
+            <method name="getType()" value="604001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5010,5012,5013,5014,5015,5016,5017"/>
+            <method name="getType()" value="605010,605012,605013,605014,605015,605016,605017"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7003,7004,7005,7006,7007,7008"/>
+            <method name="getType()" value="607003,607004,607005,607006,607007,607008"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -290,15 +290,15 @@
       <?gmfgen generated="true"?>
       <modelingAssistantProvider class="businessobjects.diagram.providers.BusinessobjectsModelingAssistantProvider">
          <Priority name="Lowest"/>
-         <object class="businessobjects.diagram.edit.parts.BusinessObjectsEditPart" id="BusinessObjects_1000"/>
-         <object class="businessobjects.diagram.edit.parts.BusinessObjectEditPart" id="BusinessObject_2003"/>
-         <object class="businessobjects.diagram.edit.parts.CreateMethodEditPart" id="CreateMethod_3009"/>
-         <object class="businessobjects.diagram.edit.parts.InsertMethodEditPart" id="InsertMethod_3010"/>
-         <object class="businessobjects.diagram.edit.parts.UpdateMethodEditPart" id="UpdateMethod_3011"/>
-         <object class="businessobjects.diagram.edit.parts.RemoveMethodEditPart" id="RemoveMethod_3012"/>
-         <object class="businessobjects.diagram.edit.parts.SearchMethodEditPart" id="SearchMethod_3013"/>
-         <object class="businessobjects.diagram.edit.parts.OtherMethodEditPart" id="OtherMethod_3014"/>
-         <context elements="BusinessObjects_1000,BusinessObject_2003,CreateMethod_3009,InsertMethod_3010,UpdateMethod_3011,RemoveMethod_3012,SearchMethod_3013,OtherMethod_3014"/>
+         <object class="businessobjects.diagram.edit.parts.BusinessObjectsEditPart" id="BusinessObjects_601000"/>
+         <object class="businessobjects.diagram.edit.parts.BusinessObjectEditPart" id="BusinessObject_602003"/>
+         <object class="businessobjects.diagram.edit.parts.CreateMethodEditPart" id="CreateMethod_603009"/>
+         <object class="businessobjects.diagram.edit.parts.InsertMethodEditPart" id="InsertMethod_603010"/>
+         <object class="businessobjects.diagram.edit.parts.UpdateMethodEditPart" id="UpdateMethod_603011"/>
+         <object class="businessobjects.diagram.edit.parts.RemoveMethodEditPart" id="RemoveMethod_603012"/>
+         <object class="businessobjects.diagram.edit.parts.SearchMethodEditPart" id="SearchMethod_603013"/>
+         <object class="businessobjects.diagram.edit.parts.OtherMethodEditPart" id="OtherMethod_603014"/>
+         <context elements="BusinessObjects_601000,BusinessObject_602003,CreateMethod_603009,InsertMethod_603010,UpdateMethod_603011,RemoveMethod_603012,SearchMethod_603013,OtherMethod_603014"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -321,7 +321,7 @@
       <decoratorProvider class="businessobjects.diagram.providers.BusinessobjectsShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="2003"/>
+            <method name="getType()" value="602003"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -331,92 +331,92 @@
       <?gmfgen generated="true"?>
       <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.BusinessObjects_1000"
-               name="%metatype.name.BusinessObjects_1000"
+               id="org.tura.metamodel.businessobjects.BusinessObjects_601000"
+               name="%metatype.name.BusinessObjects_601000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="BusinessObjects"
                edithelper="businessobjects.diagram.edit.helpers.BusinessObjectsEditHelper">
-            <param name="semanticHint" value="1000"/>
+            <param name="semanticHint" value="601000"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.BusinessObject_2003"
-               name="%metatype.name.BusinessObject_2003"
+               id="org.tura.metamodel.businessobjects.BusinessObject_602003"
+               name="%metatype.name.BusinessObject_602003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="BusinessObject"
                edithelper="businessobjects.diagram.edit.helpers.BusinessObjectEditHelper">
-            <param name="semanticHint" value="2003"/>
+            <param name="semanticHint" value="602003"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.CreateMethod_3009"
-               name="%metatype.name.CreateMethod_3009"
+               id="org.tura.metamodel.businessobjects.CreateMethod_603009"
+               name="%metatype.name.CreateMethod_603009"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="CreateMethod"
                edithelper="businessobjects.diagram.edit.helpers.CreateMethodEditHelper">
-            <param name="semanticHint" value="3009"/>
+            <param name="semanticHint" value="603009"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.InsertMethod_3010"
-               name="%metatype.name.InsertMethod_3010"
+               id="org.tura.metamodel.businessobjects.InsertMethod_603010"
+               name="%metatype.name.InsertMethod_603010"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="InsertMethod"
                edithelper="businessobjects.diagram.edit.helpers.InsertMethodEditHelper">
-            <param name="semanticHint" value="3010"/>
+            <param name="semanticHint" value="603010"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.UpdateMethod_3011"
-               name="%metatype.name.UpdateMethod_3011"
+               id="org.tura.metamodel.businessobjects.UpdateMethod_603011"
+               name="%metatype.name.UpdateMethod_603011"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="UpdateMethod"
                edithelper="businessobjects.diagram.edit.helpers.UpdateMethodEditHelper">
-            <param name="semanticHint" value="3011"/>
+            <param name="semanticHint" value="603011"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.RemoveMethod_3012"
-               name="%metatype.name.RemoveMethod_3012"
+               id="org.tura.metamodel.businessobjects.RemoveMethod_603012"
+               name="%metatype.name.RemoveMethod_603012"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="RemoveMethod"
                edithelper="businessobjects.diagram.edit.helpers.RemoveMethodEditHelper">
-            <param name="semanticHint" value="3012"/>
+            <param name="semanticHint" value="603012"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.SearchMethod_3013"
-               name="%metatype.name.SearchMethod_3013"
+               id="org.tura.metamodel.businessobjects.SearchMethod_603013"
+               name="%metatype.name.SearchMethod_603013"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="SearchMethod"
                edithelper="businessobjects.diagram.edit.helpers.SearchMethodEditHelper">
-            <param name="semanticHint" value="3013"/>
+            <param name="semanticHint" value="603013"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.OtherMethod_3014"
-               name="%metatype.name.OtherMethod_3014"
+               id="org.tura.metamodel.businessobjects.OtherMethod_603014"
+               name="%metatype.name.OtherMethod_603014"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="OtherMethod"
                edithelper="businessobjects.diagram.edit.helpers.OtherMethodEditHelper">
-            <param name="semanticHint" value="3014"/>
+            <param name="semanticHint" value="603014"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.TypeExtension_4001"
-               name="%metatype.name.TypeExtension_4001"
+               id="org.tura.metamodel.businessobjects.TypeExtension_604001"
+               name="%metatype.name.TypeExtension_604001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TypeExtension"
                edithelper="businessobjects.diagram.edit.helpers.TypeExtensionEditHelper">
-            <param name="semanticHint" value="4001"/>
+            <param name="semanticHint" value="604001"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -431,15 +431,15 @@
          </enablement>
       </clientContext> 
       <binding context="org.tura.metamodel.businessobjects.TypeContext">
-         <elementType ref="org.tura.metamodel.businessobjects.BusinessObjects_1000"/>
-         <elementType ref="org.tura.metamodel.businessobjects.BusinessObject_2003"/>
-         <elementType ref="org.tura.metamodel.businessobjects.CreateMethod_3009"/>
-         <elementType ref="org.tura.metamodel.businessobjects.InsertMethod_3010"/>
-         <elementType ref="org.tura.metamodel.businessobjects.UpdateMethod_3011"/>
-         <elementType ref="org.tura.metamodel.businessobjects.RemoveMethod_3012"/>
-         <elementType ref="org.tura.metamodel.businessobjects.SearchMethod_3013"/>
-         <elementType ref="org.tura.metamodel.businessobjects.OtherMethod_3014"/>
-         <elementType ref="org.tura.metamodel.businessobjects.TypeExtension_4001"/>
+         <elementType ref="org.tura.metamodel.businessobjects.BusinessObjects_601000"/>
+         <elementType ref="org.tura.metamodel.businessobjects.BusinessObject_602003"/>
+         <elementType ref="org.tura.metamodel.businessobjects.CreateMethod_603009"/>
+         <elementType ref="org.tura.metamodel.businessobjects.InsertMethod_603010"/>
+         <elementType ref="org.tura.metamodel.businessobjects.UpdateMethod_603011"/>
+         <elementType ref="org.tura.metamodel.businessobjects.RemoveMethod_603012"/>
+         <elementType ref="org.tura.metamodel.businessobjects.SearchMethod_603013"/>
+         <elementType ref="org.tura.metamodel.businessobjects.OtherMethod_603014"/>
+         <elementType ref="org.tura.metamodel.businessobjects.TypeExtension_604001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

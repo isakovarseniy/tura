@@ -33,73 +33,73 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser domainArtifactsName_5012Parser;
+	private IParser domainArtifactsName_505001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getDomainArtifactsName_5012Parser() {
-		if (domainArtifactsName_5012Parser == null) {
+	private IParser getDomainArtifactsName_505001Parser() {
+		if (domainArtifactsName_505001Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getDomainArtifacts_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			domainArtifactsName_5012Parser = parser;
+			domainArtifactsName_505001Parser = parser;
 		}
-		return domainArtifactsName_5012Parser;
+		return domainArtifactsName_505001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser domainTypesName_5013Parser;
+	private IParser domainTypesName_505002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getDomainTypesName_5013Parser() {
-		if (domainTypesName_5013Parser == null) {
+	private IParser getDomainTypesName_505002Parser() {
+		if (domainTypesName_505002Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getDomainTypes_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			domainTypesName_5013Parser = parser;
+			domainTypesName_505002Parser = parser;
 		}
-		return domainTypesName_5013Parser;
+		return domainTypesName_505002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser domainApplicationsName_5014Parser;
+	private IParser domainApplicationsName_505004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getDomainApplicationsName_5014Parser() {
-		if (domainApplicationsName_5014Parser == null) {
+	private IParser getDomainApplicationsName_505004Parser() {
+		if (domainApplicationsName_505004Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getDomainApplications_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			domainApplicationsName_5014Parser = parser;
+			domainApplicationsName_505004Parser = parser;
 		}
-		return domainApplicationsName_5014Parser;
+		return domainApplicationsName_505004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser domainApplicationName_5016Parser;
+	private IParser domainApplicationName_505003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getDomainApplicationName_5016Parser() {
-		if (domainApplicationName_5016Parser == null) {
+	private IParser getDomainApplicationName_505003Parser() {
+		if (domainApplicationName_505003Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getDomainApplication_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			domainApplicationName_5016Parser = parser;
+			domainApplicationName_505003Parser = parser;
 		}
-		return domainApplicationName_5016Parser;
+		return domainApplicationName_505003Parser;
 	}
 
 	/**
@@ -108,13 +108,13 @@ public class DomainParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case DomainArtifactsNameEditPart.VISUAL_ID:
-			return getDomainArtifactsName_5012Parser();
+			return getDomainArtifactsName_505001Parser();
 		case DomainTypesNameEditPart.VISUAL_ID:
-			return getDomainTypesName_5013Parser();
+			return getDomainTypesName_505002Parser();
 		case DomainApplicationsNameEditPart.VISUAL_ID:
-			return getDomainApplicationsName_5014Parser();
+			return getDomainApplicationsName_505004Parser();
 		case DomainApplicationNameEditPart.VISUAL_ID:
-			return getDomainApplicationName_5016Parser();
+			return getDomainApplicationName_505003Parser();
 		}
 		return null;
 	}

@@ -6,6 +6,7 @@ package application.provider;
 import application.ApplicationMapper;
 import application.ApplicationPackage;
 
+import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
 

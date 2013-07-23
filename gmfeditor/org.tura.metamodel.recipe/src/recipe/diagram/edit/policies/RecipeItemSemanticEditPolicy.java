@@ -38,7 +38,7 @@ public class RecipeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public RecipeItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Recipe_2004);
+		super(RecipeElementTypes.Recipe_302004);
 	}
 
 	/**
@@ -115,7 +115,8 @@ public class RecipeItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RecipeElementTypes.RecipeRecipeConfig_4001 == req.getElementType()) {
+		if (RecipeElementTypes.RecipeRecipeConfig_304001 == req
+				.getElementType()) {
 			return getGEFWrapper(new RecipeRecipeConfigCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
@@ -127,7 +128,8 @@ public class RecipeItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RecipeElementTypes.RecipeRecipeConfig_4001 == req.getElementType()) {
+		if (RecipeElementTypes.RecipeRecipeConfig_304001 == req
+				.getElementType()) {
 			return null;
 		}
 		return null;

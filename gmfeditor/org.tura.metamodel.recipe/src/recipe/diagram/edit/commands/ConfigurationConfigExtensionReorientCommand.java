@@ -77,7 +77,7 @@ public class ConfigurationConfigExtensionReorientCommand extends
 			return false;
 		}
 		return RecipeBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistConfigurationConfigExtension_4002(getNewSource(),
+				.canExistConfigurationConfigExtension_304002(getNewSource(),
 						getOldTarget());
 	}
 
@@ -89,7 +89,7 @@ public class ConfigurationConfigExtensionReorientCommand extends
 			return false;
 		}
 		return RecipeBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistConfigurationConfigExtension_4002(getOldSource(),
+				.canExistConfigurationConfigExtension_304002(getOldSource(),
 						getNewTarget());
 	}
 

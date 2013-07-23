@@ -23,7 +23,7 @@ public class PrimitiveItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public PrimitiveItemSemanticEditPolicy() {
-		super(TypesrepositoryElementTypes.Primitive_3003);
+		super(TypesrepositoryElementTypes.Primitive_203003);
 	}
 
 	/**

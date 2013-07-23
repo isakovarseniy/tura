@@ -11,10 +11,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainApplications" lowerBound="1"
         eType="#//DomainApplications" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Dammy1" eSuperTypes="../typedefinition/typeDefinition.ecore#//TypeDefinition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Dammy2" eSuperTypes="../businessObjects/businessObjects.ecore#//BusinessObjects"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Dammy3" eSuperTypes="../recipe/recipe.ecore#//Recipes"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Dammy4" eSuperTypes="../mapper/mapper.ecore#//Mappers"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Dammy1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="d1" eType="ecore:EClass ../typedefinition/typeDefinition.ecore#//TypeDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dammy2">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="d2" eType="ecore:EClass ../businessObjects/businessObjects.ecore#//BusinessObjects"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dammy3">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="d3" eType="ecore:EClass ../recipe/recipe.ecore#//Recipes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dammy4">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="d4" eType="ecore:EClass ../mapper/mapper.ecore#//Mappers"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainArtifacts">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>

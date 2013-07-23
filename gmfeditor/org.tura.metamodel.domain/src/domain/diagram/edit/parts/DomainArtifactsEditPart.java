@@ -41,7 +41,7 @@ public class DomainArtifactsEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2007;
+	public static final int VISUAL_ID = 502001;
 
 	/**
 	 * @generated

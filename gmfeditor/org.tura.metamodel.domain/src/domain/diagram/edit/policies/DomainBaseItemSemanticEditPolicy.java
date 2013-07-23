@@ -330,20 +330,20 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTypeExtension_4001(Type container,
+		public boolean canCreateTypeExtension_504001(Type container,
 				TypeElement source, TypeElement target) {
 			if (container != null) {
 				if (container.getExtension() != null) {
 					return false;
 				}
 			}
-			return canExistTypeExtension_4001(container, null, source, target);
+			return canExistTypeExtension_504001(container, null, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateRecipeRecipeConfig_4002(Recipe source,
+		public boolean canCreateRecipeRecipeConfig_504002(Recipe source,
 				Configuration target) {
 			if (source != null) {
 				if (source.getRecipeConfig() != null) {
@@ -351,13 +351,13 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				}
 			}
 
-			return canExistRecipeRecipeConfig_4002(source, target);
+			return canExistRecipeRecipeConfig_504002(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateConfigurationConfigExtension_4003(
+		public boolean canCreateConfigurationConfigExtension_504003(
 				Configuration source, Configuration target) {
 			if (source != null) {
 				if (source.getConfigExtension() != null) {
@@ -365,13 +365,13 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				}
 			}
 
-			return canExistConfigurationConfigExtension_4003(source, target);
+			return canExistConfigurationConfigExtension_504003(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canExistTypeExtension_4001(Type container,
+		public boolean canExistTypeExtension_504001(Type container,
 				TypeExtension linkInstance, TypeElement source,
 				TypeElement target) {
 			return true;
@@ -380,7 +380,7 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistRecipeRecipeConfig_4002(Recipe source,
+		public boolean canExistRecipeRecipeConfig_504002(Recipe source,
 				Configuration target) {
 			return true;
 		}
@@ -388,7 +388,7 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistConfigurationConfigExtension_4003(
+		public boolean canExistConfigurationConfigExtension_504003(
 				Configuration source, Configuration target) {
 			return true;
 		}

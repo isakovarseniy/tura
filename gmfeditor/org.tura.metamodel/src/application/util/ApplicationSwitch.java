@@ -85,7 +85,6 @@ public class ApplicationSwitch<T> extends Switch<T>
       {
         Dummy5 dummy5 = (Dummy5)theEObject;
         T result = caseDummy5(dummy5);
-        if (result == null) result = caseTypeDefinition(dummy5);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -213,22 +212,6 @@ public class ApplicationSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseApplicationMapper(ApplicationMapper object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Type Definition</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type Definition</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTypeDefinition(TypeDefinition object)
   {
     return null;
   }

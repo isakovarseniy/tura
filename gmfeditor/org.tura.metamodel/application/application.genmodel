@@ -9,7 +9,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//Application/applicationRecipes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//Application/applicationMappers"/>
     </genClasses>
-    <genClasses ecoreClass="application.ecore#//Dummy5"/>
+    <genClasses ecoreClass="application.ecore#//Dummy5">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference application.ecore#//Dummy5/d5"/>
+    </genClasses>
     <genClasses ecoreClass="application.ecore#//ApplicationRecipes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//ApplicationRecipes/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//ApplicationRecipes/recipes"/>
@@ -69,6 +71,7 @@
   <genPackages prefix="Recipe" disposableProviderFactory="true" ecorePackage="../recipe/recipe.ecore#/">
     <genClasses ecoreClass="../recipe/recipe.ecore#//Recipes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../recipe/recipe.ecore#//Recipes/recipe"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../recipe/recipe.ecore#//Recipes/configurations"/>
     </genClasses>
     <genClasses ecoreClass="../recipe/recipe.ecore#//Recipe">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../recipe/recipe.ecore#//Recipe/name"/>

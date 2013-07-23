@@ -11,6 +11,12 @@ import application.ApplicationRecipe;
 import application.ApplicationRecipes;
 import application.Dummy5;
 
+import artifact.ArtifactPackage;
+import artifact.impl.ArtifactPackageImpl;
+import businessobjects.BusinessobjectsPackage;
+import businessobjects.impl.BusinessobjectsPackageImpl;
+import domain.DomainPackage;
+import domain.impl.DomainPackageImpl;
 import mapper.MapperPackage;
 
 import mapper.impl.MapperPackageImpl;
@@ -29,6 +35,8 @@ import recipe.impl.RecipePackageImpl;
 import typedefinition.TypedefinitionPackage;
 
 import typedefinition.impl.TypedefinitionPackageImpl;
+import typesrepository.TypesrepositoryPackage;
+import typesrepository.impl.TypesrepositoryPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -199,6 +207,16 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getDummy5_D5()
+  {
+    return (EReference)dummy5EClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getApplicationRecipes()
   {
     return applicationRecipesEClass;
@@ -349,6 +367,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
     createEReference(applicationEClass, APPLICATION__APPLICATION_MAPPERS);
 
     dummy5EClass = createEClass(DUMMY5);
+    createEReference(dummy5EClass, DUMMY5__D5);
 
     applicationRecipesEClass = createEClass(APPLICATION_RECIPES);
     createEAttribute(applicationRecipesEClass, APPLICATION_RECIPES__NAME);
@@ -401,7 +420,6 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    dummy5EClass.getESuperTypes().add(theTypedefinitionPackage.getTypeDefinition());
 
     // Initialize classes and features; add operations and parameters
     initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -409,6 +427,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
     initEReference(getApplication_ApplicationMappers(), this.getApplicationMappers(), null, "applicationMappers", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dummy5EClass, Dummy5.class, "Dummy5", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDummy5_D5(), theTypedefinitionPackage.getTypeDefinition(), null, "d5", null, 0, 1, Dummy5.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(applicationRecipesEClass, ApplicationRecipes.class, "ApplicationRecipes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getApplicationRecipes_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationRecipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

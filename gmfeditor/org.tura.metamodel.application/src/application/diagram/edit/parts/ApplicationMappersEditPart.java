@@ -41,7 +41,7 @@ public class ApplicationMappersEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2002;
+	public static final int VISUAL_ID = 802002;
 
 	/**
 	 * @generated

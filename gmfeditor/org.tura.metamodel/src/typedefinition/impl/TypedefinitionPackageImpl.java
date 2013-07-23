@@ -171,14 +171,20 @@ public class TypedefinitionPackageImpl extends EPackageImpl implements Typedefin
     isInited = true;
 
     // Obtain or create and register interdependencies
+    ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
+    RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
     MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
 
     // Create package meta-data objects
     theTypedefinitionPackage.createPackageContents();
+    theApplicationPackage.createPackageContents();
+    theRecipePackage.createPackageContents();
     theMapperPackage.createPackageContents();
 
     // Initialize created meta-data
     theTypedefinitionPackage.initializePackageContents();
+    theApplicationPackage.initializePackageContents();
+    theRecipePackage.initializePackageContents();
     theMapperPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed

@@ -19,14 +19,14 @@ public class ComponentComponentMappersCompartment2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ComponentComponentMappersCompartment2ItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Component_3002);
+		super(RecipeElementTypes.Component_303002);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RecipeElementTypes.ModelMapper_3003 == req.getElementType()) {
+		if (RecipeElementTypes.ModelMapper_303003 == req.getElementType()) {
 			return getGEFWrapper(new ModelMapperCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

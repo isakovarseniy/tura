@@ -23,7 +23,7 @@ public class EnumAttributeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public EnumAttributeItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.EnumAttribute_3005);
+		super(TypedefinitionElementTypes.EnumAttribute_103005);
 	}
 
 	/**

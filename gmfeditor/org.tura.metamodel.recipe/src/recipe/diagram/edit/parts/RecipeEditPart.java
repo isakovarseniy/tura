@@ -46,7 +46,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2004;
+	public static final int VISUAL_ID = 302004;
 
 	/**
 	 * @generated
@@ -285,7 +285,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(RecipeElementTypes.RecipeRecipeConfig_4001);
+		types.add(RecipeElementTypes.RecipeRecipeConfig_304001);
 		return types;
 	}
 
@@ -296,7 +296,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ConfigurationEditPart) {
-			types.add(RecipeElementTypes.RecipeRecipeConfig_4001);
+			types.add(RecipeElementTypes.RecipeRecipeConfig_304001);
 		}
 		return types;
 	}
@@ -306,8 +306,8 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RecipeElementTypes.RecipeRecipeConfig_4001) {
-			types.add(RecipeElementTypes.Configuration_2005);
+		if (relationshipType == RecipeElementTypes.RecipeRecipeConfig_304001) {
+			types.add(RecipeElementTypes.Configuration_302005);
 		}
 		return types;
 	}

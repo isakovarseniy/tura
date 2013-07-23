@@ -19,14 +19,14 @@ public class RecipeRecipeComponentsCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public RecipeRecipeComponentsCompartmentItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Recipe_2004);
+		super(RecipeElementTypes.Recipe_302004);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RecipeElementTypes.Component_3004 == req.getElementType()) {
+		if (RecipeElementTypes.Component_303004 == req.getElementType()) {
 			return getGEFWrapper(new ComponentCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

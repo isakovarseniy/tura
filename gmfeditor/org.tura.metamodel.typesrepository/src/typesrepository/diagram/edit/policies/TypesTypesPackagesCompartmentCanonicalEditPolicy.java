@@ -63,7 +63,7 @@ public class TypesTypesPackagesCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<TypesrepositoryNodeDescriptor> childDescriptors = TypesrepositoryDiagramUpdater
-				.getTypesTypesPackagesCompartment_7002SemanticChildren(viewObject);
+				.getTypesTypesPackagesCompartment_207002SemanticChildren(viewObject);
 		for (TypesrepositoryNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -96,7 +96,7 @@ public class TypesTypesPackagesCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<TypesrepositoryNodeDescriptor> childDescriptors = TypesrepositoryDiagramUpdater
-				.getTypesTypesPackagesCompartment_7002SemanticChildren((View) getHost()
+				.getTypesTypesPackagesCompartment_207002SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

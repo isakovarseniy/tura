@@ -94,7 +94,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<TypedefinitionNodeDescriptor> childDescriptors = TypedefinitionDiagramUpdater
-				.getTypeDefinition_1000SemanticChildren(viewObject);
+				.getTypeDefinition_101000SemanticChildren(viewObject);
 		for (TypedefinitionNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -139,7 +139,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<TypedefinitionNodeDescriptor> childDescriptors = TypedefinitionDiagramUpdater
-				.getTypeDefinition_1000SemanticChildren((View) getHost()
+				.getTypeDefinition_101000SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours and not shortcuts
@@ -287,7 +287,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case TypeDefinitionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getTypeDefinition_1000ContainedLinks(view));
+						.getTypeDefinition_101000ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -295,7 +295,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case TypeReferenceEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getTypeReference_2001ContainedLinks(view));
+						.getTypeReference_102001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -303,7 +303,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case TypeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getType_2002ContainedLinks(view));
+						.getType_102002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -311,7 +311,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case EnumaratorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getEnumarator_2003ContainedLinks(view));
+						.getEnumarator_102003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -319,7 +319,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case AttributeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getAttribute_3001ContainedLinks(view));
+						.getAttribute_103001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -327,7 +327,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case OperationEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getOperation_3002ContainedLinks(view));
+						.getOperation_103002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -335,7 +335,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case Attribute2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getAttribute_3003ContainedLinks(view));
+						.getAttribute_103003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -343,7 +343,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ReturnValueEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getReturnValue_3004ContainedLinks(view));
+						.getReturnValue_103004ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -351,7 +351,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case EnumAttributeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getEnumAttribute_3005ContainedLinks(view));
+						.getEnumAttribute_103005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -359,7 +359,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case TypeExtensionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(TypedefinitionDiagramUpdater
-						.getTypeExtension_4001ContainedLinks(view));
+						.getTypeExtension_104001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

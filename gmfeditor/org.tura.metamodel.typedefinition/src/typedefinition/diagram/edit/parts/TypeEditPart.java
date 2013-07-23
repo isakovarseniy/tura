@@ -47,7 +47,7 @@ public class TypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2002;
+	public static final int VISUAL_ID = 102002;
 
 	/**
 	 * @generated
@@ -304,7 +304,7 @@ public class TypeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(TypedefinitionElementTypes.TypeExtension_4001);
+		types.add(TypedefinitionElementTypes.TypeExtension_104001);
 		return types;
 	}
 
@@ -315,10 +315,10 @@ public class TypeEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof TypeReferenceEditPart) {
-			types.add(TypedefinitionElementTypes.TypeExtension_4001);
+			types.add(TypedefinitionElementTypes.TypeExtension_104001);
 		}
 		if (targetEditPart instanceof typedefinition.diagram.edit.parts.TypeEditPart) {
-			types.add(TypedefinitionElementTypes.TypeExtension_4001);
+			types.add(TypedefinitionElementTypes.TypeExtension_104001);
 		}
 		return types;
 	}
@@ -328,9 +328,9 @@ public class TypeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == TypedefinitionElementTypes.TypeExtension_4001) {
-			types.add(TypedefinitionElementTypes.TypeReference_2001);
-			types.add(TypedefinitionElementTypes.Type_2002);
+		if (relationshipType == TypedefinitionElementTypes.TypeExtension_104001) {
+			types.add(TypedefinitionElementTypes.TypeReference_102001);
+			types.add(TypedefinitionElementTypes.Type_102002);
 		}
 		return types;
 	}
@@ -340,7 +340,7 @@ public class TypeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(TypedefinitionElementTypes.TypeExtension_4001);
+		types.add(TypedefinitionElementTypes.TypeExtension_104001);
 		return types;
 	}
 
@@ -349,9 +349,9 @@ public class TypeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == TypedefinitionElementTypes.TypeExtension_4001) {
-			types.add(TypedefinitionElementTypes.TypeReference_2001);
-			types.add(TypedefinitionElementTypes.Type_2002);
+		if (relationshipType == TypedefinitionElementTypes.TypeExtension_104001) {
+			types.add(TypedefinitionElementTypes.TypeReference_102001);
+			types.add(TypedefinitionElementTypes.Type_102002);
 		}
 		return types;
 	}

@@ -361,42 +361,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Recipes_1000_links;
+	public static String NavigatorGroupName_Recipes_301000_links;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Configuration_2005_incominglinks;
+	public static String NavigatorGroupName_Configuration_302005_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Configuration_2005_outgoinglinks;
+	public static String NavigatorGroupName_Configuration_302005_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_4002_target;
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304002_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_4002_source;
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304002_source;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Recipe_2004_outgoinglinks;
+	public static String NavigatorGroupName_RecipeRecipeConfig_304001_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecipeRecipeConfig_4001_target;
+	public static String NavigatorGroupName_RecipeRecipeConfig_304001_source;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecipeRecipeConfig_4001_source;
+	public static String NavigatorGroupName_Recipe_302004_outgoinglinks;
 
 	/**
 	 * @generated

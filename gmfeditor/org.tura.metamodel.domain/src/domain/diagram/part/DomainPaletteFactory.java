@@ -67,10 +67,10 @@ public class DomainPaletteFactory {
 				Messages.DomainApplication1CreationTool_title,
 				Messages.DomainApplication1CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.DomainApplication_3002));
+						.singletonList(DomainElementTypes.DomainApplication_503001));
 		entry.setId("createDomainApplication1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.DomainApplication_3002));
+				.getImageDescriptor(DomainElementTypes.DomainApplication_503001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -83,10 +83,10 @@ public class DomainPaletteFactory {
 				Messages.DomainApplications2CreationTool_title,
 				Messages.DomainApplications2CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.DomainApplications_2009));
+						.singletonList(DomainElementTypes.DomainApplications_502003));
 		entry.setId("createDomainApplications2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.DomainApplications_2009));
+				.getImageDescriptor(DomainElementTypes.DomainApplications_502003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -99,10 +99,10 @@ public class DomainPaletteFactory {
 				Messages.DomainArtifacts3CreationTool_title,
 				Messages.DomainArtifacts3CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.DomainArtifacts_2007));
+						.singletonList(DomainElementTypes.DomainArtifacts_502001));
 		entry.setId("createDomainArtifacts3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.DomainArtifacts_2007));
+				.getImageDescriptor(DomainElementTypes.DomainArtifacts_502001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -114,10 +114,11 @@ public class DomainPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.DomainTypes4CreationTool_title,
 				Messages.DomainTypes4CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.DomainTypes_2008));
+				Collections
+						.singletonList(DomainElementTypes.DomainTypes_502002));
 		entry.setId("createDomainTypes4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.DomainTypes_2008));
+				.getImageDescriptor(DomainElementTypes.DomainTypes_502002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -130,10 +131,10 @@ public class DomainPaletteFactory {
 				Messages.ConfigExtension1CreationTool_title,
 				Messages.ConfigExtension1CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.ConfigurationConfigExtension_4003));
+						.singletonList(DomainElementTypes.ConfigurationConfigExtension_504003));
 		entry.setId("createConfigExtension1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.ConfigurationConfigExtension_4003));
+				.getImageDescriptor(DomainElementTypes.ConfigurationConfigExtension_504003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -146,10 +147,10 @@ public class DomainPaletteFactory {
 				Messages.RecipeConfig2CreationTool_title,
 				Messages.RecipeConfig2CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.RecipeRecipeConfig_4002));
+						.singletonList(DomainElementTypes.RecipeRecipeConfig_504002));
 		entry.setId("createRecipeConfig2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.RecipeRecipeConfig_4002));
+				.getImageDescriptor(DomainElementTypes.RecipeRecipeConfig_504002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -162,10 +163,10 @@ public class DomainPaletteFactory {
 				Messages.TypeExtension3CreationTool_title,
 				Messages.TypeExtension3CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.TypeExtension_4001));
+						.singletonList(DomainElementTypes.TypeExtension_504001));
 		entry.setId("createTypeExtension3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.TypeExtension_4001));
+				.getImageDescriptor(DomainElementTypes.TypeExtension_504001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

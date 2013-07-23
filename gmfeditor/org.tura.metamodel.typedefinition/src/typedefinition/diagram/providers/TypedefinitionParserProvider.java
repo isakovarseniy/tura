@@ -37,149 +37,149 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser typeReferencePackageNameTypeName_5001Parser;
+	private IParser typeReferencePackageNameTypeName_105001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTypeReferencePackageNameTypeName_5001Parser() {
-		if (typeReferencePackageNameTypeName_5001Parser == null) {
+	private IParser getTypeReferencePackageNameTypeName_105001Parser() {
+		if (typeReferencePackageNameTypeName_105001Parser == null) {
 			EAttribute[] features = new EAttribute[] {
 					TypedefinitionPackage.eINSTANCE
 							.getTypePointer_PackageName(),
 					TypedefinitionPackage.eINSTANCE.getTypePointer_TypeName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			typeReferencePackageNameTypeName_5001Parser = parser;
+			typeReferencePackageNameTypeName_105001Parser = parser;
 		}
-		return typeReferencePackageNameTypeName_5001Parser;
+		return typeReferencePackageNameTypeName_105001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser typeName_5006Parser;
+	private IParser typeName_105006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTypeName_5006Parser() {
-		if (typeName_5006Parser == null) {
+	private IParser getTypeName_105006Parser() {
+		if (typeName_105006Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
 					.getType_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			typeName_5006Parser = parser;
+			typeName_105006Parser = parser;
 		}
-		return typeName_5006Parser;
+		return typeName_105006Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser enumaratorName_5008Parser;
+	private IParser enumaratorName_105008Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getEnumaratorName_5008Parser() {
-		if (enumaratorName_5008Parser == null) {
+	private IParser getEnumaratorName_105008Parser() {
+		if (enumaratorName_105008Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
 					.getEnumarator_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			enumaratorName_5008Parser = parser;
+			enumaratorName_105008Parser = parser;
 		}
-		return enumaratorName_5008Parser;
+		return enumaratorName_105008Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser attributeName_5002Parser;
+	private IParser attributeName_105002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAttributeName_5002Parser() {
-		if (attributeName_5002Parser == null) {
+	private IParser getAttributeName_105002Parser() {
+		if (attributeName_105002Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
 					.getAttribute_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			attributeName_5002Parser = parser;
+			attributeName_105002Parser = parser;
 		}
-		return attributeName_5002Parser;
+		return attributeName_105002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser operationName_5005Parser;
+	private IParser operationName_105005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getOperationName_5005Parser() {
-		if (operationName_5005Parser == null) {
+	private IParser getOperationName_105005Parser() {
+		if (operationName_105005Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
 					.getOperation_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			operationName_5005Parser = parser;
+			operationName_105005Parser = parser;
 		}
-		return operationName_5005Parser;
+		return operationName_105005Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser attributeName_5003Parser;
+	private IParser attributeName_105003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAttributeName_5003Parser() {
-		if (attributeName_5003Parser == null) {
+	private IParser getAttributeName_105003Parser() {
+		if (attributeName_105003Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
 					.getAttribute_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			attributeName_5003Parser = parser;
+			attributeName_105003Parser = parser;
 		}
-		return attributeName_5003Parser;
+		return attributeName_105003Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser returnValuePackageNameTypeName_5004Parser;
+	private IParser returnValuePackageNameTypeName_105004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getReturnValuePackageNameTypeName_5004Parser() {
-		if (returnValuePackageNameTypeName_5004Parser == null) {
+	private IParser getReturnValuePackageNameTypeName_105004Parser() {
+		if (returnValuePackageNameTypeName_105004Parser == null) {
 			EAttribute[] features = new EAttribute[] {
 					TypedefinitionPackage.eINSTANCE
 							.getTypePointer_PackageName(),
 					TypedefinitionPackage.eINSTANCE.getTypePointer_TypeName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			returnValuePackageNameTypeName_5004Parser = parser;
+			returnValuePackageNameTypeName_105004Parser = parser;
 		}
-		return returnValuePackageNameTypeName_5004Parser;
+		return returnValuePackageNameTypeName_105004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser enumAttributeName_5007Parser;
+	private IParser enumAttributeName_105007Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getEnumAttributeName_5007Parser() {
-		if (enumAttributeName_5007Parser == null) {
+	private IParser getEnumAttributeName_105007Parser() {
+		if (enumAttributeName_105007Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
 					.getEnumAttribute_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			enumAttributeName_5007Parser = parser;
+			enumAttributeName_105007Parser = parser;
 		}
-		return enumAttributeName_5007Parser;
+		return enumAttributeName_105007Parser;
 	}
 
 	/**
@@ -188,21 +188,21 @@ public class TypedefinitionParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case TypeReferencePackageNameTypeNameEditPart.VISUAL_ID:
-			return getTypeReferencePackageNameTypeName_5001Parser();
+			return getTypeReferencePackageNameTypeName_105001Parser();
 		case TypeNameEditPart.VISUAL_ID:
-			return getTypeName_5006Parser();
+			return getTypeName_105006Parser();
 		case EnumaratorNameEditPart.VISUAL_ID:
-			return getEnumaratorName_5008Parser();
+			return getEnumaratorName_105008Parser();
 		case AttributeNameEditPart.VISUAL_ID:
-			return getAttributeName_5002Parser();
+			return getAttributeName_105002Parser();
 		case OperationNameEditPart.VISUAL_ID:
-			return getOperationName_5005Parser();
+			return getOperationName_105005Parser();
 		case AttributeName2EditPart.VISUAL_ID:
-			return getAttributeName_5003Parser();
+			return getAttributeName_105003Parser();
 		case ReturnValuePackageNameTypeNameEditPart.VISUAL_ID:
-			return getReturnValuePackageNameTypeName_5004Parser();
+			return getReturnValuePackageNameTypeName_105004Parser();
 		case EnumAttributeNameEditPart.VISUAL_ID:
-			return getEnumAttributeName_5007Parser();
+			return getEnumAttributeName_105007Parser();
 		}
 		return null;
 	}

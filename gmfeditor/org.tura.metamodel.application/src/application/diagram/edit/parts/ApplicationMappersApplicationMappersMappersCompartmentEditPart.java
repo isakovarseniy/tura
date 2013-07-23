@@ -28,7 +28,7 @@ public class ApplicationMappersApplicationMappersMappersCompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7002;
+	public static final int VISUAL_ID = 807002;
 
 	/**
 	 * @generated

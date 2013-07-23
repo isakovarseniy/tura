@@ -40,7 +40,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public BusinessObjectItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.BusinessObject_2003);
+		super(BusinessobjectsElementTypes.BusinessObject_602003);
 	}
 
 	/**

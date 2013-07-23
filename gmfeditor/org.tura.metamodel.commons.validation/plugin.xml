@@ -12,26 +12,20 @@
             constraints="rules/typedefinitionValidationRules.evl"
             namespaceURI="http://tura.org/2013/v1/typesrepository">
       </constraintsBinding>
-
-
    </extension>
-
+   
 
     <extension
          point="org.eclipse.ui.ide.markerResolution">
       <markerResolutionGenerator
             class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
-            markerType="org.tura.metamodel.diagram.diagnostic">
+            markerType="org.tura.metamodel.typesrepository.diagnostic">
       </markerResolutionGenerator>
       <markerResolutionGenerator
             class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
             markerType="org.eclipse.emf.ecore.diagnostic">
       </markerResolutionGenerator>
-   </extension>  
-
-   
-
-   
+   </extension>     
    
    
 </plugin>

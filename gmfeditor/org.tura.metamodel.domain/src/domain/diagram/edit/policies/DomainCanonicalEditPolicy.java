@@ -92,7 +92,7 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getDomain_1000SemanticChildren(viewObject);
+				.getDomain_501000SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -137,7 +137,7 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getDomain_1000SemanticChildren((View) getHost().getModel());
+				.getDomain_501000SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours and not shortcuts
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
@@ -282,7 +282,7 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 		case DomainEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getDomain_1000ContainedLinks(view));
+						.getDomain_501000ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -290,7 +290,7 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 		case DomainArtifactsEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getDomainArtifacts_2007ContainedLinks(view));
+						.getDomainArtifacts_502001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -298,7 +298,7 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 		case DomainTypesEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getDomainTypes_2008ContainedLinks(view));
+						.getDomainTypes_502002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -306,7 +306,7 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 		case DomainApplicationsEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getDomainApplications_2009ContainedLinks(view));
+						.getDomainApplications_502003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -314,7 +314,7 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 		case DomainApplicationEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getDomainApplication_3002ContainedLinks(view));
+						.getDomainApplication_503001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -322,7 +322,7 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 		case TypeExtensionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getTypeExtension_4001ContainedLinks(view));
+						.getTypeExtension_504001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

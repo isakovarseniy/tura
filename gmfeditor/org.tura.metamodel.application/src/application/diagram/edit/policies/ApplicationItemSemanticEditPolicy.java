@@ -24,18 +24,18 @@ public class ApplicationItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ApplicationItemSemanticEditPolicy() {
-		super(ApplicationElementTypes.Application_1000);
+		super(ApplicationElementTypes.Application_801000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (ApplicationElementTypes.ApplicationRecipes_2001 == req
+		if (ApplicationElementTypes.ApplicationRecipes_802001 == req
 				.getElementType()) {
 			return getGEFWrapper(new ApplicationRecipesCreateCommand(req));
 		}
-		if (ApplicationElementTypes.ApplicationMappers_2002 == req
+		if (ApplicationElementTypes.ApplicationMappers_802002 == req
 				.getElementType()) {
 			return getGEFWrapper(new ApplicationMappersCreateCommand(req));
 		}

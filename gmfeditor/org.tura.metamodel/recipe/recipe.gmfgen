@@ -8,7 +8,7 @@
     templateDirectory="/org.tura.metamodel/templates/"
     copyrightText="">
   <diagram
-      visualID="1000"
+      visualID="301000"
       editPartClassName="RecipesEditPart"
       itemSemanticEditPolicyClassName="RecipesItemSemanticEditPolicy"
       canonicalEditPolicyClassName="RecipesCanonicalEditPolicy"
@@ -30,7 +30,7 @@
     <domainDiagramElement
         href="recipe.genmodel#//recipe/Recipes"/>
     <childNodes
-        visualID="3004"
+        visualID="303004"
         editPartClassName="ComponentEditPart"
         itemSemanticEditPolicyClassName="ComponentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentCanonicalEditPolicy"
@@ -58,7 +58,7 @@
             href="recipe.genmodel#//recipe/Recipe/components"/>
       </modelFacet>
       <labels
-          visualID="5008"
+          visualID="305008"
           editPartClassName="ComponentNameEditPart"
           itemSemanticEditPolicyClassName="ComponentNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -77,7 +77,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3002"
+        visualID="303002"
         editPartClassName="Component2EditPart"
         itemSemanticEditPolicyClassName="Component2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="Component2CanonicalEditPolicy"
@@ -105,7 +105,7 @@
             href="recipe.genmodel#//recipe/Component/components"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="305002"
           editPartClassName="ComponentName2EditPart"
           itemSemanticEditPolicyClassName="ComponentName2ItemSemanticEditPolicy"
           elementIcon="true">
@@ -124,7 +124,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3003"
+        visualID="303003"
         editPartClassName="ModelMapperEditPart"
         itemSemanticEditPolicyClassName="ModelMapperItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ModelMapperCanonicalEditPolicy"
@@ -154,7 +154,7 @@
             href="recipe.genmodel#//recipe/Component/mappers"/>
       </modelFacet>
       <labels
-          visualID="5001"
+          visualID="305001"
           editPartClassName="ModelMapperNameEditPart"
           itemSemanticEditPolicyClassName="ModelMapperNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -173,7 +173,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3005"
+        visualID="303005"
         editPartClassName="PropertyEditPart"
         itemSemanticEditPolicyClassName="PropertyItemSemanticEditPolicy"
         canonicalEditPolicyClassName="PropertyCanonicalEditPolicy"
@@ -203,7 +203,7 @@
             href="recipe.genmodel#//recipe/Configuration/properties"/>
       </modelFacet>
       <labels
-          visualID="5010"
+          visualID="305010"
           editPartClassName="PropertyNameEditPart"
           itemSemanticEditPolicyClassName="PropertyNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -222,7 +222,7 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="2004"
+        visualID="302004"
         editPartClassName="RecipeEditPart"
         itemSemanticEditPolicyClassName="RecipeItemSemanticEditPolicy"
         canonicalEditPolicyClassName="RecipeCanonicalEditPolicy"
@@ -249,7 +249,7 @@
             href="recipe.genmodel#//recipe/Recipes/recipe"/>
       </modelFacet>
       <labels
-          visualID="5009"
+          visualID="305009"
           editPartClassName="RecipeNameEditPart"
           itemSemanticEditPolicyClassName="RecipeNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -268,7 +268,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2005"
+        visualID="302005"
         editPartClassName="ConfigurationEditPart"
         itemSemanticEditPolicyClassName="ConfigurationItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ConfigurationCanonicalEditPolicy"
@@ -295,7 +295,7 @@
             href="recipe.genmodel#//recipe/Recipes/configurations"/>
       </modelFacet>
       <labels
-          visualID="5011"
+          visualID="305011"
           editPartClassName="ConfigurationNameEditPart"
           itemSemanticEditPolicyClassName="ConfigurationNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -314,7 +314,7 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="4001"
+        visualID="304001"
         editPartClassName="RecipeRecipeConfigEditPart"
         itemSemanticEditPolicyClassName="RecipeRecipeConfigItemSemanticEditPolicy"
         createCommandClassName="RecipeRecipeConfigCreateCommand"
@@ -333,7 +333,7 @@
             href="recipe.genmodel#//recipe/Recipe/recipeConfig"/>
       </modelFacet>
       <labels
-          visualID="6001"
+          visualID="306001"
           editPartClassName="WrappingLabelEditPart"
           itemSemanticEditPolicyClassName="WrappingLabelItemSemanticEditPolicy"
           readOnly="true">
@@ -352,7 +352,7 @@
       </labels>
     </links>
     <links
-        visualID="4002"
+        visualID="304002"
         editPartClassName="ConfigurationConfigExtensionEditPart"
         itemSemanticEditPolicyClassName="ConfigurationConfigExtensionItemSemanticEditPolicy"
         createCommandClassName="ConfigurationConfigExtensionCreateCommand"
@@ -371,7 +371,7 @@
             href="recipe.genmodel#//recipe/Configuration/configExtension"/>
       </modelFacet>
       <labels
-          visualID="6002"
+          visualID="306002"
           editPartClassName="WrappingLabel2EditPart"
           itemSemanticEditPolicyClassName="WrappingLabel2ItemSemanticEditPolicy"
           readOnly="true">
@@ -390,7 +390,7 @@
       </labels>
     </links>
     <compartments
-        visualID="7009"
+        visualID="307009"
         editPartClassName="RecipeRecipeComponentsCompartmentEditPart"
         itemSemanticEditPolicyClassName="RecipeRecipeComponentsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="RecipeRecipeComponentsCompartmentCanonicalEditPolicy"
@@ -407,7 +407,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7010"
+        visualID="307010"
         editPartClassName="ComponentComponentComponentsCompartmentEditPart"
         itemSemanticEditPolicyClassName="ComponentComponentComponentsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentComponentComponentsCompartmentCanonicalEditPolicy"
@@ -424,7 +424,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7011"
+        visualID="307011"
         editPartClassName="ComponentComponentMappersCompartmentEditPart"
         itemSemanticEditPolicyClassName="ComponentComponentMappersCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentComponentMappersCompartmentCanonicalEditPolicy"
@@ -440,7 +440,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7004"
+        visualID="307004"
         editPartClassName="ComponentComponentComponentsCompartment2EditPart"
         itemSemanticEditPolicyClassName="ComponentComponentComponentsCompartment2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentComponentComponentsCompartment2CanonicalEditPolicy"
@@ -457,7 +457,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7005"
+        visualID="307005"
         editPartClassName="ComponentComponentMappersCompartment2EditPart"
         itemSemanticEditPolicyClassName="ComponentComponentMappersCompartment2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentComponentMappersCompartment2CanonicalEditPolicy"
@@ -473,7 +473,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7012"
+        visualID="307012"
         editPartClassName="ConfigurationConfigurationPropertiesCompartmentEditPart"
         itemSemanticEditPolicyClassName="ConfigurationConfigurationPropertiesCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ConfigurationConfigurationPropertiesCompartmentCanonicalEditPolicy"

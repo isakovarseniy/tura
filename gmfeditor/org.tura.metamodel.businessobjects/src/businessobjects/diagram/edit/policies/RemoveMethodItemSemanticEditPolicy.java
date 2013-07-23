@@ -23,7 +23,7 @@ public class RemoveMethodItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public RemoveMethodItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.RemoveMethod_3012);
+		super(BusinessobjectsElementTypes.RemoveMethod_603012);
 	}
 
 	/**

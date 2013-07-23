@@ -41,7 +41,7 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2003;
+	public static final int VISUAL_ID = 602003;
 
 	/**
 	 * @generated

@@ -23,14 +23,14 @@ public class MappersItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public MappersItemSemanticEditPolicy() {
-		super(MapperElementTypes.Mappers_1000);
+		super(MapperElementTypes.Mappers_401000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (MapperElementTypes.JavaMapper_2002 == req.getElementType()) {
+		if (MapperElementTypes.JavaMapper_402002 == req.getElementType()) {
 			return getGEFWrapper(new JavaMapperCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

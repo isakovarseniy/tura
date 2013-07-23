@@ -36,7 +36,7 @@ public class PropertyEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3005;
+	public static final int VISUAL_ID = 303005;
 
 	/**
 	 * @generated

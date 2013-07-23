@@ -30,7 +30,7 @@ public class DomainApplicationsItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public DomainApplicationsItemSemanticEditPolicy() {
-		super(DomainElementTypes.DomainApplications_2009);
+		super(DomainElementTypes.DomainApplications_502003);
 	}
 
 	/**

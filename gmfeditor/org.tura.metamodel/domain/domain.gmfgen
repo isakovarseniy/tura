@@ -8,7 +8,7 @@
     templateDirectory="/org.tura.metamodel/templates/"
     copyrightText="">
   <diagram
-      visualID="1000"
+      visualID="501000"
       editPartClassName="DomainEditPart"
       itemSemanticEditPolicyClassName="DomainItemSemanticEditPolicy"
       canonicalEditPolicyClassName="DomainCanonicalEditPolicy"
@@ -30,7 +30,7 @@
     <domainDiagramElement
         href="domain.genmodel#//domain/Domain"/>
     <childNodes
-        visualID="3002"
+        visualID="503001"
         editPartClassName="DomainApplicationEditPart"
         itemSemanticEditPolicyClassName="DomainApplicationItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DomainApplicationCanonicalEditPolicy"
@@ -60,7 +60,7 @@
             href="domain.genmodel#//domain/DomainApplications/applications"/>
       </modelFacet>
       <labels
-          visualID="5016"
+          visualID="505003"
           editPartClassName="DomainApplicationNameEditPart"
           itemSemanticEditPolicyClassName="DomainApplicationNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -79,7 +79,7 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="2007"
+        visualID="502001"
         editPartClassName="DomainArtifactsEditPart"
         itemSemanticEditPolicyClassName="DomainArtifactsItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DomainArtifactsCanonicalEditPolicy"
@@ -108,7 +108,7 @@
             href="domain.genmodel#//domain/Domain/domainArtifacts"/>
       </modelFacet>
       <labels
-          visualID="5012"
+          visualID="505001"
           editPartClassName="DomainArtifactsNameEditPart"
           itemSemanticEditPolicyClassName="DomainArtifactsNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -127,7 +127,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2008"
+        visualID="502002"
         editPartClassName="DomainTypesEditPart"
         itemSemanticEditPolicyClassName="DomainTypesItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DomainTypesCanonicalEditPolicy"
@@ -156,7 +156,7 @@
             href="domain.genmodel#//domain/Domain/domainTypes"/>
       </modelFacet>
       <labels
-          visualID="5013"
+          visualID="505002"
           editPartClassName="DomainTypesNameEditPart"
           itemSemanticEditPolicyClassName="DomainTypesNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -175,7 +175,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2009"
+        visualID="502003"
         editPartClassName="DomainApplicationsEditPart"
         itemSemanticEditPolicyClassName="DomainApplicationsItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DomainApplicationsCanonicalEditPolicy"
@@ -202,7 +202,7 @@
             href="domain.genmodel#//domain/Domain/domainApplications"/>
       </modelFacet>
       <labels
-          visualID="5014"
+          visualID="505004"
           editPartClassName="DomainApplicationsNameEditPart"
           itemSemanticEditPolicyClassName="DomainApplicationsNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -221,7 +221,7 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="4001"
+        visualID="504001"
         editPartClassName="TypeExtensionEditPart"
         itemSemanticEditPolicyClassName="TypeExtensionItemSemanticEditPolicy"
         createCommandClassName="TypeExtensionCreateCommand"
@@ -250,7 +250,7 @@
       </modelFacet>
     </links>
     <links
-        visualID="4002"
+        visualID="504002"
         editPartClassName="RecipeRecipeConfigEditPart"
         itemSemanticEditPolicyClassName="RecipeRecipeConfigItemSemanticEditPolicy"
         createCommandClassName="RecipeRecipeConfigCreateCommand"
@@ -269,7 +269,7 @@
             href="domain.genmodel#//recipe/Recipe/recipeConfig"/>
       </modelFacet>
       <labels
-          visualID="6001"
+          visualID="506001"
           editPartClassName="WrappingLabelEditPart"
           itemSemanticEditPolicyClassName="WrappingLabelItemSemanticEditPolicy"
           readOnly="true">
@@ -288,7 +288,7 @@
       </labels>
     </links>
     <links
-        visualID="4003"
+        visualID="504003"
         editPartClassName="ConfigurationConfigExtensionEditPart"
         itemSemanticEditPolicyClassName="ConfigurationConfigExtensionItemSemanticEditPolicy"
         createCommandClassName="ConfigurationConfigExtensionCreateCommand"
@@ -307,7 +307,7 @@
             href="domain.genmodel#//recipe/Configuration/configExtension"/>
       </modelFacet>
       <labels
-          visualID="6002"
+          visualID="506002"
           editPartClassName="WrappingLabel2EditPart"
           itemSemanticEditPolicyClassName="WrappingLabel2ItemSemanticEditPolicy"
           readOnly="true">
@@ -326,7 +326,7 @@
       </labels>
     </links>
     <compartments
-        visualID="7002"
+        visualID="507001"
         editPartClassName="DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart"
         itemSemanticEditPolicyClassName="DomainApplicationsDomainApplicationsApplicationsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DomainApplicationsDomainApplicationsApplicationsCompartmentCanonicalEditPolicy"

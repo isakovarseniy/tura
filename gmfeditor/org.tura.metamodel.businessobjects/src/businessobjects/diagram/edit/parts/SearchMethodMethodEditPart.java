@@ -61,7 +61,7 @@ public class SearchMethodMethodEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5016;
+	public static final int VISUAL_ID = 605016;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class SearchMethodMethodEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = BusinessobjectsParserProvider
 					.getParser(
-							BusinessobjectsElementTypes.SearchMethod_3013,
+							BusinessobjectsElementTypes.SearchMethod_603013,
 							getParserElement(),
 							BusinessobjectsVisualIDRegistry
 									.getType(businessobjects.diagram.edit.parts.SearchMethodMethodEditPart.VISUAL_ID));

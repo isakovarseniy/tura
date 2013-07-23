@@ -58,7 +58,7 @@ public class RecipeRecipeConfigCreateCommand extends EditElementCommand {
 		}
 		// target may be null here but it's possible to check constraint
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateRecipeRecipeConfig_4002(getSource(), getTarget());
+				.canCreateRecipeRecipeConfig_504002(getSource(), getTarget());
 	}
 
 	/**

@@ -2,6 +2,7 @@
  */
 package application.presentation;
 
+import domain.presentation.DomainEditorPlugin;
 import java.util.ArrayList;
 import java.util.Collection;
 

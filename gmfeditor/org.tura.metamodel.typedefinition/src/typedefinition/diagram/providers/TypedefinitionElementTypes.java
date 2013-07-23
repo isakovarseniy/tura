@@ -61,43 +61,52 @@ public class TypedefinitionElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeDefinition_1000 = getElementType("org.tura.metamodel.typedefinition.TypeDefinition_1000"); //$NON-NLS-1$
+	public static final IElementType TypeDefinition_101000 = getElementType("org.tura.metamodel.typedefinition.TypeDefinition_101000"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeReference_2001 = getElementType("org.tura.metamodel.typedefinition.TypeReference_2001"); //$NON-NLS-1$
+	public static final IElementType TypeReference_102001 = getElementType("org.tura.metamodel.typedefinition.TypeReference_102001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Type_2002 = getElementType("org.tura.metamodel.typedefinition.Type_2002"); //$NON-NLS-1$
+	public static final IElementType Type_102002 = getElementType("org.tura.metamodel.typedefinition.Type_102002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Enumarator_2003 = getElementType("org.tura.metamodel.typedefinition.Enumarator_2003"); //$NON-NLS-1$
+	public static final IElementType Enumarator_102003 = getElementType("org.tura.metamodel.typedefinition.Enumarator_102003"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Attribute_3001 = getElementType("org.tura.metamodel.typedefinition.Attribute_3001"); //$NON-NLS-1$
+	public static final IElementType Attribute_103001 = getElementType("org.tura.metamodel.typedefinition.Attribute_103001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Operation_3002 = getElementType("org.tura.metamodel.typedefinition.Operation_3002"); //$NON-NLS-1$
+	public static final IElementType Operation_103002 = getElementType("org.tura.metamodel.typedefinition.Operation_103002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Attribute_3003 = getElementType("org.tura.metamodel.typedefinition.Attribute_3003"); //$NON-NLS-1$
+	public static final IElementType Attribute_103003 = getElementType("org.tura.metamodel.typedefinition.Attribute_103003"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType ReturnValue_3004 = getElementType("org.tura.metamodel.typedefinition.ReturnValue_3004"); //$NON-NLS-1$
+	public static final IElementType ReturnValue_103004 = getElementType("org.tura.metamodel.typedefinition.ReturnValue_103004"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType EnumAttribute_3005 = getElementType("org.tura.metamodel.typedefinition.EnumAttribute_3005"); //$NON-NLS-1$
+	public static final IElementType EnumAttribute_103005 = getElementType("org.tura.metamodel.typedefinition.EnumAttribute_103005"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeExtension_4001 = getElementType("org.tura.metamodel.typedefinition.TypeExtension_4001"); //$NON-NLS-1$
+	public static final IElementType TypeExtension_104001 = getElementType("org.tura.metamodel.typedefinition.TypeExtension_104001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -210,33 +219,33 @@ public class TypedefinitionElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(TypeDefinition_1000,
+			elements.put(TypeDefinition_101000,
 					TypedefinitionPackage.eINSTANCE.getTypeDefinition());
 
-			elements.put(TypeReference_2001,
+			elements.put(TypeReference_102001,
 					TypedefinitionPackage.eINSTANCE.getTypeReference());
 
-			elements.put(Type_2002, TypedefinitionPackage.eINSTANCE.getType());
+			elements.put(Type_102002, TypedefinitionPackage.eINSTANCE.getType());
 
-			elements.put(Enumarator_2003,
+			elements.put(Enumarator_102003,
 					TypedefinitionPackage.eINSTANCE.getEnumarator());
 
-			elements.put(Attribute_3001,
+			elements.put(Attribute_103001,
 					TypedefinitionPackage.eINSTANCE.getAttribute());
 
-			elements.put(Operation_3002,
+			elements.put(Operation_103002,
 					TypedefinitionPackage.eINSTANCE.getOperation());
 
-			elements.put(Attribute_3003,
+			elements.put(Attribute_103003,
 					TypedefinitionPackage.eINSTANCE.getAttribute());
 
-			elements.put(ReturnValue_3004,
+			elements.put(ReturnValue_103004,
 					TypedefinitionPackage.eINSTANCE.getReturnValue());
 
-			elements.put(EnumAttribute_3005,
+			elements.put(EnumAttribute_103005,
 					TypedefinitionPackage.eINSTANCE.getEnumAttribute());
 
-			elements.put(TypeExtension_4001,
+			elements.put(TypeExtension_104001,
 					TypedefinitionPackage.eINSTANCE.getTypeExtension());
 		}
 		return (ENamedElement) elements.get(type);
@@ -255,16 +264,16 @@ public class TypedefinitionElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(TypeDefinition_1000);
-			KNOWN_ELEMENT_TYPES.add(TypeReference_2001);
-			KNOWN_ELEMENT_TYPES.add(Type_2002);
-			KNOWN_ELEMENT_TYPES.add(Enumarator_2003);
-			KNOWN_ELEMENT_TYPES.add(Attribute_3001);
-			KNOWN_ELEMENT_TYPES.add(Operation_3002);
-			KNOWN_ELEMENT_TYPES.add(Attribute_3003);
-			KNOWN_ELEMENT_TYPES.add(ReturnValue_3004);
-			KNOWN_ELEMENT_TYPES.add(EnumAttribute_3005);
-			KNOWN_ELEMENT_TYPES.add(TypeExtension_4001);
+			KNOWN_ELEMENT_TYPES.add(TypeDefinition_101000);
+			KNOWN_ELEMENT_TYPES.add(TypeReference_102001);
+			KNOWN_ELEMENT_TYPES.add(Type_102002);
+			KNOWN_ELEMENT_TYPES.add(Enumarator_102003);
+			KNOWN_ELEMENT_TYPES.add(Attribute_103001);
+			KNOWN_ELEMENT_TYPES.add(Operation_103002);
+			KNOWN_ELEMENT_TYPES.add(Attribute_103003);
+			KNOWN_ELEMENT_TYPES.add(ReturnValue_103004);
+			KNOWN_ELEMENT_TYPES.add(EnumAttribute_103005);
+			KNOWN_ELEMENT_TYPES.add(TypeExtension_104001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -275,25 +284,25 @@ public class TypedefinitionElementTypes {
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case TypeDefinitionEditPart.VISUAL_ID:
-			return TypeDefinition_1000;
+			return TypeDefinition_101000;
 		case TypeReferenceEditPart.VISUAL_ID:
-			return TypeReference_2001;
+			return TypeReference_102001;
 		case TypeEditPart.VISUAL_ID:
-			return Type_2002;
+			return Type_102002;
 		case EnumaratorEditPart.VISUAL_ID:
-			return Enumarator_2003;
+			return Enumarator_102003;
 		case AttributeEditPart.VISUAL_ID:
-			return Attribute_3001;
+			return Attribute_103001;
 		case OperationEditPart.VISUAL_ID:
-			return Operation_3002;
+			return Operation_103002;
 		case Attribute2EditPart.VISUAL_ID:
-			return Attribute_3003;
+			return Attribute_103003;
 		case ReturnValueEditPart.VISUAL_ID:
-			return ReturnValue_3004;
+			return ReturnValue_103004;
 		case EnumAttributeEditPart.VISUAL_ID:
-			return EnumAttribute_3005;
+			return EnumAttribute_103005;
 		case TypeExtensionEditPart.VISUAL_ID:
-			return TypeExtension_4001;
+			return TypeExtension_104001;
 		}
 		return null;
 	}

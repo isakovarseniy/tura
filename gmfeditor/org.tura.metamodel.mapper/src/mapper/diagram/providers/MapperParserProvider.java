@@ -31,19 +31,19 @@ public class MapperParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser javaMapperPackageName_5002Parser;
+	private IParser javaMapperPackageName_405002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getJavaMapperPackageName_5002Parser() {
-		if (javaMapperPackageName_5002Parser == null) {
+	private IParser getJavaMapperPackageName_405002Parser() {
+		if (javaMapperPackageName_405002Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypedefinitionPackage.eINSTANCE
 					.getTypePointer_PackageName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			javaMapperPackageName_5002Parser = parser;
+			javaMapperPackageName_405002Parser = parser;
 		}
-		return javaMapperPackageName_5002Parser;
+		return javaMapperPackageName_405002Parser;
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class MapperParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case JavaMapperPackageNameEditPart.VISUAL_ID:
-			return getJavaMapperPackageName_5002Parser();
+			return getJavaMapperPackageName_405002Parser();
 		}
 		return null;
 	}

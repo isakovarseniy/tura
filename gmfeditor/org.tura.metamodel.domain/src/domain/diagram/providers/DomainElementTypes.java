@@ -61,35 +61,42 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Domain_1000 = getElementType("org.tura.metamodel.domain.Domain_1000"); //$NON-NLS-1$
+	public static final IElementType Domain_501000 = getElementType("org.tura.metamodel.domain.Domain_501000"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType DomainArtifacts_2007 = getElementType("org.tura.metamodel.domain.DomainArtifacts_2007"); //$NON-NLS-1$
+	public static final IElementType DomainArtifacts_502001 = getElementType("org.tura.metamodel.domain.DomainArtifacts_502001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType DomainTypes_2008 = getElementType("org.tura.metamodel.domain.DomainTypes_2008"); //$NON-NLS-1$
+	public static final IElementType DomainTypes_502002 = getElementType("org.tura.metamodel.domain.DomainTypes_502002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType DomainApplications_2009 = getElementType("org.tura.metamodel.domain.DomainApplications_2009"); //$NON-NLS-1$
+	public static final IElementType DomainApplications_502003 = getElementType("org.tura.metamodel.domain.DomainApplications_502003"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType DomainApplication_3002 = getElementType("org.tura.metamodel.domain.DomainApplication_3002"); //$NON-NLS-1$
+	public static final IElementType DomainApplication_503001 = getElementType("org.tura.metamodel.domain.DomainApplication_503001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeExtension_4001 = getElementType("org.tura.metamodel.domain.TypeExtension_4001"); //$NON-NLS-1$
+	public static final IElementType TypeExtension_504001 = getElementType("org.tura.metamodel.domain.TypeExtension_504001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeRecipeConfig_4002 = getElementType("org.tura.metamodel.domain.RecipeRecipeConfig_4002"); //$NON-NLS-1$
+	public static final IElementType RecipeRecipeConfig_504002 = getElementType("org.tura.metamodel.domain.RecipeRecipeConfig_504002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType ConfigurationConfigExtension_4003 = getElementType("org.tura.metamodel.domain.ConfigurationConfigExtension_4003"); //$NON-NLS-1$
+	public static final IElementType ConfigurationConfigExtension_504003 = getElementType("org.tura.metamodel.domain.ConfigurationConfigExtension_504003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -202,27 +209,27 @@ public class DomainElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Domain_1000, DomainPackage.eINSTANCE.getDomain());
+			elements.put(Domain_501000, DomainPackage.eINSTANCE.getDomain());
 
-			elements.put(DomainArtifacts_2007,
+			elements.put(DomainArtifacts_502001,
 					DomainPackage.eINSTANCE.getDomainArtifacts());
 
-			elements.put(DomainTypes_2008,
+			elements.put(DomainTypes_502002,
 					DomainPackage.eINSTANCE.getDomainTypes());
 
-			elements.put(DomainApplications_2009,
+			elements.put(DomainApplications_502003,
 					DomainPackage.eINSTANCE.getDomainApplications());
 
-			elements.put(DomainApplication_3002,
+			elements.put(DomainApplication_503001,
 					DomainPackage.eINSTANCE.getDomainApplication());
 
-			elements.put(TypeExtension_4001,
+			elements.put(TypeExtension_504001,
 					TypedefinitionPackage.eINSTANCE.getTypeExtension());
 
-			elements.put(RecipeRecipeConfig_4002,
+			elements.put(RecipeRecipeConfig_504002,
 					RecipePackage.eINSTANCE.getRecipe_RecipeConfig());
 
-			elements.put(ConfigurationConfigExtension_4003,
+			elements.put(ConfigurationConfigExtension_504003,
 					RecipePackage.eINSTANCE.getConfiguration_ConfigExtension());
 		}
 		return (ENamedElement) elements.get(type);
@@ -241,14 +248,14 @@ public class DomainElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(Domain_1000);
-			KNOWN_ELEMENT_TYPES.add(DomainArtifacts_2007);
-			KNOWN_ELEMENT_TYPES.add(DomainTypes_2008);
-			KNOWN_ELEMENT_TYPES.add(DomainApplications_2009);
-			KNOWN_ELEMENT_TYPES.add(DomainApplication_3002);
-			KNOWN_ELEMENT_TYPES.add(TypeExtension_4001);
-			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_4002);
-			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_4003);
+			KNOWN_ELEMENT_TYPES.add(Domain_501000);
+			KNOWN_ELEMENT_TYPES.add(DomainArtifacts_502001);
+			KNOWN_ELEMENT_TYPES.add(DomainTypes_502002);
+			KNOWN_ELEMENT_TYPES.add(DomainApplications_502003);
+			KNOWN_ELEMENT_TYPES.add(DomainApplication_503001);
+			KNOWN_ELEMENT_TYPES.add(TypeExtension_504001);
+			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_504002);
+			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_504003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -259,21 +266,21 @@ public class DomainElementTypes {
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case DomainEditPart.VISUAL_ID:
-			return Domain_1000;
+			return Domain_501000;
 		case DomainArtifactsEditPart.VISUAL_ID:
-			return DomainArtifacts_2007;
+			return DomainArtifacts_502001;
 		case DomainTypesEditPart.VISUAL_ID:
-			return DomainTypes_2008;
+			return DomainTypes_502002;
 		case DomainApplicationsEditPart.VISUAL_ID:
-			return DomainApplications_2009;
+			return DomainApplications_502003;
 		case DomainApplicationEditPart.VISUAL_ID:
-			return DomainApplication_3002;
+			return DomainApplication_503001;
 		case TypeExtensionEditPart.VISUAL_ID:
-			return TypeExtension_4001;
+			return TypeExtension_504001;
 		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return RecipeRecipeConfig_4002;
+			return RecipeRecipeConfig_504002;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return ConfigurationConfigExtension_4003;
+			return ConfigurationConfigExtension_504003;
 		}
 		return null;
 	}

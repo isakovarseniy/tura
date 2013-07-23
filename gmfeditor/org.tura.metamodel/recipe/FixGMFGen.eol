@@ -5,3 +5,9 @@ genEditorGenerator.setTemplateDirectory('/org.tura.metamodel/templates/');
 
 var plugin = GmfGen!GenPlugin.all.first;
 plugin.id = 'org.tura.metamodel.recipe';
+
+
+ -- distinct visual ID
+for (c in GmfGen!GenCommonBase.allInstances) {
+  c.setVisualID (c.getVisualID()+300000);
+}

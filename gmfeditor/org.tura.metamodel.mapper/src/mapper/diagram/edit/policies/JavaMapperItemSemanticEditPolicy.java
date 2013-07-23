@@ -23,7 +23,7 @@ public class JavaMapperItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public JavaMapperItemSemanticEditPolicy() {
-		super(MapperElementTypes.JavaMapper_2002);
+		super(MapperElementTypes.JavaMapper_402002);
 	}
 
 	/**

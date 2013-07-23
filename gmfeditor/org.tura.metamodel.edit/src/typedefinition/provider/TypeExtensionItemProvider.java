@@ -179,7 +179,7 @@ public class TypeExtensionItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return MapperEditPlugin.INSTANCE;
+    return ApplicationEditPlugin.INSTANCE;
   }
 
 }

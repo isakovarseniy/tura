@@ -193,7 +193,7 @@ public class EnumAttributeItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return MapperEditPlugin.INSTANCE;
+    return ApplicationEditPlugin.INSTANCE;
   }
 
 }

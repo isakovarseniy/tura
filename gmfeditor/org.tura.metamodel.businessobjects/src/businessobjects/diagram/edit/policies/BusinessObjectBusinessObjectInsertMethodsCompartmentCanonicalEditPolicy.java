@@ -64,7 +64,7 @@ public class BusinessObjectBusinessObjectInsertMethodsCompartmentCanonicalEditPo
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<BusinessobjectsNodeDescriptor> childDescriptors = BusinessobjectsDiagramUpdater
-				.getBusinessObjectBusinessObjectInsertMethodsCompartment_7004SemanticChildren(viewObject);
+				.getBusinessObjectBusinessObjectInsertMethodsCompartment_607004SemanticChildren(viewObject);
 		for (BusinessobjectsNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -97,7 +97,7 @@ public class BusinessObjectBusinessObjectInsertMethodsCompartmentCanonicalEditPo
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<BusinessobjectsNodeDescriptor> childDescriptors = BusinessobjectsDiagramUpdater
-				.getBusinessObjectBusinessObjectInsertMethodsCompartment_7004SemanticChildren((View) getHost()
+				.getBusinessObjectBusinessObjectInsertMethodsCompartment_607004SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

@@ -33,73 +33,73 @@ public class ApplicationParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser applicationRecipesName_5001Parser;
+	private IParser applicationRecipesName_805001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getApplicationRecipesName_5001Parser() {
-		if (applicationRecipesName_5001Parser == null) {
+	private IParser getApplicationRecipesName_805001Parser() {
+		if (applicationRecipesName_805001Parser == null) {
 			EAttribute[] features = new EAttribute[] { ApplicationPackage.eINSTANCE
 					.getApplicationRecipes_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			applicationRecipesName_5001Parser = parser;
+			applicationRecipesName_805001Parser = parser;
 		}
-		return applicationRecipesName_5001Parser;
+		return applicationRecipesName_805001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser applicationMappersName_5002Parser;
+	private IParser applicationMappersName_805002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getApplicationMappersName_5002Parser() {
-		if (applicationMappersName_5002Parser == null) {
+	private IParser getApplicationMappersName_805002Parser() {
+		if (applicationMappersName_805002Parser == null) {
 			EAttribute[] features = new EAttribute[] { ApplicationPackage.eINSTANCE
 					.getApplicationMappers_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			applicationMappersName_5002Parser = parser;
+			applicationMappersName_805002Parser = parser;
 		}
-		return applicationMappersName_5002Parser;
+		return applicationMappersName_805002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser applicationRecipeName_5003Parser;
+	private IParser applicationRecipeName_805003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getApplicationRecipeName_5003Parser() {
-		if (applicationRecipeName_5003Parser == null) {
+	private IParser getApplicationRecipeName_805003Parser() {
+		if (applicationRecipeName_805003Parser == null) {
 			EAttribute[] features = new EAttribute[] { ApplicationPackage.eINSTANCE
 					.getApplicationRecipe_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			applicationRecipeName_5003Parser = parser;
+			applicationRecipeName_805003Parser = parser;
 		}
-		return applicationRecipeName_5003Parser;
+		return applicationRecipeName_805003Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser applicationMapperName_5004Parser;
+	private IParser applicationMapperName_805004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getApplicationMapperName_5004Parser() {
-		if (applicationMapperName_5004Parser == null) {
+	private IParser getApplicationMapperName_805004Parser() {
+		if (applicationMapperName_805004Parser == null) {
 			EAttribute[] features = new EAttribute[] { ApplicationPackage.eINSTANCE
 					.getApplicationMapper_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			applicationMapperName_5004Parser = parser;
+			applicationMapperName_805004Parser = parser;
 		}
-		return applicationMapperName_5004Parser;
+		return applicationMapperName_805004Parser;
 	}
 
 	/**
@@ -108,13 +108,13 @@ public class ApplicationParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ApplicationRecipesNameEditPart.VISUAL_ID:
-			return getApplicationRecipesName_5001Parser();
+			return getApplicationRecipesName_805001Parser();
 		case ApplicationMappersNameEditPart.VISUAL_ID:
-			return getApplicationMappersName_5002Parser();
+			return getApplicationMappersName_805002Parser();
 		case ApplicationRecipeNameEditPart.VISUAL_ID:
-			return getApplicationRecipeName_5003Parser();
+			return getApplicationRecipeName_805003Parser();
 		case ApplicationMapperNameEditPart.VISUAL_ID:
-			return getApplicationMapperName_5004Parser();
+			return getApplicationMapperName_805004Parser();
 		}
 		return null;
 	}

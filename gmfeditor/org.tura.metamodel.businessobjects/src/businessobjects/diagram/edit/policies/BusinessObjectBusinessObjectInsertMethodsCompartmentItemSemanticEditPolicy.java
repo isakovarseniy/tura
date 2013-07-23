@@ -19,14 +19,14 @@ public class BusinessObjectBusinessObjectInsertMethodsCompartmentItemSemanticEdi
 	 * @generated
 	 */
 	public BusinessObjectBusinessObjectInsertMethodsCompartmentItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.BusinessObject_2003);
+		super(BusinessobjectsElementTypes.BusinessObject_602003);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (BusinessobjectsElementTypes.InsertMethod_3010 == req
+		if (BusinessobjectsElementTypes.InsertMethod_603010 == req
 				.getElementType()) {
 			return getGEFWrapper(new InsertMethodCreateCommand(req));
 		}

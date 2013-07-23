@@ -232,7 +232,7 @@ public class RecipeItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return RecipeEditPlugin.INSTANCE;
+    return ApplicationEditPlugin.INSTANCE;
   }
 
 }

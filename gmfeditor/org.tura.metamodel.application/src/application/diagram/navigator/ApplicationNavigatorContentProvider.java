@@ -244,12 +244,28 @@ public class ApplicationNavigatorContentProvider implements
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (ApplicationVisualIDRegistry.getVisualID(view)) {
 
+		case ApplicationMappersEditPart.VISUAL_ID: {
+			LinkedList<ApplicationAbstractNavigatorItem> result = new LinkedList<ApplicationAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					ApplicationVisualIDRegistry
+							.getType(ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					ApplicationVisualIDRegistry
+							.getType(ApplicationMapperEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
 		case ApplicationEditPart.VISUAL_ID: {
 			LinkedList<ApplicationAbstractNavigatorItem> result = new LinkedList<ApplicationAbstractNavigatorItem>();
 			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
 			Diagram sv = (Diagram) view;
 			ApplicationNavigatorGroup links = new ApplicationNavigatorGroup(
-					Messages.NavigatorGroupName_Application_1000_links,
+					Messages.NavigatorGroupName_Application_801000_links,
 					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
@@ -278,22 +294,6 @@ public class ApplicationNavigatorContentProvider implements
 			if (!links.isEmpty()) {
 				result.add(links);
 			}
-			return result.toArray();
-		}
-
-		case ApplicationMappersEditPart.VISUAL_ID: {
-			LinkedList<ApplicationAbstractNavigatorItem> result = new LinkedList<ApplicationAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					ApplicationVisualIDRegistry
-							.getType(ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					ApplicationVisualIDRegistry
-							.getType(ApplicationMapperEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
 			return result.toArray();
 		}
 

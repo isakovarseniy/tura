@@ -19,7 +19,7 @@ public class RecipeRecipeConfigItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public RecipeRecipeConfigItemSemanticEditPolicy() {
-		super(RecipeElementTypes.RecipeRecipeConfig_4001);
+		super(RecipeElementTypes.RecipeRecipeConfig_304001);
 	}
 
 	/**

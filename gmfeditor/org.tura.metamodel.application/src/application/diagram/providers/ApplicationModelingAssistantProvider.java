@@ -44,18 +44,18 @@ public class ApplicationModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof ApplicationEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(ApplicationElementTypes.ApplicationRecipes_2001);
-			types.add(ApplicationElementTypes.ApplicationMappers_2002);
+			types.add(ApplicationElementTypes.ApplicationRecipes_802001);
+			types.add(ApplicationElementTypes.ApplicationMappers_802002);
 			return types;
 		}
 		if (editPart instanceof ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(ApplicationElementTypes.ApplicationRecipe_3001);
+			types.add(ApplicationElementTypes.ApplicationRecipe_803001);
 			return types;
 		}
 		if (editPart instanceof ApplicationMappersApplicationMappersMappersCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(ApplicationElementTypes.ApplicationMapper_3002);
+			types.add(ApplicationElementTypes.ApplicationMapper_803002);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

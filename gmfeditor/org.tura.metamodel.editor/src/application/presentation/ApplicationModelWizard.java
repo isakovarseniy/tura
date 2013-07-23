@@ -71,6 +71,8 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 
 import application.ApplicationFactory;
 import application.ApplicationPackage;
+import domain.provider.DomainEditPlugin;
+import domain.presentation.DomainEditorPlugin;
 import application.provider.ApplicationEditPlugin;
 
 

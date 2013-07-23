@@ -222,16 +222,16 @@ public class ArtifactViewProvider extends AbstractProvider implements
 		}
 		switch (visualID) {
 		case ArtifactEditPart.VISUAL_ID:
-			return createArtifact_2001(domainElement, containerView, index,
+			return createArtifact_702001(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case VariableEditPart.VISUAL_ID:
-			return createVariable_3001(domainElement, containerView, index,
+			return createVariable_703001(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case Variable2EditPart.VISUAL_ID:
-			return createVariable_3002(domainElement, containerView, index,
+			return createVariable_703002(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case SpecifierEditPart.VISUAL_ID:
-			return createSpecifier_3003(domainElement, containerView, index,
+			return createSpecifier_703003(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -255,8 +255,9 @@ public class ArtifactViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createArtifact_2001(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createArtifact_702001(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.getStyles().add(
 				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
@@ -294,7 +295,7 @@ public class ArtifactViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5004 = createLabel(node,
+		Node label705004 = createLabel(node,
 				ArtifactVisualIDRegistry
 						.getType(ArtifactNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -318,8 +319,9 @@ public class ArtifactViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createVariable_3001(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createVariable_703001(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(ArtifactVisualIDRegistry
@@ -354,7 +356,7 @@ public class ArtifactViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(node,
+		Node label705001 = createLabel(node,
 				ArtifactVisualIDRegistry
 						.getType(VariableNameEditPart.VISUAL_ID));
 		return node;
@@ -363,8 +365,9 @@ public class ArtifactViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createVariable_3002(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createVariable_703002(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(ArtifactVisualIDRegistry
@@ -399,7 +402,7 @@ public class ArtifactViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5002 = createLabel(node,
+		Node label705002 = createLabel(node,
 				ArtifactVisualIDRegistry
 						.getType(VariableName2EditPart.VISUAL_ID));
 		return node;
@@ -408,8 +411,9 @@ public class ArtifactViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createSpecifier_3003(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createSpecifier_703003(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(ArtifactVisualIDRegistry
@@ -444,7 +448,7 @@ public class ArtifactViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5003 = createLabel(node,
+		Node label705003 = createLabel(node,
 				ArtifactVisualIDRegistry
 						.getType(SpecifierNameEditPart.VISUAL_ID));
 		return node;

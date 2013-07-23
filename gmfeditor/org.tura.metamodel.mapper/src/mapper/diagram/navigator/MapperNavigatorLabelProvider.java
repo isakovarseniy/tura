@@ -96,15 +96,15 @@ public class MapperNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (MapperVisualIDRegistry.getVisualID(view)) {
-		case JavaMapperEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/mapper?JavaMapper", MapperElementTypes.JavaMapper_2002); //$NON-NLS-1$
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", MapperElementTypes.TypeExtension_4001); //$NON-NLS-1$
+					"Navigator?Link?http://tura.org/2013/v1/typedefinition?TypeExtension", MapperElementTypes.TypeExtension_404001); //$NON-NLS-1$
 		case MappersEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/mapper?Mappers", MapperElementTypes.Mappers_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http://tura.org/2013/v1/mapper?Mappers", MapperElementTypes.Mappers_401000); //$NON-NLS-1$
+		case JavaMapperEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/mapper?JavaMapper", MapperElementTypes.JavaMapper_402002); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -165,12 +165,12 @@ public class MapperNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (MapperVisualIDRegistry.getVisualID(view)) {
-		case JavaMapperEditPart.VISUAL_ID:
-			return getJavaMapper_2002Text(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001Text(view);
+			return getTypeExtension_404001Text(view);
 		case MappersEditPart.VISUAL_ID:
-			return getMappers_1000Text(view);
+			return getMappers_401000Text(view);
+		case JavaMapperEditPart.VISUAL_ID:
+			return getJavaMapper_402002Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -178,16 +178,23 @@ public class MapperNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getTypeExtension_4001Text(View view) {
+	private String getTypeExtension_404001Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
 
 	/**
 	 * @generated
 	 */
-	private String getJavaMapper_2002Text(View view) {
+	private String getMappers_401000Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getJavaMapper_402002Text(View view) {
 		IParser parser = MapperParserProvider.getParser(
-				MapperElementTypes.JavaMapper_2002,
+				MapperElementTypes.JavaMapper_402002,
 				view.getElement() != null ? view.getElement() : view,
 				MapperVisualIDRegistry
 						.getType(JavaMapperPackageNameEditPart.VISUAL_ID));
@@ -197,16 +204,9 @@ public class MapperNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			MapperDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5002); //$NON-NLS-1$
+					"Parser was not found for label " + 405002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getMappers_1000Text(View view) {
-		return ""; //$NON-NLS-1$
 	}
 
 	/**

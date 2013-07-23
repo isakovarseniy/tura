@@ -58,27 +58,32 @@ public class TypesrepositoryElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypesRepository_1000 = getElementType("org.tura.metamodel.typesrepository.TypesRepository_1000"); //$NON-NLS-1$
+	public static final IElementType TypesRepository_201000 = getElementType("org.tura.metamodel.typesrepository.TypesRepository_201000"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Types_2001 = getElementType("org.tura.metamodel.typesrepository.Types_2001"); //$NON-NLS-1$
+	public static final IElementType Types_202001 = getElementType("org.tura.metamodel.typesrepository.Types_202001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Primitive_3003 = getElementType("org.tura.metamodel.typesrepository.Primitive_3003"); //$NON-NLS-1$
+	public static final IElementType Primitive_203003 = getElementType("org.tura.metamodel.typesrepository.Primitive_203003"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Package_3001 = getElementType("org.tura.metamodel.typesrepository.Package_3001"); //$NON-NLS-1$
+	public static final IElementType Package_203001 = getElementType("org.tura.metamodel.typesrepository.Package_203001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType BusinessPackage_3002 = getElementType("org.tura.metamodel.typesrepository.BusinessPackage_3002"); //$NON-NLS-1$
+	public static final IElementType BusinessPackage_203002 = getElementType("org.tura.metamodel.typesrepository.BusinessPackage_203002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeExtension_4001 = getElementType("org.tura.metamodel.typesrepository.TypeExtension_4001"); //$NON-NLS-1$
+	public static final IElementType TypeExtension_204001 = getElementType("org.tura.metamodel.typesrepository.TypeExtension_204001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -191,22 +196,22 @@ public class TypesrepositoryElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(TypesRepository_1000,
+			elements.put(TypesRepository_201000,
 					TypesrepositoryPackage.eINSTANCE.getTypesRepository());
 
-			elements.put(Types_2001,
+			elements.put(Types_202001,
 					TypesrepositoryPackage.eINSTANCE.getTypes());
 
-			elements.put(Primitive_3003,
+			elements.put(Primitive_203003,
 					TypesrepositoryPackage.eINSTANCE.getPrimitive());
 
-			elements.put(Package_3001,
+			elements.put(Package_203001,
 					TypesrepositoryPackage.eINSTANCE.getPackage());
 
-			elements.put(BusinessPackage_3002,
+			elements.put(BusinessPackage_203002,
 					TypesrepositoryPackage.eINSTANCE.getBusinessPackage());
 
-			elements.put(TypeExtension_4001,
+			elements.put(TypeExtension_204001,
 					TypedefinitionPackage.eINSTANCE.getTypeExtension());
 		}
 		return (ENamedElement) elements.get(type);
@@ -225,12 +230,12 @@ public class TypesrepositoryElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(TypesRepository_1000);
-			KNOWN_ELEMENT_TYPES.add(Types_2001);
-			KNOWN_ELEMENT_TYPES.add(Primitive_3003);
-			KNOWN_ELEMENT_TYPES.add(Package_3001);
-			KNOWN_ELEMENT_TYPES.add(BusinessPackage_3002);
-			KNOWN_ELEMENT_TYPES.add(TypeExtension_4001);
+			KNOWN_ELEMENT_TYPES.add(TypesRepository_201000);
+			KNOWN_ELEMENT_TYPES.add(Types_202001);
+			KNOWN_ELEMENT_TYPES.add(Primitive_203003);
+			KNOWN_ELEMENT_TYPES.add(Package_203001);
+			KNOWN_ELEMENT_TYPES.add(BusinessPackage_203002);
+			KNOWN_ELEMENT_TYPES.add(TypeExtension_204001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -241,17 +246,17 @@ public class TypesrepositoryElementTypes {
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case TypesRepositoryEditPart.VISUAL_ID:
-			return TypesRepository_1000;
+			return TypesRepository_201000;
 		case TypesEditPart.VISUAL_ID:
-			return Types_2001;
+			return Types_202001;
 		case PrimitiveEditPart.VISUAL_ID:
-			return Primitive_3003;
+			return Primitive_203003;
 		case PackageEditPart.VISUAL_ID:
-			return Package_3001;
+			return Package_203001;
 		case BusinessPackageEditPart.VISUAL_ID:
-			return BusinessPackage_3002;
+			return BusinessPackage_203002;
 		case TypeExtensionEditPart.VISUAL_ID:
-			return TypeExtension_4001;
+			return TypeExtension_204001;
 		}
 		return null;
 	}

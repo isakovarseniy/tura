@@ -36,127 +36,127 @@ public class BusinessobjectsParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser businessObjectName_5010Parser;
+	private IParser businessObjectName_605010Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getBusinessObjectName_5010Parser() {
-		if (businessObjectName_5010Parser == null) {
+	private IParser getBusinessObjectName_605010Parser() {
+		if (businessObjectName_605010Parser == null) {
 			EAttribute[] features = new EAttribute[] { BusinessobjectsPackage.eINSTANCE
 					.getBusinessObject_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			businessObjectName_5010Parser = parser;
+			businessObjectName_605010Parser = parser;
 		}
-		return businessObjectName_5010Parser;
+		return businessObjectName_605010Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser createMethodMethod_5012Parser;
+	private IParser createMethodMethod_605012Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCreateMethodMethod_5012Parser() {
-		if (createMethodMethod_5012Parser == null) {
+	private IParser getCreateMethodMethod_605012Parser() {
+		if (createMethodMethod_605012Parser == null) {
 			EAttribute[] features = new EAttribute[] { BusinessobjectsPackage.eINSTANCE
 					.getBusinessMethod_Method() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			createMethodMethod_5012Parser = parser;
+			createMethodMethod_605012Parser = parser;
 		}
-		return createMethodMethod_5012Parser;
+		return createMethodMethod_605012Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser insertMethodMethod_5013Parser;
+	private IParser insertMethodMethod_605013Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getInsertMethodMethod_5013Parser() {
-		if (insertMethodMethod_5013Parser == null) {
+	private IParser getInsertMethodMethod_605013Parser() {
+		if (insertMethodMethod_605013Parser == null) {
 			EAttribute[] features = new EAttribute[] { BusinessobjectsPackage.eINSTANCE
 					.getBusinessMethod_Method() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			insertMethodMethod_5013Parser = parser;
+			insertMethodMethod_605013Parser = parser;
 		}
-		return insertMethodMethod_5013Parser;
+		return insertMethodMethod_605013Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser updateMethodMethod_5014Parser;
+	private IParser updateMethodMethod_605014Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getUpdateMethodMethod_5014Parser() {
-		if (updateMethodMethod_5014Parser == null) {
+	private IParser getUpdateMethodMethod_605014Parser() {
+		if (updateMethodMethod_605014Parser == null) {
 			EAttribute[] features = new EAttribute[] { BusinessobjectsPackage.eINSTANCE
 					.getBusinessMethod_Method() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			updateMethodMethod_5014Parser = parser;
+			updateMethodMethod_605014Parser = parser;
 		}
-		return updateMethodMethod_5014Parser;
+		return updateMethodMethod_605014Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser removeMethodMethod_5015Parser;
+	private IParser removeMethodMethod_605015Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRemoveMethodMethod_5015Parser() {
-		if (removeMethodMethod_5015Parser == null) {
+	private IParser getRemoveMethodMethod_605015Parser() {
+		if (removeMethodMethod_605015Parser == null) {
 			EAttribute[] features = new EAttribute[] { BusinessobjectsPackage.eINSTANCE
 					.getBusinessMethod_Method() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			removeMethodMethod_5015Parser = parser;
+			removeMethodMethod_605015Parser = parser;
 		}
-		return removeMethodMethod_5015Parser;
+		return removeMethodMethod_605015Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser searchMethodMethod_5016Parser;
+	private IParser searchMethodMethod_605016Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSearchMethodMethod_5016Parser() {
-		if (searchMethodMethod_5016Parser == null) {
+	private IParser getSearchMethodMethod_605016Parser() {
+		if (searchMethodMethod_605016Parser == null) {
 			EAttribute[] features = new EAttribute[] { BusinessobjectsPackage.eINSTANCE
 					.getBusinessMethod_Method() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			searchMethodMethod_5016Parser = parser;
+			searchMethodMethod_605016Parser = parser;
 		}
-		return searchMethodMethod_5016Parser;
+		return searchMethodMethod_605016Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser otherMethodMethod_5017Parser;
+	private IParser otherMethodMethod_605017Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getOtherMethodMethod_5017Parser() {
-		if (otherMethodMethod_5017Parser == null) {
+	private IParser getOtherMethodMethod_605017Parser() {
+		if (otherMethodMethod_605017Parser == null) {
 			EAttribute[] features = new EAttribute[] { BusinessobjectsPackage.eINSTANCE
 					.getBusinessMethod_Method() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			otherMethodMethod_5017Parser = parser;
+			otherMethodMethod_605017Parser = parser;
 		}
-		return otherMethodMethod_5017Parser;
+		return otherMethodMethod_605017Parser;
 	}
 
 	/**
@@ -165,19 +165,19 @@ public class BusinessobjectsParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case BusinessObjectNameEditPart.VISUAL_ID:
-			return getBusinessObjectName_5010Parser();
+			return getBusinessObjectName_605010Parser();
 		case CreateMethodMethodEditPart.VISUAL_ID:
-			return getCreateMethodMethod_5012Parser();
+			return getCreateMethodMethod_605012Parser();
 		case InsertMethodMethodEditPart.VISUAL_ID:
-			return getInsertMethodMethod_5013Parser();
+			return getInsertMethodMethod_605013Parser();
 		case UpdateMethodMethodEditPart.VISUAL_ID:
-			return getUpdateMethodMethod_5014Parser();
+			return getUpdateMethodMethod_605014Parser();
 		case RemoveMethodMethodEditPart.VISUAL_ID:
-			return getRemoveMethodMethod_5015Parser();
+			return getRemoveMethodMethod_605015Parser();
 		case SearchMethodMethodEditPart.VISUAL_ID:
-			return getSearchMethodMethod_5016Parser();
+			return getSearchMethodMethod_605016Parser();
 		case OtherMethodMethodEditPart.VISUAL_ID:
-			return getOtherMethodMethod_5017Parser();
+			return getOtherMethodMethod_605017Parser();
 		}
 		return null;
 	}

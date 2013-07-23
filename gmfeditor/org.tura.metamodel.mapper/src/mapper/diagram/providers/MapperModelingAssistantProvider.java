@@ -41,7 +41,7 @@ public class MapperModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof MappersEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(MapperElementTypes.JavaMapper_2002);
+			types.add(MapperElementTypes.JavaMapper_402002);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

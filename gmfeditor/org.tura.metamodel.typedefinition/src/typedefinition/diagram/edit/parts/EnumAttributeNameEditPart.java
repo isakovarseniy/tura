@@ -61,7 +61,7 @@ public class EnumAttributeNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5007;
+	public static final int VISUAL_ID = 105007;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class EnumAttributeNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = TypedefinitionParserProvider
 					.getParser(
-							TypedefinitionElementTypes.EnumAttribute_3005,
+							TypedefinitionElementTypes.EnumAttribute_103005,
 							getParserElement(),
 							TypedefinitionVisualIDRegistry
 									.getType(typedefinition.diagram.edit.parts.EnumAttributeNameEditPart.VISUAL_ID));

@@ -61,7 +61,7 @@ public class OtherMethodMethodEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5017;
+	public static final int VISUAL_ID = 605017;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class OtherMethodMethodEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = BusinessobjectsParserProvider
 					.getParser(
-							BusinessobjectsElementTypes.OtherMethod_3014,
+							BusinessobjectsElementTypes.OtherMethod_603014,
 							getParserElement(),
 							BusinessobjectsVisualIDRegistry
 									.getType(businessobjects.diagram.edit.parts.OtherMethodMethodEditPart.VISUAL_ID));

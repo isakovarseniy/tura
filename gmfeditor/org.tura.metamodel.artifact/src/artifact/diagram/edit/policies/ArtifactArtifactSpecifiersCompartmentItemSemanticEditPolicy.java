@@ -19,14 +19,14 @@ public class ArtifactArtifactSpecifiersCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ArtifactArtifactSpecifiersCompartmentItemSemanticEditPolicy() {
-		super(ArtifactElementTypes.Artifact_2001);
+		super(ArtifactElementTypes.Artifact_702001);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (ArtifactElementTypes.Specifier_3003 == req.getElementType()) {
+		if (ArtifactElementTypes.Specifier_703003 == req.getElementType()) {
 			return getGEFWrapper(new SpecifierCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

@@ -56,15 +56,17 @@ public class MapperElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Mappers_1000 = getElementType("org.tura.metamodel.mapper.Mappers_1000"); //$NON-NLS-1$
+	public static final IElementType Mappers_401000 = getElementType("org.tura.metamodel.mapper.Mappers_401000"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType JavaMapper_2002 = getElementType("org.tura.metamodel.mapper.JavaMapper_2002"); //$NON-NLS-1$
+	public static final IElementType JavaMapper_402002 = getElementType("org.tura.metamodel.mapper.JavaMapper_402002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeExtension_4001 = getElementType("org.tura.metamodel.mapper.TypeExtension_4001"); //$NON-NLS-1$
+	public static final IElementType TypeExtension_404001 = getElementType("org.tura.metamodel.mapper.TypeExtension_404001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -177,12 +179,12 @@ public class MapperElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Mappers_1000, MapperPackage.eINSTANCE.getMappers());
+			elements.put(Mappers_401000, MapperPackage.eINSTANCE.getMappers());
 
-			elements.put(JavaMapper_2002,
+			elements.put(JavaMapper_402002,
 					MapperPackage.eINSTANCE.getJavaMapper());
 
-			elements.put(TypeExtension_4001,
+			elements.put(TypeExtension_404001,
 					TypedefinitionPackage.eINSTANCE.getTypeExtension());
 		}
 		return (ENamedElement) elements.get(type);
@@ -201,9 +203,9 @@ public class MapperElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(Mappers_1000);
-			KNOWN_ELEMENT_TYPES.add(JavaMapper_2002);
-			KNOWN_ELEMENT_TYPES.add(TypeExtension_4001);
+			KNOWN_ELEMENT_TYPES.add(Mappers_401000);
+			KNOWN_ELEMENT_TYPES.add(JavaMapper_402002);
+			KNOWN_ELEMENT_TYPES.add(TypeExtension_404001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -214,11 +216,11 @@ public class MapperElementTypes {
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case MappersEditPart.VISUAL_ID:
-			return Mappers_1000;
+			return Mappers_401000;
 		case JavaMapperEditPart.VISUAL_ID:
-			return JavaMapper_2002;
+			return JavaMapper_402002;
 		case TypeExtensionEditPart.VISUAL_ID:
-			return TypeExtension_4001;
+			return TypeExtension_404001;
 		}
 		return null;
 	}

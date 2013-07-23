@@ -5,9 +5,9 @@ package application.tests;
 import application.ApplicationFactory;
 import application.Dummy5;
 
-import junit.textui.TestRunner;
+import junit.framework.TestCase;
 
-import typedefinition.tests.TypeDefinitionTest;
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,8 +15,16 @@ import typedefinition.tests.TypeDefinitionTest;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Dummy5Test extends TypeDefinitionTest
+public class Dummy5Test extends TestCase
 {
+
+  /**
+   * The fixture for this Dummy5 test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected Dummy5 fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -40,15 +48,25 @@ public class Dummy5Test extends TypeDefinitionTest
   }
 
   /**
+   * Sets the fixture for this Dummy5 test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(Dummy5 fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this Dummy5 test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected Dummy5 getFixture()
   {
-    return (Dummy5)fixture;
+    return fixture;
   }
 
   /**

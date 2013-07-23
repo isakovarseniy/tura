@@ -61,7 +61,7 @@ public class BusinessObjectNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5010;
+	public static final int VISUAL_ID = 605010;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class BusinessObjectNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = BusinessobjectsParserProvider
 					.getParser(
-							BusinessobjectsElementTypes.BusinessObject_2003,
+							BusinessobjectsElementTypes.BusinessObject_602003,
 							getParserElement(),
 							BusinessobjectsVisualIDRegistry
 									.getType(businessobjects.diagram.edit.parts.BusinessObjectNameEditPart.VISUAL_ID));

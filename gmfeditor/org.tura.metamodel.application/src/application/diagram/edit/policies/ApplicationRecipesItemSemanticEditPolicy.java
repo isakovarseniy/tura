@@ -30,7 +30,7 @@ public class ApplicationRecipesItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ApplicationRecipesItemSemanticEditPolicy() {
-		super(ApplicationElementTypes.ApplicationRecipes_2001);
+		super(ApplicationElementTypes.ApplicationRecipes_802001);
 	}
 
 	/**

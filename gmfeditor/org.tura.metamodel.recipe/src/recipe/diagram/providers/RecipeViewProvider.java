@@ -242,22 +242,22 @@ public class RecipeViewProvider extends AbstractProvider implements
 		}
 		switch (visualID) {
 		case RecipeEditPart.VISUAL_ID:
-			return createRecipe_2004(domainElement, containerView, index,
+			return createRecipe_302004(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case ConfigurationEditPart.VISUAL_ID:
-			return createConfiguration_2005(domainElement, containerView,
+			return createConfiguration_302005(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case ComponentEditPart.VISUAL_ID:
-			return createComponent_3004(domainElement, containerView, index,
+			return createComponent_303004(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case Component2EditPart.VISUAL_ID:
-			return createComponent_3002(domainElement, containerView, index,
+			return createComponent_303002(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case ModelMapperEditPart.VISUAL_ID:
-			return createModelMapper_3003(domainElement, containerView, index,
-					persisted, preferencesHint);
+			return createModelMapper_303003(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case PropertyEditPart.VISUAL_ID:
-			return createProperty_3005(domainElement, containerView, index,
+			return createProperty_303005(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -274,10 +274,10 @@ public class RecipeViewProvider extends AbstractProvider implements
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (RecipeVisualIDRegistry.getVisualID(elementTypeHint)) {
 		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return createRecipeRecipeConfig_4001(containerView, index,
+			return createRecipeRecipeConfig_304001(containerView, index,
 					persisted, preferencesHint);
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return createConfigurationConfigExtension_4002(containerView,
+			return createConfigurationConfigExtension_304002(containerView,
 					index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
@@ -287,7 +287,7 @@ public class RecipeViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createRecipe_2004(EObject domainElement, View containerView,
+	public Node createRecipe_302004(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.getStyles().add(
@@ -325,7 +325,7 @@ public class RecipeViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5009 = createLabel(node,
+		Node label305009 = createLabel(node,
 				RecipeVisualIDRegistry.getType(RecipeNameEditPart.VISUAL_ID));
 		createCompartment(
 				node,
@@ -338,7 +338,7 @@ public class RecipeViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createConfiguration_2005(EObject domainElement,
+	public Node createConfiguration_302005(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -378,7 +378,7 @@ public class RecipeViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5011 = createLabel(node,
+		Node label305011 = createLabel(node,
 				RecipeVisualIDRegistry
 						.getType(ConfigurationNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -392,8 +392,9 @@ public class RecipeViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createComponent_3004(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createComponent_303004(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.getStyles().add(
 				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
@@ -430,7 +431,7 @@ public class RecipeViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5008 = createLabel(node,
+		Node label305008 = createLabel(node,
 				RecipeVisualIDRegistry.getType(ComponentNameEditPart.VISUAL_ID));
 		createCompartment(
 				node,
@@ -448,8 +449,9 @@ public class RecipeViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createComponent_3002(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createComponent_303002(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.getStyles().add(
 				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
@@ -486,7 +488,7 @@ public class RecipeViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5002 = createLabel(node,
+		Node label305002 = createLabel(node,
 				RecipeVisualIDRegistry
 						.getType(ComponentName2EditPart.VISUAL_ID));
 		createCompartment(
@@ -505,7 +507,7 @@ public class RecipeViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createModelMapper_3003(EObject domainElement,
+	public Node createModelMapper_303003(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -542,7 +544,7 @@ public class RecipeViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(node,
+		Node label305001 = createLabel(node,
 				RecipeVisualIDRegistry
 						.getType(ModelMapperNameEditPart.VISUAL_ID));
 		return node;
@@ -551,8 +553,9 @@ public class RecipeViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createProperty_3005(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createProperty_303005(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(RecipeVisualIDRegistry.getType(PropertyEditPart.VISUAL_ID));
@@ -586,7 +589,7 @@ public class RecipeViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5010 = createLabel(node,
+		Node label305010 = createLabel(node,
 				RecipeVisualIDRegistry.getType(PropertyNameEditPart.VISUAL_ID));
 		return node;
 	}
@@ -594,7 +597,7 @@ public class RecipeViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createRecipeRecipeConfig_4001(View containerView, int index,
+	public Edge createRecipeRecipeConfig_304001(View containerView, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -640,22 +643,22 @@ public class RecipeViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label6001 = createLabel(edge,
+		Node label306001 = createLabel(edge,
 				RecipeVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
-		label6001.getStyles().add(
+		label306001.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6001.setLayoutConstraint(NotationFactory.eINSTANCE
+		label306001.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location6001 = (Location) label6001.getLayoutConstraint();
-		location6001.setX(0);
-		location6001.setY(40);
+		Location location306001 = (Location) label306001.getLayoutConstraint();
+		location306001.setX(0);
+		location306001.setY(40);
 		return edge;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Edge createConfigurationConfigExtension_4002(View containerView,
+	public Edge createConfigurationConfigExtension_304002(View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -701,16 +704,16 @@ public class RecipeViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label6002 = createLabel(edge,
+		Node label306002 = createLabel(edge,
 				RecipeVisualIDRegistry
 						.getType(WrappingLabel2EditPart.VISUAL_ID));
-		label6002.getStyles().add(
+		label306002.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6002.setLayoutConstraint(NotationFactory.eINSTANCE
+		label306002.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location6002 = (Location) label6002.getLayoutConstraint();
-		location6002.setX(0);
-		location6002.setY(40);
+		Location location306002 = (Location) label306002.getLayoutConstraint();
+		location306002.setX(0);
+		location306002.setY(40);
 		return edge;
 	}
 

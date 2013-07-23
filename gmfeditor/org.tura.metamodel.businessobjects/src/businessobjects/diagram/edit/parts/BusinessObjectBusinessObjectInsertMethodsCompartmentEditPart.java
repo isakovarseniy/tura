@@ -28,7 +28,7 @@ public class BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7004;
+	public static final int VISUAL_ID = 607004;
 
 	/**
 	 * @generated

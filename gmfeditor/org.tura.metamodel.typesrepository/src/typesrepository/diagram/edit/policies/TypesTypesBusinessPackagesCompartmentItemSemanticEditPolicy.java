@@ -19,14 +19,14 @@ public class TypesTypesBusinessPackagesCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TypesTypesBusinessPackagesCompartmentItemSemanticEditPolicy() {
-		super(TypesrepositoryElementTypes.Types_2001);
+		super(TypesrepositoryElementTypes.Types_202001);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypesrepositoryElementTypes.BusinessPackage_3002 == req
+		if (TypesrepositoryElementTypes.BusinessPackage_203002 == req
 				.getElementType()) {
 			return getGEFWrapper(new BusinessPackageCreateCommand(req));
 		}

@@ -76,9 +76,9 @@ public class RecipeRecipeConfigReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Configuration && newEnd instanceof Recipe)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy
-				.getLinkConstraints()
-				.canExistRecipeRecipeConfig_4002(getNewSource(), getOldTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
+				.canExistRecipeRecipeConfig_504002(getNewSource(),
+						getOldTarget());
 	}
 
 	/**
@@ -88,9 +88,9 @@ public class RecipeRecipeConfigReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Configuration && newEnd instanceof Configuration)) {
 			return false;
 		}
-		return DomainBaseItemSemanticEditPolicy
-				.getLinkConstraints()
-				.canExistRecipeRecipeConfig_4002(getOldSource(), getNewTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
+				.canExistRecipeRecipeConfig_504002(getOldSource(),
+						getNewTarget());
 	}
 
 	/**

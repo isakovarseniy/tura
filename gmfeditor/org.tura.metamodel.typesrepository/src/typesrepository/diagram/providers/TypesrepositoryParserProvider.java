@@ -33,73 +33,73 @@ public class TypesrepositoryParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser typesName_5004Parser;
+	private IParser typesName_205004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTypesName_5004Parser() {
-		if (typesName_5004Parser == null) {
+	private IParser getTypesName_205004Parser() {
+		if (typesName_205004Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypesrepositoryPackage.eINSTANCE
 					.getTypes_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			typesName_5004Parser = parser;
+			typesName_205004Parser = parser;
 		}
-		return typesName_5004Parser;
+		return typesName_205004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser primitiveName_5003Parser;
+	private IParser primitiveName_205003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPrimitiveName_5003Parser() {
-		if (primitiveName_5003Parser == null) {
+	private IParser getPrimitiveName_205003Parser() {
+		if (primitiveName_205003Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypesrepositoryPackage.eINSTANCE
 					.getPrimitive_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			primitiveName_5003Parser = parser;
+			primitiveName_205003Parser = parser;
 		}
-		return primitiveName_5003Parser;
+		return primitiveName_205003Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser packageName_5001Parser;
+	private IParser packageName_205001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPackageName_5001Parser() {
-		if (packageName_5001Parser == null) {
+	private IParser getPackageName_205001Parser() {
+		if (packageName_205001Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypesrepositoryPackage.eINSTANCE
 					.getPackage_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			packageName_5001Parser = parser;
+			packageName_205001Parser = parser;
 		}
-		return packageName_5001Parser;
+		return packageName_205001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser businessPackageName_5002Parser;
+	private IParser businessPackageName_205002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getBusinessPackageName_5002Parser() {
-		if (businessPackageName_5002Parser == null) {
+	private IParser getBusinessPackageName_205002Parser() {
+		if (businessPackageName_205002Parser == null) {
 			EAttribute[] features = new EAttribute[] { TypesrepositoryPackage.eINSTANCE
 					.getBusinessPackage_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			businessPackageName_5002Parser = parser;
+			businessPackageName_205002Parser = parser;
 		}
-		return businessPackageName_5002Parser;
+		return businessPackageName_205002Parser;
 	}
 
 	/**
@@ -108,13 +108,13 @@ public class TypesrepositoryParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case TypesNameEditPart.VISUAL_ID:
-			return getTypesName_5004Parser();
+			return getTypesName_205004Parser();
 		case PrimitiveNameEditPart.VISUAL_ID:
-			return getPrimitiveName_5003Parser();
+			return getPrimitiveName_205003Parser();
 		case PackageNameEditPart.VISUAL_ID:
-			return getPackageName_5001Parser();
+			return getPackageName_205001Parser();
 		case BusinessPackageNameEditPart.VISUAL_ID:
-			return getBusinessPackageName_5002Parser();
+			return getBusinessPackageName_205002Parser();
 		}
 		return null;
 	}

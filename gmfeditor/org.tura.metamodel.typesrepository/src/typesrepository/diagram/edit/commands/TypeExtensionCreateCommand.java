@@ -73,7 +73,7 @@ public class TypeExtensionCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return TypesrepositoryBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateTypeExtension_4001(getContainer(), getSource(),
+				.canCreateTypeExtension_204001(getContainer(), getSource(),
 						getTarget());
 	}
 

@@ -91,7 +91,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Dammy1 dammy1 = (Dammy1)theEObject;
         T result = caseDammy1(dammy1);
-        if (result == null) result = caseTypeDefinition(dammy1);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -99,7 +98,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Dammy2 dammy2 = (Dammy2)theEObject;
         T result = caseDammy2(dammy2);
-        if (result == null) result = caseBusinessObjects(dammy2);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -107,7 +105,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Dammy3 dammy3 = (Dammy3)theEObject;
         T result = caseDammy3(dammy3);
-        if (result == null) result = caseRecipes(dammy3);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -115,7 +112,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Dammy4 dammy4 = (Dammy4)theEObject;
         T result = caseDammy4(dammy4);
-        if (result == null) result = caseMappers(dammy4);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -291,70 +287,6 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDomainApplication(DomainApplication object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Type Definition</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type Definition</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTypeDefinition(TypeDefinition object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Business Objects</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Business Objects</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBusinessObjects(BusinessObjects object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Recipes</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Recipes</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRecipes(Recipes object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Mappers</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mappers</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMappers(Mappers object)
   {
     return null;
   }

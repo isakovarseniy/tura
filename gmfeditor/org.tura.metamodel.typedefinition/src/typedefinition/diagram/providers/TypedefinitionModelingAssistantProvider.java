@@ -49,34 +49,34 @@ public class TypedefinitionModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof TypeDefinitionEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
-			types.add(TypedefinitionElementTypes.TypeReference_2001);
-			types.add(TypedefinitionElementTypes.Type_2002);
-			types.add(TypedefinitionElementTypes.Enumarator_2003);
+			types.add(TypedefinitionElementTypes.TypeReference_102001);
+			types.add(TypedefinitionElementTypes.Type_102002);
+			types.add(TypedefinitionElementTypes.Enumarator_102003);
 			return types;
 		}
 		if (editPart instanceof TypeTypeAttributesCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypedefinitionElementTypes.Attribute_3001);
+			types.add(TypedefinitionElementTypes.Attribute_103001);
 			return types;
 		}
 		if (editPart instanceof TypeTypeOperationsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypedefinitionElementTypes.Operation_3002);
+			types.add(TypedefinitionElementTypes.Operation_103002);
 			return types;
 		}
 		if (editPart instanceof OperationOperationParametersCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypedefinitionElementTypes.Attribute_3003);
+			types.add(TypedefinitionElementTypes.Attribute_103003);
 			return types;
 		}
 		if (editPart instanceof OperationOperationReturnValueCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypedefinitionElementTypes.ReturnValue_3004);
+			types.add(TypedefinitionElementTypes.ReturnValue_103004);
 			return types;
 		}
 		if (editPart instanceof EnumaratorEnumaratorValuesCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(TypedefinitionElementTypes.EnumAttribute_3005);
+			types.add(TypedefinitionElementTypes.EnumAttribute_103005);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

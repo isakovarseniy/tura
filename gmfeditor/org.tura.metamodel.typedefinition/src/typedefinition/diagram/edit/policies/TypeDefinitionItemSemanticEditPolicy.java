@@ -25,21 +25,22 @@ public class TypeDefinitionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TypeDefinitionItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.TypeDefinition_1000);
+		super(TypedefinitionElementTypes.TypeDefinition_101000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypedefinitionElementTypes.TypeReference_2001 == req
+		if (TypedefinitionElementTypes.TypeReference_102001 == req
 				.getElementType()) {
 			return getGEFWrapper(new TypeReferenceCreateCommand(req));
 		}
-		if (TypedefinitionElementTypes.Type_2002 == req.getElementType()) {
+		if (TypedefinitionElementTypes.Type_102002 == req.getElementType()) {
 			return getGEFWrapper(new TypeCreateCommand(req));
 		}
-		if (TypedefinitionElementTypes.Enumarator_2003 == req.getElementType()) {
+		if (TypedefinitionElementTypes.Enumarator_102003 == req
+				.getElementType()) {
 			return getGEFWrapper(new EnumaratorCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

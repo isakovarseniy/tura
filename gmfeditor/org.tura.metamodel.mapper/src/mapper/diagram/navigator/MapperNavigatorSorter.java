@@ -15,12 +15,12 @@ public class MapperNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 4003;
+	private static final int GROUP_CATEGORY = 404003;
 
 	/**
 	 * @generated
 	 */
-	private static final int SHORTCUTS_CATEGORY = 4002;
+	private static final int SHORTCUTS_CATEGORY = 404002;
 
 	/**
 	 * @generated

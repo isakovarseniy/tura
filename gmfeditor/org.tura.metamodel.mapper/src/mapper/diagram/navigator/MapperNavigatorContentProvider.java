@@ -240,7 +240,7 @@ public class MapperNavigatorContentProvider implements ICommonContentProvider {
 			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
 			Diagram sv = (Diagram) view;
 			MapperNavigatorGroup links = new MapperNavigatorGroup(
-					Messages.NavigatorGroupName_Mappers_1000_links,
+					Messages.NavigatorGroupName_Mappers_401000_links,
 					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),

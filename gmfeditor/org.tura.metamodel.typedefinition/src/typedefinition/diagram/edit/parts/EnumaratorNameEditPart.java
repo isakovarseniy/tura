@@ -61,7 +61,7 @@ public class EnumaratorNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5008;
+	public static final int VISUAL_ID = 105008;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class EnumaratorNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = TypedefinitionParserProvider
 					.getParser(
-							TypedefinitionElementTypes.Enumarator_2003,
+							TypedefinitionElementTypes.Enumarator_102003,
 							getParserElement(),
 							TypedefinitionVisualIDRegistry
 									.getType(typedefinition.diagram.edit.parts.EnumaratorNameEditPart.VISUAL_ID));

@@ -19,14 +19,14 @@ public class ApplicationMappersApplicationMappersMappersCompartmentItemSemanticE
 	 * @generated
 	 */
 	public ApplicationMappersApplicationMappersMappersCompartmentItemSemanticEditPolicy() {
-		super(ApplicationElementTypes.ApplicationMappers_2002);
+		super(ApplicationElementTypes.ApplicationMappers_802002);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (ApplicationElementTypes.ApplicationMapper_3002 == req
+		if (ApplicationElementTypes.ApplicationMapper_803002 == req
 				.getElementType()) {
 			return getGEFWrapper(new ApplicationMapperCreateCommand(req));
 		}

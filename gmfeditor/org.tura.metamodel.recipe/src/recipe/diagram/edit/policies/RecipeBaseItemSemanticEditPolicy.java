@@ -327,7 +327,7 @@ public class RecipeBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateRecipeRecipeConfig_4001(Recipe source,
+		public boolean canCreateRecipeRecipeConfig_304001(Recipe source,
 				Configuration target) {
 			if (source != null) {
 				if (source.getRecipeConfig() != null) {
@@ -335,13 +335,13 @@ public class RecipeBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				}
 			}
 
-			return canExistRecipeRecipeConfig_4001(source, target);
+			return canExistRecipeRecipeConfig_304001(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateConfigurationConfigExtension_4002(
+		public boolean canCreateConfigurationConfigExtension_304002(
 				Configuration source, Configuration target) {
 			if (source != null) {
 				if (source.getConfigExtension() != null) {
@@ -349,13 +349,13 @@ public class RecipeBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				}
 			}
 
-			return canExistConfigurationConfigExtension_4002(source, target);
+			return canExistConfigurationConfigExtension_304002(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canExistRecipeRecipeConfig_4001(Recipe source,
+		public boolean canExistRecipeRecipeConfig_304001(Recipe source,
 				Configuration target) {
 			return true;
 		}
@@ -363,7 +363,7 @@ public class RecipeBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistConfigurationConfigExtension_4002(
+		public boolean canExistConfigurationConfigExtension_304002(
 				Configuration source, Configuration target) {
 			return true;
 		}

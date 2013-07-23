@@ -23,7 +23,7 @@ public class SpecifierItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public SpecifierItemSemanticEditPolicy() {
-		super(ArtifactElementTypes.Specifier_3003);
+		super(ArtifactElementTypes.Specifier_703003);
 	}
 
 	/**

@@ -43,7 +43,7 @@ public class TypesRepositoryEditPart extends DiagramEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1000;
+	public static final int VISUAL_ID = 201000;
 
 	/**
 	 * @generated

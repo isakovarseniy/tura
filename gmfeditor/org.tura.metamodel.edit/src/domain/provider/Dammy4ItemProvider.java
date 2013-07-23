@@ -3,6 +3,7 @@
 package domain.provider;
 
 
+import domain.DomainPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,12 +14,14 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link domain.Dammy4} object.
@@ -27,7 +30,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class Dammy4ItemProvider
-  extends MappersItemProvider
+  extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -59,8 +62,32 @@ public class Dammy4ItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addD4PropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the D4 feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addD4PropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Dammy4_d4_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Dammy4_d4_feature", "_UI_Dammy4_type"),
+         DomainPackage.Literals.DAMMY4__D4,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**

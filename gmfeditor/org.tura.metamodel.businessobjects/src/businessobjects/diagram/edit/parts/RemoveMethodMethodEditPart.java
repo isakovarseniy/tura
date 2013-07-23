@@ -61,7 +61,7 @@ public class RemoveMethodMethodEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5015;
+	public static final int VISUAL_ID = 605015;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class RemoveMethodMethodEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = BusinessobjectsParserProvider
 					.getParser(
-							BusinessobjectsElementTypes.RemoveMethod_3012,
+							BusinessobjectsElementTypes.RemoveMethod_603012,
 							getParserElement(),
 							BusinessobjectsVisualIDRegistry
 									.getType(businessobjects.diagram.edit.parts.RemoveMethodMethodEditPart.VISUAL_ID));

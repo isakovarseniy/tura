@@ -55,19 +55,19 @@ public class BusinessobjectsDiagramUpdater {
 			View view) {
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(view)) {
 		case BusinessObjectsEditPart.VISUAL_ID:
-			return getBusinessObjects_1000SemanticChildren(view);
+			return getBusinessObjects_601000SemanticChildren(view);
 		case BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart.VISUAL_ID:
-			return getBusinessObjectBusinessObjectCreateMethodsCompartment_7003SemanticChildren(view);
+			return getBusinessObjectBusinessObjectCreateMethodsCompartment_607003SemanticChildren(view);
 		case BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart.VISUAL_ID:
-			return getBusinessObjectBusinessObjectInsertMethodsCompartment_7004SemanticChildren(view);
+			return getBusinessObjectBusinessObjectInsertMethodsCompartment_607004SemanticChildren(view);
 		case BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID:
-			return getBusinessObjectBusinessObjectUpdaeteMethodsCompartment_7005SemanticChildren(view);
+			return getBusinessObjectBusinessObjectUpdaeteMethodsCompartment_607005SemanticChildren(view);
 		case BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID:
-			return getBusinessObjectBusinessObjectRemovetMethodsCompartment_7006SemanticChildren(view);
+			return getBusinessObjectBusinessObjectRemovetMethodsCompartment_607006SemanticChildren(view);
 		case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
-			return getBusinessObjectBusinessObjectSearchtMethodsCompartment_7007SemanticChildren(view);
+			return getBusinessObjectBusinessObjectSearchtMethodsCompartment_607007SemanticChildren(view);
 		case BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID:
-			return getBusinessObjectBusinessObjectOthersMethodsCompartment_7008SemanticChildren(view);
+			return getBusinessObjectBusinessObjectOthersMethodsCompartment_607008SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -75,7 +75,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsNodeDescriptor> getBusinessObjects_1000SemanticChildren(
+	public static List<BusinessobjectsNodeDescriptor> getBusinessObjects_601000SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -99,7 +99,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectCreateMethodsCompartment_7003SemanticChildren(
+	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectCreateMethodsCompartment_607003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -128,7 +128,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectInsertMethodsCompartment_7004SemanticChildren(
+	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectInsertMethodsCompartment_607004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -157,7 +157,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectUpdaeteMethodsCompartment_7005SemanticChildren(
+	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectUpdaeteMethodsCompartment_607005SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -186,7 +186,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectRemovetMethodsCompartment_7006SemanticChildren(
+	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectRemovetMethodsCompartment_607006SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -215,7 +215,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectSearchtMethodsCompartment_7007SemanticChildren(
+	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectSearchtMethodsCompartment_607007SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -244,7 +244,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectOthersMethodsCompartment_7008SemanticChildren(
+	public static List<BusinessobjectsNodeDescriptor> getBusinessObjectBusinessObjectOthersMethodsCompartment_607008SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -277,23 +277,23 @@ public class BusinessobjectsDiagramUpdater {
 			View view) {
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(view)) {
 		case BusinessObjectsEditPart.VISUAL_ID:
-			return getBusinessObjects_1000ContainedLinks(view);
+			return getBusinessObjects_601000ContainedLinks(view);
 		case BusinessObjectEditPart.VISUAL_ID:
-			return getBusinessObject_2003ContainedLinks(view);
+			return getBusinessObject_602003ContainedLinks(view);
 		case CreateMethodEditPart.VISUAL_ID:
-			return getCreateMethod_3009ContainedLinks(view);
+			return getCreateMethod_603009ContainedLinks(view);
 		case InsertMethodEditPart.VISUAL_ID:
-			return getInsertMethod_3010ContainedLinks(view);
+			return getInsertMethod_603010ContainedLinks(view);
 		case UpdateMethodEditPart.VISUAL_ID:
-			return getUpdateMethod_3011ContainedLinks(view);
+			return getUpdateMethod_603011ContainedLinks(view);
 		case RemoveMethodEditPart.VISUAL_ID:
-			return getRemoveMethod_3012ContainedLinks(view);
+			return getRemoveMethod_603012ContainedLinks(view);
 		case SearchMethodEditPart.VISUAL_ID:
-			return getSearchMethod_3013ContainedLinks(view);
+			return getSearchMethod_603013ContainedLinks(view);
 		case OtherMethodEditPart.VISUAL_ID:
-			return getOtherMethod_3014ContainedLinks(view);
+			return getOtherMethod_603014ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001ContainedLinks(view);
+			return getTypeExtension_604001ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -304,21 +304,21 @@ public class BusinessobjectsDiagramUpdater {
 	public static List<BusinessobjectsLinkDescriptor> getIncomingLinks(View view) {
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(view)) {
 		case BusinessObjectEditPart.VISUAL_ID:
-			return getBusinessObject_2003IncomingLinks(view);
+			return getBusinessObject_602003IncomingLinks(view);
 		case CreateMethodEditPart.VISUAL_ID:
-			return getCreateMethod_3009IncomingLinks(view);
+			return getCreateMethod_603009IncomingLinks(view);
 		case InsertMethodEditPart.VISUAL_ID:
-			return getInsertMethod_3010IncomingLinks(view);
+			return getInsertMethod_603010IncomingLinks(view);
 		case UpdateMethodEditPart.VISUAL_ID:
-			return getUpdateMethod_3011IncomingLinks(view);
+			return getUpdateMethod_603011IncomingLinks(view);
 		case RemoveMethodEditPart.VISUAL_ID:
-			return getRemoveMethod_3012IncomingLinks(view);
+			return getRemoveMethod_603012IncomingLinks(view);
 		case SearchMethodEditPart.VISUAL_ID:
-			return getSearchMethod_3013IncomingLinks(view);
+			return getSearchMethod_603013IncomingLinks(view);
 		case OtherMethodEditPart.VISUAL_ID:
-			return getOtherMethod_3014IncomingLinks(view);
+			return getOtherMethod_603014IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001IncomingLinks(view);
+			return getTypeExtension_604001IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -329,21 +329,21 @@ public class BusinessobjectsDiagramUpdater {
 	public static List<BusinessobjectsLinkDescriptor> getOutgoingLinks(View view) {
 		switch (BusinessobjectsVisualIDRegistry.getVisualID(view)) {
 		case BusinessObjectEditPart.VISUAL_ID:
-			return getBusinessObject_2003OutgoingLinks(view);
+			return getBusinessObject_602003OutgoingLinks(view);
 		case CreateMethodEditPart.VISUAL_ID:
-			return getCreateMethod_3009OutgoingLinks(view);
+			return getCreateMethod_603009OutgoingLinks(view);
 		case InsertMethodEditPart.VISUAL_ID:
-			return getInsertMethod_3010OutgoingLinks(view);
+			return getInsertMethod_603010OutgoingLinks(view);
 		case UpdateMethodEditPart.VISUAL_ID:
-			return getUpdateMethod_3011OutgoingLinks(view);
+			return getUpdateMethod_603011OutgoingLinks(view);
 		case RemoveMethodEditPart.VISUAL_ID:
-			return getRemoveMethod_3012OutgoingLinks(view);
+			return getRemoveMethod_603012OutgoingLinks(view);
 		case SearchMethodEditPart.VISUAL_ID:
-			return getSearchMethod_3013OutgoingLinks(view);
+			return getSearchMethod_603013OutgoingLinks(view);
 		case OtherMethodEditPart.VISUAL_ID:
-			return getOtherMethod_3014OutgoingLinks(view);
+			return getOtherMethod_603014OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001OutgoingLinks(view);
+			return getTypeExtension_604001OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -351,7 +351,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessObjects_1000ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getBusinessObjects_601000ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -359,7 +359,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessObject_2003ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getBusinessObject_602003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -367,7 +367,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getCreateMethod_3009ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getCreateMethod_603009ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -375,7 +375,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getInsertMethod_3010ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getInsertMethod_603010ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -383,7 +383,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getUpdateMethod_3011ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getUpdateMethod_603011ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -391,7 +391,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getRemoveMethod_3012ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getRemoveMethod_603012ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -399,7 +399,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getSearchMethod_3013ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getSearchMethod_603013ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -407,7 +407,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getOtherMethod_3014ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getOtherMethod_603014ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -415,7 +415,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getTypeExtension_4001ContainedLinks(
+	public static List<BusinessobjectsLinkDescriptor> getTypeExtension_604001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -423,7 +423,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessObject_2003IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getBusinessObject_602003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -431,7 +431,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getCreateMethod_3009IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getCreateMethod_603009IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -439,7 +439,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getInsertMethod_3010IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getInsertMethod_603010IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -447,7 +447,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getUpdateMethod_3011IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getUpdateMethod_603011IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -455,7 +455,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getRemoveMethod_3012IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getRemoveMethod_603012IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -463,7 +463,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getSearchMethod_3013IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getSearchMethod_603013IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -471,7 +471,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getOtherMethod_3014IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getOtherMethod_603014IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -479,7 +479,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getTypeExtension_4001IncomingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getTypeExtension_604001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -487,7 +487,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getBusinessObject_2003OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getBusinessObject_602003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -495,7 +495,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getCreateMethod_3009OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getCreateMethod_603009OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -503,7 +503,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getInsertMethod_3010OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getInsertMethod_603010OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -511,7 +511,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getUpdateMethod_3011OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getUpdateMethod_603011OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -519,7 +519,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getRemoveMethod_3012OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getRemoveMethod_603012OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -527,7 +527,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getSearchMethod_3013OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getSearchMethod_603013OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -535,7 +535,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getOtherMethod_3014OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getOtherMethod_603014OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -543,7 +543,7 @@ public class BusinessobjectsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<BusinessobjectsLinkDescriptor> getTypeExtension_4001OutgoingLinks(
+	public static List<BusinessobjectsLinkDescriptor> getTypeExtension_604001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

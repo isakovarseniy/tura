@@ -65,14 +65,14 @@ public class RecipePaletteFactory {
 	 */
 	private ToolEntry createComponent1CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(RecipeElementTypes.Component_3004);
-		types.add(RecipeElementTypes.Component_3002);
+		types.add(RecipeElementTypes.Component_303004);
+		types.add(RecipeElementTypes.Component_303002);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Component1CreationTool_title,
 				Messages.Component1CreationTool_desc, types);
 		entry.setId("createComponent1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RecipeElementTypes
-				.getImageDescriptor(RecipeElementTypes.Component_3004));
+				.getImageDescriptor(RecipeElementTypes.Component_303004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -85,10 +85,10 @@ public class RecipePaletteFactory {
 				Messages.Configuration2CreationTool_title,
 				Messages.Configuration2CreationTool_desc,
 				Collections
-						.singletonList(RecipeElementTypes.Configuration_2005));
+						.singletonList(RecipeElementTypes.Configuration_302005));
 		entry.setId("createConfiguration2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RecipeElementTypes
-				.getImageDescriptor(RecipeElementTypes.Configuration_2005));
+				.getImageDescriptor(RecipeElementTypes.Configuration_302005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -100,10 +100,11 @@ public class RecipePaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ModelMapper3CreationTool_title,
 				Messages.ModelMapper3CreationTool_desc,
-				Collections.singletonList(RecipeElementTypes.ModelMapper_3003));
+				Collections
+						.singletonList(RecipeElementTypes.ModelMapper_303003));
 		entry.setId("createModelMapper3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RecipeElementTypes
-				.getImageDescriptor(RecipeElementTypes.ModelMapper_3003));
+				.getImageDescriptor(RecipeElementTypes.ModelMapper_303003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -115,10 +116,10 @@ public class RecipePaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Property4CreationTool_title,
 				Messages.Property4CreationTool_desc,
-				Collections.singletonList(RecipeElementTypes.Property_3005));
+				Collections.singletonList(RecipeElementTypes.Property_303005));
 		entry.setId("createProperty4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RecipeElementTypes
-				.getImageDescriptor(RecipeElementTypes.Property_3005));
+				.getImageDescriptor(RecipeElementTypes.Property_303005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -130,10 +131,10 @@ public class RecipePaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Recipe5CreationTool_title,
 				Messages.Recipe5CreationTool_desc,
-				Collections.singletonList(RecipeElementTypes.Recipe_2004));
+				Collections.singletonList(RecipeElementTypes.Recipe_302004));
 		entry.setId("createRecipe5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RecipeElementTypes
-				.getImageDescriptor(RecipeElementTypes.Recipe_2004));
+				.getImageDescriptor(RecipeElementTypes.Recipe_302004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -146,10 +147,10 @@ public class RecipePaletteFactory {
 				Messages.ConfigExtension1CreationTool_title,
 				Messages.ConfigExtension1CreationTool_desc,
 				Collections
-						.singletonList(RecipeElementTypes.ConfigurationConfigExtension_4002));
+						.singletonList(RecipeElementTypes.ConfigurationConfigExtension_304002));
 		entry.setId("createConfigExtension1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RecipeElementTypes
-				.getImageDescriptor(RecipeElementTypes.ConfigurationConfigExtension_4002));
+				.getImageDescriptor(RecipeElementTypes.ConfigurationConfigExtension_304002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -162,10 +163,10 @@ public class RecipePaletteFactory {
 				Messages.RecipeConfig2CreationTool_title,
 				Messages.RecipeConfig2CreationTool_desc,
 				Collections
-						.singletonList(RecipeElementTypes.RecipeRecipeConfig_4001));
+						.singletonList(RecipeElementTypes.RecipeRecipeConfig_304001));
 		entry.setId("createRecipeConfig2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RecipeElementTypes
-				.getImageDescriptor(RecipeElementTypes.RecipeRecipeConfig_4001));
+				.getImageDescriptor(RecipeElementTypes.RecipeRecipeConfig_304001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

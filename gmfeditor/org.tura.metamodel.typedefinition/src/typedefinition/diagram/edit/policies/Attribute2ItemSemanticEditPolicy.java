@@ -23,7 +23,7 @@ public class Attribute2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public Attribute2ItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Attribute_3003);
+		super(TypedefinitionElementTypes.Attribute_103003);
 	}
 
 	/**

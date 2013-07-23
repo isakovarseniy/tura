@@ -63,7 +63,7 @@ public class ApplicationMappersApplicationMappersMappersCompartmentCanonicalEdit
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<ApplicationNodeDescriptor> childDescriptors = ApplicationDiagramUpdater
-				.getApplicationMappersApplicationMappersMappersCompartment_7002SemanticChildren(viewObject);
+				.getApplicationMappersApplicationMappersMappersCompartment_807002SemanticChildren(viewObject);
 		for (ApplicationNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -96,7 +96,7 @@ public class ApplicationMappersApplicationMappersMappersCompartmentCanonicalEdit
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<ApplicationNodeDescriptor> childDescriptors = ApplicationDiagramUpdater
-				.getApplicationMappersApplicationMappersMappersCompartment_7002SemanticChildren((View) getHost()
+				.getApplicationMappersApplicationMappersMappersCompartment_807002SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

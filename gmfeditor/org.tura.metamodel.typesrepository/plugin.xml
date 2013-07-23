@@ -258,8 +258,8 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Typesrepository"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3003,3001,3002"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="202001,203003,203001,203002"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="204001"/>
       </viewProvider>
    </extension>
 
@@ -271,16 +271,16 @@
             <method name="getType()" value="Typesrepository"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,3003,3001,3002"/>
+            <method name="getType()" value="202001,203003,203001,203002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4001"/>
+            <method name="getType()" value="204001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5004,5003,5001,5002"/>
+            <method name="getType()" value="205004,205003,205001,205002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7002,7003"/>
+            <method name="getType()" value="207001,207002,207003"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -290,12 +290,12 @@
       <?gmfgen generated="true"?>
       <modelingAssistantProvider class="typesrepository.diagram.providers.TypesrepositoryModelingAssistantProvider">
          <Priority name="Lowest"/>
-         <object class="typesrepository.diagram.edit.parts.TypesRepositoryEditPart" id="TypesRepository_1000"/>
-         <object class="typesrepository.diagram.edit.parts.TypesEditPart" id="Types_2001"/>
-         <object class="typesrepository.diagram.edit.parts.PrimitiveEditPart" id="Primitive_3003"/>
-         <object class="typesrepository.diagram.edit.parts.PackageEditPart" id="Package_3001"/>
-         <object class="typesrepository.diagram.edit.parts.BusinessPackageEditPart" id="BusinessPackage_3002"/>
-         <context elements="TypesRepository_1000,Types_2001,Primitive_3003,Package_3001,BusinessPackage_3002"/>
+         <object class="typesrepository.diagram.edit.parts.TypesRepositoryEditPart" id="TypesRepository_201000"/>
+         <object class="typesrepository.diagram.edit.parts.TypesEditPart" id="Types_202001"/>
+         <object class="typesrepository.diagram.edit.parts.PrimitiveEditPart" id="Primitive_203003"/>
+         <object class="typesrepository.diagram.edit.parts.PackageEditPart" id="Package_203001"/>
+         <object class="typesrepository.diagram.edit.parts.BusinessPackageEditPart" id="BusinessPackage_203002"/>
+         <context elements="TypesRepository_201000,Types_202001,Primitive_203003,Package_203001,BusinessPackage_203002"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -318,7 +318,7 @@
       <decoratorProvider class="typesrepository.diagram.providers.TypesrepositoryShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="2001"/>
+            <method name="getType()" value="202001"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -328,62 +328,62 @@
       <?gmfgen generated="true"?>
       <metamodel nsURI="http://tura.org/2013/v1/typesrepository">
          <metamodelType
-               id="org.tura.metamodel.typesrepository.TypesRepository_1000"
-               name="%metatype.name.TypesRepository_1000"
+               id="org.tura.metamodel.typesrepository.TypesRepository_201000"
+               name="%metatype.name.TypesRepository_201000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TypesRepository"
                edithelper="typesrepository.diagram.edit.helpers.TypesRepositoryEditHelper">
-            <param name="semanticHint" value="1000"/>
+            <param name="semanticHint" value="201000"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typesrepository">
          <metamodelType
-               id="org.tura.metamodel.typesrepository.Types_2001"
-               name="%metatype.name.Types_2001"
+               id="org.tura.metamodel.typesrepository.Types_202001"
+               name="%metatype.name.Types_202001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Types"
                edithelper="typesrepository.diagram.edit.helpers.TypesEditHelper">
-            <param name="semanticHint" value="2001"/>
+            <param name="semanticHint" value="202001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typesrepository">
          <metamodelType
-               id="org.tura.metamodel.typesrepository.Primitive_3003"
-               name="%metatype.name.Primitive_3003"
+               id="org.tura.metamodel.typesrepository.Primitive_203003"
+               name="%metatype.name.Primitive_203003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Primitive"
                edithelper="typesrepository.diagram.edit.helpers.PrimitiveEditHelper">
-            <param name="semanticHint" value="3003"/>
+            <param name="semanticHint" value="203003"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typesrepository">
          <metamodelType
-               id="org.tura.metamodel.typesrepository.Package_3001"
-               name="%metatype.name.Package_3001"
+               id="org.tura.metamodel.typesrepository.Package_203001"
+               name="%metatype.name.Package_203001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Package"
                edithelper="typesrepository.diagram.edit.helpers.PackageEditHelper">
-            <param name="semanticHint" value="3001"/>
+            <param name="semanticHint" value="203001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typesrepository">
          <metamodelType
-               id="org.tura.metamodel.typesrepository.BusinessPackage_3002"
-               name="%metatype.name.BusinessPackage_3002"
+               id="org.tura.metamodel.typesrepository.BusinessPackage_203002"
+               name="%metatype.name.BusinessPackage_203002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="BusinessPackage"
                edithelper="typesrepository.diagram.edit.helpers.BusinessPackageEditHelper">
-            <param name="semanticHint" value="3002"/>
+            <param name="semanticHint" value="203002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
          <metamodelType
-               id="org.tura.metamodel.typesrepository.TypeExtension_4001"
-               name="%metatype.name.TypeExtension_4001"
+               id="org.tura.metamodel.typesrepository.TypeExtension_204001"
+               name="%metatype.name.TypeExtension_204001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TypeExtension"
                edithelper="typesrepository.diagram.edit.helpers.TypeExtensionEditHelper">
-            <param name="semanticHint" value="4001"/>
+            <param name="semanticHint" value="204001"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -398,12 +398,12 @@
          </enablement>
       </clientContext> 
       <binding context="org.tura.metamodel.typesrepository.TypeContext">
-         <elementType ref="org.tura.metamodel.typesrepository.TypesRepository_1000"/>
-         <elementType ref="org.tura.metamodel.typesrepository.Types_2001"/>
-         <elementType ref="org.tura.metamodel.typesrepository.Primitive_3003"/>
-         <elementType ref="org.tura.metamodel.typesrepository.Package_3001"/>
-         <elementType ref="org.tura.metamodel.typesrepository.BusinessPackage_3002"/>
-         <elementType ref="org.tura.metamodel.typesrepository.TypeExtension_4001"/>
+         <elementType ref="org.tura.metamodel.typesrepository.TypesRepository_201000"/>
+         <elementType ref="org.tura.metamodel.typesrepository.Types_202001"/>
+         <elementType ref="org.tura.metamodel.typesrepository.Primitive_203003"/>
+         <elementType ref="org.tura.metamodel.typesrepository.Package_203001"/>
+         <elementType ref="org.tura.metamodel.typesrepository.BusinessPackage_203002"/>
+         <elementType ref="org.tura.metamodel.typesrepository.TypeExtension_204001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

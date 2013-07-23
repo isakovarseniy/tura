@@ -19,14 +19,14 @@ public class BusinessObjectBusinessObjectRemovetMethodsCompartmentItemSemanticEd
 	 * @generated
 	 */
 	public BusinessObjectBusinessObjectRemovetMethodsCompartmentItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.BusinessObject_2003);
+		super(BusinessobjectsElementTypes.BusinessObject_602003);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (BusinessobjectsElementTypes.RemoveMethod_3012 == req
+		if (BusinessobjectsElementTypes.RemoveMethod_603012 == req
 				.getElementType()) {
 			return getGEFWrapper(new RemoveMethodCreateCommand(req));
 		}

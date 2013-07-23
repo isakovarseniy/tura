@@ -34,7 +34,7 @@ public class ArtifactItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ArtifactItemSemanticEditPolicy() {
-		super(ArtifactElementTypes.Artifact_2001);
+		super(ArtifactElementTypes.Artifact_702001);
 	}
 
 	/**

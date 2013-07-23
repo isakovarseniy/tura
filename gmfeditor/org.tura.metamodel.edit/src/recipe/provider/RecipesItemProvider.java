@@ -183,7 +183,7 @@ public class RecipesItemProvider
   @Override
   public ResourceLocator getResourceLocator()
   {
-    return RecipeEditPlugin.INSTANCE;
+    return ApplicationEditPlugin.INSTANCE;
   }
 
 }

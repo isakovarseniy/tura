@@ -46,13 +46,13 @@ public class TypesrepositoryDiagramUpdater {
 			View view) {
 		switch (TypesrepositoryVisualIDRegistry.getVisualID(view)) {
 		case TypesRepositoryEditPart.VISUAL_ID:
-			return getTypesRepository_1000SemanticChildren(view);
+			return getTypesRepository_201000SemanticChildren(view);
 		case TypesTypesPrimitivesCompartmentEditPart.VISUAL_ID:
-			return getTypesTypesPrimitivesCompartment_7001SemanticChildren(view);
+			return getTypesTypesPrimitivesCompartment_207001SemanticChildren(view);
 		case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
-			return getTypesTypesPackagesCompartment_7002SemanticChildren(view);
+			return getTypesTypesPackagesCompartment_207002SemanticChildren(view);
 		case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
-			return getTypesTypesBusinessPackagesCompartment_7003SemanticChildren(view);
+			return getTypesTypesBusinessPackagesCompartment_207003SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -60,7 +60,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryNodeDescriptor> getTypesRepository_1000SemanticChildren(
+	public static List<TypesrepositoryNodeDescriptor> getTypesRepository_201000SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -82,7 +82,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryNodeDescriptor> getTypesTypesPrimitivesCompartment_7001SemanticChildren(
+	public static List<TypesrepositoryNodeDescriptor> getTypesTypesPrimitivesCompartment_207001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -110,7 +110,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryNodeDescriptor> getTypesTypesPackagesCompartment_7002SemanticChildren(
+	public static List<TypesrepositoryNodeDescriptor> getTypesTypesPackagesCompartment_207002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -138,7 +138,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryNodeDescriptor> getTypesTypesBusinessPackagesCompartment_7003SemanticChildren(
+	public static List<TypesrepositoryNodeDescriptor> getTypesTypesBusinessPackagesCompartment_207003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -170,17 +170,17 @@ public class TypesrepositoryDiagramUpdater {
 			View view) {
 		switch (TypesrepositoryVisualIDRegistry.getVisualID(view)) {
 		case TypesRepositoryEditPart.VISUAL_ID:
-			return getTypesRepository_1000ContainedLinks(view);
+			return getTypesRepository_201000ContainedLinks(view);
 		case TypesEditPart.VISUAL_ID:
-			return getTypes_2001ContainedLinks(view);
+			return getTypes_202001ContainedLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
-			return getPrimitive_3003ContainedLinks(view);
+			return getPrimitive_203003ContainedLinks(view);
 		case PackageEditPart.VISUAL_ID:
-			return getPackage_3001ContainedLinks(view);
+			return getPackage_203001ContainedLinks(view);
 		case BusinessPackageEditPart.VISUAL_ID:
-			return getBusinessPackage_3002ContainedLinks(view);
+			return getBusinessPackage_203002ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001ContainedLinks(view);
+			return getTypeExtension_204001ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -191,15 +191,15 @@ public class TypesrepositoryDiagramUpdater {
 	public static List<TypesrepositoryLinkDescriptor> getIncomingLinks(View view) {
 		switch (TypesrepositoryVisualIDRegistry.getVisualID(view)) {
 		case TypesEditPart.VISUAL_ID:
-			return getTypes_2001IncomingLinks(view);
+			return getTypes_202001IncomingLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
-			return getPrimitive_3003IncomingLinks(view);
+			return getPrimitive_203003IncomingLinks(view);
 		case PackageEditPart.VISUAL_ID:
-			return getPackage_3001IncomingLinks(view);
+			return getPackage_203001IncomingLinks(view);
 		case BusinessPackageEditPart.VISUAL_ID:
-			return getBusinessPackage_3002IncomingLinks(view);
+			return getBusinessPackage_203002IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001IncomingLinks(view);
+			return getTypeExtension_204001IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -210,15 +210,15 @@ public class TypesrepositoryDiagramUpdater {
 	public static List<TypesrepositoryLinkDescriptor> getOutgoingLinks(View view) {
 		switch (TypesrepositoryVisualIDRegistry.getVisualID(view)) {
 		case TypesEditPart.VISUAL_ID:
-			return getTypes_2001OutgoingLinks(view);
+			return getTypes_202001OutgoingLinks(view);
 		case PrimitiveEditPart.VISUAL_ID:
-			return getPrimitive_3003OutgoingLinks(view);
+			return getPrimitive_203003OutgoingLinks(view);
 		case PackageEditPart.VISUAL_ID:
-			return getPackage_3001OutgoingLinks(view);
+			return getPackage_203001OutgoingLinks(view);
 		case BusinessPackageEditPart.VISUAL_ID:
-			return getBusinessPackage_3002OutgoingLinks(view);
+			return getBusinessPackage_203002OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_4001OutgoingLinks(view);
+			return getTypeExtension_204001OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -226,7 +226,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getTypesRepository_1000ContainedLinks(
+	public static List<TypesrepositoryLinkDescriptor> getTypesRepository_201000ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -234,7 +234,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getTypes_2001ContainedLinks(
+	public static List<TypesrepositoryLinkDescriptor> getTypes_202001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -242,7 +242,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getPrimitive_3003ContainedLinks(
+	public static List<TypesrepositoryLinkDescriptor> getPrimitive_203003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -250,7 +250,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getPackage_3001ContainedLinks(
+	public static List<TypesrepositoryLinkDescriptor> getPackage_203001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -258,7 +258,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_3002ContainedLinks(
+	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_203002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -266,7 +266,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getTypeExtension_4001ContainedLinks(
+	public static List<TypesrepositoryLinkDescriptor> getTypeExtension_204001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -274,7 +274,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getTypes_2001IncomingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getTypes_202001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -282,7 +282,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getPrimitive_3003IncomingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getPrimitive_203003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -290,7 +290,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getPackage_3001IncomingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getPackage_203001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -298,7 +298,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_3002IncomingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_203002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -306,7 +306,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getTypeExtension_4001IncomingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getTypeExtension_204001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -314,7 +314,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getTypes_2001OutgoingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getTypes_202001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -322,7 +322,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getPrimitive_3003OutgoingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getPrimitive_203003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -330,7 +330,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getPackage_3001OutgoingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getPackage_203001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -338,7 +338,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_3002OutgoingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getBusinessPackage_203002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -346,7 +346,7 @@ public class TypesrepositoryDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<TypesrepositoryLinkDescriptor> getTypeExtension_4001OutgoingLinks(
+	public static List<TypesrepositoryLinkDescriptor> getTypeExtension_204001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

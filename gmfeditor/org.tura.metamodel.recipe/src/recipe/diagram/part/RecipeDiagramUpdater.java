@@ -59,19 +59,19 @@ public class RecipeDiagramUpdater {
 	public static List<RecipeNodeDescriptor> getSemanticChildren(View view) {
 		switch (RecipeVisualIDRegistry.getVisualID(view)) {
 		case RecipesEditPart.VISUAL_ID:
-			return getRecipes_1000SemanticChildren(view);
+			return getRecipes_301000SemanticChildren(view);
 		case RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID:
-			return getRecipeRecipeComponentsCompartment_7009SemanticChildren(view);
+			return getRecipeRecipeComponentsCompartment_307009SemanticChildren(view);
 		case ComponentComponentComponentsCompartmentEditPart.VISUAL_ID:
-			return getComponentComponentComponentsCompartment_7010SemanticChildren(view);
+			return getComponentComponentComponentsCompartment_307010SemanticChildren(view);
 		case ComponentComponentMappersCompartmentEditPart.VISUAL_ID:
-			return getComponentComponentMappersCompartment_7011SemanticChildren(view);
+			return getComponentComponentMappersCompartment_307011SemanticChildren(view);
 		case ComponentComponentComponentsCompartment2EditPart.VISUAL_ID:
-			return getComponentComponentComponentsCompartment_7004SemanticChildren(view);
+			return getComponentComponentComponentsCompartment_307004SemanticChildren(view);
 		case ComponentComponentMappersCompartment2EditPart.VISUAL_ID:
-			return getComponentComponentMappersCompartment_7005SemanticChildren(view);
+			return getComponentComponentMappersCompartment_307005SemanticChildren(view);
 		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
-			return getConfigurationConfigurationPropertiesCompartment_7012SemanticChildren(view);
+			return getConfigurationConfigurationPropertiesCompartment_307012SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -79,7 +79,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeNodeDescriptor> getRecipes_1000SemanticChildren(
+	public static List<RecipeNodeDescriptor> getRecipes_301000SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -110,7 +110,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeNodeDescriptor> getRecipeRecipeComponentsCompartment_7009SemanticChildren(
+	public static List<RecipeNodeDescriptor> getRecipeRecipeComponentsCompartment_307009SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -137,7 +137,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeNodeDescriptor> getComponentComponentComponentsCompartment_7010SemanticChildren(
+	public static List<RecipeNodeDescriptor> getComponentComponentComponentsCompartment_307010SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -164,7 +164,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeNodeDescriptor> getComponentComponentMappersCompartment_7011SemanticChildren(
+	public static List<RecipeNodeDescriptor> getComponentComponentMappersCompartment_307011SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -191,7 +191,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeNodeDescriptor> getComponentComponentComponentsCompartment_7004SemanticChildren(
+	public static List<RecipeNodeDescriptor> getComponentComponentComponentsCompartment_307004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -218,7 +218,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeNodeDescriptor> getComponentComponentMappersCompartment_7005SemanticChildren(
+	public static List<RecipeNodeDescriptor> getComponentComponentMappersCompartment_307005SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -245,7 +245,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeNodeDescriptor> getConfigurationConfigurationPropertiesCompartment_7012SemanticChildren(
+	public static List<RecipeNodeDescriptor> getConfigurationConfigurationPropertiesCompartment_307012SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -275,19 +275,19 @@ public class RecipeDiagramUpdater {
 	public static List<RecipeLinkDescriptor> getContainedLinks(View view) {
 		switch (RecipeVisualIDRegistry.getVisualID(view)) {
 		case RecipesEditPart.VISUAL_ID:
-			return getRecipes_1000ContainedLinks(view);
+			return getRecipes_301000ContainedLinks(view);
 		case RecipeEditPart.VISUAL_ID:
-			return getRecipe_2004ContainedLinks(view);
+			return getRecipe_302004ContainedLinks(view);
 		case ConfigurationEditPart.VISUAL_ID:
-			return getConfiguration_2005ContainedLinks(view);
+			return getConfiguration_302005ContainedLinks(view);
 		case ComponentEditPart.VISUAL_ID:
-			return getComponent_3004ContainedLinks(view);
+			return getComponent_303004ContainedLinks(view);
 		case Component2EditPart.VISUAL_ID:
-			return getComponent_3002ContainedLinks(view);
+			return getComponent_303002ContainedLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
-			return getModelMapper_3003ContainedLinks(view);
+			return getModelMapper_303003ContainedLinks(view);
 		case PropertyEditPart.VISUAL_ID:
-			return getProperty_3005ContainedLinks(view);
+			return getProperty_303005ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -298,17 +298,17 @@ public class RecipeDiagramUpdater {
 	public static List<RecipeLinkDescriptor> getIncomingLinks(View view) {
 		switch (RecipeVisualIDRegistry.getVisualID(view)) {
 		case RecipeEditPart.VISUAL_ID:
-			return getRecipe_2004IncomingLinks(view);
+			return getRecipe_302004IncomingLinks(view);
 		case ConfigurationEditPart.VISUAL_ID:
-			return getConfiguration_2005IncomingLinks(view);
+			return getConfiguration_302005IncomingLinks(view);
 		case ComponentEditPart.VISUAL_ID:
-			return getComponent_3004IncomingLinks(view);
+			return getComponent_303004IncomingLinks(view);
 		case Component2EditPart.VISUAL_ID:
-			return getComponent_3002IncomingLinks(view);
+			return getComponent_303002IncomingLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
-			return getModelMapper_3003IncomingLinks(view);
+			return getModelMapper_303003IncomingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
-			return getProperty_3005IncomingLinks(view);
+			return getProperty_303005IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -319,17 +319,17 @@ public class RecipeDiagramUpdater {
 	public static List<RecipeLinkDescriptor> getOutgoingLinks(View view) {
 		switch (RecipeVisualIDRegistry.getVisualID(view)) {
 		case RecipeEditPart.VISUAL_ID:
-			return getRecipe_2004OutgoingLinks(view);
+			return getRecipe_302004OutgoingLinks(view);
 		case ConfigurationEditPart.VISUAL_ID:
-			return getConfiguration_2005OutgoingLinks(view);
+			return getConfiguration_302005OutgoingLinks(view);
 		case ComponentEditPart.VISUAL_ID:
-			return getComponent_3004OutgoingLinks(view);
+			return getComponent_303004OutgoingLinks(view);
 		case Component2EditPart.VISUAL_ID:
-			return getComponent_3002OutgoingLinks(view);
+			return getComponent_303002OutgoingLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
-			return getModelMapper_3003OutgoingLinks(view);
+			return getModelMapper_303003OutgoingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
-			return getProperty_3005OutgoingLinks(view);
+			return getProperty_303005OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -337,7 +337,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getRecipes_1000ContainedLinks(
+	public static List<RecipeLinkDescriptor> getRecipes_301000ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -345,29 +345,29 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getRecipe_2004ContainedLinks(
+	public static List<RecipeLinkDescriptor> getRecipe_302004ContainedLinks(
 			View view) {
 		Recipe modelElement = (Recipe) view.getElement();
 		LinkedList<RecipeLinkDescriptor> result = new LinkedList<RecipeLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_RecipeConfig_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_RecipeConfig_304001(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getConfiguration_2005ContainedLinks(
+	public static List<RecipeLinkDescriptor> getConfiguration_302005ContainedLinks(
 			View view) {
 		Configuration modelElement = (Configuration) view.getElement();
 		LinkedList<RecipeLinkDescriptor> result = new LinkedList<RecipeLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Configuration_ConfigExtension_4002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Configuration_ConfigExtension_304002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getComponent_3004ContainedLinks(
+	public static List<RecipeLinkDescriptor> getComponent_303004ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -375,7 +375,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getComponent_3002ContainedLinks(
+	public static List<RecipeLinkDescriptor> getComponent_303002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -383,7 +383,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getModelMapper_3003ContainedLinks(
+	public static List<RecipeLinkDescriptor> getModelMapper_303003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -391,7 +391,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getProperty_3005ContainedLinks(
+	public static List<RecipeLinkDescriptor> getProperty_303005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -399,7 +399,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getRecipe_2004IncomingLinks(
+	public static List<RecipeLinkDescriptor> getRecipe_302004IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -407,15 +407,15 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getConfiguration_2005IncomingLinks(
+	public static List<RecipeLinkDescriptor> getConfiguration_302005IncomingLinks(
 			View view) {
 		Configuration modelElement = (Configuration) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<RecipeLinkDescriptor> result = new LinkedList<RecipeLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Recipe_RecipeConfig_4001(
+		result.addAll(getIncomingFeatureModelFacetLinks_Recipe_RecipeConfig_304001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_Configuration_ConfigExtension_4002(
+		result.addAll(getIncomingFeatureModelFacetLinks_Configuration_ConfigExtension_304002(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -423,7 +423,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getComponent_3004IncomingLinks(
+	public static List<RecipeLinkDescriptor> getComponent_303004IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -431,7 +431,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getComponent_3002IncomingLinks(
+	public static List<RecipeLinkDescriptor> getComponent_303002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -439,7 +439,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getModelMapper_3003IncomingLinks(
+	public static List<RecipeLinkDescriptor> getModelMapper_303003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -447,7 +447,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getProperty_3005IncomingLinks(
+	public static List<RecipeLinkDescriptor> getProperty_303005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -455,29 +455,29 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getRecipe_2004OutgoingLinks(
+	public static List<RecipeLinkDescriptor> getRecipe_302004OutgoingLinks(
 			View view) {
 		Recipe modelElement = (Recipe) view.getElement();
 		LinkedList<RecipeLinkDescriptor> result = new LinkedList<RecipeLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_RecipeConfig_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_RecipeConfig_304001(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getConfiguration_2005OutgoingLinks(
+	public static List<RecipeLinkDescriptor> getConfiguration_302005OutgoingLinks(
 			View view) {
 		Configuration modelElement = (Configuration) view.getElement();
 		LinkedList<RecipeLinkDescriptor> result = new LinkedList<RecipeLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Configuration_ConfigExtension_4002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Configuration_ConfigExtension_304002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getComponent_3004OutgoingLinks(
+	public static List<RecipeLinkDescriptor> getComponent_303004OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -485,7 +485,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getComponent_3002OutgoingLinks(
+	public static List<RecipeLinkDescriptor> getComponent_303002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -493,7 +493,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getModelMapper_3003OutgoingLinks(
+	public static List<RecipeLinkDescriptor> getModelMapper_303003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -501,7 +501,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RecipeLinkDescriptor> getProperty_3005OutgoingLinks(
+	public static List<RecipeLinkDescriptor> getProperty_303005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -509,7 +509,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<RecipeLinkDescriptor> getIncomingFeatureModelFacetLinks_Recipe_RecipeConfig_4001(
+	private static Collection<RecipeLinkDescriptor> getIncomingFeatureModelFacetLinks_Recipe_RecipeConfig_304001(
 			Configuration target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<RecipeLinkDescriptor> result = new LinkedList<RecipeLinkDescriptor>();
@@ -519,7 +519,7 @@ public class RecipeDiagramUpdater {
 			if (setting.getEStructuralFeature() == RecipePackage.eINSTANCE
 					.getRecipe_RecipeConfig()) {
 				result.add(new RecipeLinkDescriptor(setting.getEObject(),
-						target, RecipeElementTypes.RecipeRecipeConfig_4001,
+						target, RecipeElementTypes.RecipeRecipeConfig_304001,
 						RecipeRecipeConfigEditPart.VISUAL_ID));
 			}
 		}
@@ -529,7 +529,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<RecipeLinkDescriptor> getIncomingFeatureModelFacetLinks_Configuration_ConfigExtension_4002(
+	private static Collection<RecipeLinkDescriptor> getIncomingFeatureModelFacetLinks_Configuration_ConfigExtension_304002(
 			Configuration target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<RecipeLinkDescriptor> result = new LinkedList<RecipeLinkDescriptor>();
@@ -540,7 +540,7 @@ public class RecipeDiagramUpdater {
 					.getConfiguration_ConfigExtension()) {
 				result.add(new RecipeLinkDescriptor(setting.getEObject(),
 						target,
-						RecipeElementTypes.ConfigurationConfigExtension_4002,
+						RecipeElementTypes.ConfigurationConfigExtension_304002,
 						ConfigurationConfigExtensionEditPart.VISUAL_ID));
 			}
 		}
@@ -550,7 +550,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<RecipeLinkDescriptor> getOutgoingFeatureModelFacetLinks_Recipe_RecipeConfig_4001(
+	private static Collection<RecipeLinkDescriptor> getOutgoingFeatureModelFacetLinks_Recipe_RecipeConfig_304001(
 			Recipe source) {
 		LinkedList<RecipeLinkDescriptor> result = new LinkedList<RecipeLinkDescriptor>();
 		Configuration destination = source.getRecipeConfig();
@@ -558,7 +558,7 @@ public class RecipeDiagramUpdater {
 			return result;
 		}
 		result.add(new RecipeLinkDescriptor(source, destination,
-				RecipeElementTypes.RecipeRecipeConfig_4001,
+				RecipeElementTypes.RecipeRecipeConfig_304001,
 				RecipeRecipeConfigEditPart.VISUAL_ID));
 		return result;
 	}
@@ -566,7 +566,7 @@ public class RecipeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<RecipeLinkDescriptor> getOutgoingFeatureModelFacetLinks_Configuration_ConfigExtension_4002(
+	private static Collection<RecipeLinkDescriptor> getOutgoingFeatureModelFacetLinks_Configuration_ConfigExtension_304002(
 			Configuration source) {
 		LinkedList<RecipeLinkDescriptor> result = new LinkedList<RecipeLinkDescriptor>();
 		Configuration destination = source.getConfigExtension();
@@ -574,7 +574,7 @@ public class RecipeDiagramUpdater {
 			return result;
 		}
 		result.add(new RecipeLinkDescriptor(source, destination,
-				RecipeElementTypes.ConfigurationConfigExtension_4002,
+				RecipeElementTypes.ConfigurationConfigExtension_304002,
 				ConfigurationConfigExtensionEditPart.VISUAL_ID));
 		return result;
 	}

@@ -78,7 +78,7 @@ public class TypedefinitionActionBarContributor
    * @generated
    */
   protected IAction showPropertiesViewAction =
-    new Action(MapperEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item"))
+    new Action(ApplicationEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item"))
     {
       @Override
       public void run()
@@ -89,7 +89,7 @@ public class TypedefinitionActionBarContributor
         }
         catch (PartInitException exception)
         {
-          MapperEditorPlugin.INSTANCE.log(exception);
+          ApplicationEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -102,7 +102,7 @@ public class TypedefinitionActionBarContributor
    * @generated
    */
   protected IAction refreshViewerAction =
-    new Action(MapperEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item"))
+    new Action(ApplicationEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item"))
     {
       @Override
       public boolean isEnabled()
@@ -197,7 +197,7 @@ public class TypedefinitionActionBarContributor
   {
     super.contributeToMenu(menuManager);
 
-    IMenuManager submenuManager = new MenuManager(MapperEditorPlugin.INSTANCE.getString("_UI_TypedefinitionEditor_menu"), "typedefinitionMenuID");
+    IMenuManager submenuManager = new MenuManager(ApplicationEditorPlugin.INSTANCE.getString("_UI_TypedefinitionEditor_menu"), "typedefinitionMenuID");
     menuManager.insertAfter("additions", submenuManager);
     submenuManager.add(new Separator("settings"));
     submenuManager.add(new Separator("actions"));
@@ -206,12 +206,12 @@ public class TypedefinitionActionBarContributor
 
     // Prepare for CreateChild item addition or removal.
     //
-    createChildMenuManager = new MenuManager(MapperEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+    createChildMenuManager = new MenuManager(ApplicationEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
     submenuManager.insertBefore("additions", createChildMenuManager);
 
     // Prepare for CreateSibling item addition or removal.
     //
-    createSiblingMenuManager = new MenuManager(MapperEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+    createSiblingMenuManager = new MenuManager(ApplicationEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
     submenuManager.insertBefore("additions", createSiblingMenuManager);
 
     // Force an update because Eclipse hides empty menus now.
@@ -433,11 +433,11 @@ public class TypedefinitionActionBarContributor
     super.menuAboutToShow(menuManager);
     MenuManager submenuManager = null;
 
-    submenuManager = new MenuManager(MapperEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+    submenuManager = new MenuManager(ApplicationEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
     populateManager(submenuManager, createChildActions, null);
     menuManager.insertBefore("edit", submenuManager);
 
-    submenuManager = new MenuManager(MapperEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+    submenuManager = new MenuManager(ApplicationEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
     populateManager(submenuManager, createSiblingActions, null);
     menuManager.insertBefore("edit", submenuManager);
   }

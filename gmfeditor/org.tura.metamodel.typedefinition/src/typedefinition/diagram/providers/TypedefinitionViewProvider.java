@@ -249,28 +249,28 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		}
 		switch (visualID) {
 		case TypeReferenceEditPart.VISUAL_ID:
-			return createTypeReference_2001(domainElement, containerView,
+			return createTypeReference_102001(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case TypeEditPart.VISUAL_ID:
-			return createType_2002(domainElement, containerView, index,
+			return createType_102002(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case EnumaratorEditPart.VISUAL_ID:
-			return createEnumarator_2003(domainElement, containerView, index,
+			return createEnumarator_102003(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case AttributeEditPart.VISUAL_ID:
-			return createAttribute_3001(domainElement, containerView, index,
+			return createAttribute_103001(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case OperationEditPart.VISUAL_ID:
-			return createOperation_3002(domainElement, containerView, index,
+			return createOperation_103002(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case Attribute2EditPart.VISUAL_ID:
-			return createAttribute_3003(domainElement, containerView, index,
+			return createAttribute_103003(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case ReturnValueEditPart.VISUAL_ID:
-			return createReturnValue_3004(domainElement, containerView, index,
-					persisted, preferencesHint);
+			return createReturnValue_103004(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case EnumAttributeEditPart.VISUAL_ID:
-			return createEnumAttribute_3005(domainElement, containerView,
+			return createEnumAttribute_103005(domainElement, containerView,
 					index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -287,7 +287,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (TypedefinitionVisualIDRegistry.getVisualID(elementTypeHint)) {
 		case TypeExtensionEditPart.VISUAL_ID:
-			return createTypeExtension_4001(
+			return createTypeExtension_104001(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		}
@@ -298,7 +298,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createTypeReference_2001(EObject domainElement,
+	public Node createTypeReference_102001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -336,7 +336,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(
+		Node label105001 = createLabel(
 				node,
 				TypedefinitionVisualIDRegistry
 						.getType(TypeReferencePackageNameTypeNameEditPart.VISUAL_ID));
@@ -346,7 +346,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createType_2002(EObject domainElement, View containerView,
+	public Node createType_102002(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.getStyles().add(
@@ -385,7 +385,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5006 = createLabel(node,
+		Node label105006 = createLabel(node,
 				TypedefinitionVisualIDRegistry
 						.getType(TypeNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -404,7 +404,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createEnumarator_2003(EObject domainElement,
+	public Node createEnumarator_102003(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -444,7 +444,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5008 = createLabel(node,
+		Node label105008 = createLabel(node,
 				TypedefinitionVisualIDRegistry
 						.getType(EnumaratorNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -458,8 +458,9 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createAttribute_3001(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createAttribute_103001(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(TypedefinitionVisualIDRegistry
@@ -494,7 +495,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5002 = createLabel(node,
+		Node label105002 = createLabel(node,
 				TypedefinitionVisualIDRegistry
 						.getType(AttributeNameEditPart.VISUAL_ID));
 		return node;
@@ -503,8 +504,9 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createOperation_3002(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createOperation_103002(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.getStyles().add(
 				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
@@ -541,7 +543,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5005 = createLabel(node,
+		Node label105005 = createLabel(node,
 				TypedefinitionVisualIDRegistry
 						.getType(OperationNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -560,8 +562,9 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createAttribute_3003(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createAttribute_103003(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(TypedefinitionVisualIDRegistry
@@ -596,7 +599,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5003 = createLabel(node,
+		Node label105003 = createLabel(node,
 				TypedefinitionVisualIDRegistry
 						.getType(AttributeName2EditPart.VISUAL_ID));
 		return node;
@@ -605,7 +608,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createReturnValue_3004(EObject domainElement,
+	public Node createReturnValue_103004(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -642,7 +645,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5004 = createLabel(
+		Node label105004 = createLabel(
 				node,
 				TypedefinitionVisualIDRegistry
 						.getType(ReturnValuePackageNameTypeNameEditPart.VISUAL_ID));
@@ -652,7 +655,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createEnumAttribute_3005(EObject domainElement,
+	public Node createEnumAttribute_103005(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -689,7 +692,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5007 = createLabel(node,
+		Node label105007 = createLabel(node,
 				TypedefinitionVisualIDRegistry
 						.getType(EnumAttributeNameEditPart.VISUAL_ID));
 		return node;
@@ -698,7 +701,7 @@ public class TypedefinitionViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createTypeExtension_4001(EObject domainElement,
+	public Edge createTypeExtension_104001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();

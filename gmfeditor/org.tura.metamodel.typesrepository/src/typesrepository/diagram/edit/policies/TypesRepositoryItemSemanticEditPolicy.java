@@ -23,14 +23,14 @@ public class TypesRepositoryItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TypesRepositoryItemSemanticEditPolicy() {
-		super(TypesrepositoryElementTypes.TypesRepository_1000);
+		super(TypesrepositoryElementTypes.TypesRepository_201000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypesrepositoryElementTypes.Types_2001 == req.getElementType()) {
+		if (TypesrepositoryElementTypes.Types_202001 == req.getElementType()) {
 			return getGEFWrapper(new TypesCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

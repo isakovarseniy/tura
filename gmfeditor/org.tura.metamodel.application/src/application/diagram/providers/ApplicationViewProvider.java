@@ -235,16 +235,16 @@ public class ApplicationViewProvider extends AbstractProvider implements
 		}
 		switch (visualID) {
 		case ApplicationRecipesEditPart.VISUAL_ID:
-			return createApplicationRecipes_2001(domainElement, containerView,
-					index, persisted, preferencesHint);
+			return createApplicationRecipes_802001(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case ApplicationMappersEditPart.VISUAL_ID:
-			return createApplicationMappers_2002(domainElement, containerView,
-					index, persisted, preferencesHint);
+			return createApplicationMappers_802002(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case ApplicationRecipeEditPart.VISUAL_ID:
-			return createApplicationRecipe_3001(domainElement, containerView,
+			return createApplicationRecipe_803001(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case ApplicationMapperEditPart.VISUAL_ID:
-			return createApplicationMapper_3002(domainElement, containerView,
+			return createApplicationMapper_803002(domainElement, containerView,
 					index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -261,14 +261,14 @@ public class ApplicationViewProvider extends AbstractProvider implements
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (ApplicationVisualIDRegistry.getVisualID(elementTypeHint)) {
 		case TypeExtensionEditPart.VISUAL_ID:
-			return createTypeExtension_4001(
+			return createTypeExtension_804001(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return createRecipeRecipeConfig_4002(containerView, index,
+			return createRecipeRecipeConfig_804002(containerView, index,
 					persisted, preferencesHint);
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return createConfigurationConfigExtension_4003(containerView,
+			return createConfigurationConfigExtension_804003(containerView,
 					index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
@@ -278,7 +278,7 @@ public class ApplicationViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createApplicationRecipes_2001(EObject domainElement,
+	public Node createApplicationRecipes_802001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -318,7 +318,7 @@ public class ApplicationViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(node,
+		Node label805001 = createLabel(node,
 				ApplicationVisualIDRegistry
 						.getType(ApplicationRecipesNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -332,7 +332,7 @@ public class ApplicationViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createApplicationMappers_2002(EObject domainElement,
+	public Node createApplicationMappers_802002(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -372,7 +372,7 @@ public class ApplicationViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5002 = createLabel(node,
+		Node label805002 = createLabel(node,
 				ApplicationVisualIDRegistry
 						.getType(ApplicationMappersNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -386,7 +386,7 @@ public class ApplicationViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createApplicationRecipe_3001(EObject domainElement,
+	public Node createApplicationRecipe_803001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -429,7 +429,7 @@ public class ApplicationViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5003 = createLabel(node,
+		Node label805003 = createLabel(node,
 				ApplicationVisualIDRegistry
 						.getType(ApplicationRecipeNameEditPart.VISUAL_ID));
 		return node;
@@ -438,7 +438,7 @@ public class ApplicationViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createApplicationMapper_3002(EObject domainElement,
+	public Node createApplicationMapper_803002(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -481,7 +481,7 @@ public class ApplicationViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5004 = createLabel(node,
+		Node label805004 = createLabel(node,
 				ApplicationVisualIDRegistry
 						.getType(ApplicationMapperNameEditPart.VISUAL_ID));
 		return node;
@@ -490,7 +490,7 @@ public class ApplicationViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createTypeExtension_4001(EObject domainElement,
+	public Edge createTypeExtension_804001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -543,7 +543,7 @@ public class ApplicationViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createRecipeRecipeConfig_4002(View containerView, int index,
+	public Edge createRecipeRecipeConfig_804002(View containerView, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -589,23 +589,23 @@ public class ApplicationViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label6001 = createLabel(edge,
+		Node label806001 = createLabel(edge,
 				ApplicationVisualIDRegistry
 						.getType(WrappingLabelEditPart.VISUAL_ID));
-		label6001.getStyles().add(
+		label806001.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6001.setLayoutConstraint(NotationFactory.eINSTANCE
+		label806001.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location6001 = (Location) label6001.getLayoutConstraint();
-		location6001.setX(0);
-		location6001.setY(40);
+		Location location806001 = (Location) label806001.getLayoutConstraint();
+		location806001.setX(0);
+		location806001.setY(40);
 		return edge;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Edge createConfigurationConfigExtension_4003(View containerView,
+	public Edge createConfigurationConfigExtension_804003(View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -651,16 +651,16 @@ public class ApplicationViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label6002 = createLabel(edge,
+		Node label806002 = createLabel(edge,
 				ApplicationVisualIDRegistry
 						.getType(WrappingLabel2EditPart.VISUAL_ID));
-		label6002.getStyles().add(
+		label806002.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6002.setLayoutConstraint(NotationFactory.eINSTANCE
+		label806002.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location6002 = (Location) label6002.getLayoutConstraint();
-		location6002.setX(0);
-		location6002.setY(40);
+		Location location806002 = (Location) label806002.getLayoutConstraint();
+		location806002.setX(0);
+		location806002.setY(40);
 		return edge;
 	}
 

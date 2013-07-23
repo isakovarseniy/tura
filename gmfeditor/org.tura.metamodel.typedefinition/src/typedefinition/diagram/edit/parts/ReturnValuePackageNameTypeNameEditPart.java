@@ -61,7 +61,7 @@ public class ReturnValuePackageNameTypeNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5004;
+	public static final int VISUAL_ID = 105004;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class ReturnValuePackageNameTypeNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = TypedefinitionParserProvider
 					.getParser(
-							TypedefinitionElementTypes.ReturnValue_3004,
+							TypedefinitionElementTypes.ReturnValue_103004,
 							getParserElement(),
 							TypedefinitionVisualIDRegistry
 									.getType(typedefinition.diagram.edit.parts.ReturnValuePackageNameTypeNameEditPart.VISUAL_ID));
