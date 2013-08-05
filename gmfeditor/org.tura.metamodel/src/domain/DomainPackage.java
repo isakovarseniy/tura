@@ -2,18 +2,10 @@
  */
 package domain;
 
-import businessobjects.BusinessobjectsPackage;
-
-import mapper.MapperPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import recipe.RecipePackage;
-
-import typedefinition.TypedefinitionPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -111,118 +103,6 @@ public interface DomainPackage extends EPackage
   int DOMAIN_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.Dammy1Impl <em>Dammy1</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.Dammy1Impl
-   * @see domain.impl.DomainPackageImpl#getDammy1()
-   * @generated
-   */
-  int DAMMY1 = 1;
-
-  /**
-   * The feature id for the '<em><b>D1</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DAMMY1__D1 = 0;
-
-  /**
-   * The number of structural features of the '<em>Dammy1</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DAMMY1_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.Dammy2Impl <em>Dammy2</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.Dammy2Impl
-   * @see domain.impl.DomainPackageImpl#getDammy2()
-   * @generated
-   */
-  int DAMMY2 = 2;
-
-  /**
-   * The feature id for the '<em><b>D2</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DAMMY2__D2 = 0;
-
-  /**
-   * The number of structural features of the '<em>Dammy2</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DAMMY2_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.Dammy3Impl <em>Dammy3</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.Dammy3Impl
-   * @see domain.impl.DomainPackageImpl#getDammy3()
-   * @generated
-   */
-  int DAMMY3 = 3;
-
-  /**
-   * The feature id for the '<em><b>D3</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DAMMY3__D3 = 0;
-
-  /**
-   * The number of structural features of the '<em>Dammy3</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DAMMY3_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.Dammy4Impl <em>Dammy4</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.Dammy4Impl
-   * @see domain.impl.DomainPackageImpl#getDammy4()
-   * @generated
-   */
-  int DAMMY4 = 4;
-
-  /**
-   * The feature id for the '<em><b>D4</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DAMMY4__D4 = 0;
-
-  /**
-   * The number of structural features of the '<em>Dammy4</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DAMMY4_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link domain.impl.DomainArtifactsImpl <em>Artifacts</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -230,7 +110,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDomainArtifacts()
    * @generated
    */
-  int DOMAIN_ARTIFACTS = 5;
+  int DOMAIN_ARTIFACTS = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -267,7 +147,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDomainTypes()
    * @generated
    */
-  int DOMAIN_TYPES = 6;
+  int DOMAIN_TYPES = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -304,7 +184,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDomainApplications()
    * @generated
    */
-  int DOMAIN_APPLICATIONS = 7;
+  int DOMAIN_APPLICATIONS = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -341,7 +221,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDomainApplication()
    * @generated
    */
-  int DOMAIN_APPLICATION = 8;
+  int DOMAIN_APPLICATION = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -369,6 +249,1970 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int DOMAIN_APPLICATION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ArtifactsImpl <em>Artifacts</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ArtifactsImpl
+   * @see domain.impl.DomainPackageImpl#getArtifacts()
+   * @generated
+   */
+  int ARTIFACTS = 5;
+
+  /**
+   * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACTS__ARTIFACTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Artifacts</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACTS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ArtifactImpl <em>Artifact</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ArtifactImpl
+   * @see domain.impl.DomainPackageImpl#getArtifact()
+   * @generated
+   */
+  int ARTIFACT = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT__DESCRIPTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Config Variables</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT__CONFIG_VARIABLES = 2;
+
+  /**
+   * The feature id for the '<em><b>Model Query</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT__MODEL_QUERY = 3;
+
+  /**
+   * The feature id for the '<em><b>Specifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT__SPECIFIERS = 4;
+
+  /**
+   * The feature id for the '<em><b>Template</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT__TEMPLATE = 5;
+
+  /**
+   * The number of structural features of the '<em>Artifact</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT_FEATURE_COUNT = 6;
+
+  /**
+   * The meta object id for the '{@link domain.impl.VariableImpl <em>Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.VariableImpl
+   * @see domain.impl.DomainPackageImpl#getVariable()
+   * @generated
+   */
+  int VARIABLE = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.SpecifierImpl <em>Specifier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.SpecifierImpl
+   * @see domain.impl.DomainPackageImpl#getSpecifier()
+   * @generated
+   */
+  int SPECIFIER = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPECIFIER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Options</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPECIFIER__OPTIONS = 1;
+
+  /**
+   * The number of structural features of the '<em>Specifier</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPECIFIER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.OptionImpl <em>Option</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.OptionImpl
+   * @see domain.impl.DomainPackageImpl#getOption()
+   * @generated
+   */
+  int OPTION = 9;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Option</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ApplicationImpl <em>Application</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ApplicationImpl
+   * @see domain.impl.DomainPackageImpl#getApplication()
+   * @generated
+   */
+  int APPLICATION = 10;
+
+  /**
+   * The feature id for the '<em><b>Application Recipes</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__APPLICATION_RECIPES = 0;
+
+  /**
+   * The feature id for the '<em><b>Application Mappers</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__APPLICATION_MAPPERS = 1;
+
+  /**
+   * The number of structural features of the '<em>Application</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ApplicationRecipesImpl <em>Application Recipes</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ApplicationRecipesImpl
+   * @see domain.impl.DomainPackageImpl#getApplicationRecipes()
+   * @generated
+   */
+  int APPLICATION_RECIPES = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_RECIPES__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Recipes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_RECIPES__RECIPES = 1;
+
+  /**
+   * The number of structural features of the '<em>Application Recipes</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_RECIPES_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ApplicationRecipeImpl <em>Application Recipe</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ApplicationRecipeImpl
+   * @see domain.impl.DomainPackageImpl#getApplicationRecipe()
+   * @generated
+   */
+  int APPLICATION_RECIPE = 12;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_RECIPE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Recipes</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_RECIPE__RECIPES = 1;
+
+  /**
+   * The number of structural features of the '<em>Application Recipe</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_RECIPE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ApplicationMappersImpl <em>Application Mappers</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ApplicationMappersImpl
+   * @see domain.impl.DomainPackageImpl#getApplicationMappers()
+   * @generated
+   */
+  int APPLICATION_MAPPERS = 13;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_MAPPERS__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_MAPPERS__MAPPERS = 1;
+
+  /**
+   * The number of structural features of the '<em>Application Mappers</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_MAPPERS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ApplicationMapperImpl <em>Application Mapper</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ApplicationMapperImpl
+   * @see domain.impl.DomainPackageImpl#getApplicationMapper()
+   * @generated
+   */
+  int APPLICATION_MAPPER = 14;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_MAPPER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Mapper</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_MAPPER__MAPPER = 1;
+
+  /**
+   * The number of structural features of the '<em>Application Mapper</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_MAPPER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.BusinessObjectsImpl <em>Business Objects</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.BusinessObjectsImpl
+   * @see domain.impl.DomainPackageImpl#getBusinessObjects()
+   * @generated
+   */
+  int BUSINESS_OBJECTS = 15;
+
+  /**
+   * The feature id for the '<em><b>Business Object</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECTS__BUSINESS_OBJECT = 0;
+
+  /**
+   * The number of structural features of the '<em>Business Objects</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECTS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypePointerImpl <em>Type Pointer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypePointerImpl
+   * @see domain.impl.DomainPackageImpl#getTypePointer()
+   * @generated
+   */
+  int TYPE_POINTER = 46;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_POINTER__PACKAGE_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_POINTER__TYPE_NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Type Pointer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_POINTER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.BusinessObjectImpl <em>Business Object</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.BusinessObjectImpl
+   * @see domain.impl.DomainPackageImpl#getBusinessObject()
+   * @generated
+   */
+  int BUSINESS_OBJECT = 16;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__NAME = TYPE_POINTER_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Create Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__CREATE_METHODS = TYPE_POINTER_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Insert Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__INSERT_METHODS = TYPE_POINTER_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Updaete Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__UPDAETE_METHODS = TYPE_POINTER_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Removet Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__REMOVET_METHODS = TYPE_POINTER_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Searcht Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__SEARCHT_METHODS = TYPE_POINTER_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Others Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__OTHERS_METHODS = TYPE_POINTER_FEATURE_COUNT + 6;
+
+  /**
+   * The number of structural features of the '<em>Business Object</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 7;
+
+  /**
+   * The meta object id for the '{@link domain.impl.BusinessMethodImpl <em>Business Method</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.BusinessMethodImpl
+   * @see domain.impl.DomainPackageImpl#getBusinessMethod()
+   * @generated
+   */
+  int BUSINESS_METHOD = 17;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_METHOD__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_METHOD__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_METHOD__METHOD = TYPE_POINTER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Business Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_METHOD_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.CreateMethodImpl <em>Create Method</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.CreateMethodImpl
+   * @see domain.impl.DomainPackageImpl#getCreateMethod()
+   * @generated
+   */
+  int CREATE_METHOD = 18;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+
+  /**
+   * The number of structural features of the '<em>Create Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.InsertMethodImpl <em>Insert Method</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.InsertMethodImpl
+   * @see domain.impl.DomainPackageImpl#getInsertMethod()
+   * @generated
+   */
+  int INSERT_METHOD = 19;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+
+  /**
+   * The number of structural features of the '<em>Insert Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.UpdateMethodImpl <em>Update Method</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.UpdateMethodImpl
+   * @see domain.impl.DomainPackageImpl#getUpdateMethod()
+   * @generated
+   */
+  int UPDATE_METHOD = 20;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+
+  /**
+   * The number of structural features of the '<em>Update Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.RemoveMethodImpl <em>Remove Method</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.RemoveMethodImpl
+   * @see domain.impl.DomainPackageImpl#getRemoveMethod()
+   * @generated
+   */
+  int REMOVE_METHOD = 21;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REMOVE_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REMOVE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REMOVE_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+
+  /**
+   * The number of structural features of the '<em>Remove Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REMOVE_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.SearchMethodImpl <em>Search Method</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.SearchMethodImpl
+   * @see domain.impl.DomainPackageImpl#getSearchMethod()
+   * @generated
+   */
+  int SEARCH_METHOD = 22;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+
+  /**
+   * The number of structural features of the '<em>Search Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.OtherMethodImpl <em>Other Method</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.OtherMethodImpl
+   * @see domain.impl.DomainPackageImpl#getOtherMethod()
+   * @generated
+   */
+  int OTHER_METHOD = 23;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+
+  /**
+   * The number of structural features of the '<em>Other Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.MappersImpl <em>Mappers</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.MappersImpl
+   * @see domain.impl.DomainPackageImpl#getMappers()
+   * @generated
+   */
+  int MAPPERS = 24;
+
+  /**
+   * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPERS__MAPPERS = 0;
+
+  /**
+   * The number of structural features of the '<em>Mappers</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPERS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.MapperImpl <em>Mapper</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.MapperImpl
+   * @see domain.impl.DomainPackageImpl#getMapper()
+   * @generated
+   */
+  int MAPPER = 25;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPER__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPER__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
+
+  /**
+   * The number of structural features of the '<em>Mapper</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.JavaMapperImpl <em>Java Mapper</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.JavaMapperImpl
+   * @see domain.impl.DomainPackageImpl#getJavaMapper()
+   * @generated
+   */
+  int JAVA_MAPPER = 26;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__PACKAGE_NAME = MAPPER__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__TYPE_NAME = MAPPER__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Mapped To Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__MAPPED_TO_PACKAGE_NAME = MAPPER_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Mapped To Class Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__MAPPED_TO_CLASS_NAME = MAPPER_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__ARTIFACT_ID = MAPPER_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Group Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__GROUP_ID = MAPPER_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Version</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__VERSION = MAPPER_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Library Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__LIBRARY_NAME = MAPPER_FEATURE_COUNT + 5;
+
+  /**
+   * The number of structural features of the '<em>Java Mapper</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER_FEATURE_COUNT = MAPPER_FEATURE_COUNT + 6;
+
+  /**
+   * The meta object id for the '{@link domain.impl.RecipesImpl <em>Recipes</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.RecipesImpl
+   * @see domain.impl.DomainPackageImpl#getRecipes()
+   * @generated
+   */
+  int RECIPES = 27;
+
+  /**
+   * The feature id for the '<em><b>Recipe</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPES__RECIPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPES__CONFIGURATIONS = 1;
+
+  /**
+   * The number of structural features of the '<em>Recipes</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPES_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.RecipeImpl <em>Recipe</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.RecipeImpl
+   * @see domain.impl.DomainPackageImpl#getRecipe()
+   * @generated
+   */
+  int RECIPE = 28;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Components</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE__COMPONENTS = 1;
+
+  /**
+   * The feature id for the '<em><b>Recipe Config</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE__RECIPE_CONFIG = 2;
+
+  /**
+   * The number of structural features of the '<em>Recipe</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ComponentImpl <em>Component</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ComponentImpl
+   * @see domain.impl.DomainPackageImpl#getComponent()
+   * @generated
+   */
+  int COMPONENT = 29;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Components</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__COMPONENTS = 1;
+
+  /**
+   * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__MAPPERS = 2;
+
+  /**
+   * The number of structural features of the '<em>Component</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ModelMapperImpl <em>Model Mapper</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ModelMapperImpl
+   * @see domain.impl.DomainPackageImpl#getModelMapper()
+   * @generated
+   */
+  int MODEL_MAPPER = 30;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Artifact Ref</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__ARTIFACT_REF = 1;
+
+  /**
+   * The feature id for the '<em><b>Specifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__SPECIFIERS = 2;
+
+  /**
+   * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__VARIABLES = 3;
+
+  /**
+   * The number of structural features of the '<em>Model Mapper</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ConfigurationImpl <em>Configuration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ConfigurationImpl
+   * @see domain.impl.DomainPackageImpl#getConfiguration()
+   * @generated
+   */
+  int CONFIGURATION = 31;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION__PROPERTIES = 1;
+
+  /**
+   * The feature id for the '<em><b>Config Extension</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION__CONFIG_EXTENSION = 2;
+
+  /**
+   * The number of structural features of the '<em>Configuration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.PropertyImpl
+   * @see domain.impl.DomainPackageImpl#getProperty()
+   * @generated
+   */
+  int PROPERTY = 32;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPERTY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPERTY__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Property</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPERTY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.MappingSpecifierImpl <em>Mapping Specifier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.MappingSpecifierImpl
+   * @see domain.impl.DomainPackageImpl#getMappingSpecifier()
+   * @generated
+   */
+  int MAPPING_SPECIFIER = 33;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_SPECIFIER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_SPECIFIER__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Mapping Specifier</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_SPECIFIER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.MappingVariableImpl <em>Mapping Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.MappingVariableImpl
+   * @see domain.impl.DomainPackageImpl#getMappingVariable()
+   * @generated
+   */
+  int MAPPING_VARIABLE = 34;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_VARIABLE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_VARIABLE__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Mapping Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_VARIABLE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ArtifactRefImpl <em>Artifact Ref</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ArtifactRefImpl
+   * @see domain.impl.DomainPackageImpl#getArtifactRef()
+   * @generated
+   */
+  int ARTIFACT_REF = 35;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT_REF__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Artifact Ref</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT_REF_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypeDefinitionImpl <em>Type Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypeDefinitionImpl
+   * @see domain.impl.DomainPackageImpl#getTypeDefinition()
+   * @generated
+   */
+  int TYPE_DEFINITION = 36;
+
+  /**
+   * The feature id for the '<em><b>Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_DEFINITION__TYPES = 0;
+
+  /**
+   * The feature id for the '<em><b>Enums</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_DEFINITION__ENUMS = 1;
+
+  /**
+   * The number of structural features of the '<em>Type Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_DEFINITION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypeElementImpl <em>Type Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypeElementImpl
+   * @see domain.impl.DomainPackageImpl#getTypeElement()
+   * @generated
+   */
+  int TYPE_ELEMENT = 37;
+
+  /**
+   * The number of structural features of the '<em>Type Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_ELEMENT_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypeImpl <em>Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypeImpl
+   * @see domain.impl.DomainPackageImpl#getType()
+   * @generated
+   */
+  int TYPE = 38;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__NAME = TYPE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__ATTRIBUTES = TYPE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Operations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__OPERATIONS = TYPE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Extension</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__EXTENSION = TYPE_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypeReferenceImpl
+   * @see domain.impl.DomainPackageImpl#getTypeReference()
+   * @generated
+   */
+  int TYPE_REFERENCE = 39;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_REFERENCE__PACKAGE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_REFERENCE__TYPE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Type Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypeExtensionImpl <em>Type Extension</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypeExtensionImpl
+   * @see domain.impl.DomainPackageImpl#getTypeExtension()
+   * @generated
+   */
+  int TYPE_EXTENSION = 40;
+
+  /**
+   * The feature id for the '<em><b>Source</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_EXTENSION__SOURCE = 0;
+
+  /**
+   * The feature id for the '<em><b>Target</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_EXTENSION__TARGET = 1;
+
+  /**
+   * The number of structural features of the '<em>Type Extension</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_EXTENSION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.AttributeImpl <em>Attribute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.AttributeImpl
+   * @see domain.impl.DomainPackageImpl#getAttribute()
+   * @generated
+   */
+  int ATTRIBUTE = 41;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__NAME = TYPE_POINTER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Attribute</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.OperationImpl <em>Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.OperationImpl
+   * @see domain.impl.DomainPackageImpl#getOperation()
+   * @generated
+   */
+  int OPERATION = 42;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__PARAMETERS = 1;
+
+  /**
+   * The feature id for the '<em><b>Return Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__RETURN_VALUE = 2;
+
+  /**
+   * The number of structural features of the '<em>Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ReturnValueImpl <em>Return Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ReturnValueImpl
+   * @see domain.impl.DomainPackageImpl#getReturnValue()
+   * @generated
+   */
+  int RETURN_VALUE = 43;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN_VALUE__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN_VALUE__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
+
+  /**
+   * The number of structural features of the '<em>Return Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN_VALUE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.EnumaratorImpl <em>Enumarator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.EnumaratorImpl
+   * @see domain.impl.DomainPackageImpl#getEnumarator()
+   * @generated
+   */
+  int ENUMARATOR = 44;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMARATOR__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMARATOR__VALUES = 1;
+
+  /**
+   * The number of structural features of the '<em>Enumarator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMARATOR_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.EnumAttributeImpl
+   * @see domain.impl.DomainPackageImpl#getEnumAttribute()
+   * @generated
+   */
+  int ENUM_ATTRIBUTE = 45;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_ATTRIBUTE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_ATTRIBUTE__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Enum Attribute</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_ATTRIBUTE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypesRepositoryImpl <em>Types Repository</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypesRepositoryImpl
+   * @see domain.impl.DomainPackageImpl#getTypesRepository()
+   * @generated
+   */
+  int TYPES_REPOSITORY = 47;
+
+  /**
+   * The feature id for the '<em><b>Type Definition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPES_REPOSITORY__TYPE_DEFINITION = 0;
+
+  /**
+   * The number of structural features of the '<em>Types Repository</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPES_REPOSITORY_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypesImpl <em>Types</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypesImpl
+   * @see domain.impl.DomainPackageImpl#getTypes()
+   * @generated
+   */
+  int TYPES = 48;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPES__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Primitives</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPES__PRIMITIVES = 1;
+
+  /**
+   * The feature id for the '<em><b>Packages</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPES__PACKAGES = 2;
+
+  /**
+   * The feature id for the '<em><b>Business Packages</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPES__BUSINESS_PACKAGES = 3;
+
+  /**
+   * The number of structural features of the '<em>Types</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPES_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.PrimitiveImpl <em>Primitive</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.PrimitiveImpl
+   * @see domain.impl.DomainPackageImpl#getPrimitive()
+   * @generated
+   */
+  int PRIMITIVE = 49;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Primitive</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link domain.impl.PackageImpl <em>Package</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.PackageImpl
+   * @see domain.impl.DomainPackageImpl#getPackage()
+   * @generated
+   */
+  int PACKAGE = 50;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Typedefinition</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__TYPEDEFINITION = 1;
+
+  /**
+   * The number of structural features of the '<em>Package</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link domain.impl.BusinessPackageImpl <em>Business Package</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.BusinessPackageImpl
+   * @see domain.impl.DomainPackageImpl#getBusinessPackage()
+   * @generated
+   */
+  int BUSINESS_PACKAGE = 51;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_PACKAGE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Businessobjects</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_PACKAGE__BUSINESSOBJECTS = 1;
+
+  /**
+   * The number of structural features of the '<em>Business Package</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_PACKAGE_FEATURE_COUNT = 2;
 
 
   /**
@@ -413,90 +2257,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getDomain_DomainApplications();
-
-  /**
-   * Returns the meta object for class '{@link domain.Dammy1 <em>Dammy1</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dammy1</em>'.
-   * @see domain.Dammy1
-   * @generated
-   */
-  EClass getDammy1();
-
-  /**
-   * Returns the meta object for the reference '{@link domain.Dammy1#getD1 <em>D1</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>D1</em>'.
-   * @see domain.Dammy1#getD1()
-   * @see #getDammy1()
-   * @generated
-   */
-  EReference getDammy1_D1();
-
-  /**
-   * Returns the meta object for class '{@link domain.Dammy2 <em>Dammy2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dammy2</em>'.
-   * @see domain.Dammy2
-   * @generated
-   */
-  EClass getDammy2();
-
-  /**
-   * Returns the meta object for the reference '{@link domain.Dammy2#getD2 <em>D2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>D2</em>'.
-   * @see domain.Dammy2#getD2()
-   * @see #getDammy2()
-   * @generated
-   */
-  EReference getDammy2_D2();
-
-  /**
-   * Returns the meta object for class '{@link domain.Dammy3 <em>Dammy3</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dammy3</em>'.
-   * @see domain.Dammy3
-   * @generated
-   */
-  EClass getDammy3();
-
-  /**
-   * Returns the meta object for the reference '{@link domain.Dammy3#getD3 <em>D3</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>D3</em>'.
-   * @see domain.Dammy3#getD3()
-   * @see #getDammy3()
-   * @generated
-   */
-  EReference getDammy3_D3();
-
-  /**
-   * Returns the meta object for class '{@link domain.Dammy4 <em>Dammy4</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dammy4</em>'.
-   * @see domain.Dammy4
-   * @generated
-   */
-  EClass getDammy4();
-
-  /**
-   * Returns the meta object for the reference '{@link domain.Dammy4#getD4 <em>D4</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>D4</em>'.
-   * @see domain.Dammy4#getD4()
-   * @see #getDammy4()
-   * @generated
-   */
-  EReference getDammy4_D4();
 
   /**
    * Returns the meta object for class '{@link domain.DomainArtifacts <em>Artifacts</em>}'.
@@ -627,6 +2387,1433 @@ public interface DomainPackage extends EPackage
   EReference getDomainApplication_Application();
 
   /**
+   * Returns the meta object for class '{@link domain.Artifacts <em>Artifacts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Artifacts</em>'.
+   * @see domain.Artifacts
+   * @generated
+   */
+  EClass getArtifacts();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Artifacts#getArtifacts <em>Artifacts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Artifacts</em>'.
+   * @see domain.Artifacts#getArtifacts()
+   * @see #getArtifacts()
+   * @generated
+   */
+  EReference getArtifacts_Artifacts();
+
+  /**
+   * Returns the meta object for class '{@link domain.Artifact <em>Artifact</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Artifact</em>'.
+   * @see domain.Artifact
+   * @generated
+   */
+  EClass getArtifact();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Artifact#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Artifact#getName()
+   * @see #getArtifact()
+   * @generated
+   */
+  EAttribute getArtifact_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Artifact#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see domain.Artifact#getDescription()
+   * @see #getArtifact()
+   * @generated
+   */
+  EAttribute getArtifact_Description();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Artifact#getConfigVariables <em>Config Variables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Config Variables</em>'.
+   * @see domain.Artifact#getConfigVariables()
+   * @see #getArtifact()
+   * @generated
+   */
+  EReference getArtifact_ConfigVariables();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Artifact#getModelQuery <em>Model Query</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Model Query</em>'.
+   * @see domain.Artifact#getModelQuery()
+   * @see #getArtifact()
+   * @generated
+   */
+  EReference getArtifact_ModelQuery();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Artifact#getSpecifiers <em>Specifiers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Specifiers</em>'.
+   * @see domain.Artifact#getSpecifiers()
+   * @see #getArtifact()
+   * @generated
+   */
+  EReference getArtifact_Specifiers();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Artifact#getTemplate <em>Template</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Template</em>'.
+   * @see domain.Artifact#getTemplate()
+   * @see #getArtifact()
+   * @generated
+   */
+  EAttribute getArtifact_Template();
+
+  /**
+   * Returns the meta object for class '{@link domain.Variable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Variable</em>'.
+   * @see domain.Variable
+   * @generated
+   */
+  EClass getVariable();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Variable#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Variable#getName()
+   * @see #getVariable()
+   * @generated
+   */
+  EAttribute getVariable_Name();
+
+  /**
+   * Returns the meta object for class '{@link domain.Specifier <em>Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Specifier</em>'.
+   * @see domain.Specifier
+   * @generated
+   */
+  EClass getSpecifier();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Specifier#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Specifier#getName()
+   * @see #getSpecifier()
+   * @generated
+   */
+  EAttribute getSpecifier_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Specifier#getOptions <em>Options</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Options</em>'.
+   * @see domain.Specifier#getOptions()
+   * @see #getSpecifier()
+   * @generated
+   */
+  EReference getSpecifier_Options();
+
+  /**
+   * Returns the meta object for class '{@link domain.Option <em>Option</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Option</em>'.
+   * @see domain.Option
+   * @generated
+   */
+  EClass getOption();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Option#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see domain.Option#getValue()
+   * @see #getOption()
+   * @generated
+   */
+  EAttribute getOption_Value();
+
+  /**
+   * Returns the meta object for class '{@link domain.Application <em>Application</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Application</em>'.
+   * @see domain.Application
+   * @generated
+   */
+  EClass getApplication();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Application#getApplicationRecipes <em>Application Recipes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Application Recipes</em>'.
+   * @see domain.Application#getApplicationRecipes()
+   * @see #getApplication()
+   * @generated
+   */
+  EReference getApplication_ApplicationRecipes();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Application#getApplicationMappers <em>Application Mappers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Application Mappers</em>'.
+   * @see domain.Application#getApplicationMappers()
+   * @see #getApplication()
+   * @generated
+   */
+  EReference getApplication_ApplicationMappers();
+
+  /**
+   * Returns the meta object for class '{@link domain.ApplicationRecipes <em>Application Recipes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Application Recipes</em>'.
+   * @see domain.ApplicationRecipes
+   * @generated
+   */
+  EClass getApplicationRecipes();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationRecipes#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.ApplicationRecipes#getName()
+   * @see #getApplicationRecipes()
+   * @generated
+   */
+  EAttribute getApplicationRecipes_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.ApplicationRecipes#getRecipes <em>Recipes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Recipes</em>'.
+   * @see domain.ApplicationRecipes#getRecipes()
+   * @see #getApplicationRecipes()
+   * @generated
+   */
+  EReference getApplicationRecipes_Recipes();
+
+  /**
+   * Returns the meta object for class '{@link domain.ApplicationRecipe <em>Application Recipe</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Application Recipe</em>'.
+   * @see domain.ApplicationRecipe
+   * @generated
+   */
+  EClass getApplicationRecipe();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationRecipe#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.ApplicationRecipe#getName()
+   * @see #getApplicationRecipe()
+   * @generated
+   */
+  EAttribute getApplicationRecipe_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.ApplicationRecipe#getRecipes <em>Recipes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Recipes</em>'.
+   * @see domain.ApplicationRecipe#getRecipes()
+   * @see #getApplicationRecipe()
+   * @generated
+   */
+  EReference getApplicationRecipe_Recipes();
+
+  /**
+   * Returns the meta object for class '{@link domain.ApplicationMappers <em>Application Mappers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Application Mappers</em>'.
+   * @see domain.ApplicationMappers
+   * @generated
+   */
+  EClass getApplicationMappers();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationMappers#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.ApplicationMappers#getName()
+   * @see #getApplicationMappers()
+   * @generated
+   */
+  EAttribute getApplicationMappers_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.ApplicationMappers#getMappers <em>Mappers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mappers</em>'.
+   * @see domain.ApplicationMappers#getMappers()
+   * @see #getApplicationMappers()
+   * @generated
+   */
+  EReference getApplicationMappers_Mappers();
+
+  /**
+   * Returns the meta object for class '{@link domain.ApplicationMapper <em>Application Mapper</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Application Mapper</em>'.
+   * @see domain.ApplicationMapper
+   * @generated
+   */
+  EClass getApplicationMapper();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationMapper#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.ApplicationMapper#getName()
+   * @see #getApplicationMapper()
+   * @generated
+   */
+  EAttribute getApplicationMapper_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.ApplicationMapper#getMapper <em>Mapper</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Mapper</em>'.
+   * @see domain.ApplicationMapper#getMapper()
+   * @see #getApplicationMapper()
+   * @generated
+   */
+  EReference getApplicationMapper_Mapper();
+
+  /**
+   * Returns the meta object for class '{@link domain.BusinessObjects <em>Business Objects</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Business Objects</em>'.
+   * @see domain.BusinessObjects
+   * @generated
+   */
+  EClass getBusinessObjects();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.BusinessObjects#getBusinessObject <em>Business Object</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Business Object</em>'.
+   * @see domain.BusinessObjects#getBusinessObject()
+   * @see #getBusinessObjects()
+   * @generated
+   */
+  EReference getBusinessObjects_BusinessObject();
+
+  /**
+   * Returns the meta object for class '{@link domain.BusinessObject <em>Business Object</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Business Object</em>'.
+   * @see domain.BusinessObject
+   * @generated
+   */
+  EClass getBusinessObject();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.BusinessObject#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.BusinessObject#getName()
+   * @see #getBusinessObject()
+   * @generated
+   */
+  EAttribute getBusinessObject_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getCreateMethods <em>Create Methods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Create Methods</em>'.
+   * @see domain.BusinessObject#getCreateMethods()
+   * @see #getBusinessObject()
+   * @generated
+   */
+  EReference getBusinessObject_CreateMethods();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getInsertMethods <em>Insert Methods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Insert Methods</em>'.
+   * @see domain.BusinessObject#getInsertMethods()
+   * @see #getBusinessObject()
+   * @generated
+   */
+  EReference getBusinessObject_InsertMethods();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getUpdaeteMethods <em>Updaete Methods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Updaete Methods</em>'.
+   * @see domain.BusinessObject#getUpdaeteMethods()
+   * @see #getBusinessObject()
+   * @generated
+   */
+  EReference getBusinessObject_UpdaeteMethods();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getRemovetMethods <em>Removet Methods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Removet Methods</em>'.
+   * @see domain.BusinessObject#getRemovetMethods()
+   * @see #getBusinessObject()
+   * @generated
+   */
+  EReference getBusinessObject_RemovetMethods();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getSearchtMethods <em>Searcht Methods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Searcht Methods</em>'.
+   * @see domain.BusinessObject#getSearchtMethods()
+   * @see #getBusinessObject()
+   * @generated
+   */
+  EReference getBusinessObject_SearchtMethods();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getOthersMethods <em>Others Methods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Others Methods</em>'.
+   * @see domain.BusinessObject#getOthersMethods()
+   * @see #getBusinessObject()
+   * @generated
+   */
+  EReference getBusinessObject_OthersMethods();
+
+  /**
+   * Returns the meta object for class '{@link domain.BusinessMethod <em>Business Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Business Method</em>'.
+   * @see domain.BusinessMethod
+   * @generated
+   */
+  EClass getBusinessMethod();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.BusinessMethod#getMethod <em>Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Method</em>'.
+   * @see domain.BusinessMethod#getMethod()
+   * @see #getBusinessMethod()
+   * @generated
+   */
+  EAttribute getBusinessMethod_Method();
+
+  /**
+   * Returns the meta object for class '{@link domain.CreateMethod <em>Create Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Create Method</em>'.
+   * @see domain.CreateMethod
+   * @generated
+   */
+  EClass getCreateMethod();
+
+  /**
+   * Returns the meta object for class '{@link domain.InsertMethod <em>Insert Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Insert Method</em>'.
+   * @see domain.InsertMethod
+   * @generated
+   */
+  EClass getInsertMethod();
+
+  /**
+   * Returns the meta object for class '{@link domain.UpdateMethod <em>Update Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Update Method</em>'.
+   * @see domain.UpdateMethod
+   * @generated
+   */
+  EClass getUpdateMethod();
+
+  /**
+   * Returns the meta object for class '{@link domain.RemoveMethod <em>Remove Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Remove Method</em>'.
+   * @see domain.RemoveMethod
+   * @generated
+   */
+  EClass getRemoveMethod();
+
+  /**
+   * Returns the meta object for class '{@link domain.SearchMethod <em>Search Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Search Method</em>'.
+   * @see domain.SearchMethod
+   * @generated
+   */
+  EClass getSearchMethod();
+
+  /**
+   * Returns the meta object for class '{@link domain.OtherMethod <em>Other Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Other Method</em>'.
+   * @see domain.OtherMethod
+   * @generated
+   */
+  EClass getOtherMethod();
+
+  /**
+   * Returns the meta object for class '{@link domain.Mappers <em>Mappers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mappers</em>'.
+   * @see domain.Mappers
+   * @generated
+   */
+  EClass getMappers();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Mappers#getMappers <em>Mappers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mappers</em>'.
+   * @see domain.Mappers#getMappers()
+   * @see #getMappers()
+   * @generated
+   */
+  EReference getMappers_Mappers();
+
+  /**
+   * Returns the meta object for class '{@link domain.Mapper <em>Mapper</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mapper</em>'.
+   * @see domain.Mapper
+   * @generated
+   */
+  EClass getMapper();
+
+  /**
+   * Returns the meta object for class '{@link domain.JavaMapper <em>Java Mapper</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Java Mapper</em>'.
+   * @see domain.JavaMapper
+   * @generated
+   */
+  EClass getJavaMapper();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.JavaMapper#getMappedToPackageName <em>Mapped To Package Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mapped To Package Name</em>'.
+   * @see domain.JavaMapper#getMappedToPackageName()
+   * @see #getJavaMapper()
+   * @generated
+   */
+  EAttribute getJavaMapper_MappedToPackageName();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.JavaMapper#getMappedToClassName <em>Mapped To Class Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mapped To Class Name</em>'.
+   * @see domain.JavaMapper#getMappedToClassName()
+   * @see #getJavaMapper()
+   * @generated
+   */
+  EAttribute getJavaMapper_MappedToClassName();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.JavaMapper#getArtifactId <em>Artifact Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Artifact Id</em>'.
+   * @see domain.JavaMapper#getArtifactId()
+   * @see #getJavaMapper()
+   * @generated
+   */
+  EAttribute getJavaMapper_ArtifactId();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.JavaMapper#getGroupId <em>Group Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Group Id</em>'.
+   * @see domain.JavaMapper#getGroupId()
+   * @see #getJavaMapper()
+   * @generated
+   */
+  EAttribute getJavaMapper_GroupId();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.JavaMapper#getVersion <em>Version</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Version</em>'.
+   * @see domain.JavaMapper#getVersion()
+   * @see #getJavaMapper()
+   * @generated
+   */
+  EAttribute getJavaMapper_Version();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.JavaMapper#getLibraryName <em>Library Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Library Name</em>'.
+   * @see domain.JavaMapper#getLibraryName()
+   * @see #getJavaMapper()
+   * @generated
+   */
+  EAttribute getJavaMapper_LibraryName();
+
+  /**
+   * Returns the meta object for class '{@link domain.Recipes <em>Recipes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Recipes</em>'.
+   * @see domain.Recipes
+   * @generated
+   */
+  EClass getRecipes();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Recipes#getRecipe <em>Recipe</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Recipe</em>'.
+   * @see domain.Recipes#getRecipe()
+   * @see #getRecipes()
+   * @generated
+   */
+  EReference getRecipes_Recipe();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Recipes#getConfigurations <em>Configurations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Configurations</em>'.
+   * @see domain.Recipes#getConfigurations()
+   * @see #getRecipes()
+   * @generated
+   */
+  EReference getRecipes_Configurations();
+
+  /**
+   * Returns the meta object for class '{@link domain.Recipe <em>Recipe</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Recipe</em>'.
+   * @see domain.Recipe
+   * @generated
+   */
+  EClass getRecipe();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Recipe#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Recipe#getName()
+   * @see #getRecipe()
+   * @generated
+   */
+  EAttribute getRecipe_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Recipe#getComponents <em>Components</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Components</em>'.
+   * @see domain.Recipe#getComponents()
+   * @see #getRecipe()
+   * @generated
+   */
+  EReference getRecipe_Components();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Recipe#getRecipeConfig <em>Recipe Config</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Recipe Config</em>'.
+   * @see domain.Recipe#getRecipeConfig()
+   * @see #getRecipe()
+   * @generated
+   */
+  EReference getRecipe_RecipeConfig();
+
+  /**
+   * Returns the meta object for class '{@link domain.Component <em>Component</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Component</em>'.
+   * @see domain.Component
+   * @generated
+   */
+  EClass getComponent();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Component#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Component#getName()
+   * @see #getComponent()
+   * @generated
+   */
+  EAttribute getComponent_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Component#getComponents <em>Components</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Components</em>'.
+   * @see domain.Component#getComponents()
+   * @see #getComponent()
+   * @generated
+   */
+  EReference getComponent_Components();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Component#getMappers <em>Mappers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mappers</em>'.
+   * @see domain.Component#getMappers()
+   * @see #getComponent()
+   * @generated
+   */
+  EReference getComponent_Mappers();
+
+  /**
+   * Returns the meta object for class '{@link domain.ModelMapper <em>Model Mapper</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Model Mapper</em>'.
+   * @see domain.ModelMapper
+   * @generated
+   */
+  EClass getModelMapper();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ModelMapper#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.ModelMapper#getName()
+   * @see #getModelMapper()
+   * @generated
+   */
+  EAttribute getModelMapper_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.ModelMapper#getArtifactRef <em>Artifact Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Artifact Ref</em>'.
+   * @see domain.ModelMapper#getArtifactRef()
+   * @see #getModelMapper()
+   * @generated
+   */
+  EReference getModelMapper_ArtifactRef();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.ModelMapper#getSpecifiers <em>Specifiers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Specifiers</em>'.
+   * @see domain.ModelMapper#getSpecifiers()
+   * @see #getModelMapper()
+   * @generated
+   */
+  EReference getModelMapper_Specifiers();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.ModelMapper#getVariables <em>Variables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Variables</em>'.
+   * @see domain.ModelMapper#getVariables()
+   * @see #getModelMapper()
+   * @generated
+   */
+  EReference getModelMapper_Variables();
+
+  /**
+   * Returns the meta object for class '{@link domain.Configuration <em>Configuration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Configuration</em>'.
+   * @see domain.Configuration
+   * @generated
+   */
+  EClass getConfiguration();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Configuration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Configuration#getName()
+   * @see #getConfiguration()
+   * @generated
+   */
+  EAttribute getConfiguration_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Configuration#getProperties <em>Properties</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Properties</em>'.
+   * @see domain.Configuration#getProperties()
+   * @see #getConfiguration()
+   * @generated
+   */
+  EReference getConfiguration_Properties();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Configuration#getConfigExtension <em>Config Extension</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Config Extension</em>'.
+   * @see domain.Configuration#getConfigExtension()
+   * @see #getConfiguration()
+   * @generated
+   */
+  EReference getConfiguration_ConfigExtension();
+
+  /**
+   * Returns the meta object for class '{@link domain.Property <em>Property</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Property</em>'.
+   * @see domain.Property
+   * @generated
+   */
+  EClass getProperty();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Property#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Property#getName()
+   * @see #getProperty()
+   * @generated
+   */
+  EAttribute getProperty_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Property#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see domain.Property#getValue()
+   * @see #getProperty()
+   * @generated
+   */
+  EAttribute getProperty_Value();
+
+  /**
+   * Returns the meta object for class '{@link domain.MappingSpecifier <em>Mapping Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mapping Specifier</em>'.
+   * @see domain.MappingSpecifier
+   * @generated
+   */
+  EClass getMappingSpecifier();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.MappingSpecifier#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.MappingSpecifier#getName()
+   * @see #getMappingSpecifier()
+   * @generated
+   */
+  EAttribute getMappingSpecifier_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.MappingSpecifier#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see domain.MappingSpecifier#getValue()
+   * @see #getMappingSpecifier()
+   * @generated
+   */
+  EAttribute getMappingSpecifier_Value();
+
+  /**
+   * Returns the meta object for class '{@link domain.MappingVariable <em>Mapping Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mapping Variable</em>'.
+   * @see domain.MappingVariable
+   * @generated
+   */
+  EClass getMappingVariable();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.MappingVariable#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.MappingVariable#getName()
+   * @see #getMappingVariable()
+   * @generated
+   */
+  EAttribute getMappingVariable_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.MappingVariable#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see domain.MappingVariable#getValue()
+   * @see #getMappingVariable()
+   * @generated
+   */
+  EAttribute getMappingVariable_Value();
+
+  /**
+   * Returns the meta object for class '{@link domain.ArtifactRef <em>Artifact Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Artifact Ref</em>'.
+   * @see domain.ArtifactRef
+   * @generated
+   */
+  EClass getArtifactRef();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ArtifactRef#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.ArtifactRef#getName()
+   * @see #getArtifactRef()
+   * @generated
+   */
+  EAttribute getArtifactRef_Name();
+
+  /**
+   * Returns the meta object for class '{@link domain.TypeDefinition <em>Type Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Definition</em>'.
+   * @see domain.TypeDefinition
+   * @generated
+   */
+  EClass getTypeDefinition();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.TypeDefinition#getTypes <em>Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Types</em>'.
+   * @see domain.TypeDefinition#getTypes()
+   * @see #getTypeDefinition()
+   * @generated
+   */
+  EReference getTypeDefinition_Types();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.TypeDefinition#getEnums <em>Enums</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Enums</em>'.
+   * @see domain.TypeDefinition#getEnums()
+   * @see #getTypeDefinition()
+   * @generated
+   */
+  EReference getTypeDefinition_Enums();
+
+  /**
+   * Returns the meta object for class '{@link domain.TypeElement <em>Type Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Element</em>'.
+   * @see domain.TypeElement
+   * @generated
+   */
+  EClass getTypeElement();
+
+  /**
+   * Returns the meta object for class '{@link domain.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type</em>'.
+   * @see domain.Type
+   * @generated
+   */
+  EClass getType();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Type#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Type#getName()
+   * @see #getType()
+   * @generated
+   */
+  EAttribute getType_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Type#getAttributes <em>Attributes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Attributes</em>'.
+   * @see domain.Type#getAttributes()
+   * @see #getType()
+   * @generated
+   */
+  EReference getType_Attributes();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Type#getOperations <em>Operations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Operations</em>'.
+   * @see domain.Type#getOperations()
+   * @see #getType()
+   * @generated
+   */
+  EReference getType_Operations();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Type#getExtension <em>Extension</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Extension</em>'.
+   * @see domain.Type#getExtension()
+   * @see #getType()
+   * @generated
+   */
+  EReference getType_Extension();
+
+  /**
+   * Returns the meta object for class '{@link domain.TypeReference <em>Type Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Reference</em>'.
+   * @see domain.TypeReference
+   * @generated
+   */
+  EClass getTypeReference();
+
+  /**
+   * Returns the meta object for class '{@link domain.TypeExtension <em>Type Extension</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Extension</em>'.
+   * @see domain.TypeExtension
+   * @generated
+   */
+  EClass getTypeExtension();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.TypeExtension#getSource <em>Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Source</em>'.
+   * @see domain.TypeExtension#getSource()
+   * @see #getTypeExtension()
+   * @generated
+   */
+  EReference getTypeExtension_Source();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.TypeExtension#getTarget <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Target</em>'.
+   * @see domain.TypeExtension#getTarget()
+   * @see #getTypeExtension()
+   * @generated
+   */
+  EReference getTypeExtension_Target();
+
+  /**
+   * Returns the meta object for class '{@link domain.Attribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Attribute</em>'.
+   * @see domain.Attribute
+   * @generated
+   */
+  EClass getAttribute();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Attribute#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Attribute#getName()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Name();
+
+  /**
+   * Returns the meta object for class '{@link domain.Operation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operation</em>'.
+   * @see domain.Operation
+   * @generated
+   */
+  EClass getOperation();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Operation#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Operation#getName()
+   * @see #getOperation()
+   * @generated
+   */
+  EAttribute getOperation_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Operation#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see domain.Operation#getParameters()
+   * @see #getOperation()
+   * @generated
+   */
+  EReference getOperation_Parameters();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Operation#getReturnValue <em>Return Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Return Value</em>'.
+   * @see domain.Operation#getReturnValue()
+   * @see #getOperation()
+   * @generated
+   */
+  EReference getOperation_ReturnValue();
+
+  /**
+   * Returns the meta object for class '{@link domain.ReturnValue <em>Return Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Return Value</em>'.
+   * @see domain.ReturnValue
+   * @generated
+   */
+  EClass getReturnValue();
+
+  /**
+   * Returns the meta object for class '{@link domain.Enumarator <em>Enumarator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enumarator</em>'.
+   * @see domain.Enumarator
+   * @generated
+   */
+  EClass getEnumarator();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Enumarator#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Enumarator#getName()
+   * @see #getEnumarator()
+   * @generated
+   */
+  EAttribute getEnumarator_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Enumarator#getValues <em>Values</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Values</em>'.
+   * @see domain.Enumarator#getValues()
+   * @see #getEnumarator()
+   * @generated
+   */
+  EReference getEnumarator_Values();
+
+  /**
+   * Returns the meta object for class '{@link domain.EnumAttribute <em>Enum Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enum Attribute</em>'.
+   * @see domain.EnumAttribute
+   * @generated
+   */
+  EClass getEnumAttribute();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.EnumAttribute#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.EnumAttribute#getName()
+   * @see #getEnumAttribute()
+   * @generated
+   */
+  EAttribute getEnumAttribute_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.EnumAttribute#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see domain.EnumAttribute#getValue()
+   * @see #getEnumAttribute()
+   * @generated
+   */
+  EAttribute getEnumAttribute_Value();
+
+  /**
+   * Returns the meta object for class '{@link domain.TypePointer <em>Type Pointer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Pointer</em>'.
+   * @see domain.TypePointer
+   * @generated
+   */
+  EClass getTypePointer();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.TypePointer#getPackageName <em>Package Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Package Name</em>'.
+   * @see domain.TypePointer#getPackageName()
+   * @see #getTypePointer()
+   * @generated
+   */
+  EAttribute getTypePointer_PackageName();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.TypePointer#getTypeName <em>Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type Name</em>'.
+   * @see domain.TypePointer#getTypeName()
+   * @see #getTypePointer()
+   * @generated
+   */
+  EAttribute getTypePointer_TypeName();
+
+  /**
+   * Returns the meta object for class '{@link domain.TypesRepository <em>Types Repository</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Types Repository</em>'.
+   * @see domain.TypesRepository
+   * @generated
+   */
+  EClass getTypesRepository();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.TypesRepository#getTypeDefinition <em>Type Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Definition</em>'.
+   * @see domain.TypesRepository#getTypeDefinition()
+   * @see #getTypesRepository()
+   * @generated
+   */
+  EReference getTypesRepository_TypeDefinition();
+
+  /**
+   * Returns the meta object for class '{@link domain.Types <em>Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Types</em>'.
+   * @see domain.Types
+   * @generated
+   */
+  EClass getTypes();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Types#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Types#getName()
+   * @see #getTypes()
+   * @generated
+   */
+  EAttribute getTypes_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Types#getPrimitives <em>Primitives</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Primitives</em>'.
+   * @see domain.Types#getPrimitives()
+   * @see #getTypes()
+   * @generated
+   */
+  EReference getTypes_Primitives();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Types#getPackages <em>Packages</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Packages</em>'.
+   * @see domain.Types#getPackages()
+   * @see #getTypes()
+   * @generated
+   */
+  EReference getTypes_Packages();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Types#getBusinessPackages <em>Business Packages</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Business Packages</em>'.
+   * @see domain.Types#getBusinessPackages()
+   * @see #getTypes()
+   * @generated
+   */
+  EReference getTypes_BusinessPackages();
+
+  /**
+   * Returns the meta object for class '{@link domain.Primitive <em>Primitive</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Primitive</em>'.
+   * @see domain.Primitive
+   * @generated
+   */
+  EClass getPrimitive();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Primitive#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Primitive#getName()
+   * @see #getPrimitive()
+   * @generated
+   */
+  EAttribute getPrimitive_Name();
+
+  /**
+   * Returns the meta object for class '{@link domain.Package <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Package</em>'.
+   * @see domain.Package
+   * @generated
+   */
+  EClass getPackage();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Package#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Package#getName()
+   * @see #getPackage()
+   * @generated
+   */
+  EAttribute getPackage_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Package#getTypedefinition <em>Typedefinition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Typedefinition</em>'.
+   * @see domain.Package#getTypedefinition()
+   * @see #getPackage()
+   * @generated
+   */
+  EReference getPackage_Typedefinition();
+
+  /**
+   * Returns the meta object for class '{@link domain.BusinessPackage <em>Business Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Business Package</em>'.
+   * @see domain.BusinessPackage
+   * @generated
+   */
+  EClass getBusinessPackage();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.BusinessPackage#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.BusinessPackage#getName()
+   * @see #getBusinessPackage()
+   * @generated
+   */
+  EAttribute getBusinessPackage_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.BusinessPackage#getBusinessobjects <em>Businessobjects</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Businessobjects</em>'.
+   * @see domain.BusinessPackage#getBusinessobjects()
+   * @see #getBusinessPackage()
+   * @generated
+   */
+  EReference getBusinessPackage_Businessobjects();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -682,78 +3869,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference DOMAIN__DOMAIN_APPLICATIONS = eINSTANCE.getDomain_DomainApplications();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.Dammy1Impl <em>Dammy1</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.Dammy1Impl
-     * @see domain.impl.DomainPackageImpl#getDammy1()
-     * @generated
-     */
-    EClass DAMMY1 = eINSTANCE.getDammy1();
-
-    /**
-     * The meta object literal for the '<em><b>D1</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DAMMY1__D1 = eINSTANCE.getDammy1_D1();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.Dammy2Impl <em>Dammy2</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.Dammy2Impl
-     * @see domain.impl.DomainPackageImpl#getDammy2()
-     * @generated
-     */
-    EClass DAMMY2 = eINSTANCE.getDammy2();
-
-    /**
-     * The meta object literal for the '<em><b>D2</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DAMMY2__D2 = eINSTANCE.getDammy2_D2();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.Dammy3Impl <em>Dammy3</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.Dammy3Impl
-     * @see domain.impl.DomainPackageImpl#getDammy3()
-     * @generated
-     */
-    EClass DAMMY3 = eINSTANCE.getDammy3();
-
-    /**
-     * The meta object literal for the '<em><b>D3</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DAMMY3__D3 = eINSTANCE.getDammy3_D3();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.Dammy4Impl <em>Dammy4</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.Dammy4Impl
-     * @see domain.impl.DomainPackageImpl#getDammy4()
-     * @generated
-     */
-    EClass DAMMY4 = eINSTANCE.getDammy4();
-
-    /**
-     * The meta object literal for the '<em><b>D4</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DAMMY4__D4 = eINSTANCE.getDammy4_D4();
 
     /**
      * The meta object literal for the '{@link domain.impl.DomainArtifactsImpl <em>Artifacts</em>}' class.
@@ -858,6 +3973,1172 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference DOMAIN_APPLICATION__APPLICATION = eINSTANCE.getDomainApplication_Application();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ArtifactsImpl <em>Artifacts</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ArtifactsImpl
+     * @see domain.impl.DomainPackageImpl#getArtifacts()
+     * @generated
+     */
+    EClass ARTIFACTS = eINSTANCE.getArtifacts();
+
+    /**
+     * The meta object literal for the '<em><b>Artifacts</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARTIFACTS__ARTIFACTS = eINSTANCE.getArtifacts_Artifacts();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ArtifactImpl <em>Artifact</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ArtifactImpl
+     * @see domain.impl.DomainPackageImpl#getArtifact()
+     * @generated
+     */
+    EClass ARTIFACT = eINSTANCE.getArtifact();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARTIFACT__NAME = eINSTANCE.getArtifact_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARTIFACT__DESCRIPTION = eINSTANCE.getArtifact_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Config Variables</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARTIFACT__CONFIG_VARIABLES = eINSTANCE.getArtifact_ConfigVariables();
+
+    /**
+     * The meta object literal for the '<em><b>Model Query</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARTIFACT__MODEL_QUERY = eINSTANCE.getArtifact_ModelQuery();
+
+    /**
+     * The meta object literal for the '<em><b>Specifiers</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARTIFACT__SPECIFIERS = eINSTANCE.getArtifact_Specifiers();
+
+    /**
+     * The meta object literal for the '<em><b>Template</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARTIFACT__TEMPLATE = eINSTANCE.getArtifact_Template();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.VariableImpl <em>Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.VariableImpl
+     * @see domain.impl.DomainPackageImpl#getVariable()
+     * @generated
+     */
+    EClass VARIABLE = eINSTANCE.getVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.SpecifierImpl <em>Specifier</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.SpecifierImpl
+     * @see domain.impl.DomainPackageImpl#getSpecifier()
+     * @generated
+     */
+    EClass SPECIFIER = eINSTANCE.getSpecifier();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SPECIFIER__NAME = eINSTANCE.getSpecifier_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SPECIFIER__OPTIONS = eINSTANCE.getSpecifier_Options();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.OptionImpl <em>Option</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.OptionImpl
+     * @see domain.impl.DomainPackageImpl#getOption()
+     * @generated
+     */
+    EClass OPTION = eINSTANCE.getOption();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPTION__VALUE = eINSTANCE.getOption_Value();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ApplicationImpl <em>Application</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ApplicationImpl
+     * @see domain.impl.DomainPackageImpl#getApplication()
+     * @generated
+     */
+    EClass APPLICATION = eINSTANCE.getApplication();
+
+    /**
+     * The meta object literal for the '<em><b>Application Recipes</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION__APPLICATION_RECIPES = eINSTANCE.getApplication_ApplicationRecipes();
+
+    /**
+     * The meta object literal for the '<em><b>Application Mappers</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION__APPLICATION_MAPPERS = eINSTANCE.getApplication_ApplicationMappers();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ApplicationRecipesImpl <em>Application Recipes</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ApplicationRecipesImpl
+     * @see domain.impl.DomainPackageImpl#getApplicationRecipes()
+     * @generated
+     */
+    EClass APPLICATION_RECIPES = eINSTANCE.getApplicationRecipes();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_RECIPES__NAME = eINSTANCE.getApplicationRecipes_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Recipes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION_RECIPES__RECIPES = eINSTANCE.getApplicationRecipes_Recipes();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ApplicationRecipeImpl <em>Application Recipe</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ApplicationRecipeImpl
+     * @see domain.impl.DomainPackageImpl#getApplicationRecipe()
+     * @generated
+     */
+    EClass APPLICATION_RECIPE = eINSTANCE.getApplicationRecipe();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_RECIPE__NAME = eINSTANCE.getApplicationRecipe_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Recipes</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION_RECIPE__RECIPES = eINSTANCE.getApplicationRecipe_Recipes();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ApplicationMappersImpl <em>Application Mappers</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ApplicationMappersImpl
+     * @see domain.impl.DomainPackageImpl#getApplicationMappers()
+     * @generated
+     */
+    EClass APPLICATION_MAPPERS = eINSTANCE.getApplicationMappers();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_MAPPERS__NAME = eINSTANCE.getApplicationMappers_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Mappers</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION_MAPPERS__MAPPERS = eINSTANCE.getApplicationMappers_Mappers();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ApplicationMapperImpl <em>Application Mapper</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ApplicationMapperImpl
+     * @see domain.impl.DomainPackageImpl#getApplicationMapper()
+     * @generated
+     */
+    EClass APPLICATION_MAPPER = eINSTANCE.getApplicationMapper();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_MAPPER__NAME = eINSTANCE.getApplicationMapper_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Mapper</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION_MAPPER__MAPPER = eINSTANCE.getApplicationMapper_Mapper();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.BusinessObjectsImpl <em>Business Objects</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.BusinessObjectsImpl
+     * @see domain.impl.DomainPackageImpl#getBusinessObjects()
+     * @generated
+     */
+    EClass BUSINESS_OBJECTS = eINSTANCE.getBusinessObjects();
+
+    /**
+     * The meta object literal for the '<em><b>Business Object</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUSINESS_OBJECTS__BUSINESS_OBJECT = eINSTANCE.getBusinessObjects_BusinessObject();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.BusinessObjectImpl <em>Business Object</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.BusinessObjectImpl
+     * @see domain.impl.DomainPackageImpl#getBusinessObject()
+     * @generated
+     */
+    EClass BUSINESS_OBJECT = eINSTANCE.getBusinessObject();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUSINESS_OBJECT__NAME = eINSTANCE.getBusinessObject_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Create Methods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUSINESS_OBJECT__CREATE_METHODS = eINSTANCE.getBusinessObject_CreateMethods();
+
+    /**
+     * The meta object literal for the '<em><b>Insert Methods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUSINESS_OBJECT__INSERT_METHODS = eINSTANCE.getBusinessObject_InsertMethods();
+
+    /**
+     * The meta object literal for the '<em><b>Updaete Methods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUSINESS_OBJECT__UPDAETE_METHODS = eINSTANCE.getBusinessObject_UpdaeteMethods();
+
+    /**
+     * The meta object literal for the '<em><b>Removet Methods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUSINESS_OBJECT__REMOVET_METHODS = eINSTANCE.getBusinessObject_RemovetMethods();
+
+    /**
+     * The meta object literal for the '<em><b>Searcht Methods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUSINESS_OBJECT__SEARCHT_METHODS = eINSTANCE.getBusinessObject_SearchtMethods();
+
+    /**
+     * The meta object literal for the '<em><b>Others Methods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUSINESS_OBJECT__OTHERS_METHODS = eINSTANCE.getBusinessObject_OthersMethods();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.BusinessMethodImpl <em>Business Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.BusinessMethodImpl
+     * @see domain.impl.DomainPackageImpl#getBusinessMethod()
+     * @generated
+     */
+    EClass BUSINESS_METHOD = eINSTANCE.getBusinessMethod();
+
+    /**
+     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUSINESS_METHOD__METHOD = eINSTANCE.getBusinessMethod_Method();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.CreateMethodImpl <em>Create Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.CreateMethodImpl
+     * @see domain.impl.DomainPackageImpl#getCreateMethod()
+     * @generated
+     */
+    EClass CREATE_METHOD = eINSTANCE.getCreateMethod();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.InsertMethodImpl <em>Insert Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.InsertMethodImpl
+     * @see domain.impl.DomainPackageImpl#getInsertMethod()
+     * @generated
+     */
+    EClass INSERT_METHOD = eINSTANCE.getInsertMethod();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.UpdateMethodImpl <em>Update Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.UpdateMethodImpl
+     * @see domain.impl.DomainPackageImpl#getUpdateMethod()
+     * @generated
+     */
+    EClass UPDATE_METHOD = eINSTANCE.getUpdateMethod();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.RemoveMethodImpl <em>Remove Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.RemoveMethodImpl
+     * @see domain.impl.DomainPackageImpl#getRemoveMethod()
+     * @generated
+     */
+    EClass REMOVE_METHOD = eINSTANCE.getRemoveMethod();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.SearchMethodImpl <em>Search Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.SearchMethodImpl
+     * @see domain.impl.DomainPackageImpl#getSearchMethod()
+     * @generated
+     */
+    EClass SEARCH_METHOD = eINSTANCE.getSearchMethod();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.OtherMethodImpl <em>Other Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.OtherMethodImpl
+     * @see domain.impl.DomainPackageImpl#getOtherMethod()
+     * @generated
+     */
+    EClass OTHER_METHOD = eINSTANCE.getOtherMethod();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.MappersImpl <em>Mappers</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.MappersImpl
+     * @see domain.impl.DomainPackageImpl#getMappers()
+     * @generated
+     */
+    EClass MAPPERS = eINSTANCE.getMappers();
+
+    /**
+     * The meta object literal for the '<em><b>Mappers</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPERS__MAPPERS = eINSTANCE.getMappers_Mappers();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.MapperImpl <em>Mapper</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.MapperImpl
+     * @see domain.impl.DomainPackageImpl#getMapper()
+     * @generated
+     */
+    EClass MAPPER = eINSTANCE.getMapper();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.JavaMapperImpl <em>Java Mapper</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.JavaMapperImpl
+     * @see domain.impl.DomainPackageImpl#getJavaMapper()
+     * @generated
+     */
+    EClass JAVA_MAPPER = eINSTANCE.getJavaMapper();
+
+    /**
+     * The meta object literal for the '<em><b>Mapped To Package Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JAVA_MAPPER__MAPPED_TO_PACKAGE_NAME = eINSTANCE.getJavaMapper_MappedToPackageName();
+
+    /**
+     * The meta object literal for the '<em><b>Mapped To Class Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JAVA_MAPPER__MAPPED_TO_CLASS_NAME = eINSTANCE.getJavaMapper_MappedToClassName();
+
+    /**
+     * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JAVA_MAPPER__ARTIFACT_ID = eINSTANCE.getJavaMapper_ArtifactId();
+
+    /**
+     * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JAVA_MAPPER__GROUP_ID = eINSTANCE.getJavaMapper_GroupId();
+
+    /**
+     * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JAVA_MAPPER__VERSION = eINSTANCE.getJavaMapper_Version();
+
+    /**
+     * The meta object literal for the '<em><b>Library Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JAVA_MAPPER__LIBRARY_NAME = eINSTANCE.getJavaMapper_LibraryName();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.RecipesImpl <em>Recipes</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.RecipesImpl
+     * @see domain.impl.DomainPackageImpl#getRecipes()
+     * @generated
+     */
+    EClass RECIPES = eINSTANCE.getRecipes();
+
+    /**
+     * The meta object literal for the '<em><b>Recipe</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECIPES__RECIPE = eINSTANCE.getRecipes_Recipe();
+
+    /**
+     * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECIPES__CONFIGURATIONS = eINSTANCE.getRecipes_Configurations();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.RecipeImpl <em>Recipe</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.RecipeImpl
+     * @see domain.impl.DomainPackageImpl#getRecipe()
+     * @generated
+     */
+    EClass RECIPE = eINSTANCE.getRecipe();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RECIPE__NAME = eINSTANCE.getRecipe_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECIPE__COMPONENTS = eINSTANCE.getRecipe_Components();
+
+    /**
+     * The meta object literal for the '<em><b>Recipe Config</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECIPE__RECIPE_CONFIG = eINSTANCE.getRecipe_RecipeConfig();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ComponentImpl <em>Component</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ComponentImpl
+     * @see domain.impl.DomainPackageImpl#getComponent()
+     * @generated
+     */
+    EClass COMPONENT = eINSTANCE.getComponent();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPONENT__NAME = eINSTANCE.getComponent_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPONENT__COMPONENTS = eINSTANCE.getComponent_Components();
+
+    /**
+     * The meta object literal for the '<em><b>Mappers</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPONENT__MAPPERS = eINSTANCE.getComponent_Mappers();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ModelMapperImpl <em>Model Mapper</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ModelMapperImpl
+     * @see domain.impl.DomainPackageImpl#getModelMapper()
+     * @generated
+     */
+    EClass MODEL_MAPPER = eINSTANCE.getModelMapper();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL_MAPPER__NAME = eINSTANCE.getModelMapper_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Artifact Ref</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL_MAPPER__ARTIFACT_REF = eINSTANCE.getModelMapper_ArtifactRef();
+
+    /**
+     * The meta object literal for the '<em><b>Specifiers</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL_MAPPER__SPECIFIERS = eINSTANCE.getModelMapper_Specifiers();
+
+    /**
+     * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL_MAPPER__VARIABLES = eINSTANCE.getModelMapper_Variables();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ConfigurationImpl <em>Configuration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ConfigurationImpl
+     * @see domain.impl.DomainPackageImpl#getConfiguration()
+     * @generated
+     */
+    EClass CONFIGURATION = eINSTANCE.getConfiguration();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONFIGURATION__NAME = eINSTANCE.getConfiguration_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONFIGURATION__PROPERTIES = eINSTANCE.getConfiguration_Properties();
+
+    /**
+     * The meta object literal for the '<em><b>Config Extension</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONFIGURATION__CONFIG_EXTENSION = eINSTANCE.getConfiguration_ConfigExtension();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.PropertyImpl
+     * @see domain.impl.DomainPackageImpl#getProperty()
+     * @generated
+     */
+    EClass PROPERTY = eINSTANCE.getProperty();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.MappingSpecifierImpl <em>Mapping Specifier</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.MappingSpecifierImpl
+     * @see domain.impl.DomainPackageImpl#getMappingSpecifier()
+     * @generated
+     */
+    EClass MAPPING_SPECIFIER = eINSTANCE.getMappingSpecifier();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING_SPECIFIER__NAME = eINSTANCE.getMappingSpecifier_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING_SPECIFIER__VALUE = eINSTANCE.getMappingSpecifier_Value();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.MappingVariableImpl <em>Mapping Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.MappingVariableImpl
+     * @see domain.impl.DomainPackageImpl#getMappingVariable()
+     * @generated
+     */
+    EClass MAPPING_VARIABLE = eINSTANCE.getMappingVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING_VARIABLE__NAME = eINSTANCE.getMappingVariable_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING_VARIABLE__VALUE = eINSTANCE.getMappingVariable_Value();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ArtifactRefImpl <em>Artifact Ref</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ArtifactRefImpl
+     * @see domain.impl.DomainPackageImpl#getArtifactRef()
+     * @generated
+     */
+    EClass ARTIFACT_REF = eINSTANCE.getArtifactRef();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARTIFACT_REF__NAME = eINSTANCE.getArtifactRef_Name();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TypeDefinitionImpl <em>Type Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TypeDefinitionImpl
+     * @see domain.impl.DomainPackageImpl#getTypeDefinition()
+     * @generated
+     */
+    EClass TYPE_DEFINITION = eINSTANCE.getTypeDefinition();
+
+    /**
+     * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_DEFINITION__TYPES = eINSTANCE.getTypeDefinition_Types();
+
+    /**
+     * The meta object literal for the '<em><b>Enums</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_DEFINITION__ENUMS = eINSTANCE.getTypeDefinition_Enums();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TypeElementImpl <em>Type Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TypeElementImpl
+     * @see domain.impl.DomainPackageImpl#getTypeElement()
+     * @generated
+     */
+    EClass TYPE_ELEMENT = eINSTANCE.getTypeElement();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TypeImpl <em>Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TypeImpl
+     * @see domain.impl.DomainPackageImpl#getType()
+     * @generated
+     */
+    EClass TYPE = eINSTANCE.getType();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE__NAME = eINSTANCE.getType_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE__ATTRIBUTES = eINSTANCE.getType_Attributes();
+
+    /**
+     * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE__OPERATIONS = eINSTANCE.getType_Operations();
+
+    /**
+     * The meta object literal for the '<em><b>Extension</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE__EXTENSION = eINSTANCE.getType_Extension();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TypeReferenceImpl
+     * @see domain.impl.DomainPackageImpl#getTypeReference()
+     * @generated
+     */
+    EClass TYPE_REFERENCE = eINSTANCE.getTypeReference();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TypeExtensionImpl <em>Type Extension</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TypeExtensionImpl
+     * @see domain.impl.DomainPackageImpl#getTypeExtension()
+     * @generated
+     */
+    EClass TYPE_EXTENSION = eINSTANCE.getTypeExtension();
+
+    /**
+     * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_EXTENSION__SOURCE = eINSTANCE.getTypeExtension_Source();
+
+    /**
+     * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_EXTENSION__TARGET = eINSTANCE.getTypeExtension_Target();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.AttributeImpl <em>Attribute</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.AttributeImpl
+     * @see domain.impl.DomainPackageImpl#getAttribute()
+     * @generated
+     */
+    EClass ATTRIBUTE = eINSTANCE.getAttribute();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.OperationImpl <em>Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.OperationImpl
+     * @see domain.impl.DomainPackageImpl#getOperation()
+     * @generated
+     */
+    EClass OPERATION = eINSTANCE.getOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION__NAME = eINSTANCE.getOperation_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION__PARAMETERS = eINSTANCE.getOperation_Parameters();
+
+    /**
+     * The meta object literal for the '<em><b>Return Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION__RETURN_VALUE = eINSTANCE.getOperation_ReturnValue();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ReturnValueImpl <em>Return Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ReturnValueImpl
+     * @see domain.impl.DomainPackageImpl#getReturnValue()
+     * @generated
+     */
+    EClass RETURN_VALUE = eINSTANCE.getReturnValue();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.EnumaratorImpl <em>Enumarator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.EnumaratorImpl
+     * @see domain.impl.DomainPackageImpl#getEnumarator()
+     * @generated
+     */
+    EClass ENUMARATOR = eINSTANCE.getEnumarator();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUMARATOR__NAME = eINSTANCE.getEnumarator_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUMARATOR__VALUES = eINSTANCE.getEnumarator_Values();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.EnumAttributeImpl
+     * @see domain.impl.DomainPackageImpl#getEnumAttribute()
+     * @generated
+     */
+    EClass ENUM_ATTRIBUTE = eINSTANCE.getEnumAttribute();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUM_ATTRIBUTE__NAME = eINSTANCE.getEnumAttribute_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUM_ATTRIBUTE__VALUE = eINSTANCE.getEnumAttribute_Value();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TypePointerImpl <em>Type Pointer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TypePointerImpl
+     * @see domain.impl.DomainPackageImpl#getTypePointer()
+     * @generated
+     */
+    EClass TYPE_POINTER = eINSTANCE.getTypePointer();
+
+    /**
+     * The meta object literal for the '<em><b>Package Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_POINTER__PACKAGE_NAME = eINSTANCE.getTypePointer_PackageName();
+
+    /**
+     * The meta object literal for the '<em><b>Type Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_POINTER__TYPE_NAME = eINSTANCE.getTypePointer_TypeName();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TypesRepositoryImpl <em>Types Repository</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TypesRepositoryImpl
+     * @see domain.impl.DomainPackageImpl#getTypesRepository()
+     * @generated
+     */
+    EClass TYPES_REPOSITORY = eINSTANCE.getTypesRepository();
+
+    /**
+     * The meta object literal for the '<em><b>Type Definition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPES_REPOSITORY__TYPE_DEFINITION = eINSTANCE.getTypesRepository_TypeDefinition();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TypesImpl <em>Types</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TypesImpl
+     * @see domain.impl.DomainPackageImpl#getTypes()
+     * @generated
+     */
+    EClass TYPES = eINSTANCE.getTypes();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPES__NAME = eINSTANCE.getTypes_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Primitives</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPES__PRIMITIVES = eINSTANCE.getTypes_Primitives();
+
+    /**
+     * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPES__PACKAGES = eINSTANCE.getTypes_Packages();
+
+    /**
+     * The meta object literal for the '<em><b>Business Packages</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPES__BUSINESS_PACKAGES = eINSTANCE.getTypes_BusinessPackages();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.PrimitiveImpl <em>Primitive</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.PrimitiveImpl
+     * @see domain.impl.DomainPackageImpl#getPrimitive()
+     * @generated
+     */
+    EClass PRIMITIVE = eINSTANCE.getPrimitive();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMITIVE__NAME = eINSTANCE.getPrimitive_Name();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.PackageImpl <em>Package</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.PackageImpl
+     * @see domain.impl.DomainPackageImpl#getPackage()
+     * @generated
+     */
+    EClass PACKAGE = eINSTANCE.getPackage();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Typedefinition</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PACKAGE__TYPEDEFINITION = eINSTANCE.getPackage_Typedefinition();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.BusinessPackageImpl <em>Business Package</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.BusinessPackageImpl
+     * @see domain.impl.DomainPackageImpl#getBusinessPackage()
+     * @generated
+     */
+    EClass BUSINESS_PACKAGE = eINSTANCE.getBusinessPackage();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUSINESS_PACKAGE__NAME = eINSTANCE.getBusinessPackage_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Businessobjects</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUSINESS_PACKAGE__BUSINESSOBJECTS = eINSTANCE.getBusinessPackage_Businessobjects();
 
   }
 

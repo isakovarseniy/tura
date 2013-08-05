@@ -4,8 +4,6 @@ package domain;
 
 import org.eclipse.emf.ecore.EObject;
 
-import typesrepository.TypesRepository;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Types</b></em>'.

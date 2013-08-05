@@ -1,0 +1,365 @@
+@namespace(uri="http://tura.org/2013/v1/domain", prefix="tura.domain")
+@gmf
+package domain;
+
+@gmf.diagram.domain
+class Domain{
+  val DomainArtifacts[1] domainArtifacts;
+  val DomainTypes[1] domainTypes;
+  val DomainApplications[1] domainApplications;
+}
+
+@gmf.node(label="name")
+class DomainArtifacts{
+   attr EString name;  
+   ref  Artifacts artifact;
+}
+
+@gmf.node(label="name")
+class DomainTypes{
+   attr EString name;  
+   ref TypesRepository typesrepository;
+}
+
+@gmf.node(label="name")
+class DomainApplications{
+   attr EString name;  
+   @gmf.compartment
+   val DomainApplication[*] applications;
+}
+
+@gmf.node(label="name")
+class DomainApplication{
+   attr EString name;  
+   ref Application application;
+}
+
+@gmf.diagram.artifact
+class Artifacts{
+   val Artifact[*] artifacts;
+}
+
+@gmf.node(label="name")
+class Artifact{
+   attr EString name;
+   attr EString description;
+   
+   // Variables resolved by configuration of recipe (for example server IP)  
+   @gmf.compartment
+   val   Variable[*] configVariables;
+   
+   // Variables to query model ( for example FormName or service name)
+   @gmf.compartment
+   val   Variable[*] modelQuery;
+   
+   //For navigation in the template (for example choosing specific technologies EclipseLink vs Hibernate)
+   @gmf.compartment
+   val   Specifier[*] specifiers;
+
+   attr EString template;
+}
+
+
+@gmf.node(label="name")
+class Variable{
+   attr EString name;
+}
+
+@gmf.node(label="name")
+class Specifier{
+   attr EString name;
+   val  Option[1..*] options;  
+}
+
+@gmf.node(label="name")
+class Option{
+   attr EString value;
+}
+
+@gmf.diagram
+class Application{
+   val ApplicationRecipes applicationRecipes;
+   val ApplicationMappers applicationMappers;
+}
+
+@gmf.node(label="name")
+class ApplicationRecipes{
+   attr EString name;
+   @gmf.compartment
+   val ApplicationRecipe[*] recipes;
+}
+
+@gmf.node(label="name")
+class ApplicationRecipe{
+   attr EString name;
+   ref Recipes recipes;
+}
+
+@gmf.node(label="name")
+class ApplicationMappers{
+   attr EString name;
+   @gmf.compartment
+   val ApplicationMapper[*] mappers;
+}
+
+@gmf.node(label="name")
+class ApplicationMapper{
+   attr EString name;
+   ref Mappers mapper; 
+}
+
+@gmf.diagram.businessObjects
+class BusinessObjects{
+   val BusinessObject[*] businessObject;
+   
+}
+
+@gmf.node(label="name")
+class BusinessObject extends TypePointer{
+   attr EString name;
+   @gmf.compartment()
+   val CreateMethod[*] createMethods;
+   @gmf.compartment()
+   val InsertMethod[*] insertMethods;
+   @gmf.compartment()
+   val UpdateMethod[*] updaeteMethods;
+   @gmf.compartment()
+   val RemoveMethod[*] removetMethods;
+   @gmf.compartment()
+   val SearchMethod[*] searchtMethods;
+   @gmf.compartment()
+   val OtherMethod[*] othersMethods;
+   
+}
+
+class BusinessMethod extends TypePointer {
+   attr EString method;
+}
+
+@gmf.node(label="method")
+class CreateMethod extends BusinessMethod{
+   
+}
+
+@gmf.node(label="method")
+class InsertMethod extends BusinessMethod{
+   
+}
+
+@gmf.node(label="method")
+class UpdateMethod extends BusinessMethod{
+   
+}
+
+@gmf.node(label="method")
+class RemoveMethod extends BusinessMethod{
+   
+}
+
+@gmf.node(label="method")
+class SearchMethod extends BusinessMethod{
+   
+}
+
+@gmf.node(label="method")
+class OtherMethod extends BusinessMethod{
+   
+}
+
+
+@gmf.diagram.mapper
+class Mappers{
+   val Mapper[*] mappers;
+}
+
+class Mapper extends TypePointer{
+         
+}
+@gmf.node(label="packageName")
+class JavaMapper extends Mapper{
+   attr EString mappedToPackageName;
+   attr EString mappedToClassName;
+   attr EString artifactId;
+   attr EString groupId;
+   attr EString version;
+   attr EString libraryName;
+}
+
+
+@gmf.diagram.recipe
+class Recipes{
+  val Recipe recipe;
+  val Configuration[*] configurations;
+}
+
+
+
+@gmf.node(label="name")
+class Recipe{
+  attr EString name;
+  @gmf.compartment
+  val Component[*] components;
+  @gmf.link(target.decoration="arrow", style="dash")
+  ref Configuration recipeConfig;
+}
+
+
+@gmf.node(label="name")
+class Component{
+   attr EString name;
+     @gmf.compartment
+  val Component[*] components;
+  @gmf.compartment(layout="list")
+   val ModelMapper[*] mappers;
+}
+
+@gmf.node(label="name")
+class ModelMapper{
+   attr EString name;
+   val ArtifactRef artifactRef;
+   val MappingSpecifier[*] specifiers;
+   val MappingVariable[*] variables;
+}
+
+@gmf.node(label="name")
+class Configuration{
+   attr EString name;
+   @gmf.compartment(layout="list")
+   val Property[*] properties; 
+  @gmf.link(style="dot", width="2" ,target.decoration="closedarrow")
+   ref Configuration configExtension;
+}
+
+@gmf.node(label="name")
+class Property{
+   attr EString name;
+   attr EString value;
+}
+
+class MappingSpecifier{
+   attr EString name;
+   attr EString value;
+}
+class MappingVariable{
+   attr EString name;
+   attr EString value;
+}
+
+class ArtifactRef{
+   attr EString name;
+}
+
+
+@gmf.diagram.typedefinition
+class TypeDefinition{
+   val TypeElement[*] types;
+   val Enumarator[*] enums;
+}
+
+class TypeElement{
+   
+}
+
+@gmf.node(label="name")
+class Type extends TypeElement {
+   attr EString name;
+   @gmf.compartment
+   val Attribute[*] attributes;
+   @gmf.compartment
+   val Operation[*] operations;
+   val TypeExtension[0..1] extension;
+   
+}
+
+@gmf.node(label="packageName,typeName")
+class TypeReference extends TypeElement , TypePointer{
+ }
+
+@gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
+class TypeExtension {
+    ref TypeElement source;
+    ref TypeElement target;
+}
+
+@gmf.node(label="name")
+class Attribute extends  TypePointer{
+   attr EString name;
+}
+
+
+@gmf.node(label="name")
+class Operation{
+   attr EString name;
+   @gmf.compartment
+   val Attribute[*] parameters;
+   @gmf.compartment
+   val ReturnValue[0..1] returnValue;
+}
+
+@gmf.node(label="packageName,typeName")
+class ReturnValue extends TypePointer{
+}
+
+@gmf.node(label="name")
+class Enumarator{
+   attr EString name;
+  @gmf.compartment
+   val EnumAttribute[*] values;
+}
+
+@gmf.node(label="name")
+class EnumAttribute{
+   attr EString name;
+   attr EString  value;
+}
+
+
+class TypePointer{
+  attr EString packageName;
+  attr EString typeName;
+  
+}
+
+
+@gmf.diagram.typesrepository
+class TypesRepository{
+  val Types[1] typeDefinition;
+}
+
+@gmf.node(label="name")
+class Types {
+   attr EString name;
+   @gmf.compartment
+   val Primitive [*] primitives;
+   @gmf.compartment
+   val Package [*] packages;
+   @gmf.compartment
+   val BusinessPackage [*] businessPackages;
+   
+}
+
+
+@gmf.node(label="name")
+class Primitive {
+   attr EString name;
+}
+
+@gmf.node(label="name")
+class Package{
+   attr EString name;
+   ref TypeDefinition typedefinition;
+}
+
+
+@gmf.node(label="name")
+class BusinessPackage{
+   attr EString name;
+   ref BusinessObjects businessobjects;
+}
+
+
+
+
+
+
+

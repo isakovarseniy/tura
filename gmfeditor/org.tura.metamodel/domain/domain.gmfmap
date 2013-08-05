@@ -95,9 +95,9 @@
   </nodes>
   <links>
     <domainMetaElement
-        href="../typedefinition/typeDefinition.ecore#//TypeExtension"/>
+        href="domain.ecore#//TypeExtension"/>
     <containmentFeature
-        href="../typedefinition/typeDefinition.ecore#//Type/extension"/>
+        href="domain.ecore#//Type/extension"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="domain.gmftool#//@palette/@tools.1/@tools.2"/>
@@ -105,10 +105,10 @@
         href="domain.gmfgraph#TypeExtension"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
-        href="../typedefinition/typeDefinition.ecore#//TypeExtension/source"/>
+        href="domain.ecore#//TypeExtension/source"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="../typedefinition/typeDefinition.ecore#//TypeExtension/target"/>
+        href="domain.ecore#//TypeExtension/target"/>
   </links>
   <links>
     <labelMappings
@@ -124,7 +124,7 @@
         href="domain.gmfgraph#RecipeRecipeConfig"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="../recipe/recipe.ecore#//Recipe/recipeConfig"/>
+        href="domain.ecore#//Recipe/recipeConfig"/>
   </links>
   <links>
     <labelMappings
@@ -140,7 +140,7 @@
         href="domain.gmfgraph#ConfigurationConfigExtension"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="../recipe/recipe.ecore#//Configuration/configExtension"/>
+        href="domain.ecore#//Configuration/configExtension"/>
   </links>
   <diagram>
     <diagramCanvas

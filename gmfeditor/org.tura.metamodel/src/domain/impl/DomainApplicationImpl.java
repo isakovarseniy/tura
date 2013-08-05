@@ -2,8 +2,7 @@
  */
 package domain.impl;
 
-import application.Application;
-
+import domain.Application;
 import domain.DomainApplication;
 import domain.DomainPackage;
 

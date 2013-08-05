@@ -2,8 +2,6 @@
  */
 package domain;
 
-import artifact.Artifacts;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**

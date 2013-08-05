@@ -238,15 +238,15 @@
       <modelFacet
           xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
-            href="domain.genmodel#//typedefinition/TypeExtension"/>
+            href="domain.genmodel#//domain/TypeExtension"/>
         <containmentMetaFeature
-            href="domain.genmodel#//typedefinition/Type/extension"/>
+            href="domain.genmodel#//domain/Type/extension"/>
         <childMetaFeature
-            href="domain.genmodel#//typedefinition/Type/extension"/>
+            href="domain.genmodel#//domain/Type/extension"/>
         <sourceMetaFeature
-            href="domain.genmodel#//typedefinition/TypeExtension/source"/>
+            href="domain.genmodel#//domain/TypeExtension/source"/>
         <targetMetaFeature
-            href="domain.genmodel#//typedefinition/TypeExtension/target"/>
+            href="domain.genmodel#//domain/TypeExtension/target"/>
       </modelFacet>
     </links>
     <links
@@ -266,7 +266,7 @@
       <modelFacet
           xsi:type="gmfgen:FeatureLinkModelFacet">
         <metaFeature
-            href="domain.genmodel#//recipe/Recipe/recipeConfig"/>
+            href="domain.genmodel#//domain/Recipe/recipeConfig"/>
       </modelFacet>
       <labels
           visualID="506001"
@@ -304,7 +304,7 @@
       <modelFacet
           xsi:type="gmfgen:FeatureLinkModelFacet">
         <metaFeature
-            href="domain.genmodel#//recipe/Configuration/configExtension"/>
+            href="domain.genmodel#//domain/Configuration/configExtension"/>
       </modelFacet>
       <labels
           visualID="506002"

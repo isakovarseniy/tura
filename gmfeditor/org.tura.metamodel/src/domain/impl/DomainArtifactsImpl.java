@@ -2,8 +2,7 @@
  */
 package domain.impl;
 
-import artifact.Artifacts;
-
+import domain.Artifacts;
 import domain.DomainArtifacts;
 import domain.DomainPackage;
 

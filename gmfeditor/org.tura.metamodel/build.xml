@@ -1,0 +1,59 @@
+<project default="typesrepository">
+	
+	<target name="domain">
+		<copy file="basefolder/domain.emf" todir="domain"/>
+		<replace file="domain/domain.emf"    token="@gmf.diagram.domain" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="domain/domain.emf"/>		
+	</target>
+	
+	<target name="mapper">
+		<copy file="basefolder/domain.emf" todir="mapper"/>
+		<replace file="mapper/domain.emf"    token="@gmf.diagram.mapper" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="mapper/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="mapper/domain.emf" firststep="gmfcode"  />		
+	</target>
+	
+	<target name="businessObjects">
+		<copy file="basefolder/domain.emf" todir="businessObjects"/>
+		<replace file="businessObjects/domain.emf"    token="@gmf.diagram.businessObjects" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="businessObjects/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="businessObjects/domain.emf" firststep="gmfcode"  />		
+	</target>
+	
+	<target name="artifact">
+		<copy file="basefolder/domain.emf" todir="artifact"/>
+		<replace file="artifact/domain.emf"    token="@gmf.diagram.artifact" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="artifact/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="artifact/domain.emf" firststep="gmfcode"  />		
+	</target>
+	
+	<target name="application">
+		<copy file="basefolder/domain.emf" todir="application"/>
+		<replace file="application/domain.emf"    token="@gmf.diagram.application" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="application/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="application/domain.emf" firststep="gmfcode"  />		
+	</target>	
+
+	<target name="recipe">
+		<copy file="basefolder/domain.emf" todir="recipe"/>
+		<replace file="recipe/domain.emf"    token="@gmf.diagram.recipe" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="recipe/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="recipe/domain.emf" firststep="gmfcode"  />		
+	</target>	
+	
+	<target name="typedefinition">
+		<copy file="basefolder/domain.emf" todir="typedefinition"/>
+		<replace file="typedefinition/domain.emf"    token="@gmf.diagram.typedefinition" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="typedefinition/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="typedefinition/domain.emf" firststep="gmfcode"  />		
+	</target>	
+
+	<target name="typesrepository">
+		<copy file="basefolder/domain.emf" todir="typesrepository"/>
+		<replace file="typesrepository/domain.emf"    token="@gmf.diagram.typesrepository" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="typesrepository/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="typesrepository/domain.emf" firststep="gmfcode"  />		
+	</target>	
+
+
+</project>

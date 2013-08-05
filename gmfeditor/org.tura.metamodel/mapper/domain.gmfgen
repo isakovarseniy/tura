@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgen:GenEditorGenerator
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel"
+    dynamicTemplates="true"
+    templateDirectory="/org.tura.metamodel/templates/"
+    copyrightText="">
+  <diagram
+      visualID="401000"
+      editPartClassName="MappersEditPart"
+      itemSemanticEditPolicyClassName="MappersItemSemanticEditPolicy"
+      canonicalEditPolicyClassName="MappersCanonicalEditPolicy"
+      iconProviderPriority="Low"
+      validationProviderPriority="Low"
+      validationEnabled="true"
+      validationDecorators="true"
+      liveValidationUIFeedback="true">
+    <diagramRunTimeClass
+        href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
+    <elementType
+        xsi:type="gmfgen:MetamodelType"
+        editHelperClassName="MappersEditHelper"/>
+    <viewmap
+        xsi:type="gmfgen:FigureViewmap"
+        figureQualifiedClassName="org.eclipse.draw2d.FreeformLayer"/>
+    <containsShortcutsTo>domain</containsShortcutsTo>
+    <shortcutsProvidedFor>domain</shortcutsProvidedFor>
+    <domainDiagramElement
+        href="domain.genmodel#//domain/Mappers"/>
+    <topLevelNodes
+        visualID="402001"
+        editPartClassName="JavaMapperEditPart"
+        itemSemanticEditPolicyClassName="JavaMapperItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="JavaMapperCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="JavaMapperGraphicalNodeEditPolicy"
+        createCommandClassName="JavaMapperCreateCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="JavaMapperEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="JavaMapperFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class JavaMapperFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureJavaMapperLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public JavaMapperFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureJavaMapperLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureJavaMapperLabelFigure.setText(&quot;JavaMapper&quot;);&#xA;&#xA;this.add(fFigureJavaMapperLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureJavaMapperLabelFigure() {&#xA;&#x9;&#x9;return fFigureJavaMapperLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/JavaMapper"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Mappers/mappers"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Mappers/mappers"/>
+      </modelFacet>
+      <labels
+          visualID="405001"
+          editPartClassName="JavaMapperPackageNameEditPart"
+          itemSemanticEditPolicyClassName="JavaMapperPackageNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureJavaMapperLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/TypePointer/packageName"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <links
+        visualID="404001"
+        editPartClassName="TypeExtensionEditPart"
+        itemSemanticEditPolicyClassName="TypeExtensionItemSemanticEditPolicy"
+        createCommandClassName="TypeExtensionCreateCommand"
+        reorientCommandClassName="TypeExtensionReorientCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="TypeExtensionEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="TypeExtensionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TypeExtensionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TypeExtensionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DOT);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolygonDecoration df = new org.eclipse.draw2d.PolygonDecoration();&#xA;df.setFill(true);&#xA;&#x9;df.setBackgroundColor(org.eclipse.draw2d.ColorConstants.white);&#xA;org.eclipse.draw2d.geometry.PointList pl = new org.eclipse.draw2d.geometry.PointList();&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(2)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(-2)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;df.setTemplate(pl);&#xA;df.setScale(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(3)&#xA;);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet
+          xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass
+            href="domain.genmodel#//domain/TypeExtension"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Type/extension"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Type/extension"/>
+        <sourceMetaFeature
+            href="domain.genmodel#//domain/TypeExtension/source"/>
+        <targetMetaFeature
+            href="domain.genmodel#//domain/TypeExtension/target"/>
+      </modelFacet>
+    </links>
+    <links
+        visualID="404002"
+        editPartClassName="RecipeRecipeConfigEditPart"
+        itemSemanticEditPolicyClassName="RecipeRecipeConfigItemSemanticEditPolicy"
+        createCommandClassName="RecipeRecipeConfigCreateCommand"
+        reorientCommandClassName="RecipeRecipeConfigReorientCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="RecipeRecipeConfigFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RecipeRecipeConfigFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RecipeRecipeConfigFigure() {&#xA;&#x9;&#x9;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet
+          xsi:type="gmfgen:FeatureLinkModelFacet">
+        <metaFeature
+            href="domain.genmodel#//domain/Recipe/recipeConfig"/>
+      </modelFacet>
+      <labels
+          visualID="406001"
+          editPartClassName="WrappingLabelEditPart"
+          itemSemanticEditPolicyClassName="WrappingLabelItemSemanticEditPolicy"
+          readOnly="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:FigureViewmap"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:LabelOffsetAttributes"
+              y="40"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:DesignLabelModelFacet"
+            parser="//@labelParsers/@implementations.1"/>
+      </labels>
+    </links>
+    <links
+        visualID="404003"
+        editPartClassName="ConfigurationConfigExtensionEditPart"
+        itemSemanticEditPolicyClassName="ConfigurationConfigExtensionItemSemanticEditPolicy"
+        createCommandClassName="ConfigurationConfigExtensionCreateCommand"
+        reorientCommandClassName="ConfigurationConfigExtensionReorientCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ConfigurationConfigExtensionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ConfigurationConfigExtensionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ConfigurationConfigExtensionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DOT);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolygonDecoration df = new org.eclipse.draw2d.PolygonDecoration();&#xA;df.setFill(true);&#xA;&#x9;df.setBackgroundColor(org.eclipse.draw2d.ColorConstants.white);&#xA;org.eclipse.draw2d.geometry.PointList pl = new org.eclipse.draw2d.geometry.PointList();&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(2)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(-2)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;df.setTemplate(pl);&#xA;df.setScale(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(3)&#xA;);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet
+          xsi:type="gmfgen:FeatureLinkModelFacet">
+        <metaFeature
+            href="domain.genmodel#//domain/Configuration/configExtension"/>
+      </modelFacet>
+      <labels
+          visualID="406002"
+          editPartClassName="WrappingLabel2EditPart"
+          itemSemanticEditPolicyClassName="WrappingLabel2ItemSemanticEditPolicy"
+          readOnly="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:FigureViewmap"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:LabelOffsetAttributes"
+              y="40"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:DesignLabelModelFacet"
+            parser="//@labelParsers/@implementations.1"/>
+      </labels>
+    </links>
+    <palette>
+      <groups
+          title="Objects"
+          collapse="true">
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ApplicationMapper"
+            description="Create new ApplicationMapper"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ApplicationMappers"
+            description="Create new ApplicationMappers"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ApplicationRecipe"
+            description="Create new ApplicationRecipe"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ApplicationRecipes"
+            description="Create new ApplicationRecipes"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Artifact"
+            description="Create new Artifact"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="BusinessObject"
+            description="Create new BusinessObject"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="BusinessPackage"
+            description="Create new BusinessPackage"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Component"
+            description="Create new Component"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Configuration"
+            description="Create new Configuration"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="CreateMethod"
+            description="Create new CreateMethod"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="DomainApplication"
+            description="Create new DomainApplication"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="DomainApplications"
+            description="Create new DomainApplications"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="DomainArtifacts"
+            description="Create new DomainArtifacts"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="DomainTypes"
+            description="Create new DomainTypes"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="InsertMethod"
+            description="Create new InsertMethod"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="JavaMapper"
+            description="Create new JavaMapper"
+            genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Option"
+            description="Create new Option"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="OtherMethod"
+            description="Create new OtherMethod"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Package"
+            description="Create new Package"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Primitive"
+            description="Create new Primitive"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Property"
+            description="Create new Property"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Recipe"
+            description="Create new Recipe"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="RemoveMethod"
+            description="Create new RemoveMethod"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="SearchMethod"
+            description="Create new SearchMethod"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Specifier"
+            description="Create new Specifier"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Types"
+            description="Create new Types"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="UpdateMethod"
+            description="Create new UpdateMethod"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Variable"
+            description="Create new Variable"/>
+      </groups>
+      <groups
+          title="Connections"
+          collapse="true">
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ConfigExtension"
+            description="Create new ConfigExtension"
+            genLinks="//@diagram/@links.2"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="RecipeConfig"
+            description="Create new RecipeConfig"
+            genLinks="//@diagram/@links.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="TypeExtension"
+            description="Create new TypeExtension"
+            genLinks="//@diagram/@links.0"/>
+      </groups>
+    </palette>
+    <preferencePages
+        xsi:type="gmfgen:GenStandardPreferencePage"
+        iD="org.tura.metamodel.diagram.general"
+        name="Domain Diagram">
+      <children
+          xsi:type="gmfgen:GenStandardPreferencePage"
+          iD="org.tura.metamodel.diagram.appearance"
+          name="Appearance"
+          kind="Appearance"/>
+      <children
+          xsi:type="gmfgen:GenStandardPreferencePage"
+          iD="org.tura.metamodel.diagram.connections"
+          name="Connections"
+          kind="Connections"/>
+      <children
+          xsi:type="gmfgen:GenStandardPreferencePage"
+          iD="org.tura.metamodel.diagram.printing"
+          name="Printing"
+          kind="Printing"/>
+      <children
+          xsi:type="gmfgen:GenStandardPreferencePage"
+          iD="org.tura.metamodel.diagram.rulersAndGrid"
+          name="Rulers And Grid"
+          kind="RulersAndGrid"/>
+    </preferencePages>
+  </diagram>
+  <plugin
+      iD="org.tura.metamodel.mapper"
+      printingEnabled="true">
+    <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
+    <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
+    <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
+  </plugin>
+  <editor/>
+  <navigator>
+    <childReferences
+        child="//@diagram"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.0"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@links.0"
+        groupName="links"
+        groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@links.1"
+        groupName="links"
+        groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@links.2"
+        groupName="links"
+        groupIcon="icons/linksNavigatorGroup.gif"/>
+  </navigator>
+  <diagramUpdater/>
+  <propertySheet>
+    <tabs
+        xsi:type="gmfgen:GenStandardPropertyTab"
+        iD="appearance"/>
+    <tabs
+        xsi:type="gmfgen:GenStandardPropertyTab"
+        iD="diagram"/>
+    <tabs
+        xsi:type="gmfgen:GenCustomPropertyTab"
+        iD="domain"
+        label="Core">
+      <filter
+          xsi:type="gmfgen:TypeTabFilter">
+        <types>org.eclipse.gmf.runtime.notation.View</types>
+        <types>org.eclipse.gef.EditPart</types>
+        <generatedTypes>abstractNavigatorItem</generatedTypes>
+      </filter>
+    </tabs>
+  </propertySheet>
+  <domainGenModel
+      href="domain.genmodel#/"/>
+  <labelParsers
+      extensibleViaService="true">
+    <implementations
+        xsi:type="gmfgen:PredefinedParser"
+        uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet"/>
+    <implementations
+        xsi:type="gmfgen:ExternalParser"
+        uses="//@diagram/@links.1/@labels.0/@modelFacet //@diagram/@links.2/@labels.0/@modelFacet"/>
+  </labelParsers>
+  <contextMenus
+      context="//@diagram">
+    <items
+        xsi:type="gmfgen:LoadResourceAction"/>
+  </contextMenus>
+</gmfgen:GenEditorGenerator>

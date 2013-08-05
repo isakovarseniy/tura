@@ -32,42 +32,6 @@ public interface DomainFactory extends EFactory
   Domain createDomain();
 
   /**
-   * Returns a new object of class '<em>Dammy1</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dammy1</em>'.
-   * @generated
-   */
-  Dammy1 createDammy1();
-
-  /**
-   * Returns a new object of class '<em>Dammy2</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dammy2</em>'.
-   * @generated
-   */
-  Dammy2 createDammy2();
-
-  /**
-   * Returns a new object of class '<em>Dammy3</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dammy3</em>'.
-   * @generated
-   */
-  Dammy3 createDammy3();
-
-  /**
-   * Returns a new object of class '<em>Dammy4</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dammy4</em>'.
-   * @generated
-   */
-  Dammy4 createDammy4();
-
-  /**
    * Returns a new object of class '<em>Artifacts</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -102,6 +66,429 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   DomainApplication createDomainApplication();
+
+  /**
+   * Returns a new object of class '<em>Artifacts</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Artifacts</em>'.
+   * @generated
+   */
+  Artifacts createArtifacts();
+
+  /**
+   * Returns a new object of class '<em>Artifact</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Artifact</em>'.
+   * @generated
+   */
+  Artifact createArtifact();
+
+  /**
+   * Returns a new object of class '<em>Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable</em>'.
+   * @generated
+   */
+  Variable createVariable();
+
+  /**
+   * Returns a new object of class '<em>Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Specifier</em>'.
+   * @generated
+   */
+  Specifier createSpecifier();
+
+  /**
+   * Returns a new object of class '<em>Option</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Option</em>'.
+   * @generated
+   */
+  Option createOption();
+
+  /**
+   * Returns a new object of class '<em>Application</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application</em>'.
+   * @generated
+   */
+  Application createApplication();
+
+  /**
+   * Returns a new object of class '<em>Application Recipes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application Recipes</em>'.
+   * @generated
+   */
+  ApplicationRecipes createApplicationRecipes();
+
+  /**
+   * Returns a new object of class '<em>Application Recipe</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application Recipe</em>'.
+   * @generated
+   */
+  ApplicationRecipe createApplicationRecipe();
+
+  /**
+   * Returns a new object of class '<em>Application Mappers</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application Mappers</em>'.
+   * @generated
+   */
+  ApplicationMappers createApplicationMappers();
+
+  /**
+   * Returns a new object of class '<em>Application Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application Mapper</em>'.
+   * @generated
+   */
+  ApplicationMapper createApplicationMapper();
+
+  /**
+   * Returns a new object of class '<em>Business Objects</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Business Objects</em>'.
+   * @generated
+   */
+  BusinessObjects createBusinessObjects();
+
+  /**
+   * Returns a new object of class '<em>Business Object</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Business Object</em>'.
+   * @generated
+   */
+  BusinessObject createBusinessObject();
+
+  /**
+   * Returns a new object of class '<em>Business Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Business Method</em>'.
+   * @generated
+   */
+  BusinessMethod createBusinessMethod();
+
+  /**
+   * Returns a new object of class '<em>Create Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Create Method</em>'.
+   * @generated
+   */
+  CreateMethod createCreateMethod();
+
+  /**
+   * Returns a new object of class '<em>Insert Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Insert Method</em>'.
+   * @generated
+   */
+  InsertMethod createInsertMethod();
+
+  /**
+   * Returns a new object of class '<em>Update Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Update Method</em>'.
+   * @generated
+   */
+  UpdateMethod createUpdateMethod();
+
+  /**
+   * Returns a new object of class '<em>Remove Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Remove Method</em>'.
+   * @generated
+   */
+  RemoveMethod createRemoveMethod();
+
+  /**
+   * Returns a new object of class '<em>Search Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Search Method</em>'.
+   * @generated
+   */
+  SearchMethod createSearchMethod();
+
+  /**
+   * Returns a new object of class '<em>Other Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Other Method</em>'.
+   * @generated
+   */
+  OtherMethod createOtherMethod();
+
+  /**
+   * Returns a new object of class '<em>Mappers</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mappers</em>'.
+   * @generated
+   */
+  Mappers createMappers();
+
+  /**
+   * Returns a new object of class '<em>Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mapper</em>'.
+   * @generated
+   */
+  Mapper createMapper();
+
+  /**
+   * Returns a new object of class '<em>Java Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Java Mapper</em>'.
+   * @generated
+   */
+  JavaMapper createJavaMapper();
+
+  /**
+   * Returns a new object of class '<em>Recipes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Recipes</em>'.
+   * @generated
+   */
+  Recipes createRecipes();
+
+  /**
+   * Returns a new object of class '<em>Recipe</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Recipe</em>'.
+   * @generated
+   */
+  Recipe createRecipe();
+
+  /**
+   * Returns a new object of class '<em>Component</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Component</em>'.
+   * @generated
+   */
+  Component createComponent();
+
+  /**
+   * Returns a new object of class '<em>Model Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Model Mapper</em>'.
+   * @generated
+   */
+  ModelMapper createModelMapper();
+
+  /**
+   * Returns a new object of class '<em>Configuration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Configuration</em>'.
+   * @generated
+   */
+  Configuration createConfiguration();
+
+  /**
+   * Returns a new object of class '<em>Property</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Property</em>'.
+   * @generated
+   */
+  Property createProperty();
+
+  /**
+   * Returns a new object of class '<em>Mapping Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mapping Specifier</em>'.
+   * @generated
+   */
+  MappingSpecifier createMappingSpecifier();
+
+  /**
+   * Returns a new object of class '<em>Mapping Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mapping Variable</em>'.
+   * @generated
+   */
+  MappingVariable createMappingVariable();
+
+  /**
+   * Returns a new object of class '<em>Artifact Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Artifact Ref</em>'.
+   * @generated
+   */
+  ArtifactRef createArtifactRef();
+
+  /**
+   * Returns a new object of class '<em>Type Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Definition</em>'.
+   * @generated
+   */
+  TypeDefinition createTypeDefinition();
+
+  /**
+   * Returns a new object of class '<em>Type Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Element</em>'.
+   * @generated
+   */
+  TypeElement createTypeElement();
+
+  /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
+
+  /**
+   * Returns a new object of class '<em>Type Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Reference</em>'.
+   * @generated
+   */
+  TypeReference createTypeReference();
+
+  /**
+   * Returns a new object of class '<em>Type Extension</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Extension</em>'.
+   * @generated
+   */
+  TypeExtension createTypeExtension();
+
+  /**
+   * Returns a new object of class '<em>Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Attribute</em>'.
+   * @generated
+   */
+  Attribute createAttribute();
+
+  /**
+   * Returns a new object of class '<em>Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operation</em>'.
+   * @generated
+   */
+  Operation createOperation();
+
+  /**
+   * Returns a new object of class '<em>Return Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Return Value</em>'.
+   * @generated
+   */
+  ReturnValue createReturnValue();
+
+  /**
+   * Returns a new object of class '<em>Enumarator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enumarator</em>'.
+   * @generated
+   */
+  Enumarator createEnumarator();
+
+  /**
+   * Returns a new object of class '<em>Enum Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enum Attribute</em>'.
+   * @generated
+   */
+  EnumAttribute createEnumAttribute();
+
+  /**
+   * Returns a new object of class '<em>Type Pointer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Pointer</em>'.
+   * @generated
+   */
+  TypePointer createTypePointer();
+
+  /**
+   * Returns a new object of class '<em>Types Repository</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Types Repository</em>'.
+   * @generated
+   */
+  TypesRepository createTypesRepository();
+
+  /**
+   * Returns a new object of class '<em>Types</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Types</em>'.
+   * @generated
+   */
+  Types createTypes();
+
+  /**
+   * Returns a new object of class '<em>Primitive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Primitive</em>'.
+   * @generated
+   */
+  Primitive createPrimitive();
+
+  /**
+   * Returns a new object of class '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package</em>'.
+   * @generated
+   */
+  Package createPackage();
+
+  /**
+   * Returns a new object of class '<em>Business Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Business Package</em>'.
+   * @generated
+   */
+  BusinessPackage createBusinessPackage();
 
   /**
    * Returns the package supported by this factory.

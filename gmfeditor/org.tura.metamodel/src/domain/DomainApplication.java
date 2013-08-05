@@ -2,8 +2,6 @@
  */
 package domain;
 
-import application.Application;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
