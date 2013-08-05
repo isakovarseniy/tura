@@ -11,3 +11,14 @@ plugin.id = 'org.tura.metamodel.typedefinition';
 for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+100000);
 }
+
+
+-- distinct model IDs
+genEditorGenerator.setModelID('Typedefinition');
+-- distinct package prefix
+genEditorGenerator.setPackageNamePrefix('typedefinition.diagram');
+-- distinct diagram file extension
+genEditorGenerator.setDiagramFileExtension('typedefinition_diagram');
+-- set ID model editor
+var genEditorView = GmfGen!GenEditorView.all.first;
+genEditorView.setID('typedefinition.diagram.part.TypedefinitionDiagramEditorID');

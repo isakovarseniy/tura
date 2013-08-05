@@ -11,3 +11,14 @@ plugin.id = 'org.tura.metamodel.mapper';
 for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+400000);
 }
+
+
+-- distinct model IDs
+genEditorGenerator.setModelID('Mapper');
+-- distinct package prefix
+genEditorGenerator.setPackageNamePrefix('mapper.diagram');
+-- distinct diagram file extension
+genEditorGenerator.setDiagramFileExtension('mapper_diagram');
+-- set ID model editor
+var genEditorView = GmfGen!GenEditorView.all.first;
+genEditorView.setID('mapper.diagram.part.MapperDiagramEditorID');

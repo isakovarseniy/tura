@@ -4,6 +4,9 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel"
+    packageNamePrefix="typedefinition.diagram"
+    modelID="Typedefinition"
+    diagramFileExtension="typedefinition_diagram"
     dynamicTemplates="true"
     templateDirectory="/org.tura.metamodel/templates/"
     copyrightText="">
@@ -810,7 +813,8 @@
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
     <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
   </plugin>
-  <editor/>
+  <editor
+      iD="typedefinition.diagram.part.TypedefinitionDiagramEditorID"/>
   <navigator>
     <childReferences
         child="//@diagram"/>

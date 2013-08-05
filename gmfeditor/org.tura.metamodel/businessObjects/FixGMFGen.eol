@@ -11,3 +11,13 @@ plugin.id = 'org.tura.metamodel.businessobjects';
 for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+600000);
 }
+
+-- distinct model IDs
+genEditorGenerator.setModelID('Businessobjects');
+-- distinct package prefix
+genEditorGenerator.setPackageNamePrefix('businessobjects.diagram');
+-- distinct diagram file extension
+genEditorGenerator.setDiagramFileExtension('businessobjects_diagram');
+-- set ID model editor
+var genEditorView = GmfGen!GenEditorView.all.first;
+genEditorView.setID('businessobjects.diagram.part.BusinessobjectsDiagramEditorID');

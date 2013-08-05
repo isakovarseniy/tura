@@ -40,4 +40,15 @@ for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+200000);
 }
 
+
+-- distinct model IDs
+genEditorGenerator.setModelID('Typesrepository');
+-- distinct package prefix
+genEditorGenerator.setPackageNamePrefix('typesrepository.diagram');
+-- distinct diagram file extension
+genEditorGenerator.setDiagramFileExtension('typesrepository_diagram');
+-- set ID model editor
+var genEditorView = GmfGen!GenEditorView.all.first;
+genEditorView.setID('typesrepository.diagram.part.TypesrepositoryDiagramEditorID');
+
  

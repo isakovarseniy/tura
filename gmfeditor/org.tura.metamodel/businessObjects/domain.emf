@@ -34,7 +34,7 @@ class DomainApplication{
    ref Application application;
 }
 
-@gmf.diagram
+@gmf.diagram.artifact
 class Artifacts{
    val Artifact[*] artifacts;
 }

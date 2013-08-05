@@ -11,3 +11,13 @@ plugin.id = 'org.tura.metamodel.recipe';
 for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+300000);
 }
+
+-- distinct model IDs
+genEditorGenerator.setModelID('Recipe');
+-- distinct package prefix
+genEditorGenerator.setPackageNamePrefix('recipe.diagram');
+-- distinct diagram file extension
+genEditorGenerator.setDiagramFileExtension('recipe_diagram');
+-- set ID model editor
+var genEditorView = GmfGen!GenEditorView.all.first;
+genEditorView.setID('recipe.diagram.part.RecipeDiagramEditorID');

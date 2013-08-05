@@ -1,4 +1,30 @@
-<project default="typesrepository">
+<project default="main">
+	
+	<target name="main" depends="application,artifact,businessObjects,domain,mapper,recipe,typedefinition,typesrepository">
+	</target>
+	
+	<target name="application">
+		<copy file="basefolder/domain.emf" todir="application"/>
+		<replace file="application/domain.emf"    token="@gmf.diagram.application" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="application/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="application/domain.emf" firststep="gmfcode"  />		
+	</target>	
+	
+	<target name="artifact">
+		<copy file="basefolder/domain.emf" todir="artifact"/>
+		<replace file="artifact/domain.emf"    token="@gmf.diagram.artifact" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="artifact/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="artifact/domain.emf" firststep="gmfcode"  />		
+	</target>
+	
+	
+	<target name="businessObjects">
+		<copy file="basefolder/domain.emf" todir="businessObjects"/>
+		<replace file="businessObjects/domain.emf"    token="@gmf.diagram.businessObjects" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="businessObjects/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="businessObjects/domain.emf" firststep="gmfcode"  />		
+	</target>
+	
 	
 	<target name="domain">
 		<copy file="basefolder/domain.emf" todir="domain"/>
@@ -13,26 +39,6 @@
 		<epsilon.eugenia   src="mapper/domain.emf" firststep="gmfcode"  />		
 	</target>
 	
-	<target name="businessObjects">
-		<copy file="basefolder/domain.emf" todir="businessObjects"/>
-		<replace file="businessObjects/domain.emf"    token="@gmf.diagram.businessObjects" value="@gmf.diagram"/>
-		<epsilon.eugenia   src="businessObjects/domain.emf" laststep="gmfgen" />		
-		<epsilon.eugenia   src="businessObjects/domain.emf" firststep="gmfcode"  />		
-	</target>
-	
-	<target name="artifact">
-		<copy file="basefolder/domain.emf" todir="artifact"/>
-		<replace file="artifact/domain.emf"    token="@gmf.diagram.artifact" value="@gmf.diagram"/>
-		<epsilon.eugenia   src="artifact/domain.emf" laststep="gmfgen" />		
-		<epsilon.eugenia   src="artifact/domain.emf" firststep="gmfcode"  />		
-	</target>
-	
-	<target name="application">
-		<copy file="basefolder/domain.emf" todir="application"/>
-		<replace file="application/domain.emf"    token="@gmf.diagram.application" value="@gmf.diagram"/>
-		<epsilon.eugenia   src="application/domain.emf" laststep="gmfgen" />		
-		<epsilon.eugenia   src="application/domain.emf" firststep="gmfcode"  />		
-	</target>	
 
 	<target name="recipe">
 		<copy file="basefolder/domain.emf" todir="recipe"/>

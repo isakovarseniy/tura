@@ -38,8 +38,15 @@ for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+800000);
 }
 
-
-
+-- distinct model IDs
+genEditorGenerator.setModelID('Application');
+-- distinct package prefix
+genEditorGenerator.setPackageNamePrefix('application.diagram');
+-- distinct diagram file extension
+genEditorGenerator.setDiagramFileExtension('application_diagram');
+-- set ID model editor
+var genEditorView = GmfGen!GenEditorView.all.first;
+genEditorView.setID('application.diagram.part.ApplicationDiagramEditorID');
 
 
 
