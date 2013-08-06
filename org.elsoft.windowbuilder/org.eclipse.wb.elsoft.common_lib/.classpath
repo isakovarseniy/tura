@@ -36,7 +36,7 @@
 	<classpathentry exported="true" kind="lib" path="javassist-3.12.1.GA.jar"/>
 	<classpathentry exported="true" kind="lib" path="jaxen-1.1-beta-2.jar"/>
 	<classpathentry exported="true" kind="lib" path="jcr-2.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="jsf-artifact-calculator-1.0.jar" sourcepath="/home/platform/GITRepo/tura/platform/implementation/primefaces-ws/jsf-artifact-calculator/src/main/java"/>
+	<classpathentry exported="true" kind="lib" path="jsf-artifact-calculator-1.0.jar" sourcepath="/Users/arseniy/MyPrj/git/tura/platform/implementation/primefaces-ws/jsf-artifact-calculator/src/main/java"/>
 	<classpathentry exported="true" kind="lib" path="json-simple-1.1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="jstl-1.0.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="jta-1.1.jar"/>

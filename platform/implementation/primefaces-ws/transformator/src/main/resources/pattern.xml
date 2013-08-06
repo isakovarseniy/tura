@@ -481,6 +481,12 @@
 			file="${user.dir}/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/mainPOMXML.xml"
 			implementationPatternPath="GlassFishV3/j2ee/jsfV2" />
 
+
+		<implementationPattern
+			file="${user.dir}/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/JSF-HIBERNATE/mainPOMXML.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/JSF-HIBERNATE" />
+
+
 		<implementationPattern
 			file="${user.dir}/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/Portal/Liferay/liferay_display.xml"
 			implementationPatternPath="GlassFishV3/j2ee/Portal/Liferay" />

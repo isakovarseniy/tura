@@ -308,6 +308,13 @@ public class RepositoryFactory {
 		ah.addArtifactType(MetamodelArtifactType.DBConnection.name(),
 				"JSF-JPA-HIBERNATE",
 				"GlassFishV3/j2ee/jsfV2/Connection/Hibernate/mainHibernateCfg.xml");
+
+		ah.addArtifactType(MetamodelArtifactType.MAVENPOMFile.name(),
+				"JSF-HIBERNATE",
+				"GlassFishV3/j2ee/jsfV2/JSF-HIBERNATE/mainPOMXML.xml");
+	
+	
+	
 	}
 
 }
