@@ -14,11 +14,7 @@ import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 
-import typesrepository.TypesrepositoryPackage;
-import typesrepository.impl.TypesImpl;
-import typedefinition.Type;
-import typedefinition.TypePointer;
-import typedefinition.TypedefinitionPackage;
+import domain.DomainPackage;
 
 public class PackageNamePropertySection extends
 		AbstractEnumerationPropertySection {
@@ -26,11 +22,11 @@ public class PackageNamePropertySection extends
 	private ArrayList<String> values;
 
 	protected EAttribute getFeature() {
-		return TypedefinitionPackage.eINSTANCE.getTypePointer_PackageName();
+		return DomainPackage.eINSTANCE.getTypePointer_PackageName();
 	}
 
 	protected String getFeatureAsText() {
-		return ((TypePointer) eObject).getPackageName();
+		return ((domain.TypePointer) eObject).getPackageName();
 	}
 
 	protected Object getFeatureValue(int index) {
@@ -42,12 +38,13 @@ public class PackageNamePropertySection extends
 	}
 
 	protected boolean isEqual(int index) {
-		if (((TypePointer) eObject).getPackageName() == null)
+		if (((domain.TypePointer) eObject).getPackageName() == null)
 			return false;
 		return values.get(index).equals(
-				((TypePointer) eObject).getPackageName());
+				((domain.TypePointer) eObject).getPackageName());
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected String[] getEnumerationFeatureValues() {
 
 		if (values == null) {
@@ -58,29 +55,21 @@ public class PackageNamePropertySection extends
 				OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 				OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
 						.createOCLHelper();
-				helper.setContext(TypesrepositoryPackage.eINSTANCE
+				helper.setContext(DomainPackage.eINSTANCE
 						.getEClassifier("Types"));
 
 				EObject types = (EObject) diagram.getElement();
 
 				OCLExpression<EClassifier> query = helper
-						.createQuery("typesrepository::Package.allInstances()");
-Object qq = ocl.evaluate(types, query);
-System.out.print("");
-				
-				//				Collection<typedefinition.Type> map = (Collection<Type>) ocl
-//						.evaluate(types, query);
+						.createQuery("domain::Package.allInstances()->asOrderedSet()->select(r|r.oclIsKindOf(domain::Package) and  r.oclAsType(domain::Package).name <> null)");
 
-				// EObject pckg = (EObject) diagram.getElement();
-				// TypesImpl types = (TypesImpl) pckg.eContainer();
-				//
-				// for (Iterator<typesrepository.Package> i =
-				// types.getPackages().iterator(); i
-				// .hasNext();) {
-				// typesrepository.Package p = i.next();
-				// if (p.getName() != null)
-				// values.add(p.getName());
-				// }
+				Collection<domain.Package> map = (Collection<domain.Package>) ocl
+						.evaluate(types, query);
+
+				for (Iterator<domain.Package> i = map.iterator(); i.hasNext();) {
+					domain.Package p = i.next();
+					values.add(p.getName());
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

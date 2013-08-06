@@ -23,10 +23,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.ui.IWorkbenchPart;
 
-import typesrepository.TypesrepositoryPackage;
-import typedefinition.Type;
-import typedefinition.TypedefinitionPackage;
-import typedefinition.TypePointer;
+import domain.DomainPackage;
 
 public class TypeNamePropertySection extends AbstractEnumerationPropertySection {
 
@@ -35,11 +32,11 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 	private CommandStackListener commandStackListener;
 
 	protected EAttribute getFeature() {
-		return TypedefinitionPackage.eINSTANCE.getTypePointer_TypeName();
+		return DomainPackage.eINSTANCE.getTypePointer_TypeName();
 	}
 
 	protected String getFeatureAsText() {
-			return ((TypePointer) eObject).getTypeName();
+		return ((domain.TypePointer) eObject).getTypeName();
 
 	}
 
@@ -57,17 +54,18 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 								.getMostRecentCommand();
 						if (cmd instanceof SetCommand) {
 							if (((SetCommand) cmd).getFeature().equals(
-									TypedefinitionPackage.eINSTANCE
+									DomainPackage.eINSTANCE
 											.getTypePointer_PackageName())) {
 								values = null;
-								
+
 								EditingDomain editingDomain = ((DiagramEditor) getPart())
 										.getEditingDomain();
-	
+
 								editingDomain.getCommandStack().execute(
-								SetCommand.create(editingDomain, ((SetCommand) cmd).getOwner(),
-										getFeature(), null));
-								
+										SetCommand.create(editingDomain,
+												((SetCommand) cmd).getOwner(),
+												getFeature(), null));
+
 								refresh();
 							}
 						}
@@ -90,11 +88,11 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 	}
 
 	protected boolean isEqual(int index) {
-		if (((TypePointer) eObject).getTypeName() == null)
+		if (((domain.TypePointer) eObject).getTypeName() == null)
 			return false;
 
 		return values.get(index).equals(
-				((TypePointer) eObject).getTypeName());
+				((domain.TypePointer) eObject).getTypeName());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -105,39 +103,40 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
-			EObject pckg = (EObject) diagram.getElement();
-			EObject types = (EObject) pckg.eContainer();
+			EObject types = (EObject) diagram.getElement();
 
-			if (((TypePointer) eObject).getPackageName() == null)
+			if (((domain.TypePointer) eObject).getPackageName() == null)
 				return new String[] {};
 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
 					.createOCLHelper();
-			helper.setContext(TypesrepositoryPackage.eINSTANCE.getEClassifier("Types"));
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Types"));
 
 			try {
-				if ((((TypePointer) eObject).getPackageName())
+				if ((((domain.TypePointer) eObject).getPackageName())
 						.equals("Primitives")) {
 					OCLExpression<EClassifier> query = helper
 							.createQuery("self.primitives");
-					Collection<typesrepository.Primitive> map = (Collection<typesrepository.Primitive>) ocl
+					Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
 							.evaluate(types, query);
-					for (Iterator<typesrepository.Primitive> i = map.iterator(); i
+					for (Iterator<domain.Primitive> i = map.iterator(); i
 							.hasNext();) {
-						typesrepository.Primitive p = i.next();
+						domain.Primitive p = i.next();
 						values.add(p.getName());
 					}
 				} else {
 					OCLExpression<EClassifier> query = helper
-							.createQuery("self.packages->select(r|r.name='"
-									+ ((TypePointer) eObject).getPackageName() + "').types->select(r|r.oclIsKindOf(typedefinition::Type) and  r.oclAsType(typedefinition::Type).name <> null)");
-					Collection<typedefinition.Type> map = (Collection<Type>) ocl.evaluate(
-							types, query);
+							.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
+									+ ((domain.TypePointer) eObject)
+											.getPackageName()
+									+ "').oclAsType(domain::Package).typedefinition.types->select(r|r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name <> null)");
 
-					for (Iterator<typedefinition.Type> i = map.iterator(); i
-							.hasNext();) {
-						typedefinition.Type p = i.next();
+					Collection<domain.Type> map = (Collection<domain.Type>) ocl
+							.evaluate(types, query);
+
+					for (Iterator<domain.Type> i = map.iterator(); i.hasNext();) {
+						domain.Type p = i.next();
 						values.add(p.getName());
 					}
 

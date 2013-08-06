@@ -23,11 +23,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.ui.IWorkbenchPart;
 
-import typesrepository.TypesrepositoryPackage;
-import typedefinition.TypedefinitionPackage;
-import businessobjects.BusinessMethod;
-import businessobjects.BusinessobjectsPackage;
-
+import domain.DomainPackage;
 public class MethodNamePropertySection extends
 		AbstractEnumerationPropertySection {
 
@@ -36,11 +32,11 @@ public class MethodNamePropertySection extends
 	private CommandStackListener commandStackListener;
 
 	protected EAttribute getFeature() {
-		return BusinessobjectsPackage.eINSTANCE.getBusinessMethod_Method();
+		return DomainPackage.eINSTANCE.getBusinessMethod_Method();
 	}
 
 	protected String getFeatureAsText() {
-		return ((BusinessMethod) eObject).getMethod();
+		return ((domain.BusinessMethod) eObject).getMethod();
 	}
 
 	public void setInput(IWorkbenchPart part, ISelection selection) {
@@ -57,7 +53,7 @@ public class MethodNamePropertySection extends
 								.getMostRecentCommand();
 						if (cmd instanceof SetCommand) {
 							if (((SetCommand) cmd).getFeature().equals(
-									TypedefinitionPackage.eINSTANCE
+									DomainPackage.eINSTANCE
 											.getTypePointer_TypeName())) {
 								values = null;
 
@@ -90,10 +86,10 @@ public class MethodNamePropertySection extends
 	}
 
 	protected boolean isEqual(int index) {
-		if (((BusinessMethod) eObject).getMethod() == null)
+		if (((domain.BusinessMethod) eObject).getMethod() == null)
 			return false;
 
-		return values.get(index).equals(((BusinessMethod) eObject).getMethod());
+		return values.get(index).equals(((domain.BusinessMethod) eObject).getMethod());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -107,41 +103,41 @@ public class MethodNamePropertySection extends
 			EObject pckg = (EObject) diagram.getElement();
 			EObject types = (EObject) pckg.eContainer();
 
-			if ((((BusinessMethod) eObject).getTypeName() == null)
-					|| ((BusinessMethod) eObject).getPackageName() == null)
+			if ((((domain.BusinessMethod) eObject).getTypeName() == null)
+					|| ((domain.BusinessMethod) eObject).getPackageName() == null)
 				return new String[] {};
 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
 					.createOCLHelper();
-			helper.setContext(TypesrepositoryPackage.eINSTANCE
+			helper.setContext(DomainPackage.eINSTANCE
 					.getEClassifier("Types"));
 
 			try {
-				if ((((BusinessMethod) eObject).getPackageName())
+				if ((((domain.BusinessMethod) eObject).getPackageName())
 						.equals("Primitives")) {
 					OCLExpression<EClassifier> query = helper
 							.createQuery("self.primitives");
-					Collection<typesrepository.Primitive> map = (Collection<typesrepository.Primitive>) ocl
+					Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
 							.evaluate(types, query);
-					for (Iterator<typesrepository.Primitive> i = map.iterator(); i
+					for (Iterator<domain.Primitive> i = map.iterator(); i
 							.hasNext();) {
-						typesrepository.Primitive p = i.next();
+						domain.Primitive p = i.next();
 						values.add(p.getName());
 					}
 				} else {
 					OCLExpression<EClassifier> query = helper
 							.createQuery("self.packages->select(r|r.name='"
-									+ ((BusinessMethod) eObject).getPackageName()
+									+ ((domain.BusinessMethod) eObject).getPackageName()
 									+ "').types->select(r|r.oclIsKindOf(typedefinition::Type) and  r.oclAsType(typedefinition::Type).name='"
-									+ ((BusinessMethod) eObject).getTypeName()
+									+ ((domain.BusinessMethod) eObject).getTypeName()
 									+ "').oclAsType(typedefinition::Type).operations");
-					Collection<typedefinition.Operation> map = (Collection<typedefinition.Operation>) ocl
+					Collection<domain.Operation> map = (Collection<domain.Operation>) ocl
 							.evaluate(types, query);
 
-					for (Iterator<typedefinition.Operation> i = map.iterator(); i
+					for (Iterator<domain.Operation> i = map.iterator(); i
 							.hasNext();) {
-						typedefinition.Operation p = i.next();
+						domain.Operation p = i.next();
 						values.add(p.getName());
 					}
 

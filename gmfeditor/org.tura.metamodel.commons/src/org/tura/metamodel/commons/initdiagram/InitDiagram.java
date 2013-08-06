@@ -19,14 +19,14 @@ public class InitDiagram {
     	  return model;
       }
 
-      public static application.Application initApplicationDiagram(){
+      public static domain.Application initApplicationDiagram(){
 
-    	  application.Application model = application.ApplicationFactory.eINSTANCE.createApplication();
+    	  domain.Application model = domain.DomainFactory.eINSTANCE.createApplication();
     	  
-    	  application.ApplicationRecipes  applicationRecipes = application.ApplicationFactory.eINSTANCE.createApplicationRecipes();
+    	  domain.ApplicationRecipes  applicationRecipes = domain.DomainFactory.eINSTANCE.createApplicationRecipes();
     	  applicationRecipes.setName("Application recipes");
     	  
-    	  application.ApplicationMappers  applicationMappers = application.ApplicationFactory.eINSTANCE.createApplicationMappers();
+    	  domain.ApplicationMappers  applicationMappers = domain.DomainFactory.eINSTANCE.createApplicationMappers();
     	  applicationMappers.setName("Application mapper");
     	  
     	  model.setApplicationRecipes(applicationRecipes);
@@ -37,13 +37,13 @@ public class InitDiagram {
 
       
       
-  	public static typesrepository.TypesRepository initTypesRepositoryDiagram(){
-		typesrepository.TypesRepository model = typesrepository.TypesrepositoryFactory.eINSTANCE.createTypesRepository();
-		typesrepository.Types types = typesrepository.TypesrepositoryFactory.eINSTANCE.createTypes();
+  	public static domain.TypesRepository initTypesRepositoryDiagram(){
+  		domain.TypesRepository model = domain.DomainFactory.eINSTANCE.createTypesRepository();
+  		domain.Types types = domain.DomainFactory.eINSTANCE.createTypes();
 		model.setTypeDefinition(types);
 		
 		for (int i=0; i < org.tura.metamodel.commons.PlatformPrimetiveTypes.values().length;i++){
-			typesrepository.Primitive primitive =typesrepository.TypesrepositoryFactory.eINSTANCE.createPrimitive();
+			domain.Primitive primitive =domain.DomainFactory.eINSTANCE.createPrimitive();
 			primitive.setName(org.tura.metamodel.commons.PlatformPrimetiveTypes.values()[i].name());
 			types.getPrimitives().add(primitive);
 		}
