@@ -45,7 +45,7 @@
 
 		<j:choose>
 			<j:when test="${uiElement.dataSrcLnk.name != null and uiElement.dataSrcLnk.name != ''}">
-		      <x:attribute name="actionListener">#{${model.uicontainer}binding.${uiElement.dataSrcLnk.name}.${uiElement.triggerName}}
+		      <x:attribute name="actionListener">#{${model.uicontainer}binding.${uiElement.propertiesExtender['lowSrcLnk']}.${uiElement.triggerName}}
 		      </x:attribute>
 			</j:when>
 		</j:choose>

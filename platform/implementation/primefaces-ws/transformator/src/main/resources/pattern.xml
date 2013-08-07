@@ -343,6 +343,9 @@
 			file="${user.dir}/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementInputText.xml"
 			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
 
+		<implementationPattern
+			file="${user.dir}/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementImage.xml"
+			implementationPatternPath="GlassFishV3/j2ee/jsfV2/Primefaces" />
 
 		<implementationPattern
 			file="${user.dir}/src/main/resources/org/elsoft/platform/pattern/transtormer/templates/uicontainer/GlassFishV3/j2ee/jsfV2/Primefaces/uiElementGridInputText.xml"

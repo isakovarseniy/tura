@@ -47,6 +47,7 @@ public class EventsMapper {
 		matrix.put("Tree", "CreateEventGetCurrentRow2","TreeGetCurrentRow");
 		matrix.put("FileUpLoader", "CreateEventFileUpload","FileUpLoaderLoadFile");
 		matrix.put("FileUpLoader", "CreateEventGetCurrentRow","CommonGetCurrentRow");
+		matrix.put("Image", "CreateEventGetCurrentRow","CommonGetCurrentRow");
 		
 	}
 	public String map (String element, String event) throws Exception{
