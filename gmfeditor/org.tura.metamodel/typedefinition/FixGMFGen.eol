@@ -22,3 +22,5 @@ genEditorGenerator.setDiagramFileExtension('typedefinition_diagram');
 -- set ID model editor
 var genEditorView = GmfGen!GenEditorView.all.first;
 genEditorView.setID('typedefinition.diagram.part.TypedefinitionDiagramEditorID');
+
+

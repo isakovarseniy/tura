@@ -610,65 +610,9 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="ApplicationMapper"
-            description="Create new ApplicationMapper"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ApplicationMappers"
-            description="Create new ApplicationMappers"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ApplicationRecipe"
-            description="Create new ApplicationRecipe"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ApplicationRecipes"
-            description="Create new ApplicationRecipes"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Artifact"
-            description="Create new Artifact"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Attribute"
             description="Create new Attribute"
             genNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="BusinessObject"
-            description="Create new BusinessObject"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="BusinessPackage"
-            description="Create new BusinessPackage"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Component"
-            description="Create new Component"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Configuration"
-            description="Create new Configuration"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="CreateMethod"
-            description="Create new CreateMethod"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="DomainApplication"
-            description="Create new DomainApplication"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="DomainApplications"
-            description="Create new DomainApplications"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="DomainArtifacts"
-            description="Create new DomainArtifacts"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="DomainTypes"
-            description="Create new DomainTypes"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="EnumAttribute"
@@ -681,62 +625,14 @@
             genNodes="//@diagram/@topLevelNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="InsertMethod"
-            description="Create new InsertMethod"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="JavaMapper"
-            description="Create new JavaMapper"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ModelMapper"
-            description="Create new ModelMapper"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Operation"
             description="Create new Operation"
             genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Option"
-            description="Create new Option"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="OtherMethod"
-            description="Create new OtherMethod"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Package"
-            description="Create new Package"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Primitive"
-            description="Create new Primitive"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Property"
-            description="Create new Property"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Recipe"
-            description="Create new Recipe"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="RemoveMethod"
-            description="Create new RemoveMethod"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="ReturnValue"
             description="Create new ReturnValue"
             genNodes="//@diagram/@childNodes.3"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="SearchMethod"
-            description="Create new SearchMethod"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Specifier"
-            description="Create new Specifier"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Type"
@@ -747,18 +643,6 @@
             title="TypeReference"
             description="Create new TypeReference"
             genNodes="//@diagram/@topLevelNodes.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Types"
-            description="Create new Types"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="UpdateMethod"
-            description="Create new UpdateMethod"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Variable"
-            description="Create new Variable"/>
       </groups>
       <groups
           title="Connections"

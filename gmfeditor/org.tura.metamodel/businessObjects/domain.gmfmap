@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="domain.gmfgraph#BusinessObject"/>
       <children
@@ -41,7 +41,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="domain.gmfgraph#CreateMethod"/>
         </ownedChild>
@@ -62,7 +62,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.14"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="domain.gmfgraph#InsertMethod"/>
         </ownedChild>
@@ -83,7 +83,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.27"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
               href="domain.gmfgraph#UpdateMethod"/>
         </ownedChild>
@@ -104,7 +104,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.23"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="domain.gmfgraph#RemoveMethod"/>
         </ownedChild>
@@ -125,7 +125,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.24"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="domain.gmfgraph#SearchMethod"/>
         </ownedChild>
@@ -146,7 +146,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.18"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="domain.gmfgraph#OtherMethod"/>
         </ownedChild>
