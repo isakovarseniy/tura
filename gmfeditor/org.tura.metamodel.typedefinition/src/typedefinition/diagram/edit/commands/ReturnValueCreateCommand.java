@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typedefinition.Operation;
-import typedefinition.ReturnValue;
-import typedefinition.TypedefinitionFactory;
+import domain.DomainFactory;
+import domain.Operation;
+import domain.ReturnValue;
 
 /**
  * @generated
@@ -61,8 +61,7 @@ public class ReturnValueCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		ReturnValue newElement = TypedefinitionFactory.eINSTANCE
-				.createReturnValue();
+		ReturnValue newElement = DomainFactory.eINSTANCE.createReturnValue();
 
 		Operation owner = (Operation) getElementToEdit();
 		owner.setReturnValue(newElement);

@@ -24,11 +24,11 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typedefinition.TypedefinitionPackage;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
-import typedefinition.diagram.part.TypedefinitionDiagramUpdater;
-import typedefinition.diagram.part.TypedefinitionNodeDescriptor;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
+import typedefinition.diagram.part.DomainDiagramUpdater;
+import typedefinition.diagram.part.DomainNodeDescriptor;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -52,7 +52,7 @@ public class TypeTypeAttributesCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return TypedefinitionPackage.eINSTANCE.getType_Attributes();
+		return DomainPackage.eINSTANCE.getType_Attributes();
 	}
 
 	/**
@@ -62,9 +62,9 @@ public class TypeTypeAttributesCompartmentCanonicalEditPolicy extends
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
-		List<TypedefinitionNodeDescriptor> childDescriptors = TypedefinitionDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getTypeTypeAttributesCompartment_107001SemanticChildren(viewObject);
-		for (TypedefinitionNodeDescriptor d : childDescriptors) {
+		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
 		return result;
@@ -83,7 +83,7 @@ public class TypeTypeAttributesCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return AttributeEditPart.VISUAL_ID == TypedefinitionVisualIDRegistry
+		return AttributeEditPart.VISUAL_ID == DomainVisualIDRegistry
 				.getVisualID(view);
 	}
 
@@ -95,7 +95,7 @@ public class TypeTypeAttributesCompartmentCanonicalEditPolicy extends
 			return;
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
-		List<TypedefinitionNodeDescriptor> childDescriptors = TypedefinitionDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getTypeTypeAttributesCompartment_107001SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
@@ -111,11 +111,10 @@ public class TypeTypeAttributesCompartmentCanonicalEditPolicy extends
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<TypedefinitionNodeDescriptor> descriptorsIterator = childDescriptors
+		for (Iterator<DomainNodeDescriptor> descriptorsIterator = childDescriptors
 				.iterator(); descriptorsIterator.hasNext();) {
-			TypedefinitionNodeDescriptor next = descriptorsIterator.next();
-			String hint = TypedefinitionVisualIDRegistry.getType(next
-					.getVisualID());
+			DomainNodeDescriptor next = descriptorsIterator.next();
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
 			for (View childView : getViewChildren()) {
 				EObject semanticElement = childView.getElement();
@@ -140,9 +139,8 @@ public class TypeTypeAttributesCompartmentCanonicalEditPolicy extends
 		//
 		ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
 				childDescriptors.size());
-		for (TypedefinitionNodeDescriptor next : childDescriptors) {
-			String hint = TypedefinitionVisualIDRegistry.getType(next
-					.getVisualID());
+		for (DomainNodeDescriptor next : childDescriptors) {
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
 			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(

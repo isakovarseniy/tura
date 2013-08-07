@@ -17,8 +17,8 @@ import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
 import typesrepository.diagram.edit.policies.TypesTypesBusinessPackagesCompartmentCanonicalEditPolicy;
 import typesrepository.diagram.edit.policies.TypesTypesBusinessPackagesCompartmentItemSemanticEditPolicy;
+import typesrepository.diagram.part.DomainVisualIDRegistry;
 import typesrepository.diagram.part.Messages;
-import typesrepository.diagram.part.TypesrepositoryVisualIDRegistry;
 
 /**
  * @generated
@@ -71,7 +71,7 @@ public class TypesTypesBusinessPackagesCompartmentEditPart extends
 				new TypesTypesBusinessPackagesCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						TypesrepositoryVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,

@@ -11,10 +11,10 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import typedefinition.Type;
-import typedefinition.TypeElement;
-import typedefinition.TypeExtension;
-import businessobjects.diagram.edit.policies.BusinessobjectsBaseItemSemanticEditPolicy;
+import businessobjects.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
+import domain.Type;
+import domain.TypeElement;
+import domain.TypeExtension;
 
 /**
  * @generated
@@ -74,7 +74,7 @@ public class TypeExtensionReorientCommand extends EditElementCommand {
 			return false;
 		}
 		Type container = (Type) getLink().eContainer();
-		return BusinessobjectsBaseItemSemanticEditPolicy.getLinkConstraints()
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
 				.canExistTypeExtension_604001(container, getLink(),
 						getNewSource(), target);
 	}
@@ -91,7 +91,7 @@ public class TypeExtensionReorientCommand extends EditElementCommand {
 			return false;
 		}
 		Type container = (Type) getLink().eContainer();
-		return BusinessobjectsBaseItemSemanticEditPolicy.getLinkConstraints()
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
 				.canExistTypeExtension_604001(container, getLink(), source,
 						getNewTarget());
 	}

@@ -34,17 +34,17 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
-import application.ApplicationPackage;
 import application.diagram.edit.parts.ApplicationEditPart;
 import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
 import application.diagram.edit.parts.TypeExtensionEditPart;
-import application.diagram.part.ApplicationDiagramUpdater;
-import application.diagram.part.ApplicationLinkDescriptor;
-import application.diagram.part.ApplicationNodeDescriptor;
-import application.diagram.part.ApplicationVisualIDRegistry;
+import application.diagram.part.DomainDiagramUpdater;
+import application.diagram.part.DomainLinkDescriptor;
+import application.diagram.part.DomainNodeDescriptor;
+import application.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -74,9 +74,9 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize.add(ApplicationPackage.eINSTANCE
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getApplication_ApplicationRecipes());
-			myFeaturesToSynchronize.add(ApplicationPackage.eINSTANCE
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getApplication_ApplicationMappers());
 		}
 		return myFeaturesToSynchronize;
@@ -89,9 +89,9 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
-		List<ApplicationNodeDescriptor> childDescriptors = ApplicationDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getApplication_801000SemanticChildren(viewObject);
-		for (ApplicationNodeDescriptor d : childDescriptors) {
+		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
 		return result;
@@ -103,7 +103,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected boolean isOrphaned(Collection<EObject> semanticChildren,
 			final View view) {
 		if (isShortcut(view)) {
-			return ApplicationDiagramUpdater.isShortcutOrphaned(view);
+			return DomainDiagramUpdater.isShortcutOrphaned(view);
 		}
 		return isMyDiagramElement(view)
 				&& !semanticChildren.contains(view.getElement());
@@ -113,7 +113,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		int visualID = ApplicationVisualIDRegistry.getVisualID(view);
+		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		return visualID == ApplicationRecipesEditPart.VISUAL_ID
 				|| visualID == ApplicationMappersEditPart.VISUAL_ID;
 	}
@@ -133,7 +133,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 			return;
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
-		List<ApplicationNodeDescriptor> childDescriptors = ApplicationDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getApplication_801000SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
@@ -141,7 +141,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
 		for (View v : getViewChildren()) {
 			if (isShortcut(v)) {
-				if (ApplicationDiagramUpdater.isShortcutOrphaned(v)) {
+				if (DomainDiagramUpdater.isShortcutOrphaned(v)) {
 					orphaned.add(v);
 				}
 				continue;
@@ -155,11 +155,10 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<ApplicationNodeDescriptor> descriptorsIterator = childDescriptors
+		for (Iterator<DomainNodeDescriptor> descriptorsIterator = childDescriptors
 				.iterator(); descriptorsIterator.hasNext();) {
-			ApplicationNodeDescriptor next = descriptorsIterator.next();
-			String hint = ApplicationVisualIDRegistry.getType(next
-					.getVisualID());
+			DomainNodeDescriptor next = descriptorsIterator.next();
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
 			for (View childView : getViewChildren()) {
 				EObject semanticElement = childView.getElement();
@@ -184,9 +183,8 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		//
 		ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
 				childDescriptors.size());
-		for (ApplicationNodeDescriptor next : childDescriptors) {
-			String hint = ApplicationVisualIDRegistry.getType(next
-					.getVisualID());
+		for (DomainNodeDescriptor next : childDescriptors) {
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
 			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(
@@ -230,13 +228,13 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private Collection<IAdaptable> refreshConnections() {
 		Domain2Notation domain2NotationMap = new Domain2Notation();
-		Collection<ApplicationLinkDescriptor> linkDescriptors = collectAllLinks(
+		Collection<DomainLinkDescriptor> linkDescriptors = collectAllLinks(
 				getDiagram(), domain2NotationMap);
 		Collection existingLinks = new LinkedList(getDiagram().getEdges());
 		for (Iterator linksIterator = existingLinks.iterator(); linksIterator
 				.hasNext();) {
 			Edge nextDiagramLink = (Edge) linksIterator.next();
-			int diagramLinkVisualID = ApplicationVisualIDRegistry
+			int diagramLinkVisualID = DomainVisualIDRegistry
 					.getVisualID(nextDiagramLink);
 			if (diagramLinkVisualID == -1) {
 				if (nextDiagramLink.getSource() != null
@@ -248,9 +246,9 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 			EObject diagramLinkObject = nextDiagramLink.getElement();
 			EObject diagramLinkSrc = nextDiagramLink.getSource().getElement();
 			EObject diagramLinkDst = nextDiagramLink.getTarget().getElement();
-			for (Iterator<ApplicationLinkDescriptor> linkDescriptorsIterator = linkDescriptors
+			for (Iterator<DomainLinkDescriptor> linkDescriptorsIterator = linkDescriptors
 					.iterator(); linkDescriptorsIterator.hasNext();) {
-				ApplicationLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator
+				DomainLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator
 						.next();
 				if (diagramLinkObject == nextLinkDescriptor.getModelElement()
 						&& diagramLinkSrc == nextLinkDescriptor.getSource()
@@ -271,17 +269,17 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	private Collection<ApplicationLinkDescriptor> collectAllLinks(View view,
+	private Collection<DomainLinkDescriptor> collectAllLinks(View view,
 			Domain2Notation domain2NotationMap) {
-		if (!ApplicationEditPart.MODEL_ID.equals(ApplicationVisualIDRegistry
+		if (!ApplicationEditPart.MODEL_ID.equals(DomainVisualIDRegistry
 				.getModelID(view))) {
 			return Collections.emptyList();
 		}
-		LinkedList<ApplicationLinkDescriptor> result = new LinkedList<ApplicationLinkDescriptor>();
-		switch (ApplicationVisualIDRegistry.getVisualID(view)) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ApplicationEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(ApplicationDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getApplication_801000ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -289,7 +287,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case ApplicationRecipesEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(ApplicationDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getApplicationRecipes_802001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -297,7 +295,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case ApplicationMappersEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(ApplicationDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getApplicationMappers_802002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -305,7 +303,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case ApplicationRecipeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(ApplicationDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getApplicationRecipe_803001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -313,7 +311,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case ApplicationMapperEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(ApplicationDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getApplicationMapper_803002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -321,7 +319,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case TypeExtensionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(ApplicationDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getTypeExtension_804001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -344,10 +342,10 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private Collection<IAdaptable> createConnections(
-			Collection<ApplicationLinkDescriptor> linkDescriptors,
+			Collection<DomainLinkDescriptor> linkDescriptors,
 			Domain2Notation domain2NotationMap) {
 		LinkedList<IAdaptable> adapters = new LinkedList<IAdaptable>();
-		for (ApplicationLinkDescriptor nextLinkDescriptor : linkDescriptors) {
+		for (DomainLinkDescriptor nextLinkDescriptor : linkDescriptors) {
 			EditPart sourceEditPart = getSourceEditPart(nextLinkDescriptor,
 					domain2NotationMap);
 			EditPart targetEditPart = getTargetEditPart(nextLinkDescriptor,
@@ -357,7 +355,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			CreateConnectionViewRequest.ConnectionViewDescriptor descriptor = new CreateConnectionViewRequest.ConnectionViewDescriptor(
 					nextLinkDescriptor.getSemanticAdapter(),
-					ApplicationVisualIDRegistry.getType(nextLinkDescriptor
+					DomainVisualIDRegistry.getType(nextLinkDescriptor
 							.getVisualID()), ViewUtil.APPEND, false,
 					((IGraphicalEditPart) getHost())
 							.getDiagramPreferencesHint());
@@ -422,7 +420,7 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected final EditPart getHintedEditPart(EObject domainModelElement,
 			Domain2Notation domain2NotationMap, int hintVisualId) {
 		View view = (View) domain2NotationMap.getHinted(domainModelElement,
-				ApplicationVisualIDRegistry.getType(hintVisualId));
+				DomainVisualIDRegistry.getType(hintVisualId));
 		if (view != null) {
 			return (EditPart) getHost().getViewer().getEditPartRegistry()
 					.get(view);

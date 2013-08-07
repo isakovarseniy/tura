@@ -6,5 +6,5 @@ package typedefinition.diagram.edit.helpers;
 /**
  * @generated
  */
-public class TypeDefinitionEditHelper extends TypedefinitionBaseEditHelper {
+public class TypeDefinitionEditHelper extends DomainBaseEditHelper {
 }

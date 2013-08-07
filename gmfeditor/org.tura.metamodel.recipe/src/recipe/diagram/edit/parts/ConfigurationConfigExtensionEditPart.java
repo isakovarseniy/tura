@@ -26,7 +26,7 @@ public class ConfigurationConfigExtensionEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 304002;
+	public static final int VISUAL_ID = 304003;
 
 	/**
 	 * @generated

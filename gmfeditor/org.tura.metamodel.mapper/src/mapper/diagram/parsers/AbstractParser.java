@@ -5,7 +5,7 @@ package mapper.diagram.parsers;
 
 import java.util.Arrays;
 
-import mapper.diagram.part.MapperDiagramEditorPlugin;
+import mapper.diagram.part.DomainDiagramEditorPlugin;
 import mapper.diagram.part.Messages;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -238,7 +238,7 @@ public abstract class AbstractParser implements IParser {
 		for (int i = 0; i < values.length; i++) {
 			Object value = getValidNewValue(editableFeatures[i], values[i]);
 			if (value instanceof InvalidValue) {
-				return new ParserEditStatus(MapperDiagramEditorPlugin.ID,
+				return new ParserEditStatus(DomainDiagramEditorPlugin.ID,
 						IParserEditStatus.UNEDITABLE, value.toString());
 			}
 		}

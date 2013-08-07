@@ -17,20 +17,20 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMappersApplicationMappersMappersCompartmentEditPart;
-import application.diagram.part.ApplicationVisualIDRegistry;
-import application.diagram.providers.ApplicationElementTypes;
+import application.diagram.part.DomainVisualIDRegistry;
+import application.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ApplicationMappersItemSemanticEditPolicy extends
-		ApplicationBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ApplicationMappersItemSemanticEditPolicy() {
-		super(ApplicationElementTypes.ApplicationMappers_802002);
+		super(DomainElementTypes.ApplicationMappers_802002);
 	}
 
 	/**
@@ -61,12 +61,12 @@ public class ApplicationMappersItemSemanticEditPolicy extends
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
-			switch (ApplicationVisualIDRegistry.getVisualID(node)) {
+			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (ApplicationVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case ApplicationMapperEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),

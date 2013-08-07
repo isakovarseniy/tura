@@ -11,19 +11,19 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typesrepository.diagram.providers.TypesrepositoryElementTypes;
+import typesrepository.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class PrimitiveItemSemanticEditPolicy extends
-		TypesrepositoryBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public PrimitiveItemSemanticEditPolicy() {
-		super(TypesrepositoryElementTypes.Primitive_203003);
+		super(DomainElementTypes.Primitive_203001);
 	}
 
 	/**

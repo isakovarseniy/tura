@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import businessobjects.BusinessObject;
-import businessobjects.BusinessobjectsFactory;
-import businessobjects.SearchMethod;
+import domain.BusinessObject;
+import domain.DomainFactory;
+import domain.SearchMethod;
 
 /**
  * @generated
@@ -57,8 +57,7 @@ public class SearchMethodCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		SearchMethod newElement = BusinessobjectsFactory.eINSTANCE
-				.createSearchMethod();
+		SearchMethod newElement = DomainFactory.eINSTANCE.createSearchMethod();
 
 		BusinessObject owner = (BusinessObject) getElementToEdit();
 		owner.getSearchtMethods().add(newElement);

@@ -27,7 +27,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import artifact.diagram.edit.policies.SpecifierItemSemanticEditPolicy;
-import artifact.diagram.part.ArtifactVisualIDRegistry;
+import artifact.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -247,7 +247,7 @@ public class SpecifierEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(ArtifactVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(SpecifierNameEditPart.VISUAL_ID));
 	}
 

@@ -24,11 +24,11 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import recipe.RecipePackage;
 import recipe.diagram.edit.parts.PropertyEditPart;
-import recipe.diagram.part.RecipeDiagramUpdater;
-import recipe.diagram.part.RecipeNodeDescriptor;
-import recipe.diagram.part.RecipeVisualIDRegistry;
+import recipe.diagram.part.DomainDiagramUpdater;
+import recipe.diagram.part.DomainNodeDescriptor;
+import recipe.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -52,7 +52,7 @@ public class ConfigurationConfigurationPropertiesCompartmentCanonicalEditPolicy
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return RecipePackage.eINSTANCE.getConfiguration_Properties();
+		return DomainPackage.eINSTANCE.getConfiguration_Properties();
 	}
 
 	/**
@@ -62,9 +62,9 @@ public class ConfigurationConfigurationPropertiesCompartmentCanonicalEditPolicy
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
-		List<RecipeNodeDescriptor> childDescriptors = RecipeDiagramUpdater
-				.getConfigurationConfigurationPropertiesCompartment_307012SemanticChildren(viewObject);
-		for (RecipeNodeDescriptor d : childDescriptors) {
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
+				.getConfigurationConfigurationPropertiesCompartment_307006SemanticChildren(viewObject);
+		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
 		return result;
@@ -83,7 +83,7 @@ public class ConfigurationConfigurationPropertiesCompartmentCanonicalEditPolicy
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return PropertyEditPart.VISUAL_ID == RecipeVisualIDRegistry
+		return PropertyEditPart.VISUAL_ID == DomainVisualIDRegistry
 				.getVisualID(view);
 	}
 
@@ -95,8 +95,8 @@ public class ConfigurationConfigurationPropertiesCompartmentCanonicalEditPolicy
 			return;
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
-		List<RecipeNodeDescriptor> childDescriptors = RecipeDiagramUpdater
-				.getConfigurationConfigurationPropertiesCompartment_307012SemanticChildren((View) getHost()
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
+				.getConfigurationConfigurationPropertiesCompartment_307006SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
@@ -111,10 +111,10 @@ public class ConfigurationConfigurationPropertiesCompartmentCanonicalEditPolicy
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<RecipeNodeDescriptor> descriptorsIterator = childDescriptors
+		for (Iterator<DomainNodeDescriptor> descriptorsIterator = childDescriptors
 				.iterator(); descriptorsIterator.hasNext();) {
-			RecipeNodeDescriptor next = descriptorsIterator.next();
-			String hint = RecipeVisualIDRegistry.getType(next.getVisualID());
+			DomainNodeDescriptor next = descriptorsIterator.next();
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
 			for (View childView : getViewChildren()) {
 				EObject semanticElement = childView.getElement();
@@ -139,8 +139,8 @@ public class ConfigurationConfigurationPropertiesCompartmentCanonicalEditPolicy
 		//
 		ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
 				childDescriptors.size());
-		for (RecipeNodeDescriptor next : childDescriptors) {
-			String hint = RecipeVisualIDRegistry.getType(next.getVisualID());
+		for (DomainNodeDescriptor next : childDescriptors) {
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
 			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(

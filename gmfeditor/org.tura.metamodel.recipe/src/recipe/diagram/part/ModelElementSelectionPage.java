@@ -90,10 +90,10 @@ public class ModelElementSelectionPage extends WizardPage {
 		layoutData.widthHint = 300;
 		modelViewer.getTree().setLayoutData(layoutData);
 		modelViewer.setContentProvider(new AdapterFactoryContentProvider(
-				RecipeDiagramEditorPlugin.getInstance()
+				DomainDiagramEditorPlugin.getInstance()
 						.getItemProvidersAdapterFactory()));
 		modelViewer.setLabelProvider(new AdapterFactoryLabelProvider(
-				RecipeDiagramEditorPlugin.getInstance()
+				DomainDiagramEditorPlugin.getInstance()
 						.getItemProvidersAdapterFactory()));
 		if (selectedModelElement != null) {
 			modelViewer.setInput(selectedModelElement.eResource());

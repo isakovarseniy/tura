@@ -6,8 +6,6 @@ package domain.diagram.part;
 import java.util.ArrayList;
 import java.util.List;
 
-import mapper.provider.MapperItemProviderAdapterFactory;
-
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
@@ -25,12 +23,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import recipe.provider.RecipeItemProviderAdapterFactory;
-import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
-import typesrepository.provider.TypesrepositoryItemProviderAdapterFactory;
-import application.provider.ApplicationItemProviderAdapterFactory;
-import artifact.provider.ArtifactItemProviderAdapterFactory;
-import businessobjects.provider.BusinessobjectsItemProviderAdapterFactory;
 import domain.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 import domain.diagram.providers.ElementInitializers;
 import domain.provider.DomainItemProviderAdapterFactory;
@@ -126,13 +118,6 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	protected void fillItemProviderFactories(List<AdapterFactory> factories) {
 		factories.add(new DomainItemProviderAdapterFactory());
-		factories.add(new TypedefinitionItemProviderAdapterFactory());
-		factories.add(new BusinessobjectsItemProviderAdapterFactory());
-		factories.add(new RecipeItemProviderAdapterFactory());
-		factories.add(new MapperItemProviderAdapterFactory());
-		factories.add(new ArtifactItemProviderAdapterFactory());
-		factories.add(new TypesrepositoryItemProviderAdapterFactory());
-		factories.add(new ApplicationItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}

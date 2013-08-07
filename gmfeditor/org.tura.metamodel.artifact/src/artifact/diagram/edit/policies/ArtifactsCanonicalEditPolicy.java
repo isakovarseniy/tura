@@ -5,6 +5,7 @@ package artifact.diagram.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -19,17 +20,29 @@ import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetViewMutabilityCommand;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
+import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
-import artifact.ArtifactPackage;
 import artifact.diagram.edit.parts.ArtifactEditPart;
-import artifact.diagram.part.ArtifactDiagramUpdater;
-import artifact.diagram.part.ArtifactNodeDescriptor;
-import artifact.diagram.part.ArtifactVisualIDRegistry;
+import artifact.diagram.edit.parts.ArtifactsEditPart;
+import artifact.diagram.edit.parts.SpecifierEditPart;
+import artifact.diagram.edit.parts.TypeExtensionEditPart;
+import artifact.diagram.edit.parts.Variable2EditPart;
+import artifact.diagram.edit.parts.VariableEditPart;
+import artifact.diagram.part.DomainDiagramUpdater;
+import artifact.diagram.part.DomainLinkDescriptor;
+import artifact.diagram.part.DomainNodeDescriptor;
+import artifact.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -52,7 +65,7 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return ArtifactPackage.eINSTANCE.getArtifacts_Artifacts();
+		return DomainPackage.eINSTANCE.getArtifacts_Artifacts();
 	}
 
 	/**
@@ -62,9 +75,9 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
-		List<ArtifactNodeDescriptor> childDescriptors = ArtifactDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getArtifacts_701000SemanticChildren(viewObject);
-		for (ArtifactNodeDescriptor d : childDescriptors) {
+		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
 		return result;
@@ -76,7 +89,7 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected boolean isOrphaned(Collection<EObject> semanticChildren,
 			final View view) {
 		if (isShortcut(view)) {
-			return ArtifactDiagramUpdater.isShortcutOrphaned(view);
+			return DomainDiagramUpdater.isShortcutOrphaned(view);
 		}
 		return isMyDiagramElement(view)
 				&& !semanticChildren.contains(view.getElement());
@@ -86,7 +99,7 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return ArtifactEditPart.VISUAL_ID == ArtifactVisualIDRegistry
+		return ArtifactEditPart.VISUAL_ID == DomainVisualIDRegistry
 				.getVisualID(view);
 	}
 
@@ -105,7 +118,7 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 			return;
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
-		List<ArtifactNodeDescriptor> childDescriptors = ArtifactDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getArtifacts_701000SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
@@ -113,7 +126,7 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
 		for (View v : getViewChildren()) {
 			if (isShortcut(v)) {
-				if (ArtifactDiagramUpdater.isShortcutOrphaned(v)) {
+				if (DomainDiagramUpdater.isShortcutOrphaned(v)) {
 					orphaned.add(v);
 				}
 				continue;
@@ -127,10 +140,10 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<ArtifactNodeDescriptor> descriptorsIterator = childDescriptors
+		for (Iterator<DomainNodeDescriptor> descriptorsIterator = childDescriptors
 				.iterator(); descriptorsIterator.hasNext();) {
-			ArtifactNodeDescriptor next = descriptorsIterator.next();
-			String hint = ArtifactVisualIDRegistry.getType(next.getVisualID());
+			DomainNodeDescriptor next = descriptorsIterator.next();
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
 			for (View childView : getViewChildren()) {
 				EObject semanticElement = childView.getElement();
@@ -155,8 +168,8 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 		//
 		ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
 				childDescriptors.size());
-		for (ArtifactNodeDescriptor next : childDescriptors) {
-			String hint = ArtifactVisualIDRegistry.getType(next.getVisualID());
+		for (DomainNodeDescriptor next : childDescriptors) {
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
 			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(
@@ -181,6 +194,8 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 			postProcessRefreshSemantic(createdViews);
 		}
 
+		Collection<IAdaptable> createdConnectionViews = refreshConnections();
+
 		if (createdViews.size() > 1) {
 			// perform a layout of the container
 			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host()
@@ -188,7 +203,214 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 			executeCommand(new ICommandProxy(layoutCmd));
 		}
 
+		createdViews.addAll(createdConnectionViews);
+
 		makeViewsImmutable(createdViews);
+	}
+
+	/**
+	 * @generated
+	 */
+	private Collection<IAdaptable> refreshConnections() {
+		Domain2Notation domain2NotationMap = new Domain2Notation();
+		Collection<DomainLinkDescriptor> linkDescriptors = collectAllLinks(
+				getDiagram(), domain2NotationMap);
+		Collection existingLinks = new LinkedList(getDiagram().getEdges());
+		for (Iterator linksIterator = existingLinks.iterator(); linksIterator
+				.hasNext();) {
+			Edge nextDiagramLink = (Edge) linksIterator.next();
+			int diagramLinkVisualID = DomainVisualIDRegistry
+					.getVisualID(nextDiagramLink);
+			if (diagramLinkVisualID == -1) {
+				if (nextDiagramLink.getSource() != null
+						&& nextDiagramLink.getTarget() != null) {
+					linksIterator.remove();
+				}
+				continue;
+			}
+			EObject diagramLinkObject = nextDiagramLink.getElement();
+			EObject diagramLinkSrc = nextDiagramLink.getSource().getElement();
+			EObject diagramLinkDst = nextDiagramLink.getTarget().getElement();
+			for (Iterator<DomainLinkDescriptor> linkDescriptorsIterator = linkDescriptors
+					.iterator(); linkDescriptorsIterator.hasNext();) {
+				DomainLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator
+						.next();
+				if (diagramLinkObject == nextLinkDescriptor.getModelElement()
+						&& diagramLinkSrc == nextLinkDescriptor.getSource()
+						&& diagramLinkDst == nextLinkDescriptor
+								.getDestination()
+						&& diagramLinkVisualID == nextLinkDescriptor
+								.getVisualID()) {
+					linksIterator.remove();
+					linkDescriptorsIterator.remove();
+					break;
+				}
+			}
+		}
+		deleteViews(existingLinks.iterator());
+		return createConnections(linkDescriptors, domain2NotationMap);
+	}
+
+	/**
+	 * @generated
+	 */
+	private Collection<DomainLinkDescriptor> collectAllLinks(View view,
+			Domain2Notation domain2NotationMap) {
+		if (!ArtifactsEditPart.MODEL_ID.equals(DomainVisualIDRegistry
+				.getModelID(view))) {
+			return Collections.emptyList();
+		}
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		switch (DomainVisualIDRegistry.getVisualID(view)) {
+		case ArtifactsEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getArtifacts_701000ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ArtifactEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getArtifact_702001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case VariableEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getVariable_703001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case Variable2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getVariable_703002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case SpecifierEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getSpecifier_703003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TypeExtensionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getTypeExtension_704001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		}
+		for (Iterator children = view.getChildren().iterator(); children
+				.hasNext();) {
+			result.addAll(collectAllLinks((View) children.next(),
+					domain2NotationMap));
+		}
+		for (Iterator edges = view.getSourceEdges().iterator(); edges.hasNext();) {
+			result.addAll(collectAllLinks((View) edges.next(),
+					domain2NotationMap));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private Collection<IAdaptable> createConnections(
+			Collection<DomainLinkDescriptor> linkDescriptors,
+			Domain2Notation domain2NotationMap) {
+		LinkedList<IAdaptable> adapters = new LinkedList<IAdaptable>();
+		for (DomainLinkDescriptor nextLinkDescriptor : linkDescriptors) {
+			EditPart sourceEditPart = getSourceEditPart(nextLinkDescriptor,
+					domain2NotationMap);
+			EditPart targetEditPart = getTargetEditPart(nextLinkDescriptor,
+					domain2NotationMap);
+			if (sourceEditPart == null || targetEditPart == null) {
+				continue;
+			}
+			CreateConnectionViewRequest.ConnectionViewDescriptor descriptor = new CreateConnectionViewRequest.ConnectionViewDescriptor(
+					nextLinkDescriptor.getSemanticAdapter(),
+					DomainVisualIDRegistry.getType(nextLinkDescriptor
+							.getVisualID()), ViewUtil.APPEND, false,
+					((IGraphicalEditPart) getHost())
+							.getDiagramPreferencesHint());
+			CreateConnectionViewRequest ccr = new CreateConnectionViewRequest(
+					descriptor);
+			ccr.setType(RequestConstants.REQ_CONNECTION_START);
+			ccr.setSourceEditPart(sourceEditPart);
+			sourceEditPart.getCommand(ccr);
+			ccr.setTargetEditPart(targetEditPart);
+			ccr.setType(RequestConstants.REQ_CONNECTION_END);
+			Command cmd = targetEditPart.getCommand(ccr);
+			if (cmd != null && cmd.canExecute()) {
+				executeCommand(cmd);
+				IAdaptable viewAdapter = (IAdaptable) ccr.getNewObject();
+				if (viewAdapter != null) {
+					adapters.add(viewAdapter);
+				}
+			}
+		}
+		return adapters;
+	}
+
+	/**
+	 * @generated
+	 */
+	private EditPart getEditPart(EObject domainModelElement,
+			Domain2Notation domain2NotationMap) {
+		View view = (View) domain2NotationMap.get(domainModelElement);
+		if (view != null) {
+			return (EditPart) getHost().getViewer().getEditPartRegistry()
+					.get(view);
+		}
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	private Diagram getDiagram() {
+		return ((View) getHost().getModel()).getDiagram();
+	}
+
+	/**
+	 * @generated
+	 */
+	private EditPart getSourceEditPart(UpdaterLinkDescriptor descriptor,
+			Domain2Notation domain2NotationMap) {
+		return getEditPart(descriptor.getSource(), domain2NotationMap);
+	}
+
+	/**
+	 * @generated
+	 */
+	private EditPart getTargetEditPart(UpdaterLinkDescriptor descriptor,
+			Domain2Notation domain2NotationMap) {
+		return getEditPart(descriptor.getDestination(), domain2NotationMap);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected final EditPart getHintedEditPart(EObject domainModelElement,
+			Domain2Notation domain2NotationMap, int hintVisualId) {
+		View view = (View) domain2NotationMap.getHinted(domainModelElement,
+				DomainVisualIDRegistry.getType(hintVisualId));
+		if (view != null) {
+			return (EditPart) getHost().getViewer().getEditPartRegistry()
+					.get(view);
+		}
+		return null;
 	}
 
 	/**

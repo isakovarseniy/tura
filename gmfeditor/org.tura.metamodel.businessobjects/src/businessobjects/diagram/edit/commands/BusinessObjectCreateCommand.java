@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import businessobjects.BusinessObject;
-import businessobjects.BusinessObjects;
-import businessobjects.BusinessobjectsFactory;
+import domain.BusinessObject;
+import domain.BusinessObjects;
+import domain.DomainFactory;
 
 /**
  * @generated
@@ -57,7 +57,7 @@ public class BusinessObjectCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		BusinessObject newElement = BusinessobjectsFactory.eINSTANCE
+		BusinessObject newElement = DomainFactory.eINSTANCE
 				.createBusinessObject();
 
 		BusinessObjects owner = (BusinessObjects) getElementToEdit();

@@ -7,27 +7,26 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import businessobjects.diagram.edit.commands.CreateMethodCreateCommand;
-import businessobjects.diagram.providers.BusinessobjectsElementTypes;
+import businessobjects.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class BusinessObjectBusinessObjectCreateMethodsCompartmentItemSemanticEditPolicy
-		extends BusinessobjectsBaseItemSemanticEditPolicy {
+		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public BusinessObjectBusinessObjectCreateMethodsCompartmentItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.BusinessObject_602003);
+		super(DomainElementTypes.BusinessObject_602001);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (BusinessobjectsElementTypes.CreateMethod_603009 == req
-				.getElementType()) {
+		if (DomainElementTypes.CreateMethod_603001 == req.getElementType()) {
 			return getGEFWrapper(new CreateMethodCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

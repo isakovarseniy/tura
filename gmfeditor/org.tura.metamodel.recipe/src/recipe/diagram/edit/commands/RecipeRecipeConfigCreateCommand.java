@@ -11,9 +11,9 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import recipe.Configuration;
-import recipe.Recipe;
-import recipe.diagram.edit.policies.RecipeBaseItemSemanticEditPolicy;
+import recipe.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
+import domain.Configuration;
+import domain.Recipe;
 
 /**
  * @generated
@@ -57,8 +57,8 @@ public class RecipeRecipeConfigCreateCommand extends EditElementCommand {
 			return true; // link creation is in progress; source is not defined yet
 		}
 		// target may be null here but it's possible to check constraint
-		return RecipeBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateRecipeRecipeConfig_304001(getSource(), getTarget());
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
+				.canCreateRecipeRecipeConfig_304002(getSource(), getTarget());
 	}
 
 	/**

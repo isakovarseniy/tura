@@ -11,19 +11,19 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typedefinition.diagram.providers.TypedefinitionElementTypes;
+import typedefinition.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class Attribute2ItemSemanticEditPolicy extends
-		TypedefinitionBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public Attribute2ItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Attribute_103003);
+		super(DomainElementTypes.Attribute_103003);
 	}
 
 	/**

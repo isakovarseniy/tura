@@ -35,11 +35,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
-import recipe.Configuration;
-import recipe.Recipe;
-import typedefinition.Type;
-import typedefinition.TypeElement;
-import typedefinition.TypeExtension;
+import domain.Configuration;
+import domain.Recipe;
+import domain.Type;
+import domain.TypeElement;
+import domain.TypeExtension;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.DomainVisualIDRegistry;
 import domain.diagram.providers.DomainElementTypes;

@@ -6,5 +6,5 @@ package mapper.diagram.edit.helpers;
 /**
  * @generated
  */
-public class JavaMapperEditHelper extends MapperBaseEditHelper {
+public class JavaMapperEditHelper extends DomainBaseEditHelper {
 }

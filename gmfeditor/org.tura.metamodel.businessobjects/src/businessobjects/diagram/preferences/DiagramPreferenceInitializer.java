@@ -6,7 +6,7 @@ package businessobjects.diagram.preferences;
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 
-import businessobjects.diagram.part.BusinessobjectsDiagramEditorPlugin;
+import businessobjects.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -30,7 +30,6 @@ public class DiagramPreferenceInitializer extends AbstractPreferenceInitializer 
 	 * @generated
 	 */
 	protected IPreferenceStore getPreferenceStore() {
-		return BusinessobjectsDiagramEditorPlugin.getInstance()
-				.getPreferenceStore();
+		return DomainDiagramEditorPlugin.getInstance().getPreferenceStore();
 	}
 }

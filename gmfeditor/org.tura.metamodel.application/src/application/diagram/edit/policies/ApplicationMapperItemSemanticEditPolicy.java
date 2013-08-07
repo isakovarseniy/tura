@@ -11,19 +11,19 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import application.diagram.providers.ApplicationElementTypes;
+import application.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ApplicationMapperItemSemanticEditPolicy extends
-		ApplicationBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ApplicationMapperItemSemanticEditPolicy() {
-		super(ApplicationElementTypes.ApplicationMapper_803002);
+		super(DomainElementTypes.ApplicationMapper_803002);
 	}
 
 	/**

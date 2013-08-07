@@ -16,7 +16,7 @@ import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicy
 
 import artifact.diagram.edit.policies.ArtifactArtifactConfigVariablesCompartmentCanonicalEditPolicy;
 import artifact.diagram.edit.policies.ArtifactArtifactConfigVariablesCompartmentItemSemanticEditPolicy;
-import artifact.diagram.part.ArtifactVisualIDRegistry;
+import artifact.diagram.part.DomainVisualIDRegistry;
 import artifact.diagram.part.Messages;
 
 /**
@@ -67,7 +67,7 @@ public class ArtifactArtifactConfigVariablesCompartmentEditPart extends
 				new ArtifactArtifactConfigVariablesCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						ArtifactVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(

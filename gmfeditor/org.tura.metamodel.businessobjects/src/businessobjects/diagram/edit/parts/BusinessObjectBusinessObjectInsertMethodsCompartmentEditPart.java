@@ -16,7 +16,7 @@ import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicy
 
 import businessobjects.diagram.edit.policies.BusinessObjectBusinessObjectInsertMethodsCompartmentCanonicalEditPolicy;
 import businessobjects.diagram.edit.policies.BusinessObjectBusinessObjectInsertMethodsCompartmentItemSemanticEditPolicy;
-import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
+import businessobjects.diagram.part.DomainVisualIDRegistry;
 import businessobjects.diagram.part.Messages;
 
 /**
@@ -28,7 +28,7 @@ public class BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 607004;
+	public static final int VISUAL_ID = 607002;
 
 	/**
 	 * @generated
@@ -68,7 +68,7 @@ public class BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart
 				new BusinessObjectBusinessObjectInsertMethodsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						BusinessobjectsVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(

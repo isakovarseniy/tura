@@ -7,26 +7,26 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import typesrepository.diagram.edit.commands.PackageCreateCommand;
-import typesrepository.diagram.providers.TypesrepositoryElementTypes;
+import typesrepository.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class TypesTypesPackagesCompartmentItemSemanticEditPolicy extends
-		TypesrepositoryBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public TypesTypesPackagesCompartmentItemSemanticEditPolicy() {
-		super(TypesrepositoryElementTypes.Types_202001);
+		super(DomainElementTypes.Types_202001);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypesrepositoryElementTypes.Package_203001 == req.getElementType()) {
+		if (DomainElementTypes.Package_203002 == req.getElementType()) {
 			return getGEFWrapper(new PackageCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

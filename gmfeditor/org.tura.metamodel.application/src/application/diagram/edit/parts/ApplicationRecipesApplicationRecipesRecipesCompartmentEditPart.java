@@ -16,7 +16,7 @@ import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicy
 
 import application.diagram.edit.policies.ApplicationRecipesApplicationRecipesRecipesCompartmentCanonicalEditPolicy;
 import application.diagram.edit.policies.ApplicationRecipesApplicationRecipesRecipesCompartmentItemSemanticEditPolicy;
-import application.diagram.part.ApplicationVisualIDRegistry;
+import application.diagram.part.DomainVisualIDRegistry;
 import application.diagram.part.Messages;
 
 /**
@@ -68,7 +68,7 @@ public class ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart
 				new ApplicationRecipesApplicationRecipesRecipesCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						ApplicationVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(

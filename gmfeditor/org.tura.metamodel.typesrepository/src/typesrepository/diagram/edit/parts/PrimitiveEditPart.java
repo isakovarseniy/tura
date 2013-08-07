@@ -26,7 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import typesrepository.diagram.edit.policies.PrimitiveItemSemanticEditPolicy;
-import typesrepository.diagram.part.TypesrepositoryVisualIDRegistry;
+import typesrepository.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -36,7 +36,7 @@ public class PrimitiveEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 203003;
+	public static final int VISUAL_ID = 203001;
 
 	/**
 	 * @generated
@@ -246,7 +246,7 @@ public class PrimitiveEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(TypesrepositoryVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(PrimitiveNameEditPart.VISUAL_ID));
 	}
 

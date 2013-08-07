@@ -37,10 +37,10 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import recipe.diagram.edit.parts.RecipesEditPart;
+import recipe.diagram.part.DomainDiagramEditor;
+import recipe.diagram.part.DomainDiagramEditorPlugin;
+import recipe.diagram.part.DomainDiagramEditorUtil;
 import recipe.diagram.part.Messages;
-import recipe.diagram.part.RecipeDiagramEditor;
-import recipe.diagram.part.RecipeDiagramEditorPlugin;
-import recipe.diagram.part.RecipeDiagramEditorUtil;
 
 /**
  * @generated
@@ -151,7 +151,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 								if (nextResource.isLoaded()
 										&& !getEditingDomain().isReadOnly(
 												nextResource)) {
-									nextResource.save(RecipeDiagramEditorUtil
+									nextResource.save(DomainDiagramEditorUtil
 											.getSaveOptions());
 								}
 							}
@@ -184,7 +184,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 */
 		protected PreferencesHint getPreferencesHint() {
 			// XXX prefhint from target diagram's editor?
-			return RecipeDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
+			return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 		}
 
 		/**
@@ -198,7 +198,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 * @generated
 		 */
 		protected String getEditorID() {
-			return RecipeDiagramEditor.ID;
+			return DomainDiagramEditor.ID;
 		}
 	}
 

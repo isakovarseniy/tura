@@ -7,26 +7,26 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import recipe.diagram.edit.commands.PropertyCreateCommand;
-import recipe.diagram.providers.RecipeElementTypes;
+import recipe.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ConfigurationConfigurationPropertiesCompartmentItemSemanticEditPolicy
-		extends RecipeBaseItemSemanticEditPolicy {
+		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ConfigurationConfigurationPropertiesCompartmentItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Configuration_302005);
+		super(DomainElementTypes.Configuration_302002);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RecipeElementTypes.Property_303005 == req.getElementType()) {
+		if (DomainElementTypes.Property_303004 == req.getElementType()) {
 			return getGEFWrapper(new PropertyCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

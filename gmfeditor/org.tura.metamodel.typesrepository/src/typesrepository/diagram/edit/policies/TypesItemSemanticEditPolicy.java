@@ -21,20 +21,20 @@ import typesrepository.diagram.edit.parts.PrimitiveEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesBusinessPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPrimitivesCompartmentEditPart;
-import typesrepository.diagram.part.TypesrepositoryVisualIDRegistry;
-import typesrepository.diagram.providers.TypesrepositoryElementTypes;
+import typesrepository.diagram.part.DomainVisualIDRegistry;
+import typesrepository.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class TypesItemSemanticEditPolicy extends
-		TypesrepositoryBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public TypesItemSemanticEditPolicy() {
-		super(TypesrepositoryElementTypes.Types_202001);
+		super(DomainElementTypes.Types_202001);
 	}
 
 	/**
@@ -65,12 +65,12 @@ public class TypesItemSemanticEditPolicy extends
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
-			switch (TypesrepositoryVisualIDRegistry.getVisualID(node)) {
+			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case TypesTypesPrimitivesCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (TypesrepositoryVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case PrimitiveEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -85,7 +85,7 @@ public class TypesItemSemanticEditPolicy extends
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (TypesrepositoryVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case PackageEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -100,7 +100,7 @@ public class TypesItemSemanticEditPolicy extends
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (TypesrepositoryVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case BusinessPackageEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),

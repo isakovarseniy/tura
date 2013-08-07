@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typesrepository.Types;
-import typesrepository.TypesRepository;
-import typesrepository.TypesrepositoryFactory;
+import domain.DomainFactory;
+import domain.Types;
+import domain.TypesRepository;
 
 /**
  * @generated
@@ -61,7 +61,7 @@ public class TypesCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Types newElement = TypesrepositoryFactory.eINSTANCE.createTypes();
+		Types newElement = DomainFactory.eINSTANCE.createTypes();
 
 		TypesRepository owner = (TypesRepository) getElementToEdit();
 		owner.setTypeDefinition(newElement);

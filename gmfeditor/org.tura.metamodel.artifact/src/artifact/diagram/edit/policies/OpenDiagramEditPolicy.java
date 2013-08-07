@@ -37,9 +37,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import artifact.diagram.edit.parts.ArtifactsEditPart;
-import artifact.diagram.part.ArtifactDiagramEditor;
-import artifact.diagram.part.ArtifactDiagramEditorPlugin;
-import artifact.diagram.part.ArtifactDiagramEditorUtil;
+import artifact.diagram.part.DomainDiagramEditor;
+import artifact.diagram.part.DomainDiagramEditorPlugin;
+import artifact.diagram.part.DomainDiagramEditorUtil;
 import artifact.diagram.part.Messages;
 
 /**
@@ -151,7 +151,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 								if (nextResource.isLoaded()
 										&& !getEditingDomain().isReadOnly(
 												nextResource)) {
-									nextResource.save(ArtifactDiagramEditorUtil
+									nextResource.save(DomainDiagramEditorUtil
 											.getSaveOptions());
 								}
 							}
@@ -184,7 +184,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 */
 		protected PreferencesHint getPreferencesHint() {
 			// XXX prefhint from target diagram's editor?
-			return ArtifactDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
+			return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 		}
 
 		/**
@@ -198,7 +198,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 * @generated
 		 */
 		protected String getEditorID() {
-			return ArtifactDiagramEditor.ID;
+			return DomainDiagramEditor.ID;
 		}
 	}
 

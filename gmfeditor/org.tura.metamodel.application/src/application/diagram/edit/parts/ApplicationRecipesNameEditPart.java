@@ -47,10 +47,10 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import application.diagram.edit.policies.ApplicationTextSelectionEditPolicy;
-import application.diagram.part.ApplicationVisualIDRegistry;
-import application.diagram.providers.ApplicationElementTypes;
-import application.diagram.providers.ApplicationParserProvider;
+import application.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import application.diagram.part.DomainVisualIDRegistry;
+import application.diagram.providers.DomainElementTypes;
+import application.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
@@ -61,7 +61,7 @@ public class ApplicationRecipesNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 805001;
+	public static final int VISUAL_ID = 805002;
 
 	/**
 	 * @generated
@@ -101,7 +101,7 @@ public class ApplicationRecipesNameEditPart extends CompartmentEditPart
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new ApplicationTextSelectionEditPolicy());
+				new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -203,7 +203,7 @@ public class ApplicationRecipesNameEditPart extends CompartmentEditPart
 		if (parserElement == null) {
 			return null;
 		}
-		return ApplicationElementTypes.getImage(parserElement.eClass());
+		return DomainElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**
@@ -311,11 +311,11 @@ public class ApplicationRecipesNameEditPart extends CompartmentEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = ApplicationParserProvider
+			parser = DomainParserProvider
 					.getParser(
-							ApplicationElementTypes.ApplicationRecipes_802001,
+							DomainElementTypes.ApplicationRecipes_802001,
 							getParserElement(),
-							ApplicationVisualIDRegistry
+							DomainVisualIDRegistry
 									.getType(application.diagram.edit.parts.ApplicationRecipesNameEditPart.VISUAL_ID));
 		}
 		return parser;
@@ -327,7 +327,7 @@ public class ApplicationRecipesNameEditPart extends CompartmentEditPart
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager2(this, null,
-					ApplicationEditPartFactory.getTextCellEditorLocator(this)));
+					DomainEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
 	}

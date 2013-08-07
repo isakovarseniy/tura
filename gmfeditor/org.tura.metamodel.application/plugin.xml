@@ -23,12 +23,12 @@
       <editor
          id="application.diagram.part.ApplicationDiagramEditorID"
          name="%editorName"
-         icon="icons/obj16/ApplicationDiagramFile.gif"
+         icon="icons/obj16/DomainDiagramFile.gif"
          extensions="application_diagram"
          default="true"
-         class="application.diagram.part.ApplicationDiagramEditor"
-         matchingStrategy="application.diagram.part.ApplicationMatchingStrategy"
-         contributorClass="application.diagram.part.ApplicationDiagramActionBarContributor">
+         class="application.diagram.part.DomainDiagramEditor"
+         matchingStrategy="application.diagram.part.DomainMatchingStrategy"
+         contributorClass="application.diagram.part.DomainDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -46,10 +46,10 @@
       <?gmfgen generated="true"?>
   	  <wizard
   	     name="%newWizardName"
-  	     icon="icons/obj16/ApplicationDiagramFile.gif"
+  	     icon="icons/obj16/DomainDiagramFile.gif"
   	     category="org.eclipse.ui.Examples"
-  	     class="application.diagram.part.ApplicationCreationWizard"
-  	     id="application.diagram.part.ApplicationCreationWizardID">
+  	     class="application.diagram.part.DomainCreationWizard"
+  	     id="application.diagram.part.DomainCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
@@ -58,11 +58,11 @@
       <?gmfgen generated="true"?>
       <objectContribution
             id="org.tura.metamodel.application.InitDiagram"
-            nameFilter="*.application"
+            nameFilter="*.domain"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="application.diagram.part.ApplicationInitDiagramFileAction"
+               class="application.diagram.part.DomainInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="org.tura.metamodel.application.InitDiagramAction">
@@ -126,13 +126,13 @@
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
       <?gmfgen generated="true"?>
-      <MarkerNavigationProvider class="application.diagram.providers.ApplicationMarkerNavigationProvider">
+      <MarkerNavigationProvider class="application.diagram.providers.DomainMarkerNavigationProvider">
          <MarkerType name="org.tura.metamodel.application.diagnostic"/>
          <Priority name="Lowest"/>
       </MarkerNavigationProvider>
    </extension>
 
-   <extension id="diagnostic" name="Application Plugin problems" point="org.eclipse.core.resources.markers">
+   <extension id="diagnostic" name="Domain Plugin problems" point="org.eclipse.core.resources.markers">
       <?gmfgen generated="true"?>
       <super type="org.eclipse.core.resources.problemmarker"/>
       <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
@@ -141,7 +141,7 @@
 
    <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="application.diagram.providers.ApplicationValidationDecoratorProvider">
+      <decoratorProvider class="application.diagram.providers.DomainValidationDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
@@ -190,7 +190,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="org.tura.metamodel.application"
-            labelProvider="application.diagram.sheet.ApplicationSheetLabelProvider">
+            labelProvider="application.diagram.sheet.DomainSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -241,20 +241,20 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="application.diagram.sheet.ApplicationPropertySection">
+            class="application.diagram.sheet.DomainPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="application.diagram.navigator.ApplicationAbstractNavigatorItem"/>
+            <input type="application.diagram.navigator.DomainAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="application.diagram.providers.ApplicationViewProvider">
+      <viewProvider class="application.diagram.providers.DomainViewProvider">
          <Priority name="Lowest"/>
          <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
-            <method name="getType()" value="application"/>
+            <method name="getType()" value="domain"/>
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Application"/>
@@ -265,7 +265,7 @@
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="application.diagram.providers.ApplicationEditPartProvider">
+      <editpartProvider class="application.diagram.providers.DomainEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="Application"/>
@@ -277,7 +277,7 @@
             <method name="getType()" value="804001,804002,804003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="805001,805002,805003,805004"/>
+            <method name="getType()" value="805002,805004,805001,805003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="807001,807002"/>
@@ -288,34 +288,32 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="application.diagram.providers.ApplicationModelingAssistantProvider">
+      <modelingAssistantProvider class="application.diagram.providers.DomainModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="application.diagram.edit.parts.ApplicationEditPart" id="Application_801000"/>
          <object class="application.diagram.edit.parts.ApplicationRecipesEditPart" id="ApplicationRecipes_802001"/>
          <object class="application.diagram.edit.parts.ApplicationMappersEditPart" id="ApplicationMappers_802002"/>
-         <object class="application.diagram.edit.parts.ApplicationRecipeEditPart" id="ApplicationRecipe_803001"/>
-         <object class="application.diagram.edit.parts.ApplicationMapperEditPart" id="ApplicationMapper_803002"/>
-         <context elements="Application_801000,ApplicationRecipes_802001,ApplicationMappers_802002,ApplicationRecipe_803001,ApplicationMapper_803002"/>
+         <context elements="Application_801000,ApplicationRecipes_802001,ApplicationMappers_802002"/>
       </modelingAssistantProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="application.diagram.providers.ApplicationIconProvider">
+      <IconProvider class="application.diagram.providers.DomainIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="application.diagram.providers.ApplicationParserProvider">
+      <ParserProvider class="application.diagram.providers.DomainParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="application.diagram.providers.ApplicationShortcutsDecoratorProvider">
+      <decoratorProvider class="application.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
             <method name="getType()" value="802001,802002"/>
@@ -326,7 +324,7 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://tura.org/2013/v1/application">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.application.Application_801000"
                name="%metatype.name.Application_801000"
@@ -336,7 +334,7 @@
             <param name="semanticHint" value="801000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/application">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.application.ApplicationRecipes_802001"
                name="%metatype.name.ApplicationRecipes_802001"
@@ -346,7 +344,7 @@
             <param name="semanticHint" value="802001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/application">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.application.ApplicationMappers_802002"
                name="%metatype.name.ApplicationMappers_802002"
@@ -356,7 +354,7 @@
             <param name="semanticHint" value="802002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/application">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.application.ApplicationRecipe_803001"
                name="%metatype.name.ApplicationRecipe_803001"
@@ -366,7 +364,7 @@
             <param name="semanticHint" value="803001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/application">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.application.ApplicationMapper_803002"
                name="%metatype.name.ApplicationMapper_803002"
@@ -376,7 +374,7 @@
             <param name="semanticHint" value="803002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.application.TypeExtension_804001"
                name="%metatype.name.TypeExtension_804001"
@@ -386,7 +384,7 @@
             <param name="semanticHint" value="804001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.application.RecipeRecipeConfig_804002"
                name="%metatype.name.RecipeRecipeConfig_804002"
@@ -395,7 +393,7 @@
             <param name="semanticHint" value="804002"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.application.ConfigurationConfigExtension_804003"
                name="%metatype.name.ConfigurationConfigExtension_804003"
@@ -408,14 +406,18 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
       <?gmfgen generated="true"?>
-      <clientContext id="org.tura.metamodel.application.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <clientContext id="org.tura.metamodel.application.TypeContext"> -->
+      <clientContext id="SharedClientContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
                value="org.tura.metamodel.application.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="org.tura.metamodel.application.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <binding context="org.tura.metamodel.application.TypeContext"> -->
+      <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.application.Application_801000"/>
          <elementType ref="org.tura.metamodel.application.ApplicationRecipes_802001"/>
          <elementType ref="org.tura.metamodel.application.ApplicationMappers_802002"/>
@@ -434,7 +436,7 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="org.tura.metamodel.application"
            properties="isURIEditorInput"
-           class="application.diagram.part.ApplicationUriEditorInputTester">
+           class="application.diagram.part.DomainUriEditorInputTester">
        </propertyTester>
    </extension>
 
@@ -445,7 +447,7 @@
            type="org.eclipse.gmf.runtime.notation.View"
            namespace="org.tura.metamodel.application"
            properties="isShortcut"
-           class="application.diagram.part.ApplicationShortcutPropertyTester">
+           class="application.diagram.part.DomainShortcutPropertyTester">
        </propertyTester>
    </extension>
 
@@ -471,9 +473,9 @@
             id="org.tura.metamodel.application.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="application.diagram.navigator.ApplicationNavigatorContentProvider" 
-            labelProvider="application.diagram.navigator.ApplicationNavigatorLabelProvider"
-            icon="icons/obj16/ApplicationDiagramFile.gif"
+            contentProvider="application.diagram.navigator.DomainNavigatorContentProvider" 
+            labelProvider="application.diagram.navigator.DomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
@@ -481,7 +483,7 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="application_diagram"/>
                </and>
-               <instanceof value="application.diagram.navigator.ApplicationAbstractNavigatorItem"/>
+               <instanceof value="application.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.application.isShortcut"/>
            	   </adapt>
@@ -489,7 +491,7 @@
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="application.diagram.navigator.ApplicationAbstractNavigatorItem"/>
+         	   <instanceof value="application.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.application.isShortcut"/>
            	   </adapt>
@@ -497,14 +499,14 @@
          </possibleChildren>
          <commonSorter 
                id="org.tura.metamodel.application.navigatorSorter" 
-               class="application.diagram.navigator.ApplicationNavigatorSorter">
+               class="application.diagram.navigator.DomainNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
         	         <test property="org.eclipse.core.resources.extension" value="application_diagram"/>
                   </and>
-                  <instanceof value="application.diagram.navigator.ApplicationAbstractNavigatorItem"/>
+                  <instanceof value="application.diagram.navigator.DomainAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -513,29 +515,29 @@
             id="org.tura.metamodel.application.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="application.diagram.navigator.ApplicationDomainNavigatorContentProvider" 
-            labelProvider="application.diagram.navigator.ApplicationDomainNavigatorLabelProvider"
-            icon="icons/obj16/ApplicationDiagramFile.gif"
+            contentProvider="application.diagram.navigator.DomainDomainNavigatorContentProvider" 
+            labelProvider="application.diagram.navigator.DomainDomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="application"/>
+        	      <test property="org.eclipse.core.resources.extension" value="domain"/>
                </and>
-               <instanceof value="application.diagram.navigator.ApplicationDomainNavigatorItem"/>
+               <instanceof value="application.diagram.navigator.DomainDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="application.diagram.navigator.ApplicationDomainNavigatorItem"/>
+            <instanceof value="application.diagram.navigator.DomainDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="org.tura.metamodel.application.navigatorActionProvider"
-            class="application.diagram.navigator.ApplicationNavigatorActionProvider">
+            class="application.diagram.navigator.DomainNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="application.diagram.navigator.ApplicationAbstractNavigatorItem"/>
+               <instanceof value="application.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.application.isShortcut"/>
            	   </adapt>
@@ -548,7 +550,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="org.tura.metamodel.application.navigatorLinkHelper"
-            class="application.diagram.navigator.ApplicationNavigatorLinkHelper">
+            class="application.diagram.navigator.DomainNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -556,7 +558,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="application.diagram.navigator.ApplicationAbstractNavigatorItem"/>
+            <instanceof value="application.diagram.navigator.DomainAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -564,7 +566,7 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="application.diagram.part.ApplicationDiagramUpdateCommand"
+         defaultHandler="application.diagram.part.DomainDiagramUpdateCommand"
          description="%update.diagram.description"
          id="application.diagram.updateDiagram"
          name="%update.diagram.name"/>
@@ -613,4 +615,14 @@
    </extension>
 
    <!-- optionally, specify keybindings -->
+
+
+    <extension
+         point="org.eclipse.emf.transaction.editingDomains">
+      <!-- ITEMIS CHANGE: register diagram editing domain factory --> 
+      <editingDomain
+            factory="org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory"
+            id="org.tura.metamodel.application.EditingDomain">
+      </editingDomain>
+   </extension>
 </plugin>

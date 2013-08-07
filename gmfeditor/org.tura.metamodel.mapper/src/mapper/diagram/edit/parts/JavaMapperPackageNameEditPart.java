@@ -6,10 +6,10 @@ package mapper.diagram.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
-import mapper.diagram.edit.policies.MapperTextSelectionEditPolicy;
-import mapper.diagram.part.MapperVisualIDRegistry;
-import mapper.diagram.providers.MapperElementTypes;
-import mapper.diagram.providers.MapperParserProvider;
+import mapper.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import mapper.diagram.part.DomainVisualIDRegistry;
+import mapper.diagram.providers.DomainElementTypes;
+import mapper.diagram.providers.DomainParserProvider;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
@@ -61,7 +61,7 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 405002;
+	public static final int VISUAL_ID = 405001;
 
 	/**
 	 * @generated
@@ -101,7 +101,7 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new MapperTextSelectionEditPolicy());
+				new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -203,7 +203,7 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 		if (parserElement == null) {
 			return null;
 		}
-		return MapperElementTypes.getImage(parserElement.eClass());
+		return DomainElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**
@@ -311,11 +311,11 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = MapperParserProvider
+			parser = DomainParserProvider
 					.getParser(
-							MapperElementTypes.JavaMapper_402002,
+							DomainElementTypes.JavaMapper_402001,
 							getParserElement(),
-							MapperVisualIDRegistry
+							DomainVisualIDRegistry
 									.getType(mapper.diagram.edit.parts.JavaMapperPackageNameEditPart.VISUAL_ID));
 		}
 		return parser;
@@ -327,7 +327,7 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager2(this, null,
-					MapperEditPartFactory.getTextCellEditorLocator(this)));
+					DomainEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
 	}

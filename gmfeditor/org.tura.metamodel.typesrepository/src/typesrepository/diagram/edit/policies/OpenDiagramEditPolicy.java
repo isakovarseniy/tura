@@ -37,10 +37,10 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
+import typesrepository.diagram.part.DomainDiagramEditor;
+import typesrepository.diagram.part.DomainDiagramEditorPlugin;
+import typesrepository.diagram.part.DomainDiagramEditorUtil;
 import typesrepository.diagram.part.Messages;
-import typesrepository.diagram.part.TypesrepositoryDiagramEditor;
-import typesrepository.diagram.part.TypesrepositoryDiagramEditorPlugin;
-import typesrepository.diagram.part.TypesrepositoryDiagramEditorUtil;
 
 /**
  * @generated
@@ -151,9 +151,8 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 								if (nextResource.isLoaded()
 										&& !getEditingDomain().isReadOnly(
 												nextResource)) {
-									nextResource
-											.save(TypesrepositoryDiagramEditorUtil
-													.getSaveOptions());
+									nextResource.save(DomainDiagramEditorUtil
+											.getSaveOptions());
 								}
 							}
 						} catch (IOException ex) {
@@ -185,7 +184,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 */
 		protected PreferencesHint getPreferencesHint() {
 			// XXX prefhint from target diagram's editor?
-			return TypesrepositoryDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
+			return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 		}
 
 		/**
@@ -199,7 +198,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 * @generated
 		 */
 		protected String getEditorID() {
-			return TypesrepositoryDiagramEditor.ID;
+			return DomainDiagramEditor.ID;
 		}
 	}
 

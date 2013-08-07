@@ -29,7 +29,7 @@ import org.eclipse.swt.graphics.Color;
 
 import typedefinition.diagram.edit.policies.OpenDiagramEditPolicy;
 import typedefinition.diagram.edit.policies.OperationItemSemanticEditPolicy;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -287,7 +287,7 @@ public class OperationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(TypedefinitionVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(OperationNameEditPart.VISUAL_ID));
 	}
 

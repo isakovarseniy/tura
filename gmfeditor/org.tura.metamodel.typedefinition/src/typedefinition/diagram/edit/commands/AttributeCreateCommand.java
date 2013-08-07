@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typedefinition.Attribute;
-import typedefinition.Type;
-import typedefinition.TypedefinitionFactory;
+import domain.Attribute;
+import domain.DomainFactory;
+import domain.Type;
 
 /**
  * @generated
@@ -57,8 +57,7 @@ public class AttributeCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Attribute newElement = TypedefinitionFactory.eINSTANCE
-				.createAttribute();
+		Attribute newElement = DomainFactory.eINSTANCE.createAttribute();
 
 		Type owner = (Type) getElementToEdit();
 		owner.getAttributes().add(newElement);

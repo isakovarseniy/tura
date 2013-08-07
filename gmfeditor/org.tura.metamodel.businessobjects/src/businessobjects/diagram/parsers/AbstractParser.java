@@ -26,7 +26,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.osgi.util.NLS;
 
-import businessobjects.diagram.part.BusinessobjectsDiagramEditorPlugin;
+import businessobjects.diagram.part.DomainDiagramEditorPlugin;
 import businessobjects.diagram.part.Messages;
 
 /**
@@ -238,8 +238,7 @@ public abstract class AbstractParser implements IParser {
 		for (int i = 0; i < values.length; i++) {
 			Object value = getValidNewValue(editableFeatures[i], values[i]);
 			if (value instanceof InvalidValue) {
-				return new ParserEditStatus(
-						BusinessobjectsDiagramEditorPlugin.ID,
+				return new ParserEditStatus(DomainDiagramEditorPlugin.ID,
 						IParserEditStatus.UNEDITABLE, value.toString());
 			}
 		}

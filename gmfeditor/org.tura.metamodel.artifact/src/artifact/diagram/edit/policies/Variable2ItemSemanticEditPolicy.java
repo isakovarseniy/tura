@@ -11,19 +11,19 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import artifact.diagram.providers.ArtifactElementTypes;
+import artifact.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class Variable2ItemSemanticEditPolicy extends
-		ArtifactBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public Variable2ItemSemanticEditPolicy() {
-		super(ArtifactElementTypes.Variable_703002);
+		super(DomainElementTypes.Variable_703002);
 	}
 
 	/**

@@ -294,8 +294,7 @@
          <object class="domain.diagram.edit.parts.DomainArtifactsEditPart" id="DomainArtifacts_502001"/>
          <object class="domain.diagram.edit.parts.DomainTypesEditPart" id="DomainTypes_502002"/>
          <object class="domain.diagram.edit.parts.DomainApplicationsEditPart" id="DomainApplications_502003"/>
-         <object class="domain.diagram.edit.parts.DomainApplicationEditPart" id="DomainApplication_503001"/>
-         <context elements="Domain_501000,DomainArtifacts_502001,DomainTypes_502002,DomainApplications_502003,DomainApplication_503001"/>
+         <context elements="Domain_501000,DomainArtifacts_502001,DomainTypes_502002,DomainApplications_502003"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -376,7 +375,7 @@
             <param name="semanticHint" value="503001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.domain.TypeExtension_504001"
                name="%metatype.name.TypeExtension_504001"
@@ -386,7 +385,7 @@
             <param name="semanticHint" value="504001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.domain.RecipeRecipeConfig_504002"
                name="%metatype.name.RecipeRecipeConfig_504002"
@@ -395,7 +394,7 @@
             <param name="semanticHint" value="504002"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.domain.ConfigurationConfigExtension_504003"
                name="%metatype.name.ConfigurationConfigExtension_504003"
@@ -408,14 +407,18 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
       <?gmfgen generated="true"?>
-      <clientContext id="org.tura.metamodel.domain.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <clientContext id="org.tura.metamodel.domain.TypeContext"> -->
+      <clientContext id="SharedClientContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
                value="org.tura.metamodel.domain.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="org.tura.metamodel.domain.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <binding context="org.tura.metamodel.domain.TypeContext"> -->
+      <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.domain.Domain_501000"/>
          <elementType ref="org.tura.metamodel.domain.DomainArtifacts_502001"/>
          <elementType ref="org.tura.metamodel.domain.DomainTypes_502002"/>
@@ -613,4 +616,14 @@
    </extension>
 
    <!-- optionally, specify keybindings -->
+
+
+    <extension
+         point="org.eclipse.emf.transaction.editingDomains">
+      <!-- ITEMIS CHANGE: register diagram editing domain factory --> 
+      <editingDomain
+            factory="org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory"
+            id="org.tura.metamodel.domain.EditingDomain">
+      </editingDomain>
+   </extension>
 </plugin>

@@ -3,14 +3,10 @@
  */
 package application.diagram.edit.policies;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
 import java.util.List;
-
-import mapper.MapperFactory;
-import mapper.Mappers;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
@@ -48,10 +44,12 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
-import application.ApplicationMapper;
-import application.diagram.part.ApplicationDiagramEditorPlugin;
-import application.diagram.part.ApplicationDiagramEditorUtil;
+import application.diagram.part.DomainDiagramEditorPlugin;
+import application.diagram.part.DomainDiagramEditorUtil;
 import application.diagram.part.Messages;
+import domain.ApplicationMapper;
+import domain.DomainFactory;
+import domain.Mappers;
 
 /**
  * @generated
@@ -153,7 +151,7 @@ public class OpenDiagramApplicationMapperEditPolicy extends OpenEditPolicy {
 
 			Diagram d = ViewService.createDiagram(
 
-			MapperFactory.eINSTANCE.createMappers()
+			DomainFactory.eINSTANCE.createMappers()
 
 			, getDiagramKind(), getPreferencesHint());
 			if (d == null) {
@@ -178,31 +176,19 @@ public class OpenDiagramApplicationMapperEditPolicy extends OpenEditPolicy {
 					folder.create(true, true, null);
 				}
 
-				IFile modelFile = folder.getFile(filename + "." + "mapper"
-
-				);
 				IFile diagramFile = folder.getFile(filename + "." + "mapper"
 
 				+ "_diagram");
 
-				URI modelURI = URI.createFileURI(modelFile.getLocation()
-						.toOSString());
 				URI diagramURI = URI.createFileURI(diagramFile.getLocation()
 						.toOSString());
 				Resource diagramResource = null;
-
-				if (modelFile.exists())
-					modelFile.delete(true, null);
 
 				if (diagramFile.exists())
 					diagramFile.delete(true, null);
 
 				diagramResource = diagramFacet.eResource().getResourceSet()
 						.createResource(diagramURI);
-				String header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\"/>";
-				ByteArrayInputStream in = new ByteArrayInputStream(
-						header.getBytes());
-				modelFile.create(in, true, null);
 
 				diagramFacet.setDiagramLink(d);
 				diagramResource.getContents().add(d);
@@ -215,9 +201,7 @@ public class OpenDiagramApplicationMapperEditPolicy extends OpenEditPolicy {
 				sourceObject.setMapper
 
 				(targetObject);
-				final Resource modelResource = sourceObject.eResource()
-						.getResourceSet().getResource(modelURI, true);
-				modelResource.getContents().add(targetObject);
+				sourceObject.eResource().getContents().add(targetObject);
 
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {
@@ -244,9 +228,8 @@ public class OpenDiagramApplicationMapperEditPolicy extends OpenEditPolicy {
 								if (nextResource.isLoaded()
 										&& !getEditingDomain().isReadOnly(
 												nextResource)) {
-									nextResource
-											.save(ApplicationDiagramEditorUtil
-													.getSaveOptions());
+									nextResource.save(DomainDiagramEditorUtil
+											.getSaveOptions());
 								}
 							}
 						} catch (IOException ex) {
@@ -278,7 +261,7 @@ public class OpenDiagramApplicationMapperEditPolicy extends OpenEditPolicy {
 		 */
 		protected PreferencesHint getPreferencesHint() {
 			// XXX prefhint from target diagram's editor?
-			return ApplicationDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
+			return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 		}
 
 		/**

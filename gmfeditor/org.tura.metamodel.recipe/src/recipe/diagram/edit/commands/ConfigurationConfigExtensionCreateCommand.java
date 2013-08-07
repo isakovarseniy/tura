@@ -11,8 +11,8 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import recipe.Configuration;
-import recipe.diagram.edit.policies.RecipeBaseItemSemanticEditPolicy;
+import recipe.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
+import domain.Configuration;
 
 /**
  * @generated
@@ -57,8 +57,8 @@ public class ConfigurationConfigExtensionCreateCommand extends
 			return true; // link creation is in progress; source is not defined yet
 		}
 		// target may be null here but it's possible to check constraint
-		return RecipeBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateConfigurationConfigExtension_304002(getSource(),
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
+				.canCreateConfigurationConfigExtension_304003(getSource(),
 						getTarget());
 	}
 

@@ -6,7 +6,7 @@ package recipe.diagram.preferences;
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 
-import recipe.diagram.part.RecipeDiagramEditorPlugin;
+import recipe.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -30,6 +30,6 @@ public class DiagramPreferenceInitializer extends AbstractPreferenceInitializer 
 	 * @generated
 	 */
 	protected IPreferenceStore getPreferenceStore() {
-		return RecipeDiagramEditorPlugin.getInstance().getPreferenceStore();
+		return DomainDiagramEditorPlugin.getInstance().getPreferenceStore();
 	}
 }

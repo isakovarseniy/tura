@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import application.Application;
-import application.ApplicationFactory;
-import application.ApplicationMappers;
+import domain.Application;
+import domain.ApplicationMappers;
+import domain.DomainFactory;
 
 /**
  * @generated
@@ -61,7 +61,7 @@ public class ApplicationMappersCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		ApplicationMappers newElement = ApplicationFactory.eINSTANCE
+		ApplicationMappers newElement = DomainFactory.eINSTANCE
 				.createApplicationMappers();
 
 		Application owner = (Application) getElementToEdit();

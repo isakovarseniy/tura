@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typedefinition.EnumAttribute;
-import typedefinition.Enumarator;
-import typedefinition.TypedefinitionFactory;
+import domain.DomainFactory;
+import domain.EnumAttribute;
+import domain.Enumarator;
 
 /**
  * @generated
@@ -57,7 +57,7 @@ public class EnumAttributeCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		EnumAttribute newElement = TypedefinitionFactory.eINSTANCE
+		EnumAttribute newElement = DomainFactory.eINSTANCE
 				.createEnumAttribute();
 
 		Enumarator owner = (Enumarator) getElementToEdit();

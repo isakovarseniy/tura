@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import artifact.Artifact;
-import artifact.ArtifactFactory;
-import artifact.Variable;
+import domain.Artifact;
+import domain.DomainFactory;
+import domain.Variable;
 
 /**
  * @generated
@@ -57,7 +57,7 @@ public class VariableCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Variable newElement = ArtifactFactory.eINSTANCE.createVariable();
+		Variable newElement = DomainFactory.eINSTANCE.createVariable();
 
 		Artifact owner = (Artifact) getElementToEdit();
 		owner.getConfigVariables().add(newElement);

@@ -47,10 +47,10 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import typesrepository.diagram.edit.policies.TypesrepositoryTextSelectionEditPolicy;
-import typesrepository.diagram.part.TypesrepositoryVisualIDRegistry;
-import typesrepository.diagram.providers.TypesrepositoryElementTypes;
-import typesrepository.diagram.providers.TypesrepositoryParserProvider;
+import typesrepository.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import typesrepository.diagram.part.DomainVisualIDRegistry;
+import typesrepository.diagram.providers.DomainElementTypes;
+import typesrepository.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
@@ -101,7 +101,7 @@ public class TypesNameEditPart extends CompartmentEditPart implements
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new TypesrepositoryTextSelectionEditPolicy());
+				new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -203,7 +203,7 @@ public class TypesNameEditPart extends CompartmentEditPart implements
 		if (parserElement == null) {
 			return null;
 		}
-		return TypesrepositoryElementTypes.getImage(parserElement.eClass());
+		return DomainElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**
@@ -311,11 +311,11 @@ public class TypesNameEditPart extends CompartmentEditPart implements
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = TypesrepositoryParserProvider
+			parser = DomainParserProvider
 					.getParser(
-							TypesrepositoryElementTypes.Types_202001,
+							DomainElementTypes.Types_202001,
 							getParserElement(),
-							TypesrepositoryVisualIDRegistry
+							DomainVisualIDRegistry
 									.getType(typesrepository.diagram.edit.parts.TypesNameEditPart.VISUAL_ID));
 		}
 		return parser;
@@ -327,8 +327,7 @@ public class TypesNameEditPart extends CompartmentEditPart implements
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager2(this, null,
-					TypesrepositoryEditPartFactory
-							.getTextCellEditorLocator(this)));
+					DomainEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
 	}

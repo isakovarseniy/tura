@@ -7,7 +7,7 @@ import java.text.FieldPosition;
 import java.text.MessageFormat;
 import java.text.ParsePosition;
 
-import mapper.diagram.part.MapperDiagramEditorPlugin;
+import mapper.diagram.part.DomainDiagramEditorPlugin;
 import mapper.diagram.part.Messages;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -178,7 +178,7 @@ public class MessageFormatParser extends AbstractParser {
 		ParsePosition pos = new ParsePosition(0);
 		Object[] values = getEditProcessor().parse(editString, pos);
 		if (values == null) {
-			return new ParserEditStatus(MapperDiagramEditorPlugin.ID,
+			return new ParserEditStatus(DomainDiagramEditorPlugin.ID,
 					IParserEditStatus.UNEDITABLE, NLS.bind(
 							Messages.MessageFormatParser_InvalidInputError,
 							new Integer(pos.getErrorIndex())));

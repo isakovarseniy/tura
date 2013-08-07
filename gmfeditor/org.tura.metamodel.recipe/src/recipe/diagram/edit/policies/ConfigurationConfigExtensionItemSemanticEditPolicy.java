@@ -7,19 +7,19 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyReferenceCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
 
-import recipe.diagram.providers.RecipeElementTypes;
+import recipe.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ConfigurationConfigExtensionItemSemanticEditPolicy extends
-		RecipeBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ConfigurationConfigExtensionItemSemanticEditPolicy() {
-		super(RecipeElementTypes.ConfigurationConfigExtension_304002);
+		super(DomainElementTypes.ConfigurationConfigExtension_304003);
 	}
 
 	/**

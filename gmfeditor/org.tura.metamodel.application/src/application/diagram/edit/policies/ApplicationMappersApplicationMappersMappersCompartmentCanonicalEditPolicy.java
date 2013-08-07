@@ -24,11 +24,11 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import application.ApplicationPackage;
 import application.diagram.edit.parts.ApplicationMapperEditPart;
-import application.diagram.part.ApplicationDiagramUpdater;
-import application.diagram.part.ApplicationNodeDescriptor;
-import application.diagram.part.ApplicationVisualIDRegistry;
+import application.diagram.part.DomainDiagramUpdater;
+import application.diagram.part.DomainNodeDescriptor;
+import application.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -52,7 +52,7 @@ public class ApplicationMappersApplicationMappersMappersCompartmentCanonicalEdit
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return ApplicationPackage.eINSTANCE.getApplicationMappers_Mappers();
+		return DomainPackage.eINSTANCE.getApplicationMappers_Mappers();
 	}
 
 	/**
@@ -62,9 +62,9 @@ public class ApplicationMappersApplicationMappersMappersCompartmentCanonicalEdit
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
-		List<ApplicationNodeDescriptor> childDescriptors = ApplicationDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getApplicationMappersApplicationMappersMappersCompartment_807002SemanticChildren(viewObject);
-		for (ApplicationNodeDescriptor d : childDescriptors) {
+		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
 		return result;
@@ -83,7 +83,7 @@ public class ApplicationMappersApplicationMappersMappersCompartmentCanonicalEdit
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return ApplicationMapperEditPart.VISUAL_ID == ApplicationVisualIDRegistry
+		return ApplicationMapperEditPart.VISUAL_ID == DomainVisualIDRegistry
 				.getVisualID(view);
 	}
 
@@ -95,7 +95,7 @@ public class ApplicationMappersApplicationMappersMappersCompartmentCanonicalEdit
 			return;
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
-		List<ApplicationNodeDescriptor> childDescriptors = ApplicationDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getApplicationMappersApplicationMappersMappersCompartment_807002SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
@@ -111,11 +111,10 @@ public class ApplicationMappersApplicationMappersMappersCompartmentCanonicalEdit
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<ApplicationNodeDescriptor> descriptorsIterator = childDescriptors
+		for (Iterator<DomainNodeDescriptor> descriptorsIterator = childDescriptors
 				.iterator(); descriptorsIterator.hasNext();) {
-			ApplicationNodeDescriptor next = descriptorsIterator.next();
-			String hint = ApplicationVisualIDRegistry.getType(next
-					.getVisualID());
+			DomainNodeDescriptor next = descriptorsIterator.next();
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
 			for (View childView : getViewChildren()) {
 				EObject semanticElement = childView.getElement();
@@ -140,9 +139,8 @@ public class ApplicationMappersApplicationMappersMappersCompartmentCanonicalEdit
 		//
 		ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
 				childDescriptors.size());
-		for (ApplicationNodeDescriptor next : childDescriptors) {
-			String hint = ApplicationVisualIDRegistry.getType(next
-					.getVisualID());
+		for (DomainNodeDescriptor next : childDescriptors) {
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
 			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(

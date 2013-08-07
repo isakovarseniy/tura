@@ -26,7 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import typedefinition.diagram.edit.policies.EnumAttributeItemSemanticEditPolicy;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -247,7 +247,7 @@ public class EnumAttributeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(TypedefinitionVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(EnumAttributeNameEditPart.VISUAL_ID));
 	}
 

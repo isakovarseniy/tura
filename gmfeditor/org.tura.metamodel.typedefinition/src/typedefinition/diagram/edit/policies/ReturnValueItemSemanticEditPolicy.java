@@ -11,19 +11,19 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typedefinition.diagram.providers.TypedefinitionElementTypes;
+import typedefinition.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ReturnValueItemSemanticEditPolicy extends
-		TypedefinitionBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ReturnValueItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.ReturnValue_103004);
+		super(DomainElementTypes.ReturnValue_103004);
 	}
 
 	/**

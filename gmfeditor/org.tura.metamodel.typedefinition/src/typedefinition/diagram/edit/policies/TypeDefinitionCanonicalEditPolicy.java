@@ -34,7 +34,6 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
-import typedefinition.TypedefinitionPackage;
 import typedefinition.diagram.edit.parts.Attribute2EditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
@@ -45,10 +44,11 @@ import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
-import typedefinition.diagram.part.TypedefinitionDiagramUpdater;
-import typedefinition.diagram.part.TypedefinitionLinkDescriptor;
-import typedefinition.diagram.part.TypedefinitionNodeDescriptor;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
+import typedefinition.diagram.part.DomainDiagramUpdater;
+import typedefinition.diagram.part.DomainLinkDescriptor;
+import typedefinition.diagram.part.DomainNodeDescriptor;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -78,9 +78,9 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize.add(TypedefinitionPackage.eINSTANCE
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getTypeDefinition_Types());
-			myFeaturesToSynchronize.add(TypedefinitionPackage.eINSTANCE
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getTypeDefinition_Enums());
 		}
 		return myFeaturesToSynchronize;
@@ -93,9 +93,9 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
-		List<TypedefinitionNodeDescriptor> childDescriptors = TypedefinitionDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getTypeDefinition_101000SemanticChildren(viewObject);
-		for (TypedefinitionNodeDescriptor d : childDescriptors) {
+		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
 		return result;
@@ -107,7 +107,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected boolean isOrphaned(Collection<EObject> semanticChildren,
 			final View view) {
 		if (isShortcut(view)) {
-			return TypedefinitionDiagramUpdater.isShortcutOrphaned(view);
+			return DomainDiagramUpdater.isShortcutOrphaned(view);
 		}
 		return isMyDiagramElement(view)
 				&& !semanticChildren.contains(view.getElement());
@@ -117,7 +117,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		int visualID = TypedefinitionVisualIDRegistry.getVisualID(view);
+		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		return visualID == TypeReferenceEditPart.VISUAL_ID
 				|| visualID == TypeEditPart.VISUAL_ID
 				|| visualID == EnumaratorEditPart.VISUAL_ID;
@@ -138,7 +138,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 			return;
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
-		List<TypedefinitionNodeDescriptor> childDescriptors = TypedefinitionDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getTypeDefinition_101000SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
@@ -146,7 +146,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
 		for (View v : getViewChildren()) {
 			if (isShortcut(v)) {
-				if (TypedefinitionDiagramUpdater.isShortcutOrphaned(v)) {
+				if (DomainDiagramUpdater.isShortcutOrphaned(v)) {
 					orphaned.add(v);
 				}
 				continue;
@@ -160,11 +160,10 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<TypedefinitionNodeDescriptor> descriptorsIterator = childDescriptors
+		for (Iterator<DomainNodeDescriptor> descriptorsIterator = childDescriptors
 				.iterator(); descriptorsIterator.hasNext();) {
-			TypedefinitionNodeDescriptor next = descriptorsIterator.next();
-			String hint = TypedefinitionVisualIDRegistry.getType(next
-					.getVisualID());
+			DomainNodeDescriptor next = descriptorsIterator.next();
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
 			for (View childView : getViewChildren()) {
 				EObject semanticElement = childView.getElement();
@@ -189,9 +188,8 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		//
 		ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
 				childDescriptors.size());
-		for (TypedefinitionNodeDescriptor next : childDescriptors) {
-			String hint = TypedefinitionVisualIDRegistry.getType(next
-					.getVisualID());
+		for (DomainNodeDescriptor next : childDescriptors) {
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
 			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(
@@ -235,13 +233,13 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private Collection<IAdaptable> refreshConnections() {
 		Domain2Notation domain2NotationMap = new Domain2Notation();
-		Collection<TypedefinitionLinkDescriptor> linkDescriptors = collectAllLinks(
+		Collection<DomainLinkDescriptor> linkDescriptors = collectAllLinks(
 				getDiagram(), domain2NotationMap);
 		Collection existingLinks = new LinkedList(getDiagram().getEdges());
 		for (Iterator linksIterator = existingLinks.iterator(); linksIterator
 				.hasNext();) {
 			Edge nextDiagramLink = (Edge) linksIterator.next();
-			int diagramLinkVisualID = TypedefinitionVisualIDRegistry
+			int diagramLinkVisualID = DomainVisualIDRegistry
 					.getVisualID(nextDiagramLink);
 			if (diagramLinkVisualID == -1) {
 				if (nextDiagramLink.getSource() != null
@@ -253,9 +251,9 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 			EObject diagramLinkObject = nextDiagramLink.getElement();
 			EObject diagramLinkSrc = nextDiagramLink.getSource().getElement();
 			EObject diagramLinkDst = nextDiagramLink.getTarget().getElement();
-			for (Iterator<TypedefinitionLinkDescriptor> linkDescriptorsIterator = linkDescriptors
+			for (Iterator<DomainLinkDescriptor> linkDescriptorsIterator = linkDescriptors
 					.iterator(); linkDescriptorsIterator.hasNext();) {
-				TypedefinitionLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator
+				DomainLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator
 						.next();
 				if (diagramLinkObject == nextLinkDescriptor.getModelElement()
 						&& diagramLinkSrc == nextLinkDescriptor.getSource()
@@ -276,17 +274,17 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	private Collection<TypedefinitionLinkDescriptor> collectAllLinks(View view,
+	private Collection<DomainLinkDescriptor> collectAllLinks(View view,
 			Domain2Notation domain2NotationMap) {
-		if (!TypeDefinitionEditPart.MODEL_ID
-				.equals(TypedefinitionVisualIDRegistry.getModelID(view))) {
+		if (!TypeDefinitionEditPart.MODEL_ID.equals(DomainVisualIDRegistry
+				.getModelID(view))) {
 			return Collections.emptyList();
 		}
-		LinkedList<TypedefinitionLinkDescriptor> result = new LinkedList<TypedefinitionLinkDescriptor>();
-		switch (TypedefinitionVisualIDRegistry.getVisualID(view)) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypeDefinitionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(TypedefinitionDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getTypeDefinition_101000ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -294,7 +292,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case TypeReferenceEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(TypedefinitionDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getTypeReference_102001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -302,7 +300,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case TypeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(TypedefinitionDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getType_102002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -310,7 +308,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case EnumaratorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(TypedefinitionDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getEnumarator_102003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -318,7 +316,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case AttributeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(TypedefinitionDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getAttribute_103001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -326,7 +324,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case OperationEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(TypedefinitionDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getOperation_103002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -334,7 +332,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case Attribute2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(TypedefinitionDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getAttribute_103003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -342,7 +340,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case ReturnValueEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(TypedefinitionDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getReturnValue_103004ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -350,7 +348,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case EnumAttributeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(TypedefinitionDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getEnumAttribute_103005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -358,7 +356,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case TypeExtensionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(TypedefinitionDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getTypeExtension_104001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -381,10 +379,10 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private Collection<IAdaptable> createConnections(
-			Collection<TypedefinitionLinkDescriptor> linkDescriptors,
+			Collection<DomainLinkDescriptor> linkDescriptors,
 			Domain2Notation domain2NotationMap) {
 		LinkedList<IAdaptable> adapters = new LinkedList<IAdaptable>();
-		for (TypedefinitionLinkDescriptor nextLinkDescriptor : linkDescriptors) {
+		for (DomainLinkDescriptor nextLinkDescriptor : linkDescriptors) {
 			EditPart sourceEditPart = getSourceEditPart(nextLinkDescriptor,
 					domain2NotationMap);
 			EditPart targetEditPart = getTargetEditPart(nextLinkDescriptor,
@@ -394,7 +392,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			CreateConnectionViewRequest.ConnectionViewDescriptor descriptor = new CreateConnectionViewRequest.ConnectionViewDescriptor(
 					nextLinkDescriptor.getSemanticAdapter(),
-					TypedefinitionVisualIDRegistry.getType(nextLinkDescriptor
+					DomainVisualIDRegistry.getType(nextLinkDescriptor
 							.getVisualID()), ViewUtil.APPEND, false,
 					((IGraphicalEditPart) getHost())
 							.getDiagramPreferencesHint());
@@ -459,7 +457,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected final EditPart getHintedEditPart(EObject domainModelElement,
 			Domain2Notation domain2NotationMap, int hintVisualId) {
 		View view = (View) domain2NotationMap.getHinted(domainModelElement,
-				TypedefinitionVisualIDRegistry.getType(hintVisualId));
+				DomainVisualIDRegistry.getType(hintVisualId));
 		if (view != null) {
 			return (EditPart) getHost().getViewer().getEditPartRegistry()
 					.get(view);

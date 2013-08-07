@@ -12,9 +12,9 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import recipe.Configuration;
-import recipe.Recipe;
-import application.diagram.edit.policies.ApplicationBaseItemSemanticEditPolicy;
+import application.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
+import domain.Configuration;
+import domain.Recipe;
 
 /**
  * @generated
@@ -76,7 +76,7 @@ public class RecipeRecipeConfigReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Configuration && newEnd instanceof Recipe)) {
 			return false;
 		}
-		return ApplicationBaseItemSemanticEditPolicy.getLinkConstraints()
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
 				.canExistRecipeRecipeConfig_804002(getNewSource(),
 						getOldTarget());
 	}
@@ -88,7 +88,7 @@ public class RecipeRecipeConfigReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Configuration && newEnd instanceof Configuration)) {
 			return false;
 		}
-		return ApplicationBaseItemSemanticEditPolicy.getLinkConstraints()
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
 				.canExistRecipeRecipeConfig_804002(getOldSource(),
 						getNewTarget());
 	}

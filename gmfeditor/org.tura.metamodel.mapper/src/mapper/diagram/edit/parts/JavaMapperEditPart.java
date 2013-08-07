@@ -4,7 +4,7 @@
 package mapper.diagram.edit.parts;
 
 import mapper.diagram.edit.policies.JavaMapperItemSemanticEditPolicy;
-import mapper.diagram.part.MapperVisualIDRegistry;
+import mapper.diagram.part.DomainVisualIDRegistry;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
@@ -39,7 +39,7 @@ public class JavaMapperEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 402002;
+	public static final int VISUAL_ID = 402001;
 
 	/**
 	 * @generated
@@ -250,7 +250,7 @@ public class JavaMapperEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(MapperVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(JavaMapperPackageNameEditPart.VISUAL_ID));
 	}
 

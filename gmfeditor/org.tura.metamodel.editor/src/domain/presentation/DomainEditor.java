@@ -155,14 +155,7 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import domain.provider.DomainItemProviderAdapterFactory;
 
-import application.provider.ApplicationItemProviderAdapterFactory;
-import artifact.provider.ArtifactItemProviderAdapterFactory;
-import businessobjects.provider.BusinessobjectsItemProviderAdapterFactory;
-import mapper.provider.MapperItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-import recipe.provider.RecipeItemProviderAdapterFactory;
-import typedefinition.provider.TypedefinitionItemProviderAdapterFactory;
-import typesrepository.provider.TypesrepositoryItemProviderAdapterFactory;
 
 
 /**
@@ -775,13 +768,6 @@ public class DomainEditor
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new DomainItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypedefinitionItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new BusinessobjectsItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new RecipeItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new TypesrepositoryItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
     // Create the command stack that will notify this editor as commands are executed.

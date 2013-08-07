@@ -47,10 +47,10 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import artifact.diagram.edit.policies.ArtifactTextSelectionEditPolicy;
-import artifact.diagram.part.ArtifactVisualIDRegistry;
-import artifact.diagram.providers.ArtifactElementTypes;
-import artifact.diagram.providers.ArtifactParserProvider;
+import artifact.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import artifact.diagram.part.DomainVisualIDRegistry;
+import artifact.diagram.providers.DomainElementTypes;
+import artifact.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
@@ -101,7 +101,7 @@ public class SpecifierNameEditPart extends CompartmentEditPart implements
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new ArtifactTextSelectionEditPolicy());
+				new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -203,7 +203,7 @@ public class SpecifierNameEditPart extends CompartmentEditPart implements
 		if (parserElement == null) {
 			return null;
 		}
-		return ArtifactElementTypes.getImage(parserElement.eClass());
+		return DomainElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**
@@ -311,11 +311,11 @@ public class SpecifierNameEditPart extends CompartmentEditPart implements
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = ArtifactParserProvider
+			parser = DomainParserProvider
 					.getParser(
-							ArtifactElementTypes.Specifier_703003,
+							DomainElementTypes.Specifier_703003,
 							getParserElement(),
-							ArtifactVisualIDRegistry
+							DomainVisualIDRegistry
 									.getType(artifact.diagram.edit.parts.SpecifierNameEditPart.VISUAL_ID));
 		}
 		return parser;
@@ -327,7 +327,7 @@ public class SpecifierNameEditPart extends CompartmentEditPart implements
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager2(this, null,
-					ArtifactEditPartFactory.getTextCellEditorLocator(this)));
+					DomainEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
 	}

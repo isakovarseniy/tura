@@ -7,19 +7,19 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 
-import application.diagram.providers.ApplicationElementTypes;
+import application.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class TypeExtensionItemSemanticEditPolicy extends
-		ApplicationBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public TypeExtensionItemSemanticEditPolicy() {
-		super(ApplicationElementTypes.TypeExtension_804001);
+		super(DomainElementTypes.TypeExtension_804001);
 	}
 
 	/**

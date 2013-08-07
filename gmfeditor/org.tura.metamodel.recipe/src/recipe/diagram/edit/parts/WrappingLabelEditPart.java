@@ -49,10 +49,10 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import recipe.diagram.edit.policies.RecipeTextSelectionEditPolicy;
-import recipe.diagram.part.RecipeVisualIDRegistry;
-import recipe.diagram.providers.RecipeElementTypes;
-import recipe.diagram.providers.RecipeParserProvider;
+import recipe.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import recipe.diagram.part.DomainVisualIDRegistry;
+import recipe.diagram.providers.DomainElementTypes;
+import recipe.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
@@ -95,7 +95,7 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	 */
 	static {
 		registerSnapBackPosition(
-				RecipeVisualIDRegistry
+				DomainVisualIDRegistry
 						.getType(recipe.diagram.edit.parts.WrappingLabelEditPart.VISUAL_ID),
 				new Point(0, 40));
 	}
@@ -115,7 +115,7 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new RecipeTextSelectionEditPolicy());
+				new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new RecipesEditPart.LinkLabelDragPolicy());
 	}
@@ -326,8 +326,8 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = RecipeParserProvider.getParser(
-					RecipeElementTypes.RecipeRecipeConfig_304001,
+			parser = DomainParserProvider.getParser(
+					DomainElementTypes.RecipeRecipeConfig_304002,
 					getParserElement(), CommonParserHint.DESCRIPTION);
 		}
 		return parser;
@@ -339,7 +339,7 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager2(this, null,
-					RecipeEditPartFactory.getTextCellEditorLocator(this)));
+					DomainEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
 	}

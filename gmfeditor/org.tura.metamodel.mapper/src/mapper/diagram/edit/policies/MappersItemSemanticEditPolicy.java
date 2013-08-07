@@ -4,7 +4,7 @@
 package mapper.diagram.edit.policies;
 
 import mapper.diagram.edit.commands.JavaMapperCreateCommand;
-import mapper.diagram.providers.MapperElementTypes;
+import mapper.diagram.providers.DomainElementTypes;
 
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.commands.Command;
@@ -17,20 +17,20 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
  * @generated
  */
 public class MappersItemSemanticEditPolicy extends
-		MapperBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public MappersItemSemanticEditPolicy() {
-		super(MapperElementTypes.Mappers_401000);
+		super(DomainElementTypes.Mappers_401000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (MapperElementTypes.JavaMapper_402002 == req.getElementType()) {
+		if (DomainElementTypes.JavaMapper_402001 == req.getElementType()) {
 			return getGEFWrapper(new JavaMapperCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

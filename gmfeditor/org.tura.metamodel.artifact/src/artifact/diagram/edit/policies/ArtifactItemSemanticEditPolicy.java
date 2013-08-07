@@ -21,20 +21,20 @@ import artifact.diagram.edit.parts.ArtifactArtifactSpecifiersCompartmentEditPart
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.edit.parts.Variable2EditPart;
 import artifact.diagram.edit.parts.VariableEditPart;
-import artifact.diagram.part.ArtifactVisualIDRegistry;
-import artifact.diagram.providers.ArtifactElementTypes;
+import artifact.diagram.part.DomainVisualIDRegistry;
+import artifact.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ArtifactItemSemanticEditPolicy extends
-		ArtifactBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ArtifactItemSemanticEditPolicy() {
-		super(ArtifactElementTypes.Artifact_702001);
+		super(DomainElementTypes.Artifact_702001);
 	}
 
 	/**
@@ -65,12 +65,12 @@ public class ArtifactItemSemanticEditPolicy extends
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
-			switch (ArtifactVisualIDRegistry.getVisualID(node)) {
+			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (ArtifactVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case VariableEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -85,7 +85,7 @@ public class ArtifactItemSemanticEditPolicy extends
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (ArtifactVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case Variable2EditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -100,7 +100,7 @@ public class ArtifactItemSemanticEditPolicy extends
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (ArtifactVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case SpecifierEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),

@@ -3,7 +3,7 @@
  */
 package mapper.diagram.edit.policies;
 
-import mapper.diagram.providers.MapperElementTypes;
+import mapper.diagram.providers.DomainElementTypes;
 
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gef.commands.Command;
@@ -17,13 +17,13 @@ import org.eclipse.gmf.runtime.notation.View;
  * @generated
  */
 public class JavaMapperItemSemanticEditPolicy extends
-		MapperBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public JavaMapperItemSemanticEditPolicy() {
-		super(MapperElementTypes.JavaMapper_402002);
+		super(DomainElementTypes.JavaMapper_402001);
 	}
 
 	/**

@@ -3,7 +3,7 @@
  */
 package mapper.diagram.edit.commands;
 
-import mapper.diagram.edit.policies.MapperBaseItemSemanticEditPolicy;
+import mapper.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -13,9 +13,9 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import typedefinition.Type;
-import typedefinition.TypeElement;
-import typedefinition.TypeExtension;
+import domain.Type;
+import domain.TypeElement;
+import domain.TypeExtension;
 
 /**
  * @generated
@@ -75,7 +75,7 @@ public class TypeExtensionReorientCommand extends EditElementCommand {
 			return false;
 		}
 		Type container = (Type) getLink().eContainer();
-		return MapperBaseItemSemanticEditPolicy.getLinkConstraints()
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
 				.canExistTypeExtension_404001(container, getLink(),
 						getNewSource(), target);
 	}
@@ -92,7 +92,7 @@ public class TypeExtensionReorientCommand extends EditElementCommand {
 			return false;
 		}
 		Type container = (Type) getLink().eContainer();
-		return MapperBaseItemSemanticEditPolicy.getLinkConstraints()
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
 				.canExistTypeExtension_404001(container, getLink(), source,
 						getNewTarget());
 	}

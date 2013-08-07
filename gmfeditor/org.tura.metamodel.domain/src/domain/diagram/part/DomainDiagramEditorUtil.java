@@ -51,8 +51,8 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
-
 import org.tura.metamodel.commons.initdiagram.InitDiagram;
+
 import domain.Domain;
 import domain.diagram.edit.parts.DomainEditPart;
 

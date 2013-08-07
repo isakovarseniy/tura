@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import artifact.Artifact;
-import artifact.ArtifactFactory;
-import artifact.Specifier;
+import domain.Artifact;
+import domain.DomainFactory;
+import domain.Specifier;
 
 /**
  * @generated
@@ -57,7 +57,7 @@ public class SpecifierCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Specifier newElement = ArtifactFactory.eINSTANCE.createSpecifier();
+		Specifier newElement = DomainFactory.eINSTANCE.createSpecifier();
 
 		Artifact owner = (Artifact) getElementToEdit();
 		owner.getSpecifiers().add(newElement);

@@ -6,5 +6,5 @@ package recipe.diagram.edit.helpers;
 /**
  * @generated
  */
-public class ConfigurationEditHelper extends RecipeBaseEditHelper {
+public class ConfigurationEditHelper extends DomainBaseEditHelper {
 }

@@ -34,8 +34,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import typedefinition.diagram.edit.policies.TypeReferenceItemSemanticEditPolicy;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
-import typedefinition.diagram.providers.TypedefinitionElementTypes;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
+import typedefinition.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
@@ -256,7 +256,7 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(TypedefinitionVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(TypeReferencePackageNameTypeNameEditPart.VISUAL_ID));
 	}
 
@@ -265,7 +265,7 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(TypedefinitionElementTypes.TypeExtension_104001);
+		types.add(DomainElementTypes.TypeExtension_104001);
 		return types;
 	}
 
@@ -276,10 +276,10 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof typedefinition.diagram.edit.parts.TypeReferenceEditPart) {
-			types.add(TypedefinitionElementTypes.TypeExtension_104001);
+			types.add(DomainElementTypes.TypeExtension_104001);
 		}
 		if (targetEditPart instanceof TypeEditPart) {
-			types.add(TypedefinitionElementTypes.TypeExtension_104001);
+			types.add(DomainElementTypes.TypeExtension_104001);
 		}
 		return types;
 	}
@@ -289,9 +289,9 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == TypedefinitionElementTypes.TypeExtension_104001) {
-			types.add(TypedefinitionElementTypes.TypeReference_102001);
-			types.add(TypedefinitionElementTypes.Type_102002);
+		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Type_102002);
 		}
 		return types;
 	}
@@ -301,7 +301,7 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(TypedefinitionElementTypes.TypeExtension_104001);
+		types.add(DomainElementTypes.TypeExtension_104001);
 		return types;
 	}
 
@@ -310,9 +310,9 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == TypedefinitionElementTypes.TypeExtension_104001) {
-			types.add(TypedefinitionElementTypes.TypeReference_102001);
-			types.add(TypedefinitionElementTypes.Type_102002);
+		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Type_102002);
 		}
 		return types;
 	}

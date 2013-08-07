@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typesrepository.BusinessPackage;
-import typesrepository.Types;
-import typesrepository.TypesrepositoryFactory;
+import domain.BusinessPackage;
+import domain.DomainFactory;
+import domain.Types;
 
 /**
  * @generated
@@ -57,7 +57,7 @@ public class BusinessPackageCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		BusinessPackage newElement = TypesrepositoryFactory.eINSTANCE
+		BusinessPackage newElement = DomainFactory.eINSTANCE
 				.createBusinessPackage();
 
 		Types owner = (Types) getElementToEdit();

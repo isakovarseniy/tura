@@ -13,34 +13,32 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 import typedefinition.diagram.edit.commands.EnumaratorCreateCommand;
 import typedefinition.diagram.edit.commands.TypeCreateCommand;
 import typedefinition.diagram.edit.commands.TypeReferenceCreateCommand;
-import typedefinition.diagram.providers.TypedefinitionElementTypes;
+import typedefinition.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class TypeDefinitionItemSemanticEditPolicy extends
-		TypedefinitionBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public TypeDefinitionItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.TypeDefinition_101000);
+		super(DomainElementTypes.TypeDefinition_101000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypedefinitionElementTypes.TypeReference_102001 == req
-				.getElementType()) {
+		if (DomainElementTypes.TypeReference_102001 == req.getElementType()) {
 			return getGEFWrapper(new TypeReferenceCreateCommand(req));
 		}
-		if (TypedefinitionElementTypes.Type_102002 == req.getElementType()) {
+		if (DomainElementTypes.Type_102002 == req.getElementType()) {
 			return getGEFWrapper(new TypeCreateCommand(req));
 		}
-		if (TypedefinitionElementTypes.Enumarator_102003 == req
-				.getElementType()) {
+		if (DomainElementTypes.Enumarator_102003 == req.getElementType()) {
 			return getGEFWrapper(new EnumaratorCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

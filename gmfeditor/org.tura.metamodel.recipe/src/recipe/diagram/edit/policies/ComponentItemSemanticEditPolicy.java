@@ -19,20 +19,20 @@ import recipe.diagram.edit.parts.Component2EditPart;
 import recipe.diagram.edit.parts.ComponentComponentComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.ComponentComponentMappersCompartmentEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
-import recipe.diagram.part.RecipeVisualIDRegistry;
-import recipe.diagram.providers.RecipeElementTypes;
+import recipe.diagram.part.DomainVisualIDRegistry;
+import recipe.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ComponentItemSemanticEditPolicy extends
-		RecipeBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ComponentItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Component_303004);
+		super(DomainElementTypes.Component_303001);
 	}
 
 	/**
@@ -63,12 +63,12 @@ public class ComponentItemSemanticEditPolicy extends
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
-			switch (RecipeVisualIDRegistry.getVisualID(node)) {
+			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case ComponentComponentComponentsCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (RecipeVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case Component2EditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -83,7 +83,7 @@ public class ComponentItemSemanticEditPolicy extends
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (RecipeVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case ModelMapperEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),

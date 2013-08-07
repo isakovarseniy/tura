@@ -15,8 +15,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import recipe.Component;
-import recipe.RecipeFactory;
+import domain.Component;
+import domain.DomainFactory;
 
 /**
  * @generated
@@ -56,7 +56,7 @@ public class Component2CreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Component newElement = RecipeFactory.eINSTANCE.createComponent();
+		Component newElement = DomainFactory.eINSTANCE.createComponent();
 
 		Component owner = (Component) getElementToEdit();
 		owner.getComponents().add(newElement);

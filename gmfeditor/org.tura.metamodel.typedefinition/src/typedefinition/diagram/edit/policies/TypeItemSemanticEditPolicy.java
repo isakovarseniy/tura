@@ -25,20 +25,20 @@ import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
-import typedefinition.diagram.providers.TypedefinitionElementTypes;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
+import typedefinition.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class TypeItemSemanticEditPolicy extends
-		TypedefinitionBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public TypeItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Type_102002);
+		super(DomainElementTypes.Type_102002);
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class TypeItemSemanticEditPolicy extends
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
-			if (TypedefinitionVisualIDRegistry.getVisualID(incomingLink) == TypeExtensionEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(incomingLink) == TypeExtensionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -61,7 +61,7 @@ public class TypeItemSemanticEditPolicy extends
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
-			if (TypedefinitionVisualIDRegistry.getVisualID(outgoingLink) == TypeExtensionEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == TypeExtensionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -89,12 +89,12 @@ public class TypeItemSemanticEditPolicy extends
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
-			switch (TypedefinitionVisualIDRegistry.getVisualID(node)) {
+			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case TypeTypeAttributesCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (TypedefinitionVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case AttributeEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -109,7 +109,7 @@ public class TypeItemSemanticEditPolicy extends
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (TypedefinitionVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case OperationEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -139,8 +139,7 @@ public class TypeItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (TypedefinitionElementTypes.TypeExtension_104001 == req
-				.getElementType()) {
+		if (DomainElementTypes.TypeExtension_104001 == req.getElementType()) {
 			return getGEFWrapper(new TypeExtensionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
@@ -152,8 +151,7 @@ public class TypeItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (TypedefinitionElementTypes.TypeExtension_104001 == req
-				.getElementType()) {
+		if (DomainElementTypes.TypeExtension_104001 == req.getElementType()) {
 			return getGEFWrapper(new TypeExtensionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}

@@ -11,26 +11,26 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import typesrepository.diagram.edit.commands.TypesCreateCommand;
-import typesrepository.diagram.providers.TypesrepositoryElementTypes;
+import typesrepository.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class TypesRepositoryItemSemanticEditPolicy extends
-		TypesrepositoryBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public TypesRepositoryItemSemanticEditPolicy() {
-		super(TypesrepositoryElementTypes.TypesRepository_201000);
+		super(DomainElementTypes.TypesRepository_201000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypesrepositoryElementTypes.Types_202001 == req.getElementType()) {
+		if (DomainElementTypes.Types_202001 == req.getElementType()) {
 			return getGEFWrapper(new TypesCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

@@ -37,9 +37,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
-import businessobjects.diagram.part.BusinessobjectsDiagramEditor;
-import businessobjects.diagram.part.BusinessobjectsDiagramEditorPlugin;
-import businessobjects.diagram.part.BusinessobjectsDiagramEditorUtil;
+import businessobjects.diagram.part.DomainDiagramEditor;
+import businessobjects.diagram.part.DomainDiagramEditorPlugin;
+import businessobjects.diagram.part.DomainDiagramEditorUtil;
 import businessobjects.diagram.part.Messages;
 
 /**
@@ -151,9 +151,8 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 								if (nextResource.isLoaded()
 										&& !getEditingDomain().isReadOnly(
 												nextResource)) {
-									nextResource
-											.save(BusinessobjectsDiagramEditorUtil
-													.getSaveOptions());
+									nextResource.save(DomainDiagramEditorUtil
+											.getSaveOptions());
 								}
 							}
 						} catch (IOException ex) {
@@ -185,7 +184,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 */
 		protected PreferencesHint getPreferencesHint() {
 			// XXX prefhint from target diagram's editor?
-			return BusinessobjectsDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
+			return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 		}
 
 		/**
@@ -199,7 +198,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 * @generated
 		 */
 		protected String getEditorID() {
-			return BusinessobjectsDiagramEditor.ID;
+			return DomainDiagramEditor.ID;
 		}
 	}
 

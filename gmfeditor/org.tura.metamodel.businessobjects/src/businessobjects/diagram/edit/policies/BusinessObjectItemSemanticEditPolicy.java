@@ -27,20 +27,20 @@ import businessobjects.diagram.edit.parts.OtherMethodEditPart;
 import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
 import businessobjects.diagram.edit.parts.SearchMethodEditPart;
 import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
-import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
-import businessobjects.diagram.providers.BusinessobjectsElementTypes;
+import businessobjects.diagram.part.DomainVisualIDRegistry;
+import businessobjects.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class BusinessObjectItemSemanticEditPolicy extends
-		BusinessobjectsBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public BusinessObjectItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.BusinessObject_602003);
+		super(DomainElementTypes.BusinessObject_602001);
 	}
 
 	/**
@@ -71,12 +71,12 @@ public class BusinessObjectItemSemanticEditPolicy extends
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
-			switch (BusinessobjectsVisualIDRegistry.getVisualID(node)) {
+			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case CreateMethodEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -91,7 +91,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case InsertMethodEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -106,7 +106,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case UpdateMethodEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -121,7 +121,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case RemoveMethodEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -136,7 +136,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case SearchMethodEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -151,7 +151,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (BusinessobjectsVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case OtherMethodEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),

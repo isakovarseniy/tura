@@ -3,7 +3,7 @@
  */
 package mapper.diagram.edit.policies;
 
-import mapper.diagram.providers.MapperElementTypes;
+import mapper.diagram.providers.DomainElementTypes;
 
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
@@ -13,13 +13,13 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
  * @generated
  */
 public class TypeExtensionItemSemanticEditPolicy extends
-		MapperBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public TypeExtensionItemSemanticEditPolicy() {
-		super(MapperElementTypes.TypeExtension_404001);
+		super(DomainElementTypes.TypeExtension_404001);
 	}
 
 	/**

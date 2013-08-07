@@ -6,5 +6,5 @@ package application.diagram.edit.helpers;
 /**
  * @generated
  */
-public class TypeExtensionEditHelper extends ApplicationBaseEditHelper {
+public class TypeExtensionEditHelper extends DomainBaseEditHelper {
 }

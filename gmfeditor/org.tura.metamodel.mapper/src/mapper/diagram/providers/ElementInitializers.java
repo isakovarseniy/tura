@@ -3,7 +3,7 @@
  */
 package mapper.diagram.providers;
 
-import mapper.diagram.part.MapperDiagramEditorPlugin;
+import mapper.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -18,10 +18,10 @@ public class ElementInitializers {
 	 * @generated
 	 */
 	public static ElementInitializers getInstance() {
-		ElementInitializers cached = MapperDiagramEditorPlugin.getInstance()
+		ElementInitializers cached = DomainDiagramEditorPlugin.getInstance()
 				.getElementInitializers();
 		if (cached == null) {
-			MapperDiagramEditorPlugin.getInstance().setElementInitializers(
+			DomainDiagramEditorPlugin.getInstance().setElementInitializers(
 					cached = new ElementInitializers());
 		}
 		return cached;

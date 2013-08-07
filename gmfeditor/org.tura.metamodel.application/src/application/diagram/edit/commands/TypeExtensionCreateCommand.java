@@ -15,11 +15,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import typedefinition.Type;
-import typedefinition.TypeElement;
-import typedefinition.TypeExtension;
-import typedefinition.TypedefinitionFactory;
-import application.diagram.edit.policies.ApplicationBaseItemSemanticEditPolicy;
+import application.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
+import domain.DomainFactory;
+import domain.Type;
+import domain.TypeElement;
+import domain.TypeExtension;
 
 /**
  * @generated
@@ -72,7 +72,7 @@ public class TypeExtensionCreateCommand extends EditElementCommand {
 		if (getContainer() == null) {
 			return false;
 		}
-		return ApplicationBaseItemSemanticEditPolicy.getLinkConstraints()
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
 				.canCreateTypeExtension_804001(getContainer(), getSource(),
 						getTarget());
 	}
@@ -87,7 +87,7 @@ public class TypeExtensionCreateCommand extends EditElementCommand {
 					"Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
-		TypeExtension newElement = TypedefinitionFactory.eINSTANCE
+		TypeExtension newElement = DomainFactory.eINSTANCE
 				.createTypeExtension();
 		getContainer().setExtension(newElement);
 		newElement.setSource(getSource());

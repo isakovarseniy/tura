@@ -27,7 +27,7 @@ import org.eclipse.swt.graphics.Color;
 
 import application.diagram.edit.policies.ApplicationMapperItemSemanticEditPolicy;
 import application.diagram.edit.policies.OpenDiagramApplicationMapperEditPolicy;
-import application.diagram.part.ApplicationVisualIDRegistry;
+import application.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -250,7 +250,7 @@ public class ApplicationMapperEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(ApplicationVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(ApplicationMapperNameEditPart.VISUAL_ID));
 	}
 

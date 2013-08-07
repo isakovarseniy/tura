@@ -5,7 +5,7 @@ package artifact.diagram.preferences;
 
 import org.eclipse.gmf.runtime.diagram.ui.preferences.ConnectionsPreferencePage;
 
-import artifact.diagram.part.ArtifactDiagramEditorPlugin;
+import artifact.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -16,7 +16,7 @@ public class DiagramConnectionsPreferencePage extends ConnectionsPreferencePage 
 	 * @generated
 	 */
 	public DiagramConnectionsPreferencePage() {
-		setPreferenceStore(ArtifactDiagramEditorPlugin.getInstance()
+		setPreferenceStore(DomainDiagramEditorPlugin.getInstance()
 				.getPreferenceStore());
 	}
 }

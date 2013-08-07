@@ -47,11 +47,11 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import typedefinition.TypeReference;
-import typedefinition.diagram.edit.policies.TypedefinitionTextSelectionEditPolicy;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
-import typedefinition.diagram.providers.TypedefinitionElementTypes;
-import typedefinition.diagram.providers.TypedefinitionParserProvider;
+import typedefinition.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
+import typedefinition.diagram.providers.DomainElementTypes;
+import typedefinition.diagram.providers.DomainParserProvider;
+import domain.TypeReference;
 
 /**
  * @generated
@@ -102,7 +102,7 @@ public class TypeReferencePackageNameTypeNameEditPart extends
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new TypedefinitionTextSelectionEditPolicy());
+				new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -204,7 +204,7 @@ public class TypeReferencePackageNameTypeNameEditPart extends
 		if (parserElement == null) {
 			return null;
 		}
-		return TypedefinitionElementTypes.getImage(parserElement.eClass());
+		return DomainElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**
@@ -311,11 +311,11 @@ public class TypeReferencePackageNameTypeNameEditPart extends
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = TypedefinitionParserProvider
+			parser = DomainParserProvider
 					.getParser(
-							TypedefinitionElementTypes.TypeReference_102001,
+							DomainElementTypes.TypeReference_102001,
 							getParserElement(),
-							TypedefinitionVisualIDRegistry
+							DomainVisualIDRegistry
 									.getType(typedefinition.diagram.edit.parts.TypeReferencePackageNameTypeNameEditPart.VISUAL_ID));
 		}
 		return parser;
@@ -327,8 +327,7 @@ public class TypeReferencePackageNameTypeNameEditPart extends
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager2(this, null,
-					TypedefinitionEditPartFactory
-							.getTextCellEditorLocator(this)));
+					DomainEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
 	}

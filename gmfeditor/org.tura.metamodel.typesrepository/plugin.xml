@@ -23,12 +23,12 @@
       <editor
          id="typesrepository.diagram.part.TypesrepositoryDiagramEditorID"
          name="%editorName"
-         icon="icons/obj16/TypesrepositoryDiagramFile.gif"
+         icon="icons/obj16/DomainDiagramFile.gif"
          extensions="typesrepository_diagram"
          default="true"
-         class="typesrepository.diagram.part.TypesrepositoryDiagramEditor"
-         matchingStrategy="typesrepository.diagram.part.TypesrepositoryMatchingStrategy"
-         contributorClass="typesrepository.diagram.part.TypesrepositoryDiagramActionBarContributor">
+         class="typesrepository.diagram.part.DomainDiagramEditor"
+         matchingStrategy="typesrepository.diagram.part.DomainMatchingStrategy"
+         contributorClass="typesrepository.diagram.part.DomainDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -46,10 +46,10 @@
       <?gmfgen generated="true"?>
   	  <wizard
   	     name="%newWizardName"
-  	     icon="icons/obj16/TypesrepositoryDiagramFile.gif"
+  	     icon="icons/obj16/DomainDiagramFile.gif"
   	     category="org.eclipse.ui.Examples"
-  	     class="typesrepository.diagram.part.TypesrepositoryCreationWizard"
-  	     id="typesrepository.diagram.part.TypesrepositoryCreationWizardID">
+  	     class="typesrepository.diagram.part.DomainCreationWizard"
+  	     id="typesrepository.diagram.part.DomainCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
@@ -58,11 +58,11 @@
       <?gmfgen generated="true"?>
       <objectContribution
             id="org.tura.metamodel.typesrepository.InitDiagram"
-            nameFilter="*.typesrepository"
+            nameFilter="*.domain"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="typesrepository.diagram.part.TypesrepositoryInitDiagramFileAction"
+               class="typesrepository.diagram.part.DomainInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="org.tura.metamodel.typesrepository.InitDiagramAction">
@@ -126,13 +126,13 @@
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
       <?gmfgen generated="true"?>
-      <MarkerNavigationProvider class="typesrepository.diagram.providers.TypesrepositoryMarkerNavigationProvider">
+      <MarkerNavigationProvider class="typesrepository.diagram.providers.DomainMarkerNavigationProvider">
          <MarkerType name="org.tura.metamodel.typesrepository.diagnostic"/>
          <Priority name="Lowest"/>
       </MarkerNavigationProvider>
    </extension>
 
-   <extension id="diagnostic" name="Typesrepository Plugin problems" point="org.eclipse.core.resources.markers">
+   <extension id="diagnostic" name="Domain Plugin problems" point="org.eclipse.core.resources.markers">
       <?gmfgen generated="true"?>
       <super type="org.eclipse.core.resources.problemmarker"/>
       <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
@@ -141,7 +141,7 @@
 
    <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="typesrepository.diagram.providers.TypesrepositoryValidationDecoratorProvider">
+      <decoratorProvider class="typesrepository.diagram.providers.DomainValidationDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
@@ -190,7 +190,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="org.tura.metamodel.typesrepository"
-            labelProvider="typesrepository.diagram.sheet.TypesrepositorySheetLabelProvider">
+            labelProvider="typesrepository.diagram.sheet.DomainSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -241,43 +241,43 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="typesrepository.diagram.sheet.TypesrepositoryPropertySection">
+            class="typesrepository.diagram.sheet.DomainPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="typesrepository.diagram.navigator.TypesrepositoryAbstractNavigatorItem"/>
+            <input type="typesrepository.diagram.navigator.DomainAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="typesrepository.diagram.providers.TypesrepositoryViewProvider">
+      <viewProvider class="typesrepository.diagram.providers.DomainViewProvider">
          <Priority name="Lowest"/>
          <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
-            <method name="getType()" value="typesrepository"/>
+            <method name="getType()" value="domain"/>
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Typesrepository"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="202001,203003,203001,203002"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="204001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="202001,203001,203002,203003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="204001,204002,204003"/>
       </viewProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="typesrepository.diagram.providers.TypesrepositoryEditPartProvider">
+      <editpartProvider class="typesrepository.diagram.providers.DomainEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="Typesrepository"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="202001,203003,203001,203002"/>
+            <method name="getType()" value="202001,203001,203002,203003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="204001"/>
+            <method name="getType()" value="204001,204002,204003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="205004,205003,205001,205002"/>
+            <method name="getType()" value="205004,205001,205002,205003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="207001,207002,207003"/>
@@ -288,34 +288,31 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="typesrepository.diagram.providers.TypesrepositoryModelingAssistantProvider">
+      <modelingAssistantProvider class="typesrepository.diagram.providers.DomainModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="typesrepository.diagram.edit.parts.TypesRepositoryEditPart" id="TypesRepository_201000"/>
          <object class="typesrepository.diagram.edit.parts.TypesEditPart" id="Types_202001"/>
-         <object class="typesrepository.diagram.edit.parts.PrimitiveEditPart" id="Primitive_203003"/>
-         <object class="typesrepository.diagram.edit.parts.PackageEditPart" id="Package_203001"/>
-         <object class="typesrepository.diagram.edit.parts.BusinessPackageEditPart" id="BusinessPackage_203002"/>
-         <context elements="TypesRepository_201000,Types_202001,Primitive_203003,Package_203001,BusinessPackage_203002"/>
+         <context elements="TypesRepository_201000,Types_202001"/>
       </modelingAssistantProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="typesrepository.diagram.providers.TypesrepositoryIconProvider">
+      <IconProvider class="typesrepository.diagram.providers.DomainIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="typesrepository.diagram.providers.TypesrepositoryParserProvider">
+      <ParserProvider class="typesrepository.diagram.providers.DomainParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="typesrepository.diagram.providers.TypesrepositoryShortcutsDecoratorProvider">
+      <decoratorProvider class="typesrepository.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
             <method name="getType()" value="202001"/>
@@ -326,7 +323,7 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://tura.org/2013/v1/typesrepository">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.typesrepository.TypesRepository_201000"
                name="%metatype.name.TypesRepository_201000"
@@ -336,7 +333,7 @@
             <param name="semanticHint" value="201000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typesrepository">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.typesrepository.Types_202001"
                name="%metatype.name.Types_202001"
@@ -346,37 +343,37 @@
             <param name="semanticHint" value="202001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typesrepository">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.typesrepository.Primitive_203003"
-               name="%metatype.name.Primitive_203003"
+               id="org.tura.metamodel.typesrepository.Primitive_203001"
+               name="%metatype.name.Primitive_203001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Primitive"
                edithelper="typesrepository.diagram.edit.helpers.PrimitiveEditHelper">
-            <param name="semanticHint" value="203003"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typesrepository">
-         <metamodelType
-               id="org.tura.metamodel.typesrepository.Package_203001"
-               name="%metatype.name.Package_203001"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Package"
-               edithelper="typesrepository.diagram.edit.helpers.PackageEditHelper">
             <param name="semanticHint" value="203001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typesrepository">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.typesrepository.BusinessPackage_203002"
-               name="%metatype.name.BusinessPackage_203002"
+               id="org.tura.metamodel.typesrepository.Package_203002"
+               name="%metatype.name.Package_203002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="BusinessPackage"
-               edithelper="typesrepository.diagram.edit.helpers.BusinessPackageEditHelper">
+               eclass="Package"
+               edithelper="typesrepository.diagram.edit.helpers.PackageEditHelper">
             <param name="semanticHint" value="203002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.typesrepository.BusinessPackage_203003"
+               name="%metatype.name.BusinessPackage_203003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="BusinessPackage"
+               edithelper="typesrepository.diagram.edit.helpers.BusinessPackageEditHelper">
+            <param name="semanticHint" value="203003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.typesrepository.TypeExtension_204001"
                name="%metatype.name.TypeExtension_204001"
@@ -386,24 +383,48 @@
             <param name="semanticHint" value="204001"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.typesrepository.RecipeRecipeConfig_204002"
+               name="%metatype.name.RecipeRecipeConfig_204002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="204002"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.typesrepository.ConfigurationConfigExtension_204003"
+               name="%metatype.name.ConfigurationConfigExtension_204003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="204003"/>
+         </specializationType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
       <?gmfgen generated="true"?>
-      <clientContext id="org.tura.metamodel.typesrepository.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <clientContext id="org.tura.metamodel.typesrepository.TypeContext"> -->
+      <clientContext id="SharedClientContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
                value="org.tura.metamodel.typesrepository.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="org.tura.metamodel.typesrepository.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <binding context="org.tura.metamodel.typesrepository.TypeContext"> -->
+      <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.typesrepository.TypesRepository_201000"/>
          <elementType ref="org.tura.metamodel.typesrepository.Types_202001"/>
-         <elementType ref="org.tura.metamodel.typesrepository.Primitive_203003"/>
-         <elementType ref="org.tura.metamodel.typesrepository.Package_203001"/>
-         <elementType ref="org.tura.metamodel.typesrepository.BusinessPackage_203002"/>
+         <elementType ref="org.tura.metamodel.typesrepository.Primitive_203001"/>
+         <elementType ref="org.tura.metamodel.typesrepository.Package_203002"/>
+         <elementType ref="org.tura.metamodel.typesrepository.BusinessPackage_203003"/>
          <elementType ref="org.tura.metamodel.typesrepository.TypeExtension_204001"/>
+         <elementType ref="org.tura.metamodel.typesrepository.RecipeRecipeConfig_204002"/>
+         <elementType ref="org.tura.metamodel.typesrepository.ConfigurationConfigExtension_204003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
@@ -414,7 +435,7 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="org.tura.metamodel.typesrepository"
            properties="isURIEditorInput"
-           class="typesrepository.diagram.part.TypesrepositoryUriEditorInputTester">
+           class="typesrepository.diagram.part.DomainUriEditorInputTester">
        </propertyTester>
    </extension>
 
@@ -425,7 +446,7 @@
            type="org.eclipse.gmf.runtime.notation.View"
            namespace="org.tura.metamodel.typesrepository"
            properties="isShortcut"
-           class="typesrepository.diagram.part.TypesrepositoryShortcutPropertyTester">
+           class="typesrepository.diagram.part.DomainShortcutPropertyTester">
        </propertyTester>
    </extension>
 
@@ -451,9 +472,9 @@
             id="org.tura.metamodel.typesrepository.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="typesrepository.diagram.navigator.TypesrepositoryNavigatorContentProvider" 
-            labelProvider="typesrepository.diagram.navigator.TypesrepositoryNavigatorLabelProvider"
-            icon="icons/obj16/TypesrepositoryDiagramFile.gif"
+            contentProvider="typesrepository.diagram.navigator.DomainNavigatorContentProvider" 
+            labelProvider="typesrepository.diagram.navigator.DomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
@@ -461,7 +482,7 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="typesrepository_diagram"/>
                </and>
-               <instanceof value="typesrepository.diagram.navigator.TypesrepositoryAbstractNavigatorItem"/>
+               <instanceof value="typesrepository.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.typesrepository.isShortcut"/>
            	   </adapt>
@@ -469,7 +490,7 @@
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="typesrepository.diagram.navigator.TypesrepositoryAbstractNavigatorItem"/>
+         	   <instanceof value="typesrepository.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.typesrepository.isShortcut"/>
            	   </adapt>
@@ -477,14 +498,14 @@
          </possibleChildren>
          <commonSorter 
                id="org.tura.metamodel.typesrepository.navigatorSorter" 
-               class="typesrepository.diagram.navigator.TypesrepositoryNavigatorSorter">
+               class="typesrepository.diagram.navigator.DomainNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
         	         <test property="org.eclipse.core.resources.extension" value="typesrepository_diagram"/>
                   </and>
-                  <instanceof value="typesrepository.diagram.navigator.TypesrepositoryAbstractNavigatorItem"/>
+                  <instanceof value="typesrepository.diagram.navigator.DomainAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -493,29 +514,29 @@
             id="org.tura.metamodel.typesrepository.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="typesrepository.diagram.navigator.TypesrepositoryDomainNavigatorContentProvider" 
-            labelProvider="typesrepository.diagram.navigator.TypesrepositoryDomainNavigatorLabelProvider"
-            icon="icons/obj16/TypesrepositoryDiagramFile.gif"
+            contentProvider="typesrepository.diagram.navigator.DomainDomainNavigatorContentProvider" 
+            labelProvider="typesrepository.diagram.navigator.DomainDomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="typesrepository"/>
+        	      <test property="org.eclipse.core.resources.extension" value="domain"/>
                </and>
-               <instanceof value="typesrepository.diagram.navigator.TypesrepositoryDomainNavigatorItem"/>
+               <instanceof value="typesrepository.diagram.navigator.DomainDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="typesrepository.diagram.navigator.TypesrepositoryDomainNavigatorItem"/>
+            <instanceof value="typesrepository.diagram.navigator.DomainDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="org.tura.metamodel.typesrepository.navigatorActionProvider"
-            class="typesrepository.diagram.navigator.TypesrepositoryNavigatorActionProvider">
+            class="typesrepository.diagram.navigator.DomainNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="typesrepository.diagram.navigator.TypesrepositoryAbstractNavigatorItem"/>
+               <instanceof value="typesrepository.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.typesrepository.isShortcut"/>
            	   </adapt>
@@ -528,7 +549,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="org.tura.metamodel.typesrepository.navigatorLinkHelper"
-            class="typesrepository.diagram.navigator.TypesrepositoryNavigatorLinkHelper">
+            class="typesrepository.diagram.navigator.DomainNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -536,7 +557,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="typesrepository.diagram.navigator.TypesrepositoryAbstractNavigatorItem"/>
+            <instanceof value="typesrepository.diagram.navigator.DomainAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -544,7 +565,7 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="typesrepository.diagram.part.TypesrepositoryDiagramUpdateCommand"
+         defaultHandler="typesrepository.diagram.part.DomainDiagramUpdateCommand"
          description="%update.diagram.description"
          id="typesrepository.diagram.updateDiagram"
          name="%update.diagram.name"/>
@@ -593,4 +614,14 @@
    </extension>
 
    <!-- optionally, specify keybindings -->
+
+
+    <extension
+         point="org.eclipse.emf.transaction.editingDomains">
+      <!-- ITEMIS CHANGE: register diagram editing domain factory --> 
+      <editingDomain
+            factory="org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory"
+            id="org.tura.metamodel.typesrepository.EditingDomain">
+      </editingDomain>
+   </extension>
 </plugin>

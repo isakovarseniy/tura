@@ -3,12 +3,11 @@
  */
 package domain.diagram.edit.policies;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
-
 import java.util.List;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -45,11 +44,9 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
-import artifact.Artifact;
-import artifact.ArtifactFactory;
-import artifact.ArtifactPackage;
-import artifact.Artifacts;
+import domain.Artifacts;
 import domain.DomainArtifacts;
+import domain.DomainFactory;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.DomainDiagramEditorUtil;
 import domain.diagram.part.Messages;
@@ -99,9 +96,7 @@ public class OpenDiagramDomainArtifactsEditPolicy extends OpenEditPolicy {
 			diagramFacet = linkStyle;
 		}
 
-		// FIXME canExecute if !(readOnly && getDiagramToOpen == null), i.e.
-		// open works on ro diagrams only when there's associated diagram
-		// already
+		// FIXME canExecute if  !(readOnly && getDiagramToOpen == null), i.e. open works on ro diagrams only when there's associated diagram already
 
 		/**
 		 * @generated
@@ -156,7 +151,7 @@ public class OpenDiagramDomainArtifactsEditPolicy extends OpenEditPolicy {
 
 			Diagram d = ViewService.createDiagram(
 
-			ArtifactFactory.eINSTANCE.createArtifacts()
+			DomainFactory.eINSTANCE.createArtifacts()
 
 			, getDiagramKind(), getPreferencesHint());
 			if (d == null) {
@@ -181,31 +176,19 @@ public class OpenDiagramDomainArtifactsEditPolicy extends OpenEditPolicy {
 					folder.create(true, true, null);
 				}
 
-				IFile modelFile = folder.getFile(filename + "." + "artifact"
-
-				);
 				IFile diagramFile = folder.getFile(filename + "." + "artifact"
 
 				+ "_diagram");
 
-				URI modelURI = URI.createFileURI(modelFile.getLocation()
-						.toOSString());
 				URI diagramURI = URI.createFileURI(diagramFile.getLocation()
 						.toOSString());
 				Resource diagramResource = null;
-
-				if (modelFile.exists())
-					modelFile.delete(true, null);
 
 				if (diagramFile.exists())
 					diagramFile.delete(true, null);
 
 				diagramResource = diagramFacet.eResource().getResourceSet()
 						.createResource(diagramURI);
-				String header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\"/>";
-				ByteArrayInputStream in = new ByteArrayInputStream(
-						header.getBytes());
-				modelFile.create(in, true, null);
 
 				diagramFacet.setDiagramLink(d);
 				diagramResource.getContents().add(d);
@@ -218,9 +201,7 @@ public class OpenDiagramDomainArtifactsEditPolicy extends OpenEditPolicy {
 				sourceObject.setArtifact
 
 				(targetObject);
-				final Resource modelResource = sourceObject.eResource()
-						.getResourceSet().getResource(modelURI, true);
-				modelResource.getContents().add(targetObject);
+				sourceObject.eResource().getContents().add(targetObject);
 
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {

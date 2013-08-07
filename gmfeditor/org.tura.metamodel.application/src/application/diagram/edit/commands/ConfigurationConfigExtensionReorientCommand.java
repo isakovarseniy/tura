@@ -12,8 +12,8 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import recipe.Configuration;
-import application.diagram.edit.policies.ApplicationBaseItemSemanticEditPolicy;
+import application.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
+import domain.Configuration;
 
 /**
  * @generated
@@ -76,7 +76,7 @@ public class ConfigurationConfigExtensionReorientCommand extends
 		if (!(oldEnd instanceof Configuration && newEnd instanceof Configuration)) {
 			return false;
 		}
-		return ApplicationBaseItemSemanticEditPolicy.getLinkConstraints()
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
 				.canExistConfigurationConfigExtension_804003(getNewSource(),
 						getOldTarget());
 	}
@@ -88,7 +88,7 @@ public class ConfigurationConfigExtensionReorientCommand extends
 		if (!(oldEnd instanceof Configuration && newEnd instanceof Configuration)) {
 			return false;
 		}
-		return ApplicationBaseItemSemanticEditPolicy.getLinkConstraints()
+		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
 				.canExistConfigurationConfigExtension_804003(getOldSource(),
 						getNewTarget());
 	}

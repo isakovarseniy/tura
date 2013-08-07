@@ -71,7 +71,7 @@ public class DiagramEditorContextMenuProvider extends
 						}
 					});
 		} catch (Exception e) {
-			ArtifactDiagramEditorPlugin.getInstance().logError(
+			DomainDiagramEditorPlugin.getInstance().logError(
 					"Error building context menu", e);
 		}
 	}

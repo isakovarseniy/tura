@@ -3,7 +3,7 @@
  */
 package mapper.diagram.preferences;
 
-import mapper.diagram.part.MapperDiagramEditorPlugin;
+import mapper.diagram.part.DomainDiagramEditorPlugin;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -30,6 +30,6 @@ public class DiagramPreferenceInitializer extends AbstractPreferenceInitializer 
 	 * @generated
 	 */
 	protected IPreferenceStore getPreferenceStore() {
-		return MapperDiagramEditorPlugin.getInstance().getPreferenceStore();
+		return DomainDiagramEditorPlugin.getInstance().getPreferenceStore();
 	}
 }

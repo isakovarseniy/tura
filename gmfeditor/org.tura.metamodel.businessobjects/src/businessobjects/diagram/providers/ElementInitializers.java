@@ -3,7 +3,7 @@
  */
 package businessobjects.diagram.providers;
 
-import businessobjects.diagram.part.BusinessobjectsDiagramEditorPlugin;
+import businessobjects.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -18,11 +18,11 @@ public class ElementInitializers {
 	 * @generated
 	 */
 	public static ElementInitializers getInstance() {
-		ElementInitializers cached = BusinessobjectsDiagramEditorPlugin
-				.getInstance().getElementInitializers();
+		ElementInitializers cached = DomainDiagramEditorPlugin.getInstance()
+				.getElementInitializers();
 		if (cached == null) {
-			BusinessobjectsDiagramEditorPlugin.getInstance()
-					.setElementInitializers(cached = new ElementInitializers());
+			DomainDiagramEditorPlugin.getInstance().setElementInitializers(
+					cached = new ElementInitializers());
 		}
 		return cached;
 	}

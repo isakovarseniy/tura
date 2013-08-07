@@ -11,27 +11,26 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import businessobjects.diagram.edit.commands.BusinessObjectCreateCommand;
-import businessobjects.diagram.providers.BusinessobjectsElementTypes;
+import businessobjects.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class BusinessObjectsItemSemanticEditPolicy extends
-		BusinessobjectsBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public BusinessObjectsItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.BusinessObjects_601000);
+		super(DomainElementTypes.BusinessObjects_601000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (BusinessobjectsElementTypes.BusinessObject_602003 == req
-				.getElementType()) {
+		if (DomainElementTypes.BusinessObject_602001 == req.getElementType()) {
 			return getGEFWrapper(new BusinessObjectCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

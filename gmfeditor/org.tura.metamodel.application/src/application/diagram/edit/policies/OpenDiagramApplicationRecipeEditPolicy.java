@@ -3,7 +3,6 @@
  */
 package application.diagram.edit.policies;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
@@ -45,12 +44,12 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
-import recipe.RecipeFactory;
-import recipe.Recipes;
-import application.ApplicationRecipe;
-import application.diagram.part.ApplicationDiagramEditorPlugin;
-import application.diagram.part.ApplicationDiagramEditorUtil;
+import application.diagram.part.DomainDiagramEditorPlugin;
+import application.diagram.part.DomainDiagramEditorUtil;
 import application.diagram.part.Messages;
+import domain.ApplicationRecipe;
+import domain.DomainFactory;
+import domain.Recipes;
 
 /**
  * @generated
@@ -152,7 +151,7 @@ public class OpenDiagramApplicationRecipeEditPolicy extends OpenEditPolicy {
 
 			Diagram d = ViewService.createDiagram(
 
-			RecipeFactory.eINSTANCE.createRecipes()
+			DomainFactory.eINSTANCE.createRecipes()
 
 			, getDiagramKind(), getPreferencesHint());
 			if (d == null) {
@@ -177,31 +176,19 @@ public class OpenDiagramApplicationRecipeEditPolicy extends OpenEditPolicy {
 					folder.create(true, true, null);
 				}
 
-				IFile modelFile = folder.getFile(filename + "." + "recipe"
-
-				);
 				IFile diagramFile = folder.getFile(filename + "." + "recipe"
 
 				+ "_diagram");
 
-				URI modelURI = URI.createFileURI(modelFile.getLocation()
-						.toOSString());
 				URI diagramURI = URI.createFileURI(diagramFile.getLocation()
 						.toOSString());
 				Resource diagramResource = null;
-
-				if (modelFile.exists())
-					modelFile.delete(true, null);
 
 				if (diagramFile.exists())
 					diagramFile.delete(true, null);
 
 				diagramResource = diagramFacet.eResource().getResourceSet()
 						.createResource(diagramURI);
-				String header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\"/>";
-				ByteArrayInputStream in = new ByteArrayInputStream(
-						header.getBytes());
-				modelFile.create(in, true, null);
 
 				diagramFacet.setDiagramLink(d);
 				diagramResource.getContents().add(d);
@@ -214,9 +201,7 @@ public class OpenDiagramApplicationRecipeEditPolicy extends OpenEditPolicy {
 				sourceObject.setRecipes
 
 				(targetObject);
-				final Resource modelResource = sourceObject.eResource()
-						.getResourceSet().getResource(modelURI, true);
-				modelResource.getContents().add(targetObject);
+				sourceObject.eResource().getContents().add(targetObject);
 
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {
@@ -243,9 +228,8 @@ public class OpenDiagramApplicationRecipeEditPolicy extends OpenEditPolicy {
 								if (nextResource.isLoaded()
 										&& !getEditingDomain().isReadOnly(
 												nextResource)) {
-									nextResource
-											.save(ApplicationDiagramEditorUtil
-													.getSaveOptions());
+									nextResource.save(DomainDiagramEditorUtil
+											.getSaveOptions());
 								}
 							}
 						} catch (IOException ex) {
@@ -277,7 +261,7 @@ public class OpenDiagramApplicationRecipeEditPolicy extends OpenEditPolicy {
 		 */
 		protected PreferencesHint getPreferencesHint() {
 			// XXX prefhint from target diagram's editor?
-			return ApplicationDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
+			return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 		}
 
 		/**

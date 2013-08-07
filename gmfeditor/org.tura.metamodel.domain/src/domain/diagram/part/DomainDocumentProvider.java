@@ -5,6 +5,7 @@ package domain.diagram.part;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -26,9 +27,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.MultiRule;
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -40,7 +39,6 @@ import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
-import org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.AbstractDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.DiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
@@ -57,6 +55,10 @@ import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.part.FileEditorInput;
+
+import de.itemis.gmf.runtime.editingdomain.ResourceUnloadingTool;
+import de.itemis.gmf.runtime.editingdomain.SharedEditingDomainUtil;
+import de.itemis.gmf.runtime.editingdomain.SharedResourceSetInfoDelegate;
 
 /**
  * @generated
@@ -162,41 +164,41 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements
 	 * @generated
 	 */
 	private TransactionalEditingDomain createEditingDomain() {
-		TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory
-				.getInstance().createEditingDomain();
+		// ITEMIS CHANGE: Use shared editing domain
+		TransactionalEditingDomain editingDomain = SharedEditingDomainUtil
+				.getSharedEditingDomain("org.tura.metamodel.domain.EditingDomain");
+		;
+		/*	
+		org.eclipse.emf.transaction.TransactionalEditingDomain editingDomain = org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory.getInstance().createEditingDomain();
 		editingDomain.setID("org.tura.metamodel.domain.EditingDomain"); //$NON-NLS-1$
-		final NotificationFilter diagramResourceModifiedFilter = NotificationFilter
-				.createNotifierFilter(editingDomain.getResourceSet())
-				.and(NotificationFilter.createEventTypeFilter(Notification.ADD))
-				.and(NotificationFilter.createFeatureFilter(ResourceSet.class,
-						ResourceSet.RESOURCE_SET__RESOURCES));
-		editingDomain.getResourceSet().eAdapters().add(new Adapter() {
+		final org.eclipse.emf.transaction.NotificationFilter diagramResourceModifiedFilter = org.eclipse.emf.transaction.NotificationFilter.createNotifierFilter(editingDomain.getResourceSet()).and(org.eclipse.emf.transaction.NotificationFilter.createEventTypeFilter(org.eclipse.emf.common.notify.Notification.ADD)).and(org.eclipse.emf.transaction.NotificationFilter.createFeatureFilter(org.eclipse.emf.ecore.resource.ResourceSet.class, org.eclipse.emf.ecore.resource.ResourceSet.RESOURCE_SET__RESOURCES));
+		editingDomain.getResourceSet().eAdapters().add(new org.eclipse.emf.common.notify.Adapter() {
 
-			private Notifier myTarger;
+		  private org.eclipse.emf.common.notify.Notifier myTarger;
 
-			public Notifier getTarget() {
-				return myTarger;
-			}
+		  public org.eclipse.emf.common.notify.Notifier getTarget() {
+		    return myTarger;
+		  }
 
-			public boolean isAdapterForType(Object type) {
-				return false;
-			}
+		  public boolean isAdapterForType(Object type) {
+		    return false;
+		  }
 
-			public void notifyChanged(Notification notification) {
-				if (diagramResourceModifiedFilter.matches(notification)) {
-					Object value = notification.getNewValue();
-					if (value instanceof Resource) {
-						((Resource) value).setTrackingModification(true);
-					}
-				}
-			}
+		  public void notifyChanged(org.eclipse.emf.common.notify.Notification notification) {
+		    if (diagramResourceModifiedFilter.matches(notification)) {
+		      Object value = notification.getNewValue();
+		      if (value instanceof org.eclipse.emf.ecore.resource.Resource) {
+		        ((org.eclipse.emf.ecore.resource.Resource) value).setTrackingModification(true);
+		      }
+		    }
+		  }
 
-			public void setTarget(Notifier newTarget) {
-				myTarger = newTarget;
-			}
-
-		});
-
+		  public void setTarget(org.eclipse.emf.common.notify.Notifier newTarget) {
+		    myTarger = newTarget;
+		  }
+		    
+		});	
+		 */
 		return editingDomain;
 	}
 
@@ -702,21 +704,20 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements
 	 */
 	protected void handleElementChanged(ResourceSetInfo info,
 			Resource changedResource, IProgressMonitor monitor) {
-		IFile file = WorkspaceSynchronizer.getFile(changedResource);
+		// ITEMIS CHANGE : Using the shared editing domain, we reload externally
+		// changed resources centrally
+		/*
+		  org.eclipse.core.resources.IFile file = org.eclipse.emf.workspace.util.WorkspaceSynchronizer.getFile(changedResource);
 		if (file != null) {
-			try {
-				file.refreshLocal(IResource.DEPTH_INFINITE, monitor);
-			} catch (CoreException ex) {
-				DomainDiagramEditorPlugin
-						.getInstance()
-						.logError(
-								Messages.DomainDocumentProvider_handleElementContentChanged,
-								ex);
-				// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
-			}
+		  try {
+		    file.refreshLocal(org.eclipse.core.resources.IResource.DEPTH_INFINITE, monitor);
+		  } catch (org.eclipse.core.runtime.CoreException ex) {
+		    domain.diagram.part.DomainDiagramEditorPlugin.getInstance().logError(domain.diagram.part.Messages.DomainDocumentProvider_handleElementContentChanged, ex);
+		    // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
+		  }
 		}
-		changedResource.unload();
-
+		  changedResource.unload();
+		 */
 		fireElementContentAboutToBeReplaced(info.getEditorInput());
 		removeUnchangedElementListeners(info.getEditorInput(), info);
 		info.fStatus = null;
@@ -785,17 +786,19 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements
 		/**
 		 * @generated
 		 */
-		private long myModificationStamp = IResource.NULL_STAMP;
+		// ITEMIS CHANGE: moved to SharedResourceSetInfoDelegate
+		//private long myModificationStamp = org.eclipse.core.resources.IResource.NULL_STAMP;
 
 		/**
 		 * @generated
 		 */
-		private WorkspaceSynchronizer mySynchronizer;
+		// ITEMIS CHANGE: moved to SharedResourceSetInfoDelegate
+		//private org.eclipse.emf.workspace.util.WorkspaceSynchronizer mySynchronizer;
 
 		/**
 		 * @generated
 		 */
-		private LinkedList<Resource> myUnSynchronizedResources = new LinkedList<Resource>();
+		private Collection myUnSynchronizedResources = new ArrayList();
 
 		/**
 		 * @generated
@@ -827,31 +830,61 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements
 		 */
 		private ResourceSetModificationListener myResourceSetListener;
 
+		// ITEMIS CHANGE: shared resource set info is stored in this member
 		/**
 		 * @generated
 		 */
+		private SharedResourceSetInfoDelegate sharedResourceSetInfoDelegate;
+
+		// ITEMIS CHANGE: keep the SynchronizerDelegate in a memebr variable
+		/**
+		 * @generated
+		 */
+		private SynchronizerDelegate synchronizerDelegate;
+
+		/**
+		 * @generated
+		 */
+		// ITEMIS CHANGE: adapted order of initializations to new dependencies
 		public ResourceSetInfo(IDiagramDocument document,
 				IEditorInput editorInput) {
 			super(document);
 			myDocument = document;
 			myEditorInput = editorInput;
-			startResourceListening();
+
+			// ITEMIS CHANGE: register workspace synchronizer delegate
+			synchronizerDelegate = new SynchronizerDelegate();
+			sharedResourceSetInfoDelegate = SharedResourceSetInfoDelegate
+					.adapt(getEditingDomain());
+			sharedResourceSetInfoDelegate
+					.addWorkspaceSynchronizerDelegate(synchronizerDelegate);
+
+			// ITEMIS CHANGE: If one of the resources in the shared editing domain is dirty, we have to set the dirty flag 
+			fCanBeSaved = sharedResourceSetInfoDelegate.resourceSetIsDirty();
+
 			myResourceSetListener = new ResourceSetModificationListener(this);
 			getResourceSet().eAdapters().add(myResourceSetListener);
+			startResourceListening();
 		}
 
 		/**
 		 * @generated
 		 */
 		public long getModificationStamp() {
-			return myModificationStamp;
+			// ITEMIS CHANGE: delegate
+			return sharedResourceSetInfoDelegate.getModificationStamp();
+			//return myModificationStamp;
+
 		}
 
 		/**
 		 * @generated
 		 */
 		public void setModificationStamp(long modificationStamp) {
-			myModificationStamp = modificationStamp;
+			// ITEMIS CHANGE: delegate
+			sharedResourceSetInfoDelegate
+					.setModificationStamp(modificationStamp);
+			//myModificationStamp = modificationStamp;
 		}
 
 		/**
@@ -887,14 +920,19 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements
 		 * @generated
 		 */
 		public void dispose() {
-			stopResourceListening();
+			//stopResourceListening();
+			// ITEMIS CHANGE: deregister synchronizerDelegate 
+			sharedResourceSetInfoDelegate
+					.removeWorkspaceSynchronizerDelegate(synchronizerDelegate);
+
 			getResourceSet().eAdapters().remove(myResourceSetListener);
-			for (Iterator<Resource> it = getLoadedResourcesIterator(); it
-					.hasNext();) {
-				Resource resource = it.next();
-				resource.unload();
-			}
-			getEditingDomain().dispose();
+			// ITEMIS CHANGE: Unload resources selectively, as they can still be used by other editors
+			//for (java.util.Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/ it = getLoadedResourcesIterator(); it.hasNext();) {
+			//	org.eclipse.emf.ecore.resource.Resource resource = (org.eclipse.emf.ecore.resource.Resource) it.next();
+			//	resource.unload();
+			//}
+			ResourceUnloadingTool.unloadEditorInput(getResourceSet(),
+					myEditorInput);
 		}
 
 		/**
@@ -922,16 +960,19 @@ public class DomainDocumentProvider extends AbstractDocumentProvider implements
 		 * @generated
 		 */
 		public final void stopResourceListening() {
-			mySynchronizer.dispose();
-			mySynchronizer = null;
+			// ITEMIS CHANGE: delegate
+			sharedResourceSetInfoDelegate.stopResourceListening();
+			//mySynchronizer.dispose();
+			//mySynchronizer = null;
 		}
 
 		/**
 		 * @generated
 		 */
 		public final void startResourceListening() {
-			mySynchronizer = new WorkspaceSynchronizer(getEditingDomain(),
-					new SynchronizerDelegate());
+			// ITEMIS CHANGE: delegate
+			sharedResourceSetInfoDelegate.startResourceListening();
+			//mySynchronizer = new org.eclipse.emf.workspace.util.WorkspaceSynchronizer(getEditingDomain(), new SynchronizerDelegate());
 		}
 
 		/**

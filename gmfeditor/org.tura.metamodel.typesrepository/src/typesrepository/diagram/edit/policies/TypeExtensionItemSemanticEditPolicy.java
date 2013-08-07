@@ -7,19 +7,19 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 
-import typesrepository.diagram.providers.TypesrepositoryElementTypes;
+import typesrepository.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class TypeExtensionItemSemanticEditPolicy extends
-		TypesrepositoryBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public TypeExtensionItemSemanticEditPolicy() {
-		super(TypesrepositoryElementTypes.TypeExtension_204001);
+		super(DomainElementTypes.TypeExtension_204001);
 	}
 
 	/**

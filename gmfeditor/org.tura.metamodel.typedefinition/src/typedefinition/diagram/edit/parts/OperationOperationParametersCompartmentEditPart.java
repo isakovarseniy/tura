@@ -17,8 +17,8 @@ import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
 import typedefinition.diagram.edit.policies.OperationOperationParametersCompartmentCanonicalEditPolicy;
 import typedefinition.diagram.edit.policies.OperationOperationParametersCompartmentItemSemanticEditPolicy;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
 import typedefinition.diagram.part.Messages;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 
 /**
  * @generated
@@ -71,7 +71,7 @@ public class OperationOperationParametersCompartmentEditPart extends
 				new OperationOperationParametersCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						TypedefinitionVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(

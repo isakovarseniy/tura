@@ -17,20 +17,20 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
-import application.diagram.part.ApplicationVisualIDRegistry;
-import application.diagram.providers.ApplicationElementTypes;
+import application.diagram.part.DomainVisualIDRegistry;
+import application.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ApplicationRecipesItemSemanticEditPolicy extends
-		ApplicationBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ApplicationRecipesItemSemanticEditPolicy() {
-		super(ApplicationElementTypes.ApplicationRecipes_802001);
+		super(DomainElementTypes.ApplicationRecipes_802001);
 	}
 
 	/**
@@ -61,12 +61,12 @@ public class ApplicationRecipesItemSemanticEditPolicy extends
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
-			switch (ApplicationVisualIDRegistry.getVisualID(node)) {
+			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (ApplicationVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case ApplicationRecipeEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),

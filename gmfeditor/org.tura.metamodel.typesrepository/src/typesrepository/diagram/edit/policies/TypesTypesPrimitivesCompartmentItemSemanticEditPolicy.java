@@ -7,27 +7,26 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import typesrepository.diagram.edit.commands.PrimitiveCreateCommand;
-import typesrepository.diagram.providers.TypesrepositoryElementTypes;
+import typesrepository.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class TypesTypesPrimitivesCompartmentItemSemanticEditPolicy extends
-		TypesrepositoryBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public TypesTypesPrimitivesCompartmentItemSemanticEditPolicy() {
-		super(TypesrepositoryElementTypes.Types_202001);
+		super(DomainElementTypes.Types_202001);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (TypesrepositoryElementTypes.Primitive_203003 == req
-				.getElementType()) {
+		if (DomainElementTypes.Primitive_203001 == req.getElementType()) {
 			return getGEFWrapper(new PrimitiveCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

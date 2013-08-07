@@ -31,7 +31,7 @@ import org.eclipse.swt.graphics.Color;
 
 import typedefinition.diagram.edit.policies.EnumaratorItemSemanticEditPolicy;
 import typedefinition.diagram.edit.policies.OpenDiagramEditPolicy;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -271,7 +271,7 @@ public class EnumaratorEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(TypedefinitionVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(EnumaratorNameEditPart.VISUAL_ID));
 	}
 

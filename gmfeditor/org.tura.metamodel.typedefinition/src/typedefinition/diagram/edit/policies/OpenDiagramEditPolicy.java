@@ -37,10 +37,10 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
+import typedefinition.diagram.part.DomainDiagramEditor;
+import typedefinition.diagram.part.DomainDiagramEditorPlugin;
+import typedefinition.diagram.part.DomainDiagramEditorUtil;
 import typedefinition.diagram.part.Messages;
-import typedefinition.diagram.part.TypedefinitionDiagramEditor;
-import typedefinition.diagram.part.TypedefinitionDiagramEditorPlugin;
-import typedefinition.diagram.part.TypedefinitionDiagramEditorUtil;
 
 /**
  * @generated
@@ -151,9 +151,8 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 								if (nextResource.isLoaded()
 										&& !getEditingDomain().isReadOnly(
 												nextResource)) {
-									nextResource
-											.save(TypedefinitionDiagramEditorUtil
-													.getSaveOptions());
+									nextResource.save(DomainDiagramEditorUtil
+											.getSaveOptions());
 								}
 							}
 						} catch (IOException ex) {
@@ -185,7 +184,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 */
 		protected PreferencesHint getPreferencesHint() {
 			// XXX prefhint from target diagram's editor?
-			return TypedefinitionDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
+			return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 		}
 
 		/**
@@ -199,7 +198,7 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		 * @generated
 		 */
 		protected String getEditorID() {
-			return TypedefinitionDiagramEditor.ID;
+			return DomainDiagramEditor.ID;
 		}
 	}
 

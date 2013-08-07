@@ -19,8 +19,6 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
-import recipe.RecipePackage;
-import typedefinition.TypedefinitionPackage;
 import domain.DomainPackage;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
@@ -62,37 +60,30 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Domain_501000 = getElementType("org.tura.metamodel.domain.Domain_501000"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType DomainArtifacts_502001 = getElementType("org.tura.metamodel.domain.DomainArtifacts_502001"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType DomainTypes_502002 = getElementType("org.tura.metamodel.domain.DomainTypes_502002"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType DomainApplications_502003 = getElementType("org.tura.metamodel.domain.DomainApplications_502003"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType DomainApplication_503001 = getElementType("org.tura.metamodel.domain.DomainApplication_503001"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType TypeExtension_504001 = getElementType("org.tura.metamodel.domain.TypeExtension_504001"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType RecipeRecipeConfig_504002 = getElementType("org.tura.metamodel.domain.RecipeRecipeConfig_504002"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
@@ -224,13 +215,13 @@ public class DomainElementTypes {
 					DomainPackage.eINSTANCE.getDomainApplication());
 
 			elements.put(TypeExtension_504001,
-					TypedefinitionPackage.eINSTANCE.getTypeExtension());
+					DomainPackage.eINSTANCE.getTypeExtension());
 
 			elements.put(RecipeRecipeConfig_504002,
-					RecipePackage.eINSTANCE.getRecipe_RecipeConfig());
+					DomainPackage.eINSTANCE.getRecipe_RecipeConfig());
 
 			elements.put(ConfigurationConfigExtension_504003,
-					RecipePackage.eINSTANCE.getConfiguration_ConfigExtension());
+					DomainPackage.eINSTANCE.getConfiguration_ConfigExtension());
 		}
 		return (ENamedElement) elements.get(type);
 	}

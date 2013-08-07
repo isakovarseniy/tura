@@ -3,10 +3,6 @@
  */
 package mapper.diagram.edit.commands;
 
-import mapper.JavaMapper;
-import mapper.MapperFactory;
-import mapper.Mappers;
-
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -18,6 +14,10 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
+
+import domain.DomainFactory;
+import domain.JavaMapper;
+import domain.Mappers;
 
 /**
  * @generated
@@ -57,7 +57,7 @@ public class JavaMapperCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		JavaMapper newElement = MapperFactory.eINSTANCE.createJavaMapper();
+		JavaMapper newElement = DomainFactory.eINSTANCE.createJavaMapper();
 
 		Mappers owner = (Mappers) getElementToEdit();
 		owner.getMappers().add(newElement);

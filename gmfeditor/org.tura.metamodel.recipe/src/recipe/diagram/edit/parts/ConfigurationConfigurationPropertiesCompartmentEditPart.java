@@ -17,8 +17,8 @@ import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicy
 
 import recipe.diagram.edit.policies.ConfigurationConfigurationPropertiesCompartmentCanonicalEditPolicy;
 import recipe.diagram.edit.policies.ConfigurationConfigurationPropertiesCompartmentItemSemanticEditPolicy;
+import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.part.Messages;
-import recipe.diagram.part.RecipeVisualIDRegistry;
 
 /**
  * @generated
@@ -29,7 +29,7 @@ public class ConfigurationConfigurationPropertiesCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 307012;
+	public static final int VISUAL_ID = 307006;
 
 	/**
 	 * @generated
@@ -75,7 +75,7 @@ public class ConfigurationConfigurationPropertiesCompartmentEditPart extends
 				new ConfigurationConfigurationPropertiesCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						RecipeVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(

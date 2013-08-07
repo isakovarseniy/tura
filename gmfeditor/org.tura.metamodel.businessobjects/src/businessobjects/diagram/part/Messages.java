@@ -26,107 +26,107 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsCreationWizardTitle;
+	public static String DomainCreationWizardTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsCreationWizard_DiagramModelFilePageTitle;
+	public static String DomainCreationWizard_DiagramModelFilePageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsCreationWizard_DiagramModelFilePageDescription;
+	public static String DomainCreationWizard_DiagramModelFilePageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsCreationWizard_DomainModelFilePageTitle;
+	public static String DomainCreationWizard_DomainModelFilePageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsCreationWizard_DomainModelFilePageDescription;
+	public static String DomainCreationWizard_DomainModelFilePageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsCreationWizardOpenEditorError;
+	public static String DomainCreationWizardOpenEditorError;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsCreationWizardCreationError;
+	public static String DomainCreationWizardCreationError;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsCreationWizardPageExtensionError;
+	public static String DomainCreationWizardPageExtensionError;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
+	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
+	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDiagramEditorUtil_CreateDiagramProgressTask;
+	public static String DomainDiagramEditorUtil_CreateDiagramProgressTask;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDiagramEditorUtil_CreateDiagramCommandLabel;
+	public static String DomainDiagramEditorUtil_CreateDiagramCommandLabel;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDocumentProvider_isModifiable;
+	public static String DomainDocumentProvider_isModifiable;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDocumentProvider_handleElementContentChanged;
+	public static String DomainDocumentProvider_handleElementContentChanged;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDocumentProvider_IncorrectInputError;
+	public static String DomainDocumentProvider_IncorrectInputError;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDocumentProvider_NoDiagramInResourceError;
+	public static String DomainDocumentProvider_NoDiagramInResourceError;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDocumentProvider_DiagramLoadingError;
+	public static String DomainDocumentProvider_DiagramLoadingError;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDocumentProvider_UnsynchronizedFileSaveError;
+	public static String DomainDocumentProvider_UnsynchronizedFileSaveError;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDocumentProvider_SaveDiagramTask;
+	public static String DomainDocumentProvider_SaveDiagramTask;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDocumentProvider_SaveNextResourceTask;
+	public static String DomainDocumentProvider_SaveNextResourceTask;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDocumentProvider_SaveAsOperation;
+	public static String DomainDocumentProvider_SaveAsOperation;
 
 	/**
 	 * @generated
@@ -151,87 +151,87 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsNewDiagramFileWizard_CreationPageName;
+	public static String DomainNewDiagramFileWizard_CreationPageName;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsNewDiagramFileWizard_CreationPageTitle;
+	public static String DomainNewDiagramFileWizard_CreationPageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsNewDiagramFileWizard_CreationPageDescription;
+	public static String DomainNewDiagramFileWizard_CreationPageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsNewDiagramFileWizard_RootSelectionPageName;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageName;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsNewDiagramFileWizard_RootSelectionPageTitle;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsNewDiagramFileWizard_RootSelectionPageDescription;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsNewDiagramFileWizard_RootSelectionPageSelectionTitle;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsNewDiagramFileWizard_InitDiagramCommand;
+	public static String DomainNewDiagramFileWizard_InitDiagramCommand;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsNewDiagramFileWizard_IncorrectRootError;
+	public static String DomainNewDiagramFileWizard_IncorrectRootError;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDiagramEditor_SavingDeletedFile;
+	public static String DomainDiagramEditor_SavingDeletedFile;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDiagramEditor_SaveAsErrorTitle;
+	public static String DomainDiagramEditor_SaveAsErrorTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDiagramEditor_SaveAsErrorMessage;
+	public static String DomainDiagramEditor_SaveAsErrorMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDiagramEditor_SaveErrorTitle;
+	public static String DomainDiagramEditor_SaveErrorTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsDiagramEditor_SaveErrorMessage;
+	public static String DomainDiagramEditor_SaveErrorMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsElementChooserDialog_SelectModelElementTitle;
+	public static String DomainElementChooserDialog_SelectModelElementTitle;
 
 	/**
 	 * @generated
@@ -326,12 +326,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension1CreationTool_title;
+	public static String ConfigExtension1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension1CreationTool_desc;
+	public static String ConfigExtension1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipeConfig2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipeConfig2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -401,12 +421,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsModelingAssistantProviderTitle;
+	public static String DomainModelingAssistantProviderTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessobjectsModelingAssistantProviderMessage;
+	public static String DomainModelingAssistantProviderMessage;
 
 	//TODO: put accessor fields manually	
 }

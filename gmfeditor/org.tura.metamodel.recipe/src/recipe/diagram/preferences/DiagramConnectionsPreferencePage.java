@@ -5,7 +5,7 @@ package recipe.diagram.preferences;
 
 import org.eclipse.gmf.runtime.diagram.ui.preferences.ConnectionsPreferencePage;
 
-import recipe.diagram.part.RecipeDiagramEditorPlugin;
+import recipe.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -16,7 +16,7 @@ public class DiagramConnectionsPreferencePage extends ConnectionsPreferencePage 
 	 * @generated
 	 */
 	public DiagramConnectionsPreferencePage() {
-		setPreferenceStore(RecipeDiagramEditorPlugin.getInstance()
+		setPreferenceStore(DomainDiagramEditorPlugin.getInstance()
 				.getPreferenceStore());
 	}
 }

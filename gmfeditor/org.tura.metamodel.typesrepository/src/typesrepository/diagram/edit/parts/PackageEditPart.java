@@ -27,7 +27,7 @@ import org.eclipse.swt.graphics.Color;
 
 import typesrepository.diagram.edit.policies.OpenDiagramPackageEditPolicy;
 import typesrepository.diagram.edit.policies.PackageItemSemanticEditPolicy;
-import typesrepository.diagram.part.TypesrepositoryVisualIDRegistry;
+import typesrepository.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -37,7 +37,7 @@ public class PackageEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 203001;
+	public static final int VISUAL_ID = 203002;
 
 	/**
 	 * @generated
@@ -249,7 +249,7 @@ public class PackageEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(TypesrepositoryVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(PackageNameEditPart.VISUAL_ID));
 	}
 

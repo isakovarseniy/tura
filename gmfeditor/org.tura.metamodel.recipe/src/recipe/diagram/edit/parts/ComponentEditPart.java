@@ -33,8 +33,8 @@ import org.eclipse.swt.graphics.Color;
 
 import recipe.diagram.edit.policies.ComponentItemSemanticEditPolicy;
 import recipe.diagram.edit.policies.OpenDiagramEditPolicy;
-import recipe.diagram.part.RecipeVisualIDRegistry;
-import recipe.diagram.providers.RecipeElementTypes;
+import recipe.diagram.part.DomainVisualIDRegistry;
+import recipe.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
@@ -44,7 +44,7 @@ public class ComponentEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 303004;
+	public static final int VISUAL_ID = 303001;
 
 	/**
 	 * @generated
@@ -69,7 +69,7 @@ public class ComponentEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						RecipeVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ComponentItemSemanticEditPolicy());
@@ -295,7 +295,7 @@ public class ComponentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(RecipeVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(ComponentNameEditPart.VISUAL_ID));
 	}
 
@@ -309,8 +309,8 @@ public class ComponentEditPart extends ShapeNodeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
-			if (type == RecipeElementTypes.ModelMapper_303003) {
-				return getChildBySemanticHint(RecipeVisualIDRegistry
+			if (type == DomainElementTypes.ModelMapper_303003) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ComponentComponentMappersCompartmentEditPart.VISUAL_ID));
 			}
 		}

@@ -3,7 +3,7 @@
  */
 package artifact.diagram.providers;
 
-import artifact.diagram.part.ArtifactDiagramEditorPlugin;
+import artifact.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -18,10 +18,10 @@ public class ElementInitializers {
 	 * @generated
 	 */
 	public static ElementInitializers getInstance() {
-		ElementInitializers cached = ArtifactDiagramEditorPlugin.getInstance()
+		ElementInitializers cached = DomainDiagramEditorPlugin.getInstance()
 				.getElementInitializers();
 		if (cached == null) {
-			ArtifactDiagramEditorPlugin.getInstance().setElementInitializers(
+			DomainDiagramEditorPlugin.getInstance().setElementInitializers(
 					cached = new ElementInitializers());
 		}
 		return cached;

@@ -12,30 +12,30 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import application.diagram.edit.commands.ApplicationMappersCreateCommand;
 import application.diagram.edit.commands.ApplicationRecipesCreateCommand;
-import application.diagram.providers.ApplicationElementTypes;
+import application.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ApplicationItemSemanticEditPolicy extends
-		ApplicationBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ApplicationItemSemanticEditPolicy() {
-		super(ApplicationElementTypes.Application_801000);
+		super(DomainElementTypes.Application_801000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (ApplicationElementTypes.ApplicationRecipes_802001 == req
+		if (DomainElementTypes.ApplicationRecipes_802001 == req
 				.getElementType()) {
 			return getGEFWrapper(new ApplicationRecipesCreateCommand(req));
 		}
-		if (ApplicationElementTypes.ApplicationMappers_802002 == req
+		if (DomainElementTypes.ApplicationMappers_802002 == req
 				.getElementType()) {
 			return getGEFWrapper(new ApplicationMappersCreateCommand(req));
 		}

@@ -49,10 +49,10 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import application.diagram.edit.policies.ApplicationTextSelectionEditPolicy;
-import application.diagram.part.ApplicationVisualIDRegistry;
-import application.diagram.providers.ApplicationElementTypes;
-import application.diagram.providers.ApplicationParserProvider;
+import application.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import application.diagram.part.DomainVisualIDRegistry;
+import application.diagram.providers.DomainElementTypes;
+import application.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
@@ -95,7 +95,7 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	 */
 	static {
 		registerSnapBackPosition(
-				ApplicationVisualIDRegistry
+				DomainVisualIDRegistry
 						.getType(application.diagram.edit.parts.WrappingLabelEditPart.VISUAL_ID),
 				new Point(0, 40));
 	}
@@ -115,7 +115,7 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new ApplicationTextSelectionEditPolicy());
+				new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ApplicationEditPart.LinkLabelDragPolicy());
 	}
@@ -326,8 +326,8 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = ApplicationParserProvider.getParser(
-					ApplicationElementTypes.RecipeRecipeConfig_804002,
+			parser = DomainParserProvider.getParser(
+					DomainElementTypes.RecipeRecipeConfig_804002,
 					getParserElement(), CommonParserHint.DESCRIPTION);
 		}
 		return parser;
@@ -339,7 +339,7 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager2(this, null,
-					ApplicationEditPartFactory.getTextCellEditorLocator(this)));
+					DomainEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
 	}

@@ -47,10 +47,10 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import recipe.diagram.edit.policies.RecipeTextSelectionEditPolicy;
-import recipe.diagram.part.RecipeVisualIDRegistry;
-import recipe.diagram.providers.RecipeElementTypes;
-import recipe.diagram.providers.RecipeParserProvider;
+import recipe.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import recipe.diagram.part.DomainVisualIDRegistry;
+import recipe.diagram.providers.DomainElementTypes;
+import recipe.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
@@ -61,7 +61,7 @@ public class ComponentNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 305008;
+	public static final int VISUAL_ID = 305003;
 
 	/**
 	 * @generated
@@ -101,7 +101,7 @@ public class ComponentNameEditPart extends CompartmentEditPart implements
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new RecipeTextSelectionEditPolicy());
+				new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -203,7 +203,7 @@ public class ComponentNameEditPart extends CompartmentEditPart implements
 		if (parserElement == null) {
 			return null;
 		}
-		return RecipeElementTypes.getImage(parserElement.eClass());
+		return DomainElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**
@@ -311,11 +311,11 @@ public class ComponentNameEditPart extends CompartmentEditPart implements
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = RecipeParserProvider
+			parser = DomainParserProvider
 					.getParser(
-							RecipeElementTypes.Component_303004,
+							DomainElementTypes.Component_303001,
 							getParserElement(),
-							RecipeVisualIDRegistry
+							DomainVisualIDRegistry
 									.getType(recipe.diagram.edit.parts.ComponentNameEditPart.VISUAL_ID));
 		}
 		return parser;
@@ -327,7 +327,7 @@ public class ComponentNameEditPart extends CompartmentEditPart implements
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager2(this, null,
-					RecipeEditPartFactory.getTextCellEditorLocator(this)));
+					DomainEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
 	}

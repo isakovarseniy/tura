@@ -24,11 +24,11 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import businessobjects.BusinessobjectsPackage;
 import businessobjects.diagram.edit.parts.OtherMethodEditPart;
-import businessobjects.diagram.part.BusinessobjectsDiagramUpdater;
-import businessobjects.diagram.part.BusinessobjectsNodeDescriptor;
-import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
+import businessobjects.diagram.part.DomainDiagramUpdater;
+import businessobjects.diagram.part.DomainNodeDescriptor;
+import businessobjects.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -52,8 +52,7 @@ public class BusinessObjectBusinessObjectOthersMethodsCompartmentCanonicalEditPo
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return BusinessobjectsPackage.eINSTANCE
-				.getBusinessObject_OthersMethods();
+		return DomainPackage.eINSTANCE.getBusinessObject_OthersMethods();
 	}
 
 	/**
@@ -63,9 +62,9 @@ public class BusinessObjectBusinessObjectOthersMethodsCompartmentCanonicalEditPo
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
-		List<BusinessobjectsNodeDescriptor> childDescriptors = BusinessobjectsDiagramUpdater
-				.getBusinessObjectBusinessObjectOthersMethodsCompartment_607008SemanticChildren(viewObject);
-		for (BusinessobjectsNodeDescriptor d : childDescriptors) {
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
+				.getBusinessObjectBusinessObjectOthersMethodsCompartment_607006SemanticChildren(viewObject);
+		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
 		return result;
@@ -84,7 +83,7 @@ public class BusinessObjectBusinessObjectOthersMethodsCompartmentCanonicalEditPo
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return OtherMethodEditPart.VISUAL_ID == BusinessobjectsVisualIDRegistry
+		return OtherMethodEditPart.VISUAL_ID == DomainVisualIDRegistry
 				.getVisualID(view);
 	}
 
@@ -96,8 +95,8 @@ public class BusinessObjectBusinessObjectOthersMethodsCompartmentCanonicalEditPo
 			return;
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
-		List<BusinessobjectsNodeDescriptor> childDescriptors = BusinessobjectsDiagramUpdater
-				.getBusinessObjectBusinessObjectOthersMethodsCompartment_607008SemanticChildren((View) getHost()
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
+				.getBusinessObjectBusinessObjectOthersMethodsCompartment_607006SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
@@ -112,11 +111,10 @@ public class BusinessObjectBusinessObjectOthersMethodsCompartmentCanonicalEditPo
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<BusinessobjectsNodeDescriptor> descriptorsIterator = childDescriptors
+		for (Iterator<DomainNodeDescriptor> descriptorsIterator = childDescriptors
 				.iterator(); descriptorsIterator.hasNext();) {
-			BusinessobjectsNodeDescriptor next = descriptorsIterator.next();
-			String hint = BusinessobjectsVisualIDRegistry.getType(next
-					.getVisualID());
+			DomainNodeDescriptor next = descriptorsIterator.next();
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
 			for (View childView : getViewChildren()) {
 				EObject semanticElement = childView.getElement();
@@ -141,9 +139,8 @@ public class BusinessObjectBusinessObjectOthersMethodsCompartmentCanonicalEditPo
 		//
 		ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
 				childDescriptors.size());
-		for (BusinessobjectsNodeDescriptor next : childDescriptors) {
-			String hint = BusinessobjectsVisualIDRegistry.getType(next
-					.getVisualID());
+		for (DomainNodeDescriptor next : childDescriptors) {
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
 			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(

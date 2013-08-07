@@ -5,11 +5,9 @@ package domain.diagram.edit.parts;
 
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.gef.EditPart;
@@ -271,19 +269,9 @@ public class DomainArtifactsEditPart extends ShapeNodeEditPart {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
 	public class DomainArtifactsFigure extends RoundedRectangle {
-
-		/**
-		 * @generated
-		 */
 		private WrappingLabel fFigureDomainArtifactsLabelFigure;
 
-		/**
-		 * @generated
-		 */
 		public DomainArtifactsFigure() {
 			FlowLayout layoutThis = new FlowLayout();
 			layoutThis.setStretchMinorAxis(false);
@@ -296,22 +284,15 @@ public class DomainArtifactsEditPart extends ShapeNodeEditPart {
 			createContents();
 		}
 
-		/**
-		 * @generated
-		 */
 		private void createContents() {
 			fFigureDomainArtifactsLabelFigure = new WrappingLabel();
 			fFigureDomainArtifactsLabelFigure.setText("Package");
 			this.add(fFigureDomainArtifactsLabelFigure);
 		}
 
-		/**
-		 * @generated
-		 */
 		public WrappingLabel getFigureDomainArtifactsLabelFigure() {
 			return fFigureDomainArtifactsLabelFigure;
 		}
-
 	}
 
 }

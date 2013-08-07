@@ -3,7 +3,7 @@
  */
 package recipe.diagram.providers;
 
-import recipe.diagram.part.RecipeDiagramEditorPlugin;
+import recipe.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -18,10 +18,10 @@ public class ElementInitializers {
 	 * @generated
 	 */
 	public static ElementInitializers getInstance() {
-		ElementInitializers cached = RecipeDiagramEditorPlugin.getInstance()
+		ElementInitializers cached = DomainDiagramEditorPlugin.getInstance()
 				.getElementInitializers();
 		if (cached == null) {
-			RecipeDiagramEditorPlugin.getInstance().setElementInitializers(
+			DomainDiagramEditorPlugin.getInstance().setElementInitializers(
 					cached = new ElementInitializers());
 		}
 		return cached;

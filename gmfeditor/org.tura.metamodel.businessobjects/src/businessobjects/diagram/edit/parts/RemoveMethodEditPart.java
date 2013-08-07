@@ -27,7 +27,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import businessobjects.diagram.edit.policies.RemoveMethodItemSemanticEditPolicy;
-import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
+import businessobjects.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -37,7 +37,7 @@ public class RemoveMethodEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 603012;
+	public static final int VISUAL_ID = 603004;
 
 	/**
 	 * @generated
@@ -248,7 +248,7 @@ public class RemoveMethodEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(BusinessobjectsVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(RemoveMethodMethodEditPart.VISUAL_ID));
 	}
 

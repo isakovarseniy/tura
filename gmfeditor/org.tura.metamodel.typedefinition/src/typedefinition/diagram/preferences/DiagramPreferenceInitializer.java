@@ -6,7 +6,7 @@ package typedefinition.diagram.preferences;
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 
-import typedefinition.diagram.part.TypedefinitionDiagramEditorPlugin;
+import typedefinition.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -30,7 +30,6 @@ public class DiagramPreferenceInitializer extends AbstractPreferenceInitializer 
 	 * @generated
 	 */
 	protected IPreferenceStore getPreferenceStore() {
-		return TypedefinitionDiagramEditorPlugin.getInstance()
-				.getPreferenceStore();
+		return DomainDiagramEditorPlugin.getInstance().getPreferenceStore();
 	}
 }

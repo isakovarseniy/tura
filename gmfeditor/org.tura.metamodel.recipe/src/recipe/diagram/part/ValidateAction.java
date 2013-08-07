@@ -39,8 +39,8 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation;
 
-import recipe.diagram.providers.RecipeMarkerNavigationProvider;
-import recipe.diagram.providers.RecipeValidationProvider;
+import recipe.diagram.providers.DomainMarkerNavigationProvider;
+import recipe.diagram.providers.DomainValidationProvider;
 
 /**
  * @generated
@@ -79,7 +79,7 @@ public class ValidateAction extends Action {
 							}
 						}).run(new NullProgressMonitor());
 			} catch (Exception e) {
-				RecipeDiagramEditorPlugin.getInstance().logError(
+				DomainDiagramEditorPlugin.getInstance().logError(
 						"Validation action failed", e); //$NON-NLS-1$
 			}
 		}
@@ -90,7 +90,7 @@ public class ValidateAction extends Action {
 	 */
 	public static void runValidation(View view) {
 		try {
-			//			if (recipe.diagram.part.RecipeDiagramEditorUtil.openDiagram(view.eResource())) {
+			//			if (recipe.diagram.part.DomainDiagramEditorUtil.openDiagram(view.eResource())) {
 			IEditorPart editorPart = PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getActivePage()
 					.getActiveEditor();
@@ -104,7 +104,7 @@ public class ValidateAction extends Action {
 			}
 			//			}
 		} catch (Exception e) {
-			RecipeDiagramEditorPlugin.getInstance().logError(
+			DomainDiagramEditorPlugin.getInstance().logError(
 					"Validation action failed", e); //$NON-NLS-1$
 		}
 	}
@@ -126,7 +126,7 @@ public class ValidateAction extends Action {
 		final View fview = view;
 		TransactionalEditingDomain txDomain = TransactionUtil
 				.getEditingDomain(view);
-		RecipeValidationProvider.runWithConstraints(txDomain, new Runnable() {
+		DomainValidationProvider.runWithConstraints(txDomain, new Runnable() {
 
 			public void run() {
 				validate(fpart, fview);
@@ -156,7 +156,7 @@ public class ValidateAction extends Action {
 		IFile target = view.eResource() != null ? WorkspaceSynchronizer
 				.getFile(view.eResource()) : null;
 		if (target != null) {
-			RecipeMarkerNavigationProvider.deleteMarkers(target);
+			DomainMarkerNavigationProvider.deleteMarkers(target);
 		}
 		Diagnostic diagnostic = runEMFValidator(view);
 		createMarkers(target, diagnostic, diagramEditPart);
@@ -179,12 +179,12 @@ public class ValidateAction extends Action {
 		}
 		final IStatus rootStatus = validationStatus;
 		List allStatuses = new ArrayList();
-		RecipeDiagramEditorUtil.LazyElement2ViewMap element2ViewMap = new RecipeDiagramEditorUtil.LazyElement2ViewMap(
+		DomainDiagramEditorUtil.LazyElement2ViewMap element2ViewMap = new DomainDiagramEditorUtil.LazyElement2ViewMap(
 				diagramEditPart.getDiagramView(), collectTargetElements(
 						rootStatus, new HashSet<EObject>(), allStatuses));
 		for (Iterator it = allStatuses.iterator(); it.hasNext();) {
 			IConstraintStatus nextStatus = (IConstraintStatus) it.next();
-			View view = RecipeDiagramEditorUtil.findView(diagramEditPart,
+			View view = DomainDiagramEditorUtil.findView(diagramEditPart,
 					nextStatus.getTarget(), element2ViewMap);
 			addMarker(diagramEditPart.getViewer(), target, view.eResource()
 					.getURIFragment(view), EMFCoreUtil.getQualifiedName(
@@ -219,7 +219,7 @@ public class ValidateAction extends Action {
 			}
 		}
 
-		RecipeDiagramEditorUtil.LazyElement2ViewMap element2ViewMap = new RecipeDiagramEditorUtil.LazyElement2ViewMap(
+		DomainDiagramEditorUtil.LazyElement2ViewMap element2ViewMap = new DomainDiagramEditorUtil.LazyElement2ViewMap(
 				diagramEditPart.getDiagramView(), collectTargetElements(
 						rootStatus, new HashSet<EObject>(), allDiagnostics));
 		for (Iterator it = hash.values().iterator(); it.hasNext();) {
@@ -228,7 +228,7 @@ public class ValidateAction extends Action {
 			if (data != null && !data.isEmpty()
 					&& data.get(0) instanceof EObject) {
 				EObject element = (EObject) data.get(0);
-				View view = RecipeDiagramEditorUtil.findView(diagramEditPart,
+				View view = DomainDiagramEditorUtil.findView(diagramEditPart,
 						element, element2ViewMap);
 				addMarker(
 						diagramEditPart.getViewer(),
@@ -250,7 +250,7 @@ public class ValidateAction extends Action {
 		if (target == null) {
 			return;
 		}
-		RecipeMarkerNavigationProvider.addMarker(target, elementId, location,
+		DomainMarkerNavigationProvider.addMarker(target, elementId, location,
 				message, statusSeverity);
 	}
 

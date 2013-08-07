@@ -7,19 +7,19 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 
-import businessobjects.diagram.providers.BusinessobjectsElementTypes;
+import businessobjects.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class TypeExtensionItemSemanticEditPolicy extends
-		BusinessobjectsBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public TypeExtensionItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.TypeExtension_604001);
+		super(DomainElementTypes.TypeExtension_604001);
 	}
 
 	/**

@@ -6,5 +6,5 @@ package typesrepository.diagram.edit.helpers;
 /**
  * @generated
  */
-public class PackageEditHelper extends TypesrepositoryBaseEditHelper {
+public class PackageEditHelper extends DomainBaseEditHelper {
 }

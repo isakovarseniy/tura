@@ -17,20 +17,20 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
-import typedefinition.diagram.providers.TypedefinitionElementTypes;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
+import typedefinition.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class EnumaratorItemSemanticEditPolicy extends
-		TypedefinitionBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public EnumaratorItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.Enumarator_102003);
+		super(DomainElementTypes.Enumarator_102003);
 	}
 
 	/**
@@ -61,12 +61,12 @@ public class EnumaratorItemSemanticEditPolicy extends
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
-			switch (TypedefinitionVisualIDRegistry.getVisualID(node)) {
+			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (TypedefinitionVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case EnumAttributeEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),

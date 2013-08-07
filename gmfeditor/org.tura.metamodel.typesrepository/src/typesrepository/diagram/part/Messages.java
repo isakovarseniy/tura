@@ -26,107 +26,107 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryCreationWizardTitle;
+	public static String DomainCreationWizardTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryCreationWizard_DiagramModelFilePageTitle;
+	public static String DomainCreationWizard_DiagramModelFilePageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryCreationWizard_DiagramModelFilePageDescription;
+	public static String DomainCreationWizard_DiagramModelFilePageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryCreationWizard_DomainModelFilePageTitle;
+	public static String DomainCreationWizard_DomainModelFilePageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryCreationWizard_DomainModelFilePageDescription;
+	public static String DomainCreationWizard_DomainModelFilePageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryCreationWizardOpenEditorError;
+	public static String DomainCreationWizardOpenEditorError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryCreationWizardCreationError;
+	public static String DomainCreationWizardCreationError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryCreationWizardPageExtensionError;
+	public static String DomainCreationWizardPageExtensionError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
+	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
+	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDiagramEditorUtil_CreateDiagramProgressTask;
+	public static String DomainDiagramEditorUtil_CreateDiagramProgressTask;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDiagramEditorUtil_CreateDiagramCommandLabel;
+	public static String DomainDiagramEditorUtil_CreateDiagramCommandLabel;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDocumentProvider_isModifiable;
+	public static String DomainDocumentProvider_isModifiable;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDocumentProvider_handleElementContentChanged;
+	public static String DomainDocumentProvider_handleElementContentChanged;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDocumentProvider_IncorrectInputError;
+	public static String DomainDocumentProvider_IncorrectInputError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDocumentProvider_NoDiagramInResourceError;
+	public static String DomainDocumentProvider_NoDiagramInResourceError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDocumentProvider_DiagramLoadingError;
+	public static String DomainDocumentProvider_DiagramLoadingError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDocumentProvider_UnsynchronizedFileSaveError;
+	public static String DomainDocumentProvider_UnsynchronizedFileSaveError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDocumentProvider_SaveDiagramTask;
+	public static String DomainDocumentProvider_SaveDiagramTask;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDocumentProvider_SaveNextResourceTask;
+	public static String DomainDocumentProvider_SaveNextResourceTask;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDocumentProvider_SaveAsOperation;
+	public static String DomainDocumentProvider_SaveAsOperation;
 
 	/**
 	 * @generated
@@ -151,87 +151,87 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryNewDiagramFileWizard_CreationPageName;
+	public static String DomainNewDiagramFileWizard_CreationPageName;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryNewDiagramFileWizard_CreationPageTitle;
+	public static String DomainNewDiagramFileWizard_CreationPageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryNewDiagramFileWizard_CreationPageDescription;
+	public static String DomainNewDiagramFileWizard_CreationPageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryNewDiagramFileWizard_RootSelectionPageName;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageName;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryNewDiagramFileWizard_RootSelectionPageTitle;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryNewDiagramFileWizard_RootSelectionPageDescription;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryNewDiagramFileWizard_RootSelectionPageSelectionTitle;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryNewDiagramFileWizard_InitDiagramCommand;
+	public static String DomainNewDiagramFileWizard_InitDiagramCommand;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryNewDiagramFileWizard_IncorrectRootError;
+	public static String DomainNewDiagramFileWizard_IncorrectRootError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDiagramEditor_SavingDeletedFile;
+	public static String DomainDiagramEditor_SavingDeletedFile;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDiagramEditor_SaveAsErrorTitle;
+	public static String DomainDiagramEditor_SaveAsErrorTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDiagramEditor_SaveAsErrorMessage;
+	public static String DomainDiagramEditor_SaveAsErrorMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDiagramEditor_SaveErrorTitle;
+	public static String DomainDiagramEditor_SaveErrorTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryDiagramEditor_SaveErrorMessage;
+	public static String DomainDiagramEditor_SaveErrorMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryElementChooserDialog_SelectModelElementTitle;
+	public static String DomainElementChooserDialog_SelectModelElementTitle;
 
 	/**
 	 * @generated
@@ -296,12 +296,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension1CreationTool_title;
+	public static String ConfigExtension1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension1CreationTool_desc;
+	public static String ConfigExtension1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipeConfig2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipeConfig2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -356,12 +376,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryModelingAssistantProviderTitle;
+	public static String DomainModelingAssistantProviderTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypesrepositoryModelingAssistantProviderMessage;
+	public static String DomainModelingAssistantProviderMessage;
 
 	//TODO: put accessor fields manually	
 }

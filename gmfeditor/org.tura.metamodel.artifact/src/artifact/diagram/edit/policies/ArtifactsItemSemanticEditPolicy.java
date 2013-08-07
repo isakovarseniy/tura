@@ -11,26 +11,26 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import artifact.diagram.edit.commands.ArtifactCreateCommand;
-import artifact.diagram.providers.ArtifactElementTypes;
+import artifact.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ArtifactsItemSemanticEditPolicy extends
-		ArtifactBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ArtifactsItemSemanticEditPolicy() {
-		super(ArtifactElementTypes.Artifacts_701000);
+		super(DomainElementTypes.Artifacts_701000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (ArtifactElementTypes.Artifact_702001 == req.getElementType()) {
+		if (DomainElementTypes.Artifact_702001 == req.getElementType()) {
 			return getGEFWrapper(new ArtifactCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

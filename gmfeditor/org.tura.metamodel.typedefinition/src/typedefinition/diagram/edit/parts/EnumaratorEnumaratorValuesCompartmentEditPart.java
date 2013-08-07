@@ -17,8 +17,8 @@ import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
 import typedefinition.diagram.edit.policies.EnumaratorEnumaratorValuesCompartmentCanonicalEditPolicy;
 import typedefinition.diagram.edit.policies.EnumaratorEnumaratorValuesCompartmentItemSemanticEditPolicy;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
 import typedefinition.diagram.part.Messages;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
 
 /**
  * @generated
@@ -71,7 +71,7 @@ public class EnumaratorEnumaratorValuesCompartmentEditPart extends
 				new EnumaratorEnumaratorValuesCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						TypedefinitionVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,

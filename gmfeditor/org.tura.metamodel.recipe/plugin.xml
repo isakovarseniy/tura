@@ -23,12 +23,12 @@
       <editor
          id="recipe.diagram.part.RecipeDiagramEditorID"
          name="%editorName"
-         icon="icons/obj16/RecipeDiagramFile.gif"
+         icon="icons/obj16/DomainDiagramFile.gif"
          extensions="recipe_diagram"
          default="true"
-         class="recipe.diagram.part.RecipeDiagramEditor"
-         matchingStrategy="recipe.diagram.part.RecipeMatchingStrategy"
-         contributorClass="recipe.diagram.part.RecipeDiagramActionBarContributor">
+         class="recipe.diagram.part.DomainDiagramEditor"
+         matchingStrategy="recipe.diagram.part.DomainMatchingStrategy"
+         contributorClass="recipe.diagram.part.DomainDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -46,10 +46,10 @@
       <?gmfgen generated="true"?>
   	  <wizard
   	     name="%newWizardName"
-  	     icon="icons/obj16/RecipeDiagramFile.gif"
+  	     icon="icons/obj16/DomainDiagramFile.gif"
   	     category="org.eclipse.ui.Examples"
-  	     class="recipe.diagram.part.RecipeCreationWizard"
-  	     id="recipe.diagram.part.RecipeCreationWizardID">
+  	     class="recipe.diagram.part.DomainCreationWizard"
+  	     id="recipe.diagram.part.DomainCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
@@ -58,11 +58,11 @@
       <?gmfgen generated="true"?>
       <objectContribution
             id="org.tura.metamodel.recipe.InitDiagram"
-            nameFilter="*.recipe"
+            nameFilter="*.domain"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="recipe.diagram.part.RecipeInitDiagramFileAction"
+               class="recipe.diagram.part.DomainInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="org.tura.metamodel.recipe.InitDiagramAction">
@@ -126,13 +126,13 @@
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
       <?gmfgen generated="true"?>
-      <MarkerNavigationProvider class="recipe.diagram.providers.RecipeMarkerNavigationProvider">
+      <MarkerNavigationProvider class="recipe.diagram.providers.DomainMarkerNavigationProvider">
          <MarkerType name="org.tura.metamodel.recipe.diagnostic"/>
          <Priority name="Lowest"/>
       </MarkerNavigationProvider>
    </extension>
 
-   <extension id="diagnostic" name="Recipe Plugin problems" point="org.eclipse.core.resources.markers">
+   <extension id="diagnostic" name="Domain Plugin problems" point="org.eclipse.core.resources.markers">
       <?gmfgen generated="true"?>
       <super type="org.eclipse.core.resources.problemmarker"/>
       <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
@@ -141,7 +141,7 @@
 
    <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="recipe.diagram.providers.RecipeValidationDecoratorProvider">
+      <decoratorProvider class="recipe.diagram.providers.DomainValidationDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
@@ -190,7 +190,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="org.tura.metamodel.recipe"
-            labelProvider="recipe.diagram.sheet.RecipeSheetLabelProvider">
+            labelProvider="recipe.diagram.sheet.DomainSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -241,46 +241,46 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="recipe.diagram.sheet.RecipePropertySection">
+            class="recipe.diagram.sheet.DomainPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="recipe.diagram.navigator.RecipeAbstractNavigatorItem"/>
+            <input type="recipe.diagram.navigator.DomainAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="recipe.diagram.providers.RecipeViewProvider">
+      <viewProvider class="recipe.diagram.providers.DomainViewProvider">
          <Priority name="Lowest"/>
          <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
-            <method name="getType()" value="recipe"/>
+            <method name="getType()" value="domain"/>
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Recipe"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="302004,302005,303004,303002,303003,303005"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="304001,304002"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="302001,302002,303001,303002,303003,303004"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="304001,304002,304003"/>
       </viewProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="recipe.diagram.providers.RecipeEditPartProvider">
+      <editpartProvider class="recipe.diagram.providers.DomainEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="Recipe"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="302004,302005,303004,303002,303003,303005"/>
+            <method name="getType()" value="302001,302002,303001,303002,303003,303004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="304001,304002"/>
+            <method name="getType()" value="304001,304002,304003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="305009,305011,305008,305002,305001,305010"/>
+            <method name="getType()" value="305004,305006,305003,305002,305001,305005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="307009,307010,307011,307004,307005,307012"/>
+            <method name="getType()" value="307001,307002,307003,307004,307005,307006"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -288,39 +288,35 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="recipe.diagram.providers.RecipeModelingAssistantProvider">
+      <modelingAssistantProvider class="recipe.diagram.providers.DomainModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="recipe.diagram.edit.parts.RecipesEditPart" id="Recipes_301000"/>
-         <object class="recipe.diagram.edit.parts.RecipeEditPart" id="Recipe_302004"/>
-         <object class="recipe.diagram.edit.parts.ConfigurationEditPart" id="Configuration_302005"/>
-         <object class="recipe.diagram.edit.parts.ComponentEditPart" id="Component_303004"/>
-         <object class="recipe.diagram.edit.parts.Component2EditPart" id="Component_303002"/>
-         <object class="recipe.diagram.edit.parts.ModelMapperEditPart" id="ModelMapper_303003"/>
-         <object class="recipe.diagram.edit.parts.PropertyEditPart" id="Property_303005"/>
-         <context elements="Recipes_301000,Recipe_302004,Configuration_302005,Component_303004,Component_303002,ModelMapper_303003,Property_303005"/>
+         <object class="recipe.diagram.edit.parts.RecipeEditPart" id="Recipe_302001"/>
+         <object class="recipe.diagram.edit.parts.ConfigurationEditPart" id="Configuration_302002"/>
+         <context elements="Recipes_301000,Recipe_302001,Configuration_302002"/>
       </modelingAssistantProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="recipe.diagram.providers.RecipeIconProvider">
+      <IconProvider class="recipe.diagram.providers.DomainIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="recipe.diagram.providers.RecipeParserProvider">
+      <ParserProvider class="recipe.diagram.providers.DomainParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="recipe.diagram.providers.RecipeShortcutsDecoratorProvider">
+      <decoratorProvider class="recipe.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="302004,302005"/>
+            <method name="getType()" value="302001,302002"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -328,7 +324,7 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.recipe.Recipes_301000"
                name="%metatype.name.Recipes_301000"
@@ -338,46 +334,46 @@
             <param name="semanticHint" value="301000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.recipe.Recipe_302004"
-               name="%metatype.name.Recipe_302004"
+               id="org.tura.metamodel.recipe.Recipe_302001"
+               name="%metatype.name.Recipe_302001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Recipe"
                edithelper="recipe.diagram.edit.helpers.RecipeEditHelper">
-            <param name="semanticHint" value="302004"/>
+            <param name="semanticHint" value="302001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.recipe.Configuration_302005"
-               name="%metatype.name.Configuration_302005"
+               id="org.tura.metamodel.recipe.Configuration_302002"
+               name="%metatype.name.Configuration_302002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Configuration"
                edithelper="recipe.diagram.edit.helpers.ConfigurationEditHelper">
-            <param name="semanticHint" value="302005"/>
+            <param name="semanticHint" value="302002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.recipe.Component_303004"
-               name="%metatype.name.Component_303004"
+               id="org.tura.metamodel.recipe.Component_303001"
+               name="%metatype.name.Component_303001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Component"
                edithelper="recipe.diagram.edit.helpers.ComponentEditHelper">
-            <param name="semanticHint" value="303004"/>
+            <param name="semanticHint" value="303001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.recipe.Component_303002"
                name="%metatype.name.Component_303002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.tura.metamodel.recipe.Component_303004"/>
+            <specializes id="org.tura.metamodel.recipe.Component_303001"/>
             <param name="semanticHint" value="303002"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.recipe.ModelMapper_303003"
                name="%metatype.name.ModelMapper_303003"
@@ -387,55 +383,70 @@
             <param name="semanticHint" value="303003"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.recipe.Property_303005"
-               name="%metatype.name.Property_303005"
+               id="org.tura.metamodel.recipe.Property_303004"
+               name="%metatype.name.Property_303004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Property"
                edithelper="recipe.diagram.edit.helpers.PropertyEditHelper">
-            <param name="semanticHint" value="303005"/>
+            <param name="semanticHint" value="303004"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
-         <specializationType
-               id="org.tura.metamodel.recipe.RecipeRecipeConfig_304001"
-               name="%metatype.name.RecipeRecipeConfig_304001"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.recipe.TypeExtension_304001"
+               name="%metatype.name.TypeExtension_304001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TypeExtension"
+               edithelper="recipe.diagram.edit.helpers.TypeExtensionEditHelper">
             <param name="semanticHint" value="304001"/>
-         </specializationType>
+         </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/recipe">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
-               id="org.tura.metamodel.recipe.ConfigurationConfigExtension_304002"
-               name="%metatype.name.ConfigurationConfigExtension_304002"
+               id="org.tura.metamodel.recipe.RecipeRecipeConfig_304002"
+               name="%metatype.name.RecipeRecipeConfig_304002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
             <param name="semanticHint" value="304002"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.recipe.ConfigurationConfigExtension_304003"
+               name="%metatype.name.ConfigurationConfigExtension_304003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="304003"/>
          </specializationType>
       </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
       <?gmfgen generated="true"?>
-      <clientContext id="org.tura.metamodel.recipe.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <clientContext id="org.tura.metamodel.recipe.TypeContext"> -->
+      <clientContext id="SharedClientContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
                value="org.tura.metamodel.recipe.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="org.tura.metamodel.recipe.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <binding context="org.tura.metamodel.recipe.TypeContext"> -->
+      <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.recipe.Recipes_301000"/>
-         <elementType ref="org.tura.metamodel.recipe.Recipe_302004"/>
-         <elementType ref="org.tura.metamodel.recipe.Configuration_302005"/>
-         <elementType ref="org.tura.metamodel.recipe.Component_303004"/>
+         <elementType ref="org.tura.metamodel.recipe.Recipe_302001"/>
+         <elementType ref="org.tura.metamodel.recipe.Configuration_302002"/>
+         <elementType ref="org.tura.metamodel.recipe.Component_303001"/>
          <elementType ref="org.tura.metamodel.recipe.Component_303002"/>
          <elementType ref="org.tura.metamodel.recipe.ModelMapper_303003"/>
-         <elementType ref="org.tura.metamodel.recipe.Property_303005"/>
-         <elementType ref="org.tura.metamodel.recipe.RecipeRecipeConfig_304001"/>
-         <elementType ref="org.tura.metamodel.recipe.ConfigurationConfigExtension_304002"/>
+         <elementType ref="org.tura.metamodel.recipe.Property_303004"/>
+         <elementType ref="org.tura.metamodel.recipe.TypeExtension_304001"/>
+         <elementType ref="org.tura.metamodel.recipe.RecipeRecipeConfig_304002"/>
+         <elementType ref="org.tura.metamodel.recipe.ConfigurationConfigExtension_304003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
@@ -446,7 +457,7 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="org.tura.metamodel.recipe"
            properties="isURIEditorInput"
-           class="recipe.diagram.part.RecipeUriEditorInputTester">
+           class="recipe.diagram.part.DomainUriEditorInputTester">
        </propertyTester>
    </extension>
 
@@ -457,7 +468,7 @@
            type="org.eclipse.gmf.runtime.notation.View"
            namespace="org.tura.metamodel.recipe"
            properties="isShortcut"
-           class="recipe.diagram.part.RecipeShortcutPropertyTester">
+           class="recipe.diagram.part.DomainShortcutPropertyTester">
        </propertyTester>
    </extension>
 
@@ -483,9 +494,9 @@
             id="org.tura.metamodel.recipe.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="recipe.diagram.navigator.RecipeNavigatorContentProvider" 
-            labelProvider="recipe.diagram.navigator.RecipeNavigatorLabelProvider"
-            icon="icons/obj16/RecipeDiagramFile.gif"
+            contentProvider="recipe.diagram.navigator.DomainNavigatorContentProvider" 
+            labelProvider="recipe.diagram.navigator.DomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
@@ -493,7 +504,7 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="recipe_diagram"/>
                </and>
-               <instanceof value="recipe.diagram.navigator.RecipeAbstractNavigatorItem"/>
+               <instanceof value="recipe.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.recipe.isShortcut"/>
            	   </adapt>
@@ -501,7 +512,7 @@
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="recipe.diagram.navigator.RecipeAbstractNavigatorItem"/>
+         	   <instanceof value="recipe.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.recipe.isShortcut"/>
            	   </adapt>
@@ -509,14 +520,14 @@
          </possibleChildren>
          <commonSorter 
                id="org.tura.metamodel.recipe.navigatorSorter" 
-               class="recipe.diagram.navigator.RecipeNavigatorSorter">
+               class="recipe.diagram.navigator.DomainNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
         	         <test property="org.eclipse.core.resources.extension" value="recipe_diagram"/>
                   </and>
-                  <instanceof value="recipe.diagram.navigator.RecipeAbstractNavigatorItem"/>
+                  <instanceof value="recipe.diagram.navigator.DomainAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -525,29 +536,29 @@
             id="org.tura.metamodel.recipe.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="recipe.diagram.navigator.RecipeDomainNavigatorContentProvider" 
-            labelProvider="recipe.diagram.navigator.RecipeDomainNavigatorLabelProvider"
-            icon="icons/obj16/RecipeDiagramFile.gif"
+            contentProvider="recipe.diagram.navigator.DomainDomainNavigatorContentProvider" 
+            labelProvider="recipe.diagram.navigator.DomainDomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="recipe"/>
+        	      <test property="org.eclipse.core.resources.extension" value="domain"/>
                </and>
-               <instanceof value="recipe.diagram.navigator.RecipeDomainNavigatorItem"/>
+               <instanceof value="recipe.diagram.navigator.DomainDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="recipe.diagram.navigator.RecipeDomainNavigatorItem"/>
+            <instanceof value="recipe.diagram.navigator.DomainDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="org.tura.metamodel.recipe.navigatorActionProvider"
-            class="recipe.diagram.navigator.RecipeNavigatorActionProvider">
+            class="recipe.diagram.navigator.DomainNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="recipe.diagram.navigator.RecipeAbstractNavigatorItem"/>
+               <instanceof value="recipe.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.recipe.isShortcut"/>
            	   </adapt>
@@ -560,7 +571,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="org.tura.metamodel.recipe.navigatorLinkHelper"
-            class="recipe.diagram.navigator.RecipeNavigatorLinkHelper">
+            class="recipe.diagram.navigator.DomainNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -568,7 +579,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="recipe.diagram.navigator.RecipeAbstractNavigatorItem"/>
+            <instanceof value="recipe.diagram.navigator.DomainAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -576,7 +587,7 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="recipe.diagram.part.RecipeDiagramUpdateCommand"
+         defaultHandler="recipe.diagram.part.DomainDiagramUpdateCommand"
          description="%update.diagram.description"
          id="recipe.diagram.updateDiagram"
          name="%update.diagram.name"/>
@@ -625,4 +636,14 @@
    </extension>
 
    <!-- optionally, specify keybindings -->
+
+
+    <extension
+         point="org.eclipse.emf.transaction.editingDomains">
+      <!-- ITEMIS CHANGE: register diagram editing domain factory --> 
+      <editingDomain
+            factory="org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory"
+            id="org.tura.metamodel.recipe.EditingDomain">
+      </editingDomain>
+   </extension>
 </plugin>

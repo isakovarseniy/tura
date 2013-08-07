@@ -6,7 +6,7 @@ package artifact.diagram.preferences;
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 
-import artifact.diagram.part.ArtifactDiagramEditorPlugin;
+import artifact.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -30,6 +30,6 @@ public class DiagramPreferenceInitializer extends AbstractPreferenceInitializer 
 	 * @generated
 	 */
 	protected IPreferenceStore getPreferenceStore() {
-		return ArtifactDiagramEditorPlugin.getInstance().getPreferenceStore();
+		return DomainDiagramEditorPlugin.getInstance().getPreferenceStore();
 	}
 }

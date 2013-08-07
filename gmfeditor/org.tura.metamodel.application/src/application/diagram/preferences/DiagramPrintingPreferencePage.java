@@ -5,7 +5,7 @@ package application.diagram.preferences;
 
 import org.eclipse.gmf.runtime.diagram.ui.preferences.PrintingPreferencePage;
 
-import application.diagram.part.ApplicationDiagramEditorPlugin;
+import application.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -16,7 +16,7 @@ public class DiagramPrintingPreferencePage extends PrintingPreferencePage {
 	 * @generated
 	 */
 	public DiagramPrintingPreferencePage() {
-		setPreferenceStore(ApplicationDiagramEditorPlugin.getInstance()
+		setPreferenceStore(DomainDiagramEditorPlugin.getInstance()
 				.getPreferenceStore());
 	}
 }

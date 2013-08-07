@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typedefinition.Operation;
-import typedefinition.Type;
-import typedefinition.TypedefinitionFactory;
+import domain.DomainFactory;
+import domain.Operation;
+import domain.Type;
 
 /**
  * @generated
@@ -57,8 +57,7 @@ public class OperationCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Operation newElement = TypedefinitionFactory.eINSTANCE
-				.createOperation();
+		Operation newElement = DomainFactory.eINSTANCE.createOperation();
 
 		Type owner = (Type) getElementToEdit();
 		owner.getOperations().add(newElement);

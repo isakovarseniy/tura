@@ -27,7 +27,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import artifact.diagram.edit.policies.Variable2ItemSemanticEditPolicy;
-import artifact.diagram.part.ArtifactVisualIDRegistry;
+import artifact.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -247,7 +247,7 @@ public class Variable2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(ArtifactVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(VariableName2EditPart.VISUAL_ID));
 	}
 

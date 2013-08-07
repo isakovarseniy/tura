@@ -26,8 +26,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.osgi.util.NLS;
 
+import typesrepository.diagram.part.DomainDiagramEditorPlugin;
 import typesrepository.diagram.part.Messages;
-import typesrepository.diagram.part.TypesrepositoryDiagramEditorPlugin;
 
 /**
  * @generated
@@ -238,8 +238,7 @@ public abstract class AbstractParser implements IParser {
 		for (int i = 0; i < values.length; i++) {
 			Object value = getValidNewValue(editableFeatures[i], values[i]);
 			if (value instanceof InvalidValue) {
-				return new ParserEditStatus(
-						TypesrepositoryDiagramEditorPlugin.ID,
+				return new ParserEditStatus(DomainDiagramEditorPlugin.ID,
 						IParserEditStatus.UNEDITABLE, value.toString());
 			}
 		}

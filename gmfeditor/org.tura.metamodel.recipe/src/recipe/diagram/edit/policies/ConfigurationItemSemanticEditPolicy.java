@@ -28,20 +28,20 @@ import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeConfigEditPart;
-import recipe.diagram.part.RecipeVisualIDRegistry;
-import recipe.diagram.providers.RecipeElementTypes;
+import recipe.diagram.part.DomainVisualIDRegistry;
+import recipe.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ConfigurationItemSemanticEditPolicy extends
-		RecipeBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ConfigurationItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Configuration_302005);
+		super(DomainElementTypes.Configuration_302002);
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class ConfigurationItemSemanticEditPolicy extends
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
-			if (RecipeVisualIDRegistry.getVisualID(incomingLink) == RecipeRecipeConfigEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(incomingLink) == RecipeRecipeConfigEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						incomingLink.getSource().getElement(), null,
 						incomingLink.getTarget().getElement(), false);
@@ -62,7 +62,7 @@ public class ConfigurationItemSemanticEditPolicy extends
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
-			if (RecipeVisualIDRegistry.getVisualID(incomingLink) == ConfigurationConfigExtensionEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(incomingLink) == ConfigurationConfigExtensionEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						incomingLink.getSource().getElement(), null,
 						incomingLink.getTarget().getElement(), false);
@@ -73,7 +73,7 @@ public class ConfigurationItemSemanticEditPolicy extends
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
-			if (RecipeVisualIDRegistry.getVisualID(outgoingLink) == ConfigurationConfigExtensionEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == ConfigurationConfigExtensionEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
@@ -102,12 +102,12 @@ public class ConfigurationItemSemanticEditPolicy extends
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
-			switch (RecipeVisualIDRegistry.getVisualID(node)) {
+			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (RecipeVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case PropertyEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -137,11 +137,11 @@ public class ConfigurationItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RecipeElementTypes.RecipeRecipeConfig_304001 == req
+		if (DomainElementTypes.RecipeRecipeConfig_304002 == req
 				.getElementType()) {
 			return null;
 		}
-		if (RecipeElementTypes.ConfigurationConfigExtension_304002 == req
+		if (DomainElementTypes.ConfigurationConfigExtension_304003 == req
 				.getElementType()) {
 			return getGEFWrapper(new ConfigurationConfigExtensionCreateCommand(
 					req, req.getSource(), req.getTarget()));
@@ -154,12 +154,12 @@ public class ConfigurationItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RecipeElementTypes.RecipeRecipeConfig_304001 == req
+		if (DomainElementTypes.RecipeRecipeConfig_304002 == req
 				.getElementType()) {
 			return getGEFWrapper(new RecipeRecipeConfigCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (RecipeElementTypes.ConfigurationConfigExtension_304002 == req
+		if (DomainElementTypes.ConfigurationConfigExtension_304003 == req
 				.getElementType()) {
 			return getGEFWrapper(new ConfigurationConfigExtensionCreateCommand(
 					req, req.getSource(), req.getTarget()));

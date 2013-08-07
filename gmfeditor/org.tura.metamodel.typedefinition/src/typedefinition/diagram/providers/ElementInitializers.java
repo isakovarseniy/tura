@@ -3,7 +3,7 @@
  */
 package typedefinition.diagram.providers;
 
-import typedefinition.diagram.part.TypedefinitionDiagramEditorPlugin;
+import typedefinition.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -18,11 +18,11 @@ public class ElementInitializers {
 	 * @generated
 	 */
 	public static ElementInitializers getInstance() {
-		ElementInitializers cached = TypedefinitionDiagramEditorPlugin
-				.getInstance().getElementInitializers();
+		ElementInitializers cached = DomainDiagramEditorPlugin.getInstance()
+				.getElementInitializers();
 		if (cached == null) {
-			TypedefinitionDiagramEditorPlugin.getInstance()
-					.setElementInitializers(cached = new ElementInitializers());
+			DomainDiagramEditorPlugin.getInstance().setElementInitializers(
+					cached = new ElementInitializers());
 		}
 		return cached;
 	}

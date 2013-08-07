@@ -6,5 +6,5 @@ package typedefinition.diagram.edit.helpers;
 /**
  * @generated
  */
-public class EnumaratorEditHelper extends TypedefinitionBaseEditHelper {
+public class EnumaratorEditHelper extends DomainBaseEditHelper {
 }

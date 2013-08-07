@@ -26,107 +26,107 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionCreationWizardTitle;
+	public static String DomainCreationWizardTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionCreationWizard_DiagramModelFilePageTitle;
+	public static String DomainCreationWizard_DiagramModelFilePageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionCreationWizard_DiagramModelFilePageDescription;
+	public static String DomainCreationWizard_DiagramModelFilePageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionCreationWizard_DomainModelFilePageTitle;
+	public static String DomainCreationWizard_DomainModelFilePageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionCreationWizard_DomainModelFilePageDescription;
+	public static String DomainCreationWizard_DomainModelFilePageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionCreationWizardOpenEditorError;
+	public static String DomainCreationWizardOpenEditorError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionCreationWizardCreationError;
+	public static String DomainCreationWizardCreationError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionCreationWizardPageExtensionError;
+	public static String DomainCreationWizardPageExtensionError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
+	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
+	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDiagramEditorUtil_CreateDiagramProgressTask;
+	public static String DomainDiagramEditorUtil_CreateDiagramProgressTask;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDiagramEditorUtil_CreateDiagramCommandLabel;
+	public static String DomainDiagramEditorUtil_CreateDiagramCommandLabel;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDocumentProvider_isModifiable;
+	public static String DomainDocumentProvider_isModifiable;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDocumentProvider_handleElementContentChanged;
+	public static String DomainDocumentProvider_handleElementContentChanged;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDocumentProvider_IncorrectInputError;
+	public static String DomainDocumentProvider_IncorrectInputError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDocumentProvider_NoDiagramInResourceError;
+	public static String DomainDocumentProvider_NoDiagramInResourceError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDocumentProvider_DiagramLoadingError;
+	public static String DomainDocumentProvider_DiagramLoadingError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDocumentProvider_UnsynchronizedFileSaveError;
+	public static String DomainDocumentProvider_UnsynchronizedFileSaveError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDocumentProvider_SaveDiagramTask;
+	public static String DomainDocumentProvider_SaveDiagramTask;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDocumentProvider_SaveNextResourceTask;
+	public static String DomainDocumentProvider_SaveNextResourceTask;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDocumentProvider_SaveAsOperation;
+	public static String DomainDocumentProvider_SaveAsOperation;
 
 	/**
 	 * @generated
@@ -151,87 +151,87 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionNewDiagramFileWizard_CreationPageName;
+	public static String DomainNewDiagramFileWizard_CreationPageName;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionNewDiagramFileWizard_CreationPageTitle;
+	public static String DomainNewDiagramFileWizard_CreationPageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionNewDiagramFileWizard_CreationPageDescription;
+	public static String DomainNewDiagramFileWizard_CreationPageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionNewDiagramFileWizard_RootSelectionPageName;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageName;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionNewDiagramFileWizard_RootSelectionPageTitle;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionNewDiagramFileWizard_RootSelectionPageDescription;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionNewDiagramFileWizard_RootSelectionPageSelectionTitle;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionNewDiagramFileWizard_InitDiagramCommand;
+	public static String DomainNewDiagramFileWizard_InitDiagramCommand;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionNewDiagramFileWizard_IncorrectRootError;
+	public static String DomainNewDiagramFileWizard_IncorrectRootError;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDiagramEditor_SavingDeletedFile;
+	public static String DomainDiagramEditor_SavingDeletedFile;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDiagramEditor_SaveAsErrorTitle;
+	public static String DomainDiagramEditor_SaveAsErrorTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDiagramEditor_SaveAsErrorMessage;
+	public static String DomainDiagramEditor_SaveAsErrorMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDiagramEditor_SaveErrorTitle;
+	public static String DomainDiagramEditor_SaveErrorTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionDiagramEditor_SaveErrorMessage;
+	public static String DomainDiagramEditor_SaveErrorMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionElementChooserDialog_SelectModelElementTitle;
+	public static String DomainElementChooserDialog_SelectModelElementTitle;
 
 	/**
 	 * @generated
@@ -326,12 +326,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension1CreationTool_title;
+	public static String ConfigExtension1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension1CreationTool_desc;
+	public static String ConfigExtension1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipeConfig2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipeConfig2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -366,17 +386,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TypeExtension_104001_target;
+	public static String NavigatorGroupName_TypeReference_102001_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TypeExtension_104001_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TypeDefinition_101000_links;
+	public static String NavigatorGroupName_TypeReference_102001_outgoinglinks;
 
 	/**
 	 * @generated
@@ -391,12 +406,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TypeReference_102001_incominglinks;
+	public static String NavigatorGroupName_TypeExtension_104001_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TypeReference_102001_outgoinglinks;
+	public static String NavigatorGroupName_TypeExtension_104001_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TypeDefinition_101000_links;
 
 	/**
 	 * @generated
@@ -426,12 +446,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionModelingAssistantProviderTitle;
+	public static String DomainModelingAssistantProviderTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String TypedefinitionModelingAssistantProviderMessage;
+	public static String DomainModelingAssistantProviderMessage;
 
 	//TODO: put accessor fields manually	
 }

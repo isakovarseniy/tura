@@ -11,19 +11,19 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import recipe.diagram.providers.RecipeElementTypes;
+import recipe.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class ModelMapperItemSemanticEditPolicy extends
-		RecipeBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public ModelMapperItemSemanticEditPolicy() {
-		super(RecipeElementTypes.ModelMapper_303003);
+		super(DomainElementTypes.ModelMapper_303003);
 	}
 
 	/**

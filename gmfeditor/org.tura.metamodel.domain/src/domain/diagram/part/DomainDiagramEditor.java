@@ -61,6 +61,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.IShowInTargetList;
 import org.eclipse.ui.part.ShowInContext;
 
+import de.itemis.gmf.runtime.editingdomain.SharedEditingDomainUtil;
 import domain.diagram.navigator.DomainNavigatorItem;
 
 /**
@@ -392,5 +393,16 @@ public class DomainDiagramEditor extends DiagramDocumentEditor implements
 		protected abstract Object getJavaObject(TransferData data);
 
 	}
+
+	/**
+	 * @generated
+	 */
+	protected TransactionalEditingDomain createEditingDomain() {
+		// ITEMIS CHANGE: Use shared editing domain
+		return SharedEditingDomainUtil
+				.getSharedEditingDomain("org.tura.metamodel.domain.EditingDomain");
+	}
+
+	// ITEMIS CHANGE: React to drop requests even if shortcuts are disabled
 
 }

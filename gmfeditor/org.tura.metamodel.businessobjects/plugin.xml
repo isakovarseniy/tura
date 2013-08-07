@@ -23,12 +23,12 @@
       <editor
          id="businessobjects.diagram.part.BusinessobjectsDiagramEditorID"
          name="%editorName"
-         icon="icons/obj16/BusinessobjectsDiagramFile.gif"
+         icon="icons/obj16/DomainDiagramFile.gif"
          extensions="businessobjects_diagram"
          default="true"
-         class="businessobjects.diagram.part.BusinessobjectsDiagramEditor"
-         matchingStrategy="businessobjects.diagram.part.BusinessobjectsMatchingStrategy"
-         contributorClass="businessobjects.diagram.part.BusinessobjectsDiagramActionBarContributor">
+         class="businessobjects.diagram.part.DomainDiagramEditor"
+         matchingStrategy="businessobjects.diagram.part.DomainMatchingStrategy"
+         contributorClass="businessobjects.diagram.part.DomainDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -46,10 +46,10 @@
       <?gmfgen generated="true"?>
   	  <wizard
   	     name="%newWizardName"
-  	     icon="icons/obj16/BusinessobjectsDiagramFile.gif"
+  	     icon="icons/obj16/DomainDiagramFile.gif"
   	     category="org.eclipse.ui.Examples"
-  	     class="businessobjects.diagram.part.BusinessobjectsCreationWizard"
-  	     id="businessobjects.diagram.part.BusinessobjectsCreationWizardID">
+  	     class="businessobjects.diagram.part.DomainCreationWizard"
+  	     id="businessobjects.diagram.part.DomainCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
@@ -58,11 +58,11 @@
       <?gmfgen generated="true"?>
       <objectContribution
             id="org.tura.metamodel.businessobjects.InitDiagram"
-            nameFilter="*.businessobjects"
+            nameFilter="*.domain"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="businessobjects.diagram.part.BusinessobjectsInitDiagramFileAction"
+               class="businessobjects.diagram.part.DomainInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="org.tura.metamodel.businessobjects.InitDiagramAction">
@@ -126,13 +126,13 @@
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
       <?gmfgen generated="true"?>
-      <MarkerNavigationProvider class="businessobjects.diagram.providers.BusinessobjectsMarkerNavigationProvider">
+      <MarkerNavigationProvider class="businessobjects.diagram.providers.DomainMarkerNavigationProvider">
          <MarkerType name="org.tura.metamodel.businessobjects.diagnostic"/>
          <Priority name="Lowest"/>
       </MarkerNavigationProvider>
    </extension>
 
-   <extension id="diagnostic" name="Businessobjects Plugin problems" point="org.eclipse.core.resources.markers">
+   <extension id="diagnostic" name="Domain Plugin problems" point="org.eclipse.core.resources.markers">
       <?gmfgen generated="true"?>
       <super type="org.eclipse.core.resources.problemmarker"/>
       <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
@@ -141,7 +141,7 @@
 
    <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="businessobjects.diagram.providers.BusinessobjectsValidationDecoratorProvider">
+      <decoratorProvider class="businessobjects.diagram.providers.DomainValidationDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
@@ -190,7 +190,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="org.tura.metamodel.businessobjects"
-            labelProvider="businessobjects.diagram.sheet.BusinessobjectsSheetLabelProvider">
+            labelProvider="businessobjects.diagram.sheet.DomainSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -241,46 +241,46 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="businessobjects.diagram.sheet.BusinessobjectsPropertySection">
+            class="businessobjects.diagram.sheet.DomainPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="businessobjects.diagram.navigator.BusinessobjectsAbstractNavigatorItem"/>
+            <input type="businessobjects.diagram.navigator.DomainAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="businessobjects.diagram.providers.BusinessobjectsViewProvider">
+      <viewProvider class="businessobjects.diagram.providers.DomainViewProvider">
          <Priority name="Lowest"/>
          <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
-            <method name="getType()" value="businessobjects"/>
+            <method name="getType()" value="domain"/>
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Businessobjects"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="602003,603009,603010,603011,603012,603013,603014"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="604001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="602001,603001,603002,603003,603004,603005,603006"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="604001,604002,604003"/>
       </viewProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="businessobjects.diagram.providers.BusinessobjectsEditPartProvider">
+      <editpartProvider class="businessobjects.diagram.providers.DomainEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="Businessobjects"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="602003,603009,603010,603011,603012,603013,603014"/>
+            <method name="getType()" value="602001,603001,603002,603003,603004,603005,603006"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="604001"/>
+            <method name="getType()" value="604001,604002,604003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="605010,605012,605013,605014,605015,605016,605017"/>
+            <method name="getType()" value="605007,605001,605002,605003,605004,605005,605006"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="607003,607004,607005,607006,607007,607008"/>
+            <method name="getType()" value="607001,607002,607003,607004,607005,607006"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -288,40 +288,34 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="businessobjects.diagram.providers.BusinessobjectsModelingAssistantProvider">
+      <modelingAssistantProvider class="businessobjects.diagram.providers.DomainModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="businessobjects.diagram.edit.parts.BusinessObjectsEditPart" id="BusinessObjects_601000"/>
-         <object class="businessobjects.diagram.edit.parts.BusinessObjectEditPart" id="BusinessObject_602003"/>
-         <object class="businessobjects.diagram.edit.parts.CreateMethodEditPart" id="CreateMethod_603009"/>
-         <object class="businessobjects.diagram.edit.parts.InsertMethodEditPart" id="InsertMethod_603010"/>
-         <object class="businessobjects.diagram.edit.parts.UpdateMethodEditPart" id="UpdateMethod_603011"/>
-         <object class="businessobjects.diagram.edit.parts.RemoveMethodEditPart" id="RemoveMethod_603012"/>
-         <object class="businessobjects.diagram.edit.parts.SearchMethodEditPart" id="SearchMethod_603013"/>
-         <object class="businessobjects.diagram.edit.parts.OtherMethodEditPart" id="OtherMethod_603014"/>
-         <context elements="BusinessObjects_601000,BusinessObject_602003,CreateMethod_603009,InsertMethod_603010,UpdateMethod_603011,RemoveMethod_603012,SearchMethod_603013,OtherMethod_603014"/>
+         <object class="businessobjects.diagram.edit.parts.BusinessObjectEditPart" id="BusinessObject_602001"/>
+         <context elements="BusinessObjects_601000,BusinessObject_602001"/>
       </modelingAssistantProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="businessobjects.diagram.providers.BusinessobjectsIconProvider">
+      <IconProvider class="businessobjects.diagram.providers.DomainIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="businessobjects.diagram.providers.BusinessobjectsParserProvider">
+      <ParserProvider class="businessobjects.diagram.providers.DomainParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="businessobjects.diagram.providers.BusinessobjectsShortcutsDecoratorProvider">
+      <decoratorProvider class="businessobjects.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="602003"/>
+            <method name="getType()" value="602001"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -329,7 +323,7 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.businessobjects.BusinessObjects_601000"
                name="%metatype.name.BusinessObjects_601000"
@@ -339,77 +333,77 @@
             <param name="semanticHint" value="601000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.BusinessObject_602003"
-               name="%metatype.name.BusinessObject_602003"
+               id="org.tura.metamodel.businessobjects.BusinessObject_602001"
+               name="%metatype.name.BusinessObject_602001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="BusinessObject"
                edithelper="businessobjects.diagram.edit.helpers.BusinessObjectEditHelper">
-            <param name="semanticHint" value="602003"/>
+            <param name="semanticHint" value="602001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.CreateMethod_603009"
-               name="%metatype.name.CreateMethod_603009"
+               id="org.tura.metamodel.businessobjects.CreateMethod_603001"
+               name="%metatype.name.CreateMethod_603001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="CreateMethod"
                edithelper="businessobjects.diagram.edit.helpers.CreateMethodEditHelper">
-            <param name="semanticHint" value="603009"/>
+            <param name="semanticHint" value="603001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.InsertMethod_603010"
-               name="%metatype.name.InsertMethod_603010"
+               id="org.tura.metamodel.businessobjects.InsertMethod_603002"
+               name="%metatype.name.InsertMethod_603002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="InsertMethod"
                edithelper="businessobjects.diagram.edit.helpers.InsertMethodEditHelper">
-            <param name="semanticHint" value="603010"/>
+            <param name="semanticHint" value="603002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.UpdateMethod_603011"
-               name="%metatype.name.UpdateMethod_603011"
+               id="org.tura.metamodel.businessobjects.UpdateMethod_603003"
+               name="%metatype.name.UpdateMethod_603003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="UpdateMethod"
                edithelper="businessobjects.diagram.edit.helpers.UpdateMethodEditHelper">
-            <param name="semanticHint" value="603011"/>
+            <param name="semanticHint" value="603003"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.RemoveMethod_603012"
-               name="%metatype.name.RemoveMethod_603012"
+               id="org.tura.metamodel.businessobjects.RemoveMethod_603004"
+               name="%metatype.name.RemoveMethod_603004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="RemoveMethod"
                edithelper="businessobjects.diagram.edit.helpers.RemoveMethodEditHelper">
-            <param name="semanticHint" value="603012"/>
+            <param name="semanticHint" value="603004"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.SearchMethod_603013"
-               name="%metatype.name.SearchMethod_603013"
+               id="org.tura.metamodel.businessobjects.SearchMethod_603005"
+               name="%metatype.name.SearchMethod_603005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="SearchMethod"
                edithelper="businessobjects.diagram.edit.helpers.SearchMethodEditHelper">
-            <param name="semanticHint" value="603013"/>
+            <param name="semanticHint" value="603005"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/businessobjects">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.businessobjects.OtherMethod_603014"
-               name="%metatype.name.OtherMethod_603014"
+               id="org.tura.metamodel.businessobjects.OtherMethod_603006"
+               name="%metatype.name.OtherMethod_603006"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="OtherMethod"
                edithelper="businessobjects.diagram.edit.helpers.OtherMethodEditHelper">
-            <param name="semanticHint" value="603014"/>
+            <param name="semanticHint" value="603006"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.businessobjects.TypeExtension_604001"
                name="%metatype.name.TypeExtension_604001"
@@ -419,27 +413,51 @@
             <param name="semanticHint" value="604001"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.businessobjects.RecipeRecipeConfig_604002"
+               name="%metatype.name.RecipeRecipeConfig_604002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="604002"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.businessobjects.ConfigurationConfigExtension_604003"
+               name="%metatype.name.ConfigurationConfigExtension_604003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="604003"/>
+         </specializationType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
       <?gmfgen generated="true"?>
-      <clientContext id="org.tura.metamodel.businessobjects.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <clientContext id="org.tura.metamodel.businessobjects.TypeContext"> -->
+      <clientContext id="SharedClientContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
                value="org.tura.metamodel.businessobjects.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="org.tura.metamodel.businessobjects.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <binding context="org.tura.metamodel.businessobjects.TypeContext"> -->
+      <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.businessobjects.BusinessObjects_601000"/>
-         <elementType ref="org.tura.metamodel.businessobjects.BusinessObject_602003"/>
-         <elementType ref="org.tura.metamodel.businessobjects.CreateMethod_603009"/>
-         <elementType ref="org.tura.metamodel.businessobjects.InsertMethod_603010"/>
-         <elementType ref="org.tura.metamodel.businessobjects.UpdateMethod_603011"/>
-         <elementType ref="org.tura.metamodel.businessobjects.RemoveMethod_603012"/>
-         <elementType ref="org.tura.metamodel.businessobjects.SearchMethod_603013"/>
-         <elementType ref="org.tura.metamodel.businessobjects.OtherMethod_603014"/>
+         <elementType ref="org.tura.metamodel.businessobjects.BusinessObject_602001"/>
+         <elementType ref="org.tura.metamodel.businessobjects.CreateMethod_603001"/>
+         <elementType ref="org.tura.metamodel.businessobjects.InsertMethod_603002"/>
+         <elementType ref="org.tura.metamodel.businessobjects.UpdateMethod_603003"/>
+         <elementType ref="org.tura.metamodel.businessobjects.RemoveMethod_603004"/>
+         <elementType ref="org.tura.metamodel.businessobjects.SearchMethod_603005"/>
+         <elementType ref="org.tura.metamodel.businessobjects.OtherMethod_603006"/>
          <elementType ref="org.tura.metamodel.businessobjects.TypeExtension_604001"/>
+         <elementType ref="org.tura.metamodel.businessobjects.RecipeRecipeConfig_604002"/>
+         <elementType ref="org.tura.metamodel.businessobjects.ConfigurationConfigExtension_604003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
@@ -450,7 +468,7 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="org.tura.metamodel.businessobjects"
            properties="isURIEditorInput"
-           class="businessobjects.diagram.part.BusinessobjectsUriEditorInputTester">
+           class="businessobjects.diagram.part.DomainUriEditorInputTester">
        </propertyTester>
    </extension>
 
@@ -461,7 +479,7 @@
            type="org.eclipse.gmf.runtime.notation.View"
            namespace="org.tura.metamodel.businessobjects"
            properties="isShortcut"
-           class="businessobjects.diagram.part.BusinessobjectsShortcutPropertyTester">
+           class="businessobjects.diagram.part.DomainShortcutPropertyTester">
        </propertyTester>
    </extension>
 
@@ -487,9 +505,9 @@
             id="org.tura.metamodel.businessobjects.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="businessobjects.diagram.navigator.BusinessobjectsNavigatorContentProvider" 
-            labelProvider="businessobjects.diagram.navigator.BusinessobjectsNavigatorLabelProvider"
-            icon="icons/obj16/BusinessobjectsDiagramFile.gif"
+            contentProvider="businessobjects.diagram.navigator.DomainNavigatorContentProvider" 
+            labelProvider="businessobjects.diagram.navigator.DomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
@@ -497,7 +515,7 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="businessobjects_diagram"/>
                </and>
-               <instanceof value="businessobjects.diagram.navigator.BusinessobjectsAbstractNavigatorItem"/>
+               <instanceof value="businessobjects.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.businessobjects.isShortcut"/>
            	   </adapt>
@@ -505,7 +523,7 @@
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="businessobjects.diagram.navigator.BusinessobjectsAbstractNavigatorItem"/>
+         	   <instanceof value="businessobjects.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.businessobjects.isShortcut"/>
            	   </adapt>
@@ -513,14 +531,14 @@
          </possibleChildren>
          <commonSorter 
                id="org.tura.metamodel.businessobjects.navigatorSorter" 
-               class="businessobjects.diagram.navigator.BusinessobjectsNavigatorSorter">
+               class="businessobjects.diagram.navigator.DomainNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
         	         <test property="org.eclipse.core.resources.extension" value="businessobjects_diagram"/>
                   </and>
-                  <instanceof value="businessobjects.diagram.navigator.BusinessobjectsAbstractNavigatorItem"/>
+                  <instanceof value="businessobjects.diagram.navigator.DomainAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -529,29 +547,29 @@
             id="org.tura.metamodel.businessobjects.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="businessobjects.diagram.navigator.BusinessobjectsDomainNavigatorContentProvider" 
-            labelProvider="businessobjects.diagram.navigator.BusinessobjectsDomainNavigatorLabelProvider"
-            icon="icons/obj16/BusinessobjectsDiagramFile.gif"
+            contentProvider="businessobjects.diagram.navigator.DomainDomainNavigatorContentProvider" 
+            labelProvider="businessobjects.diagram.navigator.DomainDomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="businessobjects"/>
+        	      <test property="org.eclipse.core.resources.extension" value="domain"/>
                </and>
-               <instanceof value="businessobjects.diagram.navigator.BusinessobjectsDomainNavigatorItem"/>
+               <instanceof value="businessobjects.diagram.navigator.DomainDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="businessobjects.diagram.navigator.BusinessobjectsDomainNavigatorItem"/>
+            <instanceof value="businessobjects.diagram.navigator.DomainDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="org.tura.metamodel.businessobjects.navigatorActionProvider"
-            class="businessobjects.diagram.navigator.BusinessobjectsNavigatorActionProvider">
+            class="businessobjects.diagram.navigator.DomainNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="businessobjects.diagram.navigator.BusinessobjectsAbstractNavigatorItem"/>
+               <instanceof value="businessobjects.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.businessobjects.isShortcut"/>
            	   </adapt>
@@ -564,7 +582,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="org.tura.metamodel.businessobjects.navigatorLinkHelper"
-            class="businessobjects.diagram.navigator.BusinessobjectsNavigatorLinkHelper">
+            class="businessobjects.diagram.navigator.DomainNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -572,7 +590,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="businessobjects.diagram.navigator.BusinessobjectsAbstractNavigatorItem"/>
+            <instanceof value="businessobjects.diagram.navigator.DomainAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -580,7 +598,7 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="businessobjects.diagram.part.BusinessobjectsDiagramUpdateCommand"
+         defaultHandler="businessobjects.diagram.part.DomainDiagramUpdateCommand"
          description="%update.diagram.description"
          id="businessobjects.diagram.updateDiagram"
          name="%update.diagram.name"/>
@@ -629,4 +647,14 @@
    </extension>
 
    <!-- optionally, specify keybindings -->
+
+
+    <extension
+         point="org.eclipse.emf.transaction.editingDomains">
+      <!-- ITEMIS CHANGE: register diagram editing domain factory --> 
+      <editingDomain
+            factory="org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory"
+            id="org.tura.metamodel.businessobjects.EditingDomain">
+      </editingDomain>
+   </extension>
 </plugin>

@@ -5,11 +5,9 @@ package domain.diagram.edit.parts;
 
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -256,19 +254,9 @@ public class DomainApplicationEditPart extends ShapeNodeEditPart {
 				.getType(DomainApplicationNameEditPart.VISUAL_ID));
 	}
 
-	/**
-	 * @generated
-	 */
 	public class DomainApplicationFigure extends RoundedRectangle {
-
-		/**
-		 * @generated
-		 */
 		private WrappingLabel fFigureDomainApplicationLabelFigure;
 
-		/**
-		 * @generated
-		 */
 		public DomainApplicationFigure() {
 			FlowLayout layoutThis = new FlowLayout();
 			layoutThis.setStretchMinorAxis(false);
@@ -281,22 +269,15 @@ public class DomainApplicationEditPart extends ShapeNodeEditPart {
 			createContents();
 		}
 
-		/**
-		 * @generated
-		 */
 		private void createContents() {
 			fFigureDomainApplicationLabelFigure = new WrappingLabel();
 			fFigureDomainApplicationLabelFigure.setText("Application");
 			this.add(fFigureDomainApplicationLabelFigure);
 		}
 
-		/**
-		 * @generated
-		 */
 		public WrappingLabel getFigureDomainApplicationLabelFigure() {
 			return fFigureDomainApplicationLabelFigure;
 		}
-
 	}
 
 }

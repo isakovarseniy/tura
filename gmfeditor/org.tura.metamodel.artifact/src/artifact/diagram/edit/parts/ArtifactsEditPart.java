@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramDragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.NonResizableLabelEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.DropObjectsRequest;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
@@ -25,10 +26,10 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 
-import artifact.diagram.edit.commands.ArtifactCreateShortcutDecorationsCommand;
+import artifact.diagram.edit.commands.DomainCreateShortcutDecorationsCommand;
 import artifact.diagram.edit.policies.ArtifactsCanonicalEditPolicy;
 import artifact.diagram.edit.policies.ArtifactsItemSemanticEditPolicy;
-import artifact.diagram.part.ArtifactVisualIDRegistry;
+import artifact.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -63,7 +64,7 @@ public class ArtifactsEditPart extends DiagramEditPart {
 				new ArtifactsCanonicalEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						ArtifactVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DiagramDragDropEditPolicy() {
 					public Command getDropObjectsCommand(
@@ -94,7 +95,7 @@ public class ArtifactsEditPart extends DiagramEditPart {
 						if (command != null) {
 							return command
 									.chain(new ICommandProxy(
-											new ArtifactCreateShortcutDecorationsCommand(
+											new DomainCreateShortcutDecorationsCommand(
 													getEditingDomain(),
 													(View) getModel(),
 													viewDescriptors)));
@@ -133,6 +134,23 @@ public class ArtifactsEditPart extends DiagramEditPart {
 		 */
 		public boolean understandsRequest(Request request) {
 			return false;
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	/*package-local*/static class LinkLabelDragPolicy extends
+			NonResizableLabelEditPolicy {
+
+		/**
+		 * @generated
+		 */
+		@SuppressWarnings("rawtypes")
+		protected List createSelectionHandles() {
+			MoveHandle mh = new MoveHandle((GraphicalEditPart) getHost());
+			mh.setBorder(null);
+			return Collections.singletonList(mh);
 		}
 	}
 

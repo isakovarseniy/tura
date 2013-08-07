@@ -11,19 +11,19 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import businessobjects.diagram.providers.BusinessobjectsElementTypes;
+import businessobjects.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class CreateMethodItemSemanticEditPolicy extends
-		BusinessobjectsBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public CreateMethodItemSemanticEditPolicy() {
-		super(BusinessobjectsElementTypes.CreateMethod_603009);
+		super(DomainElementTypes.CreateMethod_603001);
 	}
 
 	/**

@@ -26,107 +26,107 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String MapperCreationWizardTitle;
+	public static String DomainCreationWizardTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperCreationWizard_DiagramModelFilePageTitle;
+	public static String DomainCreationWizard_DiagramModelFilePageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperCreationWizard_DiagramModelFilePageDescription;
+	public static String DomainCreationWizard_DiagramModelFilePageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperCreationWizard_DomainModelFilePageTitle;
+	public static String DomainCreationWizard_DomainModelFilePageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperCreationWizard_DomainModelFilePageDescription;
+	public static String DomainCreationWizard_DomainModelFilePageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperCreationWizardOpenEditorError;
+	public static String DomainCreationWizardOpenEditorError;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperCreationWizardCreationError;
+	public static String DomainCreationWizardCreationError;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperCreationWizardPageExtensionError;
+	public static String DomainCreationWizardPageExtensionError;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
+	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
+	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDiagramEditorUtil_CreateDiagramProgressTask;
+	public static String DomainDiagramEditorUtil_CreateDiagramProgressTask;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDiagramEditorUtil_CreateDiagramCommandLabel;
+	public static String DomainDiagramEditorUtil_CreateDiagramCommandLabel;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDocumentProvider_isModifiable;
+	public static String DomainDocumentProvider_isModifiable;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDocumentProvider_handleElementContentChanged;
+	public static String DomainDocumentProvider_handleElementContentChanged;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDocumentProvider_IncorrectInputError;
+	public static String DomainDocumentProvider_IncorrectInputError;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDocumentProvider_NoDiagramInResourceError;
+	public static String DomainDocumentProvider_NoDiagramInResourceError;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDocumentProvider_DiagramLoadingError;
+	public static String DomainDocumentProvider_DiagramLoadingError;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDocumentProvider_UnsynchronizedFileSaveError;
+	public static String DomainDocumentProvider_UnsynchronizedFileSaveError;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDocumentProvider_SaveDiagramTask;
+	public static String DomainDocumentProvider_SaveDiagramTask;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDocumentProvider_SaveNextResourceTask;
+	public static String DomainDocumentProvider_SaveNextResourceTask;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDocumentProvider_SaveAsOperation;
+	public static String DomainDocumentProvider_SaveAsOperation;
 
 	/**
 	 * @generated
@@ -151,87 +151,87 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String MapperNewDiagramFileWizard_CreationPageName;
+	public static String DomainNewDiagramFileWizard_CreationPageName;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperNewDiagramFileWizard_CreationPageTitle;
+	public static String DomainNewDiagramFileWizard_CreationPageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperNewDiagramFileWizard_CreationPageDescription;
+	public static String DomainNewDiagramFileWizard_CreationPageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperNewDiagramFileWizard_RootSelectionPageName;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageName;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperNewDiagramFileWizard_RootSelectionPageTitle;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperNewDiagramFileWizard_RootSelectionPageDescription;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperNewDiagramFileWizard_RootSelectionPageSelectionTitle;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperNewDiagramFileWizard_InitDiagramCommand;
+	public static String DomainNewDiagramFileWizard_InitDiagramCommand;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperNewDiagramFileWizard_IncorrectRootError;
+	public static String DomainNewDiagramFileWizard_IncorrectRootError;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDiagramEditor_SavingDeletedFile;
+	public static String DomainDiagramEditor_SavingDeletedFile;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDiagramEditor_SaveAsErrorTitle;
+	public static String DomainDiagramEditor_SaveAsErrorTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDiagramEditor_SaveAsErrorMessage;
+	public static String DomainDiagramEditor_SaveAsErrorMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDiagramEditor_SaveErrorTitle;
+	public static String DomainDiagramEditor_SaveErrorTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperDiagramEditor_SaveErrorMessage;
+	public static String DomainDiagramEditor_SaveErrorMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperElementChooserDialog_SelectModelElementTitle;
+	public static String DomainElementChooserDialog_SelectModelElementTitle;
 
 	/**
 	 * @generated
@@ -266,12 +266,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension1CreationTool_title;
+	public static String ConfigExtension1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension1CreationTool_desc;
+	public static String ConfigExtension1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipeConfig2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipeConfig2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -311,12 +331,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String MapperModelingAssistantProviderTitle;
+	public static String DomainModelingAssistantProviderTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String MapperModelingAssistantProviderMessage;
+	public static String DomainModelingAssistantProviderMessage;
 
 	//TODO: put accessor fields manually	
 }

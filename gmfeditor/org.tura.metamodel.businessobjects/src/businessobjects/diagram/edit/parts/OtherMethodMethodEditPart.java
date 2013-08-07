@@ -47,10 +47,10 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import businessobjects.diagram.edit.policies.BusinessobjectsTextSelectionEditPolicy;
-import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
-import businessobjects.diagram.providers.BusinessobjectsElementTypes;
-import businessobjects.diagram.providers.BusinessobjectsParserProvider;
+import businessobjects.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import businessobjects.diagram.part.DomainVisualIDRegistry;
+import businessobjects.diagram.providers.DomainElementTypes;
+import businessobjects.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
@@ -61,7 +61,7 @@ public class OtherMethodMethodEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 605017;
+	public static final int VISUAL_ID = 605006;
 
 	/**
 	 * @generated
@@ -101,7 +101,7 @@ public class OtherMethodMethodEditPart extends CompartmentEditPart implements
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new BusinessobjectsTextSelectionEditPolicy());
+				new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -203,7 +203,7 @@ public class OtherMethodMethodEditPart extends CompartmentEditPart implements
 		if (parserElement == null) {
 			return null;
 		}
-		return BusinessobjectsElementTypes.getImage(parserElement.eClass());
+		return DomainElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**
@@ -311,11 +311,11 @@ public class OtherMethodMethodEditPart extends CompartmentEditPart implements
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = BusinessobjectsParserProvider
+			parser = DomainParserProvider
 					.getParser(
-							BusinessobjectsElementTypes.OtherMethod_603014,
+							DomainElementTypes.OtherMethod_603006,
 							getParserElement(),
-							BusinessobjectsVisualIDRegistry
+							DomainVisualIDRegistry
 									.getType(businessobjects.diagram.edit.parts.OtherMethodMethodEditPart.VISUAL_ID));
 		}
 		return parser;
@@ -327,8 +327,7 @@ public class OtherMethodMethodEditPart extends CompartmentEditPart implements
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager2(this, null,
-					BusinessobjectsEditPartFactory
-							.getTextCellEditorLocator(this)));
+					DomainEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
 	}

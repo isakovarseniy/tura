@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import recipe.Component;
-import recipe.ModelMapper;
-import recipe.RecipeFactory;
+import domain.Component;
+import domain.DomainFactory;
+import domain.ModelMapper;
 
 /**
  * @generated
@@ -57,7 +57,7 @@ public class ModelMapperCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		ModelMapper newElement = RecipeFactory.eINSTANCE.createModelMapper();
+		ModelMapper newElement = DomainFactory.eINSTANCE.createModelMapper();
 
 		Component owner = (Component) getElementToEdit();
 		owner.getMappers().add(newElement);

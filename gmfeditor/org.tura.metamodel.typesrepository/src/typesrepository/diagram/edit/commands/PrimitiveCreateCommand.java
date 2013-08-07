@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typesrepository.Primitive;
-import typesrepository.Types;
-import typesrepository.TypesrepositoryFactory;
+import domain.DomainFactory;
+import domain.Primitive;
+import domain.Types;
 
 /**
  * @generated
@@ -57,8 +57,7 @@ public class PrimitiveCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Primitive newElement = TypesrepositoryFactory.eINSTANCE
-				.createPrimitive();
+		Primitive newElement = DomainFactory.eINSTANCE.createPrimitive();
 
 		Types owner = (Types) getElementToEdit();
 		owner.getPrimitives().add(newElement);

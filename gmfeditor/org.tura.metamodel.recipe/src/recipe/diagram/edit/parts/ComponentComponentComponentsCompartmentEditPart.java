@@ -17,8 +17,8 @@ import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
 import recipe.diagram.edit.policies.ComponentComponentComponentsCompartmentCanonicalEditPolicy;
 import recipe.diagram.edit.policies.ComponentComponentComponentsCompartmentItemSemanticEditPolicy;
+import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.part.Messages;
-import recipe.diagram.part.RecipeVisualIDRegistry;
 
 /**
  * @generated
@@ -29,7 +29,7 @@ public class ComponentComponentComponentsCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 307010;
+	public static final int VISUAL_ID = 307002;
 
 	/**
 	 * @generated
@@ -71,7 +71,7 @@ public class ComponentComponentComponentsCompartmentEditPart extends
 				new ComponentComponentComponentsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						RecipeVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(

@@ -12,29 +12,29 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import recipe.diagram.edit.commands.ConfigurationCreateCommand;
 import recipe.diagram.edit.commands.RecipeCreateCommand;
-import recipe.diagram.providers.RecipeElementTypes;
+import recipe.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class RecipesItemSemanticEditPolicy extends
-		RecipeBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public RecipesItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Recipes_301000);
+		super(DomainElementTypes.Recipes_301000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RecipeElementTypes.Recipe_302004 == req.getElementType()) {
+		if (DomainElementTypes.Recipe_302001 == req.getElementType()) {
 			return getGEFWrapper(new RecipeCreateCommand(req));
 		}
-		if (RecipeElementTypes.Configuration_302005 == req.getElementType()) {
+		if (DomainElementTypes.Configuration_302002 == req.getElementType()) {
 			return getGEFWrapper(new ConfigurationCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

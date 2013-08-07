@@ -26,10 +26,10 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 
-import recipe.diagram.edit.commands.RecipeCreateShortcutDecorationsCommand;
+import recipe.diagram.edit.commands.DomainCreateShortcutDecorationsCommand;
 import recipe.diagram.edit.policies.RecipesCanonicalEditPolicy;
 import recipe.diagram.edit.policies.RecipesItemSemanticEditPolicy;
-import recipe.diagram.part.RecipeVisualIDRegistry;
+import recipe.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -64,7 +64,7 @@ public class RecipesEditPart extends DiagramEditPart {
 				new RecipesCanonicalEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						RecipeVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DiagramDragDropEditPolicy() {
 					public Command getDropObjectsCommand(
@@ -95,7 +95,7 @@ public class RecipesEditPart extends DiagramEditPart {
 						if (command != null) {
 							return command
 									.chain(new ICommandProxy(
-											new RecipeCreateShortcutDecorationsCommand(
+											new DomainCreateShortcutDecorationsCommand(
 													getEditingDomain(),
 													(View) getModel(),
 													viewDescriptors)));

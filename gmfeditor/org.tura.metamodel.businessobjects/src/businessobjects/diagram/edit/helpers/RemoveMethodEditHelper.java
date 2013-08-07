@@ -6,5 +6,5 @@ package businessobjects.diagram.edit.helpers;
 /**
  * @generated
  */
-public class RemoveMethodEditHelper extends BusinessobjectsBaseEditHelper {
+public class RemoveMethodEditHelper extends DomainBaseEditHelper {
 }

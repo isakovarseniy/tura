@@ -27,7 +27,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import businessobjects.diagram.edit.policies.OtherMethodItemSemanticEditPolicy;
-import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
+import businessobjects.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -37,7 +37,7 @@ public class OtherMethodEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 603014;
+	public static final int VISUAL_ID = 603006;
 
 	/**
 	 * @generated
@@ -248,7 +248,7 @@ public class OtherMethodEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(BusinessobjectsVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(OtherMethodMethodEditPart.VISUAL_ID));
 	}
 

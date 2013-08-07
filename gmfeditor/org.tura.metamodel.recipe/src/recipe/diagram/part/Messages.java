@@ -26,107 +26,107 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String RecipeCreationWizardTitle;
+	public static String DomainCreationWizardTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeCreationWizard_DiagramModelFilePageTitle;
+	public static String DomainCreationWizard_DiagramModelFilePageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeCreationWizard_DiagramModelFilePageDescription;
+	public static String DomainCreationWizard_DiagramModelFilePageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeCreationWizard_DomainModelFilePageTitle;
+	public static String DomainCreationWizard_DomainModelFilePageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeCreationWizard_DomainModelFilePageDescription;
+	public static String DomainCreationWizard_DomainModelFilePageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeCreationWizardOpenEditorError;
+	public static String DomainCreationWizardOpenEditorError;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeCreationWizardCreationError;
+	public static String DomainCreationWizardCreationError;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeCreationWizardPageExtensionError;
+	public static String DomainCreationWizardPageExtensionError;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
+	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
+	public static String DomainDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDiagramEditorUtil_CreateDiagramProgressTask;
+	public static String DomainDiagramEditorUtil_CreateDiagramProgressTask;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDiagramEditorUtil_CreateDiagramCommandLabel;
+	public static String DomainDiagramEditorUtil_CreateDiagramCommandLabel;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDocumentProvider_isModifiable;
+	public static String DomainDocumentProvider_isModifiable;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDocumentProvider_handleElementContentChanged;
+	public static String DomainDocumentProvider_handleElementContentChanged;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDocumentProvider_IncorrectInputError;
+	public static String DomainDocumentProvider_IncorrectInputError;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDocumentProvider_NoDiagramInResourceError;
+	public static String DomainDocumentProvider_NoDiagramInResourceError;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDocumentProvider_DiagramLoadingError;
+	public static String DomainDocumentProvider_DiagramLoadingError;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDocumentProvider_UnsynchronizedFileSaveError;
+	public static String DomainDocumentProvider_UnsynchronizedFileSaveError;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDocumentProvider_SaveDiagramTask;
+	public static String DomainDocumentProvider_SaveDiagramTask;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDocumentProvider_SaveNextResourceTask;
+	public static String DomainDocumentProvider_SaveNextResourceTask;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDocumentProvider_SaveAsOperation;
+	public static String DomainDocumentProvider_SaveAsOperation;
 
 	/**
 	 * @generated
@@ -151,87 +151,87 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String RecipeNewDiagramFileWizard_CreationPageName;
+	public static String DomainNewDiagramFileWizard_CreationPageName;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeNewDiagramFileWizard_CreationPageTitle;
+	public static String DomainNewDiagramFileWizard_CreationPageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeNewDiagramFileWizard_CreationPageDescription;
+	public static String DomainNewDiagramFileWizard_CreationPageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeNewDiagramFileWizard_RootSelectionPageName;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageName;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeNewDiagramFileWizard_RootSelectionPageTitle;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeNewDiagramFileWizard_RootSelectionPageDescription;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageDescription;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeNewDiagramFileWizard_RootSelectionPageSelectionTitle;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
+	public static String DomainNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeNewDiagramFileWizard_InitDiagramCommand;
+	public static String DomainNewDiagramFileWizard_InitDiagramCommand;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeNewDiagramFileWizard_IncorrectRootError;
+	public static String DomainNewDiagramFileWizard_IncorrectRootError;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDiagramEditor_SavingDeletedFile;
+	public static String DomainDiagramEditor_SavingDeletedFile;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDiagramEditor_SaveAsErrorTitle;
+	public static String DomainDiagramEditor_SaveAsErrorTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDiagramEditor_SaveAsErrorMessage;
+	public static String DomainDiagramEditor_SaveAsErrorMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDiagramEditor_SaveErrorTitle;
+	public static String DomainDiagramEditor_SaveErrorTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeDiagramEditor_SaveErrorMessage;
+	public static String DomainDiagramEditor_SaveErrorMessage;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeElementChooserDialog_SelectModelElementTitle;
+	public static String DomainElementChooserDialog_SelectModelElementTitle;
 
 	/**
 	 * @generated
@@ -326,6 +326,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String TypeExtension3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String RecipeRecipeComponentsCompartmentEditPart_title;
 
 	/**
@@ -361,42 +371,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipeRecipeConfig_304002_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipeRecipeConfig_304002_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Configuration_302002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Configuration_302002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Recipes_301000_links;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Configuration_302005_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Configuration_302005_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304002_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304002_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_RecipeRecipeConfig_304001_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_RecipeRecipeConfig_304001_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Recipe_302004_outgoinglinks;
+	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
 
 	/**
 	 * @generated
@@ -426,12 +436,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String RecipeModelingAssistantProviderTitle;
+	public static String DomainModelingAssistantProviderTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeModelingAssistantProviderMessage;
+	public static String DomainModelingAssistantProviderMessage;
 
 	//TODO: put accessor fields manually	
 }

@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import artifact.Artifact;
-import artifact.ArtifactFactory;
-import artifact.Artifacts;
+import domain.Artifact;
+import domain.Artifacts;
+import domain.DomainFactory;
 
 /**
  * @generated
@@ -57,7 +57,7 @@ public class ArtifactCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Artifact newElement = ArtifactFactory.eINSTANCE.createArtifact();
+		Artifact newElement = DomainFactory.eINSTANCE.createArtifact();
 
 		Artifacts owner = (Artifacts) getElementToEdit();
 		owner.getArtifacts().add(newElement);

@@ -23,12 +23,12 @@
       <editor
          id="mapper.diagram.part.MapperDiagramEditorID"
          name="%editorName"
-         icon="icons/obj16/MapperDiagramFile.gif"
+         icon="icons/obj16/DomainDiagramFile.gif"
          extensions="mapper_diagram"
          default="true"
-         class="mapper.diagram.part.MapperDiagramEditor"
-         matchingStrategy="mapper.diagram.part.MapperMatchingStrategy"
-         contributorClass="mapper.diagram.part.MapperDiagramActionBarContributor">
+         class="mapper.diagram.part.DomainDiagramEditor"
+         matchingStrategy="mapper.diagram.part.DomainMatchingStrategy"
+         contributorClass="mapper.diagram.part.DomainDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -46,10 +46,10 @@
       <?gmfgen generated="true"?>
   	  <wizard
   	     name="%newWizardName"
-  	     icon="icons/obj16/MapperDiagramFile.gif"
+  	     icon="icons/obj16/DomainDiagramFile.gif"
   	     category="org.eclipse.ui.Examples"
-  	     class="mapper.diagram.part.MapperCreationWizard"
-  	     id="mapper.diagram.part.MapperCreationWizardID">
+  	     class="mapper.diagram.part.DomainCreationWizard"
+  	     id="mapper.diagram.part.DomainCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
@@ -58,11 +58,11 @@
       <?gmfgen generated="true"?>
       <objectContribution
             id="org.tura.metamodel.mapper.InitDiagram"
-            nameFilter="*.mapper"
+            nameFilter="*.domain"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="mapper.diagram.part.MapperInitDiagramFileAction"
+               class="mapper.diagram.part.DomainInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="org.tura.metamodel.mapper.InitDiagramAction">
@@ -126,13 +126,13 @@
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
       <?gmfgen generated="true"?>
-      <MarkerNavigationProvider class="mapper.diagram.providers.MapperMarkerNavigationProvider">
+      <MarkerNavigationProvider class="mapper.diagram.providers.DomainMarkerNavigationProvider">
          <MarkerType name="org.tura.metamodel.mapper.diagnostic"/>
          <Priority name="Lowest"/>
       </MarkerNavigationProvider>
    </extension>
 
-   <extension id="diagnostic" name="Mapper Plugin problems" point="org.eclipse.core.resources.markers">
+   <extension id="diagnostic" name="Domain Plugin problems" point="org.eclipse.core.resources.markers">
       <?gmfgen generated="true"?>
       <super type="org.eclipse.core.resources.problemmarker"/>
       <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
@@ -141,7 +141,7 @@
 
    <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="mapper.diagram.providers.MapperValidationDecoratorProvider">
+      <decoratorProvider class="mapper.diagram.providers.DomainValidationDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
@@ -190,7 +190,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="org.tura.metamodel.mapper"
-            labelProvider="mapper.diagram.sheet.MapperSheetLabelProvider">
+            labelProvider="mapper.diagram.sheet.DomainSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -241,43 +241,43 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="mapper.diagram.sheet.MapperPropertySection">
+            class="mapper.diagram.sheet.DomainPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="mapper.diagram.navigator.MapperAbstractNavigatorItem"/>
+            <input type="mapper.diagram.navigator.DomainAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="mapper.diagram.providers.MapperViewProvider">
+      <viewProvider class="mapper.diagram.providers.DomainViewProvider">
          <Priority name="Lowest"/>
          <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
-            <method name="getType()" value="mapper"/>
+            <method name="getType()" value="domain"/>
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Mapper"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="402002"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="404001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="402001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="404001,404002,404003"/>
       </viewProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="mapper.diagram.providers.MapperEditPartProvider">
+      <editpartProvider class="mapper.diagram.providers.DomainEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="Mapper"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="402002"/>
+            <method name="getType()" value="402001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="404001"/>
+            <method name="getType()" value="404001,404002,404003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="405002"/>
+            <method name="getType()" value="405001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value=""/>
@@ -288,34 +288,34 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="mapper.diagram.providers.MapperModelingAssistantProvider">
+      <modelingAssistantProvider class="mapper.diagram.providers.DomainModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="mapper.diagram.edit.parts.MappersEditPart" id="Mappers_401000"/>
-         <object class="mapper.diagram.edit.parts.JavaMapperEditPart" id="JavaMapper_402002"/>
-         <context elements="Mappers_401000,JavaMapper_402002,"/>
+         <object class="mapper.diagram.edit.parts.JavaMapperEditPart" id="JavaMapper_402001"/>
+         <context elements="Mappers_401000,JavaMapper_402001"/>
       </modelingAssistantProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="mapper.diagram.providers.MapperIconProvider">
+      <IconProvider class="mapper.diagram.providers.DomainIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="mapper.diagram.providers.MapperParserProvider">
+      <ParserProvider class="mapper.diagram.providers.DomainParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="mapper.diagram.providers.MapperShortcutsDecoratorProvider">
+      <decoratorProvider class="mapper.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="402002"/>
+            <method name="getType()" value="402001"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -323,7 +323,7 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://tura.org/2013/v1/mapper">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.mapper.Mappers_401000"
                name="%metatype.name.Mappers_401000"
@@ -333,17 +333,17 @@
             <param name="semanticHint" value="401000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/mapper">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.mapper.JavaMapper_402002"
-               name="%metatype.name.JavaMapper_402002"
+               id="org.tura.metamodel.mapper.JavaMapper_402001"
+               name="%metatype.name.JavaMapper_402001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="JavaMapper"
                edithelper="mapper.diagram.edit.helpers.JavaMapperEditHelper">
-            <param name="semanticHint" value="402002"/>
+            <param name="semanticHint" value="402001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/typedefinition">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.mapper.TypeExtension_404001"
                name="%metatype.name.TypeExtension_404001"
@@ -353,21 +353,45 @@
             <param name="semanticHint" value="404001"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.mapper.RecipeRecipeConfig_404002"
+               name="%metatype.name.RecipeRecipeConfig_404002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="404002"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.mapper.ConfigurationConfigExtension_404003"
+               name="%metatype.name.ConfigurationConfigExtension_404003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="404003"/>
+         </specializationType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
       <?gmfgen generated="true"?>
-      <clientContext id="org.tura.metamodel.mapper.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <clientContext id="org.tura.metamodel.mapper.TypeContext"> -->
+      <clientContext id="SharedClientContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
                value="org.tura.metamodel.mapper.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="org.tura.metamodel.mapper.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <binding context="org.tura.metamodel.mapper.TypeContext"> -->
+      <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.mapper.Mappers_401000"/>
-         <elementType ref="org.tura.metamodel.mapper.JavaMapper_402002"/>
+         <elementType ref="org.tura.metamodel.mapper.JavaMapper_402001"/>
          <elementType ref="org.tura.metamodel.mapper.TypeExtension_404001"/>
+         <elementType ref="org.tura.metamodel.mapper.RecipeRecipeConfig_404002"/>
+         <elementType ref="org.tura.metamodel.mapper.ConfigurationConfigExtension_404003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
@@ -378,7 +402,7 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="org.tura.metamodel.mapper"
            properties="isURIEditorInput"
-           class="mapper.diagram.part.MapperUriEditorInputTester">
+           class="mapper.diagram.part.DomainUriEditorInputTester">
        </propertyTester>
    </extension>
 
@@ -389,7 +413,7 @@
            type="org.eclipse.gmf.runtime.notation.View"
            namespace="org.tura.metamodel.mapper"
            properties="isShortcut"
-           class="mapper.diagram.part.MapperShortcutPropertyTester">
+           class="mapper.diagram.part.DomainShortcutPropertyTester">
        </propertyTester>
    </extension>
 
@@ -415,9 +439,9 @@
             id="org.tura.metamodel.mapper.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="mapper.diagram.navigator.MapperNavigatorContentProvider" 
-            labelProvider="mapper.diagram.navigator.MapperNavigatorLabelProvider"
-            icon="icons/obj16/MapperDiagramFile.gif"
+            contentProvider="mapper.diagram.navigator.DomainNavigatorContentProvider" 
+            labelProvider="mapper.diagram.navigator.DomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
@@ -425,7 +449,7 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="mapper_diagram"/>
                </and>
-               <instanceof value="mapper.diagram.navigator.MapperAbstractNavigatorItem"/>
+               <instanceof value="mapper.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.mapper.isShortcut"/>
            	   </adapt>
@@ -433,7 +457,7 @@
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="mapper.diagram.navigator.MapperAbstractNavigatorItem"/>
+         	   <instanceof value="mapper.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.mapper.isShortcut"/>
            	   </adapt>
@@ -441,14 +465,14 @@
          </possibleChildren>
          <commonSorter 
                id="org.tura.metamodel.mapper.navigatorSorter" 
-               class="mapper.diagram.navigator.MapperNavigatorSorter">
+               class="mapper.diagram.navigator.DomainNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
         	         <test property="org.eclipse.core.resources.extension" value="mapper_diagram"/>
                   </and>
-                  <instanceof value="mapper.diagram.navigator.MapperAbstractNavigatorItem"/>
+                  <instanceof value="mapper.diagram.navigator.DomainAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -457,29 +481,29 @@
             id="org.tura.metamodel.mapper.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="mapper.diagram.navigator.MapperDomainNavigatorContentProvider" 
-            labelProvider="mapper.diagram.navigator.MapperDomainNavigatorLabelProvider"
-            icon="icons/obj16/MapperDiagramFile.gif"
+            contentProvider="mapper.diagram.navigator.DomainDomainNavigatorContentProvider" 
+            labelProvider="mapper.diagram.navigator.DomainDomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="mapper"/>
+        	      <test property="org.eclipse.core.resources.extension" value="domain"/>
                </and>
-               <instanceof value="mapper.diagram.navigator.MapperDomainNavigatorItem"/>
+               <instanceof value="mapper.diagram.navigator.DomainDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="mapper.diagram.navigator.MapperDomainNavigatorItem"/>
+            <instanceof value="mapper.diagram.navigator.DomainDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="org.tura.metamodel.mapper.navigatorActionProvider"
-            class="mapper.diagram.navigator.MapperNavigatorActionProvider">
+            class="mapper.diagram.navigator.DomainNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="mapper.diagram.navigator.MapperAbstractNavigatorItem"/>
+               <instanceof value="mapper.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.mapper.isShortcut"/>
            	   </adapt>
@@ -492,7 +516,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="org.tura.metamodel.mapper.navigatorLinkHelper"
-            class="mapper.diagram.navigator.MapperNavigatorLinkHelper">
+            class="mapper.diagram.navigator.DomainNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -500,7 +524,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="mapper.diagram.navigator.MapperAbstractNavigatorItem"/>
+            <instanceof value="mapper.diagram.navigator.DomainAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -508,7 +532,7 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="mapper.diagram.part.MapperDiagramUpdateCommand"
+         defaultHandler="mapper.diagram.part.DomainDiagramUpdateCommand"
          description="%update.diagram.description"
          id="mapper.diagram.updateDiagram"
          name="%update.diagram.name"/>
@@ -557,4 +581,14 @@
    </extension>
 
    <!-- optionally, specify keybindings -->
+
+
+    <extension
+         point="org.eclipse.emf.transaction.editingDomains">
+      <!-- ITEMIS CHANGE: register diagram editing domain factory --> 
+      <editingDomain
+            factory="org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory"
+            id="org.tura.metamodel.mapper.EditingDomain">
+      </editingDomain>
+   </extension>
 </plugin>

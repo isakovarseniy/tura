@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typedefinition.TypeDefinition;
-import typedefinition.TypeReference;
-import typedefinition.TypedefinitionFactory;
+import domain.DomainFactory;
+import domain.TypeDefinition;
+import domain.TypeReference;
 
 /**
  * @generated
@@ -57,7 +57,7 @@ public class TypeReferenceCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		TypeReference newElement = TypedefinitionFactory.eINSTANCE
+		TypeReference newElement = DomainFactory.eINSTANCE
 				.createTypeReference();
 
 		TypeDefinition owner = (TypeDefinition) getElementToEdit();

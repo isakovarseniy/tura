@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import businessobjects.BusinessObject;
-import businessobjects.BusinessobjectsFactory;
-import businessobjects.CreateMethod;
+import domain.BusinessObject;
+import domain.CreateMethod;
+import domain.DomainFactory;
 
 /**
  * @generated
@@ -57,8 +57,7 @@ public class CreateMethodCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		CreateMethod newElement = BusinessobjectsFactory.eINSTANCE
-				.createCreateMethod();
+		CreateMethod newElement = DomainFactory.eINSTANCE.createCreateMethod();
 
 		BusinessObject owner = (BusinessObject) getElementToEdit();
 		owner.getCreateMethods().add(newElement);

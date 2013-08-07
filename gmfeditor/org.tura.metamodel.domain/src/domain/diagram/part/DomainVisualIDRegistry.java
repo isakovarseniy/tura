@@ -10,7 +10,6 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
-import typedefinition.TypedefinitionPackage;
 import domain.Domain;
 import domain.DomainPackage;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
@@ -243,7 +242,7 @@ public class DomainVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (TypedefinitionPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
+		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
 				domainElement.eClass())) {
 			return TypeExtensionEditPart.VISUAL_ID;
 		}

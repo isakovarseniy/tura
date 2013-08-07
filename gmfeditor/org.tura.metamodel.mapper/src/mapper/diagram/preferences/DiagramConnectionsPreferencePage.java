@@ -3,7 +3,7 @@
  */
 package mapper.diagram.preferences;
 
-import mapper.diagram.part.MapperDiagramEditorPlugin;
+import mapper.diagram.part.DomainDiagramEditorPlugin;
 
 import org.eclipse.gmf.runtime.diagram.ui.preferences.ConnectionsPreferencePage;
 
@@ -16,7 +16,7 @@ public class DiagramConnectionsPreferencePage extends ConnectionsPreferencePage 
 	 * @generated
 	 */
 	public DiagramConnectionsPreferencePage() {
-		setPreferenceStore(MapperDiagramEditorPlugin.getInstance()
+		setPreferenceStore(DomainDiagramEditorPlugin.getInstance()
 				.getPreferenceStore());
 	}
 }

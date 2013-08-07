@@ -39,8 +39,8 @@ import org.eclipse.swt.graphics.Color;
 
 import recipe.diagram.edit.policies.ConfigurationItemSemanticEditPolicy;
 import recipe.diagram.edit.policies.OpenDiagramEditPolicy;
-import recipe.diagram.part.RecipeVisualIDRegistry;
-import recipe.diagram.providers.RecipeElementTypes;
+import recipe.diagram.part.DomainVisualIDRegistry;
+import recipe.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
@@ -50,7 +50,7 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 302005;
+	public static final int VISUAL_ID = 302002;
 
 	/**
 	 * @generated
@@ -75,7 +75,7 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						RecipeVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ConfigurationItemSemanticEditPolicy());
@@ -285,7 +285,7 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(RecipeVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(ConfigurationNameEditPart.VISUAL_ID));
 	}
 
@@ -294,7 +294,7 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(RecipeElementTypes.ConfigurationConfigExtension_304002);
+		types.add(DomainElementTypes.ConfigurationConfigExtension_304003);
 		return types;
 	}
 
@@ -305,7 +305,7 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof recipe.diagram.edit.parts.ConfigurationEditPart) {
-			types.add(RecipeElementTypes.ConfigurationConfigExtension_304002);
+			types.add(DomainElementTypes.ConfigurationConfigExtension_304003);
 		}
 		return types;
 	}
@@ -315,8 +315,8 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RecipeElementTypes.ConfigurationConfigExtension_304002) {
-			types.add(RecipeElementTypes.Configuration_302005);
+		if (relationshipType == DomainElementTypes.ConfigurationConfigExtension_304003) {
+			types.add(DomainElementTypes.Configuration_302002);
 		}
 		return types;
 	}
@@ -326,8 +326,8 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(RecipeElementTypes.RecipeRecipeConfig_304001);
-		types.add(RecipeElementTypes.ConfigurationConfigExtension_304002);
+		types.add(DomainElementTypes.RecipeRecipeConfig_304002);
+		types.add(DomainElementTypes.ConfigurationConfigExtension_304003);
 		return types;
 	}
 
@@ -336,10 +336,10 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RecipeElementTypes.RecipeRecipeConfig_304001) {
-			types.add(RecipeElementTypes.Recipe_302004);
-		} else if (relationshipType == RecipeElementTypes.ConfigurationConfigExtension_304002) {
-			types.add(RecipeElementTypes.Configuration_302005);
+		if (relationshipType == DomainElementTypes.RecipeRecipeConfig_304002) {
+			types.add(DomainElementTypes.Recipe_302001);
+		} else if (relationshipType == DomainElementTypes.ConfigurationConfigExtension_304003) {
+			types.add(DomainElementTypes.Configuration_302002);
 		}
 		return types;
 	}
@@ -354,8 +354,8 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
-			if (type == RecipeElementTypes.Property_303005) {
-				return getChildBySemanticHint(RecipeVisualIDRegistry
+			if (type == DomainElementTypes.Property_303004) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID));
 			}
 		}

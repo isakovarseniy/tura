@@ -12,7 +12,7 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import recipe.Configuration;
+import domain.Configuration;
 import domain.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 
 /**

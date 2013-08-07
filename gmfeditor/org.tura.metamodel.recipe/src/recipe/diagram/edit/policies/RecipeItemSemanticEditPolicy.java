@@ -25,20 +25,20 @@ import recipe.diagram.edit.commands.RecipeRecipeConfigReorientCommand;
 import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeConfigEditPart;
-import recipe.diagram.part.RecipeVisualIDRegistry;
-import recipe.diagram.providers.RecipeElementTypes;
+import recipe.diagram.part.DomainVisualIDRegistry;
+import recipe.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class RecipeItemSemanticEditPolicy extends
-		RecipeBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public RecipeItemSemanticEditPolicy() {
-		super(RecipeElementTypes.Recipe_302004);
+		super(DomainElementTypes.Recipe_302001);
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class RecipeItemSemanticEditPolicy extends
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
-			if (RecipeVisualIDRegistry.getVisualID(outgoingLink) == RecipeRecipeConfigEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == RecipeRecipeConfigEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
@@ -80,12 +80,12 @@ public class RecipeItemSemanticEditPolicy extends
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
-			switch (RecipeVisualIDRegistry.getVisualID(node)) {
+			switch (DomainVisualIDRegistry.getVisualID(node)) {
 			case RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
-					switch (RecipeVisualIDRegistry.getVisualID(cnode)) {
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case ComponentEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -115,7 +115,7 @@ public class RecipeItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RecipeElementTypes.RecipeRecipeConfig_304001 == req
+		if (DomainElementTypes.RecipeRecipeConfig_304002 == req
 				.getElementType()) {
 			return getGEFWrapper(new RecipeRecipeConfigCreateCommand(req,
 					req.getSource(), req.getTarget()));
@@ -128,7 +128,7 @@ public class RecipeItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RecipeElementTypes.RecipeRecipeConfig_304001 == req
+		if (DomainElementTypes.RecipeRecipeConfig_304002 == req
 				.getElementType()) {
 			return null;
 		}

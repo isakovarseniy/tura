@@ -15,8 +15,8 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.osgi.util.NLS;
 
+import typesrepository.diagram.part.DomainDiagramEditorPlugin;
 import typesrepository.diagram.part.Messages;
-import typesrepository.diagram.part.TypesrepositoryDiagramEditorPlugin;
 
 /**
  * @generated
@@ -178,7 +178,7 @@ public class MessageFormatParser extends AbstractParser {
 		ParsePosition pos = new ParsePosition(0);
 		Object[] values = getEditProcessor().parse(editString, pos);
 		if (values == null) {
-			return new ParserEditStatus(TypesrepositoryDiagramEditorPlugin.ID,
+			return new ParserEditStatus(DomainDiagramEditorPlugin.ID,
 					IParserEditStatus.UNEDITABLE, NLS.bind(
 							Messages.MessageFormatParser_InvalidInputError,
 							new Integer(pos.getErrorIndex())));

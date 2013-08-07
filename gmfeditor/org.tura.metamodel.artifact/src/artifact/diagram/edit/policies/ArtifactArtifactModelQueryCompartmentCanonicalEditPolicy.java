@@ -24,11 +24,11 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import artifact.ArtifactPackage;
 import artifact.diagram.edit.parts.Variable2EditPart;
-import artifact.diagram.part.ArtifactDiagramUpdater;
-import artifact.diagram.part.ArtifactNodeDescriptor;
-import artifact.diagram.part.ArtifactVisualIDRegistry;
+import artifact.diagram.part.DomainDiagramUpdater;
+import artifact.diagram.part.DomainNodeDescriptor;
+import artifact.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -52,7 +52,7 @@ public class ArtifactArtifactModelQueryCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return ArtifactPackage.eINSTANCE.getArtifact_ModelQuery();
+		return DomainPackage.eINSTANCE.getArtifact_ModelQuery();
 	}
 
 	/**
@@ -62,9 +62,9 @@ public class ArtifactArtifactModelQueryCompartmentCanonicalEditPolicy extends
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
-		List<ArtifactNodeDescriptor> childDescriptors = ArtifactDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getArtifactArtifactModelQueryCompartment_707002SemanticChildren(viewObject);
-		for (ArtifactNodeDescriptor d : childDescriptors) {
+		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
 		return result;
@@ -83,7 +83,7 @@ public class ArtifactArtifactModelQueryCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return Variable2EditPart.VISUAL_ID == ArtifactVisualIDRegistry
+		return Variable2EditPart.VISUAL_ID == DomainVisualIDRegistry
 				.getVisualID(view);
 	}
 
@@ -95,7 +95,7 @@ public class ArtifactArtifactModelQueryCompartmentCanonicalEditPolicy extends
 			return;
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
-		List<ArtifactNodeDescriptor> childDescriptors = ArtifactDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getArtifactArtifactModelQueryCompartment_707002SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
@@ -111,10 +111,10 @@ public class ArtifactArtifactModelQueryCompartmentCanonicalEditPolicy extends
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<ArtifactNodeDescriptor> descriptorsIterator = childDescriptors
+		for (Iterator<DomainNodeDescriptor> descriptorsIterator = childDescriptors
 				.iterator(); descriptorsIterator.hasNext();) {
-			ArtifactNodeDescriptor next = descriptorsIterator.next();
-			String hint = ArtifactVisualIDRegistry.getType(next.getVisualID());
+			DomainNodeDescriptor next = descriptorsIterator.next();
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
 			for (View childView : getViewChildren()) {
 				EObject semanticElement = childView.getElement();
@@ -139,8 +139,8 @@ public class ArtifactArtifactModelQueryCompartmentCanonicalEditPolicy extends
 		//
 		ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
 				childDescriptors.size());
-		for (ArtifactNodeDescriptor next : childDescriptors) {
-			String hint = ArtifactVisualIDRegistry.getType(next.getVisualID());
+		for (DomainNodeDescriptor next : childDescriptors) {
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
 			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(

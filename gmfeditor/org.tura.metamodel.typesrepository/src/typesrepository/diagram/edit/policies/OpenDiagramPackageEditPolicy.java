@@ -3,7 +3,6 @@
  */
 package typesrepository.diagram.edit.policies;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
@@ -45,12 +44,12 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
-import typedefinition.TypeDefinition;
-import typedefinition.TypedefinitionFactory;
-import typesrepository.Package;
+import typesrepository.diagram.part.DomainDiagramEditorPlugin;
+import typesrepository.diagram.part.DomainDiagramEditorUtil;
 import typesrepository.diagram.part.Messages;
-import typesrepository.diagram.part.TypesrepositoryDiagramEditorPlugin;
-import typesrepository.diagram.part.TypesrepositoryDiagramEditorUtil;
+import domain.DomainFactory;
+import domain.Package;
+import domain.TypeDefinition;
 
 /**
  * @generated
@@ -97,9 +96,7 @@ public class OpenDiagramPackageEditPolicy extends OpenEditPolicy {
 			diagramFacet = linkStyle;
 		}
 
-		// FIXME canExecute if !(readOnly && getDiagramToOpen == null), i.e.
-		// open works on ro diagrams only when there's associated diagram
-		// already
+		// FIXME canExecute if  !(readOnly && getDiagramToOpen == null), i.e. open works on ro diagrams only when there's associated diagram already
 
 		/**
 		 * @generated
@@ -154,7 +151,7 @@ public class OpenDiagramPackageEditPolicy extends OpenEditPolicy {
 
 			Diagram d = ViewService.createDiagram(
 
-			TypedefinitionFactory.eINSTANCE.createTypeDefinition()
+			DomainFactory.eINSTANCE.createTypeDefinition()
 
 			, getDiagramKind(), getPreferencesHint());
 			if (d == null) {
@@ -179,33 +176,20 @@ public class OpenDiagramPackageEditPolicy extends OpenEditPolicy {
 					folder.create(true, true, null);
 				}
 
-				IFile modelFile = folder.getFile(filename + "."
-						+ "typedefinition"
-
-				);
 				IFile diagramFile = folder.getFile(filename + "."
 						+ "typedefinition"
 
 						+ "_diagram");
 
-				URI modelURI = URI.createFileURI(modelFile.getLocation()
-						.toOSString());
 				URI diagramURI = URI.createFileURI(diagramFile.getLocation()
 						.toOSString());
 				Resource diagramResource = null;
-
-				if (modelFile.exists())
-					modelFile.delete(true, null);
 
 				if (diagramFile.exists())
 					diagramFile.delete(true, null);
 
 				diagramResource = diagramFacet.eResource().getResourceSet()
 						.createResource(diagramURI);
-				String header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\"/>";
-				ByteArrayInputStream in = new ByteArrayInputStream(
-						header.getBytes());
-				modelFile.create(in, true, null);
 
 				diagramFacet.setDiagramLink(d);
 				diagramResource.getContents().add(d);
@@ -218,9 +202,7 @@ public class OpenDiagramPackageEditPolicy extends OpenEditPolicy {
 				sourceObject.setTypedefinition
 
 				(targetObject);
-				final Resource modelResource = sourceObject.eResource()
-						.getResourceSet().getResource(modelURI, true);
-				modelResource.getContents().add(targetObject);
+				sourceObject.eResource().getContents().add(targetObject);
 
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {
@@ -247,9 +229,8 @@ public class OpenDiagramPackageEditPolicy extends OpenEditPolicy {
 								if (nextResource.isLoaded()
 										&& !getEditingDomain().isReadOnly(
 												nextResource)) {
-									nextResource
-											.save(TypesrepositoryDiagramEditorUtil
-													.getSaveOptions());
+									nextResource.save(DomainDiagramEditorUtil
+											.getSaveOptions());
 								}
 							}
 						} catch (IOException ex) {
@@ -281,7 +262,7 @@ public class OpenDiagramPackageEditPolicy extends OpenEditPolicy {
 		 */
 		protected PreferencesHint getPreferencesHint() {
 			// XXX prefhint from target diagram's editor?
-			return TypesrepositoryDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
+			return DomainDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 		}
 
 		/**

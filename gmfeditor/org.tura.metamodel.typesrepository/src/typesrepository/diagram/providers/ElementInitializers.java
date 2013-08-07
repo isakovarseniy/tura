@@ -3,7 +3,7 @@
  */
 package typesrepository.diagram.providers;
 
-import typesrepository.diagram.part.TypesrepositoryDiagramEditorPlugin;
+import typesrepository.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -18,11 +18,11 @@ public class ElementInitializers {
 	 * @generated
 	 */
 	public static ElementInitializers getInstance() {
-		ElementInitializers cached = TypesrepositoryDiagramEditorPlugin
-				.getInstance().getElementInitializers();
+		ElementInitializers cached = DomainDiagramEditorPlugin.getInstance()
+				.getElementInitializers();
 		if (cached == null) {
-			TypesrepositoryDiagramEditorPlugin.getInstance()
-					.setElementInitializers(cached = new ElementInitializers());
+			DomainDiagramEditorPlugin.getInstance().setElementInitializers(
+					cached = new ElementInitializers());
 		}
 		return cached;
 	}

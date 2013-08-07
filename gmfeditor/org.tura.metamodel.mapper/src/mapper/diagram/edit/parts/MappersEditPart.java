@@ -8,10 +8,10 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import mapper.diagram.edit.commands.MapperCreateShortcutDecorationsCommand;
+import mapper.diagram.edit.commands.DomainCreateShortcutDecorationsCommand;
 import mapper.diagram.edit.policies.MappersCanonicalEditPolicy;
 import mapper.diagram.edit.policies.MappersItemSemanticEditPolicy;
-import mapper.diagram.part.MapperVisualIDRegistry;
+import mapper.diagram.part.DomainVisualIDRegistry;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.GraphicalEditPart;
@@ -23,6 +23,7 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DiagramDragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.NonResizableLabelEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.DropObjectsRequest;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
@@ -63,7 +64,7 @@ public class MappersEditPart extends DiagramEditPart {
 				new MappersCanonicalEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
-						MapperVisualIDRegistry.TYPED_INSTANCE));
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DiagramDragDropEditPolicy() {
 					public Command getDropObjectsCommand(
@@ -94,7 +95,7 @@ public class MappersEditPart extends DiagramEditPart {
 						if (command != null) {
 							return command
 									.chain(new ICommandProxy(
-											new MapperCreateShortcutDecorationsCommand(
+											new DomainCreateShortcutDecorationsCommand(
 													getEditingDomain(),
 													(View) getModel(),
 													viewDescriptors)));
@@ -133,6 +134,23 @@ public class MappersEditPart extends DiagramEditPart {
 		 */
 		public boolean understandsRequest(Request request) {
 			return false;
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	/*package-local*/static class LinkLabelDragPolicy extends
+			NonResizableLabelEditPolicy {
+
+		/**
+		 * @generated
+		 */
+		@SuppressWarnings("rawtypes")
+		protected List createSelectionHandles() {
+			MoveHandle mh = new MoveHandle((GraphicalEditPart) getHost());
+			mh.setBorder(null);
+			return Collections.singletonList(mh);
 		}
 	}
 

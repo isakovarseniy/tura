@@ -19,20 +19,20 @@ import org.eclipse.gmf.runtime.notation.View;
 import typedefinition.diagram.edit.commands.TypeExtensionCreateCommand;
 import typedefinition.diagram.edit.commands.TypeExtensionReorientCommand;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
-import typedefinition.diagram.part.TypedefinitionVisualIDRegistry;
-import typedefinition.diagram.providers.TypedefinitionElementTypes;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
+import typedefinition.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
 public class TypeReferenceItemSemanticEditPolicy extends
-		TypedefinitionBaseItemSemanticEditPolicy {
+		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
 	public TypeReferenceItemSemanticEditPolicy() {
-		super(TypedefinitionElementTypes.TypeReference_102001);
+		super(DomainElementTypes.TypeReference_102001);
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class TypeReferenceItemSemanticEditPolicy extends
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
-			if (TypedefinitionVisualIDRegistry.getVisualID(incomingLink) == TypeExtensionEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(incomingLink) == TypeExtensionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -55,7 +55,7 @@ public class TypeReferenceItemSemanticEditPolicy extends
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
-			if (TypedefinitionVisualIDRegistry.getVisualID(outgoingLink) == TypeExtensionEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == TypeExtensionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -90,8 +90,7 @@ public class TypeReferenceItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (TypedefinitionElementTypes.TypeExtension_104001 == req
-				.getElementType()) {
+		if (DomainElementTypes.TypeExtension_104001 == req.getElementType()) {
 			return getGEFWrapper(new TypeExtensionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
@@ -103,8 +102,7 @@ public class TypeReferenceItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (TypedefinitionElementTypes.TypeExtension_104001 == req
-				.getElementType()) {
+		if (DomainElementTypes.TypeExtension_104001 == req.getElementType()) {
 			return getGEFWrapper(new TypeExtensionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}

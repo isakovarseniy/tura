@@ -39,8 +39,8 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation;
 
-import typedefinition.diagram.providers.TypedefinitionMarkerNavigationProvider;
-import typedefinition.diagram.providers.TypedefinitionValidationProvider;
+import typedefinition.diagram.providers.DomainMarkerNavigationProvider;
+import typedefinition.diagram.providers.DomainValidationProvider;
 
 /**
  * @generated
@@ -79,7 +79,7 @@ public class ValidateAction extends Action {
 							}
 						}).run(new NullProgressMonitor());
 			} catch (Exception e) {
-				TypedefinitionDiagramEditorPlugin.getInstance().logError(
+				DomainDiagramEditorPlugin.getInstance().logError(
 						"Validation action failed", e); //$NON-NLS-1$
 			}
 		}
@@ -90,7 +90,7 @@ public class ValidateAction extends Action {
 	 */
 	public static void runValidation(View view) {
 		try {
-			//			if (typedefinition.diagram.part.TypedefinitionDiagramEditorUtil.openDiagram(view.eResource())) {
+			//			if (typedefinition.diagram.part.DomainDiagramEditorUtil.openDiagram(view.eResource())) {
 			IEditorPart editorPart = PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getActivePage()
 					.getActiveEditor();
@@ -104,7 +104,7 @@ public class ValidateAction extends Action {
 			}
 			//			}
 		} catch (Exception e) {
-			TypedefinitionDiagramEditorPlugin.getInstance().logError(
+			DomainDiagramEditorPlugin.getInstance().logError(
 					"Validation action failed", e); //$NON-NLS-1$
 		}
 	}
@@ -126,13 +126,12 @@ public class ValidateAction extends Action {
 		final View fview = view;
 		TransactionalEditingDomain txDomain = TransactionUtil
 				.getEditingDomain(view);
-		TypedefinitionValidationProvider.runWithConstraints(txDomain,
-				new Runnable() {
+		DomainValidationProvider.runWithConstraints(txDomain, new Runnable() {
 
-					public void run() {
-						validate(fpart, fview);
-					}
-				});
+			public void run() {
+				validate(fpart, fview);
+			}
+		});
 	}
 
 	/**
@@ -157,7 +156,7 @@ public class ValidateAction extends Action {
 		IFile target = view.eResource() != null ? WorkspaceSynchronizer
 				.getFile(view.eResource()) : null;
 		if (target != null) {
-			TypedefinitionMarkerNavigationProvider.deleteMarkers(target);
+			DomainMarkerNavigationProvider.deleteMarkers(target);
 		}
 		Diagnostic diagnostic = runEMFValidator(view);
 		createMarkers(target, diagnostic, diagramEditPart);
@@ -180,13 +179,13 @@ public class ValidateAction extends Action {
 		}
 		final IStatus rootStatus = validationStatus;
 		List allStatuses = new ArrayList();
-		TypedefinitionDiagramEditorUtil.LazyElement2ViewMap element2ViewMap = new TypedefinitionDiagramEditorUtil.LazyElement2ViewMap(
+		DomainDiagramEditorUtil.LazyElement2ViewMap element2ViewMap = new DomainDiagramEditorUtil.LazyElement2ViewMap(
 				diagramEditPart.getDiagramView(), collectTargetElements(
 						rootStatus, new HashSet<EObject>(), allStatuses));
 		for (Iterator it = allStatuses.iterator(); it.hasNext();) {
 			IConstraintStatus nextStatus = (IConstraintStatus) it.next();
-			View view = TypedefinitionDiagramEditorUtil.findView(
-					diagramEditPart, nextStatus.getTarget(), element2ViewMap);
+			View view = DomainDiagramEditorUtil.findView(diagramEditPart,
+					nextStatus.getTarget(), element2ViewMap);
 			addMarker(diagramEditPart.getViewer(), target, view.eResource()
 					.getURIFragment(view), EMFCoreUtil.getQualifiedName(
 					nextStatus.getTarget(), true), nextStatus.getMessage(),
@@ -220,7 +219,7 @@ public class ValidateAction extends Action {
 			}
 		}
 
-		TypedefinitionDiagramEditorUtil.LazyElement2ViewMap element2ViewMap = new TypedefinitionDiagramEditorUtil.LazyElement2ViewMap(
+		DomainDiagramEditorUtil.LazyElement2ViewMap element2ViewMap = new DomainDiagramEditorUtil.LazyElement2ViewMap(
 				diagramEditPart.getDiagramView(), collectTargetElements(
 						rootStatus, new HashSet<EObject>(), allDiagnostics));
 		for (Iterator it = hash.values().iterator(); it.hasNext();) {
@@ -229,8 +228,8 @@ public class ValidateAction extends Action {
 			if (data != null && !data.isEmpty()
 					&& data.get(0) instanceof EObject) {
 				EObject element = (EObject) data.get(0);
-				View view = TypedefinitionDiagramEditorUtil.findView(
-						diagramEditPart, element, element2ViewMap);
+				View view = DomainDiagramEditorUtil.findView(diagramEditPart,
+						element, element2ViewMap);
 				addMarker(
 						diagramEditPart.getViewer(),
 						target,
@@ -251,8 +250,8 @@ public class ValidateAction extends Action {
 		if (target == null) {
 			return;
 		}
-		TypedefinitionMarkerNavigationProvider.addMarker(target, elementId,
-				location, message, statusSeverity);
+		DomainMarkerNavigationProvider.addMarker(target, elementId, location,
+				message, statusSeverity);
 	}
 
 	/**

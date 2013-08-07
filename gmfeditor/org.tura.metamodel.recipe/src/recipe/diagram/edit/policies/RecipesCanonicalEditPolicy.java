@@ -11,8 +11,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
 import java.util.Set;
+
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -34,7 +34,6 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
-import recipe.RecipePackage;
 import recipe.diagram.edit.parts.Component2EditPart;
 import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
@@ -42,10 +41,12 @@ import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
-import recipe.diagram.part.RecipeDiagramUpdater;
-import recipe.diagram.part.RecipeLinkDescriptor;
-import recipe.diagram.part.RecipeNodeDescriptor;
-import recipe.diagram.part.RecipeVisualIDRegistry;
+import recipe.diagram.edit.parts.TypeExtensionEditPart;
+import recipe.diagram.part.DomainDiagramUpdater;
+import recipe.diagram.part.DomainLinkDescriptor;
+import recipe.diagram.part.DomainNodeDescriptor;
+import recipe.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -75,9 +76,9 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize.add(RecipePackage.eINSTANCE
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getRecipes_Recipe());
-			myFeaturesToSynchronize.add(RecipePackage.eINSTANCE
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getRecipes_Configurations());
 		}
 		return myFeaturesToSynchronize;
@@ -90,9 +91,9 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
-		List<RecipeNodeDescriptor> childDescriptors = RecipeDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getRecipes_301000SemanticChildren(viewObject);
-		for (RecipeNodeDescriptor d : childDescriptors) {
+		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
 		return result;
@@ -104,7 +105,7 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected boolean isOrphaned(Collection<EObject> semanticChildren,
 			final View view) {
 		if (isShortcut(view)) {
-			return RecipeDiagramUpdater.isShortcutOrphaned(view);
+			return DomainDiagramUpdater.isShortcutOrphaned(view);
 		}
 		return isMyDiagramElement(view)
 				&& !semanticChildren.contains(view.getElement());
@@ -114,7 +115,7 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		int visualID = RecipeVisualIDRegistry.getVisualID(view);
+		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		return visualID == RecipeEditPart.VISUAL_ID
 				|| visualID == ConfigurationEditPart.VISUAL_ID;
 	}
@@ -134,14 +135,14 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 			return;
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
-		List<RecipeNodeDescriptor> childDescriptors = RecipeDiagramUpdater
+		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
 				.getRecipes_301000SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours and not shortcuts
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
 		for (View v : getViewChildren()) {
 			if (isShortcut(v)) {
-				if (RecipeDiagramUpdater.isShortcutOrphaned(v)) {
+				if (DomainDiagramUpdater.isShortcutOrphaned(v)) {
 					orphaned.add(v);
 				}
 				continue;
@@ -155,10 +156,10 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<RecipeNodeDescriptor> descriptorsIterator = childDescriptors
+		for (Iterator<DomainNodeDescriptor> descriptorsIterator = childDescriptors
 				.iterator(); descriptorsIterator.hasNext();) {
-			RecipeNodeDescriptor next = descriptorsIterator.next();
-			String hint = RecipeVisualIDRegistry.getType(next.getVisualID());
+			DomainNodeDescriptor next = descriptorsIterator.next();
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
 			for (View childView : getViewChildren()) {
 				EObject semanticElement = childView.getElement();
@@ -183,8 +184,8 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 		//
 		ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
 				childDescriptors.size());
-		for (RecipeNodeDescriptor next : childDescriptors) {
-			String hint = RecipeVisualIDRegistry.getType(next.getVisualID());
+		for (DomainNodeDescriptor next : childDescriptors) {
+			String hint = DomainVisualIDRegistry.getType(next.getVisualID());
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
 			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(
@@ -228,13 +229,13 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private Collection<IAdaptable> refreshConnections() {
 		Domain2Notation domain2NotationMap = new Domain2Notation();
-		Collection<RecipeLinkDescriptor> linkDescriptors = collectAllLinks(
+		Collection<DomainLinkDescriptor> linkDescriptors = collectAllLinks(
 				getDiagram(), domain2NotationMap);
 		Collection existingLinks = new LinkedList(getDiagram().getEdges());
 		for (Iterator linksIterator = existingLinks.iterator(); linksIterator
 				.hasNext();) {
 			Edge nextDiagramLink = (Edge) linksIterator.next();
-			int diagramLinkVisualID = RecipeVisualIDRegistry
+			int diagramLinkVisualID = DomainVisualIDRegistry
 					.getVisualID(nextDiagramLink);
 			if (diagramLinkVisualID == -1) {
 				if (nextDiagramLink.getSource() != null
@@ -246,9 +247,9 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 			EObject diagramLinkObject = nextDiagramLink.getElement();
 			EObject diagramLinkSrc = nextDiagramLink.getSource().getElement();
 			EObject diagramLinkDst = nextDiagramLink.getTarget().getElement();
-			for (Iterator<RecipeLinkDescriptor> linkDescriptorsIterator = linkDescriptors
+			for (Iterator<DomainLinkDescriptor> linkDescriptorsIterator = linkDescriptors
 					.iterator(); linkDescriptorsIterator.hasNext();) {
-				RecipeLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator
+				DomainLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator
 						.next();
 				if (diagramLinkObject == nextLinkDescriptor.getModelElement()
 						&& diagramLinkSrc == nextLinkDescriptor.getSource()
@@ -269,17 +270,17 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	private Collection<RecipeLinkDescriptor> collectAllLinks(View view,
+	private Collection<DomainLinkDescriptor> collectAllLinks(View view,
 			Domain2Notation domain2NotationMap) {
-		if (!RecipesEditPart.MODEL_ID.equals(RecipeVisualIDRegistry
+		if (!RecipesEditPart.MODEL_ID.equals(DomainVisualIDRegistry
 				.getModelID(view))) {
 			return Collections.emptyList();
 		}
-		LinkedList<RecipeLinkDescriptor> result = new LinkedList<RecipeLinkDescriptor>();
-		switch (RecipeVisualIDRegistry.getVisualID(view)) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RecipesEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(RecipeDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getRecipes_301000ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -287,31 +288,31 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case RecipeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(RecipeDiagramUpdater
-						.getRecipe_302004ContainedLinks(view));
+				result.addAll(DomainDiagramUpdater
+						.getRecipe_302001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ConfigurationEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(RecipeDiagramUpdater
-						.getConfiguration_302005ContainedLinks(view));
+				result.addAll(DomainDiagramUpdater
+						.getConfiguration_302002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ComponentEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(RecipeDiagramUpdater
-						.getComponent_303004ContainedLinks(view));
+				result.addAll(DomainDiagramUpdater
+						.getComponent_303001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case Component2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(RecipeDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getComponent_303002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -319,7 +320,7 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case ModelMapperEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(RecipeDiagramUpdater
+				result.addAll(DomainDiagramUpdater
 						.getModelMapper_303003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
@@ -327,8 +328,16 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case PropertyEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(RecipeDiagramUpdater
-						.getProperty_303005ContainedLinks(view));
+				result.addAll(DomainDiagramUpdater
+						.getProperty_303004ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TypeExtensionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getTypeExtension_304001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -350,10 +359,10 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private Collection<IAdaptable> createConnections(
-			Collection<RecipeLinkDescriptor> linkDescriptors,
+			Collection<DomainLinkDescriptor> linkDescriptors,
 			Domain2Notation domain2NotationMap) {
 		LinkedList<IAdaptable> adapters = new LinkedList<IAdaptable>();
-		for (RecipeLinkDescriptor nextLinkDescriptor : linkDescriptors) {
+		for (DomainLinkDescriptor nextLinkDescriptor : linkDescriptors) {
 			EditPart sourceEditPart = getSourceEditPart(nextLinkDescriptor,
 					domain2NotationMap);
 			EditPart targetEditPart = getTargetEditPart(nextLinkDescriptor,
@@ -363,7 +372,7 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			CreateConnectionViewRequest.ConnectionViewDescriptor descriptor = new CreateConnectionViewRequest.ConnectionViewDescriptor(
 					nextLinkDescriptor.getSemanticAdapter(),
-					RecipeVisualIDRegistry.getType(nextLinkDescriptor
+					DomainVisualIDRegistry.getType(nextLinkDescriptor
 							.getVisualID()), ViewUtil.APPEND, false,
 					((IGraphicalEditPart) getHost())
 							.getDiagramPreferencesHint());
@@ -428,7 +437,7 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected final EditPart getHintedEditPart(EObject domainModelElement,
 			Domain2Notation domain2NotationMap, int hintVisualId) {
 		View view = (View) domain2NotationMap.getHinted(domainModelElement,
-				RecipeVisualIDRegistry.getType(hintVisualId));
+				DomainVisualIDRegistry.getType(hintVisualId));
 		if (view != null) {
 			return (EditPart) getHost().getViewer().getEditPartRegistry()
 					.get(view);

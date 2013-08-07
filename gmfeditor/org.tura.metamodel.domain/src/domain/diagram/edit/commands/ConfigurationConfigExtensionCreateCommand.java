@@ -11,7 +11,7 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import recipe.Configuration;
+import domain.Configuration;
 import domain.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 
 /**

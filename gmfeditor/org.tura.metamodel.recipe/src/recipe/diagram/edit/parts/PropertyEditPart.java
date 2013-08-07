@@ -26,7 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import recipe.diagram.edit.policies.PropertyItemSemanticEditPolicy;
-import recipe.diagram.part.RecipeVisualIDRegistry;
+import recipe.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -36,7 +36,7 @@ public class PropertyEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 303005;
+	public static final int VISUAL_ID = 303004;
 
 	/**
 	 * @generated
@@ -246,7 +246,7 @@ public class PropertyEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(RecipeVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(PropertyNameEditPart.VISUAL_ID));
 	}
 

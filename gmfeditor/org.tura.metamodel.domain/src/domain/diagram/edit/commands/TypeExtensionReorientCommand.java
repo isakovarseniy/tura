@@ -11,9 +11,9 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import typedefinition.Type;
-import typedefinition.TypeElement;
-import typedefinition.TypeExtension;
+import domain.Type;
+import domain.TypeElement;
+import domain.TypeExtension;
 import domain.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 
 /**

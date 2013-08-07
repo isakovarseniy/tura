@@ -3,7 +3,7 @@
  */
 package application.diagram.providers;
 
-import application.diagram.part.ApplicationDiagramEditorPlugin;
+import application.diagram.part.DomainDiagramEditorPlugin;
 
 /**
  * @generated
@@ -18,11 +18,11 @@ public class ElementInitializers {
 	 * @generated
 	 */
 	public static ElementInitializers getInstance() {
-		ElementInitializers cached = ApplicationDiagramEditorPlugin
-				.getInstance().getElementInitializers();
+		ElementInitializers cached = DomainDiagramEditorPlugin.getInstance()
+				.getElementInitializers();
 		if (cached == null) {
-			ApplicationDiagramEditorPlugin.getInstance()
-					.setElementInitializers(cached = new ElementInitializers());
+			DomainDiagramEditorPlugin.getInstance().setElementInitializers(
+					cached = new ElementInitializers());
 		}
 		return cached;
 	}

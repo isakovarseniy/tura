@@ -6,6 +6,7 @@ package recipe.diagram.edit.parts;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
@@ -35,8 +36,8 @@ import org.eclipse.swt.graphics.Color;
 
 import recipe.diagram.edit.policies.OpenDiagramEditPolicy;
 import recipe.diagram.edit.policies.RecipeItemSemanticEditPolicy;
-import recipe.diagram.part.RecipeVisualIDRegistry;
-import recipe.diagram.providers.RecipeElementTypes;
+import recipe.diagram.part.DomainVisualIDRegistry;
+import recipe.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
@@ -46,7 +47,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 302004;
+	public static final int VISUAL_ID = 302001;
 
 	/**
 	 * @generated
@@ -276,7 +277,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(RecipeVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(RecipeNameEditPart.VISUAL_ID));
 	}
 
@@ -285,7 +286,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(RecipeElementTypes.RecipeRecipeConfig_304001);
+		types.add(DomainElementTypes.RecipeRecipeConfig_304002);
 		return types;
 	}
 
@@ -296,7 +297,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ConfigurationEditPart) {
-			types.add(RecipeElementTypes.RecipeRecipeConfig_304001);
+			types.add(DomainElementTypes.RecipeRecipeConfig_304002);
 		}
 		return types;
 	}
@@ -306,8 +307,8 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RecipeElementTypes.RecipeRecipeConfig_304001) {
-			types.add(RecipeElementTypes.Configuration_302005);
+		if (relationshipType == DomainElementTypes.RecipeRecipeConfig_304002) {
+			types.add(DomainElementTypes.Configuration_302002);
 		}
 		return types;
 	}

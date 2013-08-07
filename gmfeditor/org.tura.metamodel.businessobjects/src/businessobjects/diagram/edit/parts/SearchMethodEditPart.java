@@ -27,7 +27,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import businessobjects.diagram.edit.policies.SearchMethodItemSemanticEditPolicy;
-import businessobjects.diagram.part.BusinessobjectsVisualIDRegistry;
+import businessobjects.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -37,7 +37,7 @@ public class SearchMethodEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 603013;
+	public static final int VISUAL_ID = 603005;
 
 	/**
 	 * @generated
@@ -248,7 +248,7 @@ public class SearchMethodEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(BusinessobjectsVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(SearchMethodMethodEditPart.VISUAL_ID));
 	}
 

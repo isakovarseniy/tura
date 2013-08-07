@@ -26,7 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import recipe.diagram.edit.policies.ModelMapperItemSemanticEditPolicy;
-import recipe.diagram.part.RecipeVisualIDRegistry;
+import recipe.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
@@ -247,7 +247,7 @@ public class ModelMapperEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(RecipeVisualIDRegistry
+		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(ModelMapperNameEditPart.VISUAL_ID));
 	}
 

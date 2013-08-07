@@ -99,106 +99,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.Dammy1} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Dammy1ItemProvider dammy1ItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Dammy1}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createDammy1Adapter()
-  {
-    if (dammy1ItemProvider == null)
-    {
-      dammy1ItemProvider = new Dammy1ItemProvider(this);
-    }
-
-    return dammy1ItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.Dammy2} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Dammy2ItemProvider dammy2ItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Dammy2}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createDammy2Adapter()
-  {
-    if (dammy2ItemProvider == null)
-    {
-      dammy2ItemProvider = new Dammy2ItemProvider(this);
-    }
-
-    return dammy2ItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.Dammy3} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Dammy3ItemProvider dammy3ItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Dammy3}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createDammy3Adapter()
-  {
-    if (dammy3ItemProvider == null)
-    {
-      dammy3ItemProvider = new Dammy3ItemProvider(this);
-    }
-
-    return dammy3ItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.Dammy4} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Dammy4ItemProvider dammy4ItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Dammy4}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createDammy4Adapter()
-  {
-    if (dammy4ItemProvider == null)
-    {
-      dammy4ItemProvider = new Dammy4ItemProvider(this);
-    }
-
-    return dammy4ItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link domain.DomainArtifacts} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -296,6 +196,1181 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return domainApplicationItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Artifacts} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ArtifactsItemProvider artifactsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Artifacts}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createArtifactsAdapter()
+  {
+    if (artifactsItemProvider == null)
+    {
+      artifactsItemProvider = new ArtifactsItemProvider(this);
+    }
+
+    return artifactsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Artifact} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ArtifactItemProvider artifactItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Artifact}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createArtifactAdapter()
+  {
+    if (artifactItemProvider == null)
+    {
+      artifactItemProvider = new ArtifactItemProvider(this);
+    }
+
+    return artifactItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Variable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected VariableItemProvider variableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Variable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createVariableAdapter()
+  {
+    if (variableItemProvider == null)
+    {
+      variableItemProvider = new VariableItemProvider(this);
+    }
+
+    return variableItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Specifier} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SpecifierItemProvider specifierItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Specifier}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSpecifierAdapter()
+  {
+    if (specifierItemProvider == null)
+    {
+      specifierItemProvider = new SpecifierItemProvider(this);
+    }
+
+    return specifierItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Option} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OptionItemProvider optionItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Option}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createOptionAdapter()
+  {
+    if (optionItemProvider == null)
+    {
+      optionItemProvider = new OptionItemProvider(this);
+    }
+
+    return optionItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Application} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ApplicationItemProvider applicationItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Application}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createApplicationAdapter()
+  {
+    if (applicationItemProvider == null)
+    {
+      applicationItemProvider = new ApplicationItemProvider(this);
+    }
+
+    return applicationItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ApplicationRecipes} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ApplicationRecipesItemProvider applicationRecipesItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ApplicationRecipes}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createApplicationRecipesAdapter()
+  {
+    if (applicationRecipesItemProvider == null)
+    {
+      applicationRecipesItemProvider = new ApplicationRecipesItemProvider(this);
+    }
+
+    return applicationRecipesItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ApplicationRecipe} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ApplicationRecipeItemProvider applicationRecipeItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ApplicationRecipe}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createApplicationRecipeAdapter()
+  {
+    if (applicationRecipeItemProvider == null)
+    {
+      applicationRecipeItemProvider = new ApplicationRecipeItemProvider(this);
+    }
+
+    return applicationRecipeItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ApplicationMappers} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ApplicationMappersItemProvider applicationMappersItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ApplicationMappers}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createApplicationMappersAdapter()
+  {
+    if (applicationMappersItemProvider == null)
+    {
+      applicationMappersItemProvider = new ApplicationMappersItemProvider(this);
+    }
+
+    return applicationMappersItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ApplicationMapper} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ApplicationMapperItemProvider applicationMapperItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ApplicationMapper}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createApplicationMapperAdapter()
+  {
+    if (applicationMapperItemProvider == null)
+    {
+      applicationMapperItemProvider = new ApplicationMapperItemProvider(this);
+    }
+
+    return applicationMapperItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.BusinessObjects} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BusinessObjectsItemProvider businessObjectsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.BusinessObjects}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBusinessObjectsAdapter()
+  {
+    if (businessObjectsItemProvider == null)
+    {
+      businessObjectsItemProvider = new BusinessObjectsItemProvider(this);
+    }
+
+    return businessObjectsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.BusinessObject} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BusinessObjectItemProvider businessObjectItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.BusinessObject}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBusinessObjectAdapter()
+  {
+    if (businessObjectItemProvider == null)
+    {
+      businessObjectItemProvider = new BusinessObjectItemProvider(this);
+    }
+
+    return businessObjectItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.BusinessMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BusinessMethodItemProvider businessMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.BusinessMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBusinessMethodAdapter()
+  {
+    if (businessMethodItemProvider == null)
+    {
+      businessMethodItemProvider = new BusinessMethodItemProvider(this);
+    }
+
+    return businessMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.CreateMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CreateMethodItemProvider createMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.CreateMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCreateMethodAdapter()
+  {
+    if (createMethodItemProvider == null)
+    {
+      createMethodItemProvider = new CreateMethodItemProvider(this);
+    }
+
+    return createMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.InsertMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected InsertMethodItemProvider insertMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.InsertMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createInsertMethodAdapter()
+  {
+    if (insertMethodItemProvider == null)
+    {
+      insertMethodItemProvider = new InsertMethodItemProvider(this);
+    }
+
+    return insertMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.UpdateMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected UpdateMethodItemProvider updateMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.UpdateMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createUpdateMethodAdapter()
+  {
+    if (updateMethodItemProvider == null)
+    {
+      updateMethodItemProvider = new UpdateMethodItemProvider(this);
+    }
+
+    return updateMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.RemoveMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RemoveMethodItemProvider removeMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.RemoveMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRemoveMethodAdapter()
+  {
+    if (removeMethodItemProvider == null)
+    {
+      removeMethodItemProvider = new RemoveMethodItemProvider(this);
+    }
+
+    return removeMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.SearchMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SearchMethodItemProvider searchMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.SearchMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSearchMethodAdapter()
+  {
+    if (searchMethodItemProvider == null)
+    {
+      searchMethodItemProvider = new SearchMethodItemProvider(this);
+    }
+
+    return searchMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.OtherMethod} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OtherMethodItemProvider otherMethodItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.OtherMethod}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createOtherMethodAdapter()
+  {
+    if (otherMethodItemProvider == null)
+    {
+      otherMethodItemProvider = new OtherMethodItemProvider(this);
+    }
+
+    return otherMethodItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Mappers} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MappersItemProvider mappersItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Mappers}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMappersAdapter()
+  {
+    if (mappersItemProvider == null)
+    {
+      mappersItemProvider = new MappersItemProvider(this);
+    }
+
+    return mappersItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Mapper} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MapperItemProvider mapperItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Mapper}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMapperAdapter()
+  {
+    if (mapperItemProvider == null)
+    {
+      mapperItemProvider = new MapperItemProvider(this);
+    }
+
+    return mapperItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.JavaMapper} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected JavaMapperItemProvider javaMapperItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.JavaMapper}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createJavaMapperAdapter()
+  {
+    if (javaMapperItemProvider == null)
+    {
+      javaMapperItemProvider = new JavaMapperItemProvider(this);
+    }
+
+    return javaMapperItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Recipes} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RecipesItemProvider recipesItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Recipes}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRecipesAdapter()
+  {
+    if (recipesItemProvider == null)
+    {
+      recipesItemProvider = new RecipesItemProvider(this);
+    }
+
+    return recipesItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Recipe} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RecipeItemProvider recipeItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Recipe}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRecipeAdapter()
+  {
+    if (recipeItemProvider == null)
+    {
+      recipeItemProvider = new RecipeItemProvider(this);
+    }
+
+    return recipeItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Component} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ComponentItemProvider componentItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Component}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createComponentAdapter()
+  {
+    if (componentItemProvider == null)
+    {
+      componentItemProvider = new ComponentItemProvider(this);
+    }
+
+    return componentItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ModelMapper} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ModelMapperItemProvider modelMapperItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ModelMapper}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createModelMapperAdapter()
+  {
+    if (modelMapperItemProvider == null)
+    {
+      modelMapperItemProvider = new ModelMapperItemProvider(this);
+    }
+
+    return modelMapperItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Configuration} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ConfigurationItemProvider configurationItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Configuration}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createConfigurationAdapter()
+  {
+    if (configurationItemProvider == null)
+    {
+      configurationItemProvider = new ConfigurationItemProvider(this);
+    }
+
+    return configurationItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Property} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PropertyItemProvider propertyItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Property}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPropertyAdapter()
+  {
+    if (propertyItemProvider == null)
+    {
+      propertyItemProvider = new PropertyItemProvider(this);
+    }
+
+    return propertyItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.MappingSpecifier} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MappingSpecifierItemProvider mappingSpecifierItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.MappingSpecifier}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMappingSpecifierAdapter()
+  {
+    if (mappingSpecifierItemProvider == null)
+    {
+      mappingSpecifierItemProvider = new MappingSpecifierItemProvider(this);
+    }
+
+    return mappingSpecifierItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.MappingVariable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MappingVariableItemProvider mappingVariableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.MappingVariable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMappingVariableAdapter()
+  {
+    if (mappingVariableItemProvider == null)
+    {
+      mappingVariableItemProvider = new MappingVariableItemProvider(this);
+    }
+
+    return mappingVariableItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ArtifactRef} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ArtifactRefItemProvider artifactRefItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ArtifactRef}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createArtifactRefAdapter()
+  {
+    if (artifactRefItemProvider == null)
+    {
+      artifactRefItemProvider = new ArtifactRefItemProvider(this);
+    }
+
+    return artifactRefItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.TypeDefinition} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TypeDefinitionItemProvider typeDefinitionItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TypeDefinition}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTypeDefinitionAdapter()
+  {
+    if (typeDefinitionItemProvider == null)
+    {
+      typeDefinitionItemProvider = new TypeDefinitionItemProvider(this);
+    }
+
+    return typeDefinitionItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.TypeElement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TypeElementItemProvider typeElementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TypeElement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTypeElementAdapter()
+  {
+    if (typeElementItemProvider == null)
+    {
+      typeElementItemProvider = new TypeElementItemProvider(this);
+    }
+
+    return typeElementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Type} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TypeItemProvider typeItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Type}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTypeAdapter()
+  {
+    if (typeItemProvider == null)
+    {
+      typeItemProvider = new TypeItemProvider(this);
+    }
+
+    return typeItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.TypeReference} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TypeReferenceItemProvider typeReferenceItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TypeReference}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTypeReferenceAdapter()
+  {
+    if (typeReferenceItemProvider == null)
+    {
+      typeReferenceItemProvider = new TypeReferenceItemProvider(this);
+    }
+
+    return typeReferenceItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.TypeExtension} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TypeExtensionItemProvider typeExtensionItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TypeExtension}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTypeExtensionAdapter()
+  {
+    if (typeExtensionItemProvider == null)
+    {
+      typeExtensionItemProvider = new TypeExtensionItemProvider(this);
+    }
+
+    return typeExtensionItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Attribute} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected AttributeItemProvider attributeItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Attribute}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createAttributeAdapter()
+  {
+    if (attributeItemProvider == null)
+    {
+      attributeItemProvider = new AttributeItemProvider(this);
+    }
+
+    return attributeItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Operation} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OperationItemProvider operationItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Operation}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createOperationAdapter()
+  {
+    if (operationItemProvider == null)
+    {
+      operationItemProvider = new OperationItemProvider(this);
+    }
+
+    return operationItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ReturnValue} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ReturnValueItemProvider returnValueItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ReturnValue}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createReturnValueAdapter()
+  {
+    if (returnValueItemProvider == null)
+    {
+      returnValueItemProvider = new ReturnValueItemProvider(this);
+    }
+
+    return returnValueItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Enumarator} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected EnumaratorItemProvider enumaratorItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Enumarator}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createEnumaratorAdapter()
+  {
+    if (enumaratorItemProvider == null)
+    {
+      enumaratorItemProvider = new EnumaratorItemProvider(this);
+    }
+
+    return enumaratorItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.EnumAttribute} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected EnumAttributeItemProvider enumAttributeItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.EnumAttribute}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createEnumAttributeAdapter()
+  {
+    if (enumAttributeItemProvider == null)
+    {
+      enumAttributeItemProvider = new EnumAttributeItemProvider(this);
+    }
+
+    return enumAttributeItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.TypePointer} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TypePointerItemProvider typePointerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TypePointer}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTypePointerAdapter()
+  {
+    if (typePointerItemProvider == null)
+    {
+      typePointerItemProvider = new TypePointerItemProvider(this);
+    }
+
+    return typePointerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.TypesRepository} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TypesRepositoryItemProvider typesRepositoryItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TypesRepository}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTypesRepositoryAdapter()
+  {
+    if (typesRepositoryItemProvider == null)
+    {
+      typesRepositoryItemProvider = new TypesRepositoryItemProvider(this);
+    }
+
+    return typesRepositoryItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Types} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TypesItemProvider typesItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Types}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTypesAdapter()
+  {
+    if (typesItemProvider == null)
+    {
+      typesItemProvider = new TypesItemProvider(this);
+    }
+
+    return typesItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Primitive} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PrimitiveItemProvider primitiveItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Primitive}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPrimitiveAdapter()
+  {
+    if (primitiveItemProvider == null)
+    {
+      primitiveItemProvider = new PrimitiveItemProvider(this);
+    }
+
+    return primitiveItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Package} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PackageItemProvider packageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Package}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPackageAdapter()
+  {
+    if (packageItemProvider == null)
+    {
+      packageItemProvider = new PackageItemProvider(this);
+    }
+
+    return packageItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.BusinessPackage} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BusinessPackageItemProvider businessPackageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.BusinessPackage}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBusinessPackageAdapter()
+  {
+    if (businessPackageItemProvider == null)
+    {
+      businessPackageItemProvider = new BusinessPackageItemProvider(this);
+    }
+
+    return businessPackageItemProvider;
   }
 
   /**
@@ -410,14 +1485,57 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   public void dispose()
   {
     if (domainItemProvider != null) domainItemProvider.dispose();
-    if (dammy1ItemProvider != null) dammy1ItemProvider.dispose();
-    if (dammy2ItemProvider != null) dammy2ItemProvider.dispose();
-    if (dammy3ItemProvider != null) dammy3ItemProvider.dispose();
-    if (dammy4ItemProvider != null) dammy4ItemProvider.dispose();
     if (domainArtifactsItemProvider != null) domainArtifactsItemProvider.dispose();
     if (domainTypesItemProvider != null) domainTypesItemProvider.dispose();
     if (domainApplicationsItemProvider != null) domainApplicationsItemProvider.dispose();
     if (domainApplicationItemProvider != null) domainApplicationItemProvider.dispose();
+    if (artifactsItemProvider != null) artifactsItemProvider.dispose();
+    if (artifactItemProvider != null) artifactItemProvider.dispose();
+    if (variableItemProvider != null) variableItemProvider.dispose();
+    if (specifierItemProvider != null) specifierItemProvider.dispose();
+    if (optionItemProvider != null) optionItemProvider.dispose();
+    if (applicationItemProvider != null) applicationItemProvider.dispose();
+    if (applicationRecipesItemProvider != null) applicationRecipesItemProvider.dispose();
+    if (applicationRecipeItemProvider != null) applicationRecipeItemProvider.dispose();
+    if (applicationMappersItemProvider != null) applicationMappersItemProvider.dispose();
+    if (applicationMapperItemProvider != null) applicationMapperItemProvider.dispose();
+    if (businessObjectsItemProvider != null) businessObjectsItemProvider.dispose();
+    if (businessObjectItemProvider != null) businessObjectItemProvider.dispose();
+    if (businessMethodItemProvider != null) businessMethodItemProvider.dispose();
+    if (createMethodItemProvider != null) createMethodItemProvider.dispose();
+    if (insertMethodItemProvider != null) insertMethodItemProvider.dispose();
+    if (updateMethodItemProvider != null) updateMethodItemProvider.dispose();
+    if (removeMethodItemProvider != null) removeMethodItemProvider.dispose();
+    if (searchMethodItemProvider != null) searchMethodItemProvider.dispose();
+    if (otherMethodItemProvider != null) otherMethodItemProvider.dispose();
+    if (mappersItemProvider != null) mappersItemProvider.dispose();
+    if (mapperItemProvider != null) mapperItemProvider.dispose();
+    if (javaMapperItemProvider != null) javaMapperItemProvider.dispose();
+    if (recipesItemProvider != null) recipesItemProvider.dispose();
+    if (recipeItemProvider != null) recipeItemProvider.dispose();
+    if (componentItemProvider != null) componentItemProvider.dispose();
+    if (modelMapperItemProvider != null) modelMapperItemProvider.dispose();
+    if (configurationItemProvider != null) configurationItemProvider.dispose();
+    if (propertyItemProvider != null) propertyItemProvider.dispose();
+    if (mappingSpecifierItemProvider != null) mappingSpecifierItemProvider.dispose();
+    if (mappingVariableItemProvider != null) mappingVariableItemProvider.dispose();
+    if (artifactRefItemProvider != null) artifactRefItemProvider.dispose();
+    if (typeDefinitionItemProvider != null) typeDefinitionItemProvider.dispose();
+    if (typeElementItemProvider != null) typeElementItemProvider.dispose();
+    if (typeItemProvider != null) typeItemProvider.dispose();
+    if (typeReferenceItemProvider != null) typeReferenceItemProvider.dispose();
+    if (typeExtensionItemProvider != null) typeExtensionItemProvider.dispose();
+    if (attributeItemProvider != null) attributeItemProvider.dispose();
+    if (operationItemProvider != null) operationItemProvider.dispose();
+    if (returnValueItemProvider != null) returnValueItemProvider.dispose();
+    if (enumaratorItemProvider != null) enumaratorItemProvider.dispose();
+    if (enumAttributeItemProvider != null) enumAttributeItemProvider.dispose();
+    if (typePointerItemProvider != null) typePointerItemProvider.dispose();
+    if (typesRepositoryItemProvider != null) typesRepositoryItemProvider.dispose();
+    if (typesItemProvider != null) typesItemProvider.dispose();
+    if (primitiveItemProvider != null) primitiveItemProvider.dispose();
+    if (packageItemProvider != null) packageItemProvider.dispose();
+    if (businessPackageItemProvider != null) businessPackageItemProvider.dispose();
   }
 
 }

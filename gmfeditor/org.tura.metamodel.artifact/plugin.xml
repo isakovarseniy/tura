@@ -23,12 +23,12 @@
       <editor
          id="artifact.diagram.part.ArtifactDiagramEditorID"
          name="%editorName"
-         icon="icons/obj16/ArtifactDiagramFile.gif"
+         icon="icons/obj16/DomainDiagramFile.gif"
          extensions="artifact_diagram"
          default="true"
-         class="artifact.diagram.part.ArtifactDiagramEditor"
-         matchingStrategy="artifact.diagram.part.ArtifactMatchingStrategy"
-         contributorClass="artifact.diagram.part.ArtifactDiagramActionBarContributor">
+         class="artifact.diagram.part.DomainDiagramEditor"
+         matchingStrategy="artifact.diagram.part.DomainMatchingStrategy"
+         contributorClass="artifact.diagram.part.DomainDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -46,10 +46,10 @@
       <?gmfgen generated="true"?>
   	  <wizard
   	     name="%newWizardName"
-  	     icon="icons/obj16/ArtifactDiagramFile.gif"
+  	     icon="icons/obj16/DomainDiagramFile.gif"
   	     category="org.eclipse.ui.Examples"
-  	     class="artifact.diagram.part.ArtifactCreationWizard"
-  	     id="artifact.diagram.part.ArtifactCreationWizardID">
+  	     class="artifact.diagram.part.DomainCreationWizard"
+  	     id="artifact.diagram.part.DomainCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
@@ -58,11 +58,11 @@
       <?gmfgen generated="true"?>
       <objectContribution
             id="org.tura.metamodel.artifact.InitDiagram"
-            nameFilter="*.artifact"
+            nameFilter="*.domain"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="artifact.diagram.part.ArtifactInitDiagramFileAction"
+               class="artifact.diagram.part.DomainInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="org.tura.metamodel.artifact.InitDiagramAction">
@@ -126,13 +126,13 @@
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
       <?gmfgen generated="true"?>
-      <MarkerNavigationProvider class="artifact.diagram.providers.ArtifactMarkerNavigationProvider">
+      <MarkerNavigationProvider class="artifact.diagram.providers.DomainMarkerNavigationProvider">
          <MarkerType name="org.tura.metamodel.artifact.diagnostic"/>
          <Priority name="Lowest"/>
       </MarkerNavigationProvider>
    </extension>
 
-   <extension id="diagnostic" name="Artifact Plugin problems" point="org.eclipse.core.resources.markers">
+   <extension id="diagnostic" name="Domain Plugin problems" point="org.eclipse.core.resources.markers">
       <?gmfgen generated="true"?>
       <super type="org.eclipse.core.resources.problemmarker"/>
       <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
@@ -141,7 +141,7 @@
 
    <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="artifact.diagram.providers.ArtifactValidationDecoratorProvider">
+      <decoratorProvider class="artifact.diagram.providers.DomainValidationDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
@@ -190,7 +190,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="org.tura.metamodel.artifact"
-            labelProvider="artifact.diagram.sheet.ArtifactSheetLabelProvider">
+            labelProvider="artifact.diagram.sheet.DomainSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -241,30 +241,31 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="artifact.diagram.sheet.ArtifactPropertySection">
+            class="artifact.diagram.sheet.DomainPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="artifact.diagram.navigator.ArtifactAbstractNavigatorItem"/>
+            <input type="artifact.diagram.navigator.DomainAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="artifact.diagram.providers.ArtifactViewProvider">
+      <viewProvider class="artifact.diagram.providers.DomainViewProvider">
          <Priority name="Lowest"/>
          <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
-            <method name="getType()" value="artifact"/>
+            <method name="getType()" value="domain"/>
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Artifact"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="702001,703001,703002,703003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="704001,704002,704003"/>
       </viewProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="artifact.diagram.providers.ArtifactEditPartProvider">
+      <editpartProvider class="artifact.diagram.providers.DomainEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="Artifact"/>
@@ -273,7 +274,7 @@
             <method name="getType()" value="702001,703001,703002,703003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value=""/>
+            <method name="getType()" value="704001,704002,704003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="705004,705001,705002,705003"/>
@@ -287,34 +288,31 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="artifact.diagram.providers.ArtifactModelingAssistantProvider">
+      <modelingAssistantProvider class="artifact.diagram.providers.DomainModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="artifact.diagram.edit.parts.ArtifactsEditPart" id="Artifacts_701000"/>
          <object class="artifact.diagram.edit.parts.ArtifactEditPart" id="Artifact_702001"/>
-         <object class="artifact.diagram.edit.parts.VariableEditPart" id="Variable_703001"/>
-         <object class="artifact.diagram.edit.parts.Variable2EditPart" id="Variable_703002"/>
-         <object class="artifact.diagram.edit.parts.SpecifierEditPart" id="Specifier_703003"/>
-         <context elements="Artifacts_701000,Artifact_702001,Variable_703001,Variable_703002,Specifier_703003"/>
+         <context elements="Artifacts_701000,Artifact_702001"/>
       </modelingAssistantProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="artifact.diagram.providers.ArtifactIconProvider">
+      <IconProvider class="artifact.diagram.providers.DomainIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="artifact.diagram.providers.ArtifactParserProvider">
+      <ParserProvider class="artifact.diagram.providers.DomainParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="artifact.diagram.providers.ArtifactShortcutsDecoratorProvider">
+      <decoratorProvider class="artifact.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
             <method name="getType()" value="702001"/>
@@ -325,7 +323,7 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://tura.org/2013/v1/artifact">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.artifact.Artifacts_701000"
                name="%metatype.name.Artifacts_701000"
@@ -335,7 +333,7 @@
             <param name="semanticHint" value="701000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/artifact">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.artifact.Artifact_702001"
                name="%metatype.name.Artifact_702001"
@@ -345,7 +343,7 @@
             <param name="semanticHint" value="702001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/artifact">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.artifact.Variable_703001"
                name="%metatype.name.Variable_703001"
@@ -355,7 +353,7 @@
             <param name="semanticHint" value="703001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/artifact">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.artifact.Variable_703002"
                name="%metatype.name.Variable_703002"
@@ -364,7 +362,7 @@
             <param name="semanticHint" value="703002"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/artifact">
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.artifact.Specifier_703003"
                name="%metatype.name.Specifier_703003"
@@ -374,23 +372,58 @@
             <param name="semanticHint" value="703003"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.artifact.TypeExtension_704001"
+               name="%metatype.name.TypeExtension_704001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TypeExtension"
+               edithelper="artifact.diagram.edit.helpers.TypeExtensionEditHelper">
+            <param name="semanticHint" value="704001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.artifact.RecipeRecipeConfig_704002"
+               name="%metatype.name.RecipeRecipeConfig_704002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="704002"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.artifact.ConfigurationConfigExtension_704003"
+               name="%metatype.name.ConfigurationConfigExtension_704003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="704003"/>
+         </specializationType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
       <?gmfgen generated="true"?>
-      <clientContext id="org.tura.metamodel.artifact.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <clientContext id="org.tura.metamodel.artifact.TypeContext"> -->
+      <clientContext id="SharedClientContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
                value="org.tura.metamodel.artifact.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="org.tura.metamodel.artifact.TypeContext">
+      <!-- ITEMIS CHANGE: Singleton editing domain requires the use of the same ClientContext --> 
+      <!-- <binding context="org.tura.metamodel.artifact.TypeContext"> -->
+      <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.artifact.Artifacts_701000"/>
          <elementType ref="org.tura.metamodel.artifact.Artifact_702001"/>
          <elementType ref="org.tura.metamodel.artifact.Variable_703001"/>
          <elementType ref="org.tura.metamodel.artifact.Variable_703002"/>
          <elementType ref="org.tura.metamodel.artifact.Specifier_703003"/>
+         <elementType ref="org.tura.metamodel.artifact.TypeExtension_704001"/>
+         <elementType ref="org.tura.metamodel.artifact.RecipeRecipeConfig_704002"/>
+         <elementType ref="org.tura.metamodel.artifact.ConfigurationConfigExtension_704003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
@@ -401,7 +434,7 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="org.tura.metamodel.artifact"
            properties="isURIEditorInput"
-           class="artifact.diagram.part.ArtifactUriEditorInputTester">
+           class="artifact.diagram.part.DomainUriEditorInputTester">
        </propertyTester>
    </extension>
 
@@ -412,7 +445,7 @@
            type="org.eclipse.gmf.runtime.notation.View"
            namespace="org.tura.metamodel.artifact"
            properties="isShortcut"
-           class="artifact.diagram.part.ArtifactShortcutPropertyTester">
+           class="artifact.diagram.part.DomainShortcutPropertyTester">
        </propertyTester>
    </extension>
 
@@ -438,9 +471,9 @@
             id="org.tura.metamodel.artifact.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="artifact.diagram.navigator.ArtifactNavigatorContentProvider" 
-            labelProvider="artifact.diagram.navigator.ArtifactNavigatorLabelProvider"
-            icon="icons/obj16/ArtifactDiagramFile.gif"
+            contentProvider="artifact.diagram.navigator.DomainNavigatorContentProvider" 
+            labelProvider="artifact.diagram.navigator.DomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
@@ -448,7 +481,7 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="artifact_diagram"/>
                </and>
-               <instanceof value="artifact.diagram.navigator.ArtifactAbstractNavigatorItem"/>
+               <instanceof value="artifact.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.artifact.isShortcut"/>
            	   </adapt>
@@ -456,7 +489,7 @@
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="artifact.diagram.navigator.ArtifactAbstractNavigatorItem"/>
+         	   <instanceof value="artifact.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.artifact.isShortcut"/>
            	   </adapt>
@@ -464,14 +497,14 @@
          </possibleChildren>
          <commonSorter 
                id="org.tura.metamodel.artifact.navigatorSorter" 
-               class="artifact.diagram.navigator.ArtifactNavigatorSorter">
+               class="artifact.diagram.navigator.DomainNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
         	         <test property="org.eclipse.core.resources.extension" value="artifact_diagram"/>
                   </and>
-                  <instanceof value="artifact.diagram.navigator.ArtifactAbstractNavigatorItem"/>
+                  <instanceof value="artifact.diagram.navigator.DomainAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -480,29 +513,29 @@
             id="org.tura.metamodel.artifact.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="artifact.diagram.navigator.ArtifactDomainNavigatorContentProvider" 
-            labelProvider="artifact.diagram.navigator.ArtifactDomainNavigatorLabelProvider"
-            icon="icons/obj16/ArtifactDiagramFile.gif"
+            contentProvider="artifact.diagram.navigator.DomainDomainNavigatorContentProvider" 
+            labelProvider="artifact.diagram.navigator.DomainDomainNavigatorLabelProvider"
+            icon="icons/obj16/DomainDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="artifact"/>
+        	      <test property="org.eclipse.core.resources.extension" value="domain"/>
                </and>
-               <instanceof value="artifact.diagram.navigator.ArtifactDomainNavigatorItem"/>
+               <instanceof value="artifact.diagram.navigator.DomainDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="artifact.diagram.navigator.ArtifactDomainNavigatorItem"/>
+            <instanceof value="artifact.diagram.navigator.DomainDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="org.tura.metamodel.artifact.navigatorActionProvider"
-            class="artifact.diagram.navigator.ArtifactNavigatorActionProvider">
+            class="artifact.diagram.navigator.DomainNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="artifact.diagram.navigator.ArtifactAbstractNavigatorItem"/>
+               <instanceof value="artifact.diagram.navigator.DomainAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="org.tura.metamodel.artifact.isShortcut"/>
            	   </adapt>
@@ -515,7 +548,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="org.tura.metamodel.artifact.navigatorLinkHelper"
-            class="artifact.diagram.navigator.ArtifactNavigatorLinkHelper">
+            class="artifact.diagram.navigator.DomainNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -523,7 +556,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="artifact.diagram.navigator.ArtifactAbstractNavigatorItem"/>
+            <instanceof value="artifact.diagram.navigator.DomainAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -531,7 +564,7 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="artifact.diagram.part.ArtifactDiagramUpdateCommand"
+         defaultHandler="artifact.diagram.part.DomainDiagramUpdateCommand"
          description="%update.diagram.description"
          id="artifact.diagram.updateDiagram"
          name="%update.diagram.name"/>
@@ -580,4 +613,14 @@
    </extension>
 
    <!-- optionally, specify keybindings -->
+
+
+    <extension
+         point="org.eclipse.emf.transaction.editingDomains">
+      <!-- ITEMIS CHANGE: register diagram editing domain factory --> 
+      <editingDomain
+            factory="org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory"
+            id="org.tura.metamodel.artifact.EditingDomain">
+      </editingDomain>
+   </extension>
 </plugin>
