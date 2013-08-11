@@ -1,0 +1,7 @@
+# Tracing options for the org.tura.metamodel.diagram.artifact plug-in
+
+# Common issues
+org.tura.metamodel.diagram.artifact/debug=false
+
+# Visual IDs
+org.tura.metamodel.diagram.artifact/debug/visualID=false
