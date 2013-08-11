@@ -16,9 +16,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.BusinessObject#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.BusinessObject#getCreateMethods <em>Create Methods</em>}</li>
  *   <li>{@link domain.BusinessObject#getInsertMethods <em>Insert Methods</em>}</li>
- *   <li>{@link domain.BusinessObject#getUpdaeteMethods <em>Updaete Methods</em>}</li>
- *   <li>{@link domain.BusinessObject#getRemovetMethods <em>Removet Methods</em>}</li>
- *   <li>{@link domain.BusinessObject#getSearchtMethods <em>Searcht Methods</em>}</li>
+ *   <li>{@link domain.BusinessObject#getUpdateMethods <em>Update Methods</em>}</li>
+ *   <li>{@link domain.BusinessObject#getRemoveMethods <em>Remove Methods</em>}</li>
+ *   <li>{@link domain.BusinessObject#getSearchMethods <em>Search Methods</em>}</li>
  *   <li>{@link domain.BusinessObject#getOthersMethods <em>Others Methods</em>}</li>
  * </ul>
  * </p>
@@ -120,58 +120,58 @@ public interface BusinessObject extends TypePointer
   EList<InsertMethod> getInsertMethods();
 
   /**
-   * Returns the value of the '<em><b>Updaete Methods</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Update Methods</b></em>' containment reference list.
    * The list contents are of type {@link domain.UpdateMethod}.
    * It is bidirectional and its opposite is '{@link domain.UpdateMethod#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Updaete Methods</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Update Methods</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Updaete Methods</em>' containment reference list.
-   * @see domain.DomainPackage#getBusinessObject_UpdaeteMethods()
+   * @return the value of the '<em>Update Methods</em>' containment reference list.
+   * @see domain.DomainPackage#getBusinessObject_UpdateMethods()
    * @see domain.UpdateMethod#getParent
    * @model opposite="parent" containment="true"
    * @generated
    */
-  EList<UpdateMethod> getUpdaeteMethods();
+  EList<UpdateMethod> getUpdateMethods();
 
   /**
-   * Returns the value of the '<em><b>Removet Methods</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Remove Methods</b></em>' containment reference list.
    * The list contents are of type {@link domain.RemoveMethod}.
    * It is bidirectional and its opposite is '{@link domain.RemoveMethod#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Removet Methods</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Remove Methods</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Removet Methods</em>' containment reference list.
-   * @see domain.DomainPackage#getBusinessObject_RemovetMethods()
+   * @return the value of the '<em>Remove Methods</em>' containment reference list.
+   * @see domain.DomainPackage#getBusinessObject_RemoveMethods()
    * @see domain.RemoveMethod#getParent
    * @model opposite="parent" containment="true"
    * @generated
    */
-  EList<RemoveMethod> getRemovetMethods();
+  EList<RemoveMethod> getRemoveMethods();
 
   /**
-   * Returns the value of the '<em><b>Searcht Methods</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Search Methods</b></em>' containment reference list.
    * The list contents are of type {@link domain.SearchMethod}.
    * It is bidirectional and its opposite is '{@link domain.SearchMethod#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Searcht Methods</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Search Methods</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Searcht Methods</em>' containment reference list.
-   * @see domain.DomainPackage#getBusinessObject_SearchtMethods()
+   * @return the value of the '<em>Search Methods</em>' containment reference list.
+   * @see domain.DomainPackage#getBusinessObject_SearchMethods()
    * @see domain.SearchMethod#getParent
    * @model opposite="parent" containment="true"
    * @generated
    */
-  EList<SearchMethod> getSearchtMethods();
+  EList<SearchMethod> getSearchMethods();
 
   /**
    * Returns the value of the '<em><b>Others Methods</b></em>' containment reference list.

@@ -108,9 +108,9 @@ public class BusinessObjectItemProvider
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.BUSINESS_OBJECT__CREATE_METHODS);
       childrenFeatures.add(DomainPackage.Literals.BUSINESS_OBJECT__INSERT_METHODS);
-      childrenFeatures.add(DomainPackage.Literals.BUSINESS_OBJECT__UPDAETE_METHODS);
-      childrenFeatures.add(DomainPackage.Literals.BUSINESS_OBJECT__REMOVET_METHODS);
-      childrenFeatures.add(DomainPackage.Literals.BUSINESS_OBJECT__SEARCHT_METHODS);
+      childrenFeatures.add(DomainPackage.Literals.BUSINESS_OBJECT__UPDATE_METHODS);
+      childrenFeatures.add(DomainPackage.Literals.BUSINESS_OBJECT__REMOVE_METHODS);
+      childrenFeatures.add(DomainPackage.Literals.BUSINESS_OBJECT__SEARCH_METHODS);
       childrenFeatures.add(DomainPackage.Literals.BUSINESS_OBJECT__OTHERS_METHODS);
     }
     return childrenFeatures;
@@ -176,9 +176,9 @@ public class BusinessObjectItemProvider
         return;
       case DomainPackage.BUSINESS_OBJECT__CREATE_METHODS:
       case DomainPackage.BUSINESS_OBJECT__INSERT_METHODS:
-      case DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS:
-      case DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS:
-      case DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
+      case DomainPackage.BUSINESS_OBJECT__UPDATE_METHODS:
+      case DomainPackage.BUSINESS_OBJECT__REMOVE_METHODS:
+      case DomainPackage.BUSINESS_OBJECT__SEARCH_METHODS:
       case DomainPackage.BUSINESS_OBJECT__OTHERS_METHODS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -210,17 +210,17 @@ public class BusinessObjectItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.BUSINESS_OBJECT__UPDAETE_METHODS,
+        (DomainPackage.Literals.BUSINESS_OBJECT__UPDATE_METHODS,
          DomainFactory.eINSTANCE.createUpdateMethod()));
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.BUSINESS_OBJECT__REMOVET_METHODS,
+        (DomainPackage.Literals.BUSINESS_OBJECT__REMOVE_METHODS,
          DomainFactory.eINSTANCE.createRemoveMethod()));
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.BUSINESS_OBJECT__SEARCHT_METHODS,
+        (DomainPackage.Literals.BUSINESS_OBJECT__SEARCH_METHODS,
          DomainFactory.eINSTANCE.createSearchMethod()));
 
     newChildDescriptors.add

@@ -134,10 +134,10 @@ public class DomainPaletteFactory {
 				Messages.RemoveMethod5CreationTool_title,
 				Messages.RemoveMethod5CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.RemoveMethod_603004));
+						.singletonList(DomainElementTypes.RemoveMethod_603008));
 		entry.setId("createRemoveMethod5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.RemoveMethod_603004));
+				.getImageDescriptor(DomainElementTypes.RemoveMethod_603008));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -150,10 +150,10 @@ public class DomainPaletteFactory {
 				Messages.SearchMethod6CreationTool_title,
 				Messages.SearchMethod6CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.SearchMethod_603005));
+						.singletonList(DomainElementTypes.SearchMethod_603009));
 		entry.setId("createSearchMethod6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.SearchMethod_603005));
+				.getImageDescriptor(DomainElementTypes.SearchMethod_603009));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -166,10 +166,10 @@ public class DomainPaletteFactory {
 				Messages.UpdateMethod7CreationTool_title,
 				Messages.UpdateMethod7CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.UpdateMethod_603003));
+						.singletonList(DomainElementTypes.UpdateMethod_603007));
 		entry.setId("createUpdateMethod7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.UpdateMethod_603003));
+				.getImageDescriptor(DomainElementTypes.UpdateMethod_603007));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

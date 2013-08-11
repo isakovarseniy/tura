@@ -1239,7 +1239,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBusinessObject_UpdaeteMethods()
+  public EReference getBusinessObject_UpdateMethods()
   {
     return (EReference)businessObjectEClass.getEStructuralFeatures().get(4);
   }
@@ -1249,7 +1249,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBusinessObject_RemovetMethods()
+  public EReference getBusinessObject_RemoveMethods()
   {
     return (EReference)businessObjectEClass.getEStructuralFeatures().get(5);
   }
@@ -1259,7 +1259,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBusinessObject_SearchtMethods()
+  public EReference getBusinessObject_SearchMethods()
   {
     return (EReference)businessObjectEClass.getEStructuralFeatures().get(6);
   }
@@ -2563,9 +2563,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(businessObjectEClass, BUSINESS_OBJECT__PARENT);
     createEReference(businessObjectEClass, BUSINESS_OBJECT__CREATE_METHODS);
     createEReference(businessObjectEClass, BUSINESS_OBJECT__INSERT_METHODS);
-    createEReference(businessObjectEClass, BUSINESS_OBJECT__UPDAETE_METHODS);
-    createEReference(businessObjectEClass, BUSINESS_OBJECT__REMOVET_METHODS);
-    createEReference(businessObjectEClass, BUSINESS_OBJECT__SEARCHT_METHODS);
+    createEReference(businessObjectEClass, BUSINESS_OBJECT__UPDATE_METHODS);
+    createEReference(businessObjectEClass, BUSINESS_OBJECT__REMOVE_METHODS);
+    createEReference(businessObjectEClass, BUSINESS_OBJECT__SEARCH_METHODS);
     createEReference(businessObjectEClass, BUSINESS_OBJECT__OTHERS_METHODS);
 
     businessMethodEClass = createEClass(BUSINESS_METHOD);
@@ -2858,9 +2858,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getBusinessObject_Parent(), this.getBusinessObjects(), this.getBusinessObjects_BusinessObject(), "parent", null, 0, 1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBusinessObject_CreateMethods(), this.getCreateMethod(), this.getCreateMethod_Parent(), "createMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBusinessObject_InsertMethods(), this.getInsertMethod(), this.getInsertMethod_Parent(), "insertMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_UpdaeteMethods(), this.getUpdateMethod(), this.getUpdateMethod_Parent(), "updaeteMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_RemovetMethods(), this.getRemoveMethod(), this.getRemoveMethod_Parent(), "removetMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_SearchtMethods(), this.getSearchMethod(), this.getSearchMethod_Parent(), "searchtMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBusinessObject_UpdateMethods(), this.getUpdateMethod(), this.getUpdateMethod_Parent(), "updateMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBusinessObject_RemoveMethods(), this.getRemoveMethod(), this.getRemoveMethod_Parent(), "removeMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBusinessObject_SearchMethods(), this.getSearchMethod(), this.getSearchMethod_Parent(), "searchMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBusinessObject_OthersMethods(), this.getOtherMethod(), this.getOtherMethod_Parent(), "othersMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(businessMethodEClass, BusinessMethod.class, "BusinessMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2873,13 +2873,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getInsertMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_InsertMethods(), "parent", null, 0, 1, InsertMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(updateMethodEClass, UpdateMethod.class, "UpdateMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUpdateMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_UpdaeteMethods(), "parent", null, 0, 1, UpdateMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUpdateMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_UpdateMethods(), "parent", null, 0, 1, UpdateMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(removeMethodEClass, RemoveMethod.class, "RemoveMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRemoveMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_RemovetMethods(), "parent", null, 0, 1, RemoveMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRemoveMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_RemoveMethods(), "parent", null, 0, 1, RemoveMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(searchMethodEClass, SearchMethod.class, "SearchMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSearchMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_SearchtMethods(), "parent", null, 0, 1, SearchMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSearchMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_SearchMethods(), "parent", null, 0, 1, SearchMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(otherMethodEClass, OtherMethod.class, "OtherMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOtherMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_OthersMethods(), "parent", null, 0, 1, OtherMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3415,19 +3415,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        });		
     addAnnotation
-      (getBusinessObject_UpdaeteMethods(), 
+      (getBusinessObject_UpdateMethods(), 
        source, 
        new String[] 
        {
        });		
     addAnnotation
-      (getBusinessObject_RemovetMethods(), 
+      (getBusinessObject_RemoveMethods(), 
        source, 
        new String[] 
        {
        });		
     addAnnotation
-      (getBusinessObject_SearchtMethods(), 
+      (getBusinessObject_SearchMethods(), 
        source, 
        new String[] 
        {

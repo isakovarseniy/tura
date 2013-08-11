@@ -6,19 +6,19 @@ package businessobjects.diagram.edit.policies;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-import businessobjects.diagram.edit.commands.UpdateMethodCreateCommand;
+import businessobjects.diagram.edit.commands.SearchMethodCreateCommand;
 import businessobjects.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
  */
-public class BusinessObjectBusinessObjectUpdaeteMethodsCompartmentItemSemanticEditPolicy
+public class BusinessObjectBusinessObjectSearchMethodsCompartmentItemSemanticEditPolicy
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public BusinessObjectBusinessObjectUpdaeteMethodsCompartmentItemSemanticEditPolicy() {
+	public BusinessObjectBusinessObjectSearchMethodsCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.BusinessObject_602001);
 	}
 
@@ -26,8 +26,8 @@ public class BusinessObjectBusinessObjectUpdaeteMethodsCompartmentItemSemanticEd
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.UpdateMethod_603003 == req.getElementType()) {
-			return getGEFWrapper(new UpdateMethodCreateCommand(req));
+		if (DomainElementTypes.SearchMethod_603009 == req.getElementType()) {
+			return getGEFWrapper(new SearchMethodCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

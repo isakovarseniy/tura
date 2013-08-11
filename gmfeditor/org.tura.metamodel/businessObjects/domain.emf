@@ -144,11 +144,11 @@ class BusinessObject extends TypePointer{
    @gmf.compartment()
    val InsertMethod[*]#parent insertMethods;
    @gmf.compartment()
-   val UpdateMethod[*]#parent updaeteMethods;
+   val UpdateMethod[*]#parent updateMethods;
    @gmf.compartment()
-   val RemoveMethod[*]#parent removetMethods;
+   val RemoveMethod[*]#parent removeMethods;
    @gmf.compartment()
-   val SearchMethod[*]#parent searchtMethods;
+   val SearchMethod[*]#parent searchMethods;
    @gmf.compartment()
    val OtherMethod[*]#parent  othersMethods;
    
@@ -170,18 +170,18 @@ class InsertMethod extends BusinessMethod{
 
 @gmf.node(label="method")
 class UpdateMethod extends BusinessMethod{
-   ref BusinessObject#updaeteMethods parent;
+   ref BusinessObject#updateMethods parent;
    
 }
 
 @gmf.node(label="method")
 class RemoveMethod extends BusinessMethod{
-   ref BusinessObject#removetMethods parent;
+   ref BusinessObject#removeMethods parent;
 }
 
 @gmf.node(label="method")
 class SearchMethod extends BusinessMethod{
-   ref BusinessObject#searchtMethods parent;
+   ref BusinessObject#searchMethods parent;
 }
 
 @gmf.node(label="method")

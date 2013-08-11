@@ -43,31 +43,31 @@
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
-      visualID="3003"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'UpdateMethod') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'BusinessObject') and _containmentMF_.name = 'updaeteMethods')">
-    <nodeLabelTraces
-        visualID="5003"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3004"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'RemoveMethod') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'BusinessObject') and _containmentMF_.name = 'removetMethods')">
-    <nodeLabelTraces
-        visualID="5004"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3005"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'SearchMethod') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'BusinessObject') and _containmentMF_.name = 'searchtMethods')">
-    <nodeLabelTraces
-        visualID="5005"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
       visualID="3006"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'OtherMethod') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'BusinessObject') and _containmentMF_.name = 'othersMethods')">
     <nodeLabelTraces
         visualID="5006"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3007"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'UpdateMethod') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'BusinessObject') and _containmentMF_.name = 'updateMethods')">
+    <nodeLabelTraces
+        visualID="5008"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3008"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'RemoveMethod') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'BusinessObject') and _containmentMF_.name = 'removeMethods')">
+    <nodeLabelTraces
+        visualID="5009"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3009"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'SearchMethod') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'BusinessObject') and _containmentMF_.name = 'searchMethods')">
+    <nodeLabelTraces
+        visualID="5010"
         queryText="true"/>
   </childNodeTraces>
   <linkTraces

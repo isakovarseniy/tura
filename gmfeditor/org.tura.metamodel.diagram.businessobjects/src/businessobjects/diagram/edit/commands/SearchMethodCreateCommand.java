@@ -60,7 +60,7 @@ public class SearchMethodCreateCommand extends EditElementCommand {
 		SearchMethod newElement = DomainFactory.eINSTANCE.createSearchMethod();
 
 		BusinessObject owner = (BusinessObject) getElementToEdit();
-		owner.getSearchtMethods().add(newElement);
+		owner.getSearchMethods().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

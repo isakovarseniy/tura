@@ -78,16 +78,16 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart(
 						view);
 
-			case BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID:
-				return new BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart(
+			case BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart.VISUAL_ID:
+				return new BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart(
 						view);
 
-			case BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID:
-				return new BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart(
+			case BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart.VISUAL_ID:
+				return new BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart(
 						view);
 
-			case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
-				return new BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart(
+			case BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart.VISUAL_ID:
+				return new BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart(
 						view);
 
 			case BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID:

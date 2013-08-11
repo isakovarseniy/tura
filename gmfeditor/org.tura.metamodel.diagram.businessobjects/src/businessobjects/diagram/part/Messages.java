@@ -366,17 +366,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart_title;
+	public static String BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart_title;
+	public static String BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart_title;
+	public static String BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart_title;
 
 	/**
 	 * @generated

@@ -300,7 +300,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case UpdateMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getUpdateMethod_603003ContainedLinks(view));
+						.getUpdateMethod_603007ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -308,7 +308,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case RemoveMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getRemoveMethod_603004ContainedLinks(view));
+						.getRemoveMethod_603008ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -316,7 +316,7 @@ public class BusinessObjectsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case SearchMethodEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getSearchMethod_603005ContainedLinks(view));
+						.getSearchMethod_603009ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

@@ -99,21 +99,21 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_404003); //$NON-NLS-1$
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_404001); //$NON-NLS-1$
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_404003); //$NON-NLS-1$
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?recipeConfig", DomainElementTypes.RecipeRecipeConfig_404002); //$NON-NLS-1$
 		case JavaMapperEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaMapper", DomainElementTypes.JavaMapper_402001); //$NON-NLS-1$
 		case MappersEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://tura.org/2013/v1/domain?Mappers", DomainElementTypes.Mappers_401000); //$NON-NLS-1$
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?recipeConfig", DomainElementTypes.RecipeRecipeConfig_404002); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -174,16 +174,16 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_404003Text(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_404001Text(view);
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getConfigurationConfigExtension_404003Text(view);
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getRecipeRecipeConfig_404002Text(view);
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_402001Text(view);
 		case MappersEditPart.VISUAL_ID:
 			return getMappers_401000Text(view);
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return getRecipeRecipeConfig_404002Text(view);
 		}
 		return getUnknownElementText(view);
 	}

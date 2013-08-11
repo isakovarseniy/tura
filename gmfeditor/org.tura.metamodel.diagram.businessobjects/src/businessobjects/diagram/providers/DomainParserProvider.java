@@ -90,55 +90,55 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser updateMethodMethod_605003Parser;
+	private IParser updateMethodMethod_605008Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getUpdateMethodMethod_605003Parser() {
-		if (updateMethodMethod_605003Parser == null) {
+	private IParser getUpdateMethodMethod_605008Parser() {
+		if (updateMethodMethod_605008Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getBusinessMethod_Method() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			updateMethodMethod_605003Parser = parser;
+			updateMethodMethod_605008Parser = parser;
 		}
-		return updateMethodMethod_605003Parser;
+		return updateMethodMethod_605008Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser removeMethodMethod_605004Parser;
+	private IParser removeMethodMethod_605009Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRemoveMethodMethod_605004Parser() {
-		if (removeMethodMethod_605004Parser == null) {
+	private IParser getRemoveMethodMethod_605009Parser() {
+		if (removeMethodMethod_605009Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getBusinessMethod_Method() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			removeMethodMethod_605004Parser = parser;
+			removeMethodMethod_605009Parser = parser;
 		}
-		return removeMethodMethod_605004Parser;
+		return removeMethodMethod_605009Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser searchMethodMethod_605005Parser;
+	private IParser searchMethodMethod_605010Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSearchMethodMethod_605005Parser() {
-		if (searchMethodMethod_605005Parser == null) {
+	private IParser getSearchMethodMethod_605010Parser() {
+		if (searchMethodMethod_605010Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getBusinessMethod_Method() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			searchMethodMethod_605005Parser = parser;
+			searchMethodMethod_605010Parser = parser;
 		}
-		return searchMethodMethod_605005Parser;
+		return searchMethodMethod_605010Parser;
 	}
 
 	/**
@@ -171,11 +171,11 @@ public class DomainParserProvider extends AbstractProvider implements
 		case InsertMethodMethodEditPart.VISUAL_ID:
 			return getInsertMethodMethod_605002Parser();
 		case UpdateMethodMethodEditPart.VISUAL_ID:
-			return getUpdateMethodMethod_605003Parser();
+			return getUpdateMethodMethod_605008Parser();
 		case RemoveMethodMethodEditPart.VISUAL_ID:
-			return getRemoveMethodMethod_605004Parser();
+			return getRemoveMethodMethod_605009Parser();
 		case SearchMethodMethodEditPart.VISUAL_ID:
-			return getSearchMethodMethod_605005Parser();
+			return getSearchMethodMethod_605010Parser();
 		case OtherMethodMethodEditPart.VISUAL_ID:
 			return getOtherMethodMethod_605006Parser();
 		}

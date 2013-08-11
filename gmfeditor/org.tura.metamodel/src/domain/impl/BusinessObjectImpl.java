@@ -40,9 +40,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.BusinessObjectImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.BusinessObjectImpl#getCreateMethods <em>Create Methods</em>}</li>
  *   <li>{@link domain.impl.BusinessObjectImpl#getInsertMethods <em>Insert Methods</em>}</li>
- *   <li>{@link domain.impl.BusinessObjectImpl#getUpdaeteMethods <em>Updaete Methods</em>}</li>
- *   <li>{@link domain.impl.BusinessObjectImpl#getRemovetMethods <em>Removet Methods</em>}</li>
- *   <li>{@link domain.impl.BusinessObjectImpl#getSearchtMethods <em>Searcht Methods</em>}</li>
+ *   <li>{@link domain.impl.BusinessObjectImpl#getUpdateMethods <em>Update Methods</em>}</li>
+ *   <li>{@link domain.impl.BusinessObjectImpl#getRemoveMethods <em>Remove Methods</em>}</li>
+ *   <li>{@link domain.impl.BusinessObjectImpl#getSearchMethods <em>Search Methods</em>}</li>
  *   <li>{@link domain.impl.BusinessObjectImpl#getOthersMethods <em>Others Methods</em>}</li>
  * </ul>
  * </p>
@@ -92,34 +92,34 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
   protected EList<InsertMethod> insertMethods;
 
   /**
-   * The cached value of the '{@link #getUpdaeteMethods() <em>Updaete Methods</em>}' containment reference list.
+   * The cached value of the '{@link #getUpdateMethods() <em>Update Methods</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUpdaeteMethods()
+   * @see #getUpdateMethods()
    * @generated
    * @ordered
    */
-  protected EList<UpdateMethod> updaeteMethods;
+  protected EList<UpdateMethod> updateMethods;
 
   /**
-   * The cached value of the '{@link #getRemovetMethods() <em>Removet Methods</em>}' containment reference list.
+   * The cached value of the '{@link #getRemoveMethods() <em>Remove Methods</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRemovetMethods()
+   * @see #getRemoveMethods()
    * @generated
    * @ordered
    */
-  protected EList<RemoveMethod> removetMethods;
+  protected EList<RemoveMethod> removeMethods;
 
   /**
-   * The cached value of the '{@link #getSearchtMethods() <em>Searcht Methods</em>}' containment reference list.
+   * The cached value of the '{@link #getSearchMethods() <em>Search Methods</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSearchtMethods()
+   * @see #getSearchMethods()
    * @generated
    * @ordered
    */
-  protected EList<SearchMethod> searchtMethods;
+  protected EList<SearchMethod> searchMethods;
 
   /**
    * The cached value of the '{@link #getOthersMethods() <em>Others Methods</em>}' containment reference list.
@@ -253,13 +253,13 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<UpdateMethod> getUpdaeteMethods()
+  public EList<UpdateMethod> getUpdateMethods()
   {
-    if (updaeteMethods == null)
+    if (updateMethods == null)
     {
-      updaeteMethods = new EObjectContainmentWithInverseEList<UpdateMethod>(UpdateMethod.class, this, DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS, DomainPackage.UPDATE_METHOD__PARENT);
+      updateMethods = new EObjectContainmentWithInverseEList<UpdateMethod>(UpdateMethod.class, this, DomainPackage.BUSINESS_OBJECT__UPDATE_METHODS, DomainPackage.UPDATE_METHOD__PARENT);
     }
-    return updaeteMethods;
+    return updateMethods;
   }
 
   /**
@@ -267,13 +267,13 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<RemoveMethod> getRemovetMethods()
+  public EList<RemoveMethod> getRemoveMethods()
   {
-    if (removetMethods == null)
+    if (removeMethods == null)
     {
-      removetMethods = new EObjectContainmentWithInverseEList<RemoveMethod>(RemoveMethod.class, this, DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS, DomainPackage.REMOVE_METHOD__PARENT);
+      removeMethods = new EObjectContainmentWithInverseEList<RemoveMethod>(RemoveMethod.class, this, DomainPackage.BUSINESS_OBJECT__REMOVE_METHODS, DomainPackage.REMOVE_METHOD__PARENT);
     }
-    return removetMethods;
+    return removeMethods;
   }
 
   /**
@@ -281,13 +281,13 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<SearchMethod> getSearchtMethods()
+  public EList<SearchMethod> getSearchMethods()
   {
-    if (searchtMethods == null)
+    if (searchMethods == null)
     {
-      searchtMethods = new EObjectContainmentWithInverseEList<SearchMethod>(SearchMethod.class, this, DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS, DomainPackage.SEARCH_METHOD__PARENT);
+      searchMethods = new EObjectContainmentWithInverseEList<SearchMethod>(SearchMethod.class, this, DomainPackage.BUSINESS_OBJECT__SEARCH_METHODS, DomainPackage.SEARCH_METHOD__PARENT);
     }
-    return searchtMethods;
+    return searchMethods;
   }
 
   /**
@@ -323,12 +323,12 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getCreateMethods()).basicAdd(otherEnd, msgs);
       case DomainPackage.BUSINESS_OBJECT__INSERT_METHODS:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getInsertMethods()).basicAdd(otherEnd, msgs);
-      case DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getUpdaeteMethods()).basicAdd(otherEnd, msgs);
-      case DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getRemovetMethods()).basicAdd(otherEnd, msgs);
-      case DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getSearchtMethods()).basicAdd(otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__UPDATE_METHODS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getUpdateMethods()).basicAdd(otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__REMOVE_METHODS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getRemoveMethods()).basicAdd(otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__SEARCH_METHODS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getSearchMethods()).basicAdd(otherEnd, msgs);
       case DomainPackage.BUSINESS_OBJECT__OTHERS_METHODS:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getOthersMethods()).basicAdd(otherEnd, msgs);
     }
@@ -351,12 +351,12 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
         return ((InternalEList<?>)getCreateMethods()).basicRemove(otherEnd, msgs);
       case DomainPackage.BUSINESS_OBJECT__INSERT_METHODS:
         return ((InternalEList<?>)getInsertMethods()).basicRemove(otherEnd, msgs);
-      case DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS:
-        return ((InternalEList<?>)getUpdaeteMethods()).basicRemove(otherEnd, msgs);
-      case DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS:
-        return ((InternalEList<?>)getRemovetMethods()).basicRemove(otherEnd, msgs);
-      case DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
-        return ((InternalEList<?>)getSearchtMethods()).basicRemove(otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__UPDATE_METHODS:
+        return ((InternalEList<?>)getUpdateMethods()).basicRemove(otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__REMOVE_METHODS:
+        return ((InternalEList<?>)getRemoveMethods()).basicRemove(otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__SEARCH_METHODS:
+        return ((InternalEList<?>)getSearchMethods()).basicRemove(otherEnd, msgs);
       case DomainPackage.BUSINESS_OBJECT__OTHERS_METHODS:
         return ((InternalEList<?>)getOthersMethods()).basicRemove(otherEnd, msgs);
     }
@@ -397,12 +397,12 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
         return getCreateMethods();
       case DomainPackage.BUSINESS_OBJECT__INSERT_METHODS:
         return getInsertMethods();
-      case DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS:
-        return getUpdaeteMethods();
-      case DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS:
-        return getRemovetMethods();
-      case DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
-        return getSearchtMethods();
+      case DomainPackage.BUSINESS_OBJECT__UPDATE_METHODS:
+        return getUpdateMethods();
+      case DomainPackage.BUSINESS_OBJECT__REMOVE_METHODS:
+        return getRemoveMethods();
+      case DomainPackage.BUSINESS_OBJECT__SEARCH_METHODS:
+        return getSearchMethods();
       case DomainPackage.BUSINESS_OBJECT__OTHERS_METHODS:
         return getOthersMethods();
     }
@@ -434,17 +434,17 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
         getInsertMethods().clear();
         getInsertMethods().addAll((Collection<? extends InsertMethod>)newValue);
         return;
-      case DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS:
-        getUpdaeteMethods().clear();
-        getUpdaeteMethods().addAll((Collection<? extends UpdateMethod>)newValue);
+      case DomainPackage.BUSINESS_OBJECT__UPDATE_METHODS:
+        getUpdateMethods().clear();
+        getUpdateMethods().addAll((Collection<? extends UpdateMethod>)newValue);
         return;
-      case DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS:
-        getRemovetMethods().clear();
-        getRemovetMethods().addAll((Collection<? extends RemoveMethod>)newValue);
+      case DomainPackage.BUSINESS_OBJECT__REMOVE_METHODS:
+        getRemoveMethods().clear();
+        getRemoveMethods().addAll((Collection<? extends RemoveMethod>)newValue);
         return;
-      case DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
-        getSearchtMethods().clear();
-        getSearchtMethods().addAll((Collection<? extends SearchMethod>)newValue);
+      case DomainPackage.BUSINESS_OBJECT__SEARCH_METHODS:
+        getSearchMethods().clear();
+        getSearchMethods().addAll((Collection<? extends SearchMethod>)newValue);
         return;
       case DomainPackage.BUSINESS_OBJECT__OTHERS_METHODS:
         getOthersMethods().clear();
@@ -476,14 +476,14 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
       case DomainPackage.BUSINESS_OBJECT__INSERT_METHODS:
         getInsertMethods().clear();
         return;
-      case DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS:
-        getUpdaeteMethods().clear();
+      case DomainPackage.BUSINESS_OBJECT__UPDATE_METHODS:
+        getUpdateMethods().clear();
         return;
-      case DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS:
-        getRemovetMethods().clear();
+      case DomainPackage.BUSINESS_OBJECT__REMOVE_METHODS:
+        getRemoveMethods().clear();
         return;
-      case DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
-        getSearchtMethods().clear();
+      case DomainPackage.BUSINESS_OBJECT__SEARCH_METHODS:
+        getSearchMethods().clear();
         return;
       case DomainPackage.BUSINESS_OBJECT__OTHERS_METHODS:
         getOthersMethods().clear();
@@ -510,12 +510,12 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
         return createMethods != null && !createMethods.isEmpty();
       case DomainPackage.BUSINESS_OBJECT__INSERT_METHODS:
         return insertMethods != null && !insertMethods.isEmpty();
-      case DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS:
-        return updaeteMethods != null && !updaeteMethods.isEmpty();
-      case DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS:
-        return removetMethods != null && !removetMethods.isEmpty();
-      case DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
-        return searchtMethods != null && !searchtMethods.isEmpty();
+      case DomainPackage.BUSINESS_OBJECT__UPDATE_METHODS:
+        return updateMethods != null && !updateMethods.isEmpty();
+      case DomainPackage.BUSINESS_OBJECT__REMOVE_METHODS:
+        return removeMethods != null && !removeMethods.isEmpty();
+      case DomainPackage.BUSINESS_OBJECT__SEARCH_METHODS:
+        return searchMethods != null && !searchMethods.isEmpty();
       case DomainPackage.BUSINESS_OBJECT__OTHERS_METHODS:
         return othersMethods != null && !othersMethods.isEmpty();
     }

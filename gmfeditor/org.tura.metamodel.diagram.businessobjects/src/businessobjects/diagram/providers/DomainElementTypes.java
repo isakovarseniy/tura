@@ -78,15 +78,15 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType UpdateMethod_603003 = getElementType("org.tura.metamodel.diagram.businessobjects.UpdateMethod_603003"); //$NON-NLS-1$
+	public static final IElementType UpdateMethod_603007 = getElementType("org.tura.metamodel.diagram.businessobjects.UpdateMethod_603007"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType RemoveMethod_603004 = getElementType("org.tura.metamodel.diagram.businessobjects.RemoveMethod_603004"); //$NON-NLS-1$
+	public static final IElementType RemoveMethod_603008 = getElementType("org.tura.metamodel.diagram.businessobjects.RemoveMethod_603008"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType SearchMethod_603005 = getElementType("org.tura.metamodel.diagram.businessobjects.SearchMethod_603005"); //$NON-NLS-1$
+	public static final IElementType SearchMethod_603009 = getElementType("org.tura.metamodel.diagram.businessobjects.SearchMethod_603009"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -227,13 +227,13 @@ public class DomainElementTypes {
 			elements.put(InsertMethod_603002,
 					DomainPackage.eINSTANCE.getInsertMethod());
 
-			elements.put(UpdateMethod_603003,
+			elements.put(UpdateMethod_603007,
 					DomainPackage.eINSTANCE.getUpdateMethod());
 
-			elements.put(RemoveMethod_603004,
+			elements.put(RemoveMethod_603008,
 					DomainPackage.eINSTANCE.getRemoveMethod());
 
-			elements.put(SearchMethod_603005,
+			elements.put(SearchMethod_603009,
 					DomainPackage.eINSTANCE.getSearchMethod());
 
 			elements.put(OtherMethod_603006,
@@ -268,9 +268,9 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(BusinessObject_602001);
 			KNOWN_ELEMENT_TYPES.add(CreateMethod_603001);
 			KNOWN_ELEMENT_TYPES.add(InsertMethod_603002);
-			KNOWN_ELEMENT_TYPES.add(UpdateMethod_603003);
-			KNOWN_ELEMENT_TYPES.add(RemoveMethod_603004);
-			KNOWN_ELEMENT_TYPES.add(SearchMethod_603005);
+			KNOWN_ELEMENT_TYPES.add(UpdateMethod_603007);
+			KNOWN_ELEMENT_TYPES.add(RemoveMethod_603008);
+			KNOWN_ELEMENT_TYPES.add(SearchMethod_603009);
 			KNOWN_ELEMENT_TYPES.add(OtherMethod_603006);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_604001);
 			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_604002);
@@ -293,11 +293,11 @@ public class DomainElementTypes {
 		case InsertMethodEditPart.VISUAL_ID:
 			return InsertMethod_603002;
 		case UpdateMethodEditPart.VISUAL_ID:
-			return UpdateMethod_603003;
+			return UpdateMethod_603007;
 		case RemoveMethodEditPart.VISUAL_ID:
-			return RemoveMethod_603004;
+			return RemoveMethod_603008;
 		case SearchMethodEditPart.VISUAL_ID:
-			return SearchMethod_603005;
+			return SearchMethod_603009;
 		case OtherMethodEditPart.VISUAL_ID:
 			return OtherMethod_603006;
 		case TypeExtensionEditPart.VISUAL_ID:

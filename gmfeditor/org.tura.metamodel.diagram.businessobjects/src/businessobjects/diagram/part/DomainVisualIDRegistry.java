@@ -13,9 +13,9 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
@@ -165,19 +165,19 @@ public class DomainVisualIDRegistry {
 				return InsertMethodEditPart.VISUAL_ID;
 			}
 			break;
-		case BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID:
+		case BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getUpdateMethod().isSuperTypeOf(
 					domainElement.eClass())) {
 				return UpdateMethodEditPart.VISUAL_ID;
 			}
 			break;
-		case BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID:
+		case BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getRemoveMethod().isSuperTypeOf(
 					domainElement.eClass())) {
 				return RemoveMethodEditPart.VISUAL_ID;
 			}
 			break;
-		case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
+		case BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getSearchMethod().isSuperTypeOf(
 					domainElement.eClass())) {
 				return SearchMethodEditPart.VISUAL_ID;
@@ -230,13 +230,13 @@ public class DomainVisualIDRegistry {
 			if (BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
@@ -283,17 +283,17 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID:
+		case BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart.VISUAL_ID:
 			if (UpdateMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID:
+		case BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart.VISUAL_ID:
 			if (RemoveMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
+		case BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart.VISUAL_ID:
 			if (SearchMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -361,9 +361,9 @@ public class DomainVisualIDRegistry {
 		switch (visualID) {
 		case BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart.VISUAL_ID:
 		case BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart.VISUAL_ID:
-		case BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID:
-		case BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID:
-		case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
+		case BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart.VISUAL_ID:
+		case BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart.VISUAL_ID:
+		case BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart.VISUAL_ID:
 		case BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
@@ -381,10 +381,10 @@ public class DomainVisualIDRegistry {
 			return false;
 		case CreateMethodEditPart.VISUAL_ID:
 		case InsertMethodEditPart.VISUAL_ID:
+		case OtherMethodEditPart.VISUAL_ID:
 		case UpdateMethodEditPart.VISUAL_ID:
 		case RemoveMethodEditPart.VISUAL_ID:
 		case SearchMethodEditPart.VISUAL_ID:
-		case OtherMethodEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

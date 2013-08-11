@@ -27,9 +27,9 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
 import businessobjects.diagram.part.DomainDiagramEditorPlugin;
 import businessobjects.diagram.part.Messages;
@@ -60,19 +60,19 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.InsertMethod_603002);
 			return types;
 		}
-		if (editPart instanceof BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart) {
+		if (editPart instanceof BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.UpdateMethod_603003);
+			types.add(DomainElementTypes.UpdateMethod_603007);
 			return types;
 		}
-		if (editPart instanceof BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart) {
+		if (editPart instanceof BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.RemoveMethod_603004);
+			types.add(DomainElementTypes.RemoveMethod_603008);
 			return types;
 		}
-		if (editPart instanceof BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart) {
+		if (editPart instanceof BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.SearchMethod_603005);
+			types.add(DomainElementTypes.SearchMethod_603009);
 			return types;
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart) {

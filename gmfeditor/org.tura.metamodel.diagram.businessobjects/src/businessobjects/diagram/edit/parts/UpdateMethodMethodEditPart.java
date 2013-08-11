@@ -61,7 +61,7 @@ public class UpdateMethodMethodEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 605003;
+	public static final int VISUAL_ID = 605008;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class UpdateMethodMethodEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.UpdateMethod_603003,
+							DomainElementTypes.UpdateMethod_603007,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(businessobjects.diagram.edit.parts.UpdateMethodMethodEditPart.VISUAL_ID));

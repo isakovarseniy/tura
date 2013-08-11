@@ -191,15 +191,15 @@
         eType="#//InsertMethod" containment="true" eOpposite="#//InsertMethod/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="updaeteMethods" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="updateMethods" upperBound="-1"
         eType="#//UpdateMethod" containment="true" eOpposite="#//UpdateMethod/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="removetMethods" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="removeMethods" upperBound="-1"
         eType="#//RemoveMethod" containment="true" eOpposite="#//RemoveMethod/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="searchtMethods" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="searchMethods" upperBound="-1"
         eType="#//SearchMethod" containment="true" eOpposite="#//SearchMethod/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
@@ -230,21 +230,21 @@
       <details key="label" value="method"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
-        eOpposite="#//BusinessObject/updaeteMethods"/>
+        eOpposite="#//BusinessObject/updateMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RemoveMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
       <details key="label" value="method"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
-        eOpposite="#//BusinessObject/removetMethods"/>
+        eOpposite="#//BusinessObject/removeMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SearchMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
       <details key="label" value="method"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
-        eOpposite="#//BusinessObject/searchtMethods"/>
+        eOpposite="#//BusinessObject/searchMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OtherMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">

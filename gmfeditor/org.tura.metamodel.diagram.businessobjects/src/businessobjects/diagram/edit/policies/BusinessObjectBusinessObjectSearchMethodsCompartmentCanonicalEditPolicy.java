@@ -24,7 +24,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodEditPart;
 import businessobjects.diagram.part.DomainDiagramUpdater;
 import businessobjects.diagram.part.DomainNodeDescriptor;
 import businessobjects.diagram.part.DomainVisualIDRegistry;
@@ -33,7 +33,7 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class BusinessObjectBusinessObjectRemovetMethodsCompartmentCanonicalEditPolicy
+public class BusinessObjectBusinessObjectSearchMethodsCompartmentCanonicalEditPolicy
 		extends CanonicalEditPolicy {
 
 	/**
@@ -52,7 +52,7 @@ public class BusinessObjectBusinessObjectRemovetMethodsCompartmentCanonicalEditP
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return DomainPackage.eINSTANCE.getBusinessObject_RemovetMethods();
+		return DomainPackage.eINSTANCE.getBusinessObject_SearchMethods();
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class BusinessObjectBusinessObjectRemovetMethodsCompartmentCanonicalEditP
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getBusinessObjectBusinessObjectRemovetMethodsCompartment_607004SemanticChildren(viewObject);
+				.getBusinessObjectBusinessObjectSearchMethodsCompartment_607005SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -83,7 +83,7 @@ public class BusinessObjectBusinessObjectRemovetMethodsCompartmentCanonicalEditP
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return RemoveMethodEditPart.VISUAL_ID == DomainVisualIDRegistry
+		return SearchMethodEditPart.VISUAL_ID == DomainVisualIDRegistry
 				.getVisualID(view);
 	}
 
@@ -96,7 +96,7 @@ public class BusinessObjectBusinessObjectRemovetMethodsCompartmentCanonicalEditP
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getBusinessObjectBusinessObjectRemovetMethodsCompartment_607004SemanticChildren((View) getHost()
+				.getBusinessObjectBusinessObjectSearchMethodsCompartment_607005SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

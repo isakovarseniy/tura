@@ -48,7 +48,12 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="CreateMethodFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CreateMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCreateMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CreateMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCreateMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCreateMethodLabelFigure.setText(&quot;CreateMethod&quot;);&#xA;&#xA;this.add(fFigureCreateMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCreateMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureCreateMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CreateMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCreateMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CreateMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(100)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCreateMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCreateMethodLabelFigure.setText(&quot;CreateMethod&quot;);&#xA;&#xA;this.add(fFigureCreateMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCreateMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureCreateMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="100"
+            height="16"/>
+      </viewmap>
       <modelFacet>
         <metaClass
             href="domain.genmodel#//domain/CreateMethod"/>
@@ -92,7 +97,12 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="InsertMethodFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InsertMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInsertMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InsertMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureInsertMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureInsertMethodLabelFigure.setText(&quot;InsertMethod&quot;);&#xA;&#xA;this.add(fFigureInsertMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInsertMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureInsertMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InsertMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInsertMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InsertMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(100)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureInsertMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureInsertMethodLabelFigure.setText(&quot;InsertMethod&quot;);&#xA;&#xA;this.add(fFigureInsertMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInsertMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureInsertMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="100"
+            height="16"/>
+      </viewmap>
       <modelFacet>
         <metaClass
             href="domain.genmodel#//domain/InsertMethod"/>
@@ -121,7 +131,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="603003"
+        visualID="603007"
         editPartClassName="UpdateMethodEditPart"
         itemSemanticEditPolicyClassName="UpdateMethodItemSemanticEditPolicy"
         canonicalEditPolicyClassName="UpdateMethodCanonicalEditPolicy"
@@ -136,17 +146,22 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="UpdateMethodFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class UpdateMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureUpdateMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public UpdateMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureUpdateMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureUpdateMethodLabelFigure.setText(&quot;UpdateMethod&quot;);&#xA;&#xA;this.add(fFigureUpdateMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureUpdateMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureUpdateMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class UpdateMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureUpdateMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public UpdateMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(100)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureUpdateMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureUpdateMethodLabelFigure.setText(&quot;UpdateMethod&quot;);&#xA;&#xA;this.add(fFigureUpdateMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureUpdateMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureUpdateMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="100"
+            height="16"/>
+      </viewmap>
       <modelFacet>
         <metaClass
             href="domain.genmodel#//domain/UpdateMethod"/>
         <containmentMetaFeature
-            href="domain.genmodel#//domain/BusinessObject/updaeteMethods"/>
+            href="domain.genmodel#//domain/BusinessObject/updateMethods"/>
         <childMetaFeature
-            href="domain.genmodel#//domain/BusinessObject/updaeteMethods"/>
+            href="domain.genmodel#//domain/BusinessObject/updateMethods"/>
       </modelFacet>
       <labels
-          visualID="605003"
+          visualID="605008"
           editPartClassName="UpdateMethodMethodEditPart"
           itemSemanticEditPolicyClassName="UpdateMethodMethodItemSemanticEditPolicy"
           elementIcon="true">
@@ -165,7 +180,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="603004"
+        visualID="603008"
         editPartClassName="RemoveMethodEditPart"
         itemSemanticEditPolicyClassName="RemoveMethodItemSemanticEditPolicy"
         canonicalEditPolicyClassName="RemoveMethodCanonicalEditPolicy"
@@ -180,17 +195,22 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="RemoveMethodFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RemoveMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRemoveMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RemoveMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureRemoveMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureRemoveMethodLabelFigure.setText(&quot;RemoveMethod&quot;);&#xA;&#xA;this.add(fFigureRemoveMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRemoveMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureRemoveMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RemoveMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRemoveMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RemoveMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(100)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureRemoveMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureRemoveMethodLabelFigure.setText(&quot;RemoveMethod&quot;);&#xA;&#xA;this.add(fFigureRemoveMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRemoveMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureRemoveMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="100"
+            height="16"/>
+      </viewmap>
       <modelFacet>
         <metaClass
             href="domain.genmodel#//domain/RemoveMethod"/>
         <containmentMetaFeature
-            href="domain.genmodel#//domain/BusinessObject/removetMethods"/>
+            href="domain.genmodel#//domain/BusinessObject/removeMethods"/>
         <childMetaFeature
-            href="domain.genmodel#//domain/BusinessObject/removetMethods"/>
+            href="domain.genmodel#//domain/BusinessObject/removeMethods"/>
       </modelFacet>
       <labels
-          visualID="605004"
+          visualID="605009"
           editPartClassName="RemoveMethodMethodEditPart"
           itemSemanticEditPolicyClassName="RemoveMethodMethodItemSemanticEditPolicy"
           elementIcon="true">
@@ -209,7 +229,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="603005"
+        visualID="603009"
         editPartClassName="SearchMethodEditPart"
         itemSemanticEditPolicyClassName="SearchMethodItemSemanticEditPolicy"
         canonicalEditPolicyClassName="SearchMethodCanonicalEditPolicy"
@@ -224,17 +244,22 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="SearchMethodFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SearchMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSearchMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SearchMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSearchMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSearchMethodLabelFigure.setText(&quot;SearchMethod&quot;);&#xA;&#xA;this.add(fFigureSearchMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSearchMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureSearchMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SearchMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSearchMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SearchMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(100)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSearchMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSearchMethodLabelFigure.setText(&quot;SearchMethod&quot;);&#xA;&#xA;this.add(fFigureSearchMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSearchMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureSearchMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="100"
+            height="16"/>
+      </viewmap>
       <modelFacet>
         <metaClass
             href="domain.genmodel#//domain/SearchMethod"/>
         <containmentMetaFeature
-            href="domain.genmodel#//domain/BusinessObject/searchtMethods"/>
+            href="domain.genmodel#//domain/BusinessObject/searchMethods"/>
         <childMetaFeature
-            href="domain.genmodel#//domain/BusinessObject/searchtMethods"/>
+            href="domain.genmodel#//domain/BusinessObject/searchMethods"/>
       </modelFacet>
       <labels
-          visualID="605005"
+          visualID="605010"
           editPartClassName="SearchMethodMethodEditPart"
           itemSemanticEditPolicyClassName="SearchMethodMethodItemSemanticEditPolicy"
           elementIcon="true">
@@ -268,7 +293,12 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="OtherMethodFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OtherMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOtherMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OtherMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOtherMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureOtherMethodLabelFigure.setText(&quot;OtherMethod&quot;);&#xA;&#xA;this.add(fFigureOtherMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOtherMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureOtherMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OtherMethodFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOtherMethodLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OtherMethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(100)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOtherMethodLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureOtherMethodLabelFigure.setText(&quot;OtherMethod&quot;);&#xA;&#xA;this.add(fFigureOtherMethodLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOtherMethodLabelFigure() {&#xA;&#x9;&#x9;return fFigureOtherMethodLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="100"
+            height="16"/>
+      </viewmap>
       <modelFacet>
         <metaClass
             href="domain.genmodel#//domain/OtherMethod"/>
@@ -312,7 +342,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="BusinessObjectFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BusinessObjectFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBusinessObjectLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectCreateMethodsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectInsertMethodsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectUpdaeteMethodsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectRemovetMethodsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectSearchtMethodsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectOthersMethodsCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BusinessObjectFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureBusinessObjectLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureBusinessObjectLabelFigure.setText(&quot;BusinessObject&quot;);&#xA;fFigureBusinessObjectLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureBusinessObjectLabelFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectCreateMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectCreateMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectCreateMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectInsertMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectInsertMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectInsertMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectUpdaeteMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectUpdaeteMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectUpdaeteMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectRemovetMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectRemovetMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectRemovetMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectSearchtMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectSearchtMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectSearchtMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectOthersMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectOthersMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectOthersMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBusinessObjectLabelFigure() {&#xA;&#x9;&#x9;return fFigureBusinessObjectLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectCreateMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectCreateMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectInsertMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectInsertMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectUpdaeteMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectUpdaeteMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectRemovetMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectRemovetMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectSearchtMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectSearchtMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectOthersMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectOthersMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BusinessObjectFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBusinessObjectLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectCreateMethodsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectInsertMethodsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectUpdateMethodsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectRemoveMethodsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectSearchMethodsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fBusinessObjectOthersMethodsCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BusinessObjectFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureBusinessObjectLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureBusinessObjectLabelFigure.setText(&quot;BusinessObject&quot;);&#xA;fFigureBusinessObjectLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureBusinessObjectLabelFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectCreateMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectCreateMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectCreateMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectInsertMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectInsertMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectInsertMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectUpdateMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectUpdateMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectUpdateMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectRemoveMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectRemoveMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectRemoveMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectSearchMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectSearchMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectSearchMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fBusinessObjectOthersMethodsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fBusinessObjectOthersMethodsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fBusinessObjectOthersMethodsCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBusinessObjectLabelFigure() {&#xA;&#x9;&#x9;return fFigureBusinessObjectLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectCreateMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectCreateMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectInsertMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectInsertMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectUpdateMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectUpdateMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectRemoveMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectRemoveMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectSearchMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectSearchMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getBusinessObjectOthersMethodsCompartmentFigure() {&#xA;&#x9;&#x9;return fBusinessObjectOthersMethodsCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <behaviour
           xsi:type="gmfgen:OpenDiagramBehaviour"/>
       <modelFacet>
@@ -483,11 +513,11 @@
     </compartments>
     <compartments
         visualID="607003"
-        editPartClassName="BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectUpdaeteMethodsCompartmentItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="BusinessObjectBusinessObjectUpdaeteMethodsCompartmentCanonicalEditPolicy"
+        editPartClassName="BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart"
+        itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectUpdateMethodsCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="BusinessObjectBusinessObjectUpdateMethodsCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.2"
-        title="BusinessObjectUpdaeteMethodsCompartment"
+        title="BusinessObjectUpdateMethodsCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0"
         listLayout="false">
@@ -495,16 +525,16 @@
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getBusinessObjectUpdaeteMethodsCompartmentFigure"
+          getterName="getBusinessObjectUpdateMethodsCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
         visualID="607004"
-        editPartClassName="BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectRemovetMethodsCompartmentItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="BusinessObjectBusinessObjectRemovetMethodsCompartmentCanonicalEditPolicy"
+        editPartClassName="BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart"
+        itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectRemoveMethodsCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="BusinessObjectBusinessObjectRemoveMethodsCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.3"
-        title="BusinessObjectRemovetMethodsCompartment"
+        title="BusinessObjectRemoveMethodsCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0"
         listLayout="false">
@@ -512,16 +542,16 @@
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getBusinessObjectRemovetMethodsCompartmentFigure"
+          getterName="getBusinessObjectRemoveMethodsCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
         visualID="607005"
-        editPartClassName="BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectSearchtMethodsCompartmentItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="BusinessObjectBusinessObjectSearchtMethodsCompartmentCanonicalEditPolicy"
+        editPartClassName="BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart"
+        itemSemanticEditPolicyClassName="BusinessObjectBusinessObjectSearchMethodsCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="BusinessObjectBusinessObjectSearchMethodsCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.4"
-        title="BusinessObjectSearchtMethodsCompartment"
+        title="BusinessObjectSearchMethodsCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0"
         listLayout="false">
@@ -529,7 +559,7 @@
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getBusinessObjectSearchtMethodsCompartmentFigure"
+          getterName="getBusinessObjectSearchMethodsCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments

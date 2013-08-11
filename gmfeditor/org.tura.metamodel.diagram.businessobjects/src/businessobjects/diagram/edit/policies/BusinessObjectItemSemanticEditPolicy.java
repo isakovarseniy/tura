@@ -18,9 +18,9 @@ import org.eclipse.gmf.runtime.notation.View;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodEditPart;
@@ -102,7 +102,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 					}
 				}
 				break;
-			case BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID:
+			case BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
@@ -117,7 +117,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 					}
 				}
 				break;
-			case BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID:
+			case BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
@@ -132,7 +132,7 @@ public class BusinessObjectItemSemanticEditPolicy extends
 					}
 				}
 				break;
-			case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
+			case BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

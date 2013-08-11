@@ -162,7 +162,7 @@ public class OtherMethodEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100, 16);
 		return result;
 	}
 
@@ -268,9 +268,9 @@ public class OtherMethodEditPart extends ShapeNodeEditPart {
 		public OtherMethodFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5)));
+			this.setOutline(false);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(100),
+					getMapMode().DPtoLP(16)));
 			createContents();
 		}
 

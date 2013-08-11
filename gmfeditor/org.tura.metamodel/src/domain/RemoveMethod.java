@@ -24,7 +24,7 @@ public interface RemoveMethod extends BusinessMethod
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' container reference.
-   * It is bidirectional and its opposite is '{@link domain.BusinessObject#getRemovetMethods <em>Removet Methods</em>}'.
+   * It is bidirectional and its opposite is '{@link domain.BusinessObject#getRemoveMethods <em>Remove Methods</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Parent</em>' container reference isn't clear,
@@ -34,8 +34,8 @@ public interface RemoveMethod extends BusinessMethod
    * @return the value of the '<em>Parent</em>' container reference.
    * @see #setParent(BusinessObject)
    * @see domain.DomainPackage#getRemoveMethod_Parent()
-   * @see domain.BusinessObject#getRemovetMethods
-   * @model opposite="removetMethods" transient="false"
+   * @see domain.BusinessObject#getRemoveMethods
+   * @model opposite="removeMethods" transient="false"
    * @generated
    */
   BusinessObject getParent();

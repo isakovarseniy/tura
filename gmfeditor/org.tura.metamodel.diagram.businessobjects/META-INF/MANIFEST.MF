@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: businessobjects.diagram.part.DomainDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: businessobjects.diagram.edit.parts, 
+Export-Package: businessobjects.diagram.edit.parts,
  businessobjects.diagram.part,
  businessobjects.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,
@@ -42,3 +42,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gef;visibility:=reexport,
  de.itemis.gmf.runtime.extensions;visibility:=reexport
 Eclipse-LazyStart: true
+Import-Package: org.tura.metamodel.commons.editparts

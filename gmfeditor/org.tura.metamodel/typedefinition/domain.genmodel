@@ -94,9 +94,9 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/createMethods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/insertMethods"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/updaeteMethods"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/removetMethods"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/searchtMethods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/updateMethods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/removeMethods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/searchMethods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/othersMethods"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//BusinessMethod">

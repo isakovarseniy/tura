@@ -60,7 +60,7 @@ public class RemoveMethodCreateCommand extends EditElementCommand {
 		RemoveMethod newElement = DomainFactory.eINSTANCE.createRemoveMethod();
 
 		BusinessObject owner = (BusinessObject) getElementToEdit();
-		owner.getRemovetMethods().add(newElement);
+		owner.getRemoveMethods().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

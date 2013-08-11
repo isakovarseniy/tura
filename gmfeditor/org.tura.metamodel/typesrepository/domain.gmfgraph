@@ -413,15 +413,15 @@
             outline="false"/>
         <children
             xsi:type="gmfgraph:Rectangle"
-            name="BusinessObjectUpdaeteMethodsCompartmentFigure"
+            name="BusinessObjectUpdateMethodsCompartmentFigure"
             outline="false"/>
         <children
             xsi:type="gmfgraph:Rectangle"
-            name="BusinessObjectRemovetMethodsCompartmentFigure"
+            name="BusinessObjectRemoveMethodsCompartmentFigure"
             outline="false"/>
         <children
             xsi:type="gmfgraph:Rectangle"
-            name="BusinessObjectSearchtMethodsCompartmentFigure"
+            name="BusinessObjectSearchMethodsCompartmentFigure"
             outline="false"/>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -438,13 +438,13 @@
           accessor="getBusinessObjectInsertMethodsCompartmentFigure"
           figure="//@figures.0/@descriptors.13/@actualFigure/@children.2"/>
       <accessors
-          accessor="getBusinessObjectUpdaeteMethodsCompartmentFigure"
+          accessor="getBusinessObjectUpdateMethodsCompartmentFigure"
           figure="//@figures.0/@descriptors.13/@actualFigure/@children.3"/>
       <accessors
-          accessor="getBusinessObjectRemovetMethodsCompartmentFigure"
+          accessor="getBusinessObjectRemoveMethodsCompartmentFigure"
           figure="//@figures.0/@descriptors.13/@actualFigure/@children.4"/>
       <accessors
-          accessor="getBusinessObjectSearchtMethodsCompartmentFigure"
+          accessor="getBusinessObjectSearchMethodsCompartmentFigure"
           figure="//@figures.0/@descriptors.13/@actualFigure/@children.5"/>
       <accessors
           accessor="getBusinessObjectOthersMethodsCompartmentFigure"
@@ -1289,17 +1289,17 @@
       collapsible="true"
       accessor="//@figures.0/@descriptors.13/@accessors.2"/>
   <compartments
-      name="BusinessObjectUpdaeteMethodsCompartment"
+      name="BusinessObjectUpdateMethodsCompartment"
       figure="BusinessObjectFigure"
       collapsible="true"
       accessor="//@figures.0/@descriptors.13/@accessors.3"/>
   <compartments
-      name="BusinessObjectRemovetMethodsCompartment"
+      name="BusinessObjectRemoveMethodsCompartment"
       figure="BusinessObjectFigure"
       collapsible="true"
       accessor="//@figures.0/@descriptors.13/@accessors.4"/>
   <compartments
-      name="BusinessObjectSearchtMethodsCompartment"
+      name="BusinessObjectSearchMethodsCompartment"
       figure="BusinessObjectFigure"
       collapsible="true"
       accessor="//@figures.0/@descriptors.13/@accessors.5"/>

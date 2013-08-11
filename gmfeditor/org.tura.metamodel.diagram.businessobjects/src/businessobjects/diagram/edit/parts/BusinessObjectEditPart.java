@@ -140,27 +140,27 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart) {
+		if (childEditPart instanceof BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getBusinessObjectUpdaeteMethodsCompartmentFigure();
+					.getBusinessObjectUpdateMethodsCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart) childEditPart)
+			pane.add(((BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart) {
+		if (childEditPart instanceof BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getBusinessObjectRemovetMethodsCompartmentFigure();
+					.getBusinessObjectRemoveMethodsCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart) childEditPart)
+			pane.add(((BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart) {
+		if (childEditPart instanceof BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getBusinessObjectSearchtMethodsCompartmentFigure();
+					.getBusinessObjectSearchMethodsCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart) childEditPart)
+			pane.add(((BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -196,24 +196,24 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart) {
+		if (childEditPart instanceof BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getBusinessObjectUpdaeteMethodsCompartmentFigure();
-			pane.remove(((BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart) childEditPart)
+					.getBusinessObjectUpdateMethodsCompartmentFigure();
+			pane.remove(((BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart) {
+		if (childEditPart instanceof BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getBusinessObjectRemovetMethodsCompartmentFigure();
-			pane.remove(((BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart) childEditPart)
+					.getBusinessObjectRemoveMethodsCompartmentFigure();
+			pane.remove(((BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart) {
+		if (childEditPart instanceof BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getBusinessObjectSearchtMethodsCompartmentFigure();
-			pane.remove(((BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart) childEditPart)
+					.getBusinessObjectSearchMethodsCompartmentFigure();
+			pane.remove(((BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -259,17 +259,17 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 			return getPrimaryShape()
 					.getBusinessObjectInsertMethodsCompartmentFigure();
 		}
-		if (editPart instanceof BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart) {
+		if (editPart instanceof BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart) {
 			return getPrimaryShape()
-					.getBusinessObjectUpdaeteMethodsCompartmentFigure();
+					.getBusinessObjectUpdateMethodsCompartmentFigure();
 		}
-		if (editPart instanceof BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart) {
+		if (editPart instanceof BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart) {
 			return getPrimaryShape()
-					.getBusinessObjectRemovetMethodsCompartmentFigure();
+					.getBusinessObjectRemoveMethodsCompartmentFigure();
 		}
-		if (editPart instanceof BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart) {
+		if (editPart instanceof BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart) {
 			return getPrimaryShape()
-					.getBusinessObjectSearchtMethodsCompartmentFigure();
+					.getBusinessObjectSearchMethodsCompartmentFigure();
 		}
 		if (editPart instanceof BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart) {
 			return getPrimaryShape()
@@ -405,15 +405,15 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fBusinessObjectUpdaeteMethodsCompartmentFigure;
+		private RectangleFigure fBusinessObjectUpdateMethodsCompartmentFigure;
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fBusinessObjectRemovetMethodsCompartmentFigure;
+		private RectangleFigure fBusinessObjectRemoveMethodsCompartmentFigure;
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fBusinessObjectSearchtMethodsCompartmentFigure;
+		private RectangleFigure fBusinessObjectSearchMethodsCompartmentFigure;
 		/**
 		 * @generated
 		 */
@@ -456,23 +456,23 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 
 			this.add(fBusinessObjectInsertMethodsCompartmentFigure);
 
-			fBusinessObjectUpdaeteMethodsCompartmentFigure = new RectangleFigure();
+			fBusinessObjectUpdateMethodsCompartmentFigure = new RectangleFigure();
 
-			fBusinessObjectUpdaeteMethodsCompartmentFigure.setOutline(false);
+			fBusinessObjectUpdateMethodsCompartmentFigure.setOutline(false);
 
-			this.add(fBusinessObjectUpdaeteMethodsCompartmentFigure);
+			this.add(fBusinessObjectUpdateMethodsCompartmentFigure);
 
-			fBusinessObjectRemovetMethodsCompartmentFigure = new RectangleFigure();
+			fBusinessObjectRemoveMethodsCompartmentFigure = new RectangleFigure();
 
-			fBusinessObjectRemovetMethodsCompartmentFigure.setOutline(false);
+			fBusinessObjectRemoveMethodsCompartmentFigure.setOutline(false);
 
-			this.add(fBusinessObjectRemovetMethodsCompartmentFigure);
+			this.add(fBusinessObjectRemoveMethodsCompartmentFigure);
 
-			fBusinessObjectSearchtMethodsCompartmentFigure = new RectangleFigure();
+			fBusinessObjectSearchMethodsCompartmentFigure = new RectangleFigure();
 
-			fBusinessObjectSearchtMethodsCompartmentFigure.setOutline(false);
+			fBusinessObjectSearchMethodsCompartmentFigure.setOutline(false);
 
-			this.add(fBusinessObjectSearchtMethodsCompartmentFigure);
+			this.add(fBusinessObjectSearchMethodsCompartmentFigure);
 
 			fBusinessObjectOthersMethodsCompartmentFigure = new RectangleFigure();
 
@@ -506,22 +506,22 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getBusinessObjectUpdaeteMethodsCompartmentFigure() {
-			return fBusinessObjectUpdaeteMethodsCompartmentFigure;
+		public RectangleFigure getBusinessObjectUpdateMethodsCompartmentFigure() {
+			return fBusinessObjectUpdateMethodsCompartmentFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getBusinessObjectRemovetMethodsCompartmentFigure() {
-			return fBusinessObjectRemovetMethodsCompartmentFigure;
+		public RectangleFigure getBusinessObjectRemoveMethodsCompartmentFigure() {
+			return fBusinessObjectRemoveMethodsCompartmentFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getBusinessObjectSearchtMethodsCompartmentFigure() {
-			return fBusinessObjectSearchtMethodsCompartmentFigure;
+		public RectangleFigure getBusinessObjectSearchMethodsCompartmentFigure() {
+			return fBusinessObjectSearchMethodsCompartmentFigure;
 		}
 
 		/**

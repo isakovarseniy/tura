@@ -61,7 +61,7 @@ public class SearchMethodMethodEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 605005;
+	public static final int VISUAL_ID = 605010;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class SearchMethodMethodEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.SearchMethod_603005,
+							DomainElementTypes.SearchMethod_603009,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(businessobjects.diagram.edit.parts.SearchMethodMethodEditPart.VISUAL_ID));

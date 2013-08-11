@@ -1,3 +1,96 @@
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'CreateMethodFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 100;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'InsertMethodFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 100;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'UpdateMethodFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 100;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'RemoveMethodFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 100;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'OtherMethodFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 100;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'SearchMethodFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 100;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+
 -- remove unavailabels tools
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='BusinessMethod');
 delete tool;

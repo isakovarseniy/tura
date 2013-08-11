@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 
+import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 import businessobjects.diagram.edit.policies.BusinessObjectBusinessObjectInsertMethodsCompartmentCanonicalEditPolicy;
 import businessobjects.diagram.edit.policies.BusinessObjectBusinessObjectInsertMethodsCompartmentItemSemanticEditPolicy;
 import businessobjects.diagram.part.DomainVisualIDRegistry;
@@ -53,6 +54,9 @@ public class BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(false);
+		HTMLLikeLayout layout = new HTMLLikeLayout();
+		layout.setColumns(1);
+		result.getContentPane().setLayoutManager(layout);
 		return result;
 	}
 

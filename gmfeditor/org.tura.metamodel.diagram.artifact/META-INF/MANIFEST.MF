@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: artifact.diagram.part.DomainDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: artifact.diagram.edit.parts, 
+Export-Package: artifact.diagram.edit.parts,
  artifact.diagram.part,
  artifact.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,

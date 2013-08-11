@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: typedefinition.diagram.part.DomainDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: typedefinition.diagram.edit.parts, 
+Export-Package: typedefinition.diagram.edit.parts,
  typedefinition.diagram.part,
  typedefinition.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,

@@ -14,9 +14,9 @@ import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodEditPart;
@@ -59,12 +59,12 @@ public class DomainDiagramUpdater {
 			return getBusinessObjectBusinessObjectCreateMethodsCompartment_607001SemanticChildren(view);
 		case BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart.VISUAL_ID:
 			return getBusinessObjectBusinessObjectInsertMethodsCompartment_607002SemanticChildren(view);
-		case BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID:
-			return getBusinessObjectBusinessObjectUpdaeteMethodsCompartment_607003SemanticChildren(view);
-		case BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID:
-			return getBusinessObjectBusinessObjectRemovetMethodsCompartment_607004SemanticChildren(view);
-		case BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID:
-			return getBusinessObjectBusinessObjectSearchtMethodsCompartment_607005SemanticChildren(view);
+		case BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart.VISUAL_ID:
+			return getBusinessObjectBusinessObjectUpdateMethodsCompartment_607003SemanticChildren(view);
+		case BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart.VISUAL_ID:
+			return getBusinessObjectBusinessObjectRemoveMethodsCompartment_607004SemanticChildren(view);
+		case BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart.VISUAL_ID:
+			return getBusinessObjectBusinessObjectSearchMethodsCompartment_607005SemanticChildren(view);
 		case BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart.VISUAL_ID:
 			return getBusinessObjectBusinessObjectOthersMethodsCompartment_607006SemanticChildren(view);
 		}
@@ -153,7 +153,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getBusinessObjectBusinessObjectUpdaeteMethodsCompartment_607003SemanticChildren(
+	public static List<DomainNodeDescriptor> getBusinessObjectBusinessObjectUpdateMethodsCompartment_607003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -165,7 +165,7 @@ public class DomainDiagramUpdater {
 		BusinessObject modelElement = (BusinessObject) containerView
 				.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getUpdaeteMethods().iterator(); it
+		for (Iterator<?> it = modelElement.getUpdateMethods().iterator(); it
 				.hasNext();) {
 			UpdateMethod childElement = (UpdateMethod) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
@@ -181,7 +181,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getBusinessObjectBusinessObjectRemovetMethodsCompartment_607004SemanticChildren(
+	public static List<DomainNodeDescriptor> getBusinessObjectBusinessObjectRemoveMethodsCompartment_607004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -193,7 +193,7 @@ public class DomainDiagramUpdater {
 		BusinessObject modelElement = (BusinessObject) containerView
 				.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getRemovetMethods().iterator(); it
+		for (Iterator<?> it = modelElement.getRemoveMethods().iterator(); it
 				.hasNext();) {
 			RemoveMethod childElement = (RemoveMethod) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
@@ -209,7 +209,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getBusinessObjectBusinessObjectSearchtMethodsCompartment_607005SemanticChildren(
+	public static List<DomainNodeDescriptor> getBusinessObjectBusinessObjectSearchMethodsCompartment_607005SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -221,7 +221,7 @@ public class DomainDiagramUpdater {
 		BusinessObject modelElement = (BusinessObject) containerView
 				.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getSearchtMethods().iterator(); it
+		for (Iterator<?> it = modelElement.getSearchMethods().iterator(); it
 				.hasNext();) {
 			SearchMethod childElement = (SearchMethod) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
@@ -276,11 +276,11 @@ public class DomainDiagramUpdater {
 		case InsertMethodEditPart.VISUAL_ID:
 			return getInsertMethod_603002ContainedLinks(view);
 		case UpdateMethodEditPart.VISUAL_ID:
-			return getUpdateMethod_603003ContainedLinks(view);
+			return getUpdateMethod_603007ContainedLinks(view);
 		case RemoveMethodEditPart.VISUAL_ID:
-			return getRemoveMethod_603004ContainedLinks(view);
+			return getRemoveMethod_603008ContainedLinks(view);
 		case SearchMethodEditPart.VISUAL_ID:
-			return getSearchMethod_603005ContainedLinks(view);
+			return getSearchMethod_603009ContainedLinks(view);
 		case OtherMethodEditPart.VISUAL_ID:
 			return getOtherMethod_603006ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -301,11 +301,11 @@ public class DomainDiagramUpdater {
 		case InsertMethodEditPart.VISUAL_ID:
 			return getInsertMethod_603002IncomingLinks(view);
 		case UpdateMethodEditPart.VISUAL_ID:
-			return getUpdateMethod_603003IncomingLinks(view);
+			return getUpdateMethod_603007IncomingLinks(view);
 		case RemoveMethodEditPart.VISUAL_ID:
-			return getRemoveMethod_603004IncomingLinks(view);
+			return getRemoveMethod_603008IncomingLinks(view);
 		case SearchMethodEditPart.VISUAL_ID:
-			return getSearchMethod_603005IncomingLinks(view);
+			return getSearchMethod_603009IncomingLinks(view);
 		case OtherMethodEditPart.VISUAL_ID:
 			return getOtherMethod_603006IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -326,11 +326,11 @@ public class DomainDiagramUpdater {
 		case InsertMethodEditPart.VISUAL_ID:
 			return getInsertMethod_603002OutgoingLinks(view);
 		case UpdateMethodEditPart.VISUAL_ID:
-			return getUpdateMethod_603003OutgoingLinks(view);
+			return getUpdateMethod_603007OutgoingLinks(view);
 		case RemoveMethodEditPart.VISUAL_ID:
-			return getRemoveMethod_603004OutgoingLinks(view);
+			return getRemoveMethod_603008OutgoingLinks(view);
 		case SearchMethodEditPart.VISUAL_ID:
-			return getSearchMethod_603005OutgoingLinks(view);
+			return getSearchMethod_603009OutgoingLinks(view);
 		case OtherMethodEditPart.VISUAL_ID:
 			return getOtherMethod_603006OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -374,7 +374,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getUpdateMethod_603003ContainedLinks(
+	public static List<DomainLinkDescriptor> getUpdateMethod_603007ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -382,7 +382,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRemoveMethod_603004ContainedLinks(
+	public static List<DomainLinkDescriptor> getRemoveMethod_603008ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -390,7 +390,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getSearchMethod_603005ContainedLinks(
+	public static List<DomainLinkDescriptor> getSearchMethod_603009ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -438,7 +438,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getUpdateMethod_603003IncomingLinks(
+	public static List<DomainLinkDescriptor> getUpdateMethod_603007IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -446,7 +446,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRemoveMethod_603004IncomingLinks(
+	public static List<DomainLinkDescriptor> getRemoveMethod_603008IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -454,7 +454,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getSearchMethod_603005IncomingLinks(
+	public static List<DomainLinkDescriptor> getSearchMethod_603009IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -502,7 +502,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getUpdateMethod_603003OutgoingLinks(
+	public static List<DomainLinkDescriptor> getUpdateMethod_603007OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -510,7 +510,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRemoveMethod_603004OutgoingLinks(
+	public static List<DomainLinkDescriptor> getRemoveMethod_603008OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -518,7 +518,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getSearchMethod_603005OutgoingLinks(
+	public static List<DomainLinkDescriptor> getSearchMethod_603009OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

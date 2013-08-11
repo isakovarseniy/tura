@@ -31,9 +31,9 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
 import businessobjects.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
@@ -307,7 +307,7 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					DomainVisualIDRegistry
-							.getType(BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID));
+							.getType(BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry
 							.getType(UpdateMethodEditPart.VISUAL_ID));
@@ -316,7 +316,7 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					DomainVisualIDRegistry
-							.getType(BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID));
+							.getType(BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry
 							.getType(RemoveMethodEditPart.VISUAL_ID));
@@ -325,7 +325,7 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					DomainVisualIDRegistry
-							.getType(BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID));
+							.getType(BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry
 							.getType(SearchMethodEditPart.VISUAL_ID));

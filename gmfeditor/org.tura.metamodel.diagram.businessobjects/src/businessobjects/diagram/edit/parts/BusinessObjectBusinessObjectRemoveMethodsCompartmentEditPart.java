@@ -13,27 +13,28 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
-import businessobjects.diagram.edit.policies.BusinessObjectBusinessObjectSearchtMethodsCompartmentCanonicalEditPolicy;
-import businessobjects.diagram.edit.policies.BusinessObjectBusinessObjectSearchtMethodsCompartmentItemSemanticEditPolicy;
+import businessobjects.diagram.edit.policies.BusinessObjectBusinessObjectRemoveMethodsCompartmentCanonicalEditPolicy;
+import businessobjects.diagram.edit.policies.BusinessObjectBusinessObjectRemoveMethodsCompartmentItemSemanticEditPolicy;
 import businessobjects.diagram.part.DomainVisualIDRegistry;
 import businessobjects.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart
+public class BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart
 		extends ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 607005;
+	public static final int VISUAL_ID = 607004;
 
 	/**
 	 * @generated
 	 */
-	public BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart(
+	public BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart(
 			View view) {
 		super(view);
 	}
@@ -42,7 +43,7 @@ public class BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart_title;
+		return Messages.BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart_title;
 	}
 
 	/**
@@ -53,6 +54,9 @@ public class BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(false);
+		HTMLLikeLayout layout = new HTMLLikeLayout();
+		layout.setColumns(1);
+		result.getContentPane().setLayoutManager(layout);
 		return result;
 	}
 
@@ -65,7 +69,7 @@ public class BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new BusinessObjectBusinessObjectSearchtMethodsCompartmentItemSemanticEditPolicy());
+				new BusinessObjectBusinessObjectRemoveMethodsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
@@ -73,7 +77,7 @@ public class BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart
 				new DragDropEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.CANONICAL_ROLE,
-				new BusinessObjectBusinessObjectSearchtMethodsCompartmentCanonicalEditPolicy());
+				new BusinessObjectBusinessObjectRemoveMethodsCompartmentCanonicalEditPolicy());
 	}
 
 	/**

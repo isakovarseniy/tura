@@ -49,9 +49,9 @@ import org.eclipse.swt.graphics.FontData;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectInsertMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectOthersMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart;
-import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart;
+import businessobjects.diagram.edit.parts.BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
@@ -257,13 +257,13 @@ public class DomainViewProvider extends AbstractProvider implements
 			return createInsertMethod_603002(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case UpdateMethodEditPart.VISUAL_ID:
-			return createUpdateMethod_603003(domainElement, containerView,
+			return createUpdateMethod_603007(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case RemoveMethodEditPart.VISUAL_ID:
-			return createRemoveMethod_603004(domainElement, containerView,
+			return createRemoveMethod_603008(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case SearchMethodEditPart.VISUAL_ID:
-			return createSearchMethod_603005(domainElement, containerView,
+			return createSearchMethod_603009(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case OtherMethodEditPart.VISUAL_ID:
 			return createOtherMethod_603006(domainElement, containerView,
@@ -356,17 +356,17 @@ public class DomainViewProvider extends AbstractProvider implements
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
-						.getType(BusinessObjectBusinessObjectUpdaeteMethodsCompartmentEditPart.VISUAL_ID),
+						.getType(BusinessObjectBusinessObjectUpdateMethodsCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
-						.getType(BusinessObjectBusinessObjectRemovetMethodsCompartmentEditPart.VISUAL_ID),
+						.getType(BusinessObjectBusinessObjectRemoveMethodsCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
-						.getType(BusinessObjectBusinessObjectSearchtMethodsCompartmentEditPart.VISUAL_ID),
+						.getType(BusinessObjectBusinessObjectSearchMethodsCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
 		createCompartment(
 				node,
@@ -471,7 +471,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createUpdateMethod_603003(EObject domainElement,
+	public Node createUpdateMethod_603007(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -508,7 +508,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label605003 = createLabel(node,
+		Node label605008 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(UpdateMethodMethodEditPart.VISUAL_ID));
 		return node;
@@ -517,7 +517,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createRemoveMethod_603004(EObject domainElement,
+	public Node createRemoveMethod_603008(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -554,7 +554,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label605004 = createLabel(node,
+		Node label605009 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(RemoveMethodMethodEditPart.VISUAL_ID));
 		return node;
@@ -563,7 +563,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createSearchMethod_603005(EObject domainElement,
+	public Node createSearchMethod_603009(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -600,7 +600,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label605005 = createLabel(node,
+		Node label605010 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(SearchMethodMethodEditPart.VISUAL_ID));
 		return node;

@@ -23,7 +23,7 @@ public class SearchMethodItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public SearchMethodItemSemanticEditPolicy() {
-		super(DomainElementTypes.SearchMethod_603005);
+		super(DomainElementTypes.SearchMethod_603009);
 	}
 
 	/**

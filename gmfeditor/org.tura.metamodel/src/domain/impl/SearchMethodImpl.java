@@ -86,7 +86,7 @@ public class SearchMethodImpl extends BusinessMethodImpl implements SearchMethod
       if (eInternalContainer() != null)
         msgs = eBasicRemoveFromContainer(msgs);
       if (newParent != null)
-        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS, BusinessObject.class, msgs);
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.BUSINESS_OBJECT__SEARCH_METHODS, BusinessObject.class, msgs);
       msgs = basicSetParent(newParent, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -139,7 +139,7 @@ public class SearchMethodImpl extends BusinessMethodImpl implements SearchMethod
     switch (eContainerFeatureID())
     {
       case DomainPackage.SEARCH_METHOD__PARENT:
-        return eInternalContainer().eInverseRemove(this, DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS, BusinessObject.class, msgs);
+        return eInternalContainer().eInverseRemove(this, DomainPackage.BUSINESS_OBJECT__SEARCH_METHODS, BusinessObject.class, msgs);
     }
     return super.eBasicRemoveFromContainerFeature(msgs);
   }

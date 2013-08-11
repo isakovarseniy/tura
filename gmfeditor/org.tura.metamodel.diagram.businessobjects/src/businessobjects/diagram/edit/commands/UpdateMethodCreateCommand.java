@@ -60,7 +60,7 @@ public class UpdateMethodCreateCommand extends EditElementCommand {
 		UpdateMethod newElement = DomainFactory.eINSTANCE.createUpdateMethod();
 
 		BusinessObject owner = (BusinessObject) getElementToEdit();
-		owner.getUpdaeteMethods().add(newElement);
+		owner.getUpdateMethods().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

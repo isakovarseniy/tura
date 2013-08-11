@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: recipe.diagram.part.DomainDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: recipe.diagram.edit.parts, 
+Export-Package: recipe.diagram.edit.parts,
  recipe.diagram.part,
  recipe.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,

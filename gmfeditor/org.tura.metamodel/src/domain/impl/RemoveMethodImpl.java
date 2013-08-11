@@ -86,7 +86,7 @@ public class RemoveMethodImpl extends BusinessMethodImpl implements RemoveMethod
       if (eInternalContainer() != null)
         msgs = eBasicRemoveFromContainer(msgs);
       if (newParent != null)
-        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS, BusinessObject.class, msgs);
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.BUSINESS_OBJECT__REMOVE_METHODS, BusinessObject.class, msgs);
       msgs = basicSetParent(newParent, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -139,7 +139,7 @@ public class RemoveMethodImpl extends BusinessMethodImpl implements RemoveMethod
     switch (eContainerFeatureID())
     {
       case DomainPackage.REMOVE_METHOD__PARENT:
-        return eInternalContainer().eInverseRemove(this, DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS, BusinessObject.class, msgs);
+        return eInternalContainer().eInverseRemove(this, DomainPackage.BUSINESS_OBJECT__REMOVE_METHODS, BusinessObject.class, msgs);
     }
     return super.eBasicRemoveFromContainerFeature(msgs);
   }

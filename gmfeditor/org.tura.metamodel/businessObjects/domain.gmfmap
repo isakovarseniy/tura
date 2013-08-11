@@ -70,7 +70,7 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.2">
         <containmentFeature
-            href="domain.ecore#//BusinessObject/updaeteMethods"/>
+            href="domain.ecore#//BusinessObject/updateMethods"/>
         <ownedChild>
           <domainMetaElement
               href="domain.ecore#//UpdateMethod"/>
@@ -91,7 +91,7 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.3">
         <containmentFeature
-            href="domain.ecore#//BusinessObject/removetMethods"/>
+            href="domain.ecore#//BusinessObject/removeMethods"/>
         <ownedChild>
           <domainMetaElement
               href="domain.ecore#//RemoveMethod"/>
@@ -112,7 +112,7 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.4">
         <containmentFeature
-            href="domain.ecore#//BusinessObject/searchtMethods"/>
+            href="domain.ecore#//BusinessObject/searchMethods"/>
         <ownedChild>
           <domainMetaElement
               href="domain.ecore#//SearchMethod"/>
@@ -164,17 +164,17 @@
       <compartments
           children="//@nodes.0/@ownedChild/@children.2">
         <compartment
-            href="domain.gmfgraph#BusinessObjectUpdaeteMethodsCompartment"/>
+            href="domain.gmfgraph#BusinessObjectUpdateMethodsCompartment"/>
       </compartments>
       <compartments
           children="//@nodes.0/@ownedChild/@children.3">
         <compartment
-            href="domain.gmfgraph#BusinessObjectRemovetMethodsCompartment"/>
+            href="domain.gmfgraph#BusinessObjectRemoveMethodsCompartment"/>
       </compartments>
       <compartments
           children="//@nodes.0/@ownedChild/@children.4">
         <compartment
-            href="domain.gmfgraph#BusinessObjectSearchtMethodsCompartment"/>
+            href="domain.gmfgraph#BusinessObjectSearchMethodsCompartment"/>
       </compartments>
       <compartments
           children="//@nodes.0/@ownedChild/@children.5">

@@ -86,7 +86,7 @@ public class UpdateMethodImpl extends BusinessMethodImpl implements UpdateMethod
       if (eInternalContainer() != null)
         msgs = eBasicRemoveFromContainer(msgs);
       if (newParent != null)
-        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS, BusinessObject.class, msgs);
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.BUSINESS_OBJECT__UPDATE_METHODS, BusinessObject.class, msgs);
       msgs = basicSetParent(newParent, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -139,7 +139,7 @@ public class UpdateMethodImpl extends BusinessMethodImpl implements UpdateMethod
     switch (eContainerFeatureID())
     {
       case DomainPackage.UPDATE_METHOD__PARENT:
-        return eInternalContainer().eInverseRemove(this, DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS, BusinessObject.class, msgs);
+        return eInternalContainer().eInverseRemove(this, DomainPackage.BUSINESS_OBJECT__UPDATE_METHODS, BusinessObject.class, msgs);
     }
     return super.eBasicRemoveFromContainerFeature(msgs);
   }

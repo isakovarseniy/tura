@@ -931,31 +931,31 @@ public interface DomainPackage extends EPackage
   int BUSINESS_OBJECT__INSERT_METHODS = TYPE_POINTER_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Updaete Methods</b></em>' containment reference list.
+   * The feature id for the '<em><b>Update Methods</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__UPDAETE_METHODS = TYPE_POINTER_FEATURE_COUNT + 4;
+  int BUSINESS_OBJECT__UPDATE_METHODS = TYPE_POINTER_FEATURE_COUNT + 4;
 
   /**
-   * The feature id for the '<em><b>Removet Methods</b></em>' containment reference list.
+   * The feature id for the '<em><b>Remove Methods</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__REMOVET_METHODS = TYPE_POINTER_FEATURE_COUNT + 5;
+  int BUSINESS_OBJECT__REMOVE_METHODS = TYPE_POINTER_FEATURE_COUNT + 5;
 
   /**
-   * The feature id for the '<em><b>Searcht Methods</b></em>' containment reference list.
+   * The feature id for the '<em><b>Search Methods</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__SEARCHT_METHODS = TYPE_POINTER_FEATURE_COUNT + 6;
+  int BUSINESS_OBJECT__SEARCH_METHODS = TYPE_POINTER_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Others Methods</b></em>' containment reference list.
@@ -3442,37 +3442,37 @@ public interface DomainPackage extends EPackage
   EReference getBusinessObject_InsertMethods();
 
   /**
-   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getUpdaeteMethods <em>Updaete Methods</em>}'.
+   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getUpdateMethods <em>Update Methods</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Updaete Methods</em>'.
-   * @see domain.BusinessObject#getUpdaeteMethods()
+   * @return the meta object for the containment reference list '<em>Update Methods</em>'.
+   * @see domain.BusinessObject#getUpdateMethods()
    * @see #getBusinessObject()
    * @generated
    */
-  EReference getBusinessObject_UpdaeteMethods();
+  EReference getBusinessObject_UpdateMethods();
 
   /**
-   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getRemovetMethods <em>Removet Methods</em>}'.
+   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getRemoveMethods <em>Remove Methods</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Removet Methods</em>'.
-   * @see domain.BusinessObject#getRemovetMethods()
+   * @return the meta object for the containment reference list '<em>Remove Methods</em>'.
+   * @see domain.BusinessObject#getRemoveMethods()
    * @see #getBusinessObject()
    * @generated
    */
-  EReference getBusinessObject_RemovetMethods();
+  EReference getBusinessObject_RemoveMethods();
 
   /**
-   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getSearchtMethods <em>Searcht Methods</em>}'.
+   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getSearchMethods <em>Search Methods</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Searcht Methods</em>'.
-   * @see domain.BusinessObject#getSearchtMethods()
+   * @return the meta object for the containment reference list '<em>Search Methods</em>'.
+   * @see domain.BusinessObject#getSearchMethods()
    * @see #getBusinessObject()
    * @generated
    */
-  EReference getBusinessObject_SearchtMethods();
+  EReference getBusinessObject_SearchMethods();
 
   /**
    * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getOthersMethods <em>Others Methods</em>}'.
@@ -5372,28 +5372,28 @@ public interface DomainPackage extends EPackage
     EReference BUSINESS_OBJECT__INSERT_METHODS = eINSTANCE.getBusinessObject_InsertMethods();
 
     /**
-     * The meta object literal for the '<em><b>Updaete Methods</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Update Methods</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BUSINESS_OBJECT__UPDAETE_METHODS = eINSTANCE.getBusinessObject_UpdaeteMethods();
+    EReference BUSINESS_OBJECT__UPDATE_METHODS = eINSTANCE.getBusinessObject_UpdateMethods();
 
     /**
-     * The meta object literal for the '<em><b>Removet Methods</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Remove Methods</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BUSINESS_OBJECT__REMOVET_METHODS = eINSTANCE.getBusinessObject_RemovetMethods();
+    EReference BUSINESS_OBJECT__REMOVE_METHODS = eINSTANCE.getBusinessObject_RemoveMethods();
 
     /**
-     * The meta object literal for the '<em><b>Searcht Methods</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Search Methods</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BUSINESS_OBJECT__SEARCHT_METHODS = eINSTANCE.getBusinessObject_SearchtMethods();
+    EReference BUSINESS_OBJECT__SEARCH_METHODS = eINSTANCE.getBusinessObject_SearchMethods();
 
     /**
      * The meta object literal for the '<em><b>Others Methods</b></em>' containment reference list feature.

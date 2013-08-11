@@ -28,7 +28,35 @@
 
   }
 
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.attributes.select(r|r.name=self.name).size() = 1
+      message : 'Attribute name  ' + self.name + ' is not unique'
+   
+   } 
 }
+
+
+ context Parameter {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.parameters.select(r|r.name=self.name).size() = 1
+      message : 'Parameter name  ' + self.name + ' is not unique'
+   
+   } 
+}
+
 
  context Operation {
 
@@ -39,6 +67,14 @@
       message : 'Unnamed ' + self.eClass().name + ' not allowed'
 
   }
+   
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.operations.select(r|r.name=self.name).size() = 1
+      message : 'Operation name  ' + self.name + ' is not unique'
+   
+   } 
 
 }
 
@@ -51,6 +87,14 @@
       message : 'Unnamed ' + self.eClass().name + ' not allowed'
 
   }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.enums.select(r|r.name=self.name).size() = 1
+      message : 'Enumarator name  ' + self.name + ' is not unique'
+   
+   } 
 
 }
 
@@ -68,9 +112,18 @@
 
       check :  self.value.isDefined()
 
-      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+      message : 'Empty value for EnumAttribute ' + self.name + ' not allowed'
 
   }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.values.select(r|r.name=self.name).size() = 1
+      message : 'EnumAttribute name  ' + self.name + ' is not unique'
+   
+   } 
+
 
 }
 

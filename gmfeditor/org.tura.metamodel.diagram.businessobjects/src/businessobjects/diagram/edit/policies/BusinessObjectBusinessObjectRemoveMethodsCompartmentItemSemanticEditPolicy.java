@@ -12,13 +12,13 @@ import businessobjects.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class BusinessObjectBusinessObjectRemovetMethodsCompartmentItemSemanticEditPolicy
+public class BusinessObjectBusinessObjectRemoveMethodsCompartmentItemSemanticEditPolicy
 		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public BusinessObjectBusinessObjectRemovetMethodsCompartmentItemSemanticEditPolicy() {
+	public BusinessObjectBusinessObjectRemoveMethodsCompartmentItemSemanticEditPolicy() {
 		super(DomainElementTypes.BusinessObject_602001);
 	}
 
@@ -26,7 +26,7 @@ public class BusinessObjectBusinessObjectRemovetMethodsCompartmentItemSemanticEd
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.RemoveMethod_603004 == req.getElementType()) {
+		if (DomainElementTypes.RemoveMethod_603008 == req.getElementType()) {
 			return getGEFWrapper(new RemoveMethodCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
