@@ -248,7 +248,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         BusinessObject businessObject = (BusinessObject)theEObject;
         T result = caseBusinessObject(businessObject);
-        if (result == null) result = caseTypePointer(businessObject);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

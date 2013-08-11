@@ -8,8 +8,8 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://tura.org/2013/v1/typedefinition"
-            class="typedefinition.TypedefinitionPackage"/>
+            uri="http://tura.org/2013/v1/domain"
+            class="domain.DomainPackage"/>
    </extension>
 
 </plugin>

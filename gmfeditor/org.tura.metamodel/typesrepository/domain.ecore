@@ -176,7 +176,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessPackage"
         eOpposite="#//BusinessPackage/businessobjects"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BusinessObject" eSuperTypes="#//TypePointer">
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessObject">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>

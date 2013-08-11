@@ -840,6 +840,97 @@ public interface DomainPackage extends EPackage
   int TYPE_POINTER = 48;
 
   /**
+   * The meta object id for the '{@link domain.impl.BusinessObjectImpl <em>Business Object</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.BusinessObjectImpl
+   * @see domain.impl.DomainPackageImpl#getBusinessObject()
+   * @generated
+   */
+  int BUSINESS_OBJECT = 17;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__PARENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Create Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__CREATE_METHODS = 2;
+
+  /**
+   * The feature id for the '<em><b>Insert Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__INSERT_METHODS = 3;
+
+  /**
+   * The feature id for the '<em><b>Update Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__UPDATE_METHODS = 4;
+
+  /**
+   * The feature id for the '<em><b>Remove Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__REMOVE_METHODS = 5;
+
+  /**
+   * The feature id for the '<em><b>Search Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__SEARCH_METHODS = 6;
+
+  /**
+   * The feature id for the '<em><b>Others Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__OTHERS_METHODS = 7;
+
+  /**
+   * The number of structural features of the '<em>Business Object</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT_FEATURE_COUNT = 8;
+
+  /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -865,115 +956,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int TYPE_POINTER_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link domain.impl.BusinessObjectImpl <em>Business Object</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.BusinessObjectImpl
-   * @see domain.impl.DomainPackageImpl#getBusinessObject()
-   * @generated
-   */
-  int BUSINESS_OBJECT = 17;
-
-  /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__NAME = TYPE_POINTER_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__PARENT = TYPE_POINTER_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Create Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__CREATE_METHODS = TYPE_POINTER_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Insert Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__INSERT_METHODS = TYPE_POINTER_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Update Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__UPDATE_METHODS = TYPE_POINTER_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Remove Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__REMOVE_METHODS = TYPE_POINTER_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Search Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__SEARCH_METHODS = TYPE_POINTER_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Others Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__OTHERS_METHODS = TYPE_POINTER_FEATURE_COUNT + 7;
-
-  /**
-   * The number of structural features of the '<em>Business Object</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link domain.impl.BusinessMethodImpl <em>Business Method</em>}' class.

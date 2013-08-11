@@ -136,7 +136,7 @@ class BusinessObjects{
 }
 
 @gmf.node(label="name")
-class BusinessObject extends TypePointer{
+class BusinessObject {
    attr EString name;
    ref BusinessObjects#businessObject parent;
    @gmf.compartment()

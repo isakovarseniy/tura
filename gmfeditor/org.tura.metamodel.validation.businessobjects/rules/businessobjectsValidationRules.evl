@@ -1,0 +1,38 @@
+ context BusinessObject {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.businessObject.select(r|r.isKindOf(BusinessObject) and r.name=self.name).size() = 1
+      message : 'BusinessObject name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+ context BusinessMethod{
+ 
+   constraint HasName {
+      check :  self.method.isDefined()
+      message : 'Undefined method name ' + self.eClass().name + ' not allowed'
+
+  }
+  
+  constraint MethodExist{
+  
+        check :   Operation.allInstances.exists(p|p.name=self.method)  and   
+                       Operation.allInstances.selectOne(r|r.name=self.method).parent.exists(r|r.name=self.typeName)   
+                       and Operation.allInstances.selectOne(r|r.name=self.method).parent.selectOne(r|r.name=self.typeName).parent.parent.exists(r|r.name=self.packageName)  
+ 
+         message : 'Wrong reference to Method ' + self.eClass().name + " to " +self.packageName+'::'+ self.typeName+'::'+self.method
+  
+  } 
+ }

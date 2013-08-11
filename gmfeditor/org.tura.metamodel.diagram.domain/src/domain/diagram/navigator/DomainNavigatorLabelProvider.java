@@ -105,30 +105,30 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case DomainTypesEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DomainTypes", DomainElementTypes.DomainTypes_502002); //$NON-NLS-1$
 		case DomainApplicationsEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DomainApplications", DomainElementTypes.DomainApplications_502003); //$NON-NLS-1$
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_504003); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_504001); //$NON-NLS-1$
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?recipeConfig", DomainElementTypes.RecipeRecipeConfig_504002); //$NON-NLS-1$
-		case DomainArtifactsEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DomainArtifacts", DomainElementTypes.DomainArtifacts_502001); //$NON-NLS-1$
-		case DomainEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?Domain", DomainElementTypes.Domain_501000); //$NON-NLS-1$
 		case DomainApplicationEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?DomainApplication", DomainElementTypes.DomainApplication_503001); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_504001); //$NON-NLS-1$
+		case DomainArtifactsEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DomainArtifacts", DomainElementTypes.DomainArtifacts_502001); //$NON-NLS-1$
+		case DomainTypesEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DomainTypes", DomainElementTypes.DomainTypes_502002); //$NON-NLS-1$
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_504003); //$NON-NLS-1$
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?recipeConfig", DomainElementTypes.RecipeRecipeConfig_504002); //$NON-NLS-1$
+		case DomainEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?Domain", DomainElementTypes.Domain_501000); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -189,22 +189,22 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case DomainTypesEditPart.VISUAL_ID:
-			return getDomainTypes_502002Text(view);
 		case DomainApplicationsEditPart.VISUAL_ID:
 			return getDomainApplications_502003Text(view);
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_504003Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_504001Text(view);
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return getRecipeRecipeConfig_504002Text(view);
-		case DomainArtifactsEditPart.VISUAL_ID:
-			return getDomainArtifacts_502001Text(view);
-		case DomainEditPart.VISUAL_ID:
-			return getDomain_501000Text(view);
 		case DomainApplicationEditPart.VISUAL_ID:
 			return getDomainApplication_503001Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_504001Text(view);
+		case DomainArtifactsEditPart.VISUAL_ID:
+			return getDomainArtifacts_502001Text(view);
+		case DomainTypesEditPart.VISUAL_ID:
+			return getDomainTypes_502002Text(view);
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getConfigurationConfigExtension_504003Text(view);
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getRecipeRecipeConfig_504002Text(view);
+		case DomainEditPart.VISUAL_ID:
+			return getDomain_501000Text(view);
 		}
 		return getUnknownElementText(view);
 	}

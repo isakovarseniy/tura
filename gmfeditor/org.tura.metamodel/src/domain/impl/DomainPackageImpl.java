@@ -2751,7 +2751,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    businessObjectEClass.getESuperTypes().add(this.getTypePointer());
     businessMethodEClass.getESuperTypes().add(this.getTypePointer());
     createMethodEClass.getESuperTypes().add(this.getBusinessMethod());
     insertMethodEClass.getESuperTypes().add(this.getBusinessMethod());

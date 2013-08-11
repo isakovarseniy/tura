@@ -100,8 +100,7 @@ public class MethodNamePropertySection extends
 
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
-			EObject pckg = (EObject) diagram.getElement();
-			EObject types = (EObject) pckg.eContainer();
+			EObject types = (EObject) diagram.getElement();
 
 			if ((((domain.BusinessMethod) eObject).getTypeName() == null)
 					|| ((domain.BusinessMethod) eObject).getPackageName() == null)
@@ -127,11 +126,13 @@ public class MethodNamePropertySection extends
 					}
 				} else {
 					OCLExpression<EClassifier> query = helper
-							.createQuery("self.packages->select(r|r.name='"
-									+ ((domain.BusinessMethod) eObject).getPackageName()
-									+ "').types->select(r|r.oclIsKindOf(typedefinition::Type) and  r.oclAsType(typedefinition::Type).name='"
+							.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
+									+ ((domain.TypePointer) eObject)
+											.getPackageName()
+									+ "').oclAsType(domain::Package).typedefinition.types->select(r|r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '"
 									+ ((domain.BusinessMethod) eObject).getTypeName()
-									+ "').oclAsType(typedefinition::Type).operations");
+									+ "').oclAsType(domain::Type).operations");
+
 					Collection<domain.Operation> map = (Collection<domain.Operation>) ocl
 							.evaluate(types, query);
 

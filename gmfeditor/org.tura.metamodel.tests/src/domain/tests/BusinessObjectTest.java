@@ -5,6 +5,8 @@ package domain.tests;
 import domain.BusinessObject;
 import domain.DomainFactory;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,8 +15,16 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BusinessObjectTest extends TypePointerTest
+public class BusinessObjectTest extends TestCase
 {
+
+  /**
+   * The fixture for this Business Object test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BusinessObject fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -38,15 +48,25 @@ public class BusinessObjectTest extends TypePointerTest
   }
 
   /**
+   * Sets the fixture for this Business Object test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(BusinessObject fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this Business Object test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected BusinessObject getFixture()
   {
-    return (BusinessObject)fixture;
+    return fixture;
   }
 
   /**

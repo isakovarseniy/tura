@@ -1,7 +1,7 @@
 <plugin>
    <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
       <?gmfgen generated="true"?>   
-      <propertyTabs contributorId="org.tura.metamodel.typedefinition">
+      <propertyTabs contributorId="org.tura.metamodel.diagram.typedefinition">
           <propertyTab
              category="domain"
              id="property.tab.domain.custom"
@@ -11,14 +11,14 @@
    
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
       <?gmfgen generated="true"?>   
-      <propertySections contributorId="org.tura.metamodel.typedefinition">
+      <propertySections contributorId="org.tura.metamodel.diagram.typedefinition">
           <propertySection
                tab="property.tab.domain.custom"
                class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
                id="org.tura.metamodel.typedefinition.package.reference">
              <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
-              <input type="typedefinition.diagram.edit.parts.Attribute2EditPart"/>
+              <input type="typedefinition.diagram.edit.parts.ParameterEditPart"/>
               <input type="typedefinition.diagram.edit.parts.ReturnValueEditPart"/>
            </propertySection>        
  
@@ -28,7 +28,7 @@
                id="org.tura.metamodel.typedefinition.type.reference">
               <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
-              <input type="typedefinition.diagram.edit.parts.Attribute2EditPart"/>
+              <input type="typedefinition.diagram.edit.parts.ParameterEditPart"/>
               <input type="typedefinition.diagram.edit.parts.ReturnValueEditPart"/>
          </propertySection>        
   
@@ -37,7 +37,7 @@
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
       <?gmfgen generated="true"?>   
-      <propertyTabs contributorId="org.tura.metamodel.businessobjects">
+      <propertyTabs contributorId="org.tura.metamodel.diagram.businessobjects">
           <propertyTab
              category="domain"
              id="property.tab.domain.custom"
@@ -47,22 +47,7 @@
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
       <?gmfgen generated="true"?>   
-      <propertySections contributorId="org.tura.metamodel.businessobjects">
-      
-            <propertySection
-               tab="property.tab.domain.custom"
-               class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
-               id="org.tura.metamodel.businessobjects.package.reference">
-             <input type="businessobjects.diagram.edit.parts.BusinessObjectEditPart"/>
-           </propertySection>        
- 
-          <propertySection
-               tab="property.tab.domain.custom"
-               class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
-               id="org.tura.metamodel.businessobjects.type.reference">
-              <input type="businessobjects.diagram.edit.parts.BusinessObjectEditPart"/>
-         </propertySection>        
-      
+      <propertySections contributorId="org.tura.metamodel.diagram.businessobjects">
       
           <propertySection
                tab="property.tab.domain.custom"

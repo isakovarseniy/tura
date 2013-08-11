@@ -3,6 +3,7 @@
 package domain;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="gmf.node label='name'"
  * @generated
  */
-public interface BusinessObject extends TypePointer
+public interface BusinessObject extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
