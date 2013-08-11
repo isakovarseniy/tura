@@ -5,13 +5,16 @@ package domain.impl;
 import domain.DomainPackage;
 import domain.TypeDefinition;
 
+import domain.Types;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +25,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link domain.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.PackageImpl#getTypedefinition <em>Typedefinition</em>}</li>
+ *   <li>{@link domain.impl.PackageImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,12 +142,138 @@ public class PackageImpl extends EObjectImpl implements domain.Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypedefinition(TypeDefinition newTypedefinition)
+  public NotificationChain basicSetTypedefinition(TypeDefinition newTypedefinition, NotificationChain msgs)
   {
     TypeDefinition oldTypedefinition = typedefinition;
     typedefinition = newTypedefinition;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.PACKAGE__TYPEDEFINITION, oldTypedefinition, typedefinition));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.PACKAGE__TYPEDEFINITION, oldTypedefinition, newTypedefinition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypedefinition(TypeDefinition newTypedefinition)
+  {
+    if (newTypedefinition != typedefinition)
+    {
+      NotificationChain msgs = null;
+      if (typedefinition != null)
+        msgs = ((InternalEObject)typedefinition).eInverseRemove(this, DomainPackage.TYPE_DEFINITION__PARENT, TypeDefinition.class, msgs);
+      if (newTypedefinition != null)
+        msgs = ((InternalEObject)newTypedefinition).eInverseAdd(this, DomainPackage.TYPE_DEFINITION__PARENT, TypeDefinition.class, msgs);
+      msgs = basicSetTypedefinition(newTypedefinition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.PACKAGE__TYPEDEFINITION, newTypedefinition, newTypedefinition));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Types getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.PACKAGE__PARENT) return null;
+    return (Types)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(Types newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.PACKAGE__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(Types newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.PACKAGE__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.TYPES__PACKAGES, Types.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.PACKAGE__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.PACKAGE__TYPEDEFINITION:
+        if (typedefinition != null)
+          msgs = ((InternalEObject)typedefinition).eInverseRemove(this, DomainPackage.TYPE_DEFINITION__PARENT, TypeDefinition.class, msgs);
+        return basicSetTypedefinition((TypeDefinition)otherEnd, msgs);
+      case DomainPackage.PACKAGE__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((Types)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.PACKAGE__TYPEDEFINITION:
+        return basicSetTypedefinition(null, msgs);
+      case DomainPackage.PACKAGE__PARENT:
+        return basicSetParent(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.PACKAGE__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.TYPES__PACKAGES, Types.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
   }
 
   /**
@@ -161,6 +291,8 @@ public class PackageImpl extends EObjectImpl implements domain.Package
       case DomainPackage.PACKAGE__TYPEDEFINITION:
         if (resolve) return getTypedefinition();
         return basicGetTypedefinition();
+      case DomainPackage.PACKAGE__PARENT:
+        return getParent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -180,6 +312,9 @@ public class PackageImpl extends EObjectImpl implements domain.Package
         return;
       case DomainPackage.PACKAGE__TYPEDEFINITION:
         setTypedefinition((TypeDefinition)newValue);
+        return;
+      case DomainPackage.PACKAGE__PARENT:
+        setParent((Types)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -201,6 +336,9 @@ public class PackageImpl extends EObjectImpl implements domain.Package
       case DomainPackage.PACKAGE__TYPEDEFINITION:
         setTypedefinition((TypeDefinition)null);
         return;
+      case DomainPackage.PACKAGE__PARENT:
+        setParent((Types)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -219,6 +357,8 @@ public class PackageImpl extends EObjectImpl implements domain.Package
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.PACKAGE__TYPEDEFINITION:
         return typedefinition != null;
+      case DomainPackage.PACKAGE__PARENT:
+        return getParent() != null;
     }
     return super.eIsSet(featureID);
   }

@@ -433,7 +433,7 @@
     </preferencePages>
   </diagram>
   <plugin
-      iD="org.tura.metamodel.application"
+      iD="org.tura.metamodel.diagram.application"
       printingEnabled="true">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>

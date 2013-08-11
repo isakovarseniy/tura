@@ -5,8 +5,10 @@ package domain.impl;
 import domain.Attribute;
 import domain.DomainPackage;
 import domain.Operation;
+import domain.Parameter;
 import domain.ReturnValue;
 
+import domain.Type;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,6 +22,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.OperationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.OperationImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link domain.impl.OperationImpl#getReturnValue <em>Return Value</em>}</li>
  * </ul>
@@ -68,7 +73,7 @@ public class OperationImpl extends EObjectImpl implements Operation
    * @generated
    * @ordered
    */
-  protected EList<Attribute> parameters;
+  protected EList<Parameter> parameters;
 
   /**
    * The cached value of the '{@link #getReturnValue() <em>Return Value</em>}' containment reference.
@@ -129,11 +134,56 @@ public class OperationImpl extends EObjectImpl implements Operation
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Attribute> getParameters()
+  public Type getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.OPERATION__PARENT) return null;
+    return (Type)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(Type newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.OPERATION__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(Type newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.OPERATION__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.TYPE__OPERATIONS, Type.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.OPERATION__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Parameter> getParameters()
   {
     if (parameters == null)
     {
-      parameters = new EObjectContainmentEList<Attribute>(Attribute.class, this, DomainPackage.OPERATION__PARAMETERS);
+      parameters = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class, this, DomainPackage.OPERATION__PARAMETERS, DomainPackage.PARAMETER__PARENT);
     }
     return parameters;
   }
@@ -191,11 +241,34 @@ public class OperationImpl extends EObjectImpl implements Operation
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.OPERATION__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((Type)otherEnd, msgs);
+      case DomainPackage.OPERATION__PARAMETERS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameters()).basicAdd(otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case DomainPackage.OPERATION__PARENT:
+        return basicSetParent(null, msgs);
       case DomainPackage.OPERATION__PARAMETERS:
         return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
       case DomainPackage.OPERATION__RETURN_VALUE:
@@ -210,12 +283,30 @@ public class OperationImpl extends EObjectImpl implements Operation
    * @generated
    */
   @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.OPERATION__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.TYPE__OPERATIONS, Type.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case DomainPackage.OPERATION__NAME:
         return getName();
+      case DomainPackage.OPERATION__PARENT:
+        return getParent();
       case DomainPackage.OPERATION__PARAMETERS:
         return getParameters();
       case DomainPackage.OPERATION__RETURN_VALUE:
@@ -238,9 +329,12 @@ public class OperationImpl extends EObjectImpl implements Operation
       case DomainPackage.OPERATION__NAME:
         setName((String)newValue);
         return;
+      case DomainPackage.OPERATION__PARENT:
+        setParent((Type)newValue);
+        return;
       case DomainPackage.OPERATION__PARAMETERS:
         getParameters().clear();
-        getParameters().addAll((Collection<? extends Attribute>)newValue);
+        getParameters().addAll((Collection<? extends Parameter>)newValue);
         return;
       case DomainPackage.OPERATION__RETURN_VALUE:
         setReturnValue((ReturnValue)newValue);
@@ -261,6 +355,9 @@ public class OperationImpl extends EObjectImpl implements Operation
     {
       case DomainPackage.OPERATION__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case DomainPackage.OPERATION__PARENT:
+        setParent((Type)null);
         return;
       case DomainPackage.OPERATION__PARAMETERS:
         getParameters().clear();
@@ -284,6 +381,8 @@ public class OperationImpl extends EObjectImpl implements Operation
     {
       case DomainPackage.OPERATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.OPERATION__PARENT:
+        return getParent() != null;
       case DomainPackage.OPERATION__PARAMETERS:
         return parameters != null && !parameters.isEmpty();
       case DomainPackage.OPERATION__RETURN_VALUE:

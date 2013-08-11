@@ -16,6 +16,7 @@ import domain.BusinessObject;
 import domain.BusinessObjects;
 import domain.BusinessPackage;
 import domain.Component;
+import domain.ConfigVariable;
 import domain.Configuration;
 import domain.CreateMethod;
 import domain.Domain;
@@ -36,6 +37,7 @@ import domain.ModelMapper;
 import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
+import domain.Parameter;
 import domain.Primitive;
 import domain.Property;
 import domain.Recipe;
@@ -169,6 +171,13 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Artifact artifact = (Artifact)theEObject;
         T result = caseArtifact(artifact);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CONFIG_VARIABLE:
+      {
+        ConfigVariable configVariable = (ConfigVariable)theEObject;
+        T result = caseConfigVariable(configVariable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -445,6 +454,14 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.PARAMETER:
+      {
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
+        if (result == null) result = caseTypePointer(parameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.RETURN_VALUE:
       {
         ReturnValue returnValue = (ReturnValue)theEObject;
@@ -621,6 +638,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseArtifact(Artifact object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Config Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Config Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConfigVariable(ConfigVariable object)
   {
     return null;
   }
@@ -1197,6 +1230,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseOperation(Operation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameter(Parameter object)
   {
     return null;
   }

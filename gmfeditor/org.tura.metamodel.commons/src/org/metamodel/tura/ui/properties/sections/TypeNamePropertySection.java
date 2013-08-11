@@ -117,7 +117,7 @@ public class TypeNamePropertySection extends AbstractEnumerationPropertySection 
 				if ((((domain.TypePointer) eObject).getPackageName())
 						.equals("Primitives")) {
 					OCLExpression<EClassifier> query = helper
-							.createQuery("self.primitives");
+							.createQuery("domain::Primitive.allInstances()");
 					Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
 							.evaluate(types, query);
 					for (Iterator<domain.Primitive> i = map.iterator(); i

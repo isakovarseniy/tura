@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -144,7 +145,7 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     if (attributes == null)
     {
-      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, DomainPackage.TYPE__ATTRIBUTES);
+      attributes = new EObjectContainmentWithInverseEList<Attribute>(Attribute.class, this, DomainPackage.TYPE__ATTRIBUTES, DomainPackage.ATTRIBUTE__PARENT);
     }
     return attributes;
   }
@@ -158,7 +159,7 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     if (operations == null)
     {
-      operations = new EObjectContainmentEList<Operation>(Operation.class, this, DomainPackage.TYPE__OPERATIONS);
+      operations = new EObjectContainmentWithInverseEList<Operation>(Operation.class, this, DomainPackage.TYPE__OPERATIONS, DomainPackage.OPERATION__PARENT);
     }
     return operations;
   }
@@ -209,6 +210,25 @@ public class TypeImpl extends TypeElementImpl implements Type
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE__EXTENSION, newExtension, newExtension));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.TYPE__ATTRIBUTES:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getAttributes()).basicAdd(otherEnd, msgs);
+      case DomainPackage.TYPE__OPERATIONS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getOperations()).basicAdd(otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**

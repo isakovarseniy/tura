@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link domain.Recipe#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Recipe#getName <em>Name</em>}</li>
  *   <li>{@link domain.Recipe#getComponents <em>Components</em>}</li>
  *   <li>{@link domain.Recipe#getRecipeConfig <em>Recipe Config</em>}</li>
@@ -26,6 +27,34 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Recipe extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.Recipes#getRecipe <em>Recipe</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(Recipes)
+   * @see domain.DomainPackage#getRecipe_Parent()
+   * @see domain.Recipes#getRecipe
+   * @model opposite="recipe" transient="false"
+   * @generated
+   */
+  Recipes getParent();
+
+  /**
+   * Sets the value of the '{@link domain.Recipe#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(Recipes value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

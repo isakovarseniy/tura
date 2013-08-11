@@ -23,7 +23,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
       <diagramNode
           href="domain.gmfgraph#TypeReference"/>
     </ownedChild>
@@ -44,7 +44,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="domain.gmfgraph#Type"/>
       <children
@@ -89,10 +89,25 @@
           <diagramNode
               href="domain.gmfgraph#Operation"/>
           <children
-              compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.1/@ownedChild/@children.0/@ownedChild">
+              compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@compartments.0">
             <containmentFeature
                 href="domain.ecore#//Operation/parameters"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="domain.ecore#//Parameter"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="domain.gmfgraph#ParameterLabel"/>
+                <features
+                    href="domain.ecore#//Parameter/name"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+              <diagramNode
+                  href="domain.gmfgraph#Parameter"/>
+            </ownedChild>
           </children>
           <children
               compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@compartments.1">
@@ -112,7 +127,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+                  href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
               <diagramNode
                   href="domain.gmfgraph#ReturnValue"/>
             </ownedChild>

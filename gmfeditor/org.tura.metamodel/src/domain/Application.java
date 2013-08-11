@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.Application#getApplicationRecipes <em>Application Recipes</em>}</li>
  *   <li>{@link domain.Application#getApplicationMappers <em>Application Mappers</em>}</li>
+ *   <li>{@link domain.Application#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,6 +26,7 @@ public interface Application extends EObject
 {
   /**
    * Returns the value of the '<em><b>Application Recipes</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link domain.ApplicationRecipes#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Application Recipes</em>' containment reference isn't clear,
@@ -34,7 +36,8 @@ public interface Application extends EObject
    * @return the value of the '<em>Application Recipes</em>' containment reference.
    * @see #setApplicationRecipes(ApplicationRecipes)
    * @see domain.DomainPackage#getApplication_ApplicationRecipes()
-   * @model containment="true"
+   * @see domain.ApplicationRecipes#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   ApplicationRecipes getApplicationRecipes();
@@ -51,6 +54,7 @@ public interface Application extends EObject
 
   /**
    * Returns the value of the '<em><b>Application Mappers</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link domain.ApplicationMappers#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Application Mappers</em>' containment reference isn't clear,
@@ -60,7 +64,8 @@ public interface Application extends EObject
    * @return the value of the '<em>Application Mappers</em>' containment reference.
    * @see #setApplicationMappers(ApplicationMappers)
    * @see domain.DomainPackage#getApplication_ApplicationMappers()
-   * @model containment="true"
+   * @see domain.ApplicationMappers#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   ApplicationMappers getApplicationMappers();
@@ -74,5 +79,33 @@ public interface Application extends EObject
    * @generated
    */
   void setApplicationMappers(ApplicationMappers value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.DomainApplication#getApplication <em>Application</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' reference.
+   * @see #setParent(DomainApplication)
+   * @see domain.DomainPackage#getApplication_Parent()
+   * @see domain.DomainApplication#getApplication
+   * @model opposite="application"
+   * @generated
+   */
+  DomainApplication getParent();
+
+  /**
+   * Sets the value of the '{@link domain.Application#getParent <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(DomainApplication value);
 
 } // Application

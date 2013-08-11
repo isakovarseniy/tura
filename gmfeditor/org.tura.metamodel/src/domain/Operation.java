@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.Operation#getName <em>Name</em>}</li>
+ *   <li>{@link domain.Operation#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Operation#getParameters <em>Parameters</em>}</li>
  *   <li>{@link domain.Operation#getReturnValue <em>Return Value</em>}</li>
  * </ul>
@@ -53,8 +54,37 @@ public interface Operation extends EObject
   void setName(String value);
 
   /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.Type#getOperations <em>Operations</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(Type)
+   * @see domain.DomainPackage#getOperation_Parent()
+   * @see domain.Type#getOperations
+   * @model opposite="operations" transient="false"
+   * @generated
+   */
+  Type getParent();
+
+  /**
+   * Sets the value of the '{@link domain.Operation#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(Type value);
+
+  /**
    * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-   * The list contents are of type {@link domain.Attribute}.
+   * The list contents are of type {@link domain.Parameter}.
+   * It is bidirectional and its opposite is '{@link domain.Parameter#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
@@ -63,10 +93,11 @@ public interface Operation extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parameters</em>' containment reference list.
    * @see domain.DomainPackage#getOperation_Parameters()
-   * @model containment="true"
+   * @see domain.Parameter#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
-  EList<Attribute> getParameters();
+  EList<Parameter> getParameters();
 
   /**
    * Returns the value of the '<em><b>Return Value</b></em>' containment reference.

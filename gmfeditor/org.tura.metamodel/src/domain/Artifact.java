@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.Artifact#getName <em>Name</em>}</li>
  *   <li>{@link domain.Artifact#getDescription <em>Description</em>}</li>
+ *   <li>{@link domain.Artifact#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Artifact#getConfigVariables <em>Config Variables</em>}</li>
  *   <li>{@link domain.Artifact#getModelQuery <em>Model Query</em>}</li>
  *   <li>{@link domain.Artifact#getSpecifiers <em>Specifiers</em>}</li>
@@ -82,8 +83,37 @@ public interface Artifact extends EObject
   void setDescription(String value);
 
   /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.Artifacts#getArtifacts <em>Artifacts</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(Artifacts)
+   * @see domain.DomainPackage#getArtifact_Parent()
+   * @see domain.Artifacts#getArtifacts
+   * @model opposite="artifacts" transient="false"
+   * @generated
+   */
+  Artifacts getParent();
+
+  /**
+   * Sets the value of the '{@link domain.Artifact#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(Artifacts value);
+
+  /**
    * Returns the value of the '<em><b>Config Variables</b></em>' containment reference list.
-   * The list contents are of type {@link domain.Variable}.
+   * The list contents are of type {@link domain.ConfigVariable}.
+   * It is bidirectional and its opposite is '{@link domain.ConfigVariable#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Config Variables</em>' containment reference list isn't clear,
@@ -92,14 +122,16 @@ public interface Artifact extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Config Variables</em>' containment reference list.
    * @see domain.DomainPackage#getArtifact_ConfigVariables()
-   * @model containment="true"
+   * @see domain.ConfigVariable#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
-  EList<Variable> getConfigVariables();
+  EList<ConfigVariable> getConfigVariables();
 
   /**
    * Returns the value of the '<em><b>Model Query</b></em>' containment reference list.
    * The list contents are of type {@link domain.Variable}.
+   * It is bidirectional and its opposite is '{@link domain.Variable#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Model Query</em>' containment reference list isn't clear,
@@ -108,7 +140,8 @@ public interface Artifact extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Model Query</em>' containment reference list.
    * @see domain.DomainPackage#getArtifact_ModelQuery()
-   * @model containment="true"
+   * @see domain.Variable#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<Variable> getModelQuery();
@@ -116,6 +149,7 @@ public interface Artifact extends EObject
   /**
    * Returns the value of the '<em><b>Specifiers</b></em>' containment reference list.
    * The list contents are of type {@link domain.Specifier}.
+   * It is bidirectional and its opposite is '{@link domain.Specifier#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Specifiers</em>' containment reference list isn't clear,
@@ -124,7 +158,8 @@ public interface Artifact extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Specifiers</em>' containment reference list.
    * @see domain.DomainPackage#getArtifact_Specifiers()
-   * @model containment="true"
+   * @see domain.Specifier#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<Specifier> getSpecifiers();

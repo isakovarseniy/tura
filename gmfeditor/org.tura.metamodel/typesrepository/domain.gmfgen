@@ -453,7 +453,7 @@
     </preferencePages>
   </diagram>
   <plugin
-      iD="org.tura.metamodel.typesrepository"
+      iD="org.tura.metamodel.diagram.typesrepository"
       printingEnabled="true">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>

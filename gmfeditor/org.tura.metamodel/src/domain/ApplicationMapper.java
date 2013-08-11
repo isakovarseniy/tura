@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.ApplicationMapper#getName <em>Name</em>}</li>
  *   <li>{@link domain.ApplicationMapper#getMapper <em>Mapper</em>}</li>
+ *   <li>{@link domain.ApplicationMapper#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +52,7 @@ public interface ApplicationMapper extends EObject
 
   /**
    * Returns the value of the '<em><b>Mapper</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.Mappers#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Mapper</em>' reference isn't clear,
@@ -60,7 +62,8 @@ public interface ApplicationMapper extends EObject
    * @return the value of the '<em>Mapper</em>' reference.
    * @see #setMapper(Mappers)
    * @see domain.DomainPackage#getApplicationMapper_Mapper()
-   * @model
+   * @see domain.Mappers#getParent
+   * @model opposite="parent"
    * @generated
    */
   Mappers getMapper();
@@ -74,5 +77,33 @@ public interface ApplicationMapper extends EObject
    * @generated
    */
   void setMapper(Mappers value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.ApplicationMappers#getMappers <em>Mappers</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(ApplicationMappers)
+   * @see domain.DomainPackage#getApplicationMapper_Parent()
+   * @see domain.ApplicationMappers#getMappers
+   * @model opposite="mappers" transient="false"
+   * @generated
+   */
+  ApplicationMappers getParent();
+
+  /**
+   * Sets the value of the '{@link domain.ApplicationMapper#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(ApplicationMappers value);
 
 } // ApplicationMapper

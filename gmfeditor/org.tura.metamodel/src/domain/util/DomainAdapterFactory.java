@@ -16,6 +16,7 @@ import domain.BusinessObject;
 import domain.BusinessObjects;
 import domain.BusinessPackage;
 import domain.Component;
+import domain.ConfigVariable;
 import domain.Configuration;
 import domain.CreateMethod;
 import domain.Domain;
@@ -36,6 +37,7 @@ import domain.ModelMapper;
 import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
+import domain.Parameter;
 import domain.Primitive;
 import domain.Property;
 import domain.Recipe;
@@ -159,6 +161,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseArtifact(Artifact object)
       {
         return createArtifactAdapter();
+      }
+      @Override
+      public Adapter caseConfigVariable(ConfigVariable object)
+      {
+        return createConfigVariableAdapter();
       }
       @Override
       public Adapter caseVariable(Variable object)
@@ -341,6 +348,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createOperationAdapter();
       }
       @Override
+      public Adapter caseParameter(Parameter object)
+      {
+        return createParameterAdapter();
+      }
+      @Override
       public Adapter caseReturnValue(ReturnValue object)
       {
         return createReturnValueAdapter();
@@ -508,6 +520,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createArtifactAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ConfigVariable <em>Config Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ConfigVariable
+   * @generated
+   */
+  public Adapter createConfigVariableAdapter()
   {
     return null;
   }
@@ -1048,6 +1075,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Parameter
+   * @generated
+   */
+  public Adapter createParameterAdapter()
   {
     return null;
   }

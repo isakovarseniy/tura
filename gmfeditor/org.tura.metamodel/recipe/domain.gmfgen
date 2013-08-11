@@ -597,7 +597,7 @@
     </preferencePages>
   </diagram>
   <plugin
-      iD="org.tura.metamodel.recipe"
+      iD="org.tura.metamodel.diagram.recipe"
       printingEnabled="true">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>

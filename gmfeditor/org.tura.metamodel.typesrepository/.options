@@ -1,7 +1,0 @@
-# Tracing options for the org.tura.metamodel.typesrepository plug-in
-
-# Common issues
-org.tura.metamodel.typesrepository/debug=false
-
-# Visual IDs
-org.tura.metamodel.typesrepository/debug/visualID=false

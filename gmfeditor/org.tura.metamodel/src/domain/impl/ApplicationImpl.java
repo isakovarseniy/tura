@@ -5,6 +5,7 @@ package domain.impl;
 import domain.Application;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipes;
+import domain.DomainApplication;
 import domain.DomainPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationRecipes <em>Application Recipes</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationMappers <em>Application Mappers</em>}</li>
+ *   <li>{@link domain.impl.ApplicationImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +53,16 @@ public class ApplicationImpl extends EObjectImpl implements Application
    * @ordered
    */
   protected ApplicationMappers applicationMappers;
+
+  /**
+   * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParent()
+   * @generated
+   * @ordered
+   */
+  protected DomainApplication parent;
 
   /**
    * <!-- begin-user-doc -->
@@ -111,9 +123,9 @@ public class ApplicationImpl extends EObjectImpl implements Application
     {
       NotificationChain msgs = null;
       if (applicationRecipes != null)
-        msgs = ((InternalEObject)applicationRecipes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_RECIPES, null, msgs);
+        msgs = ((InternalEObject)applicationRecipes).eInverseRemove(this, DomainPackage.APPLICATION_RECIPES__PARENT, ApplicationRecipes.class, msgs);
       if (newApplicationRecipes != null)
-        msgs = ((InternalEObject)newApplicationRecipes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_RECIPES, null, msgs);
+        msgs = ((InternalEObject)newApplicationRecipes).eInverseAdd(this, DomainPackage.APPLICATION_RECIPES__PARENT, ApplicationRecipes.class, msgs);
       msgs = basicSetApplicationRecipes(newApplicationRecipes, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -159,14 +171,108 @@ public class ApplicationImpl extends EObjectImpl implements Application
     {
       NotificationChain msgs = null;
       if (applicationMappers != null)
-        msgs = ((InternalEObject)applicationMappers).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_MAPPERS, null, msgs);
+        msgs = ((InternalEObject)applicationMappers).eInverseRemove(this, DomainPackage.APPLICATION_MAPPERS__PARENT, ApplicationMappers.class, msgs);
       if (newApplicationMappers != null)
-        msgs = ((InternalEObject)newApplicationMappers).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_MAPPERS, null, msgs);
+        msgs = ((InternalEObject)newApplicationMappers).eInverseAdd(this, DomainPackage.APPLICATION_MAPPERS__PARENT, ApplicationMappers.class, msgs);
       msgs = basicSetApplicationMappers(newApplicationMappers, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_MAPPERS, newApplicationMappers, newApplicationMappers));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DomainApplication getParent()
+  {
+    if (parent != null && parent.eIsProxy())
+    {
+      InternalEObject oldParent = (InternalEObject)parent;
+      parent = (DomainApplication)eResolveProxy(oldParent);
+      if (parent != oldParent)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.APPLICATION__PARENT, oldParent, parent));
+      }
+    }
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DomainApplication basicGetParent()
+  {
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(DomainApplication newParent, NotificationChain msgs)
+  {
+    DomainApplication oldParent = parent;
+    parent = newParent;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__PARENT, oldParent, newParent);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(DomainApplication newParent)
+  {
+    if (newParent != parent)
+    {
+      NotificationChain msgs = null;
+      if (parent != null)
+        msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.DOMAIN_APPLICATION__APPLICATION, DomainApplication.class, msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.DOMAIN_APPLICATION__APPLICATION, DomainApplication.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.APPLICATION__APPLICATION_RECIPES:
+        if (applicationRecipes != null)
+          msgs = ((InternalEObject)applicationRecipes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_RECIPES, null, msgs);
+        return basicSetApplicationRecipes((ApplicationRecipes)otherEnd, msgs);
+      case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
+        if (applicationMappers != null)
+          msgs = ((InternalEObject)applicationMappers).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_MAPPERS, null, msgs);
+        return basicSetApplicationMappers((ApplicationMappers)otherEnd, msgs);
+      case DomainPackage.APPLICATION__PARENT:
+        if (parent != null)
+          msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.DOMAIN_APPLICATION__APPLICATION, DomainApplication.class, msgs);
+        return basicSetParent((DomainApplication)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**
@@ -183,6 +289,8 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return basicSetApplicationRecipes(null, msgs);
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
         return basicSetApplicationMappers(null, msgs);
+      case DomainPackage.APPLICATION__PARENT:
+        return basicSetParent(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -201,6 +309,9 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return getApplicationRecipes();
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
         return getApplicationMappers();
+      case DomainPackage.APPLICATION__PARENT:
+        if (resolve) return getParent();
+        return basicGetParent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -220,6 +331,9 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return;
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
         setApplicationMappers((ApplicationMappers)newValue);
+        return;
+      case DomainPackage.APPLICATION__PARENT:
+        setParent((DomainApplication)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -241,6 +355,9 @@ public class ApplicationImpl extends EObjectImpl implements Application
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
         setApplicationMappers((ApplicationMappers)null);
         return;
+      case DomainPackage.APPLICATION__PARENT:
+        setParent((DomainApplication)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -259,6 +376,8 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return applicationRecipes != null;
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
         return applicationMappers != null;
+      case DomainPackage.APPLICATION__PARENT:
+        return parent != null;
     }
     return super.eIsSet(featureID);
   }

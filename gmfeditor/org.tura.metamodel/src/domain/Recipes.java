@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.Recipes#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link domain.Recipes#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link domain.Recipes#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,6 +28,7 @@ public interface Recipes extends EObject
 {
   /**
    * Returns the value of the '<em><b>Recipe</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link domain.Recipe#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Recipe</em>' containment reference isn't clear,
@@ -36,7 +38,8 @@ public interface Recipes extends EObject
    * @return the value of the '<em>Recipe</em>' containment reference.
    * @see #setRecipe(Recipe)
    * @see domain.DomainPackage#getRecipes_Recipe()
-   * @model containment="true"
+   * @see domain.Recipe#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   Recipe getRecipe();
@@ -66,5 +69,33 @@ public interface Recipes extends EObject
    * @generated
    */
   EList<Configuration> getConfigurations();
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.ApplicationRecipe#getRecipes <em>Recipes</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' reference.
+   * @see #setParent(ApplicationRecipe)
+   * @see domain.DomainPackage#getRecipes_Parent()
+   * @see domain.ApplicationRecipe#getRecipes
+   * @model opposite="recipes"
+   * @generated
+   */
+  ApplicationRecipe getParent();
+
+  /**
+   * Sets the value of the '{@link domain.Recipes#getParent <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(ApplicationRecipe value);
 
 } // Recipes

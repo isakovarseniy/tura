@@ -7,6 +7,7 @@ import domain.DomainPackage;
 import domain.Primitive;
 import domain.Types;
 
+import domain.TypesRepository;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,6 +21,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -30,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.TypesImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.TypesImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.TypesImpl#getPrimitives <em>Primitives</em>}</li>
  *   <li>{@link domain.impl.TypesImpl#getPackages <em>Packages</em>}</li>
@@ -117,6 +121,51 @@ public class TypesImpl extends EObjectImpl implements Types
    * <!-- end-user-doc -->
    * @generated
    */
+  public TypesRepository getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.TYPES__PARENT) return null;
+    return (TypesRepository)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(TypesRepository newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.TYPES__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(TypesRepository newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.TYPES__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.TYPES_REPOSITORY__TYPE_DEFINITION, TypesRepository.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPES__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getName()
   {
     return name;
@@ -144,7 +193,7 @@ public class TypesImpl extends EObjectImpl implements Types
   {
     if (primitives == null)
     {
-      primitives = new EObjectContainmentEList<Primitive>(Primitive.class, this, DomainPackage.TYPES__PRIMITIVES);
+      primitives = new EObjectContainmentWithInverseEList<Primitive>(Primitive.class, this, DomainPackage.TYPES__PRIMITIVES, DomainPackage.PRIMITIVE__PARENT);
     }
     return primitives;
   }
@@ -158,7 +207,7 @@ public class TypesImpl extends EObjectImpl implements Types
   {
     if (packages == null)
     {
-      packages = new EObjectContainmentEList<domain.Package>(domain.Package.class, this, DomainPackage.TYPES__PACKAGES);
+      packages = new EObjectContainmentWithInverseEList<domain.Package>(domain.Package.class, this, DomainPackage.TYPES__PACKAGES, DomainPackage.PACKAGE__PARENT);
     }
     return packages;
   }
@@ -172,9 +221,34 @@ public class TypesImpl extends EObjectImpl implements Types
   {
     if (businessPackages == null)
     {
-      businessPackages = new EObjectContainmentEList<BusinessPackage>(BusinessPackage.class, this, DomainPackage.TYPES__BUSINESS_PACKAGES);
+      businessPackages = new EObjectContainmentWithInverseEList<BusinessPackage>(BusinessPackage.class, this, DomainPackage.TYPES__BUSINESS_PACKAGES, DomainPackage.BUSINESS_PACKAGE__PARENT);
     }
     return businessPackages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.TYPES__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((TypesRepository)otherEnd, msgs);
+      case DomainPackage.TYPES__PRIMITIVES:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getPrimitives()).basicAdd(otherEnd, msgs);
+      case DomainPackage.TYPES__PACKAGES:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getPackages()).basicAdd(otherEnd, msgs);
+      case DomainPackage.TYPES__BUSINESS_PACKAGES:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getBusinessPackages()).basicAdd(otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**
@@ -187,6 +261,8 @@ public class TypesImpl extends EObjectImpl implements Types
   {
     switch (featureID)
     {
+      case DomainPackage.TYPES__PARENT:
+        return basicSetParent(null, msgs);
       case DomainPackage.TYPES__PRIMITIVES:
         return ((InternalEList<?>)getPrimitives()).basicRemove(otherEnd, msgs);
       case DomainPackage.TYPES__PACKAGES:
@@ -203,10 +279,28 @@ public class TypesImpl extends EObjectImpl implements Types
    * @generated
    */
   @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.TYPES__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.TYPES_REPOSITORY__TYPE_DEFINITION, TypesRepository.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case DomainPackage.TYPES__PARENT:
+        return getParent();
       case DomainPackage.TYPES__NAME:
         return getName();
       case DomainPackage.TYPES__PRIMITIVES:
@@ -230,6 +324,9 @@ public class TypesImpl extends EObjectImpl implements Types
   {
     switch (featureID)
     {
+      case DomainPackage.TYPES__PARENT:
+        setParent((TypesRepository)newValue);
+        return;
       case DomainPackage.TYPES__NAME:
         setName((String)newValue);
         return;
@@ -259,6 +356,9 @@ public class TypesImpl extends EObjectImpl implements Types
   {
     switch (featureID)
     {
+      case DomainPackage.TYPES__PARENT:
+        setParent((TypesRepository)null);
+        return;
       case DomainPackage.TYPES__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -285,6 +385,8 @@ public class TypesImpl extends EObjectImpl implements Types
   {
     switch (featureID)
     {
+      case DomainPackage.TYPES__PARENT:
+        return getParent() != null;
       case DomainPackage.TYPES__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.TYPES__PRIMITIVES:

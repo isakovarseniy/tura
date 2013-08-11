@@ -16,6 +16,7 @@ import domain.BusinessObject;
 import domain.BusinessObjects;
 import domain.BusinessPackage;
 import domain.Component;
+import domain.ConfigVariable;
 import domain.Configuration;
 import domain.CreateMethod;
 import domain.Domain;
@@ -37,6 +38,7 @@ import domain.ModelMapper;
 import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
+import domain.Parameter;
 import domain.Primitive;
 import domain.Property;
 import domain.Recipe;
@@ -123,6 +125,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.DOMAIN_APPLICATION: return createDomainApplication();
       case DomainPackage.ARTIFACTS: return createArtifacts();
       case DomainPackage.ARTIFACT: return createArtifact();
+      case DomainPackage.CONFIG_VARIABLE: return createConfigVariable();
       case DomainPackage.VARIABLE: return createVariable();
       case DomainPackage.SPECIFIER: return createSpecifier();
       case DomainPackage.OPTION: return createOption();
@@ -159,6 +162,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.TYPE_EXTENSION: return createTypeExtension();
       case DomainPackage.ATTRIBUTE: return createAttribute();
       case DomainPackage.OPERATION: return createOperation();
+      case DomainPackage.PARAMETER: return createParameter();
       case DomainPackage.RETURN_VALUE: return createReturnValue();
       case DomainPackage.ENUMARATOR: return createEnumarator();
       case DomainPackage.ENUM_ATTRIBUTE: return createEnumAttribute();
@@ -248,6 +252,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ArtifactImpl artifact = new ArtifactImpl();
     return artifact;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConfigVariable createConfigVariable()
+  {
+    ConfigVariableImpl configVariable = new ConfigVariableImpl();
+    return configVariable;
   }
 
   /**
@@ -644,6 +659,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     OperationImpl operation = new OperationImpl();
     return operation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Parameter createParameter()
+  {
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
   }
 
   /**

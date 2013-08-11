@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.DomainTypes#getName <em>Name</em>}</li>
  *   <li>{@link domain.DomainTypes#getTypesrepository <em>Typesrepository</em>}</li>
+ *   <li>{@link domain.DomainTypes#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +52,7 @@ public interface DomainTypes extends EObject
 
   /**
    * Returns the value of the '<em><b>Typesrepository</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.TypesRepository#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Typesrepository</em>' reference isn't clear,
@@ -60,7 +62,8 @@ public interface DomainTypes extends EObject
    * @return the value of the '<em>Typesrepository</em>' reference.
    * @see #setTypesrepository(TypesRepository)
    * @see domain.DomainPackage#getDomainTypes_Typesrepository()
-   * @model
+   * @see domain.TypesRepository#getParent
+   * @model opposite="parent"
    * @generated
    */
   TypesRepository getTypesrepository();
@@ -74,5 +77,33 @@ public interface DomainTypes extends EObject
    * @generated
    */
   void setTypesrepository(TypesRepository value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.Domain#getDomainTypes <em>Domain Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(Domain)
+   * @see domain.DomainPackage#getDomainTypes_Parent()
+   * @see domain.Domain#getDomainTypes
+   * @model opposite="domainTypes" transient="false"
+   * @generated
+   */
+  Domain getParent();
+
+  /**
+   * Sets the value of the '{@link domain.DomainTypes#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(Domain value);
 
 } // DomainTypes

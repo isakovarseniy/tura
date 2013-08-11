@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -65,8 +66,32 @@ public class ArtifactsItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addParentPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Parent feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addParentPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Artifacts_parent_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Artifacts_parent_feature", "_UI_Artifacts_type"),
+         DomainPackage.Literals.ARTIFACTS__PARENT,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**

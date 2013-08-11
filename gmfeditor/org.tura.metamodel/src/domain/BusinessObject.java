@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.BusinessObject#getName <em>Name</em>}</li>
+ *   <li>{@link domain.BusinessObject#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.BusinessObject#getCreateMethods <em>Create Methods</em>}</li>
  *   <li>{@link domain.BusinessObject#getInsertMethods <em>Insert Methods</em>}</li>
  *   <li>{@link domain.BusinessObject#getUpdaeteMethods <em>Updaete Methods</em>}</li>
@@ -55,8 +56,37 @@ public interface BusinessObject extends TypePointer
   void setName(String value);
 
   /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.BusinessObjects#getBusinessObject <em>Business Object</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(BusinessObjects)
+   * @see domain.DomainPackage#getBusinessObject_Parent()
+   * @see domain.BusinessObjects#getBusinessObject
+   * @model opposite="businessObject" transient="false"
+   * @generated
+   */
+  BusinessObjects getParent();
+
+  /**
+   * Sets the value of the '{@link domain.BusinessObject#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(BusinessObjects value);
+
+  /**
    * Returns the value of the '<em><b>Create Methods</b></em>' containment reference list.
    * The list contents are of type {@link domain.CreateMethod}.
+   * It is bidirectional and its opposite is '{@link domain.CreateMethod#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Create Methods</em>' containment reference list isn't clear,
@@ -65,7 +95,8 @@ public interface BusinessObject extends TypePointer
    * <!-- end-user-doc -->
    * @return the value of the '<em>Create Methods</em>' containment reference list.
    * @see domain.DomainPackage#getBusinessObject_CreateMethods()
-   * @model containment="true"
+   * @see domain.CreateMethod#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<CreateMethod> getCreateMethods();
@@ -73,6 +104,7 @@ public interface BusinessObject extends TypePointer
   /**
    * Returns the value of the '<em><b>Insert Methods</b></em>' containment reference list.
    * The list contents are of type {@link domain.InsertMethod}.
+   * It is bidirectional and its opposite is '{@link domain.InsertMethod#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Insert Methods</em>' containment reference list isn't clear,
@@ -81,7 +113,8 @@ public interface BusinessObject extends TypePointer
    * <!-- end-user-doc -->
    * @return the value of the '<em>Insert Methods</em>' containment reference list.
    * @see domain.DomainPackage#getBusinessObject_InsertMethods()
-   * @model containment="true"
+   * @see domain.InsertMethod#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<InsertMethod> getInsertMethods();
@@ -89,6 +122,7 @@ public interface BusinessObject extends TypePointer
   /**
    * Returns the value of the '<em><b>Updaete Methods</b></em>' containment reference list.
    * The list contents are of type {@link domain.UpdateMethod}.
+   * It is bidirectional and its opposite is '{@link domain.UpdateMethod#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Updaete Methods</em>' containment reference list isn't clear,
@@ -97,7 +131,8 @@ public interface BusinessObject extends TypePointer
    * <!-- end-user-doc -->
    * @return the value of the '<em>Updaete Methods</em>' containment reference list.
    * @see domain.DomainPackage#getBusinessObject_UpdaeteMethods()
-   * @model containment="true"
+   * @see domain.UpdateMethod#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<UpdateMethod> getUpdaeteMethods();
@@ -105,6 +140,7 @@ public interface BusinessObject extends TypePointer
   /**
    * Returns the value of the '<em><b>Removet Methods</b></em>' containment reference list.
    * The list contents are of type {@link domain.RemoveMethod}.
+   * It is bidirectional and its opposite is '{@link domain.RemoveMethod#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Removet Methods</em>' containment reference list isn't clear,
@@ -113,7 +149,8 @@ public interface BusinessObject extends TypePointer
    * <!-- end-user-doc -->
    * @return the value of the '<em>Removet Methods</em>' containment reference list.
    * @see domain.DomainPackage#getBusinessObject_RemovetMethods()
-   * @model containment="true"
+   * @see domain.RemoveMethod#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<RemoveMethod> getRemovetMethods();
@@ -121,6 +158,7 @@ public interface BusinessObject extends TypePointer
   /**
    * Returns the value of the '<em><b>Searcht Methods</b></em>' containment reference list.
    * The list contents are of type {@link domain.SearchMethod}.
+   * It is bidirectional and its opposite is '{@link domain.SearchMethod#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Searcht Methods</em>' containment reference list isn't clear,
@@ -129,7 +167,8 @@ public interface BusinessObject extends TypePointer
    * <!-- end-user-doc -->
    * @return the value of the '<em>Searcht Methods</em>' containment reference list.
    * @see domain.DomainPackage#getBusinessObject_SearchtMethods()
-   * @model containment="true"
+   * @see domain.SearchMethod#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<SearchMethod> getSearchtMethods();
@@ -137,6 +176,7 @@ public interface BusinessObject extends TypePointer
   /**
    * Returns the value of the '<em><b>Others Methods</b></em>' containment reference list.
    * The list contents are of type {@link domain.OtherMethod}.
+   * It is bidirectional and its opposite is '{@link domain.OtherMethod#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Others Methods</em>' containment reference list isn't clear,
@@ -145,7 +185,8 @@ public interface BusinessObject extends TypePointer
    * <!-- end-user-doc -->
    * @return the value of the '<em>Others Methods</em>' containment reference list.
    * @see domain.DomainPackage#getBusinessObject_OthersMethods()
-   * @model containment="true"
+   * @see domain.OtherMethod#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<OtherMethod> getOthersMethods();

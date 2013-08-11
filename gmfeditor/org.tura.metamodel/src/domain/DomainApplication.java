@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.DomainApplication#getName <em>Name</em>}</li>
  *   <li>{@link domain.DomainApplication#getApplication <em>Application</em>}</li>
+ *   <li>{@link domain.DomainApplication#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +52,7 @@ public interface DomainApplication extends EObject
 
   /**
    * Returns the value of the '<em><b>Application</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.Application#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Application</em>' reference isn't clear,
@@ -60,7 +62,8 @@ public interface DomainApplication extends EObject
    * @return the value of the '<em>Application</em>' reference.
    * @see #setApplication(Application)
    * @see domain.DomainPackage#getDomainApplication_Application()
-   * @model
+   * @see domain.Application#getParent
+   * @model opposite="parent"
    * @generated
    */
   Application getApplication();
@@ -74,5 +77,33 @@ public interface DomainApplication extends EObject
    * @generated
    */
   void setApplication(Application value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.DomainApplications#getApplications <em>Applications</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(DomainApplications)
+   * @see domain.DomainPackage#getDomainApplication_Parent()
+   * @see domain.DomainApplications#getApplications
+   * @model opposite="applications" transient="false"
+   * @generated
+   */
+  DomainApplications getParent();
+
+  /**
+   * Sets the value of the '{@link domain.DomainApplication#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(DomainApplications value);
 
 } // DomainApplication

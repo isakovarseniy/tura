@@ -67,3 +67,5 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Type');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Attribute');
 delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Parameter');
+delete tool;

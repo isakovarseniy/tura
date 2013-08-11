@@ -196,7 +196,7 @@ public class OperationItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.OPERATION__PARAMETERS,
-         DomainFactory.eINSTANCE.createAttribute()));
+         DomainFactory.eINSTANCE.createParameter()));
 
     newChildDescriptors.add
       (createChildParameter

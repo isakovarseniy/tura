@@ -5,12 +5,16 @@ package domain.impl;
 import domain.DomainPackage;
 import domain.EnumAttribute;
 
+import domain.Enumarator;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.EnumAttributeImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.EnumAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.EnumAttributeImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -94,6 +99,51 @@ public class EnumAttributeImpl extends EObjectImpl implements EnumAttribute
    * <!-- end-user-doc -->
    * @generated
    */
+  public Enumarator getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.ENUM_ATTRIBUTE__PARENT) return null;
+    return (Enumarator)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(Enumarator newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.ENUM_ATTRIBUTE__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(Enumarator newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.ENUM_ATTRIBUTE__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.ENUMARATOR__VALUES, Enumarator.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ENUM_ATTRIBUTE__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getName()
   {
     return name;
@@ -141,10 +191,62 @@ public class EnumAttributeImpl extends EObjectImpl implements EnumAttribute
    * @generated
    */
   @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.ENUM_ATTRIBUTE__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((Enumarator)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.ENUM_ATTRIBUTE__PARENT:
+        return basicSetParent(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.ENUM_ATTRIBUTE__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.ENUMARATOR__VALUES, Enumarator.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case DomainPackage.ENUM_ATTRIBUTE__PARENT:
+        return getParent();
       case DomainPackage.ENUM_ATTRIBUTE__NAME:
         return getName();
       case DomainPackage.ENUM_ATTRIBUTE__VALUE:
@@ -163,6 +265,9 @@ public class EnumAttributeImpl extends EObjectImpl implements EnumAttribute
   {
     switch (featureID)
     {
+      case DomainPackage.ENUM_ATTRIBUTE__PARENT:
+        setParent((Enumarator)newValue);
+        return;
       case DomainPackage.ENUM_ATTRIBUTE__NAME:
         setName((String)newValue);
         return;
@@ -183,6 +288,9 @@ public class EnumAttributeImpl extends EObjectImpl implements EnumAttribute
   {
     switch (featureID)
     {
+      case DomainPackage.ENUM_ATTRIBUTE__PARENT:
+        setParent((Enumarator)null);
+        return;
       case DomainPackage.ENUM_ATTRIBUTE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -203,6 +311,8 @@ public class EnumAttributeImpl extends EObjectImpl implements EnumAttribute
   {
     switch (featureID)
     {
+      case DomainPackage.ENUM_ATTRIBUTE__PARENT:
+        return getParent() != null;
       case DomainPackage.ENUM_ATTRIBUTE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.ENUM_ATTRIBUTE__VALUE:

@@ -6,6 +6,7 @@ import domain.DomainPackage;
 import domain.EnumAttribute;
 import domain.Enumarator;
 
+import domain.TypeDefinition;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,6 +20,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -30,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.EnumaratorImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.EnumaratorImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.EnumaratorImpl#getValues <em>Values</em>}</li>
  * </ul>
  * </p>
@@ -117,13 +121,79 @@ public class EnumaratorImpl extends EObjectImpl implements Enumarator
    * <!-- end-user-doc -->
    * @generated
    */
+  public TypeDefinition getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.ENUMARATOR__PARENT) return null;
+    return (TypeDefinition)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(TypeDefinition newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.ENUMARATOR__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(TypeDefinition newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.ENUMARATOR__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.TYPE_DEFINITION__ENUMS, TypeDefinition.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ENUMARATOR__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<EnumAttribute> getValues()
   {
     if (values == null)
     {
-      values = new EObjectContainmentEList<EnumAttribute>(EnumAttribute.class, this, DomainPackage.ENUMARATOR__VALUES);
+      values = new EObjectContainmentWithInverseEList<EnumAttribute>(EnumAttribute.class, this, DomainPackage.ENUMARATOR__VALUES, DomainPackage.ENUM_ATTRIBUTE__PARENT);
     }
     return values;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.ENUMARATOR__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((TypeDefinition)otherEnd, msgs);
+      case DomainPackage.ENUMARATOR__VALUES:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getValues()).basicAdd(otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**
@@ -136,10 +206,28 @@ public class EnumaratorImpl extends EObjectImpl implements Enumarator
   {
     switch (featureID)
     {
+      case DomainPackage.ENUMARATOR__PARENT:
+        return basicSetParent(null, msgs);
       case DomainPackage.ENUMARATOR__VALUES:
         return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.ENUMARATOR__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.TYPE_DEFINITION__ENUMS, TypeDefinition.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
   }
 
   /**
@@ -154,6 +242,8 @@ public class EnumaratorImpl extends EObjectImpl implements Enumarator
     {
       case DomainPackage.ENUMARATOR__NAME:
         return getName();
+      case DomainPackage.ENUMARATOR__PARENT:
+        return getParent();
       case DomainPackage.ENUMARATOR__VALUES:
         return getValues();
     }
@@ -173,6 +263,9 @@ public class EnumaratorImpl extends EObjectImpl implements Enumarator
     {
       case DomainPackage.ENUMARATOR__NAME:
         setName((String)newValue);
+        return;
+      case DomainPackage.ENUMARATOR__PARENT:
+        setParent((TypeDefinition)newValue);
         return;
       case DomainPackage.ENUMARATOR__VALUES:
         getValues().clear();
@@ -195,6 +288,9 @@ public class EnumaratorImpl extends EObjectImpl implements Enumarator
       case DomainPackage.ENUMARATOR__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DomainPackage.ENUMARATOR__PARENT:
+        setParent((TypeDefinition)null);
+        return;
       case DomainPackage.ENUMARATOR__VALUES:
         getValues().clear();
         return;
@@ -214,6 +310,8 @@ public class EnumaratorImpl extends EObjectImpl implements Enumarator
     {
       case DomainPackage.ENUMARATOR__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.ENUMARATOR__PARENT:
+        return getParent() != null;
       case DomainPackage.ENUMARATOR__VALUES:
         return values != null && !values.isEmpty();
     }

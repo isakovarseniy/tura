@@ -123,9 +123,9 @@ public class DomainImpl extends EObjectImpl implements Domain
     {
       NotificationChain msgs = null;
       if (domainArtifacts != null)
-        msgs = ((InternalEObject)domainArtifacts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_ARTIFACTS, null, msgs);
+        msgs = ((InternalEObject)domainArtifacts).eInverseRemove(this, DomainPackage.DOMAIN_ARTIFACTS__PARENT, DomainArtifacts.class, msgs);
       if (newDomainArtifacts != null)
-        msgs = ((InternalEObject)newDomainArtifacts).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_ARTIFACTS, null, msgs);
+        msgs = ((InternalEObject)newDomainArtifacts).eInverseAdd(this, DomainPackage.DOMAIN_ARTIFACTS__PARENT, DomainArtifacts.class, msgs);
       msgs = basicSetDomainArtifacts(newDomainArtifacts, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -171,9 +171,9 @@ public class DomainImpl extends EObjectImpl implements Domain
     {
       NotificationChain msgs = null;
       if (domainTypes != null)
-        msgs = ((InternalEObject)domainTypes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_TYPES, null, msgs);
+        msgs = ((InternalEObject)domainTypes).eInverseRemove(this, DomainPackage.DOMAIN_TYPES__PARENT, DomainTypes.class, msgs);
       if (newDomainTypes != null)
-        msgs = ((InternalEObject)newDomainTypes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_TYPES, null, msgs);
+        msgs = ((InternalEObject)newDomainTypes).eInverseAdd(this, DomainPackage.DOMAIN_TYPES__PARENT, DomainTypes.class, msgs);
       msgs = basicSetDomainTypes(newDomainTypes, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -219,14 +219,40 @@ public class DomainImpl extends EObjectImpl implements Domain
     {
       NotificationChain msgs = null;
       if (domainApplications != null)
-        msgs = ((InternalEObject)domainApplications).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_APPLICATIONS, null, msgs);
+        msgs = ((InternalEObject)domainApplications).eInverseRemove(this, DomainPackage.DOMAIN_APPLICATIONS__PARENT, DomainApplications.class, msgs);
       if (newDomainApplications != null)
-        msgs = ((InternalEObject)newDomainApplications).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_APPLICATIONS, null, msgs);
+        msgs = ((InternalEObject)newDomainApplications).eInverseAdd(this, DomainPackage.DOMAIN_APPLICATIONS__PARENT, DomainApplications.class, msgs);
       msgs = basicSetDomainApplications(newDomainApplications, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__DOMAIN_APPLICATIONS, newDomainApplications, newDomainApplications));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
+        if (domainArtifacts != null)
+          msgs = ((InternalEObject)domainArtifacts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_ARTIFACTS, null, msgs);
+        return basicSetDomainArtifacts((DomainArtifacts)otherEnd, msgs);
+      case DomainPackage.DOMAIN__DOMAIN_TYPES:
+        if (domainTypes != null)
+          msgs = ((InternalEObject)domainTypes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_TYPES, null, msgs);
+        return basicSetDomainTypes((DomainTypes)otherEnd, msgs);
+      case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
+        if (domainApplications != null)
+          msgs = ((InternalEObject)domainApplications).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_APPLICATIONS, null, msgs);
+        return basicSetDomainApplications((DomainApplications)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**

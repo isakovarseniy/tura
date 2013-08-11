@@ -248,7 +248,7 @@ public class ArtifactItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.ARTIFACT__CONFIG_VARIABLES,
-         DomainFactory.eINSTANCE.createVariable()));
+         DomainFactory.eINSTANCE.createConfigVariable()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -259,31 +259,6 @@ public class ArtifactItemProvider
       (createChildParameter
         (DomainPackage.Literals.ARTIFACT__SPECIFIERS,
          DomainFactory.eINSTANCE.createSpecifier()));
-  }
-
-  /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
-  {
-    Object childFeature = feature;
-    Object childObject = child;
-
-    boolean qualify =
-      childFeature == DomainPackage.Literals.ARTIFACT__CONFIG_VARIABLES ||
-      childFeature == DomainPackage.Literals.ARTIFACT__MODEL_QUERY;
-
-    if (qualify)
-    {
-      return getString
-        ("_UI_CreateChild_text2",
-         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-    }
-    return super.getCreateChildText(owner, feature, child, selection);
   }
 
   /**

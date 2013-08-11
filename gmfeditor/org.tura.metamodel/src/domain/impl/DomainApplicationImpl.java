@@ -4,15 +4,18 @@ package domain.impl;
 
 import domain.Application;
 import domain.DomainApplication;
+import domain.DomainApplications;
 import domain.DomainPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link domain.impl.DomainApplicationImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DomainApplicationImpl#getApplication <em>Application</em>}</li>
+ *   <li>{@link domain.impl.DomainApplicationImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -139,12 +143,138 @@ public class DomainApplicationImpl extends EObjectImpl implements DomainApplicat
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setApplication(Application newApplication)
+  public NotificationChain basicSetApplication(Application newApplication, NotificationChain msgs)
   {
     Application oldApplication = application;
     application = newApplication;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_APPLICATION__APPLICATION, oldApplication, application));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_APPLICATION__APPLICATION, oldApplication, newApplication);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setApplication(Application newApplication)
+  {
+    if (newApplication != application)
+    {
+      NotificationChain msgs = null;
+      if (application != null)
+        msgs = ((InternalEObject)application).eInverseRemove(this, DomainPackage.APPLICATION__PARENT, Application.class, msgs);
+      if (newApplication != null)
+        msgs = ((InternalEObject)newApplication).eInverseAdd(this, DomainPackage.APPLICATION__PARENT, Application.class, msgs);
+      msgs = basicSetApplication(newApplication, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_APPLICATION__APPLICATION, newApplication, newApplication));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DomainApplications getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.DOMAIN_APPLICATION__PARENT) return null;
+    return (DomainApplications)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(DomainApplications newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.DOMAIN_APPLICATION__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(DomainApplications newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.DOMAIN_APPLICATION__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.DOMAIN_APPLICATIONS__APPLICATIONS, DomainApplications.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_APPLICATION__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
+        if (application != null)
+          msgs = ((InternalEObject)application).eInverseRemove(this, DomainPackage.APPLICATION__PARENT, Application.class, msgs);
+        return basicSetApplication((Application)otherEnd, msgs);
+      case DomainPackage.DOMAIN_APPLICATION__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((DomainApplications)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
+        return basicSetApplication(null, msgs);
+      case DomainPackage.DOMAIN_APPLICATION__PARENT:
+        return basicSetParent(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.DOMAIN_APPLICATION__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.DOMAIN_APPLICATIONS__APPLICATIONS, DomainApplications.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
   }
 
   /**
@@ -162,6 +292,8 @@ public class DomainApplicationImpl extends EObjectImpl implements DomainApplicat
       case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
         if (resolve) return getApplication();
         return basicGetApplication();
+      case DomainPackage.DOMAIN_APPLICATION__PARENT:
+        return getParent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -181,6 +313,9 @@ public class DomainApplicationImpl extends EObjectImpl implements DomainApplicat
         return;
       case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
         setApplication((Application)newValue);
+        return;
+      case DomainPackage.DOMAIN_APPLICATION__PARENT:
+        setParent((DomainApplications)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -202,6 +337,9 @@ public class DomainApplicationImpl extends EObjectImpl implements DomainApplicat
       case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
         setApplication((Application)null);
         return;
+      case DomainPackage.DOMAIN_APPLICATION__PARENT:
+        setParent((DomainApplications)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -220,6 +358,8 @@ public class DomainApplicationImpl extends EObjectImpl implements DomainApplicat
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
         return application != null;
+      case DomainPackage.DOMAIN_APPLICATION__PARENT:
+        return getParent() != null;
     }
     return super.eIsSet(featureID);
   }

@@ -2,6 +2,7 @@
  */
 package domain.impl;
 
+import domain.Domain;
 import domain.DomainApplication;
 import domain.DomainApplications;
 import domain.DomainPackage;
@@ -19,6 +20,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.DomainApplicationsImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DomainApplicationsImpl#getApplications <em>Applications</em>}</li>
+ *   <li>{@link domain.impl.DomainApplicationsImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -121,9 +125,75 @@ public class DomainApplicationsImpl extends EObjectImpl implements DomainApplica
   {
     if (applications == null)
     {
-      applications = new EObjectContainmentEList<DomainApplication>(DomainApplication.class, this, DomainPackage.DOMAIN_APPLICATIONS__APPLICATIONS);
+      applications = new EObjectContainmentWithInverseEList<DomainApplication>(DomainApplication.class, this, DomainPackage.DOMAIN_APPLICATIONS__APPLICATIONS, DomainPackage.DOMAIN_APPLICATION__PARENT);
     }
     return applications;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Domain getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.DOMAIN_APPLICATIONS__PARENT) return null;
+    return (Domain)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(Domain newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.DOMAIN_APPLICATIONS__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(Domain newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.DOMAIN_APPLICATIONS__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.DOMAIN__DOMAIN_APPLICATIONS, Domain.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_APPLICATIONS__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.DOMAIN_APPLICATIONS__APPLICATIONS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getApplications()).basicAdd(otherEnd, msgs);
+      case DomainPackage.DOMAIN_APPLICATIONS__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((Domain)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**
@@ -138,8 +208,26 @@ public class DomainApplicationsImpl extends EObjectImpl implements DomainApplica
     {
       case DomainPackage.DOMAIN_APPLICATIONS__APPLICATIONS:
         return ((InternalEList<?>)getApplications()).basicRemove(otherEnd, msgs);
+      case DomainPackage.DOMAIN_APPLICATIONS__PARENT:
+        return basicSetParent(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.DOMAIN_APPLICATIONS__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.DOMAIN__DOMAIN_APPLICATIONS, Domain.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
   }
 
   /**
@@ -156,6 +244,8 @@ public class DomainApplicationsImpl extends EObjectImpl implements DomainApplica
         return getName();
       case DomainPackage.DOMAIN_APPLICATIONS__APPLICATIONS:
         return getApplications();
+      case DomainPackage.DOMAIN_APPLICATIONS__PARENT:
+        return getParent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -178,6 +268,9 @@ public class DomainApplicationsImpl extends EObjectImpl implements DomainApplica
         getApplications().clear();
         getApplications().addAll((Collection<? extends DomainApplication>)newValue);
         return;
+      case DomainPackage.DOMAIN_APPLICATIONS__PARENT:
+        setParent((Domain)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -198,6 +291,9 @@ public class DomainApplicationsImpl extends EObjectImpl implements DomainApplica
       case DomainPackage.DOMAIN_APPLICATIONS__APPLICATIONS:
         getApplications().clear();
         return;
+      case DomainPackage.DOMAIN_APPLICATIONS__PARENT:
+        setParent((Domain)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -216,6 +312,8 @@ public class DomainApplicationsImpl extends EObjectImpl implements DomainApplica
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.DOMAIN_APPLICATIONS__APPLICATIONS:
         return applications != null && !applications.isEmpty();
+      case DomainPackage.DOMAIN_APPLICATIONS__PARENT:
+        return getParent() != null;
     }
     return super.eIsSet(featureID);
   }

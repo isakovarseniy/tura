@@ -4,131 +4,153 @@ package domain;
 
 @gmf.diagram
 class Domain{
-  val DomainArtifacts[1] domainArtifacts;
-  val DomainTypes[1] domainTypes;
-  val DomainApplications[1] domainApplications;
+  val DomainArtifacts[1]#parent domainArtifacts;
+  val DomainTypes[1]#parent domainTypes;
+  val DomainApplications[1]#parent domainApplications;
 }
 
 @gmf.node(label="name")
 class DomainArtifacts{
    attr EString name;  
-   ref  Artifacts artifact;
+   ref  Artifacts#parent artifact;
+   ref Domain#domainArtifacts parent;
 }
 
 @gmf.node(label="name")
 class DomainTypes{
    attr EString name;  
-   ref TypesRepository typesrepository;
+   ref TypesRepository#parent typesrepository;
+   ref Domain#domainTypes parent;
 }
 
 @gmf.node(label="name")
 class DomainApplications{
    attr EString name;  
    @gmf.compartment
-   val DomainApplication[*] applications;
+   val DomainApplication[*]#parent applications;
+   ref Domain#domainApplications parent;
 }
 
 @gmf.node(label="name")
 class DomainApplication{
    attr EString name;  
-   ref Application application;
+   ref Application#parent application;
+   ref DomainApplications#applications parent;
 }
 
 @gmf.diagram.artifact
 class Artifacts{
-   val Artifact[*] artifacts;
+   val Artifact[*]#parent artifacts;
+   ref DomainArtifacts#artifact parent;
 }
 
 @gmf.node(label="name")
 class Artifact{
    attr EString name;
    attr EString description;
+   ref Artifacts#artifacts parent;
    
    // Variables resolved by configuration of recipe (for example server IP)  
    @gmf.compartment
-   val   Variable[*] configVariables;
+   val   ConfigVariable[*]#parent configVariables;
    
    // Variables to query model ( for example FormName or service name)
    @gmf.compartment
-   val   Variable[*] modelQuery;
+   val   Variable[*]#parent modelQuery;
    
    //For navigation in the template (for example choosing specific technologies EclipseLink vs Hibernate)
    @gmf.compartment
-   val   Specifier[*] specifiers;
+   val   Specifier[*]#parent specifiers;
 
    attr EString template;
 }
 
 
 @gmf.node(label="name")
+class ConfigVariable{
+   attr EString name;
+   ref Artifact#configVariables parent;
+}
+
+@gmf.node(label="name")
 class Variable{
    attr EString name;
+   ref Artifact#modelQuery parent;
 }
+
 
 @gmf.node(label="name")
 class Specifier{
    attr EString name;
-   val  Option[1..*] options;  
+   ref Artifact#specifiers parent;
+   val  Option[1..*]#parent options;  
 }
 
 @gmf.node(label="name")
 class Option{
+   ref Specifier#options parent;
    attr EString value;
 }
 
 @gmf.diagram.application
 class Application{
-   val ApplicationRecipes applicationRecipes;
-   val ApplicationMappers applicationMappers;
+   val ApplicationRecipes#parent applicationRecipes;
+   val ApplicationMappers#parent applicationMappers;
+   ref DomainApplication#application parent;
 }
 
 @gmf.node(label="name")
 class ApplicationRecipes{
    attr EString name;
+   ref Application#applicationRecipes parent;
    @gmf.compartment
-   val ApplicationRecipe[*] recipes;
+   val ApplicationRecipe[*]#parent recipes;
 }
 
 @gmf.node(label="name")
 class ApplicationRecipe{
    attr EString name;
-   ref Recipes recipes;
+   ref Recipes#parent recipes;
+   ref ApplicationRecipes#recipes parent;
 }
 
 @gmf.node(label="name")
 class ApplicationMappers{
    attr EString name;
-   @gmf.compartment
-   val ApplicationMapper[*] mappers;
+   ref Application#applicationMappers parent;
+    @gmf.compartment
+   val ApplicationMapper[*]#parent mappers;
 }
 
 @gmf.node(label="name")
 class ApplicationMapper{
    attr EString name;
-   ref Mappers mapper; 
+   ref Mappers#parent mapper; 
+   ref ApplicationMappers#mappers parent;
 }
 
 @gmf.diagram.businessObjects
 class BusinessObjects{
-   val BusinessObject[*] businessObject;
-   
+   val BusinessObject[*]#parent businessObject;
+   ref BusinessPackage#businessobjects parent;
 }
 
 @gmf.node(label="name")
 class BusinessObject extends TypePointer{
    attr EString name;
+   ref BusinessObjects#businessObject parent;
    @gmf.compartment()
-   val CreateMethod[*] createMethods;
+   val CreateMethod[*]#parent createMethods;
    @gmf.compartment()
-   val InsertMethod[*] insertMethods;
+   val InsertMethod[*]#parent insertMethods;
    @gmf.compartment()
-   val UpdateMethod[*] updaeteMethods;
+   val UpdateMethod[*]#parent updaeteMethods;
    @gmf.compartment()
-   val RemoveMethod[*] removetMethods;
+   val RemoveMethod[*]#parent removetMethods;
    @gmf.compartment()
-   val SearchMethod[*] searchtMethods;
+   val SearchMethod[*]#parent searchtMethods;
    @gmf.compartment()
-   val OtherMethod[*] othersMethods;
+   val OtherMethod[*]#parent  othersMethods;
    
 }
 
@@ -138,43 +160,46 @@ class BusinessMethod extends TypePointer {
 
 @gmf.node(label="method")
 class CreateMethod extends BusinessMethod{
-   
+   ref BusinessObject#createMethods parent;
 }
 
 @gmf.node(label="method")
 class InsertMethod extends BusinessMethod{
-   
+   ref BusinessObject#insertMethods parent;
 }
 
 @gmf.node(label="method")
 class UpdateMethod extends BusinessMethod{
+   ref BusinessObject#updaeteMethods parent;
    
 }
 
 @gmf.node(label="method")
 class RemoveMethod extends BusinessMethod{
-   
+   ref BusinessObject#removetMethods parent;
 }
 
 @gmf.node(label="method")
 class SearchMethod extends BusinessMethod{
-   
+   ref BusinessObject#searchtMethods parent;
 }
 
 @gmf.node(label="method")
 class OtherMethod extends BusinessMethod{
-   
+   ref BusinessObject#othersMethods parent;
 }
 
 
 @gmf.diagram.mapper
 class Mappers{
-   val Mapper[*] mappers;
+   val Mapper[*]#parent mappers;
+   ref ApplicationMapper#mapper parent;
 }
 
 class Mapper extends TypePointer{
-         
+    ref Mappers#mappers  parent;
 }
+
 @gmf.node(label="packageName")
 class JavaMapper extends Mapper{
    attr EString mappedToPackageName;
@@ -188,14 +213,16 @@ class JavaMapper extends Mapper{
 
 @gmf.diagram.recipe
 class Recipes{
-  val Recipe recipe;
-  val Configuration[*] configurations;
+  val Recipe#parent recipe;
+  val Configuration[*]#parent configurations;
+  ref ApplicationRecipe#recipes parent;
 }
 
 
 
 @gmf.node(label="name")
 class Recipe{
+  ref Recipes#recipe parent;
   attr EString name;
   @gmf.compartment
   val Component[*] components;
@@ -208,9 +235,9 @@ class Recipe{
 class Component{
    attr EString name;
      @gmf.compartment
-  val Component[*] components;
+  val Component[*]#parent components;
   @gmf.compartment(layout="list")
-   val ModelMapper[*] mappers;
+   val ModelMapper[*]#parent mappers;
 }
 
 @gmf.node(label="name")
@@ -252,23 +279,23 @@ class ArtifactRef{
 
 @gmf.diagram.typedefinition
 class TypeDefinition{
-   val TypeElement[*] types;
-   val Enumarator[*] enums;
+   val TypeElement[*]#parent types;
+   val Enumarator[*]#parent enums;
+   ref Package#typedefinition parent;
 }
 
 class TypeElement{
-   
+   ref TypeDefinition#types parent;
 }
 
 @gmf.node(label="name")
 class Type extends TypeElement {
    attr EString name;
    @gmf.compartment
-   val Attribute[*] attributes;
+   val Attribute[*]#parent attributes;
    @gmf.compartment
-   val Operation[*] operations;
+   val Operation[*]#parent operations;
    val TypeExtension[0..1] extension;
-   
 }
 
 @gmf.node(label="packageName,typeName")
@@ -284,17 +311,26 @@ class TypeExtension {
 @gmf.node(label="name")
 class Attribute extends  TypePointer{
    attr EString name;
+   ref Type#attributes parent;
 }
 
 
 @gmf.node(label="name")
 class Operation{
    attr EString name;
+   ref Type#operations parent;
    @gmf.compartment
-   val Attribute[*] parameters;
+   val Parameter[*]#parent parameters;
    @gmf.compartment
    val ReturnValue[0..1] returnValue;
 }
+
+@gmf.node(label="name")
+class Parameter extends  TypePointer{
+   attr EString name;
+   ref Operation#parameters parent;
+}
+
 
 @gmf.node(label="packageName,typeName")
 class ReturnValue extends TypePointer{
@@ -303,12 +339,14 @@ class ReturnValue extends TypePointer{
 @gmf.node(label="name")
 class Enumarator{
    attr EString name;
+   ref TypeDefinition#enums parent;
   @gmf.compartment
-   val EnumAttribute[*] values;
+   val EnumAttribute[*]#parent values;
 }
 
 @gmf.node(label="name")
 class EnumAttribute{
+   ref Enumarator#values parent;
    attr EString name;
    attr EString  value;
 }
@@ -323,43 +361,40 @@ class TypePointer{
 
 @gmf.diagram.typesrepository
 class TypesRepository{
-  val Types[1] typeDefinition;
+  val Types[1]#parent typeDefinition;
+  ref DomainTypes#typesrepository parent;
 }
 
 @gmf.node(label="name")
 class Types {
+   ref TypesRepository#typeDefinition parent;
    attr EString name;
    @gmf.compartment
-   val Primitive [*] primitives;
+   val Primitive[*]#parent primitives;
    @gmf.compartment
-   val Package [*] packages;
+   val Package[*]#parent packages;
    @gmf.compartment
-   val BusinessPackage [*] businessPackages;
+   val BusinessPackage[*]#parent businessPackages;
    
 }
-
 
 @gmf.node(label="name")
 class Primitive {
    attr EString name;
+   ref  Types#primitives parent;
 }
 
 @gmf.node(label="name")
 class Package{
    attr EString name;
-   ref TypeDefinition typedefinition;
+   ref TypeDefinition#parent typedefinition;
+   ref  Types#packages parent;
 }
 
 
 @gmf.node(label="name")
 class BusinessPackage{
    attr EString name;
-   ref BusinessObjects businessobjects;
+   ref BusinessObjects#parent businessobjects;
+   ref  Types#businessPackages parent;
 }
-
-
-
-
-
-
-

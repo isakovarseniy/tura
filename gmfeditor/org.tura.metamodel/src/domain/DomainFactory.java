@@ -86,6 +86,15 @@ public interface DomainFactory extends EFactory
   Artifact createArtifact();
 
   /**
+   * Returns a new object of class '<em>Config Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Config Variable</em>'.
+   * @generated
+   */
+  ConfigVariable createConfigVariable();
+
+  /**
    * Returns a new object of class '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -408,6 +417,15 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   Operation createOperation();
+
+  /**
+   * Returns a new object of class '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter</em>'.
+   * @generated
+   */
+  Parameter createParameter();
 
   /**
    * Returns a new object of class '<em>Return Value</em>'.

@@ -636,7 +636,7 @@
     </preferencePages>
   </diagram>
   <plugin
-      iD="org.tura.metamodel.businessobjects"
+      iD="org.tura.metamodel.diagram.businessobjects"
       printingEnabled="true">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>

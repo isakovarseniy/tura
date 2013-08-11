@@ -3,16 +3,19 @@
 package domain.impl;
 
 import domain.ApplicationMapper;
+import domain.ApplicationMappers;
 import domain.DomainPackage;
 import domain.Mappers;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link domain.impl.ApplicationMapperImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ApplicationMapperImpl#getMapper <em>Mapper</em>}</li>
+ *   <li>{@link domain.impl.ApplicationMapperImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -139,12 +143,138 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMapper(Mappers newMapper)
+  public NotificationChain basicSetMapper(Mappers newMapper, NotificationChain msgs)
   {
     Mappers oldMapper = mapper;
     mapper = newMapper;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION_MAPPER__MAPPER, oldMapper, mapper));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION_MAPPER__MAPPER, oldMapper, newMapper);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMapper(Mappers newMapper)
+  {
+    if (newMapper != mapper)
+    {
+      NotificationChain msgs = null;
+      if (mapper != null)
+        msgs = ((InternalEObject)mapper).eInverseRemove(this, DomainPackage.MAPPERS__PARENT, Mappers.class, msgs);
+      if (newMapper != null)
+        msgs = ((InternalEObject)newMapper).eInverseAdd(this, DomainPackage.MAPPERS__PARENT, Mappers.class, msgs);
+      msgs = basicSetMapper(newMapper, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION_MAPPER__MAPPER, newMapper, newMapper));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ApplicationMappers getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.APPLICATION_MAPPER__PARENT) return null;
+    return (ApplicationMappers)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(ApplicationMappers newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.APPLICATION_MAPPER__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(ApplicationMappers newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.APPLICATION_MAPPER__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.APPLICATION_MAPPERS__MAPPERS, ApplicationMappers.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION_MAPPER__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.APPLICATION_MAPPER__MAPPER:
+        if (mapper != null)
+          msgs = ((InternalEObject)mapper).eInverseRemove(this, DomainPackage.MAPPERS__PARENT, Mappers.class, msgs);
+        return basicSetMapper((Mappers)otherEnd, msgs);
+      case DomainPackage.APPLICATION_MAPPER__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((ApplicationMappers)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.APPLICATION_MAPPER__MAPPER:
+        return basicSetMapper(null, msgs);
+      case DomainPackage.APPLICATION_MAPPER__PARENT:
+        return basicSetParent(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.APPLICATION_MAPPER__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.APPLICATION_MAPPERS__MAPPERS, ApplicationMappers.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
   }
 
   /**
@@ -162,6 +292,8 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
       case DomainPackage.APPLICATION_MAPPER__MAPPER:
         if (resolve) return getMapper();
         return basicGetMapper();
+      case DomainPackage.APPLICATION_MAPPER__PARENT:
+        return getParent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -181,6 +313,9 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
         return;
       case DomainPackage.APPLICATION_MAPPER__MAPPER:
         setMapper((Mappers)newValue);
+        return;
+      case DomainPackage.APPLICATION_MAPPER__PARENT:
+        setParent((ApplicationMappers)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -202,6 +337,9 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
       case DomainPackage.APPLICATION_MAPPER__MAPPER:
         setMapper((Mappers)null);
         return;
+      case DomainPackage.APPLICATION_MAPPER__PARENT:
+        setParent((ApplicationMappers)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -220,6 +358,8 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.APPLICATION_MAPPER__MAPPER:
         return mapper != null;
+      case DomainPackage.APPLICATION_MAPPER__PARENT:
+        return getParent() != null;
     }
     return super.eIsSet(featureID);
   }

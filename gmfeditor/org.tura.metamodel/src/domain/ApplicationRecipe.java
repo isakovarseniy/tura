@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.ApplicationRecipe#getName <em>Name</em>}</li>
  *   <li>{@link domain.ApplicationRecipe#getRecipes <em>Recipes</em>}</li>
+ *   <li>{@link domain.ApplicationRecipe#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +52,7 @@ public interface ApplicationRecipe extends EObject
 
   /**
    * Returns the value of the '<em><b>Recipes</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.Recipes#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Recipes</em>' reference isn't clear,
@@ -60,7 +62,8 @@ public interface ApplicationRecipe extends EObject
    * @return the value of the '<em>Recipes</em>' reference.
    * @see #setRecipes(Recipes)
    * @see domain.DomainPackage#getApplicationRecipe_Recipes()
-   * @model
+   * @see domain.Recipes#getParent
+   * @model opposite="parent"
    * @generated
    */
   Recipes getRecipes();
@@ -74,5 +77,33 @@ public interface ApplicationRecipe extends EObject
    * @generated
    */
   void setRecipes(Recipes value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.ApplicationRecipes#getRecipes <em>Recipes</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(ApplicationRecipes)
+   * @see domain.DomainPackage#getApplicationRecipe_Parent()
+   * @see domain.ApplicationRecipes#getRecipes
+   * @model opposite="recipes" transient="false"
+   * @generated
+   */
+  ApplicationRecipes getParent();
+
+  /**
+   * Sets the value of the '{@link domain.ApplicationRecipe#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(ApplicationRecipes value);
 
 } // ApplicationRecipe

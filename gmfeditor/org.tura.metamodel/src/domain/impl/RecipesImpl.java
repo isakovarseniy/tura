@@ -2,6 +2,7 @@
  */
 package domain.impl;
 
+import domain.ApplicationRecipe;
 import domain.Configuration;
 import domain.DomainPackage;
 import domain.Recipe;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.RecipesImpl#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link domain.impl.RecipesImpl#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link domain.impl.RecipesImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,6 +60,16 @@ public class RecipesImpl extends EObjectImpl implements Recipes
    * @ordered
    */
   protected EList<Configuration> configurations;
+
+  /**
+   * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParent()
+   * @generated
+   * @ordered
+   */
+  protected ApplicationRecipe parent;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,9 +130,9 @@ public class RecipesImpl extends EObjectImpl implements Recipes
     {
       NotificationChain msgs = null;
       if (recipe != null)
-        msgs = ((InternalEObject)recipe).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.RECIPES__RECIPE, null, msgs);
+        msgs = ((InternalEObject)recipe).eInverseRemove(this, DomainPackage.RECIPE__PARENT, Recipe.class, msgs);
       if (newRecipe != null)
-        msgs = ((InternalEObject)newRecipe).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.RECIPES__RECIPE, null, msgs);
+        msgs = ((InternalEObject)newRecipe).eInverseAdd(this, DomainPackage.RECIPE__PARENT, Recipe.class, msgs);
       msgs = basicSetRecipe(newRecipe, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -147,6 +159,96 @@ public class RecipesImpl extends EObjectImpl implements Recipes
    * <!-- end-user-doc -->
    * @generated
    */
+  public ApplicationRecipe getParent()
+  {
+    if (parent != null && parent.eIsProxy())
+    {
+      InternalEObject oldParent = (InternalEObject)parent;
+      parent = (ApplicationRecipe)eResolveProxy(oldParent);
+      if (parent != oldParent)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.RECIPES__PARENT, oldParent, parent));
+      }
+    }
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ApplicationRecipe basicGetParent()
+  {
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(ApplicationRecipe newParent, NotificationChain msgs)
+  {
+    ApplicationRecipe oldParent = parent;
+    parent = newParent;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPES__PARENT, oldParent, newParent);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(ApplicationRecipe newParent)
+  {
+    if (newParent != parent)
+    {
+      NotificationChain msgs = null;
+      if (parent != null)
+        msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.APPLICATION_RECIPE__RECIPES, ApplicationRecipe.class, msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.APPLICATION_RECIPE__RECIPES, ApplicationRecipe.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPES__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.RECIPES__RECIPE:
+        if (recipe != null)
+          msgs = ((InternalEObject)recipe).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.RECIPES__RECIPE, null, msgs);
+        return basicSetRecipe((Recipe)otherEnd, msgs);
+      case DomainPackage.RECIPES__PARENT:
+        if (parent != null)
+          msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.APPLICATION_RECIPE__RECIPES, ApplicationRecipe.class, msgs);
+        return basicSetParent((ApplicationRecipe)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -156,6 +258,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes
         return basicSetRecipe(null, msgs);
       case DomainPackage.RECIPES__CONFIGURATIONS:
         return ((InternalEList<?>)getConfigurations()).basicRemove(otherEnd, msgs);
+      case DomainPackage.RECIPES__PARENT:
+        return basicSetParent(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -174,6 +278,9 @@ public class RecipesImpl extends EObjectImpl implements Recipes
         return getRecipe();
       case DomainPackage.RECIPES__CONFIGURATIONS:
         return getConfigurations();
+      case DomainPackage.RECIPES__PARENT:
+        if (resolve) return getParent();
+        return basicGetParent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -196,6 +303,9 @@ public class RecipesImpl extends EObjectImpl implements Recipes
         getConfigurations().clear();
         getConfigurations().addAll((Collection<? extends Configuration>)newValue);
         return;
+      case DomainPackage.RECIPES__PARENT:
+        setParent((ApplicationRecipe)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -216,6 +326,9 @@ public class RecipesImpl extends EObjectImpl implements Recipes
       case DomainPackage.RECIPES__CONFIGURATIONS:
         getConfigurations().clear();
         return;
+      case DomainPackage.RECIPES__PARENT:
+        setParent((ApplicationRecipe)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -234,6 +347,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes
         return recipe != null;
       case DomainPackage.RECIPES__CONFIGURATIONS:
         return configurations != null && !configurations.isEmpty();
+      case DomainPackage.RECIPES__PARENT:
+        return parent != null;
     }
     return super.eIsSet(featureID);
   }

@@ -54,6 +54,7 @@ public interface Type extends TypeElement
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
    * The list contents are of type {@link domain.Attribute}.
+   * It is bidirectional and its opposite is '{@link domain.Attribute#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
@@ -62,7 +63,8 @@ public interface Type extends TypeElement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Attributes</em>' containment reference list.
    * @see domain.DomainPackage#getType_Attributes()
-   * @model containment="true"
+   * @see domain.Attribute#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<Attribute> getAttributes();
@@ -70,6 +72,7 @@ public interface Type extends TypeElement
   /**
    * Returns the value of the '<em><b>Operations</b></em>' containment reference list.
    * The list contents are of type {@link domain.Operation}.
+   * It is bidirectional and its opposite is '{@link domain.Operation#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Operations</em>' containment reference list isn't clear,
@@ -78,7 +81,8 @@ public interface Type extends TypeElement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Operations</em>' containment reference list.
    * @see domain.DomainPackage#getType_Operations()
-   * @model containment="true"
+   * @see domain.Operation#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<Operation> getOperations();

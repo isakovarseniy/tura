@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link domain.Option#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Option#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -22,6 +23,34 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Option extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.Specifier#getOptions <em>Options</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(Specifier)
+   * @see domain.DomainPackage#getOption_Parent()
+   * @see domain.Specifier#getOptions
+   * @model opposite="options" transient="false"
+   * @generated
+   */
+  Specifier getParent();
+
+  /**
+   * Sets the value of the '{@link domain.Option#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(Specifier value);
+
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->

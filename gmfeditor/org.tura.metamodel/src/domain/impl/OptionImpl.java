@@ -5,12 +5,16 @@ package domain.impl;
 import domain.DomainPackage;
 import domain.Option;
 
+import domain.Specifier;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.OptionImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.OptionImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -73,6 +78,51 @@ public class OptionImpl extends EObjectImpl implements Option
    * <!-- end-user-doc -->
    * @generated
    */
+  public Specifier getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.OPTION__PARENT) return null;
+    return (Specifier)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(Specifier newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.OPTION__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(Specifier newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.OPTION__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.SPECIFIER__OPTIONS, Specifier.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.OPTION__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getValue()
   {
     return value;
@@ -97,10 +147,62 @@ public class OptionImpl extends EObjectImpl implements Option
    * @generated
    */
   @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.OPTION__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((Specifier)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.OPTION__PARENT:
+        return basicSetParent(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.OPTION__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.SPECIFIER__OPTIONS, Specifier.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case DomainPackage.OPTION__PARENT:
+        return getParent();
       case DomainPackage.OPTION__VALUE:
         return getValue();
     }
@@ -117,6 +219,9 @@ public class OptionImpl extends EObjectImpl implements Option
   {
     switch (featureID)
     {
+      case DomainPackage.OPTION__PARENT:
+        setParent((Specifier)newValue);
+        return;
       case DomainPackage.OPTION__VALUE:
         setValue((String)newValue);
         return;
@@ -134,6 +239,9 @@ public class OptionImpl extends EObjectImpl implements Option
   {
     switch (featureID)
     {
+      case DomainPackage.OPTION__PARENT:
+        setParent((Specifier)null);
+        return;
       case DomainPackage.OPTION__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
@@ -151,6 +259,8 @@ public class OptionImpl extends EObjectImpl implements Option
   {
     switch (featureID)
     {
+      case DomainPackage.OPTION__PARENT:
+        return getParent() != null;
       case DomainPackage.OPTION__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }

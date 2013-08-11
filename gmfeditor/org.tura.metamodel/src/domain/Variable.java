@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.Variable#getName <em>Name</em>}</li>
+ *   <li>{@link domain.Variable#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,5 +48,33 @@ public interface Variable extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.Artifact#getModelQuery <em>Model Query</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(Artifact)
+   * @see domain.DomainPackage#getVariable_Parent()
+   * @see domain.Artifact#getModelQuery
+   * @model opposite="modelQuery" transient="false"
+   * @generated
+   */
+  Artifact getParent();
+
+  /**
+   * Sets the value of the '{@link domain.Variable#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(Artifact value);
 
 } // Variable

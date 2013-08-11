@@ -3,6 +3,8 @@
 package domain.impl;
 
 import domain.Artifact;
+import domain.Artifacts;
+import domain.ConfigVariable;
 import domain.DomainPackage;
 import domain.Specifier;
 import domain.Variable;
@@ -20,6 +22,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.ArtifactImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link domain.impl.ArtifactImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getConfigVariables <em>Config Variables</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getModelQuery <em>Model Query</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getSpecifiers <em>Specifiers</em>}</li>
@@ -91,7 +96,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
    * @generated
    * @ordered
    */
-  protected EList<Variable> configVariables;
+  protected EList<ConfigVariable> configVariables;
 
   /**
    * The cached value of the '{@link #getModelQuery() <em>Model Query</em>}' containment reference list.
@@ -205,11 +210,56 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Variable> getConfigVariables()
+  public Artifacts getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.ARTIFACT__PARENT) return null;
+    return (Artifacts)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(Artifacts newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.ARTIFACT__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(Artifacts newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.ARTIFACT__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.ARTIFACTS__ARTIFACTS, Artifacts.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ConfigVariable> getConfigVariables()
   {
     if (configVariables == null)
     {
-      configVariables = new EObjectContainmentEList<Variable>(Variable.class, this, DomainPackage.ARTIFACT__CONFIG_VARIABLES);
+      configVariables = new EObjectContainmentWithInverseEList<ConfigVariable>(ConfigVariable.class, this, DomainPackage.ARTIFACT__CONFIG_VARIABLES, DomainPackage.CONFIG_VARIABLE__PARENT);
     }
     return configVariables;
   }
@@ -223,7 +273,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
   {
     if (modelQuery == null)
     {
-      modelQuery = new EObjectContainmentEList<Variable>(Variable.class, this, DomainPackage.ARTIFACT__MODEL_QUERY);
+      modelQuery = new EObjectContainmentWithInverseEList<Variable>(Variable.class, this, DomainPackage.ARTIFACT__MODEL_QUERY, DomainPackage.VARIABLE__PARENT);
     }
     return modelQuery;
   }
@@ -237,7 +287,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
   {
     if (specifiers == null)
     {
-      specifiers = new EObjectContainmentEList<Specifier>(Specifier.class, this, DomainPackage.ARTIFACT__SPECIFIERS);
+      specifiers = new EObjectContainmentWithInverseEList<Specifier>(Specifier.class, this, DomainPackage.ARTIFACT__SPECIFIERS, DomainPackage.SPECIFIER__PARENT);
     }
     return specifiers;
   }
@@ -270,11 +320,38 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.ARTIFACT__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((Artifacts)otherEnd, msgs);
+      case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getConfigVariables()).basicAdd(otherEnd, msgs);
+      case DomainPackage.ARTIFACT__MODEL_QUERY:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getModelQuery()).basicAdd(otherEnd, msgs);
+      case DomainPackage.ARTIFACT__SPECIFIERS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecifiers()).basicAdd(otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case DomainPackage.ARTIFACT__PARENT:
+        return basicSetParent(null, msgs);
       case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
         return ((InternalEList<?>)getConfigVariables()).basicRemove(otherEnd, msgs);
       case DomainPackage.ARTIFACT__MODEL_QUERY:
@@ -291,6 +368,22 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
    * @generated
    */
   @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.ARTIFACT__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.ARTIFACTS__ARTIFACTS, Artifacts.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -299,6 +392,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
         return getName();
       case DomainPackage.ARTIFACT__DESCRIPTION:
         return getDescription();
+      case DomainPackage.ARTIFACT__PARENT:
+        return getParent();
       case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
         return getConfigVariables();
       case DomainPackage.ARTIFACT__MODEL_QUERY:
@@ -328,9 +423,12 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
       case DomainPackage.ARTIFACT__DESCRIPTION:
         setDescription((String)newValue);
         return;
+      case DomainPackage.ARTIFACT__PARENT:
+        setParent((Artifacts)newValue);
+        return;
       case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
         getConfigVariables().clear();
-        getConfigVariables().addAll((Collection<? extends Variable>)newValue);
+        getConfigVariables().addAll((Collection<? extends ConfigVariable>)newValue);
         return;
       case DomainPackage.ARTIFACT__MODEL_QUERY:
         getModelQuery().clear();
@@ -363,6 +461,9 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
       case DomainPackage.ARTIFACT__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case DomainPackage.ARTIFACT__PARENT:
+        setParent((Artifacts)null);
+        return;
       case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
         getConfigVariables().clear();
         return;
@@ -393,6 +494,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.ARTIFACT__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case DomainPackage.ARTIFACT__PARENT:
+        return getParent() != null;
       case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
         return configVariables != null && !configVariables.isEmpty();
       case DomainPackage.ARTIFACT__MODEL_QUERY:

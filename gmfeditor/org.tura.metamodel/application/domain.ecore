@@ -5,25 +5,31 @@
   <eClassifiers xsi:type="ecore:EClass" name="Domain">
     <eAnnotations source="gmf.diagram.domain"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainArtifacts" lowerBound="1"
-        eType="#//DomainArtifacts" containment="true"/>
+        eType="#//DomainArtifacts" containment="true" eOpposite="#//DomainArtifacts/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainTypes" lowerBound="1"
-        eType="#//DomainTypes" containment="true"/>
+        eType="#//DomainTypes" containment="true" eOpposite="#//DomainTypes/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainApplications" lowerBound="1"
-        eType="#//DomainApplications" containment="true"/>
+        eType="#//DomainApplications" containment="true" eOpposite="#//DomainApplications/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainArtifacts">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" eType="#//Artifacts"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" eType="#//Artifacts"
+        eOpposite="#//Artifacts/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Domain"
+        eOpposite="#//Domain/domainArtifacts"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainTypes">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typesrepository" eType="#//TypesRepository"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typesrepository" eType="#//TypesRepository"
+        eOpposite="#//TypesRepository/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Domain"
+        eOpposite="#//Domain/domainTypes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainApplications">
     <eAnnotations source="gmf.node">
@@ -31,21 +37,28 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="applications" upperBound="-1"
-        eType="#//DomainApplication" containment="true">
+        eType="#//DomainApplication" containment="true" eOpposite="#//DomainApplication/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Domain"
+        eOpposite="#//Domain/domainApplications"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainApplication">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="application" eType="#//Application"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="application" eType="#//Application"
+        eOpposite="#//Application/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainApplications"
+        eOpposite="#//DomainApplications/applications"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifacts">
     <eAnnotations source="gmf.diagram.artifact"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
-        eType="#//Artifact" containment="true"/>
+        eType="#//Artifact" containment="true" eOpposite="#//Artifact/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainArtifacts"
+        eOpposite="#//DomainArtifacts/artifact"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifact">
     <eAnnotations source="gmf.node">
@@ -53,54 +66,74 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Artifacts"
+        eOpposite="#//Artifacts/artifacts"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configVariables" upperBound="-1"
-        eType="#//Variable" containment="true">
+        eType="#//ConfigVariable" containment="true" eOpposite="#//ConfigVariable/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelQuery" upperBound="-1"
-        eType="#//Variable" containment="true">
+        eType="#//Variable" containment="true" eOpposite="#//Variable/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specifiers" upperBound="-1"
-        eType="#//Specifier" containment="true">
+        eType="#//Specifier" containment="true" eOpposite="#//Specifier/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="template" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigVariable">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Artifact"
+        eOpposite="#//Artifact/configVariables"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Artifact"
+        eOpposite="#//Artifact/modelQuery"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Specifier">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Artifact"
+        eOpposite="#//Artifact/specifiers"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="options" lowerBound="1"
-        upperBound="-1" eType="#//Option" containment="true"/>
+        upperBound="-1" eType="#//Option" containment="true" eOpposite="#//Option/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Option">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Specifier"
+        eOpposite="#//Specifier/options"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Application">
     <eAnnotations source="gmf.diagram"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="applicationRecipes" eType="#//ApplicationRecipes"
-        containment="true"/>
+        containment="true" eOpposite="#//ApplicationRecipes/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="applicationMappers" eType="#//ApplicationMappers"
-        containment="true"/>
+        containment="true" eOpposite="#//ApplicationMappers/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainApplication"
+        eOpposite="#//DomainApplication/application"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationRecipes">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Application"
+        eOpposite="#//Application/applicationRecipes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recipes" upperBound="-1"
-        eType="#//ApplicationRecipe" containment="true">
+        eType="#//ApplicationRecipe" containment="true" eOpposite="#//ApplicationRecipe/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
   </eClassifiers>
@@ -109,15 +142,20 @@
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recipes" eType="#//Recipes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recipes" eType="#//Recipes"
+        eOpposite="#//Recipes/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationRecipes"
+        eOpposite="#//ApplicationRecipes/recipes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationMappers">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Application"
+        eOpposite="#//Application/applicationMappers"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappers" upperBound="-1"
-        eType="#//ApplicationMapper" containment="true">
+        eType="#//ApplicationMapper" containment="true" eOpposite="#//ApplicationMapper/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
   </eClassifiers>
@@ -126,40 +164,47 @@
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" eType="#//Mappers"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" eType="#//Mappers"
+        eOpposite="#//Mappers/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationMappers"
+        eOpposite="#//ApplicationMappers/mappers"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessObjects">
     <eAnnotations source="gmf.diagram.businessObjects"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="businessObject" upperBound="-1"
-        eType="#//BusinessObject" containment="true"/>
+        eType="#//BusinessObject" containment="true" eOpposite="#//BusinessObject/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessPackage"
+        eOpposite="#//BusinessPackage/businessobjects"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessObject" eSuperTypes="#//TypePointer">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObjects"
+        eOpposite="#//BusinessObjects/businessObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="createMethods" upperBound="-1"
-        eType="#//CreateMethod" containment="true">
+        eType="#//CreateMethod" containment="true" eOpposite="#//CreateMethod/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="insertMethods" upperBound="-1"
-        eType="#//InsertMethod" containment="true">
+        eType="#//InsertMethod" containment="true" eOpposite="#//InsertMethod/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="updaeteMethods" upperBound="-1"
-        eType="#//UpdateMethod" containment="true">
+        eType="#//UpdateMethod" containment="true" eOpposite="#//UpdateMethod/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="removetMethods" upperBound="-1"
-        eType="#//RemoveMethod" containment="true">
+        eType="#//RemoveMethod" containment="true" eOpposite="#//RemoveMethod/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="searchtMethods" upperBound="-1"
-        eType="#//SearchMethod" containment="true">
+        eType="#//SearchMethod" containment="true" eOpposite="#//SearchMethod/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="othersMethods" upperBound="-1"
-        eType="#//OtherMethod" containment="true">
+        eType="#//OtherMethod" containment="true" eOpposite="#//OtherMethod/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
   </eClassifiers>
@@ -170,38 +215,55 @@
     <eAnnotations source="gmf.node">
       <details key="label" value="method"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
+        eOpposite="#//BusinessObject/createMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InsertMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
       <details key="label" value="method"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
+        eOpposite="#//BusinessObject/insertMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UpdateMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
       <details key="label" value="method"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
+        eOpposite="#//BusinessObject/updaeteMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RemoveMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
       <details key="label" value="method"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
+        eOpposite="#//BusinessObject/removetMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SearchMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
       <details key="label" value="method"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
+        eOpposite="#//BusinessObject/searchtMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OtherMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
       <details key="label" value="method"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
+        eOpposite="#//BusinessObject/othersMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mappers">
     <eAnnotations source="gmf.diagram.mapper"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappers" upperBound="-1"
-        eType="#//Mapper" containment="true"/>
+        eType="#//Mapper" containment="true" eOpposite="#//Mapper/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationMapper"
+        eOpposite="#//ApplicationMapper/mapper"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Mapper" eSuperTypes="#//TypePointer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mapper" eSuperTypes="#//TypePointer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Mappers"
+        eOpposite="#//Mappers/mappers"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaMapper" eSuperTypes="#//Mapper">
     <eAnnotations source="gmf.node">
       <details key="label" value="packageName"/>
@@ -216,14 +278,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="Recipes">
     <eAnnotations source="gmf.diagram.recipe"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" eType="#//Recipe"
-        containment="true"/>
+        containment="true" eOpposite="#//Recipe/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
         eType="#//Configuration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationRecipe"
+        eOpposite="#//ApplicationRecipe/recipes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Recipe">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Recipes"
+        eOpposite="#//Recipes/recipe"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true">
@@ -304,22 +370,27 @@
   <eClassifiers xsi:type="ecore:EClass" name="TypeDefinition">
     <eAnnotations source="gmf.diagram.typedefinition"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//TypeElement" containment="true"/>
+        eType="#//TypeElement" containment="true" eOpposite="#//TypeElement/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enums" upperBound="-1"
-        eType="#//Enumarator" containment="true"/>
+        eType="#//Enumarator" containment="true" eOpposite="#//Enumarator/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Package"
+        eOpposite="#//Package/typedefinition"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypeElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//TypeDefinition"
+        eOpposite="#//TypeDefinition/types"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//TypeElement">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
-        eType="#//Attribute" containment="true">
+        eType="#//Attribute" containment="true" eOpposite="#//Attribute/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
-        eType="#//Operation" containment="true">
+        eType="#//Operation" containment="true" eOpposite="#//Operation/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extension" eType="#//TypeExtension"
@@ -346,20 +417,32 @@
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Type"
+        eOpposite="#//Type/attributes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Type"
+        eOpposite="#//Type/operations"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Attribute" containment="true">
+        eType="#//Parameter" containment="true" eOpposite="#//Parameter/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//ReturnValue"
         containment="true">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//TypePointer">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Operation"
+        eOpposite="#//Operation/parameters"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" eSuperTypes="#//TypePointer">
     <eAnnotations source="gmf.node">
@@ -371,8 +454,10 @@
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//TypeDefinition"
+        eOpposite="#//TypeDefinition/enums"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
-        eType="#//EnumAttribute" containment="true">
+        eType="#//EnumAttribute" containment="true" eOpposite="#//EnumAttribute/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
   </eClassifiers>
@@ -380,6 +465,8 @@
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Enumarator"
+        eOpposite="#//Enumarator/values"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -390,23 +477,27 @@
   <eClassifiers xsi:type="ecore:EClass" name="TypesRepository">
     <eAnnotations source="gmf.diagram.typesrepository"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeDefinition" lowerBound="1"
-        eType="#//Types" containment="true"/>
+        eType="#//Types" containment="true" eOpposite="#//Types/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainTypes"
+        eOpposite="#//DomainTypes/typesrepository"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Types">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//TypesRepository"
+        eOpposite="#//TypesRepository/typeDefinition"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="primitives" upperBound="-1"
-        eType="#//Primitive" containment="true">
+        eType="#//Primitive" containment="true" eOpposite="#//Primitive/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
-        eType="#//Package" containment="true">
+        eType="#//Package" containment="true" eOpposite="#//Package/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="businessPackages" upperBound="-1"
-        eType="#//BusinessPackage" containment="true">
+        eType="#//BusinessPackage" containment="true" eOpposite="#//BusinessPackage/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
   </eClassifiers>
@@ -415,19 +506,27 @@
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Types"
+        eOpposite="#//Types/primitives"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typedefinition" eType="#//TypeDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typedefinition" eType="#//TypeDefinition"
+        eOpposite="#//TypeDefinition/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Types"
+        eOpposite="#//Types/packages"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessPackage">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="businessobjects" eType="#//BusinessObjects"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="businessobjects" eType="#//BusinessObjects"
+        eOpposite="#//BusinessObjects/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Types"
+        eOpposite="#//Types/businessPackages"/>
   </eClassifiers>
 </ecore:EPackage>

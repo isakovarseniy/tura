@@ -1,7 +1,0 @@
-# Tracing options for the org.tura.metamodel.recipe plug-in
-
-# Common issues
-org.tura.metamodel.recipe/debug=false
-
-# Visual IDs
-org.tura.metamodel.recipe/debug/visualID=false

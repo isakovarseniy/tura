@@ -33,62 +33,62 @@
     <domainDiagramElement
         href="domain.genmodel#//domain/Artifacts"/>
     <childNodes
-        visualID="703001"
-        editPartClassName="VariableEditPart"
-        itemSemanticEditPolicyClassName="VariableItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="VariableCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="VariableGraphicalNodeEditPolicy"
-        createCommandClassName="VariableCreateCommand"
+        visualID="703004"
+        editPartClassName="ConfigVariableEditPart"
+        itemSemanticEditPolicyClassName="ConfigVariableItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ConfigVariableCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ConfigVariableGraphicalNodeEditPolicy"
+        createCommandClassName="ConfigVariableCreateCommand"
         containers="//@diagram/@compartments.0">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="VariableEditHelper"/>
+          editHelperClassName="ConfigVariableEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="VariableFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class VariableFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureVariableLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public VariableFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureVariableLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureVariableLabelFigure.setText(&quot;Variable&quot;);&#xA;&#xA;this.add(fFigureVariableLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureVariableLabelFigure() {&#xA;&#x9;&#x9;return fFigureVariableLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="ConfigVariableFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ConfigVariableFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureConfigVariableLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ConfigVariableFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureConfigVariableLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureConfigVariableLabelFigure.setText(&quot;ConfigVariable&quot;);&#xA;&#xA;this.add(fFigureConfigVariableLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureConfigVariableLabelFigure() {&#xA;&#x9;&#x9;return fFigureConfigVariableLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="domain.genmodel#//domain/Variable"/>
+            href="domain.genmodel#//domain/ConfigVariable"/>
         <containmentMetaFeature
             href="domain.genmodel#//domain/Artifact/configVariables"/>
         <childMetaFeature
             href="domain.genmodel#//domain/Artifact/configVariables"/>
       </modelFacet>
       <labels
-          visualID="705001"
-          editPartClassName="VariableNameEditPart"
-          itemSemanticEditPolicyClassName="VariableNameItemSemanticEditPolicy"
+          visualID="705005"
+          editPartClassName="ConfigVariableNameEditPart"
+          itemSemanticEditPolicyClassName="ConfigVariableNameItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureVariableLabelFigure"
+            getterName="getFigureConfigVariableLabelFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/Variable/name"/>
+              href="domain.genmodel#//domain/ConfigVariable/name"/>
         </modelFacet>
       </labels>
     </childNodes>
     <childNodes
         visualID="703002"
-        editPartClassName="Variable2EditPart"
-        itemSemanticEditPolicyClassName="Variable2ItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="Variable2CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="Variable2GraphicalNodeEditPolicy"
-        createCommandClassName="Variable2CreateCommand"
+        editPartClassName="VariableEditPart"
+        itemSemanticEditPolicyClassName="VariableItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="VariableCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="VariableGraphicalNodeEditPolicy"
+        createCommandClassName="VariableCreateCommand"
         containers="//@diagram/@compartments.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.0/@elementType"/>
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="VariableEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="VariableFigure"
@@ -103,8 +103,8 @@
       </modelFacet>
       <labels
           visualID="705002"
-          editPartClassName="VariableName2EditPart"
-          itemSemanticEditPolicyClassName="VariableName2ItemSemanticEditPolicy"
+          editPartClassName="VariableNameEditPart"
+          itemSemanticEditPolicyClassName="VariableNameItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -377,6 +377,11 @@
             genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ConfigVariable"
+            description="Create new ConfigVariable"
+            genNodes="//@diagram/@childNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Specifier"
             description="Create new Specifier"
             genNodes="//@diagram/@childNodes.2"/>
@@ -384,7 +389,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="Variable"
             description="Create new Variable"
-            genNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1"/>
+            genNodes="//@diagram/@childNodes.1"/>
       </groups>
       <groups
           title="Connections"
@@ -433,7 +438,7 @@
     </preferencePages>
   </diagram>
   <plugin
-      iD="org.tura.metamodel.artifact"
+      iD="org.tura.metamodel.diagram.artifact"
       printingEnabled="true">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>

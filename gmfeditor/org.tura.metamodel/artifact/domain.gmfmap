@@ -31,6 +31,27 @@
             href="domain.ecore#//Artifact/configVariables"/>
         <ownedChild>
           <domainMetaElement
+              href="domain.ecore#//ConfigVariable"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#ConfigVariableLabel"/>
+            <features
+                href="domain.ecore#//ConfigVariable/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+          <diagramNode
+              href="domain.gmfgraph#ConfigVariable"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.1">
+        <containmentFeature
+            href="domain.ecore#//Artifact/modelQuery"/>
+        <ownedChild>
+          <domainMetaElement
               href="domain.ecore#//Variable"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
@@ -41,16 +62,10 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="domain.gmfgraph#Variable"/>
         </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.1"
-          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
-        <containmentFeature
-            href="domain.ecore#//Artifact/modelQuery"/>
       </children>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.2">
@@ -68,7 +83,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="domain.gmfgraph#Specifier"/>
         </ownedChild>

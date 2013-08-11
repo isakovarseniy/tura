@@ -249,6 +249,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.ConfigVariable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ConfigVariableItemProvider configVariableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ConfigVariable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createConfigVariableAdapter()
+  {
+    if (configVariableItemProvider == null)
+    {
+      configVariableItemProvider = new ConfigVariableItemProvider(this);
+    }
+
+    return configVariableItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Variable} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1149,6 +1174,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.Parameter} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ParameterItemProvider parameterItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Parameter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createParameterAdapter()
+  {
+    if (parameterItemProvider == null)
+    {
+      parameterItemProvider = new ParameterItemProvider(this);
+    }
+
+    return parameterItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.ReturnValue} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1491,6 +1541,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (domainApplicationItemProvider != null) domainApplicationItemProvider.dispose();
     if (artifactsItemProvider != null) artifactsItemProvider.dispose();
     if (artifactItemProvider != null) artifactItemProvider.dispose();
+    if (configVariableItemProvider != null) configVariableItemProvider.dispose();
     if (variableItemProvider != null) variableItemProvider.dispose();
     if (specifierItemProvider != null) specifierItemProvider.dispose();
     if (optionItemProvider != null) optionItemProvider.dispose();
@@ -1527,6 +1578,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (typeExtensionItemProvider != null) typeExtensionItemProvider.dispose();
     if (attributeItemProvider != null) attributeItemProvider.dispose();
     if (operationItemProvider != null) operationItemProvider.dispose();
+    if (parameterItemProvider != null) parameterItemProvider.dispose();
     if (returnValueItemProvider != null) returnValueItemProvider.dispose();
     if (enumaratorItemProvider != null) enumaratorItemProvider.dispose();
     if (enumAttributeItemProvider != null) enumAttributeItemProvider.dispose();

@@ -1,7 +1,0 @@
-# Tracing options for the org.tura.metamodel.domain plug-in
-
-# Common issues
-org.tura.metamodel.domain/debug=false
-
-# Visual IDs
-org.tura.metamodel.domain/debug/visualID=false

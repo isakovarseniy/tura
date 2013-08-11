@@ -4,7 +4,7 @@ genEditorGenerator.setDynamicTemplates(true);
 genEditorGenerator.setTemplateDirectory('/org.tura.metamodel/templates/');
 
 var plugin = GmfGen!GenPlugin.all.first;
-plugin.id = 'org.tura.metamodel.application';
+plugin.id = 'org.tura.metamodel.diagram.application';
 
 //Enable diagram partition for ApplicationRecipe element
 var genTopLevelNode = GmfGen!GenChildNode.all.select(n|n.createCommandClassName = 'ApplicationRecipeCreateCommand').first;

@@ -237,7 +237,7 @@
     </preferencePages>
   </diagram>
   <plugin
-      iD="org.tura.metamodel.mapper"
+      iD="org.tura.metamodel.diagram.mapper"
       printingEnabled="true">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>

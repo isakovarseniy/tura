@@ -3,6 +3,7 @@
 package domain.impl;
 
 import domain.BusinessObject;
+import domain.BusinessObjects;
 import domain.CreateMethod;
 import domain.DomainPackage;
 import domain.InsertMethod;
@@ -23,6 +24,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -34,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.BusinessObjectImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.BusinessObjectImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.BusinessObjectImpl#getCreateMethods <em>Create Methods</em>}</li>
  *   <li>{@link domain.impl.BusinessObjectImpl#getInsertMethods <em>Insert Methods</em>}</li>
  *   <li>{@link domain.impl.BusinessObjectImpl#getUpdaeteMethods <em>Updaete Methods</em>}</li>
@@ -176,11 +180,56 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * <!-- end-user-doc -->
    * @generated
    */
+  public BusinessObjects getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.BUSINESS_OBJECT__PARENT) return null;
+    return (BusinessObjects)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(BusinessObjects newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.BUSINESS_OBJECT__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(BusinessObjects newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.BUSINESS_OBJECT__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.BUSINESS_OBJECTS__BUSINESS_OBJECT, BusinessObjects.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.BUSINESS_OBJECT__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<CreateMethod> getCreateMethods()
   {
     if (createMethods == null)
     {
-      createMethods = new EObjectContainmentEList<CreateMethod>(CreateMethod.class, this, DomainPackage.BUSINESS_OBJECT__CREATE_METHODS);
+      createMethods = new EObjectContainmentWithInverseEList<CreateMethod>(CreateMethod.class, this, DomainPackage.BUSINESS_OBJECT__CREATE_METHODS, DomainPackage.CREATE_METHOD__PARENT);
     }
     return createMethods;
   }
@@ -194,7 +243,7 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
   {
     if (insertMethods == null)
     {
-      insertMethods = new EObjectContainmentEList<InsertMethod>(InsertMethod.class, this, DomainPackage.BUSINESS_OBJECT__INSERT_METHODS);
+      insertMethods = new EObjectContainmentWithInverseEList<InsertMethod>(InsertMethod.class, this, DomainPackage.BUSINESS_OBJECT__INSERT_METHODS, DomainPackage.INSERT_METHOD__PARENT);
     }
     return insertMethods;
   }
@@ -208,7 +257,7 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
   {
     if (updaeteMethods == null)
     {
-      updaeteMethods = new EObjectContainmentEList<UpdateMethod>(UpdateMethod.class, this, DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS);
+      updaeteMethods = new EObjectContainmentWithInverseEList<UpdateMethod>(UpdateMethod.class, this, DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS, DomainPackage.UPDATE_METHOD__PARENT);
     }
     return updaeteMethods;
   }
@@ -222,7 +271,7 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
   {
     if (removetMethods == null)
     {
-      removetMethods = new EObjectContainmentEList<RemoveMethod>(RemoveMethod.class, this, DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS);
+      removetMethods = new EObjectContainmentWithInverseEList<RemoveMethod>(RemoveMethod.class, this, DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS, DomainPackage.REMOVE_METHOD__PARENT);
     }
     return removetMethods;
   }
@@ -236,7 +285,7 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
   {
     if (searchtMethods == null)
     {
-      searchtMethods = new EObjectContainmentEList<SearchMethod>(SearchMethod.class, this, DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS);
+      searchtMethods = new EObjectContainmentWithInverseEList<SearchMethod>(SearchMethod.class, this, DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS, DomainPackage.SEARCH_METHOD__PARENT);
     }
     return searchtMethods;
   }
@@ -250,9 +299,40 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
   {
     if (othersMethods == null)
     {
-      othersMethods = new EObjectContainmentEList<OtherMethod>(OtherMethod.class, this, DomainPackage.BUSINESS_OBJECT__OTHERS_METHODS);
+      othersMethods = new EObjectContainmentWithInverseEList<OtherMethod>(OtherMethod.class, this, DomainPackage.BUSINESS_OBJECT__OTHERS_METHODS, DomainPackage.OTHER_METHOD__PARENT);
     }
     return othersMethods;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.BUSINESS_OBJECT__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((BusinessObjects)otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__CREATE_METHODS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getCreateMethods()).basicAdd(otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__INSERT_METHODS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getInsertMethods()).basicAdd(otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__UPDAETE_METHODS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getUpdaeteMethods()).basicAdd(otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__REMOVET_METHODS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getRemovetMethods()).basicAdd(otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__SEARCHT_METHODS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getSearchtMethods()).basicAdd(otherEnd, msgs);
+      case DomainPackage.BUSINESS_OBJECT__OTHERS_METHODS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getOthersMethods()).basicAdd(otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**
@@ -265,6 +345,8 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
   {
     switch (featureID)
     {
+      case DomainPackage.BUSINESS_OBJECT__PARENT:
+        return basicSetParent(null, msgs);
       case DomainPackage.BUSINESS_OBJECT__CREATE_METHODS:
         return ((InternalEList<?>)getCreateMethods()).basicRemove(otherEnd, msgs);
       case DomainPackage.BUSINESS_OBJECT__INSERT_METHODS:
@@ -287,12 +369,30 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
    * @generated
    */
   @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.BUSINESS_OBJECT__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.BUSINESS_OBJECTS__BUSINESS_OBJECT, BusinessObjects.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case DomainPackage.BUSINESS_OBJECT__NAME:
         return getName();
+      case DomainPackage.BUSINESS_OBJECT__PARENT:
+        return getParent();
       case DomainPackage.BUSINESS_OBJECT__CREATE_METHODS:
         return getCreateMethods();
       case DomainPackage.BUSINESS_OBJECT__INSERT_METHODS:
@@ -322,6 +422,9 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
     {
       case DomainPackage.BUSINESS_OBJECT__NAME:
         setName((String)newValue);
+        return;
+      case DomainPackage.BUSINESS_OBJECT__PARENT:
+        setParent((BusinessObjects)newValue);
         return;
       case DomainPackage.BUSINESS_OBJECT__CREATE_METHODS:
         getCreateMethods().clear();
@@ -364,6 +467,9 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
       case DomainPackage.BUSINESS_OBJECT__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DomainPackage.BUSINESS_OBJECT__PARENT:
+        setParent((BusinessObjects)null);
+        return;
       case DomainPackage.BUSINESS_OBJECT__CREATE_METHODS:
         getCreateMethods().clear();
         return;
@@ -398,6 +504,8 @@ public class BusinessObjectImpl extends TypePointerImpl implements BusinessObjec
     {
       case DomainPackage.BUSINESS_OBJECT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.BUSINESS_OBJECT__PARENT:
+        return getParent() != null;
       case DomainPackage.BUSINESS_OBJECT__CREATE_METHODS:
         return createMethods != null && !createMethods.isEmpty();
       case DomainPackage.BUSINESS_OBJECT__INSERT_METHODS:

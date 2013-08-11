@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.BusinessPackage#getName <em>Name</em>}</li>
  *   <li>{@link domain.BusinessPackage#getBusinessobjects <em>Businessobjects</em>}</li>
+ *   <li>{@link domain.BusinessPackage#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +52,7 @@ public interface BusinessPackage extends EObject
 
   /**
    * Returns the value of the '<em><b>Businessobjects</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.BusinessObjects#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Businessobjects</em>' reference isn't clear,
@@ -60,7 +62,8 @@ public interface BusinessPackage extends EObject
    * @return the value of the '<em>Businessobjects</em>' reference.
    * @see #setBusinessobjects(BusinessObjects)
    * @see domain.DomainPackage#getBusinessPackage_Businessobjects()
-   * @model
+   * @see domain.BusinessObjects#getParent
+   * @model opposite="parent"
    * @generated
    */
   BusinessObjects getBusinessobjects();
@@ -74,5 +77,33 @@ public interface BusinessPackage extends EObject
    * @generated
    */
   void setBusinessobjects(BusinessObjects value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.Types#getBusinessPackages <em>Business Packages</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(Types)
+   * @see domain.DomainPackage#getBusinessPackage_Parent()
+   * @see domain.Types#getBusinessPackages
+   * @model opposite="businessPackages" transient="false"
+   * @generated
+   */
+  Types getParent();
+
+  /**
+   * Sets the value of the '{@link domain.BusinessPackage#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(Types value);
 
 } // BusinessPackage

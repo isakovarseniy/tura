@@ -414,7 +414,7 @@
     </preferencePages>
   </diagram>
   <plugin
-      iD="org.tura.metamodel.domain"
+      iD="org.tura.metamodel.diagram.domain"
       printingEnabled="true">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>

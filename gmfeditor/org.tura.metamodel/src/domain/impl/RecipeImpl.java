@@ -7,6 +7,7 @@ import domain.Configuration;
 import domain.DomainPackage;
 import domain.Recipe;
 
+import domain.Recipes;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.RecipeImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getRecipeConfig <em>Recipe Config</em>}</li>
@@ -99,6 +102,51 @@ public class RecipeImpl extends EObjectImpl implements Recipe
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.RECIPE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Recipes getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.RECIPE__PARENT) return null;
+    return (Recipes)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(Recipes newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.RECIPE__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(Recipes newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.RECIPE__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.RECIPES__RECIPE, Recipes.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPE__PARENT, newParent, newParent));
   }
 
   /**
@@ -187,10 +235,30 @@ public class RecipeImpl extends EObjectImpl implements Recipe
    * @generated
    */
   @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.RECIPE__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((Recipes)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case DomainPackage.RECIPE__PARENT:
+        return basicSetParent(null, msgs);
       case DomainPackage.RECIPE__COMPONENTS:
         return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
     }
@@ -203,10 +271,28 @@ public class RecipeImpl extends EObjectImpl implements Recipe
    * @generated
    */
   @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.RECIPE__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.RECIPES__RECIPE, Recipes.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case DomainPackage.RECIPE__PARENT:
+        return getParent();
       case DomainPackage.RECIPE__NAME:
         return getName();
       case DomainPackage.RECIPE__COMPONENTS:
@@ -229,6 +315,9 @@ public class RecipeImpl extends EObjectImpl implements Recipe
   {
     switch (featureID)
     {
+      case DomainPackage.RECIPE__PARENT:
+        setParent((Recipes)newValue);
+        return;
       case DomainPackage.RECIPE__NAME:
         setName((String)newValue);
         return;
@@ -253,6 +342,9 @@ public class RecipeImpl extends EObjectImpl implements Recipe
   {
     switch (featureID)
     {
+      case DomainPackage.RECIPE__PARENT:
+        setParent((Recipes)null);
+        return;
       case DomainPackage.RECIPE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -276,6 +368,8 @@ public class RecipeImpl extends EObjectImpl implements Recipe
   {
     switch (featureID)
     {
+      case DomainPackage.RECIPE__PARENT:
+        return getParent() != null;
       case DomainPackage.RECIPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.RECIPE__COMPONENTS:

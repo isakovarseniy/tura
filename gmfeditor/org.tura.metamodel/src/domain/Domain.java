@@ -26,6 +26,7 @@ public interface Domain extends EObject
 {
   /**
    * Returns the value of the '<em><b>Domain Artifacts</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link domain.DomainArtifacts#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Domain Artifacts</em>' containment reference isn't clear,
@@ -35,7 +36,8 @@ public interface Domain extends EObject
    * @return the value of the '<em>Domain Artifacts</em>' containment reference.
    * @see #setDomainArtifacts(DomainArtifacts)
    * @see domain.DomainPackage#getDomain_DomainArtifacts()
-   * @model containment="true" required="true"
+   * @see domain.DomainArtifacts#getParent
+   * @model opposite="parent" containment="true" required="true"
    * @generated
    */
   DomainArtifacts getDomainArtifacts();
@@ -52,6 +54,7 @@ public interface Domain extends EObject
 
   /**
    * Returns the value of the '<em><b>Domain Types</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link domain.DomainTypes#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Domain Types</em>' containment reference isn't clear,
@@ -61,7 +64,8 @@ public interface Domain extends EObject
    * @return the value of the '<em>Domain Types</em>' containment reference.
    * @see #setDomainTypes(DomainTypes)
    * @see domain.DomainPackage#getDomain_DomainTypes()
-   * @model containment="true" required="true"
+   * @see domain.DomainTypes#getParent
+   * @model opposite="parent" containment="true" required="true"
    * @generated
    */
   DomainTypes getDomainTypes();
@@ -78,6 +82,7 @@ public interface Domain extends EObject
 
   /**
    * Returns the value of the '<em><b>Domain Applications</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link domain.DomainApplications#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Domain Applications</em>' containment reference isn't clear,
@@ -87,7 +92,8 @@ public interface Domain extends EObject
    * @return the value of the '<em>Domain Applications</em>' containment reference.
    * @see #setDomainApplications(DomainApplications)
    * @see domain.DomainPackage#getDomain_DomainApplications()
-   * @model containment="true" required="true"
+   * @see domain.DomainApplications#getParent
+   * @model opposite="parent" containment="true" required="true"
    * @generated
    */
   DomainApplications getDomainApplications();

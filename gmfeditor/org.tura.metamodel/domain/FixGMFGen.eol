@@ -4,7 +4,7 @@ genEditorGenerator.setDynamicTemplates(true);
 genEditorGenerator.setTemplateDirectory('/org.tura.metamodel/templates/');
 
 var plugin = GmfGen!GenPlugin.all.first;
-plugin.id = 'org.tura.metamodel.domain';
+plugin.id = 'org.tura.metamodel.diagram.domain';
 
 //Enable diagram partition for DomainArtifacts element
 var genTopLevelNode = GmfGen!GenTopLevelNode.all.select(n|n.createCommandClassName = 'DomainArtifactsCreateCommand').first;
