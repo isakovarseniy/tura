@@ -385,6 +385,10 @@
             title="ApplicationRecipes"
             description="Create new ApplicationRecipes"
             genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="DomainArtifact"
+            description="Create new DomainArtifact"/>
       </groups>
       <groups
           title="Connections"

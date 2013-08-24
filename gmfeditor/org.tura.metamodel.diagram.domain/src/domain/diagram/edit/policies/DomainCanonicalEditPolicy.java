@@ -37,9 +37,13 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import domain.DomainPackage;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
 import domain.diagram.edit.parts.DomainApplicationsEditPart;
+import domain.diagram.edit.parts.DomainArtifactEditPart;
 import domain.diagram.edit.parts.DomainArtifactsEditPart;
 import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.edit.parts.DomainTypesEditPart;
+import domain.diagram.edit.parts.EJBServiceEditPart;
+import domain.diagram.edit.parts.JPAServiceEditPart;
+import domain.diagram.edit.parts.ORMEntityEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
 import domain.diagram.part.DomainDiagramUpdater;
 import domain.diagram.part.DomainLinkDescriptor;
@@ -307,6 +311,38 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getDomainApplications_502003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ORMEntityEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getORMEntity_503003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case JPAServiceEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getJPAService_503004ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case EJBServiceEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getEJBService_503005ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case DomainArtifactEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getDomainArtifact_503002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

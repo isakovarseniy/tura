@@ -40,7 +40,7 @@
 
 		«EXPAND xpt::Common::generatedMemberComment»
 		protected org.eclipse.gmf.runtime.notation.Diagram intializeNewDiagram() throws org.eclipse.core.commands.ExecutionException {
-        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'   or editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'  or editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy' or editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
+        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'   or editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'  or editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy' or editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'  or editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'  or editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy' or editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
  			«EXPAND sourceObject» sourceObject = («EXPAND sourceObject») ((org.eclipse.gmf.runtime.notation.impl.ShapeImpl) (diagramFacet
 					.eContainer())).basicGetElement();
 			if (sourceObject.getName() == null) {
@@ -186,8 +186,14 @@
            domain.BusinessPackage
            «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-» 
            domain.Package
-           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'-» 
-           domain.DomainArtifacts
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'-» 
+           domain.DomainArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'-» 
+           domain.DomainArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy'-» 
+           domain.DomainArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-» 
+           domain.DomainArtifact
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-» 
            domain.DomainTypes
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-» 
@@ -206,7 +212,13 @@
            setBusinessobjects
            «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
            setTypedefinition
-           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'-»
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'-»
+           setArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'-»
+           setArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy'-»
+           setArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
            setArtifact
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
            setTypesrepository
@@ -226,7 +238,13 @@
            domain.BusinessObjects
            «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
            domain.TypeDefinition
-           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'-»
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'-»
+           domain.Artifacts
+           «ELSEIF editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'-»
+           domain.Artifacts
+           «ELSEIF editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy'-»
+           domain.Artifacts
+           «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
            domain.Artifacts
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
            domain.TypesRepository
@@ -246,8 +264,14 @@
             domain.DomainFactory.eINSTANCE.createBusinessObjects()
            «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
            domain.DomainFactory.eINSTANCE.createTypeDefinition()
-           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'-»
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'-»
            domain.DomainFactory.eINSTANCE.createArtifacts()
+           «ELSEIF editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'-»
+          org.tura.metamodel.commons.initdiagram.InitDiagram.initORMEntityDiagram()
+            «ELSEIF editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy'-»
+          org.tura.metamodel.commons.initdiagram.InitDiagram.initJPAServiceDiagram()
+            «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
+          org.tura.metamodel.commons.initdiagram.InitDiagram.initEJBServiceDiagram()
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
            org.tura.metamodel.commons.initdiagram.InitDiagram.initTypesRepositoryDiagram()
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»
@@ -266,7 +290,13 @@
            "businessobjects"
            «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
            "typedefinition"
-           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactsEditPolicy'-»
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'-»
+           "artifact"
+           «ELSEIF editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'-»
+           "artifact"
+           «ELSEIF editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy'-»
+           "artifact"
+           «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
            "artifact"
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
            "typesrepository"

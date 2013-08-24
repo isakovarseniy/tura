@@ -3,11 +3,13 @@
  */
 package domain.diagram.edit.parts;
 
-import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.gef.EditPart;
@@ -28,7 +30,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import domain.diagram.edit.policies.DomainArtifactsItemSemanticEditPolicy;
-import domain.diagram.edit.policies.OpenDiagramDomainArtifactsEditPolicy;
+import domain.diagram.edit.policies.OpenDiagramEditPolicy;
 import domain.diagram.part.DomainVisualIDRegistry;
 
 /**
@@ -67,7 +69,7 @@ public class DomainArtifactsEditPart extends ShapeNodeEditPart {
 				new DomainArtifactsItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenDiagramDomainArtifactsEditPolicy());
+				new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -122,6 +124,14 @@ public class DomainArtifactsEditPart extends ShapeNodeEditPart {
 							.getFigureDomainArtifactsLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDomainArtifactsDomainArtifactCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -130,6 +140,13 @@ public class DomainArtifactsEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DomainArtifactsNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDomainArtifactsDomainArtifactCompartmentFigure();
+			pane.remove(((DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -159,6 +176,10 @@ public class DomainArtifactsEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart) {
+			return getPrimaryShape()
+					.getDomainArtifactsDomainArtifactCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -269,30 +290,67 @@ public class DomainArtifactsEditPart extends ShapeNodeEditPart {
 		}
 	}
 
+	/**
+	 * @generated
+	 */
 	public class DomainArtifactsFigure extends RoundedRectangle {
-		private WrappingLabel fFigureDomainArtifactsLabelFigure;
 
+		/**
+		 * @generated
+		 */
+		private WrappingLabel fFigureDomainArtifactsLabelFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fDomainArtifactsDomainArtifactCompartmentFigure;
+
+		/**
+		 * @generated
+		 */
 		public DomainArtifactsFigure() {
-			FlowLayout layoutThis = new FlowLayout();
-			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorSpacing(5);
-			layoutThis.setMinorSpacing(5);
-			layoutThis.setHorizontal(true);
-			this.setLayoutManager(layoutThis);
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
+					getMapMode().DPtoLP(8)));
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			createContents();
 		}
 
+		/**
+		 * @generated
+		 */
 		private void createContents() {
+
 			fFigureDomainArtifactsLabelFigure = new WrappingLabel();
-			fFigureDomainArtifactsLabelFigure.setText("Package");
+
+			fFigureDomainArtifactsLabelFigure.setText("DomainArtifacts");
+			fFigureDomainArtifactsLabelFigure.setMaximumSize(new Dimension(
+					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
+
 			this.add(fFigureDomainArtifactsLabelFigure);
+
+			fDomainArtifactsDomainArtifactCompartmentFigure = new RectangleFigure();
+
+			fDomainArtifactsDomainArtifactCompartmentFigure.setOutline(false);
+
+			this.add(fDomainArtifactsDomainArtifactCompartmentFigure);
+
 		}
 
+		/**
+		 * @generated
+		 */
 		public WrappingLabel getFigureDomainArtifactsLabelFigure() {
 			return fFigureDomainArtifactsLabelFigure;
 		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getDomainArtifactsDomainArtifactCompartmentFigure() {
+			return fDomainArtifactsDomainArtifactCompartmentFigure;
+		}
+
 	}
 
 }

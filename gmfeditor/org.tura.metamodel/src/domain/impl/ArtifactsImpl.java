@@ -4,6 +4,7 @@ package domain.impl;
 
 import domain.Artifact;
 import domain.Artifacts;
+import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainPackage;
 
@@ -58,7 +59,7 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
    * @generated
    * @ordered
    */
-  protected DomainArtifacts parent;
+  protected DomainArtifact parent;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +101,12 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
    * <!-- end-user-doc -->
    * @generated
    */
-  public DomainArtifacts getParent()
+  public DomainArtifact getParent()
   {
     if (parent != null && parent.eIsProxy())
     {
       InternalEObject oldParent = (InternalEObject)parent;
-      parent = (DomainArtifacts)eResolveProxy(oldParent);
+      parent = (DomainArtifact)eResolveProxy(oldParent);
       if (parent != oldParent)
       {
         if (eNotificationRequired())
@@ -120,7 +121,7 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
    * <!-- end-user-doc -->
    * @generated
    */
-  public DomainArtifacts basicGetParent()
+  public DomainArtifact basicGetParent()
   {
     return parent;
   }
@@ -130,9 +131,9 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetParent(DomainArtifacts newParent, NotificationChain msgs)
+  public NotificationChain basicSetParent(DomainArtifact newParent, NotificationChain msgs)
   {
-    DomainArtifacts oldParent = parent;
+    DomainArtifact oldParent = parent;
     parent = newParent;
     if (eNotificationRequired())
     {
@@ -147,15 +148,15 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setParent(DomainArtifacts newParent)
+  public void setParent(DomainArtifact newParent)
   {
     if (newParent != parent)
     {
       NotificationChain msgs = null;
       if (parent != null)
-        msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.DOMAIN_ARTIFACTS__ARTIFACT, DomainArtifacts.class, msgs);
+        msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, DomainArtifact.class, msgs);
       if (newParent != null)
-        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.DOMAIN_ARTIFACTS__ARTIFACT, DomainArtifacts.class, msgs);
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, DomainArtifact.class, msgs);
       msgs = basicSetParent(newParent, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -178,8 +179,8 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getArtifacts()).basicAdd(otherEnd, msgs);
       case DomainPackage.ARTIFACTS__PARENT:
         if (parent != null)
-          msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.DOMAIN_ARTIFACTS__ARTIFACT, DomainArtifacts.class, msgs);
-        return basicSetParent((DomainArtifacts)otherEnd, msgs);
+          msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, DomainArtifact.class, msgs);
+        return basicSetParent((DomainArtifact)otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
   }
@@ -237,7 +238,7 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
         getArtifacts().addAll((Collection<? extends Artifact>)newValue);
         return;
       case DomainPackage.ARTIFACTS__PARENT:
-        setParent((DomainArtifacts)newValue);
+        setParent((DomainArtifact)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -257,7 +258,7 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
         getArtifacts().clear();
         return;
       case DomainPackage.ARTIFACTS__PARENT:
-        setParent((DomainArtifacts)null);
+        setParent((DomainArtifact)null);
         return;
     }
     super.eUnset(featureID);

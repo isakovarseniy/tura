@@ -9,7 +9,8 @@
   <nodes>
     <containmentFeature
         href="domain.ecore#//Domain/domainArtifacts"/>
-    <ownedChild>
+    <ownedChild
+        relatedDiagrams="//@diagram">
       <domainMetaElement
           href="domain.ecore#//DomainArtifacts"/>
       <labelMappings
@@ -21,9 +22,98 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="domain.gmfgraph#DomainArtifacts"/>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//DomainArtifacts/domainArtifact"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//ORMEntity"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#ORMEntityLabel"/>
+            <features
+                href="domain.ecore#//DomainArtifact/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+          <diagramNode
+              href="domain.gmfgraph#ORMEntity"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//DomainArtifacts/domainArtifact"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//JPAService"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#JPAServiceLabel"/>
+            <features
+                href="domain.ecore#//DomainArtifact/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+          <diagramNode
+              href="domain.gmfgraph#JPAService"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//DomainArtifacts/domainArtifact"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//EJBService"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#EJBServiceLabel"/>
+            <features
+                href="domain.ecore#//DomainArtifact/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+          <diagramNode
+              href="domain.gmfgraph#EJBService"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//DomainArtifacts/domainArtifact"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//DomainArtifact"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#DomainArtifactLabel"/>
+            <features
+                href="domain.ecore#//DomainArtifact/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+          <diagramNode
+              href="domain.gmfgraph#DomainArtifact"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.3">
+        <compartment
+            href="domain.gmfgraph#DomainArtifactsDomainArtifactCompartment"/>
+      </compartments>
     </ownedChild>
   </nodes>
   <nodes>
@@ -41,7 +131,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
           href="domain.gmfgraph#DomainTypes"/>
     </ownedChild>

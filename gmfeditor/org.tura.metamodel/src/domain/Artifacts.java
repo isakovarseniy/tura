@@ -45,7 +45,7 @@ public interface Artifacts extends EObject
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' reference.
-   * It is bidirectional and its opposite is '{@link domain.DomainArtifacts#getArtifact <em>Artifact</em>}'.
+   * It is bidirectional and its opposite is '{@link domain.DomainArtifact#getArtifact <em>Artifact</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Parent</em>' reference isn't clear,
@@ -53,13 +53,13 @@ public interface Artifacts extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parent</em>' reference.
-   * @see #setParent(DomainArtifacts)
+   * @see #setParent(DomainArtifact)
    * @see domain.DomainPackage#getArtifacts_Parent()
-   * @see domain.DomainArtifacts#getArtifact
+   * @see domain.DomainArtifact#getArtifact
    * @model opposite="artifact"
    * @generated
    */
-  DomainArtifacts getParent();
+  DomainArtifact getParent();
 
   /**
    * Sets the value of the '{@link domain.Artifacts#getParent <em>Parent</em>}' reference.
@@ -69,6 +69,6 @@ public interface Artifacts extends EObject
    * @see #getParent()
    * @generated
    */
-  void setParent(DomainArtifacts value);
+  void setParent(DomainArtifact value);
 
 } // Artifacts

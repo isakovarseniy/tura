@@ -23,9 +23,13 @@ import domain.DomainPackage;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
 import domain.diagram.edit.parts.DomainApplicationsEditPart;
+import domain.diagram.edit.parts.DomainArtifactEditPart;
 import domain.diagram.edit.parts.DomainArtifactsEditPart;
 import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.edit.parts.DomainTypesEditPart;
+import domain.diagram.edit.parts.EJBServiceEditPart;
+import domain.diagram.edit.parts.JPAServiceEditPart;
+import domain.diagram.edit.parts.ORMEntityEditPart;
 import domain.diagram.edit.parts.RecipeRecipeConfigEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
 import domain.diagram.part.DomainDiagramEditorPlugin;
@@ -72,6 +76,25 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType DomainApplications_502003 = getElementType("org.tura.metamodel.diagram.domain.DomainApplications_502003"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType ORMEntity_503003 = getElementType("org.tura.metamodel.diagram.domain.ORMEntity_503003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType JPAService_503004 = getElementType("org.tura.metamodel.diagram.domain.JPAService_503004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EJBService_503005 = getElementType("org.tura.metamodel.diagram.domain.EJBService_503005"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DomainArtifact_503002 = getElementType("org.tura.metamodel.diagram.domain.DomainArtifact_503002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -211,6 +234,18 @@ public class DomainElementTypes {
 			elements.put(DomainApplications_502003,
 					DomainPackage.eINSTANCE.getDomainApplications());
 
+			elements.put(ORMEntity_503003,
+					DomainPackage.eINSTANCE.getORMEntity());
+
+			elements.put(JPAService_503004,
+					DomainPackage.eINSTANCE.getJPAService());
+
+			elements.put(EJBService_503005,
+					DomainPackage.eINSTANCE.getEJBService());
+
+			elements.put(DomainArtifact_503002,
+					DomainPackage.eINSTANCE.getDomainArtifact());
+
 			elements.put(DomainApplication_503001,
 					DomainPackage.eINSTANCE.getDomainApplication());
 
@@ -243,6 +278,10 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(DomainArtifacts_502001);
 			KNOWN_ELEMENT_TYPES.add(DomainTypes_502002);
 			KNOWN_ELEMENT_TYPES.add(DomainApplications_502003);
+			KNOWN_ELEMENT_TYPES.add(ORMEntity_503003);
+			KNOWN_ELEMENT_TYPES.add(JPAService_503004);
+			KNOWN_ELEMENT_TYPES.add(EJBService_503005);
+			KNOWN_ELEMENT_TYPES.add(DomainArtifact_503002);
 			KNOWN_ELEMENT_TYPES.add(DomainApplication_503001);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_504001);
 			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_504002);
@@ -264,6 +303,14 @@ public class DomainElementTypes {
 			return DomainTypes_502002;
 		case DomainApplicationsEditPart.VISUAL_ID:
 			return DomainApplications_502003;
+		case ORMEntityEditPart.VISUAL_ID:
+			return ORMEntity_503003;
+		case JPAServiceEditPart.VISUAL_ID:
+			return JPAService_503004;
+		case EJBServiceEditPart.VISUAL_ID:
+			return EJBService_503005;
+		case DomainArtifactEditPart.VISUAL_ID:
+			return DomainArtifact_503002;
 		case DomainApplicationEditPart.VISUAL_ID:
 			return DomainApplication_503001;
 		case TypeExtensionEditPart.VISUAL_ID:

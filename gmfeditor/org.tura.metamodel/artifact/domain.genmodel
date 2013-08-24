@@ -12,8 +12,8 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainArtifacts">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifacts/artifact"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifacts/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifacts/domainArtifact"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainTypes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainTypes/name"/>
@@ -29,6 +29,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainApplication/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//DomainApplication/application"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//DomainApplication/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//DomainArtifact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifact/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifact/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifact/artifact"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Artifacts">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Artifacts/artifacts"/>

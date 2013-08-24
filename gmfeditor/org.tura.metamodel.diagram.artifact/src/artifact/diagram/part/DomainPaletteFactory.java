@@ -40,8 +40,9 @@ public class DomainPaletteFactory {
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createArtifact1CreationTool());
 		paletteContainer.add(createConfigVariable2CreationTool());
-		paletteContainer.add(createSpecifier3CreationTool());
-		paletteContainer.add(createVariable4CreationTool());
+		paletteContainer.add(createDomainArtifact3CreationTool());
+		paletteContainer.add(createSpecifier4CreationTool());
+		paletteContainer.add(createVariable5CreationTool());
 		return paletteContainer;
 	}
 
@@ -93,12 +94,24 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSpecifier3CreationTool() {
+	private ToolEntry createDomainArtifact3CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.DomainArtifact3CreationTool_title,
+				Messages.DomainArtifact3CreationTool_desc, null, null) {
+		};
+		entry.setId("createDomainArtifact3CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createSpecifier4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Specifier3CreationTool_title,
-				Messages.Specifier3CreationTool_desc,
+				Messages.Specifier4CreationTool_title,
+				Messages.Specifier4CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Specifier_703003));
-		entry.setId("createSpecifier3CreationTool"); //$NON-NLS-1$
+		entry.setId("createSpecifier4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Specifier_703003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -108,12 +121,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createVariable4CreationTool() {
+	private ToolEntry createVariable5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Variable4CreationTool_title,
-				Messages.Variable4CreationTool_desc,
+				Messages.Variable5CreationTool_title,
+				Messages.Variable5CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Variable_703002));
-		entry.setId("createVariable4CreationTool"); //$NON-NLS-1$
+		entry.setId("createVariable5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Variable_703002));
 		entry.setLargeIcon(entry.getSmallIcon());

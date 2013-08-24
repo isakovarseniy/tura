@@ -18,11 +18,20 @@ import domain.diagram.edit.parts.DomainApplicationNameEditPart;
 import domain.diagram.edit.parts.DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart;
 import domain.diagram.edit.parts.DomainApplicationsEditPart;
 import domain.diagram.edit.parts.DomainApplicationsNameEditPart;
+import domain.diagram.edit.parts.DomainArtifactEditPart;
+import domain.diagram.edit.parts.DomainArtifactNameEditPart;
+import domain.diagram.edit.parts.DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart;
 import domain.diagram.edit.parts.DomainArtifactsEditPart;
 import domain.diagram.edit.parts.DomainArtifactsNameEditPart;
 import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.DomainTypesNameEditPart;
+import domain.diagram.edit.parts.EJBServiceEditPart;
+import domain.diagram.edit.parts.EJBServiceNameEditPart;
+import domain.diagram.edit.parts.JPAServiceEditPart;
+import domain.diagram.edit.parts.JPAServiceNameEditPart;
+import domain.diagram.edit.parts.ORMEntityEditPart;
+import domain.diagram.edit.parts.ORMEntityNameEditPart;
 import domain.diagram.edit.parts.RecipeRecipeConfigEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
 import domain.diagram.edit.parts.WrappingLabel2EditPart;
@@ -150,6 +159,24 @@ public class DomainVisualIDRegistry {
 				return DomainApplicationsEditPart.VISUAL_ID;
 			}
 			break;
+		case DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getORMEntity().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ORMEntityEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getJPAService().isSuperTypeOf(
+					domainElement.eClass())) {
+				return JPAServiceEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getEJBService().isSuperTypeOf(
+					domainElement.eClass())) {
+				return EJBServiceEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getDomainArtifact().isSuperTypeOf(
+					domainElement.eClass())) {
+				return DomainArtifactEditPart.VISUAL_ID;
+			}
+			break;
 		case DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getDomainApplication().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -197,6 +224,9 @@ public class DomainVisualIDRegistry {
 			if (DomainArtifactsNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case DomainTypesEditPart.VISUAL_ID:
 			if (DomainTypesNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -211,8 +241,42 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ORMEntityEditPart.VISUAL_ID:
+			if (ORMEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case JPAServiceEditPart.VISUAL_ID:
+			if (JPAServiceNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case EJBServiceEditPart.VISUAL_ID:
+			if (EJBServiceNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DomainArtifactEditPart.VISUAL_ID:
+			if (DomainArtifactNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case DomainApplicationEditPart.VISUAL_ID:
 			if (DomainApplicationNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart.VISUAL_ID:
+			if (ORMEntityEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (JPAServiceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (EJBServiceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (DomainArtifactEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -277,6 +341,7 @@ public class DomainVisualIDRegistry {
 	 */
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
+		case DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart.VISUAL_ID:
 		case DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
@@ -292,9 +357,12 @@ public class DomainVisualIDRegistry {
 		switch (visualID) {
 		case DomainEditPart.VISUAL_ID:
 			return false;
-		case DomainArtifactsEditPart.VISUAL_ID:
 		case DomainTypesEditPart.VISUAL_ID:
 		case DomainApplicationEditPart.VISUAL_ID:
+		case DomainArtifactEditPart.VISUAL_ID:
+		case ORMEntityEditPart.VISUAL_ID:
+		case JPAServiceEditPart.VISUAL_ID:
+		case EJBServiceEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

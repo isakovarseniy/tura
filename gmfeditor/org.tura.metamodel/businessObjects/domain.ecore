@@ -16,10 +16,10 @@
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" eType="#//Artifacts"
-        eOpposite="#//Artifacts/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Domain"
         eOpposite="#//Domain/domainArtifacts"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainArtifact" upperBound="-1"
+        eType="#//DomainArtifact" containment="true" eOpposite="#//DomainArtifact/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainTypes">
     <eAnnotations source="gmf.node">
@@ -53,12 +53,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainApplications"
         eOpposite="#//DomainApplications/applications"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainArtifact">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainArtifacts"
+        eOpposite="#//DomainArtifacts/domainArtifact"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" eType="#//Artifacts"
+        eOpposite="#//Artifacts/parent"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifacts">
     <eAnnotations source="gmf.diagram.artifact"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
         eType="#//Artifact" containment="true" eOpposite="#//Artifact/parent"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainArtifacts"
-        eOpposite="#//DomainArtifacts/artifact"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainArtifact"
+        eOpposite="#//DomainArtifact/artifact"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifact">
     <eAnnotations source="gmf.node">

@@ -68,6 +68,42 @@ public interface DomainFactory extends EFactory
   DomainApplication createDomainApplication();
 
   /**
+   * Returns a new object of class '<em>Artifact</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Artifact</em>'.
+   * @generated
+   */
+  DomainArtifact createDomainArtifact();
+
+  /**
+   * Returns a new object of class '<em>ORM Entity</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>ORM Entity</em>'.
+   * @generated
+   */
+  ORMEntity createORMEntity();
+
+  /**
+   * Returns a new object of class '<em>JPA Service</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>JPA Service</em>'.
+   * @generated
+   */
+  JPAService createJPAService();
+
+  /**
+   * Returns a new object of class '<em>EJB Service</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EJB Service</em>'.
+   * @generated
+   */
+  EJBService createEJBService();
+
+  /**
    * Returns a new object of class '<em>Artifacts</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

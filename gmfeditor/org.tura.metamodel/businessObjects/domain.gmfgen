@@ -595,6 +595,10 @@
             genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="DomainArtifact"
+            description="Create new DomainArtifact"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="InsertMethod"
             description="Create new InsertMethod"
             genNodes="//@diagram/@childNodes.1"/>

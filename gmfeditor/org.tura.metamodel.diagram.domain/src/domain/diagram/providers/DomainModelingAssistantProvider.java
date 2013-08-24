@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import domain.diagram.edit.parts.DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart;
+import domain.diagram.edit.parts.DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart;
 import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.Messages;
@@ -45,6 +46,14 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.DomainArtifacts_502001);
 			types.add(DomainElementTypes.DomainTypes_502002);
 			types.add(DomainElementTypes.DomainApplications_502003);
+			return types;
+		}
+		if (editPart instanceof DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			types.add(DomainElementTypes.ORMEntity_503003);
+			types.add(DomainElementTypes.JPAService_503004);
+			types.add(DomainElementTypes.EJBService_503005);
+			types.add(DomainElementTypes.DomainArtifact_503002);
 			return types;
 		}
 		if (editPart instanceof DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart) {

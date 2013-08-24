@@ -382,6 +382,10 @@
             genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="DomainArtifact"
+            description="Create new DomainArtifact"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Specifier"
             description="Create new Specifier"
             genNodes="//@diagram/@childNodes.2"/>

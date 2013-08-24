@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Domain"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="502001,502002,502003,503001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="502001,502002,502003,503003,503004,503005,503002,503001"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="504001,504002,504003"/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="Domain"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="502001,502002,502003,503001"/>
+            <method name="getType()" value="502001,502002,502003,503003,503004,503005,503002,503001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="504001,504002,504003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="505001,505002,505004,505003"/>
+            <method name="getType()" value="505001,505002,505004,505006,505007,505008,505005,505003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="507001"/>
+            <method name="getType()" value="507002,507001"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -367,6 +367,46 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
+               id="org.tura.metamodel.diagram.domain.ORMEntity_503003"
+               name="%metatype.name.ORMEntity_503003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ORMEntity"
+               edithelper="domain.diagram.edit.helpers.ORMEntityEditHelper">
+            <param name="semanticHint" value="503003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.domain.JPAService_503004"
+               name="%metatype.name.JPAService_503004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="JPAService"
+               edithelper="domain.diagram.edit.helpers.JPAServiceEditHelper">
+            <param name="semanticHint" value="503004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.domain.EJBService_503005"
+               name="%metatype.name.EJBService_503005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EJBService"
+               edithelper="domain.diagram.edit.helpers.EJBServiceEditHelper">
+            <param name="semanticHint" value="503005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.domain.DomainArtifact_503002"
+               name="%metatype.name.DomainArtifact_503002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DomainArtifact"
+               edithelper="domain.diagram.edit.helpers.DomainArtifactEditHelper">
+            <param name="semanticHint" value="503002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
                id="org.tura.metamodel.diagram.domain.DomainApplication_503001"
                name="%metatype.name.DomainApplication_503001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -423,6 +463,10 @@
          <elementType ref="org.tura.metamodel.diagram.domain.DomainArtifacts_502001"/>
          <elementType ref="org.tura.metamodel.diagram.domain.DomainTypes_502002"/>
          <elementType ref="org.tura.metamodel.diagram.domain.DomainApplications_502003"/>
+         <elementType ref="org.tura.metamodel.diagram.domain.ORMEntity_503003"/>
+         <elementType ref="org.tura.metamodel.diagram.domain.JPAService_503004"/>
+         <elementType ref="org.tura.metamodel.diagram.domain.EJBService_503005"/>
+         <elementType ref="org.tura.metamodel.diagram.domain.DomainArtifact_503002"/>
          <elementType ref="org.tura.metamodel.diagram.domain.DomainApplication_503001"/>
          <elementType ref="org.tura.metamodel.diagram.domain.TypeExtension_504001"/>
          <elementType ref="org.tura.metamodel.diagram.domain.RecipeRecipeConfig_504002"/>

@@ -12,8 +12,8 @@ class Domain{
 @gmf.node(label="name")
 class DomainArtifacts{
    attr EString name;  
-   ref  Artifacts#parent artifact;
    ref Domain#domainArtifacts parent;
+   val DomainArtifact[*]#parent domainArtifact;
 }
 
 @gmf.node(label="name")
@@ -38,10 +38,18 @@ class DomainApplication{
    ref DomainApplications#applications parent;
 }
 
+
+@gmf.node(label="name")
+class DomainArtifact{
+   attr EString name;
+   ref DomainArtifacts#domainArtifact parent;
+   ref  Artifacts#parent artifact;
+}
+
 @gmf.diagram
 class Artifacts{
    val Artifact[*]#parent artifacts;
-   ref DomainArtifacts#artifact parent;
+   ref DomainArtifact#artifact parent;
 }
 
 @gmf.node(label="name")

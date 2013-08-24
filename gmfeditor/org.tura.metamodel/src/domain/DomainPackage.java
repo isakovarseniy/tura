@@ -122,22 +122,22 @@ public interface DomainPackage extends EPackage
   int DOMAIN_ARTIFACTS__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Artifact</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOMAIN_ARTIFACTS__ARTIFACT = 1;
-
-  /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACTS__PARENT = 2;
+  int DOMAIN_ARTIFACTS__PARENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Domain Artifact</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT = 2;
 
   /**
    * The number of structural features of the '<em>Artifacts</em>' class.
@@ -287,6 +287,190 @@ public interface DomainPackage extends EPackage
   int DOMAIN_APPLICATION_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link domain.impl.DomainArtifactImpl <em>Artifact</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.DomainArtifactImpl
+   * @see domain.impl.DomainPackageImpl#getDomainArtifact()
+   * @generated
+   */
+  int DOMAIN_ARTIFACT = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_ARTIFACT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_ARTIFACT__PARENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Artifact</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_ARTIFACT__ARTIFACT = 2;
+
+  /**
+   * The number of structural features of the '<em>Artifact</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_ARTIFACT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ORMEntityImpl <em>ORM Entity</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ORMEntityImpl
+   * @see domain.impl.DomainPackageImpl#getORMEntity()
+   * @generated
+   */
+  int ORM_ENTITY = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORM_ENTITY__NAME = DOMAIN_ARTIFACT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORM_ENTITY__PARENT = DOMAIN_ARTIFACT__PARENT;
+
+  /**
+   * The feature id for the '<em><b>Artifact</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORM_ENTITY__ARTIFACT = DOMAIN_ARTIFACT__ARTIFACT;
+
+  /**
+   * The number of structural features of the '<em>ORM Entity</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORM_ENTITY_FEATURE_COUNT = DOMAIN_ARTIFACT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.JPAServiceImpl <em>JPA Service</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.JPAServiceImpl
+   * @see domain.impl.DomainPackageImpl#getJPAService()
+   * @generated
+   */
+  int JPA_SERVICE = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JPA_SERVICE__NAME = DOMAIN_ARTIFACT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JPA_SERVICE__PARENT = DOMAIN_ARTIFACT__PARENT;
+
+  /**
+   * The feature id for the '<em><b>Artifact</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JPA_SERVICE__ARTIFACT = DOMAIN_ARTIFACT__ARTIFACT;
+
+  /**
+   * The number of structural features of the '<em>JPA Service</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JPA_SERVICE_FEATURE_COUNT = DOMAIN_ARTIFACT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.EJBServiceImpl <em>EJB Service</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.EJBServiceImpl
+   * @see domain.impl.DomainPackageImpl#getEJBService()
+   * @generated
+   */
+  int EJB_SERVICE = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EJB_SERVICE__NAME = DOMAIN_ARTIFACT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EJB_SERVICE__PARENT = DOMAIN_ARTIFACT__PARENT;
+
+  /**
+   * The feature id for the '<em><b>Artifact</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EJB_SERVICE__ARTIFACT = DOMAIN_ARTIFACT__ARTIFACT;
+
+  /**
+   * The number of structural features of the '<em>EJB Service</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EJB_SERVICE_FEATURE_COUNT = DOMAIN_ARTIFACT_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link domain.impl.ArtifactsImpl <em>Artifacts</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -294,7 +478,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtifacts()
    * @generated
    */
-  int ARTIFACTS = 5;
+  int ARTIFACTS = 9;
 
   /**
    * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
@@ -331,7 +515,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtifact()
    * @generated
    */
-  int ARTIFACT = 6;
+  int ARTIFACT = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -413,7 +597,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getConfigVariable()
    * @generated
    */
-  int CONFIG_VARIABLE = 7;
+  int CONFIG_VARIABLE = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -450,7 +634,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 8;
+  int VARIABLE = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -487,7 +671,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSpecifier()
    * @generated
    */
-  int SPECIFIER = 9;
+  int SPECIFIER = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -533,7 +717,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOption()
    * @generated
    */
-  int OPTION = 10;
+  int OPTION = 14;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -570,7 +754,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplication()
    * @generated
    */
-  int APPLICATION = 11;
+  int APPLICATION = 15;
 
   /**
    * The feature id for the '<em><b>Application Recipes</b></em>' containment reference.
@@ -616,7 +800,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationRecipes()
    * @generated
    */
-  int APPLICATION_RECIPES = 12;
+  int APPLICATION_RECIPES = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -662,7 +846,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationRecipe()
    * @generated
    */
-  int APPLICATION_RECIPE = 13;
+  int APPLICATION_RECIPE = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -708,7 +892,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationMappers()
    * @generated
    */
-  int APPLICATION_MAPPERS = 14;
+  int APPLICATION_MAPPERS = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -754,7 +938,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationMapper()
    * @generated
    */
-  int APPLICATION_MAPPER = 15;
+  int APPLICATION_MAPPER = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -800,7 +984,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getBusinessObjects()
    * @generated
    */
-  int BUSINESS_OBJECTS = 16;
+  int BUSINESS_OBJECTS = 20;
 
   /**
    * The feature id for the '<em><b>Business Object</b></em>' containment reference list.
@@ -837,7 +1021,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypePointer()
    * @generated
    */
-  int TYPE_POINTER = 48;
+  int TYPE_POINTER = 52;
 
   /**
    * The meta object id for the '{@link domain.impl.BusinessObjectImpl <em>Business Object</em>}' class.
@@ -847,7 +1031,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getBusinessObject()
    * @generated
    */
-  int BUSINESS_OBJECT = 17;
+  int BUSINESS_OBJECT = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -965,7 +1149,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getBusinessMethod()
    * @generated
    */
-  int BUSINESS_METHOD = 18;
+  int BUSINESS_METHOD = 22;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -1011,7 +1195,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getCreateMethod()
    * @generated
    */
-  int CREATE_METHOD = 19;
+  int CREATE_METHOD = 23;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -1066,7 +1250,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInsertMethod()
    * @generated
    */
-  int INSERT_METHOD = 20;
+  int INSERT_METHOD = 24;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -1121,7 +1305,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUpdateMethod()
    * @generated
    */
-  int UPDATE_METHOD = 21;
+  int UPDATE_METHOD = 25;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -1176,7 +1360,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRemoveMethod()
    * @generated
    */
-  int REMOVE_METHOD = 22;
+  int REMOVE_METHOD = 26;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -1231,7 +1415,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSearchMethod()
    * @generated
    */
-  int SEARCH_METHOD = 23;
+  int SEARCH_METHOD = 27;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -1286,7 +1470,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOtherMethod()
    * @generated
    */
-  int OTHER_METHOD = 24;
+  int OTHER_METHOD = 28;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -1341,7 +1525,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMappers()
    * @generated
    */
-  int MAPPERS = 25;
+  int MAPPERS = 29;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
@@ -1378,7 +1562,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMapper()
    * @generated
    */
-  int MAPPER = 26;
+  int MAPPER = 30;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -1424,7 +1608,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getJavaMapper()
    * @generated
    */
-  int JAVA_MAPPER = 27;
+  int JAVA_MAPPER = 31;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -1524,7 +1708,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRecipes()
    * @generated
    */
-  int RECIPES = 28;
+  int RECIPES = 32;
 
   /**
    * The feature id for the '<em><b>Recipe</b></em>' containment reference.
@@ -1570,7 +1754,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRecipe()
    * @generated
    */
-  int RECIPE = 29;
+  int RECIPE = 33;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1625,7 +1809,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getComponent()
    * @generated
    */
-  int COMPONENT = 30;
+  int COMPONENT = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1671,7 +1855,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getModelMapper()
    * @generated
    */
-  int MODEL_MAPPER = 31;
+  int MODEL_MAPPER = 35;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1726,7 +1910,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getConfiguration()
    * @generated
    */
-  int CONFIGURATION = 32;
+  int CONFIGURATION = 36;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1772,7 +1956,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getProperty()
    * @generated
    */
-  int PROPERTY = 33;
+  int PROPERTY = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1809,7 +1993,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMappingSpecifier()
    * @generated
    */
-  int MAPPING_SPECIFIER = 34;
+  int MAPPING_SPECIFIER = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1846,7 +2030,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMappingVariable()
    * @generated
    */
-  int MAPPING_VARIABLE = 35;
+  int MAPPING_VARIABLE = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1883,7 +2067,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtifactRef()
    * @generated
    */
-  int ARTIFACT_REF = 36;
+  int ARTIFACT_REF = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1911,7 +2095,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeDefinition()
    * @generated
    */
-  int TYPE_DEFINITION = 37;
+  int TYPE_DEFINITION = 41;
 
   /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -1957,7 +2141,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeElement()
    * @generated
    */
-  int TYPE_ELEMENT = 38;
+  int TYPE_ELEMENT = 42;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1985,7 +2169,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getType()
    * @generated
    */
-  int TYPE = 39;
+  int TYPE = 43;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2049,7 +2233,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeReference()
    * @generated
    */
-  int TYPE_REFERENCE = 40;
+  int TYPE_REFERENCE = 44;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2095,7 +2279,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeExtension()
    * @generated
    */
-  int TYPE_EXTENSION = 41;
+  int TYPE_EXTENSION = 45;
 
   /**
    * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2132,7 +2316,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 42;
+  int ATTRIBUTE = 46;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -2187,7 +2371,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOperation()
    * @generated
    */
-  int OPERATION = 43;
+  int OPERATION = 47;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2242,7 +2426,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 44;
+  int PARAMETER = 48;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -2297,7 +2481,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getReturnValue()
    * @generated
    */
-  int RETURN_VALUE = 45;
+  int RETURN_VALUE = 49;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -2334,7 +2518,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnumarator()
    * @generated
    */
-  int ENUMARATOR = 46;
+  int ENUMARATOR = 50;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2380,7 +2564,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnumAttribute()
    * @generated
    */
-  int ENUM_ATTRIBUTE = 47;
+  int ENUM_ATTRIBUTE = 51;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2426,7 +2610,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypesRepository()
    * @generated
    */
-  int TYPES_REPOSITORY = 49;
+  int TYPES_REPOSITORY = 53;
 
   /**
    * The feature id for the '<em><b>Type Definition</b></em>' containment reference.
@@ -2463,7 +2647,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypes()
    * @generated
    */
-  int TYPES = 50;
+  int TYPES = 54;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2527,7 +2711,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPrimitive()
    * @generated
    */
-  int PRIMITIVE = 51;
+  int PRIMITIVE = 55;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2564,7 +2748,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPackage()
    * @generated
    */
-  int PACKAGE = 52;
+  int PACKAGE = 56;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2610,7 +2794,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getBusinessPackage()
    * @generated
    */
-  int BUSINESS_PACKAGE = 53;
+  int BUSINESS_PACKAGE = 57;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2714,17 +2898,6 @@ public interface DomainPackage extends EPackage
   EAttribute getDomainArtifacts_Name();
 
   /**
-   * Returns the meta object for the reference '{@link domain.DomainArtifacts#getArtifact <em>Artifact</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Artifact</em>'.
-   * @see domain.DomainArtifacts#getArtifact()
-   * @see #getDomainArtifacts()
-   * @generated
-   */
-  EReference getDomainArtifacts_Artifact();
-
-  /**
    * Returns the meta object for the container reference '{@link domain.DomainArtifacts#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2734,6 +2907,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getDomainArtifacts_Parent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.DomainArtifacts#getDomainArtifact <em>Domain Artifact</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Domain Artifact</em>'.
+   * @see domain.DomainArtifacts#getDomainArtifact()
+   * @see #getDomainArtifacts()
+   * @generated
+   */
+  EReference getDomainArtifacts_DomainArtifact();
 
   /**
    * Returns the meta object for class '{@link domain.DomainTypes <em>Types</em>}'.
@@ -2863,6 +3047,79 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getDomainApplication_Parent();
+
+  /**
+   * Returns the meta object for class '{@link domain.DomainArtifact <em>Artifact</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Artifact</em>'.
+   * @see domain.DomainArtifact
+   * @generated
+   */
+  EClass getDomainArtifact();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.DomainArtifact#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.DomainArtifact#getName()
+   * @see #getDomainArtifact()
+   * @generated
+   */
+  EAttribute getDomainArtifact_Name();
+
+  /**
+   * Returns the meta object for the container reference '{@link domain.DomainArtifact#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.DomainArtifact#getParent()
+   * @see #getDomainArtifact()
+   * @generated
+   */
+  EReference getDomainArtifact_Parent();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.DomainArtifact#getArtifact <em>Artifact</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Artifact</em>'.
+   * @see domain.DomainArtifact#getArtifact()
+   * @see #getDomainArtifact()
+   * @generated
+   */
+  EReference getDomainArtifact_Artifact();
+
+  /**
+   * Returns the meta object for class '{@link domain.ORMEntity <em>ORM Entity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>ORM Entity</em>'.
+   * @see domain.ORMEntity
+   * @generated
+   */
+  EClass getORMEntity();
+
+  /**
+   * Returns the meta object for class '{@link domain.JPAService <em>JPA Service</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>JPA Service</em>'.
+   * @see domain.JPAService
+   * @generated
+   */
+  EClass getJPAService();
+
+  /**
+   * Returns the meta object for class '{@link domain.EJBService <em>EJB Service</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EJB Service</em>'.
+   * @see domain.EJBService
+   * @generated
+   */
+  EClass getEJBService();
 
   /**
    * Returns the meta object for class '{@link domain.Artifacts <em>Artifacts</em>}'.
@@ -4794,20 +5051,20 @@ public interface DomainPackage extends EPackage
     EAttribute DOMAIN_ARTIFACTS__NAME = eINSTANCE.getDomainArtifacts_Name();
 
     /**
-     * The meta object literal for the '<em><b>Artifact</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DOMAIN_ARTIFACTS__ARTIFACT = eINSTANCE.getDomainArtifacts_Artifact();
-
-    /**
      * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference DOMAIN_ARTIFACTS__PARENT = eINSTANCE.getDomainArtifacts_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Domain Artifact</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT = eINSTANCE.getDomainArtifacts_DomainArtifact();
 
     /**
      * The meta object literal for the '{@link domain.impl.DomainTypesImpl <em>Types</em>}' class.
@@ -4910,6 +5167,70 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference DOMAIN_APPLICATION__PARENT = eINSTANCE.getDomainApplication_Parent();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.DomainArtifactImpl <em>Artifact</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.DomainArtifactImpl
+     * @see domain.impl.DomainPackageImpl#getDomainArtifact()
+     * @generated
+     */
+    EClass DOMAIN_ARTIFACT = eINSTANCE.getDomainArtifact();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOMAIN_ARTIFACT__NAME = eINSTANCE.getDomainArtifact_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DOMAIN_ARTIFACT__PARENT = eINSTANCE.getDomainArtifact_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Artifact</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DOMAIN_ARTIFACT__ARTIFACT = eINSTANCE.getDomainArtifact_Artifact();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ORMEntityImpl <em>ORM Entity</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ORMEntityImpl
+     * @see domain.impl.DomainPackageImpl#getORMEntity()
+     * @generated
+     */
+    EClass ORM_ENTITY = eINSTANCE.getORMEntity();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.JPAServiceImpl <em>JPA Service</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.JPAServiceImpl
+     * @see domain.impl.DomainPackageImpl#getJPAService()
+     * @generated
+     */
+    EClass JPA_SERVICE = eINSTANCE.getJPAService();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.EJBServiceImpl <em>EJB Service</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.EJBServiceImpl
+     * @see domain.impl.DomainPackageImpl#getEJBService()
+     * @generated
+     */
+    EClass EJB_SERVICE = eINSTANCE.getEJBService();
 
     /**
      * The meta object literal for the '{@link domain.impl.ArtifactsImpl <em>Artifacts</em>}' class.

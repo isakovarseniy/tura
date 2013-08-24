@@ -276,22 +276,62 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifacts3CreationTool_title;
+	public static String DomainArtifact3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifacts3CreationTool_desc;
+	public static String DomainArtifact3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainTypes4CreationTool_title;
+	public static String DomainArtifacts4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainTypes4CreationTool_desc;
+	public static String DomainArtifacts4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String DomainTypes5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String DomainTypes5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String EJBService6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String EJBService6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String JPAService7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String JPAService7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ORMEntity8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ORMEntity8CreationTool_desc;
 
 	/**
 	 * @generated
@@ -322,6 +362,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String TypeExtension3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart_title;
 
 	/**
 	 * @generated

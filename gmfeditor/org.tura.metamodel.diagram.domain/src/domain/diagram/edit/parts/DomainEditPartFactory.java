@@ -46,11 +46,39 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case DomainApplicationsNameEditPart.VISUAL_ID:
 				return new DomainApplicationsNameEditPart(view);
 
+			case ORMEntityEditPart.VISUAL_ID:
+				return new ORMEntityEditPart(view);
+
+			case ORMEntityNameEditPart.VISUAL_ID:
+				return new ORMEntityNameEditPart(view);
+
+			case JPAServiceEditPart.VISUAL_ID:
+				return new JPAServiceEditPart(view);
+
+			case JPAServiceNameEditPart.VISUAL_ID:
+				return new JPAServiceNameEditPart(view);
+
+			case EJBServiceEditPart.VISUAL_ID:
+				return new EJBServiceEditPart(view);
+
+			case EJBServiceNameEditPart.VISUAL_ID:
+				return new EJBServiceNameEditPart(view);
+
+			case DomainArtifactEditPart.VISUAL_ID:
+				return new DomainArtifactEditPart(view);
+
+			case DomainArtifactNameEditPart.VISUAL_ID:
+				return new DomainArtifactNameEditPart(view);
+
 			case DomainApplicationEditPart.VISUAL_ID:
 				return new DomainApplicationEditPart(view);
 
 			case DomainApplicationNameEditPart.VISUAL_ID:
 				return new DomainApplicationNameEditPart(view);
+
+			case DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart.VISUAL_ID:
+				return new DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart(
+						view);
 
 			case DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID:
 				return new DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart(

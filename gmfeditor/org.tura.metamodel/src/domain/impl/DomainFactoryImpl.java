@@ -22,19 +22,23 @@ import domain.CreateMethod;
 import domain.Domain;
 import domain.DomainApplication;
 import domain.DomainApplications;
+import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainFactory;
 import domain.DomainPackage;
 import domain.DomainTypes;
+import domain.EJBService;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.InsertMethod;
+import domain.JPAService;
 import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
 import domain.MappingVariable;
 import domain.ModelMapper;
+import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
@@ -123,6 +127,10 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.DOMAIN_TYPES: return createDomainTypes();
       case DomainPackage.DOMAIN_APPLICATIONS: return createDomainApplications();
       case DomainPackage.DOMAIN_APPLICATION: return createDomainApplication();
+      case DomainPackage.DOMAIN_ARTIFACT: return createDomainArtifact();
+      case DomainPackage.ORM_ENTITY: return createORMEntity();
+      case DomainPackage.JPA_SERVICE: return createJPAService();
+      case DomainPackage.EJB_SERVICE: return createEJBService();
       case DomainPackage.ARTIFACTS: return createArtifacts();
       case DomainPackage.ARTIFACT: return createArtifact();
       case DomainPackage.CONFIG_VARIABLE: return createConfigVariable();
@@ -230,6 +238,50 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     DomainApplicationImpl domainApplication = new DomainApplicationImpl();
     return domainApplication;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DomainArtifact createDomainArtifact()
+  {
+    DomainArtifactImpl domainArtifact = new DomainArtifactImpl();
+    return domainArtifact;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ORMEntity createORMEntity()
+  {
+    ORMEntityImpl ormEntity = new ORMEntityImpl();
+    return ormEntity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public JPAService createJPAService()
+  {
+    JPAServiceImpl jpaService = new JPAServiceImpl();
+    return jpaService;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EJBService createEJBService()
+  {
+    EJBServiceImpl ejbService = new EJBServiceImpl();
+    return ejbService;
   }
 
   /**

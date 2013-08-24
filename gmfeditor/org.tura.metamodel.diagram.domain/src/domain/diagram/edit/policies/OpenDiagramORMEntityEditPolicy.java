@@ -44,8 +44,9 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
+import org.tura.metamodel.commons.initdiagram.InitDiagram;
 import domain.Artifacts;
-import domain.DomainArtifacts;
+import domain.DomainArtifact;
 import domain.DomainFactory;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.DomainDiagramEditorUtil;
@@ -54,7 +55,7 @@ import domain.diagram.part.Messages;
 /**
  * @generated
  */
-public class OpenDiagramDomainArtifactsEditPolicy extends OpenEditPolicy {
+public class OpenDiagramORMEntityEditPolicy extends OpenEditPolicy {
 
 	/**
 	 * @generated
@@ -133,9 +134,9 @@ public class OpenDiagramDomainArtifactsEditPolicy extends OpenEditPolicy {
 		 */
 		protected Diagram intializeNewDiagram() throws ExecutionException {
 
-			DomainArtifacts
+			DomainArtifact
 
-			sourceObject = (DomainArtifacts
+			sourceObject = (DomainArtifact
 
 			) ((ShapeImpl) (diagramFacet.eContainer())).basicGetElement();
 			if (sourceObject.getName() == null) {
@@ -151,7 +152,7 @@ public class OpenDiagramDomainArtifactsEditPolicy extends OpenEditPolicy {
 
 			Diagram d = ViewService.createDiagram(
 
-			DomainFactory.eINSTANCE.createArtifacts()
+			InitDiagram.initORMEntityDiagram()
 
 			, getDiagramKind(), getPreferencesHint());
 			if (d == null) {

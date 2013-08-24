@@ -22,18 +22,22 @@ import domain.CreateMethod;
 import domain.Domain;
 import domain.DomainApplication;
 import domain.DomainApplications;
+import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainPackage;
 import domain.DomainTypes;
+import domain.EJBService;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.InsertMethod;
+import domain.JPAService;
 import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
 import domain.MappingVariable;
 import domain.ModelMapper;
+import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
@@ -151,6 +155,26 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDomainApplication(DomainApplication object)
       {
         return createDomainApplicationAdapter();
+      }
+      @Override
+      public Adapter caseDomainArtifact(DomainArtifact object)
+      {
+        return createDomainArtifactAdapter();
+      }
+      @Override
+      public Adapter caseORMEntity(ORMEntity object)
+      {
+        return createORMEntityAdapter();
+      }
+      @Override
+      public Adapter caseJPAService(JPAService object)
+      {
+        return createJPAServiceAdapter();
+      }
+      @Override
+      public Adapter caseEJBService(EJBService object)
+      {
+        return createEJBServiceAdapter();
       }
       @Override
       public Adapter caseArtifacts(Artifacts object)
@@ -490,6 +514,66 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDomainApplicationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.DomainArtifact <em>Artifact</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.DomainArtifact
+   * @generated
+   */
+  public Adapter createDomainArtifactAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ORMEntity <em>ORM Entity</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ORMEntity
+   * @generated
+   */
+  public Adapter createORMEntityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.JPAService <em>JPA Service</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.JPAService
+   * @generated
+   */
+  public Adapter createJPAServiceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.EJBService <em>EJB Service</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.EJBService
+   * @generated
+   */
+  public Adapter createEJBServiceAdapter()
   {
     return null;
   }

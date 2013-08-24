@@ -22,18 +22,22 @@ import domain.CreateMethod;
 import domain.Domain;
 import domain.DomainApplication;
 import domain.DomainApplications;
+import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainPackage;
 import domain.DomainTypes;
+import domain.EJBService;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.InsertMethod;
+import domain.JPAService;
 import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
 import domain.MappingVariable;
 import domain.ModelMapper;
+import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
@@ -157,6 +161,37 @@ public class DomainSwitch<T> extends Switch<T>
       {
         DomainApplication domainApplication = (DomainApplication)theEObject;
         T result = caseDomainApplication(domainApplication);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.DOMAIN_ARTIFACT:
+      {
+        DomainArtifact domainArtifact = (DomainArtifact)theEObject;
+        T result = caseDomainArtifact(domainArtifact);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.ORM_ENTITY:
+      {
+        ORMEntity ormEntity = (ORMEntity)theEObject;
+        T result = caseORMEntity(ormEntity);
+        if (result == null) result = caseDomainArtifact(ormEntity);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.JPA_SERVICE:
+      {
+        JPAService jpaService = (JPAService)theEObject;
+        T result = caseJPAService(jpaService);
+        if (result == null) result = caseDomainArtifact(jpaService);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.EJB_SERVICE:
+      {
+        EJBService ejbService = (EJBService)theEObject;
+        T result = caseEJBService(ejbService);
+        if (result == null) result = caseDomainArtifact(ejbService);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -605,6 +640,70 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDomainApplication(DomainApplication object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Artifact</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Artifact</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDomainArtifact(DomainArtifact object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>ORM Entity</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>ORM Entity</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseORMEntity(ORMEntity object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>JPA Service</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>JPA Service</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJPAService(JPAService object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EJB Service</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EJB Service</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEJBService(EJBService object)
   {
     return null;
   }

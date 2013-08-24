@@ -199,6 +199,106 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.DomainArtifact} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DomainArtifactItemProvider domainArtifactItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.DomainArtifact}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDomainArtifactAdapter()
+  {
+    if (domainArtifactItemProvider == null)
+    {
+      domainArtifactItemProvider = new DomainArtifactItemProvider(this);
+    }
+
+    return domainArtifactItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ORMEntity} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ORMEntityItemProvider ormEntityItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ORMEntity}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createORMEntityAdapter()
+  {
+    if (ormEntityItemProvider == null)
+    {
+      ormEntityItemProvider = new ORMEntityItemProvider(this);
+    }
+
+    return ormEntityItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.JPAService} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected JPAServiceItemProvider jpaServiceItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.JPAService}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createJPAServiceAdapter()
+  {
+    if (jpaServiceItemProvider == null)
+    {
+      jpaServiceItemProvider = new JPAServiceItemProvider(this);
+    }
+
+    return jpaServiceItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.EJBService} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected EJBServiceItemProvider ejbServiceItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.EJBService}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createEJBServiceAdapter()
+  {
+    if (ejbServiceItemProvider == null)
+    {
+      ejbServiceItemProvider = new EJBServiceItemProvider(this);
+    }
+
+    return ejbServiceItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Artifacts} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1539,6 +1639,10 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (domainTypesItemProvider != null) domainTypesItemProvider.dispose();
     if (domainApplicationsItemProvider != null) domainApplicationsItemProvider.dispose();
     if (domainApplicationItemProvider != null) domainApplicationItemProvider.dispose();
+    if (domainArtifactItemProvider != null) domainArtifactItemProvider.dispose();
+    if (ormEntityItemProvider != null) ormEntityItemProvider.dispose();
+    if (jpaServiceItemProvider != null) jpaServiceItemProvider.dispose();
+    if (ejbServiceItemProvider != null) ejbServiceItemProvider.dispose();
     if (artifactsItemProvider != null) artifactsItemProvider.dispose();
     if (artifactItemProvider != null) artifactItemProvider.dispose();
     if (configVariableItemProvider != null) configVariableItemProvider.dispose();

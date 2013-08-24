@@ -22,19 +22,23 @@ import domain.CreateMethod;
 import domain.Domain;
 import domain.DomainApplication;
 import domain.DomainApplications;
+import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainFactory;
 import domain.DomainPackage;
 import domain.DomainTypes;
+import domain.EJBService;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.InsertMethod;
+import domain.JPAService;
 import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
 import domain.MappingVariable;
 import domain.ModelMapper;
+import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
@@ -107,6 +111,34 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass domainApplicationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass domainArtifactEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ormEntityEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass jpaServiceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ejbServiceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -579,7 +611,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDomainArtifacts_Artifact()
+  public EReference getDomainArtifacts_Parent()
   {
     return (EReference)domainArtifactsEClass.getEStructuralFeatures().get(1);
   }
@@ -589,7 +621,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDomainArtifacts_Parent()
+  public EReference getDomainArtifacts_DomainArtifact()
   {
     return (EReference)domainArtifactsEClass.getEStructuralFeatures().get(2);
   }
@@ -712,6 +744,76 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getDomainApplication_Parent()
   {
     return (EReference)domainApplicationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDomainArtifact()
+  {
+    return domainArtifactEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDomainArtifact_Name()
+  {
+    return (EAttribute)domainArtifactEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDomainArtifact_Parent()
+  {
+    return (EReference)domainArtifactEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDomainArtifact_Artifact()
+  {
+    return (EReference)domainArtifactEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getORMEntity()
+  {
+    return ormEntityEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getJPAService()
+  {
+    return jpaServiceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEJBService()
+  {
+    return ejbServiceEClass;
   }
 
   /**
@@ -2481,8 +2583,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     domainArtifactsEClass = createEClass(DOMAIN_ARTIFACTS);
     createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__NAME);
-    createEReference(domainArtifactsEClass, DOMAIN_ARTIFACTS__ARTIFACT);
     createEReference(domainArtifactsEClass, DOMAIN_ARTIFACTS__PARENT);
+    createEReference(domainArtifactsEClass, DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT);
 
     domainTypesEClass = createEClass(DOMAIN_TYPES);
     createEAttribute(domainTypesEClass, DOMAIN_TYPES__NAME);
@@ -2498,6 +2600,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(domainApplicationEClass, DOMAIN_APPLICATION__NAME);
     createEReference(domainApplicationEClass, DOMAIN_APPLICATION__APPLICATION);
     createEReference(domainApplicationEClass, DOMAIN_APPLICATION__PARENT);
+
+    domainArtifactEClass = createEClass(DOMAIN_ARTIFACT);
+    createEAttribute(domainArtifactEClass, DOMAIN_ARTIFACT__NAME);
+    createEReference(domainArtifactEClass, DOMAIN_ARTIFACT__PARENT);
+    createEReference(domainArtifactEClass, DOMAIN_ARTIFACT__ARTIFACT);
+
+    ormEntityEClass = createEClass(ORM_ENTITY);
+
+    jpaServiceEClass = createEClass(JPA_SERVICE);
+
+    ejbServiceEClass = createEClass(EJB_SERVICE);
 
     artifactsEClass = createEClass(ARTIFACTS);
     createEReference(artifactsEClass, ARTIFACTS__ARTIFACTS);
@@ -2751,6 +2864,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    ormEntityEClass.getESuperTypes().add(this.getDomainArtifact());
+    jpaServiceEClass.getESuperTypes().add(this.getDomainArtifact());
+    ejbServiceEClass.getESuperTypes().add(this.getDomainArtifact());
     businessMethodEClass.getESuperTypes().add(this.getTypePointer());
     createMethodEClass.getESuperTypes().add(this.getBusinessMethod());
     insertMethodEClass.getESuperTypes().add(this.getBusinessMethod());
@@ -2775,8 +2891,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(domainArtifactsEClass, DomainArtifacts.class, "DomainArtifacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDomainArtifacts_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDomainArtifacts_Artifact(), this.getArtifacts(), this.getArtifacts_Parent(), "artifact", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDomainArtifacts_Parent(), this.getDomain(), this.getDomain_DomainArtifacts(), "parent", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDomainArtifacts_DomainArtifact(), this.getDomainArtifact(), this.getDomainArtifact_Parent(), "domainArtifact", null, 0, -1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainTypesEClass, DomainTypes.class, "DomainTypes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDomainTypes_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2793,9 +2909,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getDomainApplication_Application(), this.getApplication(), this.getApplication_Parent(), "application", null, 0, 1, DomainApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDomainApplication_Parent(), this.getDomainApplications(), this.getDomainApplications_Applications(), "parent", null, 0, 1, DomainApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(domainArtifactEClass, DomainArtifact.class, "DomainArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDomainArtifact_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDomainArtifact_Parent(), this.getDomainArtifacts(), this.getDomainArtifacts_DomainArtifact(), "parent", null, 0, 1, DomainArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDomainArtifact_Artifact(), this.getArtifacts(), this.getArtifacts_Parent(), "artifact", null, 0, 1, DomainArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ormEntityEClass, ORMEntity.class, "ORMEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(jpaServiceEClass, JPAService.class, "JPAService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(ejbServiceEClass, EJBService.class, "EJBService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(artifactsEClass, Artifacts.class, "Artifacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArtifacts_Artifacts(), this.getArtifact(), this.getArtifact_Parent(), "artifacts", null, 0, -1, Artifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getArtifacts_Parent(), this.getDomainArtifacts(), this.getDomainArtifacts_Artifact(), "parent", null, 0, 1, Artifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArtifacts_Parent(), this.getDomainArtifact(), this.getDomainArtifact_Artifact(), "parent", null, 0, 1, Artifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getArtifact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3059,7 +3186,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																									
+       });																																																																														
   }
 
   /**
@@ -3076,7 +3203,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																								
+       });																																																																													
   }
 
   /**
@@ -3094,7 +3221,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "label", "name"
-       });		
+       });			
     addAnnotation
       (domainTypesEClass, 
        source, 
@@ -3111,6 +3238,34 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        });			
     addAnnotation
       (domainApplicationEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name"
+       });		
+    addAnnotation
+      (domainArtifactEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name"
+       });		
+    addAnnotation
+      (ormEntityEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name"
+       });		
+    addAnnotation
+      (jpaServiceEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name"
+       });		
+    addAnnotation
+      (ejbServiceEClass, 
        source, 
        new String[] 
        {
@@ -3364,13 +3519,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_3Annotations()
   {
-    String source = "gmf.compartment";							
+    String source = "gmf.compartment";					
+    addAnnotation
+      (getDomainArtifacts_DomainArtifact(), 
+       source, 
+       new String[] 
+       {
+       });				
     addAnnotation
       (getDomainApplications_Applications(), 
        source, 
        new String[] 
        {
-       });					
+       });									
     addAnnotation
       (getArtifact_ConfigVariables(), 
        source, 
@@ -3521,7 +3682,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_4Annotations()
   {
-    String source = "gmf.diagram.artifact";									
+    String source = "gmf.diagram.artifact";														
     addAnnotation
       (artifactsEClass, 
        source, 
@@ -3538,7 +3699,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_5Annotations()
   {
-    String source = "gmf.diagram.application";																		
+    String source = "gmf.diagram.application";																							
     addAnnotation
       (applicationEClass, 
        source, 
@@ -3555,7 +3716,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_6Annotations()
   {
-    String source = "gmf.diagram.businessObjects";																									
+    String source = "gmf.diagram.businessObjects";																														
     addAnnotation
       (businessObjectsEClass, 
        source, 
@@ -3572,7 +3733,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_7Annotations()
   {
-    String source = "gmf.diagram.mapper";																																							
+    String source = "gmf.diagram.mapper";																																												
     addAnnotation
       (mappersEClass, 
        source, 
@@ -3589,7 +3750,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_8Annotations()
   {
-    String source = "gmf.diagram.recipe";																																									
+    String source = "gmf.diagram.recipe";																																														
     addAnnotation
       (recipesEClass, 
        source, 
@@ -3606,7 +3767,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_9Annotations()
   {
-    String source = "gmf.link";																																												
+    String source = "gmf.link";																																																	
     addAnnotation
       (getRecipe_RecipeConfig(), 
        source, 
@@ -3645,7 +3806,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_10Annotations()
   {
-    String source = "gmf.diagram.typedefinition";																																																					
+    String source = "gmf.diagram.typedefinition";																																																										
     addAnnotation
       (typeDefinitionEClass, 
        source, 
@@ -3662,7 +3823,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_11Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																				
+    String source = "gmf.diagram.typesrepository";																																																																									
     addAnnotation
       (typesRepositoryEClass, 
        source, 
