@@ -86,10 +86,33 @@
               <input type="businessobjects.diagram.edit.parts.OtherMethodEditPart"/>
          </propertySection>        
 
+    </propertySections>
+  </extension>  
 
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tura.metamodel.diagram.artifact">
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.custom"
+             label="Type ref"/>
+      </propertyTabs>
+   </extension>
+   
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.tura.metamodel.diagram.artifact">
+      
+          <propertySection
+               tab="property.tab.domain.custom"
+               class="org.metamodel.tura.ui.properties.sections.OptionPropertySelection"
+               id="org.tura.metamodel.artifact.create">
+              <input type="artifact.diagram.edit.parts.SpecifierEditPart"/>
+           </propertySection>        
  
     </propertySections>
   </extension>  
+
 
 
 
