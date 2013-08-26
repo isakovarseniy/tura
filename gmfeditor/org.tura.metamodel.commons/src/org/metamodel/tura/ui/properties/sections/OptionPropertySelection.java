@@ -1,16 +1,23 @@
 package org.metamodel.tura.ui.properties.sections;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
-import java.util.Vector;
 
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 import org.eclipse.jface.viewers.CellEditor;
-import org.eclipse.jface.viewers.CheckboxCellEditor;
-import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
@@ -19,11 +26,13 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.ocl.OCL;
+import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
+import org.eclipse.ocl.expressions.OCLExpression;
+import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.VerifyEvent;
-import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -33,35 +42,36 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
+import domain.DomainFactory;
+import domain.DomainPackage;
+
 public class OptionPropertySelection extends AbstractGridPropertySelection {
 
 	// Set the table column property names
-	private final String COMPLETED_COLUMN = "completed";
-	private final String DESCRIPTION_COLUMN = "description";
-	private final String OWNER_COLUMN = "owner";
-	private final String PERCENT_COLUMN = "percent";
+	private final String OPTION_COLUMN = "Option";
 
-	private ExampleTaskList taskList = new ExampleTaskList();
+	private OptionList optionList;
 
 	// Set column names
-	private String[] columnNames = new String[] { COMPLETED_COLUMN,
-			DESCRIPTION_COLUMN, OWNER_COLUMN, PERCENT_COLUMN };
+	private String[] columnNames = new String[] { OPTION_COLUMN };
 
 	public void createControls(Composite parent,
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
 
-		// The input for the table viewer is the instance of ExampleTaskList
-		taskList = new ExampleTaskList();
-		tableViewer.setInput(taskList);
+	}
 
+	public void refresh() {
+		// The input for the table viewer is the instance of OptionList
+		optionList = new OptionList();
+		tableViewer.setInput(optionList);
 	}
 
 	/**
-	 * Return the ExampleTaskList
+	 * Return the OptionList
 	 */
-	public ExampleTaskList getTaskList() {
-		return taskList;
+	public OptionList getTaskList() {
+		return optionList;
 	}
 
 	/**
@@ -69,19 +79,8 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 	 * 
 	 * @return List containing column names
 	 */
-	public java.util.List getColumnNames() {
+	public List<String> getColumnNames() {
 		return Arrays.asList(columnNames);
-	}
-
-	/**
-	 * Return the array of choices for a multiple choice cell
-	 */
-	public String[] getChoices(String property) {
-		if (OWNER_COLUMN.equals(property))
-			return taskList.getOwners(); // The ExampleTaskList knows about the
-											// choice of owners
-		else
-			return new String[] {};
 	}
 
 	/**
@@ -101,49 +100,16 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		table.setLinesVisible(true);
 		table.setHeaderVisible(true);
 
-		// 1st column with image/checkboxes - NOTE: The SWT.CENTER has no
-		// effect!!
-		TableColumn column = new TableColumn(table, SWT.CENTER, 0);
-		column.setText("!");
-		column.setWidth(20);
-
-		// 2nd column with task Description
-		column = new TableColumn(table, SWT.LEFT, 1);
-		column.setText("Description");
+		// 1nd column with task Option
+		TableColumn column = new TableColumn(table, SWT.LEFT, 0);
+		column.setText(OPTION_COLUMN);
 		column.setWidth(400);
 		// Add listener to column so tasks are sorted by description when
 		// clicked
 		column.addSelectionListener(new SelectionAdapter() {
 
 			public void widgetSelected(SelectionEvent e) {
-				tableViewer.setSorter(new ExampleTaskSorter(
-						ExampleTaskSorter.DESCRIPTION));
-			}
-		});
-
-		// 3rd column with task Owner
-		column = new TableColumn(table, SWT.LEFT, 2);
-		column.setText("Owner");
-		column.setWidth(100);
-		// Add listener to column so tasks are sorted by owner when clicked
-		column.addSelectionListener(new SelectionAdapter() {
-
-			public void widgetSelected(SelectionEvent e) {
-				tableViewer.setSorter(new ExampleTaskSorter(
-						ExampleTaskSorter.OWNER));
-			}
-		});
-
-		// 4th column with task PercentComplete
-		column = new TableColumn(table, SWT.CENTER, 3);
-		column.setText("% Complete");
-		column.setWidth(80);
-		// Add listener to column so tasks are sorted by percent when clicked
-		column.addSelectionListener(new SelectionAdapter() {
-
-			public void widgetSelected(SelectionEvent e) {
-				tableViewer.setSorter(new ExampleTaskSorter(
-						ExampleTaskSorter.PERCENT_COMPLETE));
+				tableViewer.setSorter(new OptionSorter(OptionSorter.VALUE));
 			}
 		});
 	}
@@ -161,82 +127,60 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		// Create the cell editors
 		CellEditor[] editors = new CellEditor[columnNames.length];
 
-		// Column 1 : Completed (Checkbox)
-		editors[0] = new CheckboxCellEditor(table);
-
-		// Column 2 : Description (Free text)
+		// Column 1 : Options (Free text)
 		TextCellEditor textEditor = new TextCellEditor(table);
 		((Text) textEditor.getControl()).setTextLimit(60);
-		editors[1] = textEditor;
-
-		// Column 3 : Owner (Combo Box)
-		editors[2] = new ComboBoxCellEditor(table, taskList.getOwners(),
-				SWT.READ_ONLY);
-
-		// Column 4 : Percent complete (Text with digits only)
-		textEditor = new TextCellEditor(table);
-		((Text) textEditor.getControl()).addVerifyListener(
-
-		new VerifyListener() {
-			public void verifyText(VerifyEvent e) {
-				// Here, we could use a RegExp such as the following
-				// if using JRE1.4 such as e.doit = e.text.matches("[\\-0-9]*");
-				e.doit = "0123456789".indexOf(e.text) >= 0;
-			}
-		});
-		editors[3] = textEditor;
+		editors[0] = textEditor;
 
 		// Assign the cell editors to the viewer
 		tableViewer.setCellEditors(editors);
 		// Set the cell modifier for the viewer
-		tableViewer.setCellModifier(new ExampleCellModifier(this));
+		tableViewer.setCellModifier(new OptionCellModifier(this));
 		// Set the default sorter for the viewer
-		tableViewer.setSorter(new ExampleTaskSorter(
-				ExampleTaskSorter.DESCRIPTION));
+		tableViewer.setSorter(new OptionSorter(OptionSorter.VALUE));
 	}
 
 	@Override
 	protected IStructuredContentProvider getContentProvider() {
-		return new ExampleContentProvider();
+		return new OptionContentProvider();
 	}
 
 	@Override
 	protected ITableLabelProvider getLabelProvider() {
-		return new ExampleLabelProvider();
+		return new OptionLabelProvider();
 	}
 
 	@Override
 	protected void addRow() {
-		taskList.addTask();
+		optionList.addTask();
 	}
 
 	@Override
 	protected void removeRow(Object o) {
-		taskList.removeTask((ExampleTask) o);
+		optionList.removeTask((domain.Option) o);
 	}
-	
-	
+
 	/**
-	 * InnerClass that acts as a proxy for the ExampleTaskList providing content
-	 * for the Table. It implements the ITaskListViewer interface since it must
-	 * register changeListeners with the ExampleTaskList
+	 * InnerClass that acts as a proxy for the OptionList providing content for
+	 * the Table. It implements the ITaskListViewer interface since it must
+	 * register changeListeners with the OptionList
 	 */
-	class ExampleContentProvider implements IStructuredContentProvider,
+	class OptionContentProvider implements IStructuredContentProvider,
 			ITaskListViewer {
 		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
 			if (newInput != null)
-				((ExampleTaskList) newInput).addChangeListener(this);
+				((OptionList) newInput).addChangeListener(this);
 			if (oldInput != null)
-				((ExampleTaskList) oldInput).removeChangeListener(this);
+				((OptionList) oldInput).removeChangeListener(this);
 		}
 
 		public void dispose() {
-			taskList.removeChangeListener(this);
+			optionList.removeChangeListener(this);
 		}
 
 		// Return the tasks as an array of Objects
 		public Object[] getElements(Object parent) {
-			return taskList.getTasks().toArray();
+			return optionList.getOptions().toArray();
 		}
 
 		/*
@@ -244,7 +188,7 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 * 
 		 * @see ITaskListViewer#addTask(ExampleTask)
 		 */
-		public void addTask(ExampleTask task) {
+		public void addOption(domain.Option task) {
 			tableViewer.add(task);
 		}
 
@@ -253,7 +197,7 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 * 
 		 * @see ITaskListViewer#removeTask(ExampleTask)
 		 */
-		public void removeTask(ExampleTask task) {
+		public void removeOption(domain.Option task) {
 			tableViewer.remove(task);
 		}
 
@@ -262,7 +206,7 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 * 
 		 * @see ITaskListViewer#updateTask(ExampleTask)
 		 */
-		public void updateTask(ExampleTask task) {
+		public void updateOption(domain.Option task) {
 			tableViewer.update(task, null);
 		}
 	}
@@ -272,34 +216,8 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 	 * 
 	 * @see org.eclipse.jface.viewers.LabelProvider
 	 */
-	public class ExampleLabelProvider extends LabelProvider implements
+	public class OptionLabelProvider extends LabelProvider implements
 			ITableLabelProvider {
-
-		// Names of images used to represent checkboxes
-		public static final String CHECKED_IMAGE = "checked";
-		public static final String UNCHECKED_IMAGE = "unchecked";
-
-		// For the checkbox images
-		private ImageRegistry imageRegistry = new ImageRegistry();
-
-		public ExampleLabelProvider() {
-			String iconPath = "icons/";
-			imageRegistry.put(CHECKED_IMAGE, ImageDescriptor.createFromFile(
-					AbstractGridPropertySelection.class, iconPath
-							+ CHECKED_IMAGE + ".gif"));
-			imageRegistry.put(UNCHECKED_IMAGE, ImageDescriptor.createFromFile(
-					AbstractGridPropertySelection.class, iconPath
-							+ UNCHECKED_IMAGE + ".gif"));
-		}
-
-		/**
-		 * Returns the image with the given key, or <code>null</code> if not
-		 * found.
-		 */
-		private Image getImage(boolean isSelected) {
-			String key = isSelected ? CHECKED_IMAGE : UNCHECKED_IMAGE;
-			return imageRegistry.get(key);
-		}
 
 		/**
 		 * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnText(java.lang.Object,
@@ -307,18 +225,10 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 */
 		public String getColumnText(Object element, int columnIndex) {
 			String result = "";
-			ExampleTask task = (ExampleTask) element;
+			domain.Option task = (domain.Option) element;
 			switch (columnIndex) {
-			case 0: // COMPLETED_COLUMN
-				break;
-			case 1:
-				result = task.getDescription();
-				break;
-			case 2:
-				result = task.getOwner();
-				break;
-			case 3:
-				result = task.getPercentComplete() + "";
+			case 0:
+				result = task.getValue();
 				break;
 			default:
 				break;
@@ -331,22 +241,18 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 *      int)
 		 */
 		public Image getColumnImage(Object element, int columnIndex) {
-			return (columnIndex == 0) ? // COMPLETED_COLUMN?
-			getImage(((ExampleTask) element).isCompleted())
-					: null;
+			return null;
 		}
 
 	}
 
-	public class ExampleTaskSorter extends ViewerSorter {
+	public class OptionSorter extends ViewerSorter {
 
 		/**
 		 * Constructor argument values that indicate to sort items by
 		 * description, owner or percent complete.
 		 */
-		public final static int DESCRIPTION = 1;
-		public final static int OWNER = 2;
-		public final static int PERCENT_COMPLETE = 3;
+		public final static int VALUE = 1;
 
 		// Criteria that the instance uses
 		private int criteria;
@@ -358,7 +264,7 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 *            the sort criterion to use: one of <code>NAME</code> or
 		 *            <code>TYPE</code>
 		 */
-		public ExampleTaskSorter(int criteria) {
+		public OptionSorter(int criteria) {
 			super();
 			this.criteria = criteria;
 		}
@@ -368,37 +274,15 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 */
 		public int compare(Viewer viewer, Object o1, Object o2) {
 
-			ExampleTask task1 = (ExampleTask) o1;
-			ExampleTask task2 = (ExampleTask) o2;
+			domain.Option op1 = (domain.Option) o1;
+			domain.Option op2 = (domain.Option) o2;
 
 			switch (criteria) {
-			case DESCRIPTION:
-				return compareDescriptions(task1, task2);
-			case OWNER:
-				return compareOwners(task1, task2);
-			case PERCENT_COMPLETE:
-				return comparePercentComplete(task1, task2);
+			case VALUE:
+				return compareValues(op1, op2);
 			default:
 				return 0;
 			}
-		}
-
-		/**
-		 * Returns a number reflecting the collation order of the given tasks
-		 * based on the percent completed.
-		 * 
-		 * @param task1
-		 * @param task2
-		 * @return a negative number if the first element is less than the
-		 *         second element; the value <code>0</code> if the first element
-		 *         is equal to the second element; and a positive number if the
-		 *         first element is greater than the second element
-		 */
-		private int comparePercentComplete(ExampleTask task1, ExampleTask task2) {
-			int result = task1.getPercentComplete()
-					- task2.getPercentComplete();
-			result = result < 0 ? -1 : (result > 0) ? 1 : 0;
-			return result;
 		}
 
 		/**
@@ -414,26 +298,8 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 *         is equal to the second element; and a positive number if the
 		 *         first element is greater than the second element
 		 */
-		protected int compareDescriptions(ExampleTask task1, ExampleTask task2) {
-			return collator.compare(task1.getDescription(),
-					task2.getDescription());
-		}
-
-		/**
-		 * Returns a number reflecting the collation order of the given tasks
-		 * based on their owner.
-		 * 
-		 * @param resource1
-		 *            the first resource element to be ordered
-		 * @param resource2
-		 *            the second resource element to be ordered
-		 * @return a negative number if the first element is less than the
-		 *         second element; the value <code>0</code> if the first element
-		 *         is equal to the second element; and a positive number if the
-		 *         first element is greater than the second element
-		 */
-		protected int compareOwners(ExampleTask task1, ExampleTask task2) {
-			return collator.compare(task1.getOwner(), task2.getOwner());
+		protected int compareValues(domain.Option opt1, domain.Option opt2) {
+			return collator.compare(opt1.getValue(), opt2.getValue());
 		}
 
 		/**
@@ -446,78 +312,107 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		}
 	}
 
-	public class ExampleTaskList {
+	public class OptionList {
 
-		private final int COUNT = 10;
-		private Vector tasks = new Vector(COUNT);
+		private ArrayList<domain.Option> options = new ArrayList<domain.Option>();
 		private Set changeListeners = new HashSet();
-
-		// Combo box choices
-		final String[] OWNERS_ARRAY = { "?", "Nancy", "Larry", "Joe" };
 
 		/**
 		 * Constructor
 		 */
-		public ExampleTaskList() {
+		public OptionList() {
 			super();
 			this.initData();
 		}
 
-		/*
-		 * Initialize the table data. Create COUNT tasks and add them them to
-		 * the collection of tasks
-		 */
 		private void initData() {
-			ExampleTask task;
-			for (int i = 0; i < COUNT; i++) {
-				task = new ExampleTask("Task " + i);
-				task.setOwner(OWNERS_ARRAY[i % 3]);
-				tasks.add(task);
-			}
-		};
+			ShapeImpl diagram = (ShapeImpl) editPart.getModel();
+			try {
+				OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+				OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+						.createOCLHelper();
+				helper.setContext(DomainPackage.eINSTANCE
+						.getEClassifier("Domain"));
 
-		/**
-		 * Return the array of owners
-		 */
-		public String[] getOwners() {
-			return OWNERS_ARRAY;
+				EObject types = (EObject) diagram.getElement();
+
+				OCLExpression<EClassifier> query = helper
+						.createQuery("domain::Specifier.allInstances()->select(r|r.oclAsType(domain::Specifier).name ='"
+								+ ((domain.Specifier) eObject).getName()
+								+ "').oclAsType(domain::Specifier).options");
+
+				Collection<domain.Option> map = (Collection<domain.Option>) ocl
+						.evaluate(types, query);
+
+				for (Iterator<domain.Option> i = map.iterator(); i.hasNext();) {
+					domain.Option p = i.next();
+					options.add(p);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		/**
 		 * Return the collection of tasks
 		 */
-		public Vector getTasks() {
-			return tasks;
+		public List<?> getOptions() {
+
+			return options;
 		}
 
 		/**
 		 * Add a new task to the collection of tasks
 		 */
 		public void addTask() {
-			ExampleTask task = new ExampleTask("New task");
-			tasks.add(tasks.size(), task);
-			Iterator iterator = changeListeners.iterator();
+			domain.Option option = DomainFactory.eINSTANCE.createOption();
+			option.setValue("New option");
+			 ArrayList <domain.Option> ls = new ArrayList <domain.Option>();
+			 ls.add(option);
+
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
+					.getEditingDomain();
+
+			editingDomain.getCommandStack().execute(
+					AddCommand.create(editingDomain,((domain.Specifier) eObject),
+							DomainPackage.eINSTANCE.getSpecifier_Options(),
+							ls));
+			
+			options.add(options.size(), option);
+			Iterator<?> iterator = changeListeners.iterator();
 			while (iterator.hasNext())
-				((ITaskListViewer) iterator.next()).addTask(task);
+				((ITaskListViewer) iterator.next()).addOption(option);
 		}
 
 		/**
 		 * @param task
 		 */
-		public void removeTask(ExampleTask task) {
-			tasks.remove(task);
-			Iterator iterator = changeListeners.iterator();
+		public void removeTask(domain.Option option) {
+			
+			 ArrayList <domain.Option> ls = new ArrayList <domain.Option>();
+			 ls.add(option);
+
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
+					.getEditingDomain();
+
+			editingDomain.getCommandStack().execute(
+					RemoveCommand.create(editingDomain,((domain.Specifier) eObject),
+							DomainPackage.eINSTANCE.getSpecifier_Options(),
+							ls));
+			
+			options.remove(option);
+			Iterator<?> iterator = changeListeners.iterator();
 			while (iterator.hasNext())
-				((ITaskListViewer) iterator.next()).removeTask(task);
+				((ITaskListViewer) iterator.next()).removeOption(option);
 		}
 
 		/**
 		 * @param task
 		 */
-		public void taskChanged(ExampleTask task) {
-			Iterator iterator = changeListeners.iterator();
+		public void taskChanged(domain.Option task) {
+			Iterator<?> iterator = changeListeners.iterator();
 			while (iterator.hasNext())
-				((ITaskListViewer) iterator.next()).updateTask(task);
+				((ITaskListViewer) iterator.next()).updateOption(task);
 		}
 
 		/**
@@ -544,7 +439,7 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 * 
 		 * @param task
 		 */
-		public void addTask(ExampleTask task);
+		public void addOption(domain.Option task);
 
 		/**
 		 * Update the view to reflect the fact that a task was removed from the
@@ -552,7 +447,7 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 * 
 		 * @param task
 		 */
-		public void removeTask(ExampleTask task);
+		public void removeOption(domain.Option task);
 
 		/**
 		 * Update the view to reflect the fact that one of the tasks was
@@ -560,188 +455,82 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 * 
 		 * @param task
 		 */
-		public void updateTask(ExampleTask task);
+		public void updateOption(domain.Option task);
 	}
 
-	public class ExampleCellModifier implements ICellModifier {
+	public class OptionCellModifier implements ICellModifier {
 		private OptionPropertySelection tableViewerExample;
-		private String[] columnNames;
-		
+
 		/**
-		 * Constructor 
-		 * @param TableViewerExample an instance of a TableViewerExample 
+		 * Constructor
+		 * 
+		 * @param TableViewerExample
+		 *            an instance of a TableViewerExample
 		 */
-		public ExampleCellModifier(OptionPropertySelection tableViewerExample) {
+		public OptionCellModifier(OptionPropertySelection tableViewerExample) {
 			super();
 			this.tableViewerExample = tableViewerExample;
 		}
 
 		/**
-		 * @see org.eclipse.jface.viewers.ICellModifier#canModify(java.lang.Object, java.lang.String)
+		 * @see org.eclipse.jface.viewers.ICellModifier#canModify(java.lang.Object,
+		 *      java.lang.String)
 		 */
 		public boolean canModify(Object element, String property) {
 			return true;
 		}
 
 		/**
-		 * @see org.eclipse.jface.viewers.ICellModifier#getValue(java.lang.Object, java.lang.String)
+		 * @see org.eclipse.jface.viewers.ICellModifier#getValue(java.lang.Object,
+		 *      java.lang.String)
 		 */
 		public Object getValue(Object element, String property) {
 
 			// Find the index of the column
-			int columnIndex = tableViewerExample.getColumnNames().indexOf(property);
+			int columnIndex = tableViewerExample.getColumnNames().indexOf(
+					property);
 
 			Object result = null;
-			ExampleTask task = (ExampleTask) element;
+			domain.Option opt = (domain.Option) element;
 
 			switch (columnIndex) {
-				case 0 : // COMPLETED_COLUMN 
-					result = new Boolean(task.isCompleted());
-					break;
-				case 1 : // DESCRIPTION_COLUMN 
-					result = task.getDescription();
-					break;
-				case 2 : // OWNER_COLUMN 
-					String stringValue = task.getOwner();
-					String[] choices = tableViewerExample.getChoices(property);
-					int i = choices.length - 1;
-					while (!stringValue.equals(choices[i]) && i > 0)
-						--i;
-					result = new Integer(i);					
-					break;
-				case 3 : // PERCENT_COLUMN 
-					result = task.getPercentComplete() + "";
-					break;
-				default :
-					result = "";
+			case 0: // VALUE_COLUMN
+				result = opt.getValue();
+				break;
+			default:
+				result = "";
 			}
-			return result;	
+			return result;
 		}
 
 		/**
-		 * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object, java.lang.String, java.lang.Object)
+		 * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object,
+		 *      java.lang.String, java.lang.Object)
 		 */
-		public void modify(Object element, String property, Object value) {	
+		public void modify(Object element, String property, Object value) {
+			// Find the index of the column
+			int columnIndex = tableViewerExample.getColumnNames().indexOf(
+					property);
 
-			// Find the index of the column 
-			int columnIndex	= tableViewerExample.getColumnNames().indexOf(property);
-				
 			TableItem item = (TableItem) element;
-			ExampleTask task = (ExampleTask) item.getData();
+			domain.Option opt = (domain.Option) item.getData();
 			String valueString;
 
 			switch (columnIndex) {
-				case 0 : // COMPLETED_COLUMN 
-				    task.setCompleted(((Boolean) value).booleanValue());
-					break;
-				case 1 : // DESCRIPTION_COLUMN 
-					valueString = ((String) value).trim();
-					task.setDescription(valueString);
-					break;
-				case 2 : // OWNER_COLUMN 
-					valueString = tableViewerExample.getChoices(property)[((Integer) value).intValue()].trim();
-					if (!task.getOwner().equals(valueString)) {
-						task.setOwner(valueString);
-					}
-					break;
-				case 3 : // PERCENT_COLUMN
-					valueString = ((String) value).trim();
-					if (valueString.length() == 0)
-						valueString = "0";
-					task.setPercentComplete(Integer.parseInt(valueString));
-					break;
-				default :
-				}
-			tableViewerExample.getTaskList().taskChanged(task);
+			case 0: // OPTION_COLUMN
+				valueString = ((String) value).trim();
+				EditingDomain editingDomain = ((DiagramEditor) getPart())
+						.getEditingDomain();
+				/* apply the property change to single selected object */
+				editingDomain.getCommandStack().execute(
+						SetCommand.create(editingDomain, opt,
+								DomainPackage.eINSTANCE.getOption_Value(),
+								valueString));
+				break;
+			default:
+			}
+			tableViewerExample.getTaskList().taskChanged(opt);
 		}
 	}
-
-	public class ExampleTask {
-
-		private boolean completed 	= false;
-		private String description 	= "";
-		private String owner 		= "?";
-		private int percentComplete = 0;  
-
-		/**
-		 * Create a task with an initial description
-		 * 
-		 * @param string
-		 */
-		public ExampleTask(String string) {
-			
-			super();
-			setDescription(string);
-		}
-
-		/**
-		 * @return true if completed, false otherwise
-		 */
-		public boolean isCompleted() {
-			return completed;
-		}
-
-		/**
-		 * @return String task description
-		 */
-		public String getDescription() {
-			return description;
-		}
-
-		/**
-		 * @return String task owner
-		 */
-		public String getOwner() {
-			return owner;
-		}
-
-		/**
-		 * @return int percent completed
-		 * 
-		 */
-		public int getPercentComplete() {
-			return percentComplete;
-		}
-
-		/**
-		 * Set the 'completed' property
-		 * 
-		 * @param b
-		 */
-		public void setCompleted(boolean b) {
-			completed = b;
-		}
-
-		/**
-		 * Set the 'description' property
-		 * 
-		 * @param string
-		 */
-		public void setDescription(String string) {
-			description = string;
-		}
-
-		/**
-		 * Set the 'owner' property
-		 * 
-		 * @param string
-		 */
-		public void setOwner(String string) {
-			owner = string;
-		}
-
-		/**
-		 * Set the 'percentComplete' property
-		 * 
-		 * @param i
-		 */
-		public void setPercentComplete(int i) {
-			percentComplete = i;
-		}
-
-	}
-
-	
-	
 
 }
