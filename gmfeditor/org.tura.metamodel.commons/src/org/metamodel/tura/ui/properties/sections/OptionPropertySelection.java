@@ -298,6 +298,7 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		 *         is equal to the second element; and a positive number if the
 		 *         first element is greater than the second element
 		 */
+		@SuppressWarnings("deprecation")
 		protected int compareValues(domain.Option opt1, domain.Option opt2) {
 			return collator.compare(opt1.getValue(), opt2.getValue());
 		}
@@ -315,6 +316,7 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 	public class OptionList {
 
 		private ArrayList<domain.Option> options = new ArrayList<domain.Option>();
+		@SuppressWarnings("rawtypes")
 		private Set changeListeners = new HashSet();
 
 		/**
@@ -325,6 +327,7 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 			this.initData();
 		}
 
+		@SuppressWarnings({ "unchecked", "rawtypes" })
 		private void initData() {
 			ShapeImpl diagram = (ShapeImpl) editPart.getModel();
 			try {
@@ -425,6 +428,7 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		/**
 		 * @param viewer
 		 */
+		@SuppressWarnings("unchecked")
 		public void addChangeListener(ITaskListViewer viewer) {
 			changeListeners.add(viewer);
 		}
