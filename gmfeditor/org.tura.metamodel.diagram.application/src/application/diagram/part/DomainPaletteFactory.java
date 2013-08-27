@@ -43,6 +43,9 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createApplicationRecipe3CreationTool());
 		paletteContainer.add(createApplicationRecipes4CreationTool());
 		paletteContainer.add(createDomainArtifact5CreationTool());
+		paletteContainer.add(createEJBService6CreationTool());
+		paletteContainer.add(createJPAService7CreationTool());
+		paletteContainer.add(createORMEntity8CreationTool());
 		return paletteContainer;
 	}
 
@@ -133,6 +136,39 @@ public class DomainPaletteFactory {
 				Messages.DomainArtifact5CreationTool_desc, null, null) {
 		};
 		entry.setId("createDomainArtifact5CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createEJBService6CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.EJBService6CreationTool_title,
+				Messages.EJBService6CreationTool_desc, null, null) {
+		};
+		entry.setId("createEJBService6CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createJPAService7CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.JPAService7CreationTool_title,
+				Messages.JPAService7CreationTool_desc, null, null) {
+		};
+		entry.setId("createJPAService7CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createORMEntity8CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.ORMEntity8CreationTool_title,
+				Messages.ORMEntity8CreationTool_desc, null, null) {
+		};
+		entry.setId("createORMEntity8CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

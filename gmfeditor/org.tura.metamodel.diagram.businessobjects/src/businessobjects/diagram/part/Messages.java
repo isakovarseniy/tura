@@ -286,52 +286,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String InsertMethod4CreationTool_title;
+	public static String EJBService4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InsertMethod4CreationTool_desc;
+	public static String EJBService4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String OtherMethod5CreationTool_title;
+	public static String InsertMethod5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OtherMethod5CreationTool_desc;
+	public static String InsertMethod5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String RemoveMethod6CreationTool_title;
+	public static String JPAService6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RemoveMethod6CreationTool_desc;
+	public static String JPAService6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String SearchMethod7CreationTool_title;
+	public static String ORMEntity7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SearchMethod7CreationTool_desc;
+	public static String ORMEntity7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String UpdateMethod8CreationTool_title;
+	public static String OtherMethod8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String UpdateMethod8CreationTool_desc;
+	public static String OtherMethod8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String RemoveMethod9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RemoveMethod9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String SearchMethod10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SearchMethod10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String UpdateMethod11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String UpdateMethod11CreationTool_desc;
 
 	/**
 	 * @generated

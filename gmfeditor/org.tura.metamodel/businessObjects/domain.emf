@@ -13,6 +13,7 @@ class Domain{
 class DomainArtifacts{
    attr EString name;  
    ref Domain#domainArtifacts parent;
+   @gmf.compartment
    val DomainArtifact[*]#parent domainArtifact;
 }
 
@@ -44,6 +45,19 @@ class DomainArtifact{
    attr EString name;
    ref DomainArtifacts#domainArtifact parent;
    ref  Artifacts#parent artifact;
+}
+
+
+@gmf.node(label="name")
+class ORMEntity extends DomainArtifact{
+}
+
+@gmf.node(label="name")
+class JPAService extends DomainArtifact{
+}
+
+@gmf.node(label="name")
+class EJBService extends DomainArtifact{
 }
 
 @gmf.diagram.artifact

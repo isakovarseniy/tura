@@ -286,22 +286,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Specifier4CreationTool_title;
+	public static String EJBService4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Specifier4CreationTool_desc;
+	public static String EJBService4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Variable5CreationTool_title;
+	public static String JPAService5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Variable5CreationTool_desc;
+	public static String JPAService5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ORMEntity6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ORMEntity6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Specifier7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Specifier7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Variable8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Variable8CreationTool_desc;
 
 	/**
 	 * @generated

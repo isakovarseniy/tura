@@ -337,10 +337,17 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 				helper.setContext(DomainPackage.eINSTANCE
 						.getEClassifier("Domain"));
 
+				domain.DomainArtifact domainArtifact =   ((domain.Specifier) eObject).getParent().getParent().getParent();
+				domain.Artifact artifact =   ((domain.Specifier) eObject).getParent();
+						
 				EObject types = (EObject) diagram.getElement();
 
 				OCLExpression<EClassifier> query = helper
-						.createQuery("domain::Specifier.allInstances()->select(r|r.oclAsType(domain::Specifier).name ='"
+						.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).name ='"
+								+domainArtifact.getName()+
+								"').oclAsType(domain::DomainArtifact).artifact.artifacts-> select(r|r.oclAsType(domain::Artifact).name ='"
+								+artifact.getName()
+								+"').oclAsType(domain::Artifact).specifiers->select(r|r.oclAsType(domain::Specifier).name ='" 
 								+ ((domain.Specifier) eObject).getName()
 								+ "').oclAsType(domain::Specifier).options");
 

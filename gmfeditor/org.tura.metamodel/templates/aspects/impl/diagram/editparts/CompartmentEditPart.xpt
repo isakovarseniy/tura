@@ -30,6 +30,33 @@
 			return result;
 		}
 
+		«ELSEIF editPartClassName.indexOf('ApplicationsCompartmentEditPart') > 0-»
+		public org.eclipse.draw2d.IFigure createFigure() {
+			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
+			result.setTitleVisibility(false);
+		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
+		    layout.setColumns(5);
+		    result.getContentPane().setLayoutManager(layout);
+			return result;
+		}
+		«ELSEIF editPartClassName.indexOf('RecipesCompartmentEditPart') > 0-»
+		public org.eclipse.draw2d.IFigure createFigure() {
+			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
+			result.setTitleVisibility(false);
+		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
+		    layout.setColumns(5);
+		    result.getContentPane().setLayoutManager(layout);
+			return result;
+		}
+		«ELSEIF editPartClassName.indexOf('MappersCompartmentEditPart') > 0-»
+		public org.eclipse.draw2d.IFigure createFigure() {
+			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
+			result.setTitleVisibility(false);
+		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
+		    layout.setColumns(5);
+		    result.getContentPane().setLayoutManager(layout);
+			return result;
+		}
 		«ELSEIF editPartClassName.indexOf('TypeAttributesCompartmentEditPart') > 0-»
 		public org.eclipse.draw2d.IFigure createFigure() {
 			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();

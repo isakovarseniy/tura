@@ -389,6 +389,18 @@
             xsi:type="gmfgen:ToolEntry"
             title="DomainArtifact"
             description="Create new DomainArtifact"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="EJBService"
+            description="Create new EJBService"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="JPAService"
+            description="Create new JPAService"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ORMEntity"
+            description="Create new ORMEntity"/>
       </groups>
       <groups
           title="Connections"

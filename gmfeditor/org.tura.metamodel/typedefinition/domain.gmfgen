@@ -615,6 +615,14 @@
             genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="DomainArtifact"
+            description="Create new DomainArtifact"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="EJBService"
+            description="Create new EJBService"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="EnumAttribute"
             description="Create new EnumAttribute"
             genNodes="//@diagram/@childNodes.4"/>
@@ -623,6 +631,14 @@
             title="Enumarator"
             description="Create new Enumarator"
             genNodes="//@diagram/@topLevelNodes.2"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="JPAService"
+            description="Create new JPAService"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ORMEntity"
+            description="Create new ORMEntity"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Operation"

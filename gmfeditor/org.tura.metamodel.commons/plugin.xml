@@ -114,6 +114,36 @@
   </extension>  
 
 
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tura.metamodel.diagram.mapper">
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.custom"
+             label="Type ref"/>
+      </propertyTabs>
+   </extension>
+   
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.tura.metamodel.diagram.mapper">
+      
+          <propertySection
+               tab="property.tab.domain.custom"
+               class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
+               id="org.tura.metamodel.mapper.update">
+              <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
+         </propertySection>        
+ 
+          <propertySection
+               tab="property.tab.domain.custom"
+               class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
+               id="org.tura.metamodel.mapper.update">
+              <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
+         </propertySection>        
+
+    </propertySections>
+  </extension>  
 
 
 

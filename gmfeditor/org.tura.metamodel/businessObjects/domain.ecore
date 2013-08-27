@@ -19,7 +19,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Domain"
         eOpposite="#//Domain/domainArtifacts"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainArtifact" upperBound="-1"
-        eType="#//DomainArtifact" containment="true" eOpposite="#//DomainArtifact/parent"/>
+        eType="#//DomainArtifact" containment="true" eOpposite="#//DomainArtifact/parent">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainTypes">
     <eAnnotations source="gmf.node">
@@ -62,6 +64,21 @@
         eOpposite="#//DomainArtifacts/domainArtifact"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" eType="#//Artifacts"
         eOpposite="#//Artifacts/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ORMEntity" eSuperTypes="#//DomainArtifact">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JPAService" eSuperTypes="#//DomainArtifact">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EJBService" eSuperTypes="#//DomainArtifact">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifacts">
     <eAnnotations source="gmf.diagram.artifact"/>

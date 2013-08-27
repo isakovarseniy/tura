@@ -35,6 +35,9 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifact/parent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifact/artifact"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ORMEntity"/>
+    <genClasses ecoreClass="domain.ecore#//JPAService"/>
+    <genClasses ecoreClass="domain.ecore#//EJBService"/>
     <genClasses ecoreClass="domain.ecore#//Artifacts">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Artifacts/artifacts"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Artifacts/parent"/>
