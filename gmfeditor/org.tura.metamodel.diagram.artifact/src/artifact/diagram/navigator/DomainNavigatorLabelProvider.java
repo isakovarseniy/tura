@@ -105,30 +105,30 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case ArtifactEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Artifact", DomainElementTypes.Artifact_702001); //$NON-NLS-1$
-		case ArtifactsEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?Artifacts", DomainElementTypes.Artifacts_701000); //$NON-NLS-1$
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_704003); //$NON-NLS-1$
-		case SpecifierEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Specifier", DomainElementTypes.Specifier_703003); //$NON-NLS-1$
-		case VariableEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Variable", DomainElementTypes.Variable_703002); //$NON-NLS-1$
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?recipeConfig", DomainElementTypes.RecipeRecipeConfig_704002); //$NON-NLS-1$
 		case ConfigVariableEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?ConfigVariable", DomainElementTypes.ConfigVariable_703004); //$NON-NLS-1$
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_704001); //$NON-NLS-1$
+		case ArtifactEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Artifact", DomainElementTypes.Artifact_702001); //$NON-NLS-1$
+		case ArtifactsEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?Artifacts", DomainElementTypes.Artifacts_701000); //$NON-NLS-1$
+		case SpecifierEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Specifier", DomainElementTypes.Specifier_703003); //$NON-NLS-1$
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?recipeConfig", DomainElementTypes.RecipeRecipeConfig_704002); //$NON-NLS-1$
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_704003); //$NON-NLS-1$
+		case VariableEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Variable", DomainElementTypes.Variable_703002); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -189,22 +189,22 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case ArtifactEditPart.VISUAL_ID:
-			return getArtifact_702001Text(view);
-		case ArtifactsEditPart.VISUAL_ID:
-			return getArtifacts_701000Text(view);
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_704003Text(view);
-		case SpecifierEditPart.VISUAL_ID:
-			return getSpecifier_703003Text(view);
-		case VariableEditPart.VISUAL_ID:
-			return getVariable_703002Text(view);
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return getRecipeRecipeConfig_704002Text(view);
 		case ConfigVariableEditPart.VISUAL_ID:
 			return getConfigVariable_703004Text(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_704001Text(view);
+		case ArtifactEditPart.VISUAL_ID:
+			return getArtifact_702001Text(view);
+		case ArtifactsEditPart.VISUAL_ID:
+			return getArtifacts_701000Text(view);
+		case SpecifierEditPart.VISUAL_ID:
+			return getSpecifier_703003Text(view);
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getRecipeRecipeConfig_704002Text(view);
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getConfigurationConfigExtension_704003Text(view);
+		case VariableEditPart.VISUAL_ID:
+			return getVariable_703002Text(view);
 		}
 		return getUnknownElementText(view);
 	}

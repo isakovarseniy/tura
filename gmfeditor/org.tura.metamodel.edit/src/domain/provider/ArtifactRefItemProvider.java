@@ -64,26 +64,50 @@ public class ArtifactRefItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addNamePropertyDescriptor(object);
+      addDomainArtifactPropertyDescriptor(object);
+      addArtifactNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Name feature.
+   * This adds a property descriptor for the Domain Artifact feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addNamePropertyDescriptor(Object object)
+  protected void addDomainArtifactPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_ArtifactRef_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ArtifactRef_name_feature", "_UI_ArtifactRef_type"),
-         DomainPackage.Literals.ARTIFACT_REF__NAME,
+         getString("_UI_ArtifactRef_domainArtifact_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ArtifactRef_domainArtifact_feature", "_UI_ArtifactRef_type"),
+         DomainPackage.Literals.ARTIFACT_REF__DOMAIN_ARTIFACT,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Artifact Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addArtifactNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ArtifactRef_artifactName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ArtifactRef_artifactName_feature", "_UI_ArtifactRef_type"),
+         DomainPackage.Literals.ARTIFACT_REF__ARTIFACT_NAME,
          true,
          false,
          false,
@@ -113,7 +137,7 @@ public class ArtifactRefItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((ArtifactRef)object).getName();
+    String label = ((ArtifactRef)object).getArtifactName();
     return label == null || label.length() == 0 ?
       getString("_UI_ArtifactRef_type") :
       getString("_UI_ArtifactRef_type") + " " + label;
@@ -133,7 +157,8 @@ public class ArtifactRefItemProvider
 
     switch (notification.getFeatureID(ArtifactRef.class))
     {
-      case DomainPackage.ARTIFACT_REF__NAME:
+      case DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT:
+      case DomainPackage.ARTIFACT_REF__ARTIFACT_NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

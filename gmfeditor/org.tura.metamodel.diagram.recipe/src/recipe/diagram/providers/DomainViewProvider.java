@@ -183,8 +183,8 @@ public class DomainViewProvider extends AbstractProvider implements
 		return RecipeEditPart.VISUAL_ID == visualID
 				|| ConfigurationEditPart.VISUAL_ID == visualID
 				|| ComponentEditPart.VISUAL_ID == visualID
-				|| Component2EditPart.VISUAL_ID == visualID
 				|| ModelMapperEditPart.VISUAL_ID == visualID
+				|| Component2EditPart.VISUAL_ID == visualID
 				|| PropertyEditPart.VISUAL_ID == visualID;
 	}
 
@@ -251,12 +251,12 @@ public class DomainViewProvider extends AbstractProvider implements
 		case ComponentEditPart.VISUAL_ID:
 			return createComponent_303001(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case Component2EditPart.VISUAL_ID:
-			return createComponent_303002(domainElement, containerView, index,
-					persisted, preferencesHint);
 		case ModelMapperEditPart.VISUAL_ID:
 			return createModelMapper_303003(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case Component2EditPart.VISUAL_ID:
+			return createComponent_303002(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case PropertyEditPart.VISUAL_ID:
 			return createProperty_303004(domainElement, containerView, index,
 					persisted, preferencesHint);

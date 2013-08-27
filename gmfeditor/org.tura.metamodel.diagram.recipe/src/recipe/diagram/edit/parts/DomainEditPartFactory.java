@@ -46,17 +46,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ComponentNameEditPart.VISUAL_ID:
 				return new ComponentNameEditPart(view);
 
-			case Component2EditPart.VISUAL_ID:
-				return new Component2EditPart(view);
-
-			case ComponentName2EditPart.VISUAL_ID:
-				return new ComponentName2EditPart(view);
-
 			case ModelMapperEditPart.VISUAL_ID:
 				return new ModelMapperEditPart(view);
 
 			case ModelMapperNameEditPart.VISUAL_ID:
 				return new ModelMapperNameEditPart(view);
+
+			case Component2EditPart.VISUAL_ID:
+				return new Component2EditPart(view);
+
+			case ComponentName2EditPart.VISUAL_ID:
+				return new ComponentName2EditPart(view);
 
 			case PropertyEditPart.VISUAL_ID:
 				return new PropertyEditPart(view);

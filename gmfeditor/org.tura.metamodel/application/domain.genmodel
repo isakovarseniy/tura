@@ -161,7 +161,6 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ModelMapper">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ModelMapper/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/artifactRef"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/specifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/variables"/>
     </genClasses>
@@ -183,7 +182,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MappingVariable/value"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ArtifactRef">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtifactRef/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtifactRef/domainArtifact"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtifactRef/artifactName"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//TypeDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//TypeDefinition/types"/>

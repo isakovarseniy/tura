@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModelMapperTest extends TestCase
+public class ModelMapperTest extends ArtifactRefTest
 {
-
-  /**
-   * The fixture for this Model Mapper test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ModelMapper fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class ModelMapperTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Model Mapper test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(ModelMapper fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Model Mapper test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected ModelMapper getFixture()
   {
-    return fixture;
+    return (ModelMapper)fixture;
   }
 
   /**

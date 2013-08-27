@@ -1858,51 +1858,6 @@ public interface DomainPackage extends EPackage
   int MODEL_MAPPER = 35;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL_MAPPER__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Artifact Ref</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL_MAPPER__ARTIFACT_REF = 1;
-
-  /**
-   * The feature id for the '<em><b>Specifiers</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL_MAPPER__SPECIFIERS = 2;
-
-  /**
-   * The feature id for the '<em><b>Variables</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL_MAPPER__VARIABLES = 3;
-
-  /**
-   * The number of structural features of the '<em>Model Mapper</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL_MAPPER_FEATURE_COUNT = 4;
-
-  /**
    * The meta object id for the '{@link domain.impl.ConfigurationImpl <em>Configuration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1911,6 +1866,127 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   int CONFIGURATION = 36;
+
+  /**
+   * The meta object id for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.PropertyImpl
+   * @see domain.impl.DomainPackageImpl#getProperty()
+   * @generated
+   */
+  int PROPERTY = 37;
+
+  /**
+   * The meta object id for the '{@link domain.impl.MappingSpecifierImpl <em>Mapping Specifier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.MappingSpecifierImpl
+   * @see domain.impl.DomainPackageImpl#getMappingSpecifier()
+   * @generated
+   */
+  int MAPPING_SPECIFIER = 38;
+
+  /**
+   * The meta object id for the '{@link domain.impl.MappingVariableImpl <em>Mapping Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.MappingVariableImpl
+   * @see domain.impl.DomainPackageImpl#getMappingVariable()
+   * @generated
+   */
+  int MAPPING_VARIABLE = 39;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ArtifactRefImpl <em>Artifact Ref</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ArtifactRefImpl
+   * @see domain.impl.DomainPackageImpl#getArtifactRef()
+   * @generated
+   */
+  int ARTIFACT_REF = 40;
+
+  /**
+   * The feature id for the '<em><b>Domain Artifact</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT_REF__DOMAIN_ARTIFACT = 0;
+
+  /**
+   * The feature id for the '<em><b>Artifact Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT_REF__ARTIFACT_NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Artifact Ref</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT_REF_FEATURE_COUNT = 2;
+
+  /**
+   * The feature id for the '<em><b>Domain Artifact</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__DOMAIN_ARTIFACT = ARTIFACT_REF__DOMAIN_ARTIFACT;
+
+  /**
+   * The feature id for the '<em><b>Artifact Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__ARTIFACT_NAME = ARTIFACT_REF__ARTIFACT_NAME;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__NAME = ARTIFACT_REF_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Specifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__SPECIFIERS = ARTIFACT_REF_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__VARIABLES = ARTIFACT_REF_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Model Mapper</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1949,16 +2025,6 @@ public interface DomainPackage extends EPackage
   int CONFIGURATION_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.PropertyImpl
-   * @see domain.impl.DomainPackageImpl#getProperty()
-   * @generated
-   */
-  int PROPERTY = 37;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1984,16 +2050,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int PROPERTY_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link domain.impl.MappingSpecifierImpl <em>Mapping Specifier</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.MappingSpecifierImpl
-   * @see domain.impl.DomainPackageImpl#getMappingSpecifier()
-   * @generated
-   */
-  int MAPPING_SPECIFIER = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2023,16 +2079,6 @@ public interface DomainPackage extends EPackage
   int MAPPING_SPECIFIER_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link domain.impl.MappingVariableImpl <em>Mapping Variable</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.MappingVariableImpl
-   * @see domain.impl.DomainPackageImpl#getMappingVariable()
-   * @generated
-   */
-  int MAPPING_VARIABLE = 39;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2058,34 +2104,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int MAPPING_VARIABLE_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link domain.impl.ArtifactRefImpl <em>Artifact Ref</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ArtifactRefImpl
-   * @see domain.impl.DomainPackageImpl#getArtifactRef()
-   * @generated
-   */
-  int ARTIFACT_REF = 40;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARTIFACT_REF__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Artifact Ref</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARTIFACT_REF_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link domain.impl.TypeDefinitionImpl <em>Type Definition</em>}' class.
@@ -4162,17 +4180,6 @@ public interface DomainPackage extends EPackage
   EAttribute getModelMapper_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.ModelMapper#getArtifactRef <em>Artifact Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Artifact Ref</em>'.
-   * @see domain.ModelMapper#getArtifactRef()
-   * @see #getModelMapper()
-   * @generated
-   */
-  EReference getModelMapper_ArtifactRef();
-
-  /**
    * Returns the meta object for the containment reference list '{@link domain.ModelMapper#getSpecifiers <em>Specifiers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4344,15 +4351,26 @@ public interface DomainPackage extends EPackage
   EClass getArtifactRef();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.ArtifactRef#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link domain.ArtifactRef#getDomainArtifact <em>Domain Artifact</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see domain.ArtifactRef#getName()
+   * @return the meta object for the attribute '<em>Domain Artifact</em>'.
+   * @see domain.ArtifactRef#getDomainArtifact()
    * @see #getArtifactRef()
    * @generated
    */
-  EAttribute getArtifactRef_Name();
+  EAttribute getArtifactRef_DomainArtifact();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ArtifactRef#getArtifactName <em>Artifact Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Artifact Name</em>'.
+   * @see domain.ArtifactRef#getArtifactName()
+   * @see #getArtifactRef()
+   * @generated
+   */
+  EAttribute getArtifactRef_ArtifactName();
 
   /**
    * Returns the meta object for class '{@link domain.TypeDefinition <em>Type Definition</em>}'.
@@ -6063,14 +6081,6 @@ public interface DomainPackage extends EPackage
     EAttribute MODEL_MAPPER__NAME = eINSTANCE.getModelMapper_Name();
 
     /**
-     * The meta object literal for the '<em><b>Artifact Ref</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODEL_MAPPER__ARTIFACT_REF = eINSTANCE.getModelMapper_ArtifactRef();
-
-    /**
      * The meta object literal for the '<em><b>Specifiers</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6209,12 +6219,20 @@ public interface DomainPackage extends EPackage
     EClass ARTIFACT_REF = eINSTANCE.getArtifactRef();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Domain Artifact</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ARTIFACT_REF__NAME = eINSTANCE.getArtifactRef_Name();
+    EAttribute ARTIFACT_REF__DOMAIN_ARTIFACT = eINSTANCE.getArtifactRef_DomainArtifact();
+
+    /**
+     * The meta object literal for the '<em><b>Artifact Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARTIFACT_REF__ARTIFACT_NAME = eINSTANCE.getArtifactRef_ArtifactName();
 
     /**
      * The meta object literal for the '{@link domain.impl.TypeDefinitionImpl <em>Type Definition</em>}' class.

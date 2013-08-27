@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.ModelMapperImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.ModelMapperImpl#getArtifactRef <em>Artifact Ref</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getVariables <em>Variables</em>}</li>
  * </ul>
@@ -40,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ModelMapperImpl extends EObjectImpl implements ModelMapper
+public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -61,16 +60,6 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getArtifactRef() <em>Artifact Ref</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getArtifactRef()
-   * @generated
-   * @ordered
-   */
-  protected ArtifactRef artifactRef;
 
   /**
    * The cached value of the '{@link #getSpecifiers() <em>Specifiers</em>}' containment reference list.
@@ -141,54 +130,6 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
    * <!-- end-user-doc -->
    * @generated
    */
-  public ArtifactRef getArtifactRef()
-  {
-    return artifactRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetArtifactRef(ArtifactRef newArtifactRef, NotificationChain msgs)
-  {
-    ArtifactRef oldArtifactRef = artifactRef;
-    artifactRef = newArtifactRef;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.MODEL_MAPPER__ARTIFACT_REF, oldArtifactRef, newArtifactRef);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setArtifactRef(ArtifactRef newArtifactRef)
-  {
-    if (newArtifactRef != artifactRef)
-    {
-      NotificationChain msgs = null;
-      if (artifactRef != null)
-        msgs = ((InternalEObject)artifactRef).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.MODEL_MAPPER__ARTIFACT_REF, null, msgs);
-      if (newArtifactRef != null)
-        msgs = ((InternalEObject)newArtifactRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.MODEL_MAPPER__ARTIFACT_REF, null, msgs);
-      msgs = basicSetArtifactRef(newArtifactRef, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MODEL_MAPPER__ARTIFACT_REF, newArtifactRef, newArtifactRef));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<MappingSpecifier> getSpecifiers()
   {
     if (specifiers == null)
@@ -222,8 +163,6 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
   {
     switch (featureID)
     {
-      case DomainPackage.MODEL_MAPPER__ARTIFACT_REF:
-        return basicSetArtifactRef(null, msgs);
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
         return ((InternalEList<?>)getSpecifiers()).basicRemove(otherEnd, msgs);
       case DomainPackage.MODEL_MAPPER__VARIABLES:
@@ -244,8 +183,6 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
     {
       case DomainPackage.MODEL_MAPPER__NAME:
         return getName();
-      case DomainPackage.MODEL_MAPPER__ARTIFACT_REF:
-        return getArtifactRef();
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
         return getSpecifiers();
       case DomainPackage.MODEL_MAPPER__VARIABLES:
@@ -267,9 +204,6 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
     {
       case DomainPackage.MODEL_MAPPER__NAME:
         setName((String)newValue);
-        return;
-      case DomainPackage.MODEL_MAPPER__ARTIFACT_REF:
-        setArtifactRef((ArtifactRef)newValue);
         return;
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
         getSpecifiers().clear();
@@ -296,9 +230,6 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
       case DomainPackage.MODEL_MAPPER__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DomainPackage.MODEL_MAPPER__ARTIFACT_REF:
-        setArtifactRef((ArtifactRef)null);
-        return;
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
         getSpecifiers().clear();
         return;
@@ -321,8 +252,6 @@ public class ModelMapperImpl extends EObjectImpl implements ModelMapper
     {
       case DomainPackage.MODEL_MAPPER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.MODEL_MAPPER__ARTIFACT_REF:
-        return artifactRef != null;
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
         return specifiers != null && !specifiers.isEmpty();
       case DomainPackage.MODEL_MAPPER__VARIABLES:

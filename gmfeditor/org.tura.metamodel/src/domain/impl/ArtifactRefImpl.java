@@ -19,7 +19,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.ArtifactRefImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.ArtifactRefImpl#getDomainArtifact <em>Domain Artifact</em>}</li>
+ *   <li>{@link domain.impl.ArtifactRefImpl#getArtifactName <em>Artifact Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,24 +29,44 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getDomainArtifact() <em>Domain Artifact</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getDomainArtifact()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String DOMAIN_ARTIFACT_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getDomainArtifact() <em>Domain Artifact</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getDomainArtifact()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String domainArtifact = DOMAIN_ARTIFACT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getArtifactName() <em>Artifact Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArtifactName()
+   * @generated
+   * @ordered
+   */
+  protected static final String ARTIFACT_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getArtifactName() <em>Artifact Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArtifactName()
+   * @generated
+   * @ordered
+   */
+  protected String artifactName = ARTIFACT_NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +94,9 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getDomainArtifact()
   {
-    return name;
+    return domainArtifact;
   }
 
   /**
@@ -83,12 +104,35 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setDomainArtifact(String newDomainArtifact)
   {
-    String oldName = name;
-    name = newName;
+    String oldDomainArtifact = domainArtifact;
+    domainArtifact = newDomainArtifact;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT_REF__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT, oldDomainArtifact, domainArtifact));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getArtifactName()
+  {
+    return artifactName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setArtifactName(String newArtifactName)
+  {
+    String oldArtifactName = artifactName;
+    artifactName = newArtifactName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT_REF__ARTIFACT_NAME, oldArtifactName, artifactName));
   }
 
   /**
@@ -101,8 +145,10 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
   {
     switch (featureID)
     {
-      case DomainPackage.ARTIFACT_REF__NAME:
-        return getName();
+      case DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT:
+        return getDomainArtifact();
+      case DomainPackage.ARTIFACT_REF__ARTIFACT_NAME:
+        return getArtifactName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +163,11 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
   {
     switch (featureID)
     {
-      case DomainPackage.ARTIFACT_REF__NAME:
-        setName((String)newValue);
+      case DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT:
+        setDomainArtifact((String)newValue);
+        return;
+      case DomainPackage.ARTIFACT_REF__ARTIFACT_NAME:
+        setArtifactName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +183,11 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
   {
     switch (featureID)
     {
-      case DomainPackage.ARTIFACT_REF__NAME:
-        setName(NAME_EDEFAULT);
+      case DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT:
+        setDomainArtifact(DOMAIN_ARTIFACT_EDEFAULT);
+        return;
+      case DomainPackage.ARTIFACT_REF__ARTIFACT_NAME:
+        setArtifactName(ARTIFACT_NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +203,10 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
   {
     switch (featureID)
     {
-      case DomainPackage.ARTIFACT_REF__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT:
+        return DOMAIN_ARTIFACT_EDEFAULT == null ? domainArtifact != null : !DOMAIN_ARTIFACT_EDEFAULT.equals(domainArtifact);
+      case DomainPackage.ARTIFACT_REF__ARTIFACT_NAME:
+        return ARTIFACT_NAME_EDEFAULT == null ? artifactName != null : !ARTIFACT_NAME_EDEFAULT.equals(artifactName);
     }
     return super.eIsSet(featureID);
   }
@@ -168,8 +222,10 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (domainArtifact: ");
+    result.append(domainArtifact);
+    result.append(", artifactName: ");
+    result.append(artifactName);
     result.append(')');
     return result.toString();
   }

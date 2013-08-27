@@ -151,10 +151,10 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getConfigurationName_305006Parser();
 		case ComponentNameEditPart.VISUAL_ID:
 			return getComponentName_305003Parser();
-		case ComponentName2EditPart.VISUAL_ID:
-			return getComponentName_305002Parser();
 		case ModelMapperNameEditPart.VISUAL_ID:
 			return getModelMapperName_305001Parser();
+		case ComponentName2EditPart.VISUAL_ID:
+			return getComponentName_305002Parser();
 		case PropertyNameEditPart.VISUAL_ID:
 			return getPropertyName_305005Parser();
 		}

@@ -397,6 +397,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         ModelMapper modelMapper = (ModelMapper)theEObject;
         T result = caseModelMapper(modelMapper);
+        if (result == null) result = caseArtifactRef(modelMapper);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

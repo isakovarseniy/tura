@@ -80,6 +80,55 @@
       </labels>
     </childNodes>
     <childNodes
+        visualID="303003"
+        editPartClassName="ModelMapperEditPart"
+        itemSemanticEditPolicyClassName="ModelMapperItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ModelMapperCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ModelMapperGraphicalNodeEditPolicy"
+        createCommandClassName="ModelMapperCreateCommand"
+        containers="//@diagram/@compartments.2 //@diagram/@compartments.4">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ModelMapperEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ModelMapperFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ModelMapperFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureModelMapperLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ModelMapperFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(100)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureModelMapperLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureModelMapperLabelFigure.setText(&quot;ModelMapper&quot;);&#xA;&#xA;this.add(fFigureModelMapperLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureModelMapperLabelFigure() {&#xA;&#x9;&#x9;return fFigureModelMapperLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="100"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/ModelMapper"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Component/mappers"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Component/mappers"/>
+      </modelFacet>
+      <labels
+          visualID="305001"
+          editPartClassName="ModelMapperNameEditPart"
+          itemSemanticEditPolicyClassName="ModelMapperNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureModelMapperLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/ModelMapper/name"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
         visualID="303002"
         editPartClassName="Component2EditPart"
         itemSemanticEditPolicyClassName="Component2ItemSemanticEditPolicy"
@@ -123,55 +172,6 @@
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
               href="domain.genmodel#//domain/Component/name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="303003"
-        editPartClassName="ModelMapperEditPart"
-        itemSemanticEditPolicyClassName="ModelMapperItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="ModelMapperCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="ModelMapperGraphicalNodeEditPolicy"
-        createCommandClassName="ModelMapperCreateCommand"
-        containers="//@diagram/@compartments.4 //@diagram/@compartments.2">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="ModelMapperEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="ModelMapperFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ModelMapperFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureModelMapperLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ModelMapperFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(100)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureModelMapperLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureModelMapperLabelFigure.setText(&quot;ModelMapper&quot;);&#xA;&#xA;this.add(fFigureModelMapperLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureModelMapperLabelFigure() {&#xA;&#x9;&#x9;return fFigureModelMapperLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="100"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/ModelMapper"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/Component/mappers"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/Component/mappers"/>
-      </modelFacet>
-      <labels
-          visualID="305001"
-          editPartClassName="ModelMapperNameEditPart"
-          itemSemanticEditPolicyClassName="ModelMapperNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureModelMapperLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/ModelMapper/name"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -443,7 +443,7 @@
         editPartClassName="ComponentComponentComponentsCompartmentEditPart"
         itemSemanticEditPolicyClassName="ComponentComponentComponentsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentComponentComponentsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.1"
+        childNodes="//@diagram/@childNodes.2"
         title="ComponentComponentsCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.0"
@@ -460,7 +460,7 @@
         editPartClassName="ComponentComponentMappersCompartmentEditPart"
         itemSemanticEditPolicyClassName="ComponentComponentMappersCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentComponentMappersCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.2"
+        childNodes="//@diagram/@childNodes.1"
         title="ComponentMappersCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.0">
@@ -476,10 +476,10 @@
         editPartClassName="ComponentComponentComponentsCompartment2EditPart"
         itemSemanticEditPolicyClassName="ComponentComponentComponentsCompartment2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentComponentComponentsCompartment2CanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.1"
+        childNodes="//@diagram/@childNodes.2"
         title="ComponentComponentsCompartment"
         needsTitle="false"
-        node="//@diagram/@childNodes.1"
+        node="//@diagram/@childNodes.2"
         listLayout="false">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -493,10 +493,10 @@
         editPartClassName="ComponentComponentMappersCompartment2EditPart"
         itemSemanticEditPolicyClassName="ComponentComponentMappersCompartment2ItemSemanticEditPolicy"
         canonicalEditPolicyClassName="ComponentComponentMappersCompartment2CanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.2"
+        childNodes="//@diagram/@childNodes.1"
         title="ComponentMappersCompartment"
         needsTitle="false"
-        node="//@diagram/@childNodes.1">
+        node="//@diagram/@childNodes.2">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -528,7 +528,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="Component"
             description="Create new Component"
-            genNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1"/>
+            genNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Configuration"
@@ -550,7 +550,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="ModelMapper"
             description="Create new ModelMapper"
-            genNodes="//@diagram/@childNodes.2"/>
+            genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ORMEntity"
@@ -625,14 +625,14 @@
     <childReferences
         child="//@diagram"/>
     <childReferences
-        parent="//@diagram/@childNodes.1"
-        child="//@diagram/@childNodes.1"/>
-    <childReferences
-        parent="//@diagram/@childNodes.1"
-        child="//@diagram/@childNodes.2"/>
-    <childReferences
         parent="//@diagram/@childNodes.0"
         child="//@diagram/@childNodes.1"/>
+    <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.1"/>
+    <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.2"/>
     <childReferences
         parent="//@diagram/@childNodes.0"
         child="//@diagram/@childNodes.2"/>
@@ -738,7 +738,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet"/>
     <implementations
         xsi:type="gmfgen:ExternalParser"
         uses="//@diagram/@links.1/@labels.0/@modelFacet //@diagram/@links.2/@labels.0/@modelFacet"/>

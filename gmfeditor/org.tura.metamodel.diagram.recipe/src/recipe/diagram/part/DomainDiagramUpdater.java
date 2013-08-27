@@ -283,10 +283,10 @@ public class DomainDiagramUpdater {
 			return getConfiguration_302002ContainedLinks(view);
 		case ComponentEditPart.VISUAL_ID:
 			return getComponent_303001ContainedLinks(view);
-		case Component2EditPart.VISUAL_ID:
-			return getComponent_303002ContainedLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003ContainedLinks(view);
+		case Component2EditPart.VISUAL_ID:
+			return getComponent_303002ContainedLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303004ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -306,10 +306,10 @@ public class DomainDiagramUpdater {
 			return getConfiguration_302002IncomingLinks(view);
 		case ComponentEditPart.VISUAL_ID:
 			return getComponent_303001IncomingLinks(view);
-		case Component2EditPart.VISUAL_ID:
-			return getComponent_303002IncomingLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003IncomingLinks(view);
+		case Component2EditPart.VISUAL_ID:
+			return getComponent_303002IncomingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303004IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -329,10 +329,10 @@ public class DomainDiagramUpdater {
 			return getConfiguration_302002OutgoingLinks(view);
 		case ComponentEditPart.VISUAL_ID:
 			return getComponent_303001OutgoingLinks(view);
-		case Component2EditPart.VISUAL_ID:
-			return getComponent_303002OutgoingLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003OutgoingLinks(view);
+		case Component2EditPart.VISUAL_ID:
+			return getComponent_303002OutgoingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303004OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:

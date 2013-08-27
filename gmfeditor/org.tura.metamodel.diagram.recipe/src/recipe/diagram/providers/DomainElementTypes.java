@@ -220,11 +220,11 @@ public class DomainElementTypes {
 			elements.put(Component_303001,
 					DomainPackage.eINSTANCE.getComponent());
 
-			elements.put(Component_303002,
-					DomainPackage.eINSTANCE.getComponent());
-
 			elements.put(ModelMapper_303003,
 					DomainPackage.eINSTANCE.getModelMapper());
+
+			elements.put(Component_303002,
+					DomainPackage.eINSTANCE.getComponent());
 
 			elements.put(Property_303004, DomainPackage.eINSTANCE.getProperty());
 
@@ -257,8 +257,8 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Recipe_302001);
 			KNOWN_ELEMENT_TYPES.add(Configuration_302002);
 			KNOWN_ELEMENT_TYPES.add(Component_303001);
-			KNOWN_ELEMENT_TYPES.add(Component_303002);
 			KNOWN_ELEMENT_TYPES.add(ModelMapper_303003);
+			KNOWN_ELEMENT_TYPES.add(Component_303002);
 			KNOWN_ELEMENT_TYPES.add(Property_303004);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_304001);
 			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_304002);
@@ -280,10 +280,10 @@ public class DomainElementTypes {
 			return Configuration_302002;
 		case ComponentEditPart.VISUAL_ID:
 			return Component_303001;
-		case Component2EditPart.VISUAL_ID:
-			return Component_303002;
 		case ModelMapperEditPart.VISUAL_ID:
 			return ModelMapper_303003;
+		case Component2EditPart.VISUAL_ID:
+			return Component_303002;
 		case PropertyEditPart.VISUAL_ID:
 			return Property_303004;
 		case TypeExtensionEditPart.VISUAL_ID:

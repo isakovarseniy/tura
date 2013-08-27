@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.ModelMapper#getName <em>Name</em>}</li>
- *   <li>{@link domain.ModelMapper#getArtifactRef <em>Artifact Ref</em>}</li>
  *   <li>{@link domain.ModelMapper#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link domain.ModelMapper#getVariables <em>Variables</em>}</li>
  * </ul>
@@ -25,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model annotation="gmf.node label='name'"
  * @generated
  */
-public interface ModelMapper extends EObject
+public interface ModelMapper extends ArtifactRef
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -52,32 +51,6 @@ public interface ModelMapper extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Artifact Ref</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Artifact Ref</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Artifact Ref</em>' containment reference.
-   * @see #setArtifactRef(ArtifactRef)
-   * @see domain.DomainPackage#getModelMapper_ArtifactRef()
-   * @model containment="true"
-   * @generated
-   */
-  ArtifactRef getArtifactRef();
-
-  /**
-   * Sets the value of the '{@link domain.ModelMapper#getArtifactRef <em>Artifact Ref</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Artifact Ref</em>' containment reference.
-   * @see #getArtifactRef()
-   * @generated
-   */
-  void setArtifactRef(ArtifactRef value);
 
   /**
    * Returns the value of the '<em><b>Specifiers</b></em>' containment reference list.

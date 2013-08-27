@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ModelMapperItemProvider
-  extends ItemProviderAdapter
+  extends ArtifactRefItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -109,7 +109,6 @@ public class ModelMapperItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.MODEL_MAPPER__ARTIFACT_REF);
       childrenFeatures.add(DomainPackage.Literals.MODEL_MAPPER__SPECIFIERS);
       childrenFeatures.add(DomainPackage.Literals.MODEL_MAPPER__VARIABLES);
     }
@@ -174,7 +173,6 @@ public class ModelMapperItemProvider
       case DomainPackage.MODEL_MAPPER__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.MODEL_MAPPER__ARTIFACT_REF:
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
       case DomainPackage.MODEL_MAPPER__VARIABLES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -197,11 +195,6 @@ public class ModelMapperItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.MODEL_MAPPER__ARTIFACT_REF,
-         DomainFactory.eINSTANCE.createArtifactRef()));
-
-    newChildDescriptors.add
-      (createChildParameter
         (DomainPackage.Literals.MODEL_MAPPER__SPECIFIERS,
          DomainFactory.eINSTANCE.createMappingSpecifier()));
 
@@ -209,18 +202,6 @@ public class ModelMapperItemProvider
       (createChildParameter
         (DomainPackage.Literals.MODEL_MAPPER__VARIABLES,
          DomainFactory.eINSTANCE.createMappingVariable()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return DomainEditPlugin.INSTANCE;
   }
 
 }

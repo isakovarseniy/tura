@@ -252,6 +252,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ModelMapperEditPart.VISUAL_ID:
+			if (ModelMapperNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case Component2EditPart.VISUAL_ID:
 			if (ComponentName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -260,11 +265,6 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (ComponentComponentMappersCompartment2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ModelMapperEditPart.VISUAL_ID:
-			if (ModelMapperNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

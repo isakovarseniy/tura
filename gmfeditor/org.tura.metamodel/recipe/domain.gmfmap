@@ -46,12 +46,6 @@
           <diagramNode
               href="domain.gmfgraph#Component"/>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
-            <containmentFeature
-                href="domain.ecore#//Component/components"/>
-          </children>
-          <children
               compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.1">
             <containmentFeature
                 href="domain.ecore#//Component/mappers"/>
@@ -72,13 +66,19 @@
                   href="domain.gmfgraph#ModelMapper"/>
             </ownedChild>
           </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0"
+              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+            <containmentFeature
+                href="domain.ecore#//Component/components"/>
+          </children>
           <compartments
-              children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0">
+              children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.1">
             <compartment
                 href="domain.gmfgraph#ComponentComponentsCompartment"/>
           </compartments>
           <compartments
-              children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.1">
+              children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0">
             <compartment
                 href="domain.gmfgraph#ComponentMappersCompartment"/>
           </compartments>

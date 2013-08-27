@@ -263,9 +263,8 @@ class Component{
 }
 
 @gmf.node(label="name")
-class ModelMapper{
+class ModelMapper extends ArtifactRef{
    attr EString name;
-   val ArtifactRef artifactRef;
    val MappingSpecifier[*] specifiers;
    val MappingVariable[*] variables;
 }
@@ -295,7 +294,8 @@ class MappingVariable{
 }
 
 class ArtifactRef{
-   attr EString name;
+   attr EString domainArtifact;
+   attr EString artifactName;
 }
 
 

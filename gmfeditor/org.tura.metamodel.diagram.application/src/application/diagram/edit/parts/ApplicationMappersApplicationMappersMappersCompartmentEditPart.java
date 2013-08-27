@@ -55,7 +55,7 @@ public class ApplicationMappersApplicationMappersMappersCompartmentEditPart
 				.createFigure();
 		result.setTitleVisibility(false);
 		HTMLLikeLayout layout = new HTMLLikeLayout();
-		layout.setColumns(5);
+		layout.setColumns(1);
 		result.getContentPane().setLayoutManager(layout);
 		return result;
 	}
