@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.MappingSpecifierImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.MappingSpecifierImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.MappingSpecifierImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -28,6 +29,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifier
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -94,6 +115,29 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPING_SPECIFIER__UID, oldUid, uid));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getName()
   {
     return name;
@@ -145,6 +189,8 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
   {
     switch (featureID)
     {
+      case DomainPackage.MAPPING_SPECIFIER__UID:
+        return getUid();
       case DomainPackage.MAPPING_SPECIFIER__NAME:
         return getName();
       case DomainPackage.MAPPING_SPECIFIER__VALUE:
@@ -163,6 +209,9 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
   {
     switch (featureID)
     {
+      case DomainPackage.MAPPING_SPECIFIER__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.MAPPING_SPECIFIER__NAME:
         setName((String)newValue);
         return;
@@ -183,6 +232,9 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
   {
     switch (featureID)
     {
+      case DomainPackage.MAPPING_SPECIFIER__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.MAPPING_SPECIFIER__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -203,6 +255,8 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
   {
     switch (featureID)
     {
+      case DomainPackage.MAPPING_SPECIFIER__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.MAPPING_SPECIFIER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.MAPPING_SPECIFIER__VALUE:
@@ -222,7 +276,9 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", name: ");
     result.append(name);
     result.append(", value: ");
     result.append(value);

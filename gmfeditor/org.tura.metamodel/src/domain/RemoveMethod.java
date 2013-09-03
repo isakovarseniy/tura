@@ -21,7 +21,6 @@ package domain;
  */
 public interface RemoveMethod extends BusinessMethod
 {
-
   /**
    * Returns the value of the '<em><b>Parent</b></em>' container reference.
    * It is bidirectional and its opposite is '{@link domain.BusinessObject#getRemoveMethods <em>Remove Methods</em>}'.
@@ -49,4 +48,5 @@ public interface RemoveMethod extends BusinessMethod
    * @generated
    */
   void setParent(BusinessObject value);
+
 } // RemoveMethod

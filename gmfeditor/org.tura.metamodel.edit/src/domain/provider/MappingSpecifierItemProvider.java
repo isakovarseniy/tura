@@ -64,10 +64,34 @@ public class MappingSpecifierItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addValuePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_MappingSpecifier_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_MappingSpecifier_uid_feature", "_UI_MappingSpecifier_type"),
+         DomainPackage.Literals.MAPPING_SPECIFIER__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -157,6 +181,7 @@ public class MappingSpecifierItemProvider
 
     switch (notification.getFeatureID(MappingSpecifier.class))
     {
+      case DomainPackage.MAPPING_SPECIFIER__UID:
       case DomainPackage.MAPPING_SPECIFIER__NAME:
       case DomainPackage.MAPPING_SPECIFIER__VALUE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

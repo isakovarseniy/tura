@@ -4,15 +4,16 @@ package domain.impl;
 
 import domain.Attribute;
 import domain.DomainPackage;
-
 import domain.Type;
+
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.AttributeImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.AttributeImpl#getParent <em>Parent</em>}</li>
  * </ul>
@@ -31,6 +33,26 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class AttributeImpl extends TypePointerImpl implements Attribute
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -70,6 +92,29 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.ATTRIBUTE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ATTRIBUTE__UID, oldUid, uid));
   }
 
   /**
@@ -200,6 +245,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
   {
     switch (featureID)
     {
+      case DomainPackage.ATTRIBUTE__UID:
+        return getUid();
       case DomainPackage.ATTRIBUTE__NAME:
         return getName();
       case DomainPackage.ATTRIBUTE__PARENT:
@@ -218,6 +265,9 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
   {
     switch (featureID)
     {
+      case DomainPackage.ATTRIBUTE__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.ATTRIBUTE__NAME:
         setName((String)newValue);
         return;
@@ -238,6 +288,9 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
   {
     switch (featureID)
     {
+      case DomainPackage.ATTRIBUTE__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.ATTRIBUTE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -258,6 +311,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
   {
     switch (featureID)
     {
+      case DomainPackage.ATTRIBUTE__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.ATTRIBUTE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.ATTRIBUTE__PARENT:
@@ -277,7 +332,9 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

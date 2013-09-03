@@ -61,6 +61,8 @@ public class Component2CreateCommand extends EditElementCommand {
 		Component owner = (Component) getElementToEdit();
 		owner.getComponents().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

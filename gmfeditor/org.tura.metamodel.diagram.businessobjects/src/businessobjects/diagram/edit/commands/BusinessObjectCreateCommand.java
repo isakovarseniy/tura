@@ -63,6 +63,8 @@ public class BusinessObjectCreateCommand extends EditElementCommand {
 		BusinessObjects owner = (BusinessObjects) getElementToEdit();
 		owner.getBusinessObject().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

@@ -8,13 +8,14 @@ import domain.DomainApplications;
 import domain.DomainPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.DomainApplicationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DomainApplicationImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DomainApplicationImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link domain.impl.DomainApplicationImpl#getParent <em>Parent</em>}</li>
@@ -34,6 +36,26 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class DomainApplicationImpl extends EObjectImpl implements DomainApplication
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -83,6 +105,29 @@ public class DomainApplicationImpl extends EObjectImpl implements DomainApplicat
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.DOMAIN_APPLICATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_APPLICATION__UID, oldUid, uid));
   }
 
   /**
@@ -287,6 +332,8 @@ public class DomainApplicationImpl extends EObjectImpl implements DomainApplicat
   {
     switch (featureID)
     {
+      case DomainPackage.DOMAIN_APPLICATION__UID:
+        return getUid();
       case DomainPackage.DOMAIN_APPLICATION__NAME:
         return getName();
       case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
@@ -308,6 +355,9 @@ public class DomainApplicationImpl extends EObjectImpl implements DomainApplicat
   {
     switch (featureID)
     {
+      case DomainPackage.DOMAIN_APPLICATION__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.DOMAIN_APPLICATION__NAME:
         setName((String)newValue);
         return;
@@ -331,6 +381,9 @@ public class DomainApplicationImpl extends EObjectImpl implements DomainApplicat
   {
     switch (featureID)
     {
+      case DomainPackage.DOMAIN_APPLICATION__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.DOMAIN_APPLICATION__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -354,6 +407,8 @@ public class DomainApplicationImpl extends EObjectImpl implements DomainApplicat
   {
     switch (featureID)
     {
+      case DomainPackage.DOMAIN_APPLICATION__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.DOMAIN_APPLICATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
@@ -375,7 +430,9 @@ public class DomainApplicationImpl extends EObjectImpl implements DomainApplicat
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.ConfigurationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getConfigExtension <em>Config Extension</em>}</li>
@@ -39,6 +40,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ConfigurationImpl extends EObjectImpl implements Configuration
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -98,6 +119,29 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.CONFIGURATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__UID, oldUid, uid));
   }
 
   /**
@@ -206,6 +250,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
   {
     switch (featureID)
     {
+      case DomainPackage.CONFIGURATION__UID:
+        return getUid();
       case DomainPackage.CONFIGURATION__NAME:
         return getName();
       case DomainPackage.CONFIGURATION__PROPERTIES:
@@ -228,6 +274,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
   {
     switch (featureID)
     {
+      case DomainPackage.CONFIGURATION__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.CONFIGURATION__NAME:
         setName((String)newValue);
         return;
@@ -252,6 +301,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
   {
     switch (featureID)
     {
+      case DomainPackage.CONFIGURATION__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.CONFIGURATION__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -275,6 +327,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
   {
     switch (featureID)
     {
+      case DomainPackage.CONFIGURATION__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.CONFIGURATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.CONFIGURATION__PROPERTIES:
@@ -296,7 +350,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -32,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.ApplicationMappersImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ApplicationMappersImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ApplicationMappersImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ApplicationMappersImpl#getMappers <em>Mappers</em>}</li>
@@ -42,6 +42,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMappers
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -91,6 +111,29 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.APPLICATION_MAPPERS;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION_MAPPERS__UID, oldUid, uid));
   }
 
   /**
@@ -240,6 +283,8 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
   {
     switch (featureID)
     {
+      case DomainPackage.APPLICATION_MAPPERS__UID:
+        return getUid();
       case DomainPackage.APPLICATION_MAPPERS__NAME:
         return getName();
       case DomainPackage.APPLICATION_MAPPERS__PARENT:
@@ -261,6 +306,9 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
   {
     switch (featureID)
     {
+      case DomainPackage.APPLICATION_MAPPERS__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.APPLICATION_MAPPERS__NAME:
         setName((String)newValue);
         return;
@@ -285,6 +333,9 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
   {
     switch (featureID)
     {
+      case DomainPackage.APPLICATION_MAPPERS__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.APPLICATION_MAPPERS__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -308,6 +359,8 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
   {
     switch (featureID)
     {
+      case DomainPackage.APPLICATION_MAPPERS__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.APPLICATION_MAPPERS__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.APPLICATION_MAPPERS__PARENT:
@@ -329,7 +382,9 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

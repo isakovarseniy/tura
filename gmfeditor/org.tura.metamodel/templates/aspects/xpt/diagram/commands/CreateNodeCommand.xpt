@@ -1,0 +1,53 @@
+«IMPORT 'http://www.eclipse.org/gmf/2009/GenModel'»
+«EXTENSION xpt::diagram::Utils»
+«EXTENSION xpt::OclMigrationProblems»
+
+«AROUND doExecuteWithResultMethod FOR gmfgen::GenNode-»
+	«EXPAND xpt::Common::generatedMemberComment»
+	protected org.eclipse.gmf.runtime.common.core.command.CommandResult doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor monitor, org.eclipse.core.runtime.IAdaptable info) throws org.eclipse.core.commands.ExecutionException {
+«IF modelFacet.isPhantomElement()-»
+		«EXPAND phantomElementCreation(self, 'newElement') FOR modelFacet»
+«ELSE-»
+		«EXPAND normalElementCreation(self, 'newElement') FOR modelFacet»
+«ENDIF»
+		«EXPAND initialize(self, 'newElement') FOR modelFacet-»
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+«IF true/*FIXME boolean needsExternalConfiguration*/»
+		doConfigure(newElement, monitor, info);
+«ENDIF»
+		((org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest) getRequest()).setNewElement(«EXPAND MetaModel::DowncastToEObject('newElement') FOR modelFacet.metaClass»);
+		return org.eclipse.gmf.runtime.common.core.command.CommandResult.newOKCommandResult(newElement);
+	}
+«ENDAROUND»
+
+
+«DEFINE initialize(node : gmfgen::GenNode, newElementVar : String) FOR gmfgen::TypeModelFacet»«EXPAND xpt::providers::ElementInitializers::initMethodCall(self, newElementVar) FOR node»«ENDDEFINE»
+
+
+«DEFINE phantomElementCreation(node : gmfgen::GenNode, varName : String) FOR gmfgen::TypeModelFacet-»
+	// Uncomment to put "phantom" objects into the diagram file.		
+	// org.eclipse.emf.ecore.resource.Resource resource = 
+	// 		((org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest) getRequest()).getContainer().eResource();
+	// if (resource == null) {
+	// 	return null;
+	// }
+	org.eclipse.emf.ecore.resource.Resource resource = getElementToEdit().eResource();
+	«EXPAND MetaModel::NewInstance(varName) FOR metaClass»
+	resource.getContents().add(«EXPAND MetaModel::DowncastToEObject(varName) FOR metaClass»);
+«ENDDEFINE»
+
+«DEFINE normalElementCreation(node : gmfgen::GenNode, varName : String) FOR gmfgen::TypeModelFacet-»
+	«EXPAND MetaModel::NewInstance(varName) FOR metaClass»
+«IF containmentMetaFeature <> null-»
+	«EXPAND MetaModel::DeclareAndAssign('owner', 'getElementToEdit()') FOR containmentMetaFeature.genClass»
+	«EXPAND MetaModel::modifyFeature('owner', containmentMetaFeature.genClass, varName) FOR containmentMetaFeature-»
+«ELSE-»
+	//
+	// FIXME no containment feature found in the genmodel, toolsmith need to manually write code here to add «varName» to a parent
+	//
+«ENDIF»
+«IF hasExplicitChildFeature(self)-»
+	«EXPAND MetaModel::DeclareAndAssign('childHolder', 'getElementToEdit()') FOR childMetaFeature.genClass»
+	«EXPAND MetaModel::modifyFeature('childHolder', childMetaFeature.genClass, varName) FOR childMetaFeature»
+«ENDIF-»
+«ENDDEFINE»

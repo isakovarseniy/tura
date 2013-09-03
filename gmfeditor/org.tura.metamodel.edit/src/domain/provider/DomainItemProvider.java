@@ -17,12 +17,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -65,8 +67,32 @@ public class DomainItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Domain_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Domain_uid_feature", "_UI_Domain_type"),
+         DomainPackage.Literals.DOMAIN__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -125,7 +151,10 @@ public class DomainItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_Domain_type");
+    String label = ((Domain)object).getUid();
+    return label == null || label.length() == 0 ?
+      getString("_UI_Domain_type") :
+      getString("_UI_Domain_type") + " " + label;
   }
 
   /**
@@ -142,6 +171,9 @@ public class DomainItemProvider
 
     switch (notification.getFeatureID(Domain.class))
     {
+      case DomainPackage.DOMAIN__UID:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
       case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
       case DomainPackage.DOMAIN__DOMAIN_TYPES:
       case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:

@@ -4,16 +4,17 @@ package domain.impl;
 
 import domain.DomainPackage;
 import domain.Option;
-
 import domain.Specifier;
+
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.OptionImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.OptionImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.OptionImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -32,6 +34,26 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class OptionImpl extends EObjectImpl implements Option
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -71,6 +93,29 @@ public class OptionImpl extends EObjectImpl implements Option
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.OPTION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.OPTION__UID, oldUid, uid));
   }
 
   /**
@@ -201,6 +246,8 @@ public class OptionImpl extends EObjectImpl implements Option
   {
     switch (featureID)
     {
+      case DomainPackage.OPTION__UID:
+        return getUid();
       case DomainPackage.OPTION__PARENT:
         return getParent();
       case DomainPackage.OPTION__VALUE:
@@ -219,6 +266,9 @@ public class OptionImpl extends EObjectImpl implements Option
   {
     switch (featureID)
     {
+      case DomainPackage.OPTION__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.OPTION__PARENT:
         setParent((Specifier)newValue);
         return;
@@ -239,6 +289,9 @@ public class OptionImpl extends EObjectImpl implements Option
   {
     switch (featureID)
     {
+      case DomainPackage.OPTION__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.OPTION__PARENT:
         setParent((Specifier)null);
         return;
@@ -259,6 +312,8 @@ public class OptionImpl extends EObjectImpl implements Option
   {
     switch (featureID)
     {
+      case DomainPackage.OPTION__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.OPTION__PARENT:
         return getParent() != null;
       case DomainPackage.OPTION__VALUE:
@@ -278,7 +333,9 @@ public class OptionImpl extends EObjectImpl implements Option
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", value: ");
     result.append(value);
     result.append(')');
     return result.toString();

@@ -63,6 +63,8 @@ public class BusinessPackageCreateCommand extends EditElementCommand {
 		Types owner = (Types) getElementToEdit();
 		owner.getBusinessPackages().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

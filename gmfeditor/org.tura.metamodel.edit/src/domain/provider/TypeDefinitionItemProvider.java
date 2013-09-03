@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -66,9 +67,33 @@ public class TypeDefinitionItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addParentPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypeDefinition_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypeDefinition_uid_feature", "_UI_TypeDefinition_type"),
+         DomainPackage.Literals.TYPE_DEFINITION__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -149,7 +174,10 @@ public class TypeDefinitionItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_TypeDefinition_type");
+    String label = ((TypeDefinition)object).getUid();
+    return label == null || label.length() == 0 ?
+      getString("_UI_TypeDefinition_type") :
+      getString("_UI_TypeDefinition_type") + " " + label;
   }
 
   /**
@@ -166,6 +194,9 @@ public class TypeDefinitionItemProvider
 
     switch (notification.getFeatureID(TypeDefinition.class))
     {
+      case DomainPackage.TYPE_DEFINITION__UID:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
       case DomainPackage.TYPE_DEFINITION__TYPES:
       case DomainPackage.TYPE_DEFINITION__ENUMS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

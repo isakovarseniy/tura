@@ -64,9 +64,33 @@ public class OptionItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addValuePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Option_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Option_uid_feature", "_UI_Option_type"),
+         DomainPackage.Literals.OPTION__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -113,7 +137,7 @@ public class OptionItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Option)object).getValue();
+    String label = ((Option)object).getUid();
     return label == null || label.length() == 0 ?
       getString("_UI_Option_type") :
       getString("_UI_Option_type") + " " + label;
@@ -133,6 +157,7 @@ public class OptionItemProvider
 
     switch (notification.getFeatureID(Option.class))
     {
+      case DomainPackage.OPTION__UID:
       case DomainPackage.OPTION__VALUE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

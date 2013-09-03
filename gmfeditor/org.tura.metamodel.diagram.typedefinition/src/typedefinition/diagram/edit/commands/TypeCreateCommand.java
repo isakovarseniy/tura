@@ -62,6 +62,8 @@ public class TypeCreateCommand extends EditElementCommand {
 		TypeDefinition owner = (TypeDefinition) getElementToEdit();
 		owner.getTypes().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

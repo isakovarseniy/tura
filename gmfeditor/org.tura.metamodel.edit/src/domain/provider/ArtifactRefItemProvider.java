@@ -64,10 +64,34 @@ public class ArtifactRefItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addDomainArtifactPropertyDescriptor(object);
       addArtifactNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ArtifactRef_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ArtifactRef_uid_feature", "_UI_ArtifactRef_type"),
+         DomainPackage.Literals.ARTIFACT_REF__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -157,6 +181,7 @@ public class ArtifactRefItemProvider
 
     switch (notification.getFeatureID(ArtifactRef.class))
     {
+      case DomainPackage.ARTIFACT_REF__UID:
       case DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT:
       case DomainPackage.ARTIFACT_REF__ARTIFACT_NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

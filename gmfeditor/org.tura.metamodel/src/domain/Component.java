@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link domain.Component#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Component#getName <em>Name</em>}</li>
  *   <li>{@link domain.Component#getComponents <em>Components</em>}</li>
  *   <li>{@link domain.Component#getMappers <em>Mappers</em>}</li>
@@ -26,6 +27,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Component extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Uid</em>' attribute.
+   * @see #setUid(String)
+   * @see domain.DomainPackage#getComponent_Uid()
+   * @model id="true"
+   * @generated
+   */
+  String getUid();
+
+  /**
+   * Sets the value of the '{@link domain.Component#getUid <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Uid</em>' attribute.
+   * @see #getUid()
+   * @generated
+   */
+  void setUid(String value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -71,6 +98,7 @@ public interface Component extends EObject
   /**
    * Returns the value of the '<em><b>Mappers</b></em>' containment reference list.
    * The list contents are of type {@link domain.ModelMapper}.
+   * It is bidirectional and its opposite is '{@link domain.ModelMapper#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Mappers</em>' containment reference list isn't clear,
@@ -79,7 +107,8 @@ public interface Component extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Mappers</em>' containment reference list.
    * @see domain.DomainPackage#getComponent_Mappers()
-   * @model containment="true"
+   * @see domain.ModelMapper#getParent
+   * @model opposite="parent" containment="true"
    *        annotation="gmf.compartment layout='list'"
    * @generated
    */

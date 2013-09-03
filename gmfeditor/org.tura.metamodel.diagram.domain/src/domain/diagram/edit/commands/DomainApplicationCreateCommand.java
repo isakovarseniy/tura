@@ -3,6 +3,8 @@
  */
 package domain.diagram.edit.commands;
 
+import java.util.UUID;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -62,6 +64,8 @@ public class DomainApplicationCreateCommand extends EditElementCommand {
 
 		DomainApplications owner = (DomainApplications) getElementToEdit();
 		owner.getApplications().add(newElement);
+
+		newElement.setUid(java.util.UUID.randomUUID().toString());
 
 		doConfigure(newElement, monitor, info);
 

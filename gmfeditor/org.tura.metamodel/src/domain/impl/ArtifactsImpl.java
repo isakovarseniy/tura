@@ -5,7 +5,6 @@ package domain.impl;
 import domain.Artifact;
 import domain.Artifacts;
 import domain.DomainArtifact;
-import domain.DomainArtifacts;
 import domain.DomainPackage;
 
 import java.util.Collection;
@@ -22,7 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -32,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.ArtifactsImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ArtifactsImpl#getArtifacts <em>Artifacts</em>}</li>
  *   <li>{@link domain.impl.ArtifactsImpl#getParent <em>Parent</em>}</li>
  * </ul>
@@ -41,6 +40,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ArtifactsImpl extends EObjectImpl implements Artifacts
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getArtifacts() <em>Artifacts</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -80,6 +99,29 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.ARTIFACTS;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACTS__UID, oldUid, uid));
   }
 
   /**
@@ -213,6 +255,8 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
   {
     switch (featureID)
     {
+      case DomainPackage.ARTIFACTS__UID:
+        return getUid();
       case DomainPackage.ARTIFACTS__ARTIFACTS:
         return getArtifacts();
       case DomainPackage.ARTIFACTS__PARENT:
@@ -233,6 +277,9 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
   {
     switch (featureID)
     {
+      case DomainPackage.ARTIFACTS__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.ARTIFACTS__ARTIFACTS:
         getArtifacts().clear();
         getArtifacts().addAll((Collection<? extends Artifact>)newValue);
@@ -254,6 +301,9 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
   {
     switch (featureID)
     {
+      case DomainPackage.ARTIFACTS__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.ARTIFACTS__ARTIFACTS:
         getArtifacts().clear();
         return;
@@ -274,12 +324,31 @@ public class ArtifactsImpl extends EObjectImpl implements Artifacts
   {
     switch (featureID)
     {
+      case DomainPackage.ARTIFACTS__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.ARTIFACTS__ARTIFACTS:
         return artifacts != null && !artifacts.isEmpty();
       case DomainPackage.ARTIFACTS__PARENT:
         return parent != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(')');
+    return result.toString();
   }
 
 } //ArtifactsImpl

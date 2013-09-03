@@ -62,6 +62,8 @@ public class ModelMapperCreateCommand extends EditElementCommand {
 		Component owner = (Component) getElementToEdit();
 		owner.getMappers().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

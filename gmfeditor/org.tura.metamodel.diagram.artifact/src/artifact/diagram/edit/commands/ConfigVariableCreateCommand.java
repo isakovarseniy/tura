@@ -63,6 +63,8 @@ public class ConfigVariableCreateCommand extends EditElementCommand {
 		Artifact owner = (Artifact) getElementToEdit();
 		owner.getConfigVariables().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

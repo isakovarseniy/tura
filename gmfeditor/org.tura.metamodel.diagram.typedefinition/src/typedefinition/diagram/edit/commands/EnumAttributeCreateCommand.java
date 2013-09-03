@@ -63,6 +63,8 @@ public class EnumAttributeCreateCommand extends EditElementCommand {
 		Enumarator owner = (Enumarator) getElementToEdit();
 		owner.getValues().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

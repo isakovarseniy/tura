@@ -67,9 +67,33 @@ public class TypesItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Types_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Types_uid_feature", "_UI_Types_type"),
+         DomainPackage.Literals.TYPES__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -171,6 +195,7 @@ public class TypesItemProvider
 
     switch (notification.getFeatureID(Types.class))
     {
+      case DomainPackage.TYPES__UID:
       case DomainPackage.TYPES__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

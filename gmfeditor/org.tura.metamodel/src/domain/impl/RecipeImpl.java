@@ -6,8 +6,8 @@ import domain.Component;
 import domain.Configuration;
 import domain.DomainPackage;
 import domain.Recipe;
-
 import domain.Recipes;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.RecipeImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getComponents <em>Components</em>}</li>
@@ -43,6 +44,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class RecipeImpl extends EObjectImpl implements Recipe
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -102,6 +123,29 @@ public class RecipeImpl extends EObjectImpl implements Recipe
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.RECIPE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPE__UID, oldUid, uid));
   }
 
   /**
@@ -291,6 +335,8 @@ public class RecipeImpl extends EObjectImpl implements Recipe
   {
     switch (featureID)
     {
+      case DomainPackage.RECIPE__UID:
+        return getUid();
       case DomainPackage.RECIPE__PARENT:
         return getParent();
       case DomainPackage.RECIPE__NAME:
@@ -315,6 +361,9 @@ public class RecipeImpl extends EObjectImpl implements Recipe
   {
     switch (featureID)
     {
+      case DomainPackage.RECIPE__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.RECIPE__PARENT:
         setParent((Recipes)newValue);
         return;
@@ -342,6 +391,9 @@ public class RecipeImpl extends EObjectImpl implements Recipe
   {
     switch (featureID)
     {
+      case DomainPackage.RECIPE__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.RECIPE__PARENT:
         setParent((Recipes)null);
         return;
@@ -368,6 +420,8 @@ public class RecipeImpl extends EObjectImpl implements Recipe
   {
     switch (featureID)
     {
+      case DomainPackage.RECIPE__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.RECIPE__PARENT:
         return getParent() != null;
       case DomainPackage.RECIPE__NAME:
@@ -391,7 +445,9 @@ public class RecipeImpl extends EObjectImpl implements Recipe
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.ApplicationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationRecipes <em>Application Recipes</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationMappers <em>Application Mappers</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getParent <em>Parent</em>}</li>
@@ -34,6 +35,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class ApplicationImpl extends EObjectImpl implements Application
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getApplicationRecipes() <em>Application Recipes</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -83,6 +104,29 @@ public class ApplicationImpl extends EObjectImpl implements Application
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.APPLICATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__UID, oldUid, uid));
   }
 
   /**
@@ -305,6 +349,8 @@ public class ApplicationImpl extends EObjectImpl implements Application
   {
     switch (featureID)
     {
+      case DomainPackage.APPLICATION__UID:
+        return getUid();
       case DomainPackage.APPLICATION__APPLICATION_RECIPES:
         return getApplicationRecipes();
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
@@ -326,6 +372,9 @@ public class ApplicationImpl extends EObjectImpl implements Application
   {
     switch (featureID)
     {
+      case DomainPackage.APPLICATION__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.APPLICATION__APPLICATION_RECIPES:
         setApplicationRecipes((ApplicationRecipes)newValue);
         return;
@@ -349,6 +398,9 @@ public class ApplicationImpl extends EObjectImpl implements Application
   {
     switch (featureID)
     {
+      case DomainPackage.APPLICATION__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.APPLICATION__APPLICATION_RECIPES:
         setApplicationRecipes((ApplicationRecipes)null);
         return;
@@ -372,6 +424,8 @@ public class ApplicationImpl extends EObjectImpl implements Application
   {
     switch (featureID)
     {
+      case DomainPackage.APPLICATION__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.APPLICATION__APPLICATION_RECIPES:
         return applicationRecipes != null;
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
@@ -380,6 +434,23 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return parent != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(')');
+    return result.toString();
   }
 
 } //ApplicationImpl

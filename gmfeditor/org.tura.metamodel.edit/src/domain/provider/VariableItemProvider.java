@@ -64,9 +64,33 @@ public class VariableItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Variable_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Variable_uid_feature", "_UI_Variable_type"),
+         DomainPackage.Literals.VARIABLE__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -133,6 +157,7 @@ public class VariableItemProvider
 
     switch (notification.getFeatureID(Variable.class))
     {
+      case DomainPackage.VARIABLE__UID:
       case DomainPackage.VARIABLE__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

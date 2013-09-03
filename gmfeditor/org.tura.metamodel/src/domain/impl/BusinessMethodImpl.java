@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.BusinessMethodImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.BusinessMethodImpl#getMethod <em>Method</em>}</li>
  * </ul>
  * </p>
@@ -26,6 +27,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class BusinessMethodImpl extends TypePointerImpl implements BusinessMethod
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -72,6 +93,29 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.BUSINESS_METHOD__UID, oldUid, uid));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getMethod()
   {
     return method;
@@ -100,6 +144,8 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
   {
     switch (featureID)
     {
+      case DomainPackage.BUSINESS_METHOD__UID:
+        return getUid();
       case DomainPackage.BUSINESS_METHOD__METHOD:
         return getMethod();
     }
@@ -116,6 +162,9 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
   {
     switch (featureID)
     {
+      case DomainPackage.BUSINESS_METHOD__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.BUSINESS_METHOD__METHOD:
         setMethod((String)newValue);
         return;
@@ -133,6 +182,9 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
   {
     switch (featureID)
     {
+      case DomainPackage.BUSINESS_METHOD__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.BUSINESS_METHOD__METHOD:
         setMethod(METHOD_EDEFAULT);
         return;
@@ -150,6 +202,8 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
   {
     switch (featureID)
     {
+      case DomainPackage.BUSINESS_METHOD__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.BUSINESS_METHOD__METHOD:
         return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
     }
@@ -167,7 +221,9 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (method: ");
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", method: ");
     result.append(method);
     result.append(')');
     return result.toString();

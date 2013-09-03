@@ -66,6 +66,8 @@ public class RecipeCreateCommand extends EditElementCommand {
 		Recipes owner = (Recipes) getElementToEdit();
 		owner.setRecipe(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

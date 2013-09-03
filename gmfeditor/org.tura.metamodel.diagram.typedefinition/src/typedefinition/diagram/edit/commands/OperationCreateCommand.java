@@ -62,6 +62,8 @@ public class OperationCreateCommand extends EditElementCommand {
 		Type owner = (Type) getElementToEdit();
 		owner.getOperations().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

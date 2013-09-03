@@ -31,6 +31,8 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
+import domain.Mappers;
+import domain.TypeExtension;
 
 /**
  * @generated
@@ -105,15 +107,15 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_404001); //$NON-NLS-1$
-		case MappersEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?Mappers", DomainElementTypes.Mappers_401000); //$NON-NLS-1$
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_404003); //$NON-NLS-1$
 		case RecipeRecipeConfigEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?recipeConfig", DomainElementTypes.RecipeRecipeConfig_404002); //$NON-NLS-1$
+		case MappersEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?Mappers", DomainElementTypes.Mappers_401000); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -178,12 +180,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getJavaMapper_402001Text(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_404001Text(view);
-		case MappersEditPart.VISUAL_ID:
-			return getMappers_401000Text(view);
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return getConfigurationConfigExtension_404003Text(view);
 		case RecipeRecipeConfigEditPart.VISUAL_ID:
 			return getRecipeRecipeConfig_404002Text(view);
+		case MappersEditPart.VISUAL_ID:
+			return getMappers_401000Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -211,7 +213,14 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getTypeExtension_404001Text(View view) {
-		return ""; //$NON-NLS-1$
+		TypeExtension domainModelElement = (TypeExtension) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 404001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**
@@ -238,7 +247,14 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getMappers_401000Text(View view) {
-		return ""; //$NON-NLS-1$
+		Mappers domainModelElement = (Mappers) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 401000); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**

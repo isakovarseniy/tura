@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -66,9 +67,33 @@ public class TypesRepositoryItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addParentPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypesRepository_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypesRepository_uid_feature", "_UI_TypesRepository_type"),
+         DomainPackage.Literals.TYPES_REPOSITORY__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -148,7 +173,10 @@ public class TypesRepositoryItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_TypesRepository_type");
+    String label = ((TypesRepository)object).getUid();
+    return label == null || label.length() == 0 ?
+      getString("_UI_TypesRepository_type") :
+      getString("_UI_TypesRepository_type") + " " + label;
   }
 
   /**
@@ -165,6 +193,9 @@ public class TypesRepositoryItemProvider
 
     switch (notification.getFeatureID(TypesRepository.class))
     {
+      case DomainPackage.TYPES_REPOSITORY__UID:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
       case DomainPackage.TYPES_REPOSITORY__TYPE_DEFINITION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;

@@ -67,6 +67,8 @@ public class DomainArtifactsCreateCommand extends EditElementCommand {
 		Domain owner = (Domain) getElementToEdit();
 		owner.setDomainArtifacts(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

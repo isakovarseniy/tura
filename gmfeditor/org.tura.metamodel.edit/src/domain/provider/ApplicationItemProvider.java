@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -66,9 +67,33 @@ public class ApplicationItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addParentPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Application_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Application_uid_feature", "_UI_Application_type"),
+         DomainPackage.Literals.APPLICATION__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -149,7 +174,10 @@ public class ApplicationItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_Application_type");
+    String label = ((Application)object).getUid();
+    return label == null || label.length() == 0 ?
+      getString("_UI_Application_type") :
+      getString("_UI_Application_type") + " " + label;
   }
 
   /**
@@ -166,6 +194,9 @@ public class ApplicationItemProvider
 
     switch (notification.getFeatureID(Application.class))
     {
+      case DomainPackage.APPLICATION__UID:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
       case DomainPackage.APPLICATION__APPLICATION_RECIPES:
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

@@ -62,6 +62,8 @@ public class PackageCreateCommand extends EditElementCommand {
 		Types owner = (Types) getElementToEdit();
 		owner.getPackages().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

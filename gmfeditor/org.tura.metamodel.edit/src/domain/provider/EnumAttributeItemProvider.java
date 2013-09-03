@@ -64,10 +64,34 @@ public class EnumAttributeItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addValuePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_EnumAttribute_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_EnumAttribute_uid_feature", "_UI_EnumAttribute_type"),
+         DomainPackage.Literals.ENUM_ATTRIBUTE__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -157,6 +181,7 @@ public class EnumAttributeItemProvider
 
     switch (notification.getFeatureID(EnumAttribute.class))
     {
+      case DomainPackage.ENUM_ATTRIBUTE__UID:
       case DomainPackage.ENUM_ATTRIBUTE__NAME:
       case DomainPackage.ENUM_ATTRIBUTE__VALUE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

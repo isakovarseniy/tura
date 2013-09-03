@@ -154,6 +154,13 @@
              id="property.tab.domain.custom"
              label="Type ref"/>
       </propertyTabs>
+ 
+      <propertyTabs contributorId="org.tura.metamodel.diagram.recipe">
+          <propertyTab
+             category="domain"
+             id="property.tab.recipe.custom"
+             label="Specifier"/>
+      </propertyTabs>
    </extension>
    
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
@@ -174,7 +181,21 @@
               <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
          </propertySection>        
 
+
+          <propertySection
+               tab="property.tab.recipe.custom"
+               class="org.metamodel.tura.ui.properties.sections.MappingSpecifierPropertySelection"
+               id="org.tura.metamodel.recipe.update">
+              <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
+         </propertySection>        
+
+
+
     </propertySections>
+
+
+
+
   </extension>  
 
 

@@ -62,6 +62,8 @@ public class SpecifierCreateCommand extends EditElementCommand {
 		Artifact owner = (Artifact) getElementToEdit();
 		owner.getSpecifiers().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

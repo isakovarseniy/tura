@@ -67,13 +67,22 @@ public interface DomainPackage extends EPackage
   int DOMAIN = 0;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Domain Artifacts</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN__DOMAIN_ARTIFACTS = 0;
+  int DOMAIN__DOMAIN_ARTIFACTS = 1;
 
   /**
    * The feature id for the '<em><b>Domain Types</b></em>' containment reference.
@@ -82,7 +91,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN__DOMAIN_TYPES = 1;
+  int DOMAIN__DOMAIN_TYPES = 2;
 
   /**
    * The feature id for the '<em><b>Domain Applications</b></em>' containment reference.
@@ -91,7 +100,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN__DOMAIN_APPLICATIONS = 2;
+  int DOMAIN__DOMAIN_APPLICATIONS = 3;
 
   /**
    * The number of structural features of the '<em>Domain</em>' class.
@@ -100,7 +109,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_FEATURE_COUNT = 3;
+  int DOMAIN_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.DomainArtifactsImpl <em>Artifacts</em>}' class.
@@ -113,13 +122,22 @@ public interface DomainPackage extends EPackage
   int DOMAIN_ARTIFACTS = 1;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_ARTIFACTS__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACTS__NAME = 0;
+  int DOMAIN_ARTIFACTS__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -128,7 +146,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACTS__PARENT = 1;
+  int DOMAIN_ARTIFACTS__PARENT = 2;
 
   /**
    * The feature id for the '<em><b>Domain Artifact</b></em>' containment reference list.
@@ -137,7 +155,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT = 2;
+  int DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT = 3;
 
   /**
    * The number of structural features of the '<em>Artifacts</em>' class.
@@ -146,7 +164,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACTS_FEATURE_COUNT = 3;
+  int DOMAIN_ARTIFACTS_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.DomainTypesImpl <em>Types</em>}' class.
@@ -159,13 +177,22 @@ public interface DomainPackage extends EPackage
   int DOMAIN_TYPES = 2;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_TYPES__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_TYPES__NAME = 0;
+  int DOMAIN_TYPES__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Typesrepository</b></em>' reference.
@@ -174,7 +201,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_TYPES__TYPESREPOSITORY = 1;
+  int DOMAIN_TYPES__TYPESREPOSITORY = 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -183,7 +210,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_TYPES__PARENT = 2;
+  int DOMAIN_TYPES__PARENT = 3;
 
   /**
    * The number of structural features of the '<em>Types</em>' class.
@@ -192,7 +219,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_TYPES_FEATURE_COUNT = 3;
+  int DOMAIN_TYPES_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.DomainApplicationsImpl <em>Applications</em>}' class.
@@ -205,13 +232,22 @@ public interface DomainPackage extends EPackage
   int DOMAIN_APPLICATIONS = 3;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_APPLICATIONS__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATIONS__NAME = 0;
+  int DOMAIN_APPLICATIONS__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -220,7 +256,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATIONS__APPLICATIONS = 1;
+  int DOMAIN_APPLICATIONS__APPLICATIONS = 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -229,7 +265,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATIONS__PARENT = 2;
+  int DOMAIN_APPLICATIONS__PARENT = 3;
 
   /**
    * The number of structural features of the '<em>Applications</em>' class.
@@ -238,7 +274,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATIONS_FEATURE_COUNT = 3;
+  int DOMAIN_APPLICATIONS_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.DomainApplicationImpl <em>Application</em>}' class.
@@ -251,13 +287,22 @@ public interface DomainPackage extends EPackage
   int DOMAIN_APPLICATION = 4;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_APPLICATION__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATION__NAME = 0;
+  int DOMAIN_APPLICATION__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Application</b></em>' reference.
@@ -266,7 +311,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATION__APPLICATION = 1;
+  int DOMAIN_APPLICATION__APPLICATION = 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -275,7 +320,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATION__PARENT = 2;
+  int DOMAIN_APPLICATION__PARENT = 3;
 
   /**
    * The number of structural features of the '<em>Application</em>' class.
@@ -284,7 +329,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATION_FEATURE_COUNT = 3;
+  int DOMAIN_APPLICATION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.DomainArtifactImpl <em>Artifact</em>}' class.
@@ -297,13 +342,22 @@ public interface DomainPackage extends EPackage
   int DOMAIN_ARTIFACT = 5;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_ARTIFACT__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACT__NAME = 0;
+  int DOMAIN_ARTIFACT__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -312,7 +366,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACT__PARENT = 1;
+  int DOMAIN_ARTIFACT__PARENT = 2;
 
   /**
    * The feature id for the '<em><b>Artifact</b></em>' reference.
@@ -321,7 +375,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACT__ARTIFACT = 2;
+  int DOMAIN_ARTIFACT__ARTIFACT = 3;
 
   /**
    * The number of structural features of the '<em>Artifact</em>' class.
@@ -330,7 +384,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACT_FEATURE_COUNT = 3;
+  int DOMAIN_ARTIFACT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ORMEntityImpl <em>ORM Entity</em>}' class.
@@ -341,6 +395,15 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   int ORM_ENTITY = 6;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORM_ENTITY__UID = DOMAIN_ARTIFACT__UID;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -389,6 +452,15 @@ public interface DomainPackage extends EPackage
   int JPA_SERVICE = 7;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JPA_SERVICE__UID = DOMAIN_ARTIFACT__UID;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -433,6 +505,15 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   int EJB_SERVICE = 8;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EJB_SERVICE__UID = DOMAIN_ARTIFACT__UID;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -481,13 +562,22 @@ public interface DomainPackage extends EPackage
   int ARTIFACTS = 9;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACTS__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARTIFACTS__ARTIFACTS = 0;
+  int ARTIFACTS__ARTIFACTS = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -496,7 +586,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARTIFACTS__PARENT = 1;
+  int ARTIFACTS__PARENT = 2;
 
   /**
    * The number of structural features of the '<em>Artifacts</em>' class.
@@ -505,7 +595,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARTIFACTS_FEATURE_COUNT = 2;
+  int ARTIFACTS_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.ArtifactImpl <em>Artifact</em>}' class.
@@ -518,13 +608,22 @@ public interface DomainPackage extends EPackage
   int ARTIFACT = 10;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARTIFACT__NAME = 0;
+  int ARTIFACT__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -533,7 +632,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARTIFACT__DESCRIPTION = 1;
+  int ARTIFACT__DESCRIPTION = 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -542,7 +641,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARTIFACT__PARENT = 2;
+  int ARTIFACT__PARENT = 3;
 
   /**
    * The feature id for the '<em><b>Config Variables</b></em>' containment reference list.
@@ -551,7 +650,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARTIFACT__CONFIG_VARIABLES = 3;
+  int ARTIFACT__CONFIG_VARIABLES = 4;
 
   /**
    * The feature id for the '<em><b>Model Query</b></em>' containment reference list.
@@ -560,7 +659,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARTIFACT__MODEL_QUERY = 4;
+  int ARTIFACT__MODEL_QUERY = 5;
 
   /**
    * The feature id for the '<em><b>Specifiers</b></em>' containment reference list.
@@ -569,7 +668,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARTIFACT__SPECIFIERS = 5;
+  int ARTIFACT__SPECIFIERS = 6;
 
   /**
    * The feature id for the '<em><b>Template</b></em>' attribute.
@@ -578,7 +677,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARTIFACT__TEMPLATE = 6;
+  int ARTIFACT__TEMPLATE = 7;
 
   /**
    * The number of structural features of the '<em>Artifact</em>' class.
@@ -587,7 +686,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARTIFACT_FEATURE_COUNT = 7;
+  int ARTIFACT_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link domain.impl.ConfigVariableImpl <em>Config Variable</em>}' class.
@@ -600,13 +699,22 @@ public interface DomainPackage extends EPackage
   int CONFIG_VARIABLE = 11;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIG_VARIABLE__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONFIG_VARIABLE__NAME = 0;
+  int CONFIG_VARIABLE__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -615,7 +723,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONFIG_VARIABLE__PARENT = 1;
+  int CONFIG_VARIABLE__PARENT = 2;
 
   /**
    * The number of structural features of the '<em>Config Variable</em>' class.
@@ -624,7 +732,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONFIG_VARIABLE_FEATURE_COUNT = 2;
+  int CONFIG_VARIABLE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.VariableImpl <em>Variable</em>}' class.
@@ -637,13 +745,22 @@ public interface DomainPackage extends EPackage
   int VARIABLE = 12;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE__NAME = 0;
+  int VARIABLE__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -652,7 +769,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE__PARENT = 1;
+  int VARIABLE__PARENT = 2;
 
   /**
    * The number of structural features of the '<em>Variable</em>' class.
@@ -661,7 +778,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_FEATURE_COUNT = 2;
+  int VARIABLE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.SpecifierImpl <em>Specifier</em>}' class.
@@ -674,13 +791,22 @@ public interface DomainPackage extends EPackage
   int SPECIFIER = 13;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPECIFIER__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SPECIFIER__NAME = 0;
+  int SPECIFIER__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -689,7 +815,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SPECIFIER__PARENT = 1;
+  int SPECIFIER__PARENT = 2;
 
   /**
    * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -698,7 +824,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SPECIFIER__OPTIONS = 2;
+  int SPECIFIER__OPTIONS = 3;
 
   /**
    * The number of structural features of the '<em>Specifier</em>' class.
@@ -707,7 +833,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SPECIFIER_FEATURE_COUNT = 3;
+  int SPECIFIER_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.OptionImpl <em>Option</em>}' class.
@@ -720,13 +846,22 @@ public interface DomainPackage extends EPackage
   int OPTION = 14;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTION__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPTION__PARENT = 0;
+  int OPTION__PARENT = 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -735,7 +870,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPTION__VALUE = 1;
+  int OPTION__VALUE = 2;
 
   /**
    * The number of structural features of the '<em>Option</em>' class.
@@ -744,7 +879,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPTION_FEATURE_COUNT = 2;
+  int OPTION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.ApplicationImpl <em>Application</em>}' class.
@@ -757,13 +892,22 @@ public interface DomainPackage extends EPackage
   int APPLICATION = 15;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Application Recipes</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION__APPLICATION_RECIPES = 0;
+  int APPLICATION__APPLICATION_RECIPES = 1;
 
   /**
    * The feature id for the '<em><b>Application Mappers</b></em>' containment reference.
@@ -772,7 +916,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION__APPLICATION_MAPPERS = 1;
+  int APPLICATION__APPLICATION_MAPPERS = 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -781,7 +925,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION__PARENT = 2;
+  int APPLICATION__PARENT = 3;
 
   /**
    * The number of structural features of the '<em>Application</em>' class.
@@ -790,7 +934,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_FEATURE_COUNT = 3;
+  int APPLICATION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ApplicationRecipesImpl <em>Application Recipes</em>}' class.
@@ -803,13 +947,22 @@ public interface DomainPackage extends EPackage
   int APPLICATION_RECIPES = 16;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_RECIPES__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPES__NAME = 0;
+  int APPLICATION_RECIPES__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -818,7 +971,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPES__PARENT = 1;
+  int APPLICATION_RECIPES__PARENT = 2;
 
   /**
    * The feature id for the '<em><b>Recipes</b></em>' containment reference list.
@@ -827,7 +980,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPES__RECIPES = 2;
+  int APPLICATION_RECIPES__RECIPES = 3;
 
   /**
    * The number of structural features of the '<em>Application Recipes</em>' class.
@@ -836,7 +989,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPES_FEATURE_COUNT = 3;
+  int APPLICATION_RECIPES_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ApplicationRecipeImpl <em>Application Recipe</em>}' class.
@@ -849,13 +1002,22 @@ public interface DomainPackage extends EPackage
   int APPLICATION_RECIPE = 17;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_RECIPE__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPE__NAME = 0;
+  int APPLICATION_RECIPE__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Recipes</b></em>' reference.
@@ -864,7 +1026,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPE__RECIPES = 1;
+  int APPLICATION_RECIPE__RECIPES = 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -873,7 +1035,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPE__PARENT = 2;
+  int APPLICATION_RECIPE__PARENT = 3;
 
   /**
    * The number of structural features of the '<em>Application Recipe</em>' class.
@@ -882,7 +1044,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPE_FEATURE_COUNT = 3;
+  int APPLICATION_RECIPE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ApplicationMappersImpl <em>Application Mappers</em>}' class.
@@ -895,13 +1057,22 @@ public interface DomainPackage extends EPackage
   int APPLICATION_MAPPERS = 18;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_MAPPERS__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPERS__NAME = 0;
+  int APPLICATION_MAPPERS__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -910,7 +1081,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPERS__PARENT = 1;
+  int APPLICATION_MAPPERS__PARENT = 2;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
@@ -919,7 +1090,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPERS__MAPPERS = 2;
+  int APPLICATION_MAPPERS__MAPPERS = 3;
 
   /**
    * The number of structural features of the '<em>Application Mappers</em>' class.
@@ -928,7 +1099,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPERS_FEATURE_COUNT = 3;
+  int APPLICATION_MAPPERS_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ApplicationMapperImpl <em>Application Mapper</em>}' class.
@@ -941,13 +1112,22 @@ public interface DomainPackage extends EPackage
   int APPLICATION_MAPPER = 19;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_MAPPER__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPER__NAME = 0;
+  int APPLICATION_MAPPER__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Mapper</b></em>' reference.
@@ -956,7 +1136,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPER__MAPPER = 1;
+  int APPLICATION_MAPPER__MAPPER = 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -965,7 +1145,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPER__PARENT = 2;
+  int APPLICATION_MAPPER__PARENT = 3;
 
   /**
    * The number of structural features of the '<em>Application Mapper</em>' class.
@@ -974,7 +1154,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPER_FEATURE_COUNT = 3;
+  int APPLICATION_MAPPER_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.BusinessObjectsImpl <em>Business Objects</em>}' class.
@@ -987,13 +1167,22 @@ public interface DomainPackage extends EPackage
   int BUSINESS_OBJECTS = 20;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECTS__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Business Object</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECTS__BUSINESS_OBJECT = 0;
+  int BUSINESS_OBJECTS__BUSINESS_OBJECT = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -1002,7 +1191,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECTS__PARENT = 1;
+  int BUSINESS_OBJECTS__PARENT = 2;
 
   /**
    * The number of structural features of the '<em>Business Objects</em>' class.
@@ -1011,17 +1200,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECTS_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link domain.impl.TypePointerImpl <em>Type Pointer</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.TypePointerImpl
-   * @see domain.impl.DomainPackageImpl#getTypePointer()
-   * @generated
-   */
-  int TYPE_POINTER = 52;
+  int BUSINESS_OBJECTS_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.BusinessObjectImpl <em>Business Object</em>}' class.
@@ -1034,13 +1213,22 @@ public interface DomainPackage extends EPackage
   int BUSINESS_OBJECT = 21;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_OBJECT__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__NAME = 0;
+  int BUSINESS_OBJECT__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1049,7 +1237,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__PARENT = 1;
+  int BUSINESS_OBJECT__PARENT = 2;
 
   /**
    * The feature id for the '<em><b>Create Methods</b></em>' containment reference list.
@@ -1058,7 +1246,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__CREATE_METHODS = 2;
+  int BUSINESS_OBJECT__CREATE_METHODS = 3;
 
   /**
    * The feature id for the '<em><b>Insert Methods</b></em>' containment reference list.
@@ -1067,7 +1255,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__INSERT_METHODS = 3;
+  int BUSINESS_OBJECT__INSERT_METHODS = 4;
 
   /**
    * The feature id for the '<em><b>Update Methods</b></em>' containment reference list.
@@ -1076,7 +1264,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__UPDATE_METHODS = 4;
+  int BUSINESS_OBJECT__UPDATE_METHODS = 5;
 
   /**
    * The feature id for the '<em><b>Remove Methods</b></em>' containment reference list.
@@ -1085,7 +1273,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__REMOVE_METHODS = 5;
+  int BUSINESS_OBJECT__REMOVE_METHODS = 6;
 
   /**
    * The feature id for the '<em><b>Search Methods</b></em>' containment reference list.
@@ -1094,7 +1282,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__SEARCH_METHODS = 6;
+  int BUSINESS_OBJECT__SEARCH_METHODS = 7;
 
   /**
    * The feature id for the '<em><b>Others Methods</b></em>' containment reference list.
@@ -1103,7 +1291,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT__OTHERS_METHODS = 7;
+  int BUSINESS_OBJECT__OTHERS_METHODS = 8;
 
   /**
    * The number of structural features of the '<em>Business Object</em>' class.
@@ -1112,7 +1300,17 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_OBJECT_FEATURE_COUNT = 8;
+  int BUSINESS_OBJECT_FEATURE_COUNT = 9;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypePointerImpl <em>Type Pointer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypePointerImpl
+   * @see domain.impl.DomainPackageImpl#getTypePointer()
+   * @generated
+   */
+  int TYPE_POINTER = 52;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -1170,13 +1368,22 @@ public interface DomainPackage extends EPackage
   int BUSINESS_METHOD__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_METHOD__UID = TYPE_POINTER_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD__METHOD = TYPE_POINTER_FEATURE_COUNT + 0;
+  int BUSINESS_METHOD__METHOD = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Business Method</em>' class.
@@ -1185,7 +1392,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
+  int BUSINESS_METHOD_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link domain.impl.CreateMethodImpl <em>Create Method</em>}' class.
@@ -1214,6 +1421,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int CREATE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_METHOD__UID = BUSINESS_METHOD__UID;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -1271,6 +1487,15 @@ public interface DomainPackage extends EPackage
   int INSERT_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_METHOD__UID = BUSINESS_METHOD__UID;
+
+  /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1324,6 +1549,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int UPDATE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_METHOD__UID = BUSINESS_METHOD__UID;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -1381,6 +1615,15 @@ public interface DomainPackage extends EPackage
   int REMOVE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REMOVE_METHOD__UID = BUSINESS_METHOD__UID;
+
+  /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1434,6 +1677,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int SEARCH_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_METHOD__UID = BUSINESS_METHOD__UID;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -1491,6 +1743,15 @@ public interface DomainPackage extends EPackage
   int OTHER_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_METHOD__UID = BUSINESS_METHOD__UID;
+
+  /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1528,13 +1789,22 @@ public interface DomainPackage extends EPackage
   int MAPPERS = 29;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPERS__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAPPERS__MAPPERS = 0;
+  int MAPPERS__MAPPERS = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -1543,7 +1813,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPERS__PARENT = 1;
+  int MAPPERS__PARENT = 2;
 
   /**
    * The number of structural features of the '<em>Mappers</em>' class.
@@ -1552,7 +1822,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPERS_FEATURE_COUNT = 2;
+  int MAPPERS_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.MapperImpl <em>Mapper</em>}' class.
@@ -1583,13 +1853,22 @@ public interface DomainPackage extends EPackage
   int MAPPER__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPER__UID = TYPE_POINTER_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAPPER__PARENT = TYPE_POINTER_FEATURE_COUNT + 0;
+  int MAPPER__PARENT = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Mapper</em>' class.
@@ -1598,7 +1877,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
+  int MAPPER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link domain.impl.JavaMapperImpl <em>Java Mapper</em>}' class.
@@ -1627,6 +1906,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int JAVA_MAPPER__TYPE_NAME = MAPPER__TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__UID = MAPPER__UID;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1711,13 +1999,22 @@ public interface DomainPackage extends EPackage
   int RECIPES = 32;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPES__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Recipe</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECIPES__RECIPE = 0;
+  int RECIPES__RECIPE = 1;
 
   /**
    * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
@@ -1726,7 +2023,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECIPES__CONFIGURATIONS = 1;
+  int RECIPES__CONFIGURATIONS = 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -1735,7 +2032,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECIPES__PARENT = 2;
+  int RECIPES__PARENT = 3;
 
   /**
    * The number of structural features of the '<em>Recipes</em>' class.
@@ -1744,7 +2041,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECIPES_FEATURE_COUNT = 3;
+  int RECIPES_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.RecipeImpl <em>Recipe</em>}' class.
@@ -1757,13 +2054,22 @@ public interface DomainPackage extends EPackage
   int RECIPE = 33;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECIPE__PARENT = 0;
+  int RECIPE__PARENT = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1772,7 +2078,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECIPE__NAME = 1;
+  int RECIPE__NAME = 2;
 
   /**
    * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -1781,7 +2087,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECIPE__COMPONENTS = 2;
+  int RECIPE__COMPONENTS = 3;
 
   /**
    * The feature id for the '<em><b>Recipe Config</b></em>' reference.
@@ -1790,7 +2096,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECIPE__RECIPE_CONFIG = 3;
+  int RECIPE__RECIPE_CONFIG = 4;
 
   /**
    * The number of structural features of the '<em>Recipe</em>' class.
@@ -1799,7 +2105,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECIPE_FEATURE_COUNT = 4;
+  int RECIPE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link domain.impl.ComponentImpl <em>Component</em>}' class.
@@ -1812,13 +2118,22 @@ public interface DomainPackage extends EPackage
   int COMPONENT = 34;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT__NAME = 0;
+  int COMPONENT__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -1827,7 +2142,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__COMPONENTS = 1;
+  int COMPONENT__COMPONENTS = 2;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
@@ -1836,7 +2151,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__MAPPERS = 2;
+  int COMPONENT__MAPPERS = 3;
 
   /**
    * The number of structural features of the '<em>Component</em>' class.
@@ -1845,57 +2160,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link domain.impl.ModelMapperImpl <em>Model Mapper</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ModelMapperImpl
-   * @see domain.impl.DomainPackageImpl#getModelMapper()
-   * @generated
-   */
-  int MODEL_MAPPER = 35;
-
-  /**
-   * The meta object id for the '{@link domain.impl.ConfigurationImpl <em>Configuration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ConfigurationImpl
-   * @see domain.impl.DomainPackageImpl#getConfiguration()
-   * @generated
-   */
-  int CONFIGURATION = 36;
-
-  /**
-   * The meta object id for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.PropertyImpl
-   * @see domain.impl.DomainPackageImpl#getProperty()
-   * @generated
-   */
-  int PROPERTY = 37;
-
-  /**
-   * The meta object id for the '{@link domain.impl.MappingSpecifierImpl <em>Mapping Specifier</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.MappingSpecifierImpl
-   * @see domain.impl.DomainPackageImpl#getMappingSpecifier()
-   * @generated
-   */
-  int MAPPING_SPECIFIER = 38;
-
-  /**
-   * The meta object id for the '{@link domain.impl.MappingVariableImpl <em>Mapping Variable</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.MappingVariableImpl
-   * @see domain.impl.DomainPackageImpl#getMappingVariable()
-   * @generated
-   */
-  int MAPPING_VARIABLE = 39;
+  int COMPONENT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ArtifactRefImpl <em>Artifact Ref</em>}' class.
@@ -1908,13 +2173,22 @@ public interface DomainPackage extends EPackage
   int ARTIFACT_REF = 40;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFACT_REF__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Domain Artifact</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARTIFACT_REF__DOMAIN_ARTIFACT = 0;
+  int ARTIFACT_REF__DOMAIN_ARTIFACT = 1;
 
   /**
    * The feature id for the '<em><b>Artifact Name</b></em>' attribute.
@@ -1923,7 +2197,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARTIFACT_REF__ARTIFACT_NAME = 1;
+  int ARTIFACT_REF__ARTIFACT_NAME = 2;
 
   /**
    * The number of structural features of the '<em>Artifact Ref</em>' class.
@@ -1932,7 +2206,26 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARTIFACT_REF_FEATURE_COUNT = 2;
+  int ARTIFACT_REF_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ModelMapperImpl <em>Model Mapper</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ModelMapperImpl
+   * @see domain.impl.DomainPackageImpl#getModelMapper()
+   * @generated
+   */
+  int MODEL_MAPPER = 35;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__UID = ARTIFACT_REF__UID;
 
   /**
    * The feature id for the '<em><b>Domain Artifact</b></em>' attribute.
@@ -1962,13 +2255,22 @@ public interface DomainPackage extends EPackage
   int MODEL_MAPPER__NAME = ARTIFACT_REF_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__PARENT = ARTIFACT_REF_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Specifiers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_MAPPER__SPECIFIERS = ARTIFACT_REF_FEATURE_COUNT + 1;
+  int MODEL_MAPPER__SPECIFIERS = ARTIFACT_REF_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -1977,7 +2279,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_MAPPER__VARIABLES = ARTIFACT_REF_FEATURE_COUNT + 2;
+  int MODEL_MAPPER__VARIABLES = ARTIFACT_REF_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Model Mapper</em>' class.
@@ -1986,7 +2288,26 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 3;
+  int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ConfigurationImpl <em>Configuration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ConfigurationImpl
+   * @see domain.impl.DomainPackageImpl#getConfiguration()
+   * @generated
+   */
+  int CONFIGURATION = 36;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION__UID = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1995,7 +2316,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONFIGURATION__NAME = 0;
+  int CONFIGURATION__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -2004,7 +2325,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONFIGURATION__PROPERTIES = 1;
+  int CONFIGURATION__PROPERTIES = 2;
 
   /**
    * The feature id for the '<em><b>Config Extension</b></em>' reference.
@@ -2013,7 +2334,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONFIGURATION__CONFIG_EXTENSION = 2;
+  int CONFIGURATION__CONFIG_EXTENSION = 3;
 
   /**
    * The number of structural features of the '<em>Configuration</em>' class.
@@ -2022,7 +2343,26 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONFIGURATION_FEATURE_COUNT = 3;
+  int CONFIGURATION_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.PropertyImpl
+   * @see domain.impl.DomainPackageImpl#getProperty()
+   * @generated
+   */
+  int PROPERTY = 37;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPERTY__UID = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2031,7 +2371,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY__NAME = 0;
+  int PROPERTY__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2040,7 +2380,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY__VALUE = 1;
+  int PROPERTY__VALUE = 2;
 
   /**
    * The number of structural features of the '<em>Property</em>' class.
@@ -2049,7 +2389,26 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_FEATURE_COUNT = 2;
+  int PROPERTY_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.MappingSpecifierImpl <em>Mapping Specifier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.MappingSpecifierImpl
+   * @see domain.impl.DomainPackageImpl#getMappingSpecifier()
+   * @generated
+   */
+  int MAPPING_SPECIFIER = 38;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_SPECIFIER__UID = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2058,7 +2417,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPING_SPECIFIER__NAME = 0;
+  int MAPPING_SPECIFIER__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2067,7 +2426,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPING_SPECIFIER__VALUE = 1;
+  int MAPPING_SPECIFIER__VALUE = 2;
 
   /**
    * The number of structural features of the '<em>Mapping Specifier</em>' class.
@@ -2076,7 +2435,26 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPING_SPECIFIER_FEATURE_COUNT = 2;
+  int MAPPING_SPECIFIER_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.MappingVariableImpl <em>Mapping Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.MappingVariableImpl
+   * @see domain.impl.DomainPackageImpl#getMappingVariable()
+   * @generated
+   */
+  int MAPPING_VARIABLE = 39;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_VARIABLE__UID = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2085,7 +2463,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPING_VARIABLE__NAME = 0;
+  int MAPPING_VARIABLE__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2094,7 +2472,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPING_VARIABLE__VALUE = 1;
+  int MAPPING_VARIABLE__VALUE = 2;
 
   /**
    * The number of structural features of the '<em>Mapping Variable</em>' class.
@@ -2103,7 +2481,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPING_VARIABLE_FEATURE_COUNT = 2;
+  int MAPPING_VARIABLE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.TypeDefinitionImpl <em>Type Definition</em>}' class.
@@ -2116,13 +2494,22 @@ public interface DomainPackage extends EPackage
   int TYPE_DEFINITION = 41;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_DEFINITION__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_DEFINITION__TYPES = 0;
+  int TYPE_DEFINITION__TYPES = 1;
 
   /**
    * The feature id for the '<em><b>Enums</b></em>' containment reference list.
@@ -2131,7 +2518,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_DEFINITION__ENUMS = 1;
+  int TYPE_DEFINITION__ENUMS = 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -2140,7 +2527,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_DEFINITION__PARENT = 2;
+  int TYPE_DEFINITION__PARENT = 3;
 
   /**
    * The number of structural features of the '<em>Type Definition</em>' class.
@@ -2149,7 +2536,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_DEFINITION_FEATURE_COUNT = 3;
+  int TYPE_DEFINITION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.TypeElementImpl <em>Type Element</em>}' class.
@@ -2199,13 +2586,22 @@ public interface DomainPackage extends EPackage
   int TYPE__PARENT = TYPE_ELEMENT__PARENT;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__UID = TYPE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__NAME = TYPE_ELEMENT_FEATURE_COUNT + 0;
+  int TYPE__NAME = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -2214,7 +2610,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__ATTRIBUTES = TYPE_ELEMENT_FEATURE_COUNT + 1;
+  int TYPE__ATTRIBUTES = TYPE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -2223,7 +2619,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__OPERATIONS = TYPE_ELEMENT_FEATURE_COUNT + 2;
+  int TYPE__OPERATIONS = TYPE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Extension</b></em>' containment reference.
@@ -2232,7 +2628,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__EXTENSION = TYPE_ELEMENT_FEATURE_COUNT + 3;
+  int TYPE__EXTENSION = TYPE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -2241,7 +2637,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 4;
+  int TYPE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link domain.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
@@ -2281,13 +2677,22 @@ public interface DomainPackage extends EPackage
   int TYPE_REFERENCE__TYPE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_REFERENCE__UID = TYPE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Type Reference</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 2;
+  int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link domain.impl.TypeExtensionImpl <em>Type Extension</em>}' class.
@@ -2300,13 +2705,22 @@ public interface DomainPackage extends EPackage
   int TYPE_EXTENSION = 45;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_EXTENSION__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Source</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_EXTENSION__SOURCE = 0;
+  int TYPE_EXTENSION__SOURCE = 1;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -2315,7 +2729,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_EXTENSION__TARGET = 1;
+  int TYPE_EXTENSION__TARGET = 2;
 
   /**
    * The number of structural features of the '<em>Type Extension</em>' class.
@@ -2324,7 +2738,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_EXTENSION_FEATURE_COUNT = 2;
+  int TYPE_EXTENSION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -2355,13 +2769,22 @@ public interface DomainPackage extends EPackage
   int ATTRIBUTE__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__UID = TYPE_POINTER_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__NAME = TYPE_POINTER_FEATURE_COUNT + 0;
+  int ATTRIBUTE__NAME = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2370,7 +2793,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__PARENT = TYPE_POINTER_FEATURE_COUNT + 1;
+  int ATTRIBUTE__PARENT = TYPE_POINTER_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Attribute</em>' class.
@@ -2379,7 +2802,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 2;
+  int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link domain.impl.OperationImpl <em>Operation</em>}' class.
@@ -2392,13 +2815,22 @@ public interface DomainPackage extends EPackage
   int OPERATION = 47;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION__NAME = 0;
+  int OPERATION__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2407,7 +2839,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION__PARENT = 1;
+  int OPERATION__PARENT = 2;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -2416,7 +2848,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION__PARAMETERS = 2;
+  int OPERATION__PARAMETERS = 3;
 
   /**
    * The feature id for the '<em><b>Return Value</b></em>' containment reference.
@@ -2425,7 +2857,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION__RETURN_VALUE = 3;
+  int OPERATION__RETURN_VALUE = 4;
 
   /**
    * The number of structural features of the '<em>Operation</em>' class.
@@ -2434,7 +2866,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION_FEATURE_COUNT = 4;
+  int OPERATION_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link domain.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -2465,13 +2897,22 @@ public interface DomainPackage extends EPackage
   int PARAMETER__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__UID = TYPE_POINTER_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER__NAME = TYPE_POINTER_FEATURE_COUNT + 0;
+  int PARAMETER__NAME = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2480,7 +2921,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER__PARENT = TYPE_POINTER_FEATURE_COUNT + 1;
+  int PARAMETER__PARENT = TYPE_POINTER_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Parameter</em>' class.
@@ -2489,7 +2930,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 2;
+  int PARAMETER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link domain.impl.ReturnValueImpl <em>Return Value</em>}' class.
@@ -2520,13 +2961,22 @@ public interface DomainPackage extends EPackage
   int RETURN_VALUE__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN_VALUE__UID = TYPE_POINTER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Return Value</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RETURN_VALUE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 0;
+  int RETURN_VALUE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link domain.impl.EnumaratorImpl <em>Enumarator</em>}' class.
@@ -2539,13 +2989,22 @@ public interface DomainPackage extends EPackage
   int ENUMARATOR = 50;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMARATOR__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUMARATOR__NAME = 0;
+  int ENUMARATOR__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2554,7 +3013,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUMARATOR__PARENT = 1;
+  int ENUMARATOR__PARENT = 2;
 
   /**
    * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -2563,7 +3022,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUMARATOR__VALUES = 2;
+  int ENUMARATOR__VALUES = 3;
 
   /**
    * The number of structural features of the '<em>Enumarator</em>' class.
@@ -2572,7 +3031,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUMARATOR_FEATURE_COUNT = 3;
+  int ENUMARATOR_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
@@ -2585,13 +3044,22 @@ public interface DomainPackage extends EPackage
   int ENUM_ATTRIBUTE = 51;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_ATTRIBUTE__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUM_ATTRIBUTE__PARENT = 0;
+  int ENUM_ATTRIBUTE__PARENT = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2600,7 +3068,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_ATTRIBUTE__NAME = 1;
+  int ENUM_ATTRIBUTE__NAME = 2;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2609,7 +3077,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_ATTRIBUTE__VALUE = 2;
+  int ENUM_ATTRIBUTE__VALUE = 3;
 
   /**
    * The number of structural features of the '<em>Enum Attribute</em>' class.
@@ -2618,7 +3086,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_ATTRIBUTE_FEATURE_COUNT = 3;
+  int ENUM_ATTRIBUTE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.TypesRepositoryImpl <em>Types Repository</em>}' class.
@@ -2631,13 +3099,22 @@ public interface DomainPackage extends EPackage
   int TYPES_REPOSITORY = 53;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPES_REPOSITORY__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Type Definition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPES_REPOSITORY__TYPE_DEFINITION = 0;
+  int TYPES_REPOSITORY__TYPE_DEFINITION = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -2646,7 +3123,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES_REPOSITORY__PARENT = 1;
+  int TYPES_REPOSITORY__PARENT = 2;
 
   /**
    * The number of structural features of the '<em>Types Repository</em>' class.
@@ -2655,7 +3132,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES_REPOSITORY_FEATURE_COUNT = 2;
+  int TYPES_REPOSITORY_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.TypesImpl <em>Types</em>}' class.
@@ -2668,13 +3145,22 @@ public interface DomainPackage extends EPackage
   int TYPES = 54;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPES__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPES__PARENT = 0;
+  int TYPES__PARENT = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2683,7 +3169,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES__NAME = 1;
+  int TYPES__NAME = 2;
 
   /**
    * The feature id for the '<em><b>Primitives</b></em>' containment reference list.
@@ -2692,7 +3178,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES__PRIMITIVES = 2;
+  int TYPES__PRIMITIVES = 3;
 
   /**
    * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -2701,7 +3187,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES__PACKAGES = 3;
+  int TYPES__PACKAGES = 4;
 
   /**
    * The feature id for the '<em><b>Business Packages</b></em>' containment reference list.
@@ -2710,7 +3196,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES__BUSINESS_PACKAGES = 4;
+  int TYPES__BUSINESS_PACKAGES = 5;
 
   /**
    * The number of structural features of the '<em>Types</em>' class.
@@ -2719,7 +3205,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES_FEATURE_COUNT = 5;
+  int TYPES_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link domain.impl.PrimitiveImpl <em>Primitive</em>}' class.
@@ -2732,13 +3218,22 @@ public interface DomainPackage extends EPackage
   int PRIMITIVE = 55;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMITIVE__NAME = 0;
+  int PRIMITIVE__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2747,7 +3242,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMITIVE__PARENT = 1;
+  int PRIMITIVE__PARENT = 2;
 
   /**
    * The number of structural features of the '<em>Primitive</em>' class.
@@ -2756,7 +3251,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMITIVE_FEATURE_COUNT = 2;
+  int PRIMITIVE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.PackageImpl <em>Package</em>}' class.
@@ -2769,13 +3264,22 @@ public interface DomainPackage extends EPackage
   int PACKAGE = 56;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE__NAME = 0;
+  int PACKAGE__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Typedefinition</b></em>' reference.
@@ -2784,7 +3288,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE__TYPEDEFINITION = 1;
+  int PACKAGE__TYPEDEFINITION = 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2793,7 +3297,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE__PARENT = 2;
+  int PACKAGE__PARENT = 3;
 
   /**
    * The number of structural features of the '<em>Package</em>' class.
@@ -2802,7 +3306,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_FEATURE_COUNT = 3;
+  int PACKAGE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.BusinessPackageImpl <em>Business Package</em>}' class.
@@ -2815,13 +3319,22 @@ public interface DomainPackage extends EPackage
   int BUSINESS_PACKAGE = 57;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_PACKAGE__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_PACKAGE__NAME = 0;
+  int BUSINESS_PACKAGE__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Businessobjects</b></em>' reference.
@@ -2830,7 +3343,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_PACKAGE__BUSINESSOBJECTS = 1;
+  int BUSINESS_PACKAGE__BUSINESSOBJECTS = 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2839,7 +3352,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_PACKAGE__PARENT = 2;
+  int BUSINESS_PACKAGE__PARENT = 3;
 
   /**
    * The number of structural features of the '<em>Business Package</em>' class.
@@ -2848,7 +3361,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_PACKAGE_FEATURE_COUNT = 3;
+  int BUSINESS_PACKAGE_FEATURE_COUNT = 4;
 
 
   /**
@@ -2860,6 +3373,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getDomain();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Domain#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Domain#getUid()
+   * @see #getDomain()
+   * @generated
+   */
+  EAttribute getDomain_Uid();
 
   /**
    * Returns the meta object for the containment reference '{@link domain.Domain#getDomainArtifacts <em>Domain Artifacts</em>}'.
@@ -2905,6 +3429,17 @@ public interface DomainPackage extends EPackage
   EClass getDomainArtifacts();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.DomainArtifacts#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.DomainArtifacts#getUid()
+   * @see #getDomainArtifacts()
+   * @generated
+   */
+  EAttribute getDomainArtifacts_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.DomainArtifacts#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2946,6 +3481,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getDomainTypes();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.DomainTypes#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.DomainTypes#getUid()
+   * @see #getDomainTypes()
+   * @generated
+   */
+  EAttribute getDomainTypes_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.DomainTypes#getName <em>Name</em>}'.
@@ -2991,6 +3537,17 @@ public interface DomainPackage extends EPackage
   EClass getDomainApplications();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.DomainApplications#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.DomainApplications#getUid()
+   * @see #getDomainApplications()
+   * @generated
+   */
+  EAttribute getDomainApplications_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.DomainApplications#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3034,6 +3591,17 @@ public interface DomainPackage extends EPackage
   EClass getDomainApplication();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.DomainApplication#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.DomainApplication#getUid()
+   * @see #getDomainApplication()
+   * @generated
+   */
+  EAttribute getDomainApplication_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.DomainApplication#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3075,6 +3643,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getDomainArtifact();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.DomainArtifact#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.DomainArtifact#getUid()
+   * @see #getDomainArtifact()
+   * @generated
+   */
+  EAttribute getDomainArtifact_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.DomainArtifact#getName <em>Name</em>}'.
@@ -3150,6 +3729,17 @@ public interface DomainPackage extends EPackage
   EClass getArtifacts();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Artifacts#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Artifacts#getUid()
+   * @see #getArtifacts()
+   * @generated
+   */
+  EAttribute getArtifacts_Uid();
+
+  /**
    * Returns the meta object for the containment reference list '{@link domain.Artifacts#getArtifacts <em>Artifacts</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3180,6 +3770,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getArtifact();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Artifact#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Artifact#getUid()
+   * @see #getArtifact()
+   * @generated
+   */
+  EAttribute getArtifact_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.Artifact#getName <em>Name</em>}'.
@@ -3269,6 +3870,17 @@ public interface DomainPackage extends EPackage
   EClass getConfigVariable();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.ConfigVariable#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ConfigVariable#getUid()
+   * @see #getConfigVariable()
+   * @generated
+   */
+  EAttribute getConfigVariable_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.ConfigVariable#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3301,6 +3913,17 @@ public interface DomainPackage extends EPackage
   EClass getVariable();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Variable#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Variable#getUid()
+   * @see #getVariable()
+   * @generated
+   */
+  EAttribute getVariable_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.Variable#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3331,6 +3954,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getSpecifier();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Specifier#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Specifier#getUid()
+   * @see #getSpecifier()
+   * @generated
+   */
+  EAttribute getSpecifier_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.Specifier#getName <em>Name</em>}'.
@@ -3376,6 +4010,17 @@ public interface DomainPackage extends EPackage
   EClass getOption();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Option#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Option#getUid()
+   * @see #getOption()
+   * @generated
+   */
+  EAttribute getOption_Uid();
+
+  /**
    * Returns the meta object for the container reference '{@link domain.Option#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3406,6 +4051,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getApplication();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Application#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Application#getUid()
+   * @see #getApplication()
+   * @generated
+   */
+  EAttribute getApplication_Uid();
 
   /**
    * Returns the meta object for the containment reference '{@link domain.Application#getApplicationRecipes <em>Application Recipes</em>}'.
@@ -3451,6 +4107,17 @@ public interface DomainPackage extends EPackage
   EClass getApplicationRecipes();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationRecipes#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ApplicationRecipes#getUid()
+   * @see #getApplicationRecipes()
+   * @generated
+   */
+  EAttribute getApplicationRecipes_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.ApplicationRecipes#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3492,6 +4159,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getApplicationRecipe();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationRecipe#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ApplicationRecipe#getUid()
+   * @see #getApplicationRecipe()
+   * @generated
+   */
+  EAttribute getApplicationRecipe_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.ApplicationRecipe#getName <em>Name</em>}'.
@@ -3537,6 +4215,17 @@ public interface DomainPackage extends EPackage
   EClass getApplicationMappers();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationMappers#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ApplicationMappers#getUid()
+   * @see #getApplicationMappers()
+   * @generated
+   */
+  EAttribute getApplicationMappers_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.ApplicationMappers#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3578,6 +4267,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getApplicationMapper();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationMapper#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ApplicationMapper#getUid()
+   * @see #getApplicationMapper()
+   * @generated
+   */
+  EAttribute getApplicationMapper_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.ApplicationMapper#getName <em>Name</em>}'.
@@ -3623,6 +4323,17 @@ public interface DomainPackage extends EPackage
   EClass getBusinessObjects();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.BusinessObjects#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.BusinessObjects#getUid()
+   * @see #getBusinessObjects()
+   * @generated
+   */
+  EAttribute getBusinessObjects_Uid();
+
+  /**
    * Returns the meta object for the containment reference list '{@link domain.BusinessObjects#getBusinessObject <em>Business Object</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3653,6 +4364,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getBusinessObject();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.BusinessObject#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.BusinessObject#getUid()
+   * @see #getBusinessObject()
+   * @generated
+   */
+  EAttribute getBusinessObject_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.BusinessObject#getName <em>Name</em>}'.
@@ -3751,6 +4473,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getBusinessMethod();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.BusinessMethod#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.BusinessMethod#getUid()
+   * @see #getBusinessMethod()
+   * @generated
+   */
+  EAttribute getBusinessMethod_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.BusinessMethod#getMethod <em>Method</em>}'.
@@ -3900,6 +4633,17 @@ public interface DomainPackage extends EPackage
   EClass getMappers();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Mappers#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Mappers#getUid()
+   * @see #getMappers()
+   * @generated
+   */
+  EAttribute getMappers_Uid();
+
+  /**
    * Returns the meta object for the containment reference list '{@link domain.Mappers#getMappers <em>Mappers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3930,6 +4674,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getMapper();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Mapper#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Mapper#getUid()
+   * @see #getMapper()
+   * @generated
+   */
+  EAttribute getMapper_Uid();
 
   /**
    * Returns the meta object for the container reference '{@link domain.Mapper#getParent <em>Parent</em>}'.
@@ -4029,6 +4784,17 @@ public interface DomainPackage extends EPackage
   EClass getRecipes();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Recipes#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Recipes#getUid()
+   * @see #getRecipes()
+   * @generated
+   */
+  EAttribute getRecipes_Uid();
+
+  /**
    * Returns the meta object for the containment reference '{@link domain.Recipes#getRecipe <em>Recipe</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4070,6 +4836,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getRecipe();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Recipe#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Recipe#getUid()
+   * @see #getRecipe()
+   * @generated
+   */
+  EAttribute getRecipe_Uid();
 
   /**
    * Returns the meta object for the container reference '{@link domain.Recipe#getParent <em>Parent</em>}'.
@@ -4126,6 +4903,17 @@ public interface DomainPackage extends EPackage
   EClass getComponent();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Component#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Component#getUid()
+   * @see #getComponent()
+   * @generated
+   */
+  EAttribute getComponent_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.Component#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4180,6 +4968,17 @@ public interface DomainPackage extends EPackage
   EAttribute getModelMapper_Name();
 
   /**
+   * Returns the meta object for the container reference '{@link domain.ModelMapper#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.ModelMapper#getParent()
+   * @see #getModelMapper()
+   * @generated
+   */
+  EReference getModelMapper_Parent();
+
+  /**
    * Returns the meta object for the containment reference list '{@link domain.ModelMapper#getSpecifiers <em>Specifiers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4210,6 +5009,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getConfiguration();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Configuration#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Configuration#getUid()
+   * @see #getConfiguration()
+   * @generated
+   */
+  EAttribute getConfiguration_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.Configuration#getName <em>Name</em>}'.
@@ -4255,6 +5065,17 @@ public interface DomainPackage extends EPackage
   EClass getProperty();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Property#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Property#getUid()
+   * @see #getProperty()
+   * @generated
+   */
+  EAttribute getProperty_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.Property#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4285,6 +5106,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getMappingSpecifier();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.MappingSpecifier#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.MappingSpecifier#getUid()
+   * @see #getMappingSpecifier()
+   * @generated
+   */
+  EAttribute getMappingSpecifier_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.MappingSpecifier#getName <em>Name</em>}'.
@@ -4319,6 +5151,17 @@ public interface DomainPackage extends EPackage
   EClass getMappingVariable();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.MappingVariable#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.MappingVariable#getUid()
+   * @see #getMappingVariable()
+   * @generated
+   */
+  EAttribute getMappingVariable_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.MappingVariable#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4351,6 +5194,17 @@ public interface DomainPackage extends EPackage
   EClass getArtifactRef();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.ArtifactRef#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ArtifactRef#getUid()
+   * @see #getArtifactRef()
+   * @generated
+   */
+  EAttribute getArtifactRef_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.ArtifactRef#getDomainArtifact <em>Domain Artifact</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4381,6 +5235,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getTypeDefinition();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.TypeDefinition#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.TypeDefinition#getUid()
+   * @see #getTypeDefinition()
+   * @generated
+   */
+  EAttribute getTypeDefinition_Uid();
 
   /**
    * Returns the meta object for the containment reference list '{@link domain.TypeDefinition#getTypes <em>Types</em>}'.
@@ -4447,6 +5312,17 @@ public interface DomainPackage extends EPackage
   EClass getType();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Type#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Type#getUid()
+   * @see #getType()
+   * @generated
+   */
+  EAttribute getType_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.Type#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4501,6 +5377,17 @@ public interface DomainPackage extends EPackage
   EClass getTypeReference();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.TypeReference#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.TypeReference#getUid()
+   * @see #getTypeReference()
+   * @generated
+   */
+  EAttribute getTypeReference_Uid();
+
+  /**
    * Returns the meta object for class '{@link domain.TypeExtension <em>Type Extension</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4509,6 +5396,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getTypeExtension();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.TypeExtension#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.TypeExtension#getUid()
+   * @see #getTypeExtension()
+   * @generated
+   */
+  EAttribute getTypeExtension_Uid();
 
   /**
    * Returns the meta object for the reference '{@link domain.TypeExtension#getSource <em>Source</em>}'.
@@ -4543,6 +5441,17 @@ public interface DomainPackage extends EPackage
   EClass getAttribute();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Attribute#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Attribute#getUid()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.Attribute#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4573,6 +5482,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getOperation();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Operation#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Operation#getUid()
+   * @see #getOperation()
+   * @generated
+   */
+  EAttribute getOperation_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.Operation#getName <em>Name</em>}'.
@@ -4629,6 +5549,17 @@ public interface DomainPackage extends EPackage
   EClass getParameter();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Parameter#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Parameter#getUid()
+   * @see #getParameter()
+   * @generated
+   */
+  EAttribute getParameter_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.Parameter#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4661,6 +5592,17 @@ public interface DomainPackage extends EPackage
   EClass getReturnValue();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.ReturnValue#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ReturnValue#getUid()
+   * @see #getReturnValue()
+   * @generated
+   */
+  EAttribute getReturnValue_Uid();
+
+  /**
    * Returns the meta object for class '{@link domain.Enumarator <em>Enumarator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4669,6 +5611,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getEnumarator();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Enumarator#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Enumarator#getUid()
+   * @see #getEnumarator()
+   * @generated
+   */
+  EAttribute getEnumarator_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.Enumarator#getName <em>Name</em>}'.
@@ -4712,6 +5665,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getEnumAttribute();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.EnumAttribute#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.EnumAttribute#getUid()
+   * @see #getEnumAttribute()
+   * @generated
+   */
+  EAttribute getEnumAttribute_Uid();
 
   /**
    * Returns the meta object for the container reference '{@link domain.EnumAttribute#getParent <em>Parent</em>}'.
@@ -4789,6 +5753,17 @@ public interface DomainPackage extends EPackage
   EClass getTypesRepository();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.TypesRepository#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.TypesRepository#getUid()
+   * @see #getTypesRepository()
+   * @generated
+   */
+  EAttribute getTypesRepository_Uid();
+
+  /**
    * Returns the meta object for the containment reference '{@link domain.TypesRepository#getTypeDefinition <em>Type Definition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4819,6 +5794,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getTypes();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Types#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Types#getUid()
+   * @see #getTypes()
+   * @generated
+   */
+  EAttribute getTypes_Uid();
 
   /**
    * Returns the meta object for the container reference '{@link domain.Types#getParent <em>Parent</em>}'.
@@ -4886,6 +5872,17 @@ public interface DomainPackage extends EPackage
   EClass getPrimitive();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Primitive#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Primitive#getUid()
+   * @see #getPrimitive()
+   * @generated
+   */
+  EAttribute getPrimitive_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.Primitive#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4916,6 +5913,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getPackage();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Package#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Package#getUid()
+   * @see #getPackage()
+   * @generated
+   */
+  EAttribute getPackage_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.Package#getName <em>Name</em>}'.
@@ -4959,6 +5967,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getBusinessPackage();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.BusinessPackage#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.BusinessPackage#getUid()
+   * @see #getBusinessPackage()
+   * @generated
+   */
+  EAttribute getBusinessPackage_Uid();
 
   /**
    * Returns the meta object for the attribute '{@link domain.BusinessPackage#getName <em>Name</em>}'.
@@ -5027,6 +6046,14 @@ public interface DomainPackage extends EPackage
     EClass DOMAIN = eINSTANCE.getDomain();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOMAIN__UID = eINSTANCE.getDomain_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Domain Artifacts</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5059,6 +6086,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass DOMAIN_ARTIFACTS = eINSTANCE.getDomainArtifacts();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOMAIN_ARTIFACTS__UID = eINSTANCE.getDomainArtifacts_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5095,6 +6130,14 @@ public interface DomainPackage extends EPackage
     EClass DOMAIN_TYPES = eINSTANCE.getDomainTypes();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOMAIN_TYPES__UID = eINSTANCE.getDomainTypes_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5127,6 +6170,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass DOMAIN_APPLICATIONS = eINSTANCE.getDomainApplications();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOMAIN_APPLICATIONS__UID = eINSTANCE.getDomainApplications_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5163,6 +6214,14 @@ public interface DomainPackage extends EPackage
     EClass DOMAIN_APPLICATION = eINSTANCE.getDomainApplication();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOMAIN_APPLICATION__UID = eINSTANCE.getDomainApplication_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5195,6 +6254,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass DOMAIN_ARTIFACT = eINSTANCE.getDomainArtifact();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOMAIN_ARTIFACT__UID = eINSTANCE.getDomainArtifact_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5261,6 +6328,14 @@ public interface DomainPackage extends EPackage
     EClass ARTIFACTS = eINSTANCE.getArtifacts();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARTIFACTS__UID = eINSTANCE.getArtifacts_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Artifacts</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5285,6 +6360,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass ARTIFACT = eINSTANCE.getArtifact();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARTIFACT__UID = eINSTANCE.getArtifact_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5353,6 +6436,14 @@ public interface DomainPackage extends EPackage
     EClass CONFIG_VARIABLE = eINSTANCE.getConfigVariable();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONFIG_VARIABLE__UID = eINSTANCE.getConfigVariable_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5379,6 +6470,14 @@ public interface DomainPackage extends EPackage
     EClass VARIABLE = eINSTANCE.getVariable();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE__UID = eINSTANCE.getVariable_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5403,6 +6502,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass SPECIFIER = eINSTANCE.getSpecifier();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SPECIFIER__UID = eINSTANCE.getSpecifier_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5439,6 +6546,14 @@ public interface DomainPackage extends EPackage
     EClass OPTION = eINSTANCE.getOption();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPTION__UID = eINSTANCE.getOption_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5463,6 +6578,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass APPLICATION = eINSTANCE.getApplication();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION__UID = eINSTANCE.getApplication_Uid();
 
     /**
      * The meta object literal for the '<em><b>Application Recipes</b></em>' containment reference feature.
@@ -5499,6 +6622,14 @@ public interface DomainPackage extends EPackage
     EClass APPLICATION_RECIPES = eINSTANCE.getApplicationRecipes();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_RECIPES__UID = eINSTANCE.getApplicationRecipes_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5531,6 +6662,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass APPLICATION_RECIPE = eINSTANCE.getApplicationRecipe();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_RECIPE__UID = eINSTANCE.getApplicationRecipe_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5567,6 +6706,14 @@ public interface DomainPackage extends EPackage
     EClass APPLICATION_MAPPERS = eINSTANCE.getApplicationMappers();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_MAPPERS__UID = eINSTANCE.getApplicationMappers_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5599,6 +6746,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass APPLICATION_MAPPER = eINSTANCE.getApplicationMapper();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_MAPPER__UID = eINSTANCE.getApplicationMapper_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5635,6 +6790,14 @@ public interface DomainPackage extends EPackage
     EClass BUSINESS_OBJECTS = eINSTANCE.getBusinessObjects();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUSINESS_OBJECTS__UID = eINSTANCE.getBusinessObjects_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Business Object</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5659,6 +6822,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass BUSINESS_OBJECT = eINSTANCE.getBusinessObject();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUSINESS_OBJECT__UID = eINSTANCE.getBusinessObject_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5733,6 +6904,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass BUSINESS_METHOD = eINSTANCE.getBusinessMethod();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUSINESS_METHOD__UID = eINSTANCE.getBusinessMethod_Uid();
 
     /**
      * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
@@ -5861,6 +7040,14 @@ public interface DomainPackage extends EPackage
     EClass MAPPERS = eINSTANCE.getMappers();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPERS__UID = eINSTANCE.getMappers_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Mappers</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5885,6 +7072,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass MAPPER = eINSTANCE.getMapper();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPER__UID = eINSTANCE.getMapper_Uid();
 
     /**
      * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
@@ -5963,6 +7158,14 @@ public interface DomainPackage extends EPackage
     EClass RECIPES = eINSTANCE.getRecipes();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RECIPES__UID = eINSTANCE.getRecipes_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Recipe</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5995,6 +7198,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass RECIPE = eINSTANCE.getRecipe();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RECIPE__UID = eINSTANCE.getRecipe_Uid();
 
     /**
      * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
@@ -6039,6 +7250,14 @@ public interface DomainPackage extends EPackage
     EClass COMPONENT = eINSTANCE.getComponent();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPONENT__UID = eINSTANCE.getComponent_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6081,6 +7300,14 @@ public interface DomainPackage extends EPackage
     EAttribute MODEL_MAPPER__NAME = eINSTANCE.getModelMapper_Name();
 
     /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL_MAPPER__PARENT = eINSTANCE.getModelMapper_Parent();
+
+    /**
      * The meta object literal for the '<em><b>Specifiers</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6105,6 +7332,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass CONFIGURATION = eINSTANCE.getConfiguration();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONFIGURATION__UID = eINSTANCE.getConfiguration_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -6141,6 +7376,14 @@ public interface DomainPackage extends EPackage
     EClass PROPERTY = eINSTANCE.getProperty();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROPERTY__UID = eINSTANCE.getProperty_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6165,6 +7408,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass MAPPING_SPECIFIER = eINSTANCE.getMappingSpecifier();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING_SPECIFIER__UID = eINSTANCE.getMappingSpecifier_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -6193,6 +7444,14 @@ public interface DomainPackage extends EPackage
     EClass MAPPING_VARIABLE = eINSTANCE.getMappingVariable();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING_VARIABLE__UID = eINSTANCE.getMappingVariable_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6219,6 +7478,14 @@ public interface DomainPackage extends EPackage
     EClass ARTIFACT_REF = eINSTANCE.getArtifactRef();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARTIFACT_REF__UID = eINSTANCE.getArtifactRef_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Domain Artifact</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6243,6 +7510,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass TYPE_DEFINITION = eINSTANCE.getTypeDefinition();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_DEFINITION__UID = eINSTANCE.getTypeDefinition_Uid();
 
     /**
      * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
@@ -6297,6 +7572,14 @@ public interface DomainPackage extends EPackage
     EClass TYPE = eINSTANCE.getType();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE__UID = eINSTANCE.getType_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6339,6 +7622,14 @@ public interface DomainPackage extends EPackage
     EClass TYPE_REFERENCE = eINSTANCE.getTypeReference();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_REFERENCE__UID = eINSTANCE.getTypeReference_Uid();
+
+    /**
      * The meta object literal for the '{@link domain.impl.TypeExtensionImpl <em>Type Extension</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6347,6 +7638,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass TYPE_EXTENSION = eINSTANCE.getTypeExtension();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_EXTENSION__UID = eINSTANCE.getTypeExtension_Uid();
 
     /**
      * The meta object literal for the '<em><b>Source</b></em>' reference feature.
@@ -6375,6 +7674,14 @@ public interface DomainPackage extends EPackage
     EClass ATTRIBUTE = eINSTANCE.getAttribute();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__UID = eINSTANCE.getAttribute_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6399,6 +7706,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass OPERATION = eINSTANCE.getOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION__UID = eINSTANCE.getOperation_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -6443,6 +7758,14 @@ public interface DomainPackage extends EPackage
     EClass PARAMETER = eINSTANCE.getParameter();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER__UID = eINSTANCE.getParameter_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6469,6 +7792,14 @@ public interface DomainPackage extends EPackage
     EClass RETURN_VALUE = eINSTANCE.getReturnValue();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RETURN_VALUE__UID = eINSTANCE.getReturnValue_Uid();
+
+    /**
      * The meta object literal for the '{@link domain.impl.EnumaratorImpl <em>Enumarator</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6477,6 +7808,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass ENUMARATOR = eINSTANCE.getEnumarator();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUMARATOR__UID = eINSTANCE.getEnumarator_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -6511,6 +7850,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass ENUM_ATTRIBUTE = eINSTANCE.getEnumAttribute();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUM_ATTRIBUTE__UID = eINSTANCE.getEnumAttribute_Uid();
 
     /**
      * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
@@ -6573,6 +7920,14 @@ public interface DomainPackage extends EPackage
     EClass TYPES_REPOSITORY = eINSTANCE.getTypesRepository();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPES_REPOSITORY__UID = eINSTANCE.getTypesRepository_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Type Definition</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6597,6 +7952,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass TYPES = eINSTANCE.getTypes();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPES__UID = eINSTANCE.getTypes_Uid();
 
     /**
      * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
@@ -6649,6 +8012,14 @@ public interface DomainPackage extends EPackage
     EClass PRIMITIVE = eINSTANCE.getPrimitive();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMITIVE__UID = eINSTANCE.getPrimitive_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6673,6 +8044,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass PACKAGE = eINSTANCE.getPackage();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PACKAGE__UID = eINSTANCE.getPackage_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -6707,6 +8086,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass BUSINESS_PACKAGE = eINSTANCE.getBusinessPackage();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUSINESS_PACKAGE__UID = eINSTANCE.getBusinessPackage_Uid();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

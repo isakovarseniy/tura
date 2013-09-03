@@ -64,10 +64,34 @@ public class BusinessPackageItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addBusinessobjectsPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_BusinessPackage_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_BusinessPackage_uid_feature", "_UI_BusinessPackage_type"),
+         DomainPackage.Literals.BUSINESS_PACKAGE__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -157,6 +181,7 @@ public class BusinessPackageItemProvider
 
     switch (notification.getFeatureID(BusinessPackage.class))
     {
+      case DomainPackage.BUSINESS_PACKAGE__UID:
       case DomainPackage.BUSINESS_PACKAGE__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

@@ -4,13 +4,16 @@ package domain.impl;
 
 import domain.DomainPackage;
 import domain.Mapper;
-
 import domain.Mappers;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -20,6 +23,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.MapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.MapperImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -28,6 +32,25 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class MapperImpl extends TypePointerImpl implements Mapper
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -47,6 +70,29 @@ public class MapperImpl extends TypePointerImpl implements Mapper
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.MAPPER;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPER__UID, oldUid, uid));
   }
 
   /**
@@ -154,6 +200,8 @@ public class MapperImpl extends TypePointerImpl implements Mapper
   {
     switch (featureID)
     {
+      case DomainPackage.MAPPER__UID:
+        return getUid();
       case DomainPackage.MAPPER__PARENT:
         return getParent();
     }
@@ -170,6 +218,9 @@ public class MapperImpl extends TypePointerImpl implements Mapper
   {
     switch (featureID)
     {
+      case DomainPackage.MAPPER__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.MAPPER__PARENT:
         setParent((Mappers)newValue);
         return;
@@ -187,6 +238,9 @@ public class MapperImpl extends TypePointerImpl implements Mapper
   {
     switch (featureID)
     {
+      case DomainPackage.MAPPER__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.MAPPER__PARENT:
         setParent((Mappers)null);
         return;
@@ -204,10 +258,29 @@ public class MapperImpl extends TypePointerImpl implements Mapper
   {
     switch (featureID)
     {
+      case DomainPackage.MAPPER__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.MAPPER__PARENT:
         return getParent() != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(')');
+    return result.toString();
   }
 
 } //MapperImpl

@@ -62,6 +62,8 @@ public class VariableCreateCommand extends EditElementCommand {
 		Artifact owner = (Artifact) getElementToEdit();
 		owner.getModelQuery().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

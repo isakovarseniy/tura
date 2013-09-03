@@ -63,10 +63,34 @@ public class PackageItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addTypedefinitionPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Package_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Package_uid_feature", "_UI_Package_type"),
+         DomainPackage.Literals.PACKAGE__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -156,6 +180,7 @@ public class PackageItemProvider
 
     switch (notification.getFeatureID(domain.Package.class))
     {
+      case DomainPackage.PACKAGE__UID:
       case DomainPackage.PACKAGE__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

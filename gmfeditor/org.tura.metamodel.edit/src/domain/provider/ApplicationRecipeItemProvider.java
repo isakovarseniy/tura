@@ -64,10 +64,34 @@ public class ApplicationRecipeItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addRecipesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ApplicationRecipe_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ApplicationRecipe_uid_feature", "_UI_ApplicationRecipe_type"),
+         DomainPackage.Literals.APPLICATION_RECIPE__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -157,6 +181,7 @@ public class ApplicationRecipeItemProvider
 
     switch (notification.getFeatureID(ApplicationRecipe.class))
     {
+      case DomainPackage.APPLICATION_RECIPE__UID:
       case DomainPackage.APPLICATION_RECIPE__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

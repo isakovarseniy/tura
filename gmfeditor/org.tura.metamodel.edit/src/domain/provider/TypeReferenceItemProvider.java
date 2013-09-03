@@ -63,6 +63,7 @@ public class TypeReferenceItemProvider
 
       addPackageNamePropertyDescriptor(object);
       addTypeNamePropertyDescriptor(object);
+      addUidPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -114,6 +115,29 @@ public class TypeReferenceItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypeReference_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypeReference_uid_feature", "_UI_TypeReference_type"),
+         DomainPackage.Literals.TYPE_REFERENCE__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This returns TypeReference.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -156,6 +180,7 @@ public class TypeReferenceItemProvider
     {
       case DomainPackage.TYPE_REFERENCE__PACKAGE_NAME:
       case DomainPackage.TYPE_REFERENCE__TYPE_NAME:
+      case DomainPackage.TYPE_REFERENCE__UID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

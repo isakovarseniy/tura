@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.DomainImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DomainImpl#getDomainArtifacts <em>Domain Artifacts</em>}</li>
  *   <li>{@link domain.impl.DomainImpl#getDomainTypes <em>Domain Types</em>}</li>
  *   <li>{@link domain.impl.DomainImpl#getDomainApplications <em>Domain Applications</em>}</li>
@@ -34,6 +35,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class DomainImpl extends EObjectImpl implements Domain
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getDomainArtifacts() <em>Domain Artifacts</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -83,6 +104,29 @@ public class DomainImpl extends EObjectImpl implements Domain
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.DOMAIN;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__UID, oldUid, uid));
   }
 
   /**
@@ -285,6 +329,8 @@ public class DomainImpl extends EObjectImpl implements Domain
   {
     switch (featureID)
     {
+      case DomainPackage.DOMAIN__UID:
+        return getUid();
       case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
         return getDomainArtifacts();
       case DomainPackage.DOMAIN__DOMAIN_TYPES:
@@ -305,6 +351,9 @@ public class DomainImpl extends EObjectImpl implements Domain
   {
     switch (featureID)
     {
+      case DomainPackage.DOMAIN__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
         setDomainArtifacts((DomainArtifacts)newValue);
         return;
@@ -328,6 +377,9 @@ public class DomainImpl extends EObjectImpl implements Domain
   {
     switch (featureID)
     {
+      case DomainPackage.DOMAIN__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
         setDomainArtifacts((DomainArtifacts)null);
         return;
@@ -351,6 +403,8 @@ public class DomainImpl extends EObjectImpl implements Domain
   {
     switch (featureID)
     {
+      case DomainPackage.DOMAIN__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
         return domainArtifacts != null;
       case DomainPackage.DOMAIN__DOMAIN_TYPES:
@@ -359,6 +413,23 @@ public class DomainImpl extends EObjectImpl implements Domain
         return domainApplications != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(')');
+    return result.toString();
   }
 
 } //DomainImpl

@@ -2,13 +2,12 @@
  */
 package domain.impl;
 
-import domain.Attribute;
 import domain.DomainPackage;
 import domain.Operation;
 import domain.Parameter;
 import domain.ReturnValue;
-
 import domain.Type;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -24,7 +23,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -34,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.OperationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.OperationImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.OperationImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
@@ -45,6 +44,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class OperationImpl extends EObjectImpl implements Operation
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -104,6 +123,29 @@ public class OperationImpl extends EObjectImpl implements Operation
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.OPERATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.OPERATION__UID, oldUid, uid));
   }
 
   /**
@@ -303,6 +345,8 @@ public class OperationImpl extends EObjectImpl implements Operation
   {
     switch (featureID)
     {
+      case DomainPackage.OPERATION__UID:
+        return getUid();
       case DomainPackage.OPERATION__NAME:
         return getName();
       case DomainPackage.OPERATION__PARENT:
@@ -326,6 +370,9 @@ public class OperationImpl extends EObjectImpl implements Operation
   {
     switch (featureID)
     {
+      case DomainPackage.OPERATION__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.OPERATION__NAME:
         setName((String)newValue);
         return;
@@ -353,6 +400,9 @@ public class OperationImpl extends EObjectImpl implements Operation
   {
     switch (featureID)
     {
+      case DomainPackage.OPERATION__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.OPERATION__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -379,6 +429,8 @@ public class OperationImpl extends EObjectImpl implements Operation
   {
     switch (featureID)
     {
+      case DomainPackage.OPERATION__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.OPERATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.OPERATION__PARENT:
@@ -402,7 +454,9 @@ public class OperationImpl extends EObjectImpl implements Operation
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

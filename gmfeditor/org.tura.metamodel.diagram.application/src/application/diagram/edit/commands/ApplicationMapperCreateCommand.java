@@ -63,6 +63,8 @@ public class ApplicationMapperCreateCommand extends EditElementCommand {
 		ApplicationMappers owner = (ApplicationMappers) getElementToEdit();
 		owner.getMappers().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

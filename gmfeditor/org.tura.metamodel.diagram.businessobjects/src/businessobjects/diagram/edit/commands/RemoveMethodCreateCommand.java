@@ -62,6 +62,8 @@ public class RemoveMethodCreateCommand extends EditElementCommand {
 		BusinessObject owner = (BusinessObject) getElementToEdit();
 		owner.getRemoveMethods().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

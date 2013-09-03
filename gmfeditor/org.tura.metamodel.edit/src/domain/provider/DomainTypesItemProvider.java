@@ -64,10 +64,34 @@ public class DomainTypesItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addTypesrepositoryPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Uid feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUidPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_DomainTypes_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DomainTypes_uid_feature", "_UI_DomainTypes_type"),
+         DomainPackage.Literals.DOMAIN_TYPES__UID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -157,6 +181,7 @@ public class DomainTypesItemProvider
 
     switch (notification.getFeatureID(DomainTypes.class))
     {
+      case DomainPackage.DOMAIN_TYPES__UID:
       case DomainPackage.DOMAIN_TYPES__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

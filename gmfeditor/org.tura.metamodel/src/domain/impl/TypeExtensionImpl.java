@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.TypeExtensionImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TypeExtensionImpl#getSource <em>Source</em>}</li>
  *   <li>{@link domain.impl.TypeExtensionImpl#getTarget <em>Target</em>}</li>
  * </ul>
@@ -30,6 +31,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class TypeExtensionImpl extends EObjectImpl implements TypeExtension
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
    * <!-- begin-user-doc -->
@@ -69,6 +90,29 @@ public class TypeExtensionImpl extends EObjectImpl implements TypeExtension
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.TYPE_EXTENSION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_EXTENSION__UID, oldUid, uid));
   }
 
   /**
@@ -167,6 +211,8 @@ public class TypeExtensionImpl extends EObjectImpl implements TypeExtension
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE_EXTENSION__UID:
+        return getUid();
       case DomainPackage.TYPE_EXTENSION__SOURCE:
         if (resolve) return getSource();
         return basicGetSource();
@@ -187,6 +233,9 @@ public class TypeExtensionImpl extends EObjectImpl implements TypeExtension
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE_EXTENSION__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.TYPE_EXTENSION__SOURCE:
         setSource((TypeElement)newValue);
         return;
@@ -207,6 +256,9 @@ public class TypeExtensionImpl extends EObjectImpl implements TypeExtension
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE_EXTENSION__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.TYPE_EXTENSION__SOURCE:
         setSource((TypeElement)null);
         return;
@@ -227,12 +279,31 @@ public class TypeExtensionImpl extends EObjectImpl implements TypeExtension
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE_EXTENSION__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.TYPE_EXTENSION__SOURCE:
         return source != null;
       case DomainPackage.TYPE_EXTENSION__TARGET:
         return target != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(')');
+    return result.toString();
   }
 
 } //TypeExtensionImpl

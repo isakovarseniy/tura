@@ -62,6 +62,8 @@ public class OtherMethodCreateCommand extends EditElementCommand {
 		BusinessObject owner = (BusinessObject) getElementToEdit();
 		owner.getOthersMethods().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

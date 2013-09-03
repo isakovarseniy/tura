@@ -63,6 +63,8 @@ public class ConfigurationCreateCommand extends EditElementCommand {
 		Recipes owner = (Recipes) getElementToEdit();
 		owner.getConfigurations().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

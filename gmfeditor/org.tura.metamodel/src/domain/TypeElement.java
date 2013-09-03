@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TypeElement extends EObject
 {
-
   /**
    * Returns the value of the '<em><b>Parent</b></em>' container reference.
    * It is bidirectional and its opposite is '{@link domain.TypeDefinition#getTypes <em>Types</em>}'.
@@ -50,4 +49,5 @@ public interface TypeElement extends EObject
    * @generated
    */
   void setParent(TypeDefinition value);
+
 } // TypeElement

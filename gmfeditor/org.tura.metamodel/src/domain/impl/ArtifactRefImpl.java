@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.ArtifactRefImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ArtifactRefImpl#getDomainArtifact <em>Domain Artifact</em>}</li>
  *   <li>{@link domain.impl.ArtifactRefImpl#getArtifactName <em>Artifact Name</em>}</li>
  * </ul>
@@ -28,6 +29,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getDomainArtifact() <em>Domain Artifact</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -94,6 +115,29 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ARTIFACT_REF__UID, oldUid, uid));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getDomainArtifact()
   {
     return domainArtifact;
@@ -145,6 +189,8 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
   {
     switch (featureID)
     {
+      case DomainPackage.ARTIFACT_REF__UID:
+        return getUid();
       case DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT:
         return getDomainArtifact();
       case DomainPackage.ARTIFACT_REF__ARTIFACT_NAME:
@@ -163,6 +209,9 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
   {
     switch (featureID)
     {
+      case DomainPackage.ARTIFACT_REF__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT:
         setDomainArtifact((String)newValue);
         return;
@@ -183,6 +232,9 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
   {
     switch (featureID)
     {
+      case DomainPackage.ARTIFACT_REF__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT:
         setDomainArtifact(DOMAIN_ARTIFACT_EDEFAULT);
         return;
@@ -203,6 +255,8 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
   {
     switch (featureID)
     {
+      case DomainPackage.ARTIFACT_REF__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.ARTIFACT_REF__DOMAIN_ARTIFACT:
         return DOMAIN_ARTIFACT_EDEFAULT == null ? domainArtifact != null : !DOMAIN_ARTIFACT_EDEFAULT.equals(domainArtifact);
       case DomainPackage.ARTIFACT_REF__ARTIFACT_NAME:
@@ -222,7 +276,9 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (domainArtifact: ");
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", domainArtifact: ");
     result.append(domainArtifact);
     result.append(", artifactName: ");
     result.append(artifactName);

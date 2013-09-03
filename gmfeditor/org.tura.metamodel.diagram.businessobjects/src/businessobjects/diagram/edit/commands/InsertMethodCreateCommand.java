@@ -62,6 +62,8 @@ public class InsertMethodCreateCommand extends EditElementCommand {
 		BusinessObject owner = (BusinessObject) getElementToEdit();
 		owner.getInsertMethods().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

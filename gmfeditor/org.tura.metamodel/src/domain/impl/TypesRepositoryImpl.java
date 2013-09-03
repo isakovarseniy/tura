@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.TypesRepositoryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TypesRepositoryImpl#getTypeDefinition <em>Type Definition</em>}</li>
  *   <li>{@link domain.impl.TypesRepositoryImpl#getParent <em>Parent</em>}</li>
  * </ul>
@@ -32,6 +33,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getTypeDefinition() <em>Type Definition</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,6 +92,29 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.TYPES_REPOSITORY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPES_REPOSITORY__UID, oldUid, uid));
   }
 
   /**
@@ -239,6 +283,8 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
   {
     switch (featureID)
     {
+      case DomainPackage.TYPES_REPOSITORY__UID:
+        return getUid();
       case DomainPackage.TYPES_REPOSITORY__TYPE_DEFINITION:
         return getTypeDefinition();
       case DomainPackage.TYPES_REPOSITORY__PARENT:
@@ -258,6 +304,9 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
   {
     switch (featureID)
     {
+      case DomainPackage.TYPES_REPOSITORY__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.TYPES_REPOSITORY__TYPE_DEFINITION:
         setTypeDefinition((Types)newValue);
         return;
@@ -278,6 +327,9 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
   {
     switch (featureID)
     {
+      case DomainPackage.TYPES_REPOSITORY__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.TYPES_REPOSITORY__TYPE_DEFINITION:
         setTypeDefinition((Types)null);
         return;
@@ -298,12 +350,31 @@ public class TypesRepositoryImpl extends EObjectImpl implements TypesRepository
   {
     switch (featureID)
     {
+      case DomainPackage.TYPES_REPOSITORY__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.TYPES_REPOSITORY__TYPE_DEFINITION:
         return typeDefinition != null;
       case DomainPackage.TYPES_REPOSITORY__PARENT:
         return parent != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(')');
+    return result.toString();
   }
 
 } //TypesRepositoryImpl

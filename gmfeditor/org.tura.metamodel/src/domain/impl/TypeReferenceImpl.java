@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link domain.impl.TypeReferenceImpl#getPackageName <em>Package Name</em>}</li>
  *   <li>{@link domain.impl.TypeReferenceImpl#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link domain.impl.TypeReferenceImpl#getUid <em>Uid</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,6 +68,26 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * @ordered
    */
   protected String typeName = TYPE_NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -140,6 +161,29 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_REFERENCE__UID, oldUid, uid));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -149,6 +193,8 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
         return getPackageName();
       case DomainPackage.TYPE_REFERENCE__TYPE_NAME:
         return getTypeName();
+      case DomainPackage.TYPE_REFERENCE__UID:
+        return getUid();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -168,6 +214,9 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
         return;
       case DomainPackage.TYPE_REFERENCE__TYPE_NAME:
         setTypeName((String)newValue);
+        return;
+      case DomainPackage.TYPE_REFERENCE__UID:
+        setUid((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -189,6 +238,9 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
       case DomainPackage.TYPE_REFERENCE__TYPE_NAME:
         setTypeName(TYPE_NAME_EDEFAULT);
         return;
+      case DomainPackage.TYPE_REFERENCE__UID:
+        setUid(UID_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -207,6 +259,8 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
         return PACKAGE_NAME_EDEFAULT == null ? packageName != null : !PACKAGE_NAME_EDEFAULT.equals(packageName);
       case DomainPackage.TYPE_REFERENCE__TYPE_NAME:
         return TYPE_NAME_EDEFAULT == null ? typeName != null : !TYPE_NAME_EDEFAULT.equals(typeName);
+      case DomainPackage.TYPE_REFERENCE__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
     }
     return super.eIsSet(featureID);
   }
@@ -266,6 +320,8 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
     result.append(packageName);
     result.append(", typeName: ");
     result.append(typeName);
+    result.append(", uid: ");
+    result.append(uid);
     result.append(')');
     return result.toString();
   }

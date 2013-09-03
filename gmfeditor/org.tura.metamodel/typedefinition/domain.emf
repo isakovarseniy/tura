@@ -4,6 +4,7 @@ package domain;
 
 @gmf.diagram.domain
 class Domain{
+  id attr EString uid;
   val DomainArtifacts[1]#parent domainArtifacts;
   val DomainTypes[1]#parent domainTypes;
   val DomainApplications[1]#parent domainApplications;
@@ -11,7 +12,8 @@ class Domain{
 
 @gmf.node(label="name")
 class DomainArtifacts{
-   attr EString name;  
+    id attr EString uid;
+    attr EString name;  
    ref Domain#domainArtifacts parent;
    @gmf.compartment
    val DomainArtifact[*]#parent domainArtifact;
@@ -19,6 +21,7 @@ class DomainArtifacts{
 
 @gmf.node(label="name")
 class DomainTypes{
+    id attr EString uid;
    attr EString name;  
    ref TypesRepository#parent typesrepository;
    ref Domain#domainTypes parent;
@@ -26,6 +29,7 @@ class DomainTypes{
 
 @gmf.node(label="name")
 class DomainApplications{
+    id attr EString uid;
    attr EString name;  
    @gmf.compartment
    val DomainApplication[*]#parent applications;
@@ -34,6 +38,7 @@ class DomainApplications{
 
 @gmf.node(label="name")
 class DomainApplication{
+   id attr EString uid;
    attr EString name;  
    ref Application#parent application;
    ref DomainApplications#applications parent;
@@ -42,6 +47,7 @@ class DomainApplication{
 
 @gmf.node(label="name")
 class DomainArtifact{
+    id attr EString uid;
    attr EString name;
    ref DomainArtifacts#domainArtifact parent;
    ref  Artifacts#parent artifact;
@@ -62,12 +68,14 @@ class EJBService extends DomainArtifact{
 
 @gmf.diagram.artifact
 class Artifacts{
+    id attr EString uid;
    val Artifact[*]#parent artifacts;
    ref DomainArtifact#artifact parent;
 }
 
 @gmf.node(label="name")
 class Artifact{
+    id attr EString uid;
    attr EString name;
    attr EString description;
    ref Artifacts#artifacts parent;
@@ -90,12 +98,14 @@ class Artifact{
 
 @gmf.node(label="name")
 class ConfigVariable{
-   attr EString name;
+   id attr EString uid;
+  attr EString name;
    ref Artifact#configVariables parent;
 }
 
 @gmf.node(label="name")
 class Variable{
+    id attr EString uid;
    attr EString name;
    ref Artifact#modelQuery parent;
 }
@@ -103,6 +113,7 @@ class Variable{
 
 @gmf.node(label="name")
 class Specifier{
+    id attr EString uid;
    attr EString name;
    ref Artifact#specifiers parent;
    val  Option[1..*]#parent options;  
@@ -110,12 +121,14 @@ class Specifier{
 
 @gmf.node(label="name")
 class Option{
+    id attr EString uid;
    ref Specifier#options parent;
    attr EString value;
 }
 
 @gmf.diagram.application
 class Application{
+    id attr EString uid;
    val ApplicationRecipes#parent applicationRecipes;
    val ApplicationMappers#parent applicationMappers;
    ref DomainApplication#application parent;
@@ -123,6 +136,7 @@ class Application{
 
 @gmf.node(label="name")
 class ApplicationRecipes{
+    id attr EString uid;
    attr EString name;
    ref Application#applicationRecipes parent;
    @gmf.compartment
@@ -131,6 +145,7 @@ class ApplicationRecipes{
 
 @gmf.node(label="name")
 class ApplicationRecipe{
+    id attr EString uid;
    attr EString name;
    ref Recipes#parent recipes;
    ref ApplicationRecipes#recipes parent;
@@ -138,6 +153,7 @@ class ApplicationRecipe{
 
 @gmf.node(label="name")
 class ApplicationMappers{
+    id attr EString uid;
    attr EString name;
    ref Application#applicationMappers parent;
     @gmf.compartment
@@ -146,6 +162,7 @@ class ApplicationMappers{
 
 @gmf.node(label="name")
 class ApplicationMapper{
+    id attr EString uid;
    attr EString name;
    ref Mappers#parent mapper; 
    ref ApplicationMappers#mappers parent;
@@ -153,12 +170,14 @@ class ApplicationMapper{
 
 @gmf.diagram.businessObjects
 class BusinessObjects{
+    id attr EString uid;
    val BusinessObject[*]#parent businessObject;
    ref BusinessPackage#businessobjects parent;
 }
 
 @gmf.node(label="name")
 class BusinessObject {
+    id attr EString uid;
    attr EString name;
    ref BusinessObjects#businessObject parent;
    @gmf.compartment()
@@ -177,6 +196,7 @@ class BusinessObject {
 }
 
 class BusinessMethod extends TypePointer {
+    id attr EString uid;
    attr EString method;
 }
 
@@ -214,11 +234,13 @@ class OtherMethod extends BusinessMethod{
 
 @gmf.diagram.mapper
 class Mappers{
+    id attr EString uid;
    val Mapper[*]#parent mappers;
    ref ApplicationMapper#mapper parent;
 }
 
 class Mapper extends TypePointer{
+    id attr EString uid;
     ref Mappers#mappers  parent;
 }
 
@@ -235,6 +257,7 @@ class JavaMapper extends Mapper{
 
 @gmf.diagram.recipe
 class Recipes{
+    id attr EString uid;
   val Recipe#parent recipe;
   val Configuration[*]#parent configurations;
   ref ApplicationRecipe#recipes parent;
@@ -244,6 +267,7 @@ class Recipes{
 
 @gmf.node(label="name")
 class Recipe{
+    id attr EString uid;
   ref Recipes#recipe parent;
   attr EString name;
   @gmf.compartment
@@ -255,6 +279,7 @@ class Recipe{
 
 @gmf.node(label="name")
 class Component{
+    id attr EString uid;
    attr EString name;
      @gmf.compartment
   val Component[*]#parent components;
@@ -265,12 +290,14 @@ class Component{
 @gmf.node(label="name")
 class ModelMapper extends ArtifactRef{
    attr EString name;
+   ref Component#mappers parent;
    val MappingSpecifier[*] specifiers;
    val MappingVariable[*] variables;
 }
 
 @gmf.node(label="name")
 class Configuration{
+    id attr EString uid;
    attr EString name;
    @gmf.compartment(layout="list")
    val Property[*] properties; 
@@ -280,20 +307,24 @@ class Configuration{
 
 @gmf.node(label="name")
 class Property{
+    id attr EString uid;
    attr EString name;
    attr EString value;
 }
 
 class MappingSpecifier{
+    id attr EString uid;
    attr EString name;
    attr EString value;
 }
 class MappingVariable{
+    id attr EString uid;
    attr EString name;
    attr EString value;
 }
 
 class ArtifactRef{
+    id attr EString uid;
    attr EString domainArtifact;
    attr EString artifactName;
 }
@@ -301,6 +332,7 @@ class ArtifactRef{
 
 @gmf.diagram
 class TypeDefinition{
+    id attr EString uid;
    val TypeElement[*]#parent types;
    val Enumarator[*]#parent enums;
    ref Package#typedefinition parent;
@@ -312,6 +344,7 @@ class TypeElement{
 
 @gmf.node(label="name")
 class Type extends TypeElement {
+    id attr EString uid;
    attr EString name;
    @gmf.compartment
    val Attribute[*]#parent attributes;
@@ -322,16 +355,19 @@ class Type extends TypeElement {
 
 @gmf.node(label="packageName,typeName")
 class TypeReference extends TypeElement , TypePointer{
+    id attr EString uid;
  }
 
 @gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
 class TypeExtension {
+    id attr EString uid;
     ref TypeElement source;
     ref TypeElement target;
 }
 
 @gmf.node(label="name")
 class Attribute extends  TypePointer{
+    id attr EString uid;
    attr EString name;
    ref Type#attributes parent;
 }
@@ -339,6 +375,7 @@ class Attribute extends  TypePointer{
 
 @gmf.node(label="name")
 class Operation{
+    id attr EString uid;
    attr EString name;
    ref Type#operations parent;
    @gmf.compartment
@@ -349,6 +386,7 @@ class Operation{
 
 @gmf.node(label="name")
 class Parameter extends  TypePointer{
+    id attr EString uid;
    attr EString name;
    ref Operation#parameters parent;
 }
@@ -356,10 +394,12 @@ class Parameter extends  TypePointer{
 
 @gmf.node(label="packageName,typeName")
 class ReturnValue extends TypePointer{
+    id attr EString uid;
 }
 
 @gmf.node(label="name")
 class Enumarator{
+    id attr EString uid;
    attr EString name;
    ref TypeDefinition#enums parent;
   @gmf.compartment
@@ -368,6 +408,7 @@ class Enumarator{
 
 @gmf.node(label="name")
 class EnumAttribute{
+    id attr EString uid;
    ref Enumarator#values parent;
    attr EString name;
    attr EString  value;
@@ -383,12 +424,14 @@ class TypePointer{
 
 @gmf.diagram.typesrepository
 class TypesRepository{
+    id attr EString uid;
   val Types[1]#parent typeDefinition;
   ref DomainTypes#typesrepository parent;
 }
 
 @gmf.node(label="name")
 class Types {
+    id attr EString uid;
    ref TypesRepository#typeDefinition parent;
    attr EString name;
    @gmf.compartment
@@ -402,12 +445,14 @@ class Types {
 
 @gmf.node(label="name")
 class Primitive {
+    id attr EString uid;
    attr EString name;
    ref  Types#primitives parent;
 }
 
 @gmf.node(label="name")
 class Package{
+    id attr EString uid;
    attr EString name;
    ref TypeDefinition#parent typedefinition;
    ref  Types#packages parent;
@@ -416,6 +461,7 @@ class Package{
 
 @gmf.node(label="name")
 class BusinessPackage{
+    id attr EString uid;
    attr EString name;
    ref BusinessObjects#parent businessobjects;
    ref  Types#businessPackages parent;

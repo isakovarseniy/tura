@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -31,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.TypeImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getOperations <em>Operations</em>}</li>
@@ -42,6 +42,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class TypeImpl extends TypeElementImpl implements Type
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -111,6 +131,29 @@ public class TypeImpl extends TypeElementImpl implements Type
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.TYPE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE__UID, oldUid, uid));
   }
 
   /**
@@ -261,6 +304,8 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE__UID:
+        return getUid();
       case DomainPackage.TYPE__NAME:
         return getName();
       case DomainPackage.TYPE__ATTRIBUTES:
@@ -284,6 +329,9 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.TYPE__NAME:
         setName((String)newValue);
         return;
@@ -312,6 +360,9 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.TYPE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -338,6 +389,8 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.TYPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.TYPE__ATTRIBUTES:
@@ -361,7 +414,9 @@ public class TypeImpl extends TypeElementImpl implements Type
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

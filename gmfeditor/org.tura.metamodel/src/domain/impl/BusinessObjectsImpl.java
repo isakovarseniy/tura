@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -31,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.BusinessObjectsImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.BusinessObjectsImpl#getBusinessObject <em>Business Object</em>}</li>
  *   <li>{@link domain.impl.BusinessObjectsImpl#getParent <em>Parent</em>}</li>
  * </ul>
@@ -40,6 +40,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class BusinessObjectsImpl extends EObjectImpl implements BusinessObjects
 {
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getBusinessObject() <em>Business Object</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -79,6 +99,29 @@ public class BusinessObjectsImpl extends EObjectImpl implements BusinessObjects
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.BUSINESS_OBJECTS;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.BUSINESS_OBJECTS__UID, oldUid, uid));
   }
 
   /**
@@ -212,6 +255,8 @@ public class BusinessObjectsImpl extends EObjectImpl implements BusinessObjects
   {
     switch (featureID)
     {
+      case DomainPackage.BUSINESS_OBJECTS__UID:
+        return getUid();
       case DomainPackage.BUSINESS_OBJECTS__BUSINESS_OBJECT:
         return getBusinessObject();
       case DomainPackage.BUSINESS_OBJECTS__PARENT:
@@ -232,6 +277,9 @@ public class BusinessObjectsImpl extends EObjectImpl implements BusinessObjects
   {
     switch (featureID)
     {
+      case DomainPackage.BUSINESS_OBJECTS__UID:
+        setUid((String)newValue);
+        return;
       case DomainPackage.BUSINESS_OBJECTS__BUSINESS_OBJECT:
         getBusinessObject().clear();
         getBusinessObject().addAll((Collection<? extends BusinessObject>)newValue);
@@ -253,6 +301,9 @@ public class BusinessObjectsImpl extends EObjectImpl implements BusinessObjects
   {
     switch (featureID)
     {
+      case DomainPackage.BUSINESS_OBJECTS__UID:
+        setUid(UID_EDEFAULT);
+        return;
       case DomainPackage.BUSINESS_OBJECTS__BUSINESS_OBJECT:
         getBusinessObject().clear();
         return;
@@ -273,12 +324,31 @@ public class BusinessObjectsImpl extends EObjectImpl implements BusinessObjects
   {
     switch (featureID)
     {
+      case DomainPackage.BUSINESS_OBJECTS__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.BUSINESS_OBJECTS__BUSINESS_OBJECT:
         return businessObject != null && !businessObject.isEmpty();
       case DomainPackage.BUSINESS_OBJECTS__PARENT:
         return parent != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(')');
+    return result.toString();
   }
 
 } //BusinessObjectsImpl

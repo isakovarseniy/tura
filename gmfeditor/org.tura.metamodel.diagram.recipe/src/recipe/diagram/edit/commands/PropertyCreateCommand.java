@@ -62,6 +62,8 @@ public class PropertyCreateCommand extends EditElementCommand {
 		Configuration owner = (Configuration) getElementToEdit();
 		owner.getProperties().add(newElement);
 
+		newElement.setUid(java.util.UUID.randomUUID().toString());
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);
