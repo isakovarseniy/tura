@@ -55,7 +55,6 @@ public class MappingSpecifierPropertySelection extends
 
 	private SpecifierList optionList;
 
-
 	// Set column names
 	private String[] columnNames = new String[] { OPTION_COLUMN, VALUE_COLUMN };
 
@@ -450,18 +449,15 @@ public class MappingSpecifierPropertySelection extends
 				for (Iterator<domain.MappingSpecifier> itr1 = map.iterator(); itr1
 						.hasNext();) {
 					domain.MappingSpecifier ms = itr1.next();
-					boolean isRemove = false;
-					if (map.size() == 0)
-						isRemove = true;
+					boolean isRemove = true;
 					for (Iterator<domain.Specifier> itr2 = map1.iterator(); itr2
 							.hasNext();) {
 						domain.Specifier sp = itr2.next();
 						if (sp.getName().equals(ms.getName()))
-							isRemove = true;
+							isRemove = false;
 					}
 					if (isRemove)
 						removeSpecifiers.add(ms);
-
 				}
 
 				ArrayList<domain.Specifier> addSpecifiers = new ArrayList<domain.Specifier>();
@@ -471,11 +467,14 @@ public class MappingSpecifierPropertySelection extends
 					boolean isAdd = false;
 					if (map.size() == 0)
 						isAdd = true;
-					for (Iterator<domain.MappingSpecifier> itr2 = map
-							.iterator(); itr2.hasNext();) {
-						domain.MappingSpecifier sp = itr2.next();
-						if (sp.getName().equals(ms.getName()))
-							isAdd = true;
+					else {
+						isAdd = true;
+						for (Iterator<domain.MappingSpecifier> itr2 = map
+								.iterator(); itr2.hasNext();) {
+							domain.MappingSpecifier sp = itr2.next();
+							if (sp.getName().equals(ms.getName()))
+								isAdd = false;
+						}
 					}
 					if (isAdd)
 						addSpecifiers.add(ms);
@@ -672,19 +671,20 @@ public class MappingSpecifierPropertySelection extends
 				result = opt.getName();
 				break;
 			case 1: // VALUE_COLUMN
-				
-				String[] choices= optionList.initOptions(opt);
-				((ComboBoxCellEditor)(tableViewer.getCellEditors()[1])).setItems(choices);
-				
+
+				String[] choices = optionList.initOptions(opt);
+				((ComboBoxCellEditor) (tableViewer.getCellEditors()[1]))
+						.setItems(choices);
+
 				String stringValue = opt.getValue();
-				if (stringValue == null){
+				if (stringValue == null) {
 					result = new Integer(0);
-				    break;
+					break;
 				}
 				int i = choices.length - 1;
 				while (!stringValue.equals(choices[i]) && i > 0)
 					--i;
-				result = new Integer(i);					
+				result = new Integer(i);
 				break;
 			default:
 				result = "";
@@ -707,15 +707,17 @@ public class MappingSpecifierPropertySelection extends
 
 			switch (columnIndex) {
 			case 1: // OPTION_COLUMN
-				
-				String valueString = ((ComboBoxCellEditor)(tableViewer.getCellEditors()[1])).getItems()[(int)value];
-				
+
+				String valueString = ((ComboBoxCellEditor) (tableViewer
+						.getCellEditors()[1])).getItems()[(int) value];
+
 				EditingDomain editingDomain = ((DiagramEditor) getPart())
 						.getEditingDomain();
 				/* apply the property change to single selected object */
 				editingDomain.getCommandStack().execute(
 						SetCommand.create(editingDomain, opt,
-								DomainPackage.eINSTANCE.getMappingSpecifier_Value(),
+								DomainPackage.eINSTANCE
+										.getMappingSpecifier_Value(),
 								valueString));
 				break;
 			default:
