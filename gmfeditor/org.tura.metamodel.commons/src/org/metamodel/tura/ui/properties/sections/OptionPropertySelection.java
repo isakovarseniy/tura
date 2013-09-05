@@ -20,6 +20,7 @@ import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -35,6 +36,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -83,6 +85,47 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 		return Arrays.asList(columnNames);
 	}
 
+	
+	protected void createButtons(Composite parent) {
+
+		// Create and configure the "Add" button
+		Button add = new Button(parent, SWT.PUSH | SWT.CENTER);
+		add.setText("Add");
+
+		GridData gridData = new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING);
+		gridData.widthHint = 80;
+		add.setLayoutData(gridData);
+		add.addSelectionListener(new SelectionAdapter() {
+
+			// Add a task to the ExampleTaskList and refresh the view
+			public void widgetSelected(SelectionEvent e) {
+				addRow();
+			}
+		});
+
+		// Create and configure the "Delete" button
+		Button delete = new Button(parent, SWT.PUSH | SWT.CENTER);
+		delete.setText("Delete");
+		gridData = new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING);
+		gridData.widthHint = 80;
+		delete.setLayoutData(gridData);
+
+		delete.addSelectionListener(new SelectionAdapter() {
+
+			// Remove the selection and refresh the view
+			public void widgetSelected(SelectionEvent e) {
+				Object row = ((IStructuredSelection) tableViewer
+						.getSelection()).getFirstElement();
+				if (row != null) {
+					removeRow(row);
+				}
+			}
+		});
+
+	}
+	
+	
+	
 	/**
 	 * Create the Table
 	 */

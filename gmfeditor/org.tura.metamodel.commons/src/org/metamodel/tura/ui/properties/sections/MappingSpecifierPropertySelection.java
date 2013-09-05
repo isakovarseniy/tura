@@ -87,6 +87,19 @@ public class MappingSpecifierPropertySelection extends
 		return Arrays.asList(columnNames);
 	}
 
+	
+	
+	/**
+	 * Add the "Add", "Delete" and "Close" buttons
+	 * 
+	 * @param parent
+	 *            the parent composite
+	 */
+	protected void createButtons(Composite parent) {
+	}
+	
+	
+	
 	/**
 	 * Create the Table
 	 */

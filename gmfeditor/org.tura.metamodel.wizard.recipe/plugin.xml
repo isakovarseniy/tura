@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.epsilon.ewl.emf.wizards">
+      <wizards
+            file="wizards/populateRecipeConfiguration.ewl"
+            namespaceURI="http://tura.org/2013/v1/domain">
+      </wizards>
+   </extension>
+
+</plugin>
+

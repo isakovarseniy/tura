@@ -1,0 +1,10 @@
+wizard PopulateRecipeConfiguration {
+	
+	guard : self.isKindOf(domain::Configuration) 
+		
+	title : 'Populate recipe configuration'
+	
+	do {
+	}
+	
+}
