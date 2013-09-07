@@ -5,6 +5,10 @@ wizard PopulateRecipeConfiguration {
 	title : 'Populate recipe configuration'
 	
 	do {
+
+	   var configVar := new Native('org.tura.metamodel.wizard.recipe.configuration.ConfigVarDialog');
+       configVar.runDialog(self);
+	
 	}
 	
 }

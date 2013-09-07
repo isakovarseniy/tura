@@ -1,6 +1,7 @@
 package org.tura.metamodel.wizard.recipe.configuration;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -8,11 +9,16 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.jface.window.Window;
 import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.dialogs.ListSelectionDialog;
+import org.eclipse.ui.model.BaseWorkbenchContentProvider;
+import org.eclipse.ui.model.WorkbenchLabelProvider;
 
 import domain.ConfigVariable;
 import domain.DomainPackage;
@@ -20,7 +26,7 @@ import domain.DomainPackage;
 public class ConfigVarDialog {
 	private HashSet<String> configVar = new HashSet<String>();
 
-	public Collection<domain.Property> runDialog(domain.Configuration config) {
+	public List<?> runDialog(domain.Configuration config) {
 
 		ArrayList<domain.Property> available = new ArrayList<domain.Property>();
 		available.addAll(config.getConfigExtension().getProperties());
@@ -43,10 +49,20 @@ public class ConfigVarDialog {
 		if (cnf.getRecipe() != null) {
 			domain.Recipe recipe = cnf.getRecipe();
 			searchConfigParameters(recipe.getComponents());
-			configVar.removeAll( convert2Set(available));
+			configVar.removeAll(convert2Set(available));
 		}
 
-		return null;
+		ListSelectionDialog dlg = new ListSelectionDialog( Display.getCurrent().getActiveShell(),
+				configVar,
+				new BaseWorkbenchContentProvider(),
+				new WorkbenchLabelProvider(), "Select configuration variables:");
+		dlg.setTitle("Variables Selection");
+		List<Object> result = new ArrayList<>();
+		if (dlg.open() == Window.OK){
+			result  = Arrays.asList(dlg.getResult()); 
+		}
+		
+		return result;
 	}
 
 	private Set<String> convert2Set(List<domain.Property> list) {
