@@ -16,8 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.Configuration#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Configuration#getName <em>Name</em>}</li>
+ *   <li>{@link domain.Configuration#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link domain.Configuration#getProperties <em>Properties</em>}</li>
  *   <li>{@link domain.Configuration#getConfigExtension <em>Config Extension</em>}</li>
+ *   <li>{@link domain.Configuration#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +82,34 @@ public interface Configuration extends EObject
   void setName(String value);
 
   /**
+   * Returns the value of the '<em><b>Recipe</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.Recipe#getRecipeConfig <em>Recipe Config</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Recipe</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Recipe</em>' reference.
+   * @see #setRecipe(Recipe)
+   * @see domain.DomainPackage#getConfiguration_Recipe()
+   * @see domain.Recipe#getRecipeConfig
+   * @model opposite="recipeConfig"
+   * @generated
+   */
+  Recipe getRecipe();
+
+  /**
+   * Sets the value of the '{@link domain.Configuration#getRecipe <em>Recipe</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Recipe</em>' reference.
+   * @see #getRecipe()
+   * @generated
+   */
+  void setRecipe(Recipe value);
+
+  /**
    * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
    * The list contents are of type {@link domain.Property}.
    * <!-- begin-user-doc -->
@@ -98,6 +128,7 @@ public interface Configuration extends EObject
 
   /**
    * Returns the value of the '<em><b>Config Extension</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.Configuration#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Config Extension</em>' reference isn't clear,
@@ -107,7 +138,9 @@ public interface Configuration extends EObject
    * @return the value of the '<em>Config Extension</em>' reference.
    * @see #setConfigExtension(Configuration)
    * @see domain.DomainPackage#getConfiguration_ConfigExtension()
-   * @model annotation="gmf.link style='dot' width='2' target.decoration='closedarrow'"
+   * @see domain.Configuration#getParent
+   * @model opposite="parent"
+   *        annotation="gmf.link style='dot' width='2' target.decoration='closedarrow'"
    * @generated
    */
   Configuration getConfigExtension();
@@ -121,5 +154,33 @@ public interface Configuration extends EObject
    * @generated
    */
   void setConfigExtension(Configuration value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.Configuration#getConfigExtension <em>Config Extension</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' reference.
+   * @see #setParent(Configuration)
+   * @see domain.DomainPackage#getConfiguration_Parent()
+   * @see domain.Configuration#getConfigExtension
+   * @model opposite="configExtension"
+   * @generated
+   */
+  Configuration getParent();
+
+  /**
+   * Sets the value of the '{@link domain.Configuration#getParent <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(Configuration value);
 
 } // Configuration

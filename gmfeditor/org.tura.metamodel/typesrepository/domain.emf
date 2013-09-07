@@ -259,7 +259,7 @@ class JavaMapper extends Mapper{
 class Recipes{
     id attr EString uid;
   val Recipe#parent recipe;
-  val Configuration[*]#parent configurations;
+  val Configuration[*] configurations;
   ref ApplicationRecipe#recipes parent;
 }
 
@@ -273,7 +273,7 @@ class Recipe{
   @gmf.compartment
   val Component[*] components;
   @gmf.link(target.decoration="arrow", style="dash")
-  ref Configuration recipeConfig;
+  ref Configuration#recipe recipeConfig;
 }
 
 
@@ -299,10 +299,12 @@ class ModelMapper extends ArtifactRef{
 class Configuration{
     id attr EString uid;
    attr EString name;
+   ref Recipe#recipeConfig recipe;
    @gmf.compartment(layout="list")
    val Property[*] properties; 
   @gmf.link(style="dot", width="2" ,target.decoration="closedarrow")
-   ref Configuration configExtension;
+   ref Configuration#parent configExtension;
+   ref Configuration#configExtension parent;
 }
 
 @gmf.node(label="name")

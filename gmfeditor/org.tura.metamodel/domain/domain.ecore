@@ -370,7 +370,8 @@
         eType="#//Component" containment="true">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recipeConfig" eType="#//Configuration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recipeConfig" eType="#//Configuration"
+        eOpposite="#//Configuration/recipe">
       <eAnnotations source="gmf.link">
         <details key="target.decoration" value="arrow"/>
         <details key="style" value="dash"/>
@@ -414,19 +415,24 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" eType="#//Recipe"
+        eOpposite="#//Recipe/recipeConfig"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//Property" containment="true">
       <eAnnotations source="gmf.compartment">
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="configExtension" eType="#//Configuration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configExtension" eType="#//Configuration"
+        eOpposite="#//Configuration/parent">
       <eAnnotations source="gmf.link">
         <details key="style" value="dot"/>
         <details key="width" value="2"/>
         <details key="target.decoration" value="closedarrow"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Configuration"
+        eOpposite="#//Configuration/configExtension"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eAnnotations source="gmf.node">

@@ -2319,13 +2319,22 @@ public interface DomainPackage extends EPackage
   int CONFIGURATION__NAME = 1;
 
   /**
+   * The feature id for the '<em><b>Recipe</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION__RECIPE = 2;
+
+  /**
    * The feature id for the '<em><b>Properties</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONFIGURATION__PROPERTIES = 2;
+  int CONFIGURATION__PROPERTIES = 3;
 
   /**
    * The feature id for the '<em><b>Config Extension</b></em>' reference.
@@ -2334,7 +2343,16 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONFIGURATION__CONFIG_EXTENSION = 3;
+  int CONFIGURATION__CONFIG_EXTENSION = 4;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION__PARENT = 5;
 
   /**
    * The number of structural features of the '<em>Configuration</em>' class.
@@ -2343,7 +2361,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONFIGURATION_FEATURE_COUNT = 4;
+  int CONFIGURATION_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.
@@ -5033,6 +5051,17 @@ public interface DomainPackage extends EPackage
   EAttribute getConfiguration_Name();
 
   /**
+   * Returns the meta object for the reference '{@link domain.Configuration#getRecipe <em>Recipe</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Recipe</em>'.
+   * @see domain.Configuration#getRecipe()
+   * @see #getConfiguration()
+   * @generated
+   */
+  EReference getConfiguration_Recipe();
+
+  /**
    * Returns the meta object for the containment reference list '{@link domain.Configuration#getProperties <em>Properties</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5053,6 +5082,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getConfiguration_ConfigExtension();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Configuration#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Parent</em>'.
+   * @see domain.Configuration#getParent()
+   * @see #getConfiguration()
+   * @generated
+   */
+  EReference getConfiguration_Parent();
 
   /**
    * Returns the meta object for class '{@link domain.Property <em>Property</em>}'.
@@ -7350,6 +7390,14 @@ public interface DomainPackage extends EPackage
     EAttribute CONFIGURATION__NAME = eINSTANCE.getConfiguration_Name();
 
     /**
+     * The meta object literal for the '<em><b>Recipe</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONFIGURATION__RECIPE = eINSTANCE.getConfiguration_Recipe();
+
+    /**
      * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7364,6 +7412,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference CONFIGURATION__CONFIG_EXTENSION = eINSTANCE.getConfiguration_ConfigExtension();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONFIGURATION__PARENT = eINSTANCE.getConfiguration_Parent();
 
     /**
      * The meta object literal for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.

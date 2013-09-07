@@ -265,12 +265,37 @@ public class RecipeImpl extends EObjectImpl implements Recipe
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRecipeConfig(Configuration newRecipeConfig)
+  public NotificationChain basicSetRecipeConfig(Configuration newRecipeConfig, NotificationChain msgs)
   {
     Configuration oldRecipeConfig = recipeConfig;
     recipeConfig = newRecipeConfig;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPE__RECIPE_CONFIG, oldRecipeConfig, recipeConfig));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPE__RECIPE_CONFIG, oldRecipeConfig, newRecipeConfig);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRecipeConfig(Configuration newRecipeConfig)
+  {
+    if (newRecipeConfig != recipeConfig)
+    {
+      NotificationChain msgs = null;
+      if (recipeConfig != null)
+        msgs = ((InternalEObject)recipeConfig).eInverseRemove(this, DomainPackage.CONFIGURATION__RECIPE, Configuration.class, msgs);
+      if (newRecipeConfig != null)
+        msgs = ((InternalEObject)newRecipeConfig).eInverseAdd(this, DomainPackage.CONFIGURATION__RECIPE, Configuration.class, msgs);
+      msgs = basicSetRecipeConfig(newRecipeConfig, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPE__RECIPE_CONFIG, newRecipeConfig, newRecipeConfig));
   }
 
   /**
@@ -287,6 +312,10 @@ public class RecipeImpl extends EObjectImpl implements Recipe
         if (eInternalContainer() != null)
           msgs = eBasicRemoveFromContainer(msgs);
         return basicSetParent((Recipes)otherEnd, msgs);
+      case DomainPackage.RECIPE__RECIPE_CONFIG:
+        if (recipeConfig != null)
+          msgs = ((InternalEObject)recipeConfig).eInverseRemove(this, DomainPackage.CONFIGURATION__RECIPE, Configuration.class, msgs);
+        return basicSetRecipeConfig((Configuration)otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
   }
@@ -305,6 +334,8 @@ public class RecipeImpl extends EObjectImpl implements Recipe
         return basicSetParent(null, msgs);
       case DomainPackage.RECIPE__COMPONENTS:
         return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
+      case DomainPackage.RECIPE__RECIPE_CONFIG:
+        return basicSetRecipeConfig(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }

@@ -6,6 +6,7 @@ import domain.Configuration;
 import domain.DomainPackage;
 import domain.Property;
 
+import domain.Recipe;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -31,8 +32,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.ConfigurationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.ConfigurationImpl#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getConfigExtension <em>Config Extension</em>}</li>
+ *   <li>{@link domain.impl.ConfigurationImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +84,16 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getRecipe() <em>Recipe</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRecipe()
+   * @generated
+   * @ordered
+   */
+  protected Recipe recipe;
+
+  /**
    * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -99,6 +112,16 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
    * @ordered
    */
   protected Configuration configExtension;
+
+  /**
+   * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParent()
+   * @generated
+   * @ordered
+   */
+  protected Configuration parent;
 
   /**
    * <!-- begin-user-doc -->
@@ -172,6 +195,74 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
    * <!-- end-user-doc -->
    * @generated
    */
+  public Recipe getRecipe()
+  {
+    if (recipe != null && recipe.eIsProxy())
+    {
+      InternalEObject oldRecipe = (InternalEObject)recipe;
+      recipe = (Recipe)eResolveProxy(oldRecipe);
+      if (recipe != oldRecipe)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CONFIGURATION__RECIPE, oldRecipe, recipe));
+      }
+    }
+    return recipe;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Recipe basicGetRecipe()
+  {
+    return recipe;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRecipe(Recipe newRecipe, NotificationChain msgs)
+  {
+    Recipe oldRecipe = recipe;
+    recipe = newRecipe;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__RECIPE, oldRecipe, newRecipe);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRecipe(Recipe newRecipe)
+  {
+    if (newRecipe != recipe)
+    {
+      NotificationChain msgs = null;
+      if (recipe != null)
+        msgs = ((InternalEObject)recipe).eInverseRemove(this, DomainPackage.RECIPE__RECIPE_CONFIG, Recipe.class, msgs);
+      if (newRecipe != null)
+        msgs = ((InternalEObject)newRecipe).eInverseAdd(this, DomainPackage.RECIPE__RECIPE_CONFIG, Recipe.class, msgs);
+      msgs = basicSetRecipe(newRecipe, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__RECIPE, newRecipe, newRecipe));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Property> getProperties()
   {
     if (properties == null)
@@ -216,12 +307,131 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setConfigExtension(Configuration newConfigExtension)
+  public NotificationChain basicSetConfigExtension(Configuration newConfigExtension, NotificationChain msgs)
   {
     Configuration oldConfigExtension = configExtension;
     configExtension = newConfigExtension;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, oldConfigExtension, configExtension));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, oldConfigExtension, newConfigExtension);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConfigExtension(Configuration newConfigExtension)
+  {
+    if (newConfigExtension != configExtension)
+    {
+      NotificationChain msgs = null;
+      if (configExtension != null)
+        msgs = ((InternalEObject)configExtension).eInverseRemove(this, DomainPackage.CONFIGURATION__PARENT, Configuration.class, msgs);
+      if (newConfigExtension != null)
+        msgs = ((InternalEObject)newConfigExtension).eInverseAdd(this, DomainPackage.CONFIGURATION__PARENT, Configuration.class, msgs);
+      msgs = basicSetConfigExtension(newConfigExtension, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, newConfigExtension, newConfigExtension));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Configuration getParent()
+  {
+    if (parent != null && parent.eIsProxy())
+    {
+      InternalEObject oldParent = (InternalEObject)parent;
+      parent = (Configuration)eResolveProxy(oldParent);
+      if (parent != oldParent)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CONFIGURATION__PARENT, oldParent, parent));
+      }
+    }
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Configuration basicGetParent()
+  {
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(Configuration newParent, NotificationChain msgs)
+  {
+    Configuration oldParent = parent;
+    parent = newParent;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__PARENT, oldParent, newParent);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(Configuration newParent)
+  {
+    if (newParent != parent)
+    {
+      NotificationChain msgs = null;
+      if (parent != null)
+        msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, Configuration.class, msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, Configuration.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.CONFIGURATION__RECIPE:
+        if (recipe != null)
+          msgs = ((InternalEObject)recipe).eInverseRemove(this, DomainPackage.RECIPE__RECIPE_CONFIG, Recipe.class, msgs);
+        return basicSetRecipe((Recipe)otherEnd, msgs);
+      case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
+        if (configExtension != null)
+          msgs = ((InternalEObject)configExtension).eInverseRemove(this, DomainPackage.CONFIGURATION__PARENT, Configuration.class, msgs);
+        return basicSetConfigExtension((Configuration)otherEnd, msgs);
+      case DomainPackage.CONFIGURATION__PARENT:
+        if (parent != null)
+          msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, Configuration.class, msgs);
+        return basicSetParent((Configuration)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**
@@ -234,8 +444,14 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
   {
     switch (featureID)
     {
+      case DomainPackage.CONFIGURATION__RECIPE:
+        return basicSetRecipe(null, msgs);
       case DomainPackage.CONFIGURATION__PROPERTIES:
         return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+      case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
+        return basicSetConfigExtension(null, msgs);
+      case DomainPackage.CONFIGURATION__PARENT:
+        return basicSetParent(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -254,11 +470,17 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
         return getUid();
       case DomainPackage.CONFIGURATION__NAME:
         return getName();
+      case DomainPackage.CONFIGURATION__RECIPE:
+        if (resolve) return getRecipe();
+        return basicGetRecipe();
       case DomainPackage.CONFIGURATION__PROPERTIES:
         return getProperties();
       case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
         if (resolve) return getConfigExtension();
         return basicGetConfigExtension();
+      case DomainPackage.CONFIGURATION__PARENT:
+        if (resolve) return getParent();
+        return basicGetParent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -280,12 +502,18 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
       case DomainPackage.CONFIGURATION__NAME:
         setName((String)newValue);
         return;
+      case DomainPackage.CONFIGURATION__RECIPE:
+        setRecipe((Recipe)newValue);
+        return;
       case DomainPackage.CONFIGURATION__PROPERTIES:
         getProperties().clear();
         getProperties().addAll((Collection<? extends Property>)newValue);
         return;
       case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
         setConfigExtension((Configuration)newValue);
+        return;
+      case DomainPackage.CONFIGURATION__PARENT:
+        setParent((Configuration)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -307,11 +535,17 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
       case DomainPackage.CONFIGURATION__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DomainPackage.CONFIGURATION__RECIPE:
+        setRecipe((Recipe)null);
+        return;
       case DomainPackage.CONFIGURATION__PROPERTIES:
         getProperties().clear();
         return;
       case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
         setConfigExtension((Configuration)null);
+        return;
+      case DomainPackage.CONFIGURATION__PARENT:
+        setParent((Configuration)null);
         return;
     }
     super.eUnset(featureID);
@@ -331,10 +565,14 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.CONFIGURATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.CONFIGURATION__RECIPE:
+        return recipe != null;
       case DomainPackage.CONFIGURATION__PROPERTIES:
         return properties != null && !properties.isEmpty();
       case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
         return configExtension != null;
+      case DomainPackage.CONFIGURATION__PARENT:
+        return parent != null;
     }
     return super.eIsSet(featureID);
   }

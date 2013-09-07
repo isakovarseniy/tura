@@ -126,6 +126,7 @@ public interface Recipe extends EObject
 
   /**
    * Returns the value of the '<em><b>Recipe Config</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.Configuration#getRecipe <em>Recipe</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Recipe Config</em>' reference isn't clear,
@@ -135,7 +136,9 @@ public interface Recipe extends EObject
    * @return the value of the '<em>Recipe Config</em>' reference.
    * @see #setRecipeConfig(Configuration)
    * @see domain.DomainPackage#getRecipe_RecipeConfig()
-   * @model annotation="gmf.link target.decoration='arrow' style='dash'"
+   * @see domain.Configuration#getRecipe
+   * @model opposite="recipe"
+   *        annotation="gmf.link target.decoration='arrow' style='dash'"
    * @generated
    */
   Configuration getRecipeConfig();

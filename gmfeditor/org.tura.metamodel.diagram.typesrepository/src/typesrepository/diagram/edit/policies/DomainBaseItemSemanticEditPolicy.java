@@ -350,6 +350,9 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 					return false;
 				}
 			}
+			if (target != null && (target.getRecipe() != null)) {
+				return false;
+			}
 
 			return canExistRecipeRecipeConfig_204002(source, target);
 		}
@@ -363,6 +366,9 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				if (source.getConfigExtension() != null) {
 					return false;
 				}
+			}
+			if (target != null && (target.getParent() != null)) {
+				return false;
 			}
 
 			return canExistConfigurationConfigExtension_204003(source, target);
