@@ -7,7 +7,16 @@ wizard PopulateRecipeConfiguration {
 	do {
 
 	   var configVar := new Native('org.tura.metamodel.wizard.recipe.configuration.ConfigVarDialog');
-       configVar.runDialog(self);
+	   var uuid := Native('java.util.UUID');
+       var properties = configVar.runDialog(self);
+       for( property in properties ){
+           
+           var prop : new Property;
+           prop.name= property;
+           prop.uid = uuid.randomUUID().toString();
+           self.properties.add(prop);
+       
+       }
 	
 	}
 	

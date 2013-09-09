@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.Constraint;
@@ -17,8 +19,6 @@ import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.dialogs.ListSelectionDialog;
-import org.eclipse.ui.model.BaseWorkbenchContentProvider;
-import org.eclipse.ui.model.WorkbenchLabelProvider;
 
 import domain.ConfigVariable;
 import domain.DomainPackage;
@@ -29,7 +29,7 @@ public class ConfigVarDialog {
 	public List<?> runDialog(domain.Configuration config) {
 
 		ArrayList<domain.Property> available = new ArrayList<domain.Property>();
-		available.addAll(config.getConfigExtension().getProperties());
+		available.addAll(config.getProperties());
 
 		// go up
 		domain.Configuration cnf = config;
@@ -54,8 +54,8 @@ public class ConfigVarDialog {
 
 		ListSelectionDialog dlg = new ListSelectionDialog( Display.getCurrent().getActiveShell(),
 				configVar,
-				new BaseWorkbenchContentProvider(),
-				new WorkbenchLabelProvider(), "Select configuration variables:");
+				new ArrayContentProvider(),
+				new LabelProvider(), "Select configuration variables:");
 		dlg.setTitle("Variables Selection");
 		List<Object> result = new ArrayList<>();
 		if (dlg.open() == Window.OK){
@@ -117,5 +117,5 @@ public class ConfigVarDialog {
 		}
 
 	}
-
+	
 }

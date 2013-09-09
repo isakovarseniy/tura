@@ -161,6 +161,16 @@
              id="property.tab.recipe.custom"
              label="Specifier"/>
       </propertyTabs>
+
+      <propertyTabs contributorId="org.tura.metamodel.diagram.recipe">
+          <propertyTab
+             category="domain"
+             id="property.tab.variables.custom"
+             label="Query Var"/>
+      </propertyTabs>
+
+
+
    </extension>
    
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
@@ -189,6 +199,12 @@
               <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
          </propertySection>        
 
+          <propertySection
+               tab="property.tab.variables.custom"
+               class="org.metamodel.tura.ui.properties.sections.MappingVariablePropertySelection"
+               id="org.tura.metamodel.recipe.update">
+              <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
+         </propertySection>        
 
 
     </propertySections>
