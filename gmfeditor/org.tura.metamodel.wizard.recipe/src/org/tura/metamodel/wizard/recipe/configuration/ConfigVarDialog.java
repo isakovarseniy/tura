@@ -28,6 +28,22 @@ public class ConfigVarDialog {
 
 	public List<?> runDialog(domain.Configuration config) {
 
+		Set<String> set = propertiesList(config);
+		ListSelectionDialog dlg = new ListSelectionDialog( Display.getCurrent().getActiveShell(),
+				set,
+				new ArrayContentProvider(),
+				new LabelProvider(), "Select configuration variables:");
+		dlg.setTitle("Variables Selection");
+		List<Object> result = new ArrayList<>();
+		if (dlg.open() == Window.OK){
+			result  = Arrays.asList(dlg.getResult()); 
+		}
+		
+		return result;
+	}
+
+	public Set<String> propertiesList(domain.Configuration config){
+		
 		ArrayList<domain.Property> available = new ArrayList<domain.Property>();
 		available.addAll(config.getProperties());
 
@@ -51,20 +67,12 @@ public class ConfigVarDialog {
 			searchConfigParameters(recipe.getComponents());
 			configVar.removeAll(convert2Set(available));
 		}
-
-		ListSelectionDialog dlg = new ListSelectionDialog( Display.getCurrent().getActiveShell(),
-				configVar,
-				new ArrayContentProvider(),
-				new LabelProvider(), "Select configuration variables:");
-		dlg.setTitle("Variables Selection");
-		List<Object> result = new ArrayList<>();
-		if (dlg.open() == Window.OK){
-			result  = Arrays.asList(dlg.getResult()); 
-		}
 		
-		return result;
-	}
 
+		return configVar;
+		
+	}
+	
 	private Set<String> convert2Set(List<domain.Property> list) {
 		HashSet<String> set = new HashSet<String>();
 		for (Iterator<domain.Property> itr = list.iterator(); itr.hasNext();) {

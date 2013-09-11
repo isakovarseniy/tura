@@ -16,6 +16,22 @@
    
    } 
 
+   constraint HasRefFomainArtifact{
+      check : self.domainArtifact.isDefined()
+      message : 'ModelMapper name  ' + self.name + ' DomainArtifact is not define'
+   } 
+
+  constraint RefDomainArtifactIsExist{
+      guard : self.satisfies("HasRefFomainArtifact")
+      check :  DomainArtifact.allInstances.exists(p|p.name=self.domainArtifact)
+      message : 'ModelMapper name  ' + self.name + ' DomainArtifact is not define'
+   } 
+
+  constraint RefArtifactNameExist{
+      guard : self.satisfies("RefDomainArtifactIsExist")
+      check : DomainArtifact.allInstances.selectOne(r|r.name=self.domainArtifact).artifact.isDefined() and   DomainArtifact.allInstances.selectOne(r|r.name=self.domainArtifact).artifact.artifacts.exists(r|r.isKindOf(Artifact) and r.name=self.artifactName) 
+      message : 'Artifact  name  ' + self.artifactName + ' in ' +self.domainArtifac+ '  is not define  '
+   } 
 
 }
 
@@ -76,6 +92,26 @@ context Property {
       message : 'No value ' + self.name + ' not allowed'
 
   }
+
+}
+
+ context Recipe {
+
+  constraint ConfigVariablesIsDefine {
+
+      check  {
+	   var configVar := new Native('org.tura.metamodel.wizard.recipe.configuration.ConfigVarDialog');
+	   var properties = configVar.propertiesList(self.recipeConfig);
+	   if (properties.size() <= 0  )
+	      return true;
+	   else
+	      return false;    
+      }
+
+      message : 'Configuration variable  is not defined'
+
+  }
+
 
 }
 
