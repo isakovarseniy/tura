@@ -242,6 +242,8 @@ class Mappers{
 class Mapper extends TypePointer{
     id attr EString uid;
     ref Mappers#mappers  parent;
+    attr boolean serviceLayer;
+    attr boolean uiLayer;
 }
 
 @gmf.node(label="packageName")

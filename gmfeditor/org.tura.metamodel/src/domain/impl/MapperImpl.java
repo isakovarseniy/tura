@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link domain.impl.MapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.MapperImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link domain.impl.MapperImpl#isServiceLayer <em>Service Layer</em>}</li>
+ *   <li>{@link domain.impl.MapperImpl#isUiLayer <em>Ui Layer</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,6 +52,43 @@ public class MapperImpl extends TypePointerImpl implements Mapper
    * @ordered
    */
   protected String uid = UID_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isServiceLayer() <em>Service Layer</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isServiceLayer()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean SERVICE_LAYER_EDEFAULT = false;
+  /**
+   * The cached value of the '{@link #isServiceLayer() <em>Service Layer</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isServiceLayer()
+   * @generated
+   * @ordered
+   */
+  protected boolean serviceLayer = SERVICE_LAYER_EDEFAULT;
+  /**
+   * The default value of the '{@link #isUiLayer() <em>Ui Layer</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isUiLayer()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean UI_LAYER_EDEFAULT = false;
+  /**
+   * The cached value of the '{@link #isUiLayer() <em>Ui Layer</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isUiLayer()
+   * @generated
+   * @ordered
+   */
+  protected boolean uiLayer = UI_LAYER_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -145,6 +184,52 @@ public class MapperImpl extends TypePointerImpl implements Mapper
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isServiceLayer()
+  {
+    return serviceLayer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setServiceLayer(boolean newServiceLayer)
+  {
+    boolean oldServiceLayer = serviceLayer;
+    serviceLayer = newServiceLayer;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPER__SERVICE_LAYER, oldServiceLayer, serviceLayer));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isUiLayer()
+  {
+    return uiLayer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUiLayer(boolean newUiLayer)
+  {
+    boolean oldUiLayer = uiLayer;
+    uiLayer = newUiLayer;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPER__UI_LAYER, oldUiLayer, uiLayer));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -204,6 +289,10 @@ public class MapperImpl extends TypePointerImpl implements Mapper
         return getUid();
       case DomainPackage.MAPPER__PARENT:
         return getParent();
+      case DomainPackage.MAPPER__SERVICE_LAYER:
+        return isServiceLayer();
+      case DomainPackage.MAPPER__UI_LAYER:
+        return isUiLayer();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -223,6 +312,12 @@ public class MapperImpl extends TypePointerImpl implements Mapper
         return;
       case DomainPackage.MAPPER__PARENT:
         setParent((Mappers)newValue);
+        return;
+      case DomainPackage.MAPPER__SERVICE_LAYER:
+        setServiceLayer((Boolean)newValue);
+        return;
+      case DomainPackage.MAPPER__UI_LAYER:
+        setUiLayer((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -244,6 +339,12 @@ public class MapperImpl extends TypePointerImpl implements Mapper
       case DomainPackage.MAPPER__PARENT:
         setParent((Mappers)null);
         return;
+      case DomainPackage.MAPPER__SERVICE_LAYER:
+        setServiceLayer(SERVICE_LAYER_EDEFAULT);
+        return;
+      case DomainPackage.MAPPER__UI_LAYER:
+        setUiLayer(UI_LAYER_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -262,6 +363,10 @@ public class MapperImpl extends TypePointerImpl implements Mapper
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.MAPPER__PARENT:
         return getParent() != null;
+      case DomainPackage.MAPPER__SERVICE_LAYER:
+        return serviceLayer != SERVICE_LAYER_EDEFAULT;
+      case DomainPackage.MAPPER__UI_LAYER:
+        return uiLayer != UI_LAYER_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -279,6 +384,10 @@ public class MapperImpl extends TypePointerImpl implements Mapper
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
+    result.append(", serviceLayer: ");
+    result.append(serviceLayer);
+    result.append(", uiLayer: ");
+    result.append(uiLayer);
     result.append(')');
     return result.toString();
   }

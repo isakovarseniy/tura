@@ -1871,13 +1871,31 @@ public interface DomainPackage extends EPackage
   int MAPPER__PARENT = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Service Layer</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPER__SERVICE_LAYER = TYPE_POINTER_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPER__UI_LAYER = TYPE_POINTER_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>Mapper</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAPPER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 2;
+  int MAPPER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link domain.impl.JavaMapperImpl <em>Java Mapper</em>}' class.
@@ -1924,6 +1942,24 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int JAVA_MAPPER__PARENT = MAPPER__PARENT;
+
+  /**
+   * The feature id for the '<em><b>Service Layer</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__SERVICE_LAYER = MAPPER__SERVICE_LAYER;
+
+  /**
+   * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__UI_LAYER = MAPPER__UI_LAYER;
 
   /**
    * The feature id for the '<em><b>Mapped To Package Name</b></em>' attribute.
@@ -4716,6 +4752,28 @@ public interface DomainPackage extends EPackage
   EReference getMapper_Parent();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Mapper#isServiceLayer <em>Service Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Service Layer</em>'.
+   * @see domain.Mapper#isServiceLayer()
+   * @see #getMapper()
+   * @generated
+   */
+  EAttribute getMapper_ServiceLayer();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Mapper#isUiLayer <em>Ui Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ui Layer</em>'.
+   * @see domain.Mapper#isUiLayer()
+   * @see #getMapper()
+   * @generated
+   */
+  EAttribute getMapper_UiLayer();
+
+  /**
    * Returns the meta object for class '{@link domain.JavaMapper <em>Java Mapper</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7128,6 +7186,22 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference MAPPER__PARENT = eINSTANCE.getMapper_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Service Layer</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPER__SERVICE_LAYER = eINSTANCE.getMapper_ServiceLayer();
+
+    /**
+     * The meta object literal for the '<em><b>Ui Layer</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPER__UI_LAYER = eINSTANCE.getMapper_UiLayer();
 
     /**
      * The meta object literal for the '{@link domain.impl.JavaMapperImpl <em>Java Mapper</em>}' class.

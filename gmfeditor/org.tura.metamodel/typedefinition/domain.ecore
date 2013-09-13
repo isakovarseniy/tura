@@ -334,6 +334,8 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Mappers"
         eOpposite="#//Mappers/mappers"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceLayer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uiLayer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaMapper" eSuperTypes="#//Mapper">
     <eAnnotations source="gmf.node">

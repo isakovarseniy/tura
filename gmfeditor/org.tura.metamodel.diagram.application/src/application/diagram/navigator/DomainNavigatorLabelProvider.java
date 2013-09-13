@@ -107,30 +107,30 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case ApplicationMapperEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?ApplicationMapper", DomainElementTypes.ApplicationMapper_803002); //$NON-NLS-1$
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_804003); //$NON-NLS-1$
 		case RecipeRecipeConfigEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?recipeConfig", DomainElementTypes.RecipeRecipeConfig_804002); //$NON-NLS-1$
-		case ApplicationRecipeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?ApplicationRecipe", DomainElementTypes.ApplicationRecipe_803001); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_804001); //$NON-NLS-1$
-		case ApplicationRecipesEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationRecipes", DomainElementTypes.ApplicationRecipes_802001); //$NON-NLS-1$
-		case ApplicationMappersEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationMappers", DomainElementTypes.ApplicationMappers_802002); //$NON-NLS-1$
 		case ApplicationEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://tura.org/2013/v1/domain?Application", DomainElementTypes.Application_801000); //$NON-NLS-1$
+		case ApplicationMapperEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?ApplicationMapper", DomainElementTypes.ApplicationMapper_803002); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_804001); //$NON-NLS-1$
+		case ApplicationRecipeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?ApplicationRecipe", DomainElementTypes.ApplicationRecipe_803001); //$NON-NLS-1$
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_804003); //$NON-NLS-1$
+		case ApplicationMappersEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationMappers", DomainElementTypes.ApplicationMappers_802002); //$NON-NLS-1$
+		case ApplicationRecipesEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?ApplicationRecipes", DomainElementTypes.ApplicationRecipes_802001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -191,22 +191,22 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case ApplicationMapperEditPart.VISUAL_ID:
-			return getApplicationMapper_803002Text(view);
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_804003Text(view);
 		case RecipeRecipeConfigEditPart.VISUAL_ID:
 			return getRecipeRecipeConfig_804002Text(view);
-		case ApplicationRecipeEditPart.VISUAL_ID:
-			return getApplicationRecipe_803001Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_804001Text(view);
-		case ApplicationRecipesEditPart.VISUAL_ID:
-			return getApplicationRecipes_802001Text(view);
-		case ApplicationMappersEditPart.VISUAL_ID:
-			return getApplicationMappers_802002Text(view);
 		case ApplicationEditPart.VISUAL_ID:
 			return getApplication_801000Text(view);
+		case ApplicationMapperEditPart.VISUAL_ID:
+			return getApplicationMapper_803002Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_804001Text(view);
+		case ApplicationRecipeEditPart.VISUAL_ID:
+			return getApplicationRecipe_803001Text(view);
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getConfigurationConfigExtension_804003Text(view);
+		case ApplicationMappersEditPart.VISUAL_ID:
+			return getApplicationMappers_802002Text(view);
+		case ApplicationRecipesEditPart.VISUAL_ID:
+			return getApplicationRecipes_802001Text(view);
 		}
 		return getUnknownElementText(view);
 	}

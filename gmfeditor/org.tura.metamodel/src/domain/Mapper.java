@@ -13,6 +13,8 @@ package domain;
  * <ul>
  *   <li>{@link domain.Mapper#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Mapper#getParent <em>Parent</em>}</li>
+ *   <li>{@link domain.Mapper#isServiceLayer <em>Service Layer</em>}</li>
+ *   <li>{@link domain.Mapper#isUiLayer <em>Ui Layer</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,5 +77,57 @@ public interface Mapper extends TypePointer
    * @generated
    */
   void setParent(Mappers value);
+
+  /**
+   * Returns the value of the '<em><b>Service Layer</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Service Layer</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Service Layer</em>' attribute.
+   * @see #setServiceLayer(boolean)
+   * @see domain.DomainPackage#getMapper_ServiceLayer()
+   * @model
+   * @generated
+   */
+  boolean isServiceLayer();
+
+  /**
+   * Sets the value of the '{@link domain.Mapper#isServiceLayer <em>Service Layer</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Service Layer</em>' attribute.
+   * @see #isServiceLayer()
+   * @generated
+   */
+  void setServiceLayer(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Ui Layer</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ui Layer</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ui Layer</em>' attribute.
+   * @see #setUiLayer(boolean)
+   * @see domain.DomainPackage#getMapper_UiLayer()
+   * @model
+   * @generated
+   */
+  boolean isUiLayer();
+
+  /**
+   * Sets the value of the '{@link domain.Mapper#isUiLayer <em>Ui Layer</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ui Layer</em>' attribute.
+   * @see #isUiLayer()
+   * @generated
+   */
+  void setUiLayer(boolean value);
 
 } // Mapper

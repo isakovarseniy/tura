@@ -62,6 +62,8 @@ public class MapperItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
+      addServiceLayerPropertyDescriptor(object);
+      addUiLayerPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -85,6 +87,52 @@ public class MapperItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Service Layer feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addServiceLayerPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Mapper_serviceLayer_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Mapper_serviceLayer_feature", "_UI_Mapper_type"),
+         DomainPackage.Literals.MAPPER__SERVICE_LAYER,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Ui Layer feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addUiLayerPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Mapper_uiLayer_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Mapper_uiLayer_feature", "_UI_Mapper_type"),
+         DomainPackage.Literals.MAPPER__UI_LAYER,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
          null,
          null));
   }
@@ -131,6 +179,8 @@ public class MapperItemProvider
     switch (notification.getFeatureID(Mapper.class))
     {
       case DomainPackage.MAPPER__UID:
+      case DomainPackage.MAPPER__SERVICE_LAYER:
+      case DomainPackage.MAPPER__UI_LAYER:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

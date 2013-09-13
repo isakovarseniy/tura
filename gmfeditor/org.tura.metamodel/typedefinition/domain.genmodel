@@ -156,6 +156,8 @@
     <genClasses ecoreClass="domain.ecore#//Mapper">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Mapper/uid"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Mapper/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Mapper/serviceLayer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Mapper/uiLayer"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//JavaMapper">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaMapper/mappedToPackageName"/>
