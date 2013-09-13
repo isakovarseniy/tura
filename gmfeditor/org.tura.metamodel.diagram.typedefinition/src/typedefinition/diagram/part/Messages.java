@@ -266,112 +266,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact2CreationTool_title;
+	public static String EnumAttribute2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact2CreationTool_desc;
+	public static String EnumAttribute2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EJBService3CreationTool_title;
+	public static String Enumarator3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EJBService3CreationTool_desc;
+	public static String Enumarator3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute4CreationTool_title;
+	public static String Operation4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute4CreationTool_desc;
+	public static String Operation4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator5CreationTool_title;
+	public static String Parameter5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator5CreationTool_desc;
+	public static String Parameter5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JPAService6CreationTool_title;
+	public static String ReturnValue6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JPAService6CreationTool_desc;
+	public static String ReturnValue6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ORMEntity7CreationTool_title;
+	public static String Type7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ORMEntity7CreationTool_desc;
+	public static String Type7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation8CreationTool_title;
+	public static String TypeReference8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Parameter9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Parameter9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ReturnValue10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ReturnValue10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Type11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Type11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference12CreationTool_desc;
+	public static String TypeReference8CreationTool_desc;
 
 	/**
 	 * @generated

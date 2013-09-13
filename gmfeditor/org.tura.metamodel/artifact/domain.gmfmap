@@ -62,7 +62,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="domain.gmfgraph#Variable"/>
         </ownedChild>
@@ -83,7 +83,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="domain.gmfgraph#Specifier"/>
         </ownedChild>

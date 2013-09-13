@@ -266,72 +266,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact2CreationTool_title;
+	public static String Package2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact2CreationTool_desc;
+	public static String Package2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EJBService3CreationTool_title;
+	public static String Primitive3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EJBService3CreationTool_desc;
+	public static String Primitive3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JPAService4CreationTool_title;
+	public static String Types4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JPAService4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ORMEntity5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ORMEntity5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Package6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Package6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Primitive7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Primitive7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Types8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Types8CreationTool_desc;
+	public static String Types4CreationTool_desc;
 
 	/**
 	 * @generated

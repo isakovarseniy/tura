@@ -2,19 +2,16 @@ package org.metamodel.tura.ui.properties.sections;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 import org.eclipse.jface.viewers.CellEditor;
@@ -26,10 +23,6 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
-import org.eclipse.ocl.OCL;
-import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
-import org.eclipse.ocl.expressions.OCLExpression;
-import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -44,6 +37,8 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import domain.DomainFactory;
 import domain.DomainPackage;
+import domain.MappingVariable;
+import domain.Variable;
 
 public class MappingVariablePropertySelection extends
 		AbstractGridPropertySelection {
@@ -384,7 +379,7 @@ public class MappingVariablePropertySelection extends
 			return spOptions;
 		}
 
-		@SuppressWarnings({ "unchecked", "rawtypes" })
+		@SuppressWarnings({ "unchecked"})
 		private void initData() {
 
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -392,63 +387,12 @@ public class MappingVariablePropertySelection extends
 
 			ShapeImpl diagram = (ShapeImpl) editPart.getModel();
 			try {
-				OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-				OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-						.createOCLHelper();
-				helper.setContext(DomainPackage.eINSTANCE
-						.getEClassifier("Domain"));
-
+				
 				EObject types = (EObject) diagram.getElement();
+				Object[] result = (new QueryHelper()).findMappingVariable((domain.ModelMapper) eObject, types);
 
-				Collection<domain.MappingVariable> map = ((domain.ModelMapper) eObject)
-						.getVariables();
-
-				OCLExpression<EClassifier> query = helper
-						.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).name='"
-								+ ((domain.ModelMapper) eObject)
-										.getDomainArtifact()
-								+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).name ='"
-								+ ((domain.ModelMapper) eObject)
-										.getArtifactName()
-								+ "').oclAsType(domain::Artifact).modelQuery");
-
-				Collection<domain.Variable> map1 = (Collection<domain.Variable>) ocl
-						.evaluate(types, query);
-
-				ArrayList<domain.MappingVariable> removeVariables = new ArrayList<domain.MappingVariable>();
-				for (Iterator<domain.MappingVariable> itr1 = map.iterator(); itr1
-						.hasNext();) {
-					domain.MappingVariable ms = itr1.next();
-					boolean isRemove = true;
-					for (Iterator<domain.Variable> itr2 = map1.iterator(); itr2
-							.hasNext();) {
-						domain.Variable sp = itr2.next();
-						if (sp.getName().equals(ms.getName()))
-							isRemove = false;
-					}
-					if (isRemove)
-						removeVariables.add(ms);
-				}
-
-				ArrayList<domain.Variable> addVariables = new ArrayList<domain.Variable>();
-				for (Iterator<domain.Variable> itr1 = map1.iterator(); itr1
-						.hasNext();) {
-					domain.Variable ms = itr1.next();
-					boolean isAdd = false;
-					if (map.size() == 0)
-						isAdd = true;
-					else {
-						isAdd = true;
-						for (Iterator<domain.MappingVariable> itr2 = map
-								.iterator(); itr2.hasNext();) {
-							domain.MappingVariable sp = itr2.next();
-							if (sp.getName().equals(ms.getName()))
-								isAdd = false;
-						}
-					}
-					if (isAdd)
-						addVariables.add(ms);
-				}
+				List<domain.Variable> addVariables = (List<Variable>) result[0];
+				List<domain.MappingVariable> removeVariables = (List<MappingVariable>) result[1];
 
 				// Add new
 				for (Iterator<domain.Variable> itr = addVariables.iterator(); itr

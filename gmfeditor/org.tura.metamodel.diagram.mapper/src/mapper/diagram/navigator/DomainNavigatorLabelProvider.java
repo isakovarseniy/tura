@@ -104,12 +104,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_404001); //$NON-NLS-1$
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?recipeConfig", DomainElementTypes.RecipeRecipeConfig_404002); //$NON-NLS-1$
 		case JavaMapperEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaMapper", DomainElementTypes.JavaMapper_402001); //$NON-NLS-1$
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?recipeConfig", DomainElementTypes.RecipeRecipeConfig_404002); //$NON-NLS-1$
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_404003); //$NON-NLS-1$
@@ -178,10 +178,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_404001Text(view);
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return getRecipeRecipeConfig_404002Text(view);
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_402001Text(view);
+		case RecipeRecipeConfigEditPart.VISUAL_ID:
+			return getRecipeRecipeConfig_404002Text(view);
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return getConfigurationConfigExtension_404003Text(view);
 		case MappersEditPart.VISUAL_ID:

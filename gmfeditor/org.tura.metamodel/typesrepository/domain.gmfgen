@@ -392,22 +392,6 @@
             genNodes="//@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="DomainArtifact"
-            description="Create new DomainArtifact"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="EJBService"
-            description="Create new EJBService"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="JPAService"
-            description="Create new JPAService"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ORMEntity"
-            description="Create new ORMEntity"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Package"
             description="Create new Package"
             genNodes="//@diagram/@childNodes.1"/>

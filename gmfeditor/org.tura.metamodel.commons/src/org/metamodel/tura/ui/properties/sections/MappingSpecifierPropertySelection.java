@@ -45,6 +45,8 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import domain.DomainFactory;
 import domain.DomainPackage;
+import domain.MappingSpecifier;
+import domain.Specifier;
 
 public class MappingSpecifierPropertySelection extends
 		AbstractGridPropertySelection {
@@ -427,7 +429,7 @@ public class MappingSpecifierPropertySelection extends
 			return null;
 		}
 
-		@SuppressWarnings({ "unchecked", "rawtypes" })
+		@SuppressWarnings({ "unchecked" })
 		private void initData() {
 
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -435,64 +437,13 @@ public class MappingSpecifierPropertySelection extends
 
 			ShapeImpl diagram = (ShapeImpl) editPart.getModel();
 			try {
-				OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-				OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-						.createOCLHelper();
-				helper.setContext(DomainPackage.eINSTANCE
-						.getEClassifier("Domain"));
 
 				EObject types = (EObject) diagram.getElement();
-
-				Collection<domain.MappingSpecifier> map = ((domain.ModelMapper) eObject)
-						.getSpecifiers();
-
-				OCLExpression<EClassifier> query = helper
-						.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).name='"
-								+ ((domain.ModelMapper) eObject)
-										.getDomainArtifact()
-								+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).name ='"
-								+ ((domain.ModelMapper) eObject)
-										.getArtifactName()
-								+ "').oclAsType(domain::Artifact).specifiers");
-
-				Collection<domain.Specifier> map1 = (Collection<domain.Specifier>) ocl
-						.evaluate(types, query);
-
-				ArrayList<domain.MappingSpecifier> removeSpecifiers = new ArrayList<domain.MappingSpecifier>();
-				for (Iterator<domain.MappingSpecifier> itr1 = map.iterator(); itr1
-						.hasNext();) {
-					domain.MappingSpecifier ms = itr1.next();
-					boolean isRemove = true;
-					for (Iterator<domain.Specifier> itr2 = map1.iterator(); itr2
-							.hasNext();) {
-						domain.Specifier sp = itr2.next();
-						if (sp.getName().equals(ms.getName()))
-							isRemove = false;
-					}
-					if (isRemove)
-						removeSpecifiers.add(ms);
-				}
-
-				ArrayList<domain.Specifier> addSpecifiers = new ArrayList<domain.Specifier>();
-				for (Iterator<domain.Specifier> itr1 = map1.iterator(); itr1
-						.hasNext();) {
-					domain.Specifier ms = itr1.next();
-					boolean isAdd = false;
-					if (map.size() == 0)
-						isAdd = true;
-					else {
-						isAdd = true;
-						for (Iterator<domain.MappingSpecifier> itr2 = map
-								.iterator(); itr2.hasNext();) {
-							domain.MappingSpecifier sp = itr2.next();
-							if (sp.getName().equals(ms.getName()))
-								isAdd = false;
-						}
-					}
-					if (isAdd)
-						addSpecifiers.add(ms);
-				}
-
+				Object[] result =  (new QueryHelper()).findMappingSpecifiers((domain.ModelMapper)eObject, types);	
+				
+				List<domain.Specifier> addSpecifiers = (List<Specifier>) result[0];
+				List<domain.MappingSpecifier> removeSpecifiers = (List<MappingSpecifier>) result[1];
+				
 				// Add new
 				for (Iterator<domain.Specifier> itr = addSpecifiers.iterator(); itr
 						.hasNext();) {

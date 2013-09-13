@@ -1,0 +1,102 @@
+ context Artifact {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.artifacts.select(r|r.isKindOf(Artifact) and r.name=self.name).size() = 1
+      message : 'Artifact name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+ context ConfigVariable {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.configVariables.select(r|r.isKindOf(ConfigVariable) and r.name=self.name).size() = 1
+      message : 'ConfigVariable name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+
+ context Variable {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.modelQuery.select(r|r.isKindOf(Variable) and r.name=self.name).size() = 1
+      message : 'Variable name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+
+ context Specifier {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.specifiers.select(r|r.isKindOf(Specifier) and r.name=self.name).size() = 1
+      message : 'Specifier name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+ context Option {
+
+  constraint HasName {
+
+      check :  self.value.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.options.select(r|r.isKindOf(Option) and r.value=self.value).size() = 1
+      message : 'Option name  ' + self.value + ' is not unique'
+   
+   } 
+
+}
+

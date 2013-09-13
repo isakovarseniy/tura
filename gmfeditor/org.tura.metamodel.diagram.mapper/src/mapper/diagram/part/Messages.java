@@ -256,52 +256,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact1CreationTool_title;
+	public static String JavaMapper1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact1CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String EJBService2CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String EJBService2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String JPAService3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String JPAService3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String JavaMapper4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String JavaMapper4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ORMEntity5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ORMEntity5CreationTool_desc;
+	public static String JavaMapper1CreationTool_desc;
 
 	/**
 	 * @generated

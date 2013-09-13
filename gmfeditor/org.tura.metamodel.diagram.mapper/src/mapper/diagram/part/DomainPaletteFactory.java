@@ -38,11 +38,7 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createDomainArtifact1CreationTool());
-		paletteContainer.add(createEJBService2CreationTool());
-		paletteContainer.add(createJPAService3CreationTool());
-		paletteContainer.add(createJavaMapper4CreationTool());
-		paletteContainer.add(createORMEntity5CreationTool());
+		paletteContainer.add(createJavaMapper1CreationTool());
 		return paletteContainer;
 	}
 
@@ -63,60 +59,15 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainArtifact1CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.DomainArtifact1CreationTool_title,
-				Messages.DomainArtifact1CreationTool_desc, null, null) {
-		};
-		entry.setId("createDomainArtifact1CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createEJBService2CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.EJBService2CreationTool_title,
-				Messages.EJBService2CreationTool_desc, null, null) {
-		};
-		entry.setId("createEJBService2CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createJPAService3CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.JPAService3CreationTool_title,
-				Messages.JPAService3CreationTool_desc, null, null) {
-		};
-		entry.setId("createJPAService3CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createJavaMapper4CreationTool() {
+	private ToolEntry createJavaMapper1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.JavaMapper4CreationTool_title,
-				Messages.JavaMapper4CreationTool_desc,
+				Messages.JavaMapper1CreationTool_title,
+				Messages.JavaMapper1CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.JavaMapper_402001));
-		entry.setId("createJavaMapper4CreationTool"); //$NON-NLS-1$
+		entry.setId("createJavaMapper1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.JavaMapper_402001));
 		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createORMEntity5CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.ORMEntity5CreationTool_title,
-				Messages.ORMEntity5CreationTool_desc, null, null) {
-		};
-		entry.setId("createORMEntity5CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

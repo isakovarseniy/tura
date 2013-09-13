@@ -39,13 +39,9 @@ public class DomainPaletteFactory {
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createBusinessPackage1CreationTool());
-		paletteContainer.add(createDomainArtifact2CreationTool());
-		paletteContainer.add(createEJBService3CreationTool());
-		paletteContainer.add(createJPAService4CreationTool());
-		paletteContainer.add(createORMEntity5CreationTool());
-		paletteContainer.add(createPackage6CreationTool());
-		paletteContainer.add(createPrimitive7CreationTool());
-		paletteContainer.add(createTypes8CreationTool());
+		paletteContainer.add(createPackage2CreationTool());
+		paletteContainer.add(createPrimitive3CreationTool());
+		paletteContainer.add(createTypes4CreationTool());
 		return paletteContainer;
 	}
 
@@ -82,57 +78,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainArtifact2CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.DomainArtifact2CreationTool_title,
-				Messages.DomainArtifact2CreationTool_desc, null, null) {
-		};
-		entry.setId("createDomainArtifact2CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createEJBService3CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.EJBService3CreationTool_title,
-				Messages.EJBService3CreationTool_desc, null, null) {
-		};
-		entry.setId("createEJBService3CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createJPAService4CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.JPAService4CreationTool_title,
-				Messages.JPAService4CreationTool_desc, null, null) {
-		};
-		entry.setId("createJPAService4CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createORMEntity5CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.ORMEntity5CreationTool_title,
-				Messages.ORMEntity5CreationTool_desc, null, null) {
-		};
-		entry.setId("createORMEntity5CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createPackage6CreationTool() {
+	private ToolEntry createPackage2CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Package6CreationTool_title,
-				Messages.Package6CreationTool_desc,
+				Messages.Package2CreationTool_title,
+				Messages.Package2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Package_203002));
-		entry.setId("createPackage6CreationTool"); //$NON-NLS-1$
+		entry.setId("createPackage2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Package_203002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -142,12 +93,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPrimitive7CreationTool() {
+	private ToolEntry createPrimitive3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Primitive7CreationTool_title,
-				Messages.Primitive7CreationTool_desc,
+				Messages.Primitive3CreationTool_title,
+				Messages.Primitive3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Primitive_203001));
-		entry.setId("createPrimitive7CreationTool"); //$NON-NLS-1$
+		entry.setId("createPrimitive3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Primitive_203001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -157,12 +108,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypes8CreationTool() {
+	private ToolEntry createTypes4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Types8CreationTool_title,
-				Messages.Types8CreationTool_desc,
+				Messages.Types4CreationTool_title,
+				Messages.Types4CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Types_202001));
-		entry.setId("createTypes8CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypes4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Types_202001));
 		entry.setLargeIcon(entry.getSmallIcon());

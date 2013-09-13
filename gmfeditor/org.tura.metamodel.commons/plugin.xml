@@ -1,4 +1,13 @@
 <plugin>
+
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+      <tool
+            class="org.metamodel.tura.ui.properties.sections.QueryHelper"
+            defaultName="QueryHelper">
+      </tool>
+   </extension>
+
    <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
       <?gmfgen generated="true"?>   
       <propertyTabs contributorId="org.tura.metamodel.diagram.typedefinition">

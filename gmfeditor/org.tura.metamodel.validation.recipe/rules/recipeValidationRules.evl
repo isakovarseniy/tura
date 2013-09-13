@@ -33,6 +33,36 @@
       message : 'Artifact  name  ' + self.artifactName + ' in ' +self.domainArtifac+ '  is not define  '
    } 
 
+  constraint checkMappingSpecifiers{
+      guard : self.satisfies("RefArtifactNameExist")
+      check{
+ 	   var helper := new Native('org.metamodel.tura.ui.properties.sections.QueryHelper');
+	   var result = helper.findMappingSpecifiers(self, self);
+	   if (result[0].size()=0 and result[1].size()=0)
+	       return true;
+	   return false;    
+      }
+      
+      message : 'MappingSpecifiers   for ' + self.name +  '  is not define  properly'
+
+  }
+
+  constraint checkMappingVariables{
+      guard : self.satisfies("RefArtifactNameExist")
+      check{
+ 	   var helper := new Native('org.metamodel.tura.ui.properties.sections.QueryHelper');
+	   var result = helper.findMappingVariable(self, self);
+	   if (result[0].size()=0 and result[1].size()=0)
+	       return true;
+	   return false;    
+      }
+      
+      message : 'MappingVariables   for ' + self.name +  '  is not define  properly'
+
+  }
+
+
+
 }
 
 context Property {
@@ -102,7 +132,7 @@ context Property {
       check  {
 	   var configVar := new Native('org.tura.metamodel.wizard.recipe.configuration.ConfigVarDialog');
 	   var properties = configVar.propertiesList(self.recipeConfig);
-	   if (properties.size() <= 0  )
+	   if (properties.size() = 0  )
 	      return true;
 	   else
 	      return false;    
