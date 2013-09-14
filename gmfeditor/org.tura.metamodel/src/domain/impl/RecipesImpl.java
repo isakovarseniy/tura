@@ -5,6 +5,7 @@ package domain.impl;
 import domain.ApplicationRecipe;
 import domain.Configuration;
 import domain.DomainPackage;
+import domain.Infrastructure;
 import domain.Recipe;
 import domain.Recipes;
 
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.RecipesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.RecipesImpl#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link domain.impl.RecipesImpl#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link domain.impl.RecipesImpl#getInfrastructures <em>Infrastructures</em>}</li>
  *   <li>{@link domain.impl.RecipesImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -81,6 +83,16 @@ public class RecipesImpl extends EObjectImpl implements Recipes
    * @ordered
    */
   protected EList<Configuration> configurations;
+
+  /**
+   * The cached value of the '{@link #getInfrastructures() <em>Infrastructures</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInfrastructures()
+   * @generated
+   * @ordered
+   */
+  protected EList<Infrastructure> infrastructures;
 
   /**
    * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
@@ -203,6 +215,20 @@ public class RecipesImpl extends EObjectImpl implements Recipes
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Infrastructure> getInfrastructures()
+  {
+    if (infrastructures == null)
+    {
+      infrastructures = new EObjectContainmentEList<Infrastructure>(Infrastructure.class, this, DomainPackage.RECIPES__INFRASTRUCTURES);
+    }
+    return infrastructures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ApplicationRecipe getParent()
   {
     if (parent != null && parent.eIsProxy())
@@ -302,6 +328,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes
         return basicSetRecipe(null, msgs);
       case DomainPackage.RECIPES__CONFIGURATIONS:
         return ((InternalEList<?>)getConfigurations()).basicRemove(otherEnd, msgs);
+      case DomainPackage.RECIPES__INFRASTRUCTURES:
+        return ((InternalEList<?>)getInfrastructures()).basicRemove(otherEnd, msgs);
       case DomainPackage.RECIPES__PARENT:
         return basicSetParent(null, msgs);
     }
@@ -324,6 +352,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes
         return getRecipe();
       case DomainPackage.RECIPES__CONFIGURATIONS:
         return getConfigurations();
+      case DomainPackage.RECIPES__INFRASTRUCTURES:
+        return getInfrastructures();
       case DomainPackage.RECIPES__PARENT:
         if (resolve) return getParent();
         return basicGetParent();
@@ -352,6 +382,10 @@ public class RecipesImpl extends EObjectImpl implements Recipes
         getConfigurations().clear();
         getConfigurations().addAll((Collection<? extends Configuration>)newValue);
         return;
+      case DomainPackage.RECIPES__INFRASTRUCTURES:
+        getInfrastructures().clear();
+        getInfrastructures().addAll((Collection<? extends Infrastructure>)newValue);
+        return;
       case DomainPackage.RECIPES__PARENT:
         setParent((ApplicationRecipe)newValue);
         return;
@@ -378,6 +412,9 @@ public class RecipesImpl extends EObjectImpl implements Recipes
       case DomainPackage.RECIPES__CONFIGURATIONS:
         getConfigurations().clear();
         return;
+      case DomainPackage.RECIPES__INFRASTRUCTURES:
+        getInfrastructures().clear();
+        return;
       case DomainPackage.RECIPES__PARENT:
         setParent((ApplicationRecipe)null);
         return;
@@ -401,6 +438,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes
         return recipe != null;
       case DomainPackage.RECIPES__CONFIGURATIONS:
         return configurations != null && !configurations.isEmpty();
+      case DomainPackage.RECIPES__INFRASTRUCTURES:
+        return infrastructures != null && !infrastructures.isEmpty();
       case DomainPackage.RECIPES__PARENT:
         return parent != null;
     }

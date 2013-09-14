@@ -30,6 +30,8 @@ import domain.DomainTypes;
 import domain.EJBService;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.Infrastructure;
+import domain.Ingredient;
 import domain.InsertMethod;
 import domain.JPAService;
 import domain.JavaMapper;
@@ -43,6 +45,7 @@ import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
 import domain.Parameter;
+import domain.PlatformLayers;
 import domain.Primitive;
 import domain.Property;
 import domain.Recipe;
@@ -63,6 +66,7 @@ import domain.UpdateMethod;
 import domain.Variable;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -155,10 +159,12 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.MAPPER: return createMapper();
       case DomainPackage.JAVA_MAPPER: return createJavaMapper();
       case DomainPackage.RECIPES: return createRecipes();
+      case DomainPackage.INGREDIENT: return createIngredient();
       case DomainPackage.RECIPE: return createRecipe();
+      case DomainPackage.INFRASTRUCTURE: return createInfrastructure();
+      case DomainPackage.CONFIGURATION: return createConfiguration();
       case DomainPackage.COMPONENT: return createComponent();
       case DomainPackage.MODEL_MAPPER: return createModelMapper();
-      case DomainPackage.CONFIGURATION: return createConfiguration();
       case DomainPackage.PROPERTY: return createProperty();
       case DomainPackage.MAPPING_SPECIFIER: return createMappingSpecifier();
       case DomainPackage.MAPPING_VARIABLE: return createMappingVariable();
@@ -182,6 +188,40 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.BUSINESS_PACKAGE: return createBusinessPackage();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case DomainPackage.PLATFORM_LAYERS:
+        return createPlatformLayersFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case DomainPackage.PLATFORM_LAYERS:
+        return convertPlatformLayersToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -553,6 +593,28 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Ingredient createIngredient()
+  {
+    IngredientImpl ingredient = new IngredientImpl();
+    return ingredient;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Infrastructure createInfrastructure()
+  {
+    InfrastructureImpl infrastructure = new InfrastructureImpl();
+    return infrastructure;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Recipe createRecipe()
   {
     RecipeImpl recipe = new RecipeImpl();
@@ -821,6 +883,28 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     BusinessPackageImpl businessPackage = new BusinessPackageImpl();
     return businessPackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PlatformLayers createPlatformLayersFromString(EDataType eDataType, String initialValue)
+  {
+    PlatformLayers result = PlatformLayers.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertPlatformLayersToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

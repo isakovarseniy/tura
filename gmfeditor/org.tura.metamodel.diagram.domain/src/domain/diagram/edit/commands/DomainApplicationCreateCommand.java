@@ -3,8 +3,6 @@
  */
 package domain.diagram.edit.commands;
 
-import java.util.UUID;
-
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;

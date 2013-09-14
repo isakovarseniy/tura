@@ -19,7 +19,7 @@ public class ComponentComponentMappersCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ComponentComponentMappersCompartmentItemSemanticEditPolicy() {
-		super(DomainElementTypes.Component_303001);
+		super(DomainElementTypes.Component_303006);
 	}
 
 	/**

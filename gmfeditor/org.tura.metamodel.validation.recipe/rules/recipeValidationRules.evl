@@ -1,3 +1,67 @@
+ context Ingredient {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+  constraint HasLayer {
+
+      guard : self.satisfies("HasName")
+      check :  self.layer.isDefined()
+
+      message : 'Unnamed Layer ' + self.name + ' not allowed'
+
+  }
+
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.ingredients.select(r|r.isKindOf(Ingredient) and r.name=self.name).size() = 1
+      message : 'Infrastructure name  ' + self.name + ' is not unique'
+   
+   } 
+}
+
+ context Infrastructure {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.recipe.infrastructures.select(r|r.isKindOf(Infrastructure) and r.name=self.name).size() = 1
+      message : 'Infrastructure name  ' + self.name + ' is not unique'
+   
+   } 
+   
+  constraint ConfigVariablesIsDefine {
+
+      check  {
+	   var configVar := new Native('org.tura.metamodel.wizard.recipe.configuration.ConfigVarDialog');
+	   var properties = configVar.propertiesList(self.recipeConfig);
+	   if (properties.size() = 0  )
+	      return true;
+	   else
+	      return false;    
+      }
+
+      message : 'Configuration variable  is not defined'
+
+  }   
+   
+}
+
  context ModelMapper {
 
   constraint HasName {
@@ -125,25 +189,6 @@ context Property {
 
 }
 
- context Recipe {
-
-  constraint ConfigVariablesIsDefine {
-
-      check  {
-	   var configVar := new Native('org.tura.metamodel.wizard.recipe.configuration.ConfigVarDialog');
-	   var properties = configVar.propertiesList(self.recipeConfig);
-	   if (properties.size() = 0  )
-	      return true;
-	   else
-	      return false;    
-      }
-
-      message : 'Configuration variable  is not defined'
-
-  }
-
-
-}
 
 
 

@@ -69,7 +69,7 @@ public class RecipeItemProvider
 
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
-      addRecipeConfigPropertyDescriptor(object);
+      addInfrastructuresPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -121,20 +121,20 @@ public class RecipeItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Recipe Config feature.
+   * This adds a property descriptor for the Infrastructures feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addRecipeConfigPropertyDescriptor(Object object)
+  protected void addInfrastructuresPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Recipe_recipeConfig_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Recipe_recipeConfig_feature", "_UI_Recipe_type"),
-         DomainPackage.Literals.RECIPE__RECIPE_CONFIG,
+         getString("_UI_Recipe_infrastructures_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Recipe_infrastructures_feature", "_UI_Recipe_type"),
+         DomainPackage.Literals.RECIPE__INFRASTRUCTURES,
          true,
          false,
          true,
@@ -157,7 +157,7 @@ public class RecipeItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.RECIPE__COMPONENTS);
+      childrenFeatures.add(DomainPackage.Literals.RECIPE__INGREDIENTS);
     }
     return childrenFeatures;
   }
@@ -221,7 +221,7 @@ public class RecipeItemProvider
       case DomainPackage.RECIPE__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.RECIPE__COMPONENTS:
+      case DomainPackage.RECIPE__INGREDIENTS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -242,8 +242,8 @@ public class RecipeItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.RECIPE__COMPONENTS,
-         DomainFactory.eINSTANCE.createComponent()));
+        (DomainPackage.Literals.RECIPE__INGREDIENTS,
+         DomainFactory.eINSTANCE.createIngredient()));
   }
 
   /**

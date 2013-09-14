@@ -276,32 +276,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ModelMapper3CreationTool_title;
+	public static String Infrastructure3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelMapper3CreationTool_desc;
+	public static String Infrastructure3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Property4CreationTool_title;
+	public static String Ingredient4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Property4CreationTool_desc;
+	public static String Ingredient4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Recipe5CreationTool_title;
+	public static String ModelMapper5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Recipe5CreationTool_desc;
+	public static String ModelMapper5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Property6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Property6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Recipe7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Recipe7CreationTool_desc;
 
 	/**
 	 * @generated
@@ -316,27 +336,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String RecipeConfig2CreationTool_title;
+	public static String Infrastructures2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeConfig2CreationTool_desc;
+	public static String Infrastructures2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension3CreationTool_title;
+	public static String RecipeConfig3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension3CreationTool_desc;
+	public static String RecipeConfig3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeRecipeComponentsCompartmentEditPart_title;
+	public static String TypeExtension4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipeRecipeIngredientsCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String IngredientIngredientComponentsCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -371,17 +406,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecipeRecipeConfig_304002_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_RecipeRecipeConfig_304002_source;
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_source;
 
 	/**
 	 * @generated
@@ -401,12 +431,37 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Infrastructure_302003_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Configuration_302002_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Configuration_302002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipeInfrastructures_304005_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipeInfrastructures_304005_source;
 
 	/**
 	 * @generated

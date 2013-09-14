@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import recipe.diagram.edit.commands.ConfigurationCreateCommand;
+import recipe.diagram.edit.commands.InfrastructureCreateCommand;
 import recipe.diagram.edit.commands.RecipeCreateCommand;
 import recipe.diagram.providers.DomainElementTypes;
 
@@ -36,6 +37,9 @@ public class RecipesItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.Configuration_302002 == req.getElementType()) {
 			return getGEFWrapper(new ConfigurationCreateCommand(req));
+		}
+		if (DomainElementTypes.Infrastructure_302003 == req.getElementType()) {
+			return getGEFWrapper(new InfrastructureCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

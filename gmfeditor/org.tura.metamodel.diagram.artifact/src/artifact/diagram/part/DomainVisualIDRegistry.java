@@ -19,13 +19,15 @@ import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
 import artifact.diagram.edit.parts.ConfigVariableNameEditPart;
 import artifact.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import artifact.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import artifact.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import artifact.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.edit.parts.SpecifierNameEditPart;
 import artifact.diagram.edit.parts.TypeExtensionEditPart;
 import artifact.diagram.edit.parts.VariableEditPart;
 import artifact.diagram.edit.parts.VariableNameEditPart;
 import artifact.diagram.edit.parts.WrappingLabel2EditPart;
+import artifact.diagram.edit.parts.WrappingLabel3EditPart;
 import artifact.diagram.edit.parts.WrappingLabelEditPart;
 import domain.Artifacts;
 import domain.DomainPackage;
@@ -237,13 +239,18 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

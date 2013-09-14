@@ -28,13 +28,15 @@ import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.DomainTypesNameEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
 import domain.diagram.edit.parts.EJBServiceNameEditPart;
+import domain.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.JPAServiceNameEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
 import domain.diagram.edit.parts.ORMEntityNameEditPart;
-import domain.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import domain.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
 import domain.diagram.edit.parts.WrappingLabel2EditPart;
+import domain.diagram.edit.parts.WrappingLabel3EditPart;
 import domain.diagram.edit.parts.WrappingLabelEditPart;
 
 /**
@@ -285,13 +287,18 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

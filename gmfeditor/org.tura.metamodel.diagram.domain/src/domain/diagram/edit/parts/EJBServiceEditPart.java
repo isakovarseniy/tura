@@ -5,11 +5,9 @@ package domain.diagram.edit.parts;
 
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -255,19 +253,9 @@ public class EJBServiceEditPart extends ShapeNodeEditPart {
 				.getType(EJBServiceNameEditPart.VISUAL_ID));
 	}
 
-	/**
-	 * @generated
-	 */
 	public class EJBServiceFigure extends RoundedRectangle {
-
-		/**
-		 * @generated
-		 */
 		private WrappingLabel fFigureEJBServiceLabelFigure;
 
-		/**
-		 * @generated
-		 */
 		public EJBServiceFigure() {
 			FlowLayout layoutThis = new FlowLayout();
 			layoutThis.setStretchMinorAxis(false);
@@ -280,22 +268,15 @@ public class EJBServiceEditPart extends ShapeNodeEditPart {
 			createContents();
 		}
 
-		/**
-		 * @generated
-		 */
 		private void createContents() {
 			fFigureEJBServiceLabelFigure = new WrappingLabel();
 			fFigureEJBServiceLabelFigure.setText("Application");
 			this.add(fFigureEJBServiceLabelFigure);
 		}
 
-		/**
-		 * @generated
-		 */
 		public WrappingLabel getFigureEJBServiceLabelFigure() {
 			return fFigureEJBServiceLabelFigure;
 		}
-
 	}
 
 }

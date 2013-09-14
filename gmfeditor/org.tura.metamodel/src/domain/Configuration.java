@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.Configuration#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Configuration#getName <em>Name</em>}</li>
- *   <li>{@link domain.Configuration#getRecipe <em>Recipe</em>}</li>
+ *   <li>{@link domain.Configuration#getInfrastructure <em>Infrastructure</em>}</li>
  *   <li>{@link domain.Configuration#getProperties <em>Properties</em>}</li>
  *   <li>{@link domain.Configuration#getConfigExtension <em>Config Extension</em>}</li>
  *   <li>{@link domain.Configuration#getParent <em>Parent</em>}</li>
@@ -82,32 +82,32 @@ public interface Configuration extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Recipe</b></em>' reference.
-   * It is bidirectional and its opposite is '{@link domain.Recipe#getRecipeConfig <em>Recipe Config</em>}'.
+   * Returns the value of the '<em><b>Infrastructure</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.Infrastructure#getRecipeConfig <em>Recipe Config</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Recipe</em>' reference isn't clear,
+   * If the meaning of the '<em>Infrastructure</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Recipe</em>' reference.
-   * @see #setRecipe(Recipe)
-   * @see domain.DomainPackage#getConfiguration_Recipe()
-   * @see domain.Recipe#getRecipeConfig
+   * @return the value of the '<em>Infrastructure</em>' reference.
+   * @see #setInfrastructure(Infrastructure)
+   * @see domain.DomainPackage#getConfiguration_Infrastructure()
+   * @see domain.Infrastructure#getRecipeConfig
    * @model opposite="recipeConfig"
    * @generated
    */
-  Recipe getRecipe();
+  Infrastructure getInfrastructure();
 
   /**
-   * Sets the value of the '{@link domain.Configuration#getRecipe <em>Recipe</em>}' reference.
+   * Sets the value of the '{@link domain.Configuration#getInfrastructure <em>Infrastructure</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Recipe</em>' reference.
-   * @see #getRecipe()
+   * @param value the new value of the '<em>Infrastructure</em>' reference.
+   * @see #getInfrastructure()
    * @generated
    */
-  void setRecipe(Recipe value);
+  void setInfrastructure(Infrastructure value);
 
   /**
    * Returns the value of the '<em><b>Properties</b></em>' containment reference list.

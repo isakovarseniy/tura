@@ -63,7 +63,7 @@ public class WrappingLabel2EditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 206002;
+	public static final int VISUAL_ID = 206003;
 
 	/**
 	 * @generated
@@ -327,7 +327,7 @@ public class WrappingLabel2EditPart extends LabelEditPart implements
 	public IParser getParser() {
 		if (parser == null) {
 			parser = DomainParserProvider.getParser(
-					DomainElementTypes.ConfigurationConfigExtension_204003,
+					DomainElementTypes.InfrastructureRecipeConfig_204004,
 					getParserElement(), CommonParserHint.DESCRIPTION);
 		}
 		return parser;

@@ -21,9 +21,10 @@ import org.eclipse.swt.graphics.Image;
 
 import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.edit.parts.PrimitiveEditPart;
-import typesrepository.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import typesrepository.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
@@ -83,7 +84,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeRecipeConfig_204002 = getElementType("org.tura.metamodel.diagram.typesrepository.RecipeRecipeConfig_204002"); //$NON-NLS-1$
+	public static final IElementType InfrastructureRecipeConfig_204004 = getElementType("org.tura.metamodel.diagram.typesrepository.InfrastructureRecipeConfig_204004"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipeInfrastructures_204005 = getElementType("org.tura.metamodel.diagram.typesrepository.RecipeInfrastructures_204005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -216,8 +221,11 @@ public class DomainElementTypes {
 			elements.put(TypeExtension_204001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
-			elements.put(RecipeRecipeConfig_204002,
-					DomainPackage.eINSTANCE.getRecipe_RecipeConfig());
+			elements.put(RecipeInfrastructures_204005,
+					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
+
+			elements.put(InfrastructureRecipeConfig_204004,
+					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
 
 			elements.put(ConfigurationConfigExtension_204003,
 					DomainPackage.eINSTANCE.getConfiguration_ConfigExtension());
@@ -244,7 +252,8 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Package_203002);
 			KNOWN_ELEMENT_TYPES.add(BusinessPackage_203003);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_204001);
-			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_204002);
+			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_204005);
+			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_204004);
 			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_204003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -267,8 +276,10 @@ public class DomainElementTypes {
 			return BusinessPackage_203003;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_204001;
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return RecipeRecipeConfig_204002;
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return RecipeInfrastructures_204005;
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return InfrastructureRecipeConfig_204004;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return ConfigurationConfigExtension_204003;
 		}

@@ -22,17 +22,24 @@ import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.ConfigurationNameEditPart;
+import recipe.diagram.edit.parts.InfrastructureEditPart;
+import recipe.diagram.edit.parts.InfrastructureNameEditPart;
+import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import recipe.diagram.edit.parts.IngredientEditPart;
+import recipe.diagram.edit.parts.IngredientIngredientComponentsCompartmentEditPart;
+import recipe.diagram.edit.parts.IngredientNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.PropertyNameEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
+import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
-import recipe.diagram.edit.parts.RecipeRecipeComponentsCompartmentEditPart;
-import recipe.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
 import recipe.diagram.edit.parts.TypeExtensionEditPart;
 import recipe.diagram.edit.parts.WrappingLabel2EditPart;
+import recipe.diagram.edit.parts.WrappingLabel3EditPart;
 import recipe.diagram.edit.parts.WrappingLabelEditPart;
 import domain.DomainPackage;
 import domain.Recipes;
@@ -154,8 +161,18 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return ConfigurationEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getInfrastructure().isSuperTypeOf(
+					domainElement.eClass())) {
+				return InfrastructureEditPart.VISUAL_ID;
+			}
 			break;
-		case RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID:
+		case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getIngredient().isSuperTypeOf(
+					domainElement.eClass())) {
+				return IngredientEditPart.VISUAL_ID;
+			}
+			break;
+		case IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getComponent().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ComponentEditPart.VISUAL_ID;
@@ -224,12 +241,15 @@ public class DomainVisualIDRegistry {
 			if (ConfigurationEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (InfrastructureEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case RecipeEditPart.VISUAL_ID:
 			if (RecipeNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -238,6 +258,19 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case InfrastructureEditPart.VISUAL_ID:
+			if (InfrastructureNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case IngredientEditPart.VISUAL_ID:
+			if (IngredientNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -273,7 +306,12 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID:
+		case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
+			if (IngredientEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID:
 			if (ComponentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -303,13 +341,18 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -359,7 +402,8 @@ public class DomainVisualIDRegistry {
 	 */
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
-		case RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID:
+		case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
+		case IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID:
 		case ComponentComponentComponentsCompartmentEditPart.VISUAL_ID:
 		case ComponentComponentMappersCompartmentEditPart.VISUAL_ID:
 		case ComponentComponentComponentsCompartment2EditPart.VISUAL_ID:
@@ -379,6 +423,7 @@ public class DomainVisualIDRegistry {
 		switch (visualID) {
 		case RecipesEditPart.VISUAL_ID:
 			return false;
+		case InfrastructureEditPart.VISUAL_ID:
 		case ModelMapperEditPart.VISUAL_ID:
 		case PropertyEditPart.VISUAL_ID:
 			return true;

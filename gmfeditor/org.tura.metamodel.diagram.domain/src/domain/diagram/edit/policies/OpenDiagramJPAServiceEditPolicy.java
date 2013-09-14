@@ -43,11 +43,10 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
 import org.tura.metamodel.commons.initdiagram.InitDiagram;
+
 import domain.Artifacts;
 import domain.DomainArtifact;
-import domain.DomainFactory;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 import domain.diagram.part.DomainDiagramEditorUtil;
 import domain.diagram.part.Messages;

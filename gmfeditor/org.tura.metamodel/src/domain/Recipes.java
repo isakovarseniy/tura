@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Recipes#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Recipes#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link domain.Recipes#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link domain.Recipes#getInfrastructures <em>Infrastructures</em>}</li>
  *   <li>{@link domain.Recipes#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -96,6 +97,22 @@ public interface Recipes extends EObject
    * @generated
    */
   EList<Configuration> getConfigurations();
+
+  /**
+   * Returns the value of the '<em><b>Infrastructures</b></em>' containment reference list.
+   * The list contents are of type {@link domain.Infrastructure}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Infrastructures</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Infrastructures</em>' containment reference list.
+   * @see domain.DomainPackage#getRecipes_Infrastructures()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Infrastructure> getInfrastructures();
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' reference.

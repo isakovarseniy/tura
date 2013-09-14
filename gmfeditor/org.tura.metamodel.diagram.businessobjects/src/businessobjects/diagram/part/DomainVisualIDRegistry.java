@@ -22,11 +22,12 @@ import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
 import businessobjects.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodMethodEditPart;
-import businessobjects.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import businessobjects.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
 import businessobjects.diagram.edit.parts.RemoveMethodMethodEditPart;
 import businessobjects.diagram.edit.parts.SearchMethodEditPart;
@@ -35,6 +36,7 @@ import businessobjects.diagram.edit.parts.TypeExtensionEditPart;
 import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
 import businessobjects.diagram.edit.parts.UpdateMethodMethodEditPart;
 import businessobjects.diagram.edit.parts.WrappingLabel2EditPart;
+import businessobjects.diagram.edit.parts.WrappingLabel3EditPart;
 import businessobjects.diagram.edit.parts.WrappingLabelEditPart;
 import domain.BusinessObjects;
 import domain.DomainPackage;
@@ -303,13 +305,18 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

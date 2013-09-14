@@ -13,11 +13,12 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.BusinessPackageNameEditPart;
 import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.edit.parts.PackageNameEditPart;
 import typesrepository.diagram.edit.parts.PrimitiveEditPart;
 import typesrepository.diagram.edit.parts.PrimitiveNameEditPart;
-import typesrepository.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import typesrepository.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesNameEditPart;
@@ -26,6 +27,7 @@ import typesrepository.diagram.edit.parts.TypesTypesBusinessPackagesCompartmentE
 import typesrepository.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPrimitivesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.WrappingLabel2EditPart;
+import typesrepository.diagram.edit.parts.WrappingLabel3EditPart;
 import typesrepository.diagram.edit.parts.WrappingLabelEditPart;
 import domain.DomainPackage;
 import domain.TypesRepository;
@@ -237,13 +239,18 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

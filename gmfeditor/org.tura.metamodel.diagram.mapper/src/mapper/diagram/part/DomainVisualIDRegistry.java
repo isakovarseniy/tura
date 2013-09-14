@@ -4,12 +4,14 @@
 package mapper.diagram.part;
 
 import mapper.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import mapper.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperPackageNameEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
-import mapper.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import mapper.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import mapper.diagram.edit.parts.TypeExtensionEditPart;
 import mapper.diagram.edit.parts.WrappingLabel2EditPart;
+import mapper.diagram.edit.parts.WrappingLabel3EditPart;
 import mapper.diagram.edit.parts.WrappingLabelEditPart;
 
 import org.eclipse.core.runtime.Platform;
@@ -172,13 +174,18 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

@@ -899,6 +899,56 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.Ingredient} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected IngredientItemProvider ingredientItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Ingredient}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createIngredientAdapter()
+  {
+    if (ingredientItemProvider == null)
+    {
+      ingredientItemProvider = new IngredientItemProvider(this);
+    }
+
+    return ingredientItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Infrastructure} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected InfrastructureItemProvider infrastructureItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Infrastructure}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createInfrastructureAdapter()
+  {
+    if (infrastructureItemProvider == null)
+    {
+      infrastructureItemProvider = new InfrastructureItemProvider(this);
+    }
+
+    return infrastructureItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Recipe} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1667,10 +1717,12 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (mapperItemProvider != null) mapperItemProvider.dispose();
     if (javaMapperItemProvider != null) javaMapperItemProvider.dispose();
     if (recipesItemProvider != null) recipesItemProvider.dispose();
+    if (ingredientItemProvider != null) ingredientItemProvider.dispose();
     if (recipeItemProvider != null) recipeItemProvider.dispose();
+    if (infrastructureItemProvider != null) infrastructureItemProvider.dispose();
+    if (configurationItemProvider != null) configurationItemProvider.dispose();
     if (componentItemProvider != null) componentItemProvider.dispose();
     if (modelMapperItemProvider != null) modelMapperItemProvider.dispose();
-    if (configurationItemProvider != null) configurationItemProvider.dispose();
     if (propertyItemProvider != null) propertyItemProvider.dispose();
     if (mappingSpecifierItemProvider != null) mappingSpecifierItemProvider.dispose();
     if (mappingVariableItemProvider != null) mappingVariableItemProvider.dispose();

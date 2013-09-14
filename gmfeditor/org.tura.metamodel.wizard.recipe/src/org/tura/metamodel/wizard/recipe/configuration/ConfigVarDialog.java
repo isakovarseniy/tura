@@ -45,6 +45,8 @@ public class ConfigVarDialog {
 	public Set<String> propertiesList(domain.Configuration config){
 		
 		ArrayList<domain.Property> available = new ArrayList<domain.Property>();
+		if (config == null)
+			return configVar;
 		available.addAll(config.getProperties());
 
 		// go up
@@ -62,9 +64,12 @@ public class ConfigVarDialog {
 		}
 
 		// get recipe
-		if (cnf.getRecipe() != null) {
-			domain.Recipe recipe = cnf.getRecipe();
-			searchConfigParameters(recipe.getComponents());
+		if (cnf.getInfrastructure() != null) {
+			domain.Recipe recipe = cnf.getInfrastructure().getRecipe();
+			for (Iterator<domain.Ingredient>  itr = recipe.getIngredients().iterator(); itr.hasNext();){
+				domain.Ingredient ingridient = itr.next();
+				searchConfigParameters(ingridient.getComponents());
+			}
 			configVar.removeAll(convert2Set(available));
 		}
 		

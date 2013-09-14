@@ -25,17 +25,23 @@ import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
+import recipe.diagram.edit.parts.InfrastructureEditPart;
+import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import recipe.diagram.edit.parts.IngredientEditPart;
+import recipe.diagram.edit.parts.IngredientIngredientComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
-import recipe.diagram.edit.parts.RecipeRecipeComponentsCompartmentEditPart;
-import recipe.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
 import recipe.diagram.edit.parts.TypeExtensionEditPart;
 import recipe.diagram.providers.DomainElementTypes;
 import domain.Component;
 import domain.Configuration;
 import domain.DomainPackage;
+import domain.Infrastructure;
+import domain.Ingredient;
 import domain.ModelMapper;
 import domain.Property;
 import domain.Recipe;
@@ -61,12 +67,14 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RecipesEditPart.VISUAL_ID:
 			return getRecipes_301000SemanticChildren(view);
-		case RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID:
-			return getRecipeRecipeComponentsCompartment_307001SemanticChildren(view);
+		case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
+			return getRecipeRecipeIngredientsCompartment_307001SemanticChildren(view);
+		case IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID:
+			return getIngredientIngredientComponentsCompartment_307007SemanticChildren(view);
 		case ComponentComponentComponentsCompartmentEditPart.VISUAL_ID:
-			return getComponentComponentComponentsCompartment_307002SemanticChildren(view);
+			return getComponentComponentComponentsCompartment_307008SemanticChildren(view);
 		case ComponentComponentMappersCompartmentEditPart.VISUAL_ID:
-			return getComponentComponentMappersCompartment_307003SemanticChildren(view);
+			return getComponentComponentMappersCompartment_307009SemanticChildren(view);
 		case ComponentComponentComponentsCompartment2EditPart.VISUAL_ID:
 			return getComponentComponentComponentsCompartment_307004SemanticChildren(view);
 		case ComponentComponentMappersCompartment2EditPart.VISUAL_ID:
@@ -105,13 +113,23 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 		}
+		for (Iterator<?> it = modelElement.getInfrastructures().iterator(); it
+				.hasNext();) {
+			Infrastructure childElement = (Infrastructure) it.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == InfrastructureEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getRecipeRecipeComponentsCompartment_307001SemanticChildren(
+	public static List<DomainNodeDescriptor> getRecipeRecipeIngredientsCompartment_307001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -121,6 +139,33 @@ public class DomainDiagramUpdater {
 			return Collections.emptyList();
 		}
 		Recipe modelElement = (Recipe) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getIngredients().iterator(); it
+				.hasNext();) {
+			Ingredient childElement = (Ingredient) it.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == IngredientEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getIngredientIngredientComponentsCompartment_307007SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Ingredient modelElement = (Ingredient) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getComponents().iterator(); it
 				.hasNext();) {
@@ -138,7 +183,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getComponentComponentComponentsCompartment_307002SemanticChildren(
+	public static List<DomainNodeDescriptor> getComponentComponentComponentsCompartment_307008SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -165,7 +210,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getComponentComponentMappersCompartment_307003SemanticChildren(
+	public static List<DomainNodeDescriptor> getComponentComponentMappersCompartment_307009SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -281,8 +326,12 @@ public class DomainDiagramUpdater {
 			return getRecipe_302001ContainedLinks(view);
 		case ConfigurationEditPart.VISUAL_ID:
 			return getConfiguration_302002ContainedLinks(view);
+		case InfrastructureEditPart.VISUAL_ID:
+			return getInfrastructure_302003ContainedLinks(view);
+		case IngredientEditPart.VISUAL_ID:
+			return getIngredient_303005ContainedLinks(view);
 		case ComponentEditPart.VISUAL_ID:
-			return getComponent_303001ContainedLinks(view);
+			return getComponent_303006ContainedLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003ContainedLinks(view);
 		case Component2EditPart.VISUAL_ID:
@@ -304,8 +353,12 @@ public class DomainDiagramUpdater {
 			return getRecipe_302001IncomingLinks(view);
 		case ConfigurationEditPart.VISUAL_ID:
 			return getConfiguration_302002IncomingLinks(view);
+		case InfrastructureEditPart.VISUAL_ID:
+			return getInfrastructure_302003IncomingLinks(view);
+		case IngredientEditPart.VISUAL_ID:
+			return getIngredient_303005IncomingLinks(view);
 		case ComponentEditPart.VISUAL_ID:
-			return getComponent_303001IncomingLinks(view);
+			return getComponent_303006IncomingLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003IncomingLinks(view);
 		case Component2EditPart.VISUAL_ID:
@@ -327,8 +380,12 @@ public class DomainDiagramUpdater {
 			return getRecipe_302001OutgoingLinks(view);
 		case ConfigurationEditPart.VISUAL_ID:
 			return getConfiguration_302002OutgoingLinks(view);
+		case InfrastructureEditPart.VISUAL_ID:
+			return getInfrastructure_302003OutgoingLinks(view);
+		case IngredientEditPart.VISUAL_ID:
+			return getIngredient_303005OutgoingLinks(view);
 		case ComponentEditPart.VISUAL_ID:
-			return getComponent_303001OutgoingLinks(view);
+			return getComponent_303006OutgoingLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003OutgoingLinks(view);
 		case Component2EditPart.VISUAL_ID:
@@ -356,7 +413,7 @@ public class DomainDiagramUpdater {
 			View view) {
 		Recipe modelElement = (Recipe) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_RecipeConfig_304002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_Infrastructures_304005(modelElement));
 		return result;
 	}
 
@@ -374,7 +431,18 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getComponent_303001ContainedLinks(
+	public static List<DomainLinkDescriptor> getInfrastructure_302003ContainedLinks(
+			View view) {
+		Infrastructure modelElement = (Infrastructure) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Infrastructure_RecipeConfig_304004(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getIngredient_303005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -382,7 +450,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getComponent_303002ContainedLinks(
+	public static List<DomainLinkDescriptor> getComponent_303006ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -391,6 +459,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getModelMapper_303003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getComponent_303002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -428,7 +504,7 @@ public class DomainDiagramUpdater {
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Recipe_RecipeConfig_304002(
+		result.addAll(getIncomingFeatureModelFacetLinks_Infrastructure_RecipeConfig_304004(
 				modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_Configuration_ConfigExtension_304003(
 				modelElement, crossReferences));
@@ -438,7 +514,21 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getComponent_303001IncomingLinks(
+	public static List<DomainLinkDescriptor> getInfrastructure_302003IncomingLinks(
+			View view) {
+		Infrastructure modelElement = (Infrastructure) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Recipe_Infrastructures_304005(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getIngredient_303005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -446,7 +536,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getComponent_303002IncomingLinks(
+	public static List<DomainLinkDescriptor> getComponent_303006IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -455,6 +545,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getModelMapper_303003IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getComponent_303002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -482,7 +580,7 @@ public class DomainDiagramUpdater {
 			View view) {
 		Recipe modelElement = (Recipe) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_RecipeConfig_304002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_Infrastructures_304005(modelElement));
 		return result;
 	}
 
@@ -500,7 +598,18 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getComponent_303001OutgoingLinks(
+	public static List<DomainLinkDescriptor> getInfrastructure_302003OutgoingLinks(
+			View view) {
+		Infrastructure modelElement = (Infrastructure) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Infrastructure_RecipeConfig_304004(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getIngredient_303005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -508,7 +617,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getComponent_303002OutgoingLinks(
+	public static List<DomainLinkDescriptor> getComponent_303006OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -517,6 +626,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getModelMapper_303003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getComponent_303002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -540,7 +657,28 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_Recipe_RecipeConfig_304002(
+	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_Recipe_Infrastructures_304005(
+			Infrastructure target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE
+					.getRecipe_Infrastructures()) {
+				result.add(new DomainLinkDescriptor(setting.getEObject(),
+						target,
+						DomainElementTypes.RecipeInfrastructures_304005,
+						RecipeInfrastructuresEditPart.VISUAL_ID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_Infrastructure_RecipeConfig_304004(
 			Configuration target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -548,10 +686,11 @@ public class DomainDiagramUpdater {
 				.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
 			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE
-					.getRecipe_RecipeConfig()) {
+					.getInfrastructure_RecipeConfig()) {
 				result.add(new DomainLinkDescriptor(setting.getEObject(),
-						target, DomainElementTypes.RecipeRecipeConfig_304002,
-						RecipeRecipeConfigEditPart.VISUAL_ID));
+						target,
+						DomainElementTypes.InfrastructureRecipeConfig_304004,
+						InfrastructureRecipeConfigEditPart.VISUAL_ID));
 			}
 		}
 		return result;
@@ -581,16 +720,32 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Recipe_RecipeConfig_304002(
+	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Recipe_Infrastructures_304005(
 			Recipe source) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> destinations = source.getInfrastructures().iterator(); destinations
+				.hasNext();) {
+			Infrastructure destination = (Infrastructure) destinations.next();
+			result.add(new DomainLinkDescriptor(source, destination,
+					DomainElementTypes.RecipeInfrastructures_304005,
+					RecipeInfrastructuresEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Infrastructure_RecipeConfig_304004(
+			Infrastructure source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		Configuration destination = source.getRecipeConfig();
 		if (destination == null) {
 			return result;
 		}
 		result.add(new DomainLinkDescriptor(source, destination,
-				DomainElementTypes.RecipeRecipeConfig_304002,
-				RecipeRecipeConfigEditPart.VISUAL_ID));
+				DomainElementTypes.InfrastructureRecipeConfig_304004,
+				InfrastructureRecipeConfigEditPart.VISUAL_ID));
 		return result;
 	}
 

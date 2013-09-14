@@ -23,10 +23,13 @@ import recipe.diagram.edit.parts.Component2EditPart;
 import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
+import recipe.diagram.edit.parts.InfrastructureEditPart;
+import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import recipe.diagram.edit.parts.IngredientEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
-import recipe.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
 import recipe.diagram.edit.parts.TypeExtensionEditPart;
 import recipe.diagram.part.DomainDiagramEditorPlugin;
@@ -73,15 +76,23 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Component_303001 = getElementType("org.tura.metamodel.diagram.recipe.Component_303001"); //$NON-NLS-1$
+	public static final IElementType Infrastructure_302003 = getElementType("org.tura.metamodel.diagram.recipe.Infrastructure_302003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Component_303002 = getElementType("org.tura.metamodel.diagram.recipe.Component_303002"); //$NON-NLS-1$
+	public static final IElementType Ingredient_303005 = getElementType("org.tura.metamodel.diagram.recipe.Ingredient_303005"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Component_303006 = getElementType("org.tura.metamodel.diagram.recipe.Component_303006"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
 	public static final IElementType ModelMapper_303003 = getElementType("org.tura.metamodel.diagram.recipe.ModelMapper_303003"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Component_303002 = getElementType("org.tura.metamodel.diagram.recipe.Component_303002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -93,7 +104,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeRecipeConfig_304002 = getElementType("org.tura.metamodel.diagram.recipe.RecipeRecipeConfig_304002"); //$NON-NLS-1$
+	public static final IElementType RecipeInfrastructures_304005 = getElementType("org.tura.metamodel.diagram.recipe.RecipeInfrastructures_304005"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType InfrastructureRecipeConfig_304004 = getElementType("org.tura.metamodel.diagram.recipe.InfrastructureRecipeConfig_304004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -217,7 +232,13 @@ public class DomainElementTypes {
 			elements.put(Configuration_302002,
 					DomainPackage.eINSTANCE.getConfiguration());
 
-			elements.put(Component_303001,
+			elements.put(Infrastructure_302003,
+					DomainPackage.eINSTANCE.getInfrastructure());
+
+			elements.put(Ingredient_303005,
+					DomainPackage.eINSTANCE.getIngredient());
+
+			elements.put(Component_303006,
 					DomainPackage.eINSTANCE.getComponent());
 
 			elements.put(ModelMapper_303003,
@@ -231,8 +252,11 @@ public class DomainElementTypes {
 			elements.put(TypeExtension_304001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
-			elements.put(RecipeRecipeConfig_304002,
-					DomainPackage.eINSTANCE.getRecipe_RecipeConfig());
+			elements.put(RecipeInfrastructures_304005,
+					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
+
+			elements.put(InfrastructureRecipeConfig_304004,
+					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
 
 			elements.put(ConfigurationConfigExtension_304003,
 					DomainPackage.eINSTANCE.getConfiguration_ConfigExtension());
@@ -256,12 +280,15 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Recipes_301000);
 			KNOWN_ELEMENT_TYPES.add(Recipe_302001);
 			KNOWN_ELEMENT_TYPES.add(Configuration_302002);
-			KNOWN_ELEMENT_TYPES.add(Component_303001);
+			KNOWN_ELEMENT_TYPES.add(Infrastructure_302003);
+			KNOWN_ELEMENT_TYPES.add(Ingredient_303005);
+			KNOWN_ELEMENT_TYPES.add(Component_303006);
 			KNOWN_ELEMENT_TYPES.add(ModelMapper_303003);
 			KNOWN_ELEMENT_TYPES.add(Component_303002);
 			KNOWN_ELEMENT_TYPES.add(Property_303004);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_304001);
-			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_304002);
+			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_304005);
+			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_304004);
 			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_304003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -278,8 +305,12 @@ public class DomainElementTypes {
 			return Recipe_302001;
 		case ConfigurationEditPart.VISUAL_ID:
 			return Configuration_302002;
+		case InfrastructureEditPart.VISUAL_ID:
+			return Infrastructure_302003;
+		case IngredientEditPart.VISUAL_ID:
+			return Ingredient_303005;
 		case ComponentEditPart.VISUAL_ID:
-			return Component_303001;
+			return Component_303006;
 		case ModelMapperEditPart.VISUAL_ID:
 			return ModelMapper_303003;
 		case Component2EditPart.VISUAL_ID:
@@ -288,8 +319,10 @@ public class DomainElementTypes {
 			return Property_303004;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_304001;
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return RecipeRecipeConfig_304002;
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return RecipeInfrastructures_304005;
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return InfrastructureRecipeConfig_304004;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return ConfigurationConfigExtension_304003;
 		}

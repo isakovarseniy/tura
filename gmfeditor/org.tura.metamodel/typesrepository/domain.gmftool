@@ -62,6 +62,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="Infrastructures"
+          description="Create new Infrastructures">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="RecipeConfig"
           description="Create new RecipeConfig">
         <smallIcon

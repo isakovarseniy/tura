@@ -262,10 +262,25 @@ class Recipes{
     id attr EString uid;
   val Recipe#parent recipe;
   val Configuration[*] configurations;
+  val Infrastructure[*] infrastructures;
   ref ApplicationRecipe#recipes parent;
 }
 
 
+@gmf.node(label="name")
+class Ingredient{
+  id attr EString uid;
+  attr EString name;
+  ref Recipe#ingredients parent;
+  @gmf.compartment
+  val Component[*] components;
+  attr PlatformLayers layer;
+}
+
+enum PlatformLayers{
+   ServiceLayer = 0;
+   UILayer = 1;
+}
 
 @gmf.node(label="name")
 class Recipe{
@@ -273,12 +288,31 @@ class Recipe{
   ref Recipes#recipe parent;
   attr EString name;
   @gmf.compartment
-  val Component[*] components;
+  val Ingredient[*]#parent ingredients;
   @gmf.link(target.decoration="arrow", style="dash")
-  ref Configuration#recipe recipeConfig;
+  ref Infrastructure[*]#recipe infrastructures;
 }
 
+@gmf.node(label="name")
+class Infrastructure{
+  id attr EString uid;
+  ref Recipe#infrastructures recipe;
+  attr EString name;
+  @gmf.link(target.decoration="arrow", style="dash")
+  ref Configuration#infrastructure recipeConfig;
+}
 
+@gmf.node(label="name")
+class Configuration{
+    id attr EString uid;
+   attr EString name;
+   ref Infrastructure#recipeConfig infrastructure;
+   @gmf.compartment(layout="list")
+   val Property[*] properties; 
+  @gmf.link(style="dot", width="2" ,target.decoration="closedarrow")
+   ref Configuration#parent configExtension;
+   ref Configuration#configExtension parent;
+}
 @gmf.node(label="name")
 class Component{
     id attr EString uid;
@@ -297,17 +331,7 @@ class ModelMapper extends ArtifactRef{
    val MappingVariable[*] variables;
 }
 
-@gmf.node(label="name")
-class Configuration{
-    id attr EString uid;
-   attr EString name;
-   ref Recipe#recipeConfig recipe;
-   @gmf.compartment(layout="list")
-   val Property[*] properties; 
-  @gmf.link(style="dot", width="2" ,target.decoration="closedarrow")
-   ref Configuration#parent configExtension;
-   ref Configuration#configExtension parent;
-}
+
 
 @gmf.node(label="name")
 class Property{

@@ -69,6 +69,9 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ConfigVariable');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Parameter');
 delete tool;
-
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Infrastructure');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Ingredient');
+delete tool;
 --var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ConfigExtension');
 --delete tool;

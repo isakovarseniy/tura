@@ -28,9 +28,10 @@ import domain.diagram.edit.parts.DomainArtifactsEditPart;
 import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
+import domain.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
-import domain.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import domain.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 
@@ -80,17 +81,14 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ORMEntity_503003 = getElementType("org.tura.metamodel.diagram.domain.ORMEntity_503003"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType JPAService_503004 = getElementType("org.tura.metamodel.diagram.domain.JPAService_503004"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType EJBService_503005 = getElementType("org.tura.metamodel.diagram.domain.EJBService_503005"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
@@ -106,7 +104,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeRecipeConfig_504002 = getElementType("org.tura.metamodel.diagram.domain.RecipeRecipeConfig_504002"); //$NON-NLS-1$
+	public static final IElementType InfrastructureRecipeConfig_504004 = getElementType("org.tura.metamodel.diagram.domain.InfrastructureRecipeConfig_504004"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipeInfrastructures_504005 = getElementType("org.tura.metamodel.diagram.domain.RecipeInfrastructures_504005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -252,8 +254,11 @@ public class DomainElementTypes {
 			elements.put(TypeExtension_504001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
-			elements.put(RecipeRecipeConfig_504002,
-					DomainPackage.eINSTANCE.getRecipe_RecipeConfig());
+			elements.put(RecipeInfrastructures_504005,
+					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
+
+			elements.put(InfrastructureRecipeConfig_504004,
+					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
 
 			elements.put(ConfigurationConfigExtension_504003,
 					DomainPackage.eINSTANCE.getConfiguration_ConfigExtension());
@@ -284,7 +289,8 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(DomainArtifact_503002);
 			KNOWN_ELEMENT_TYPES.add(DomainApplication_503001);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_504001);
-			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_504002);
+			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_504005);
+			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_504004);
 			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_504003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -315,8 +321,10 @@ public class DomainElementTypes {
 			return DomainApplication_503001;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_504001;
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return RecipeRecipeConfig_504002;
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return RecipeInfrastructures_504005;
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return InfrastructureRecipeConfig_504004;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return ConfigurationConfigExtension_504003;
 		}

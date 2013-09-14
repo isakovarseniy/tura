@@ -17,7 +17,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import domain.Component;
 import domain.DomainFactory;
-import domain.Recipe;
+import domain.Ingredient;
 
 /**
  * @generated
@@ -59,7 +59,7 @@ public class ComponentCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		Component newElement = DomainFactory.eINSTANCE.createComponent();
 
-		Recipe owner = (Recipe) getElementToEdit();
+		Ingredient owner = (Ingredient) getElementToEdit();
 		owner.getComponents().add(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());

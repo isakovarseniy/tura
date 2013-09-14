@@ -135,6 +135,7 @@ public class RecipesItemProvider
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.RECIPES__RECIPE);
       childrenFeatures.add(DomainPackage.Literals.RECIPES__CONFIGURATIONS);
+      childrenFeatures.add(DomainPackage.Literals.RECIPES__INFRASTRUCTURES);
     }
     return childrenFeatures;
   }
@@ -199,6 +200,7 @@ public class RecipesItemProvider
         return;
       case DomainPackage.RECIPES__RECIPE:
       case DomainPackage.RECIPES__CONFIGURATIONS:
+      case DomainPackage.RECIPES__INFRASTRUCTURES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -226,6 +228,11 @@ public class RecipesItemProvider
       (createChildParameter
         (DomainPackage.Literals.RECIPES__CONFIGURATIONS,
          DomainFactory.eINSTANCE.createConfiguration()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.RECIPES__INFRASTRUCTURES,
+         DomainFactory.eINSTANCE.createInfrastructure()));
   }
 
   /**

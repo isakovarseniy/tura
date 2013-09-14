@@ -29,8 +29,10 @@ import recipe.diagram.edit.parts.ComponentComponentComponentsCompartment2EditPar
 import recipe.diagram.edit.parts.ComponentComponentComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
+import recipe.diagram.edit.parts.InfrastructureEditPart;
+import recipe.diagram.edit.parts.IngredientIngredientComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
-import recipe.diagram.edit.parts.RecipeRecipeComponentsCompartmentEditPart;
+import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
 import recipe.diagram.part.DomainDiagramEditorPlugin;
 import recipe.diagram.part.Messages;
@@ -47,9 +49,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof RecipesEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 			types.add(DomainElementTypes.Recipe_302001);
 			types.add(DomainElementTypes.Configuration_302002);
+			types.add(DomainElementTypes.Infrastructure_302003);
 			return types;
 		}
 		if (editPart instanceof ConfigurationEditPart) {
@@ -67,9 +70,14 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.ModelMapper_303003);
 			return types;
 		}
-		if (editPart instanceof RecipeRecipeComponentsCompartmentEditPart) {
+		if (editPart instanceof RecipeRecipeIngredientsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Component_303001);
+			types.add(DomainElementTypes.Ingredient_303005);
+			return types;
+		}
+		if (editPart instanceof IngredientIngredientComponentsCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.Component_303006);
 			return types;
 		}
 		if (editPart instanceof ComponentComponentComponentsCompartmentEditPart) {
@@ -98,6 +106,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((ConfigurationEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
+		if (sourceEditPart instanceof InfrastructureEditPart) {
+			return ((InfrastructureEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -109,6 +121,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (targetEditPart instanceof ConfigurationEditPart) {
 			return ((ConfigurationEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof InfrastructureEditPart) {
+			return ((InfrastructureEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
 		return Collections.EMPTY_LIST;
@@ -131,6 +147,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((ConfigurationEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
+		if (sourceEditPart instanceof InfrastructureEditPart) {
+			return ((InfrastructureEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -143,6 +163,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (targetEditPart instanceof ConfigurationEditPart) {
 			return ((ConfigurationEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof InfrastructureEditPart) {
+			return ((InfrastructureEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;
@@ -161,6 +185,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (sourceEditPart instanceof ConfigurationEditPart) {
 			return ((ConfigurationEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof InfrastructureEditPart) {
+			return ((InfrastructureEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

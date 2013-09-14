@@ -5,6 +5,8 @@ package domain.impl;
 import domain.Component;
 import domain.Configuration;
 import domain.DomainPackage;
+import domain.Infrastructure;
+import domain.Ingredient;
 import domain.Recipe;
 import domain.Recipes;
 
@@ -21,7 +23,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,8 +40,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.RecipeImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.RecipeImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link domain.impl.RecipeImpl#getRecipeConfig <em>Recipe Config</em>}</li>
+ *   <li>{@link domain.impl.RecipeImpl#getIngredients <em>Ingredients</em>}</li>
+ *   <li>{@link domain.impl.RecipeImpl#getInfrastructures <em>Infrastructures</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,24 +90,24 @@ public class RecipeImpl extends EObjectImpl implements Recipe
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
+   * The cached value of the '{@link #getIngredients() <em>Ingredients</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getComponents()
+   * @see #getIngredients()
    * @generated
    * @ordered
    */
-  protected EList<Component> components;
+  protected EList<Ingredient> ingredients;
 
   /**
-   * The cached value of the '{@link #getRecipeConfig() <em>Recipe Config</em>}' reference.
+   * The cached value of the '{@link #getInfrastructures() <em>Infrastructures</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRecipeConfig()
+   * @see #getInfrastructures()
    * @generated
    * @ordered
    */
-  protected Configuration recipeConfig;
+  protected EList<Infrastructure> infrastructures;
 
   /**
    * <!-- begin-user-doc -->
@@ -221,13 +226,13 @@ public class RecipeImpl extends EObjectImpl implements Recipe
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Component> getComponents()
+  public EList<Ingredient> getIngredients()
   {
-    if (components == null)
+    if (ingredients == null)
     {
-      components = new EObjectContainmentEList<Component>(Component.class, this, DomainPackage.RECIPE__COMPONENTS);
+      ingredients = new EObjectContainmentWithInverseEList<Ingredient>(Ingredient.class, this, DomainPackage.RECIPE__INGREDIENTS, DomainPackage.INGREDIENT__PARENT);
     }
-    return components;
+    return ingredients;
   }
 
   /**
@@ -235,19 +240,13 @@ public class RecipeImpl extends EObjectImpl implements Recipe
    * <!-- end-user-doc -->
    * @generated
    */
-  public Configuration getRecipeConfig()
+  public EList<Infrastructure> getInfrastructures()
   {
-    if (recipeConfig != null && recipeConfig.eIsProxy())
+    if (infrastructures == null)
     {
-      InternalEObject oldRecipeConfig = (InternalEObject)recipeConfig;
-      recipeConfig = (Configuration)eResolveProxy(oldRecipeConfig);
-      if (recipeConfig != oldRecipeConfig)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.RECIPE__RECIPE_CONFIG, oldRecipeConfig, recipeConfig));
-      }
+      infrastructures = new EObjectWithInverseResolvingEList<Infrastructure>(Infrastructure.class, this, DomainPackage.RECIPE__INFRASTRUCTURES, DomainPackage.INFRASTRUCTURE__RECIPE);
     }
-    return recipeConfig;
+    return infrastructures;
   }
 
   /**
@@ -255,54 +254,7 @@ public class RecipeImpl extends EObjectImpl implements Recipe
    * <!-- end-user-doc -->
    * @generated
    */
-  public Configuration basicGetRecipeConfig()
-  {
-    return recipeConfig;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRecipeConfig(Configuration newRecipeConfig, NotificationChain msgs)
-  {
-    Configuration oldRecipeConfig = recipeConfig;
-    recipeConfig = newRecipeConfig;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPE__RECIPE_CONFIG, oldRecipeConfig, newRecipeConfig);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRecipeConfig(Configuration newRecipeConfig)
-  {
-    if (newRecipeConfig != recipeConfig)
-    {
-      NotificationChain msgs = null;
-      if (recipeConfig != null)
-        msgs = ((InternalEObject)recipeConfig).eInverseRemove(this, DomainPackage.CONFIGURATION__RECIPE, Configuration.class, msgs);
-      if (newRecipeConfig != null)
-        msgs = ((InternalEObject)newRecipeConfig).eInverseAdd(this, DomainPackage.CONFIGURATION__RECIPE, Configuration.class, msgs);
-      msgs = basicSetRecipeConfig(newRecipeConfig, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPE__RECIPE_CONFIG, newRecipeConfig, newRecipeConfig));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
+  @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -312,10 +264,10 @@ public class RecipeImpl extends EObjectImpl implements Recipe
         if (eInternalContainer() != null)
           msgs = eBasicRemoveFromContainer(msgs);
         return basicSetParent((Recipes)otherEnd, msgs);
-      case DomainPackage.RECIPE__RECIPE_CONFIG:
-        if (recipeConfig != null)
-          msgs = ((InternalEObject)recipeConfig).eInverseRemove(this, DomainPackage.CONFIGURATION__RECIPE, Configuration.class, msgs);
-        return basicSetRecipeConfig((Configuration)otherEnd, msgs);
+      case DomainPackage.RECIPE__INGREDIENTS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getIngredients()).basicAdd(otherEnd, msgs);
+      case DomainPackage.RECIPE__INFRASTRUCTURES:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getInfrastructures()).basicAdd(otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
   }
@@ -332,10 +284,10 @@ public class RecipeImpl extends EObjectImpl implements Recipe
     {
       case DomainPackage.RECIPE__PARENT:
         return basicSetParent(null, msgs);
-      case DomainPackage.RECIPE__COMPONENTS:
-        return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
-      case DomainPackage.RECIPE__RECIPE_CONFIG:
-        return basicSetRecipeConfig(null, msgs);
+      case DomainPackage.RECIPE__INGREDIENTS:
+        return ((InternalEList<?>)getIngredients()).basicRemove(otherEnd, msgs);
+      case DomainPackage.RECIPE__INFRASTRUCTURES:
+        return ((InternalEList<?>)getInfrastructures()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -372,11 +324,10 @@ public class RecipeImpl extends EObjectImpl implements Recipe
         return getParent();
       case DomainPackage.RECIPE__NAME:
         return getName();
-      case DomainPackage.RECIPE__COMPONENTS:
-        return getComponents();
-      case DomainPackage.RECIPE__RECIPE_CONFIG:
-        if (resolve) return getRecipeConfig();
-        return basicGetRecipeConfig();
+      case DomainPackage.RECIPE__INGREDIENTS:
+        return getIngredients();
+      case DomainPackage.RECIPE__INFRASTRUCTURES:
+        return getInfrastructures();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -401,12 +352,13 @@ public class RecipeImpl extends EObjectImpl implements Recipe
       case DomainPackage.RECIPE__NAME:
         setName((String)newValue);
         return;
-      case DomainPackage.RECIPE__COMPONENTS:
-        getComponents().clear();
-        getComponents().addAll((Collection<? extends Component>)newValue);
+      case DomainPackage.RECIPE__INGREDIENTS:
+        getIngredients().clear();
+        getIngredients().addAll((Collection<? extends Ingredient>)newValue);
         return;
-      case DomainPackage.RECIPE__RECIPE_CONFIG:
-        setRecipeConfig((Configuration)newValue);
+      case DomainPackage.RECIPE__INFRASTRUCTURES:
+        getInfrastructures().clear();
+        getInfrastructures().addAll((Collection<? extends Infrastructure>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -431,11 +383,11 @@ public class RecipeImpl extends EObjectImpl implements Recipe
       case DomainPackage.RECIPE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DomainPackage.RECIPE__COMPONENTS:
-        getComponents().clear();
+      case DomainPackage.RECIPE__INGREDIENTS:
+        getIngredients().clear();
         return;
-      case DomainPackage.RECIPE__RECIPE_CONFIG:
-        setRecipeConfig((Configuration)null);
+      case DomainPackage.RECIPE__INFRASTRUCTURES:
+        getInfrastructures().clear();
         return;
     }
     super.eUnset(featureID);
@@ -457,10 +409,10 @@ public class RecipeImpl extends EObjectImpl implements Recipe
         return getParent() != null;
       case DomainPackage.RECIPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.RECIPE__COMPONENTS:
-        return components != null && !components.isEmpty();
-      case DomainPackage.RECIPE__RECIPE_CONFIG:
-        return recipeConfig != null;
+      case DomainPackage.RECIPE__INGREDIENTS:
+        return ingredients != null && !ingredients.isEmpty();
+      case DomainPackage.RECIPE__INFRASTRUCTURES:
+        return infrastructures != null && !infrastructures.isEmpty();
     }
     return super.eIsSet(featureID);
   }

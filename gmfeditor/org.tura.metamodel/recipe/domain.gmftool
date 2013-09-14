@@ -30,6 +30,24 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="Infrastructure"
+          description="Create new Infrastructure">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Ingredient"
+          description="Create new Ingredient">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="ModelMapper"
           description="Create new ModelMapper">
         <smallIcon
@@ -64,6 +82,15 @@
           xsi:type="gmftool:CreationTool"
           title="ConfigExtension"
           description="Create new ConfigExtension">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Infrastructures"
+          description="Create new Infrastructures">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

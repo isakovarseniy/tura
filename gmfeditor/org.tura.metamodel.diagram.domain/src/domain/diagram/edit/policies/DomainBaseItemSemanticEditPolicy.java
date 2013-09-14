@@ -36,6 +36,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
 import domain.Configuration;
+import domain.Infrastructure;
 import domain.Recipe;
 import domain.Type;
 import domain.TypeElement;
@@ -343,10 +344,27 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateRecipeRecipeConfig_504002(Recipe source,
-				Configuration target) {
+		public boolean canCreateInfrastructureRecipeConfig_504004(
+				Infrastructure source, Configuration target) {
 			if (source != null) {
 				if (source.getRecipeConfig() != null) {
+					return false;
+				}
+			}
+			if (target != null && (target.getInfrastructure() != null)) {
+				return false;
+			}
+
+			return canExistInfrastructureRecipeConfig_504004(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateRecipeInfrastructures_504005(Recipe source,
+				Infrastructure target) {
+			if (source != null) {
+				if (source.getInfrastructures().contains(target)) {
 					return false;
 				}
 			}
@@ -354,7 +372,7 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistRecipeRecipeConfig_504002(source, target);
+			return canExistRecipeInfrastructures_504005(source, target);
 		}
 
 		/**
@@ -386,8 +404,16 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistRecipeRecipeConfig_504002(Recipe source,
-				Configuration target) {
+		public boolean canExistInfrastructureRecipeConfig_504004(
+				Infrastructure source, Configuration target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistRecipeInfrastructures_504005(Recipe source,
+				Infrastructure target) {
 			return true;
 		}
 

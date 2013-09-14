@@ -40,6 +40,18 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ConfigurationNameEditPart.VISUAL_ID:
 				return new ConfigurationNameEditPart(view);
 
+			case InfrastructureEditPart.VISUAL_ID:
+				return new InfrastructureEditPart(view);
+
+			case InfrastructureNameEditPart.VISUAL_ID:
+				return new InfrastructureNameEditPart(view);
+
+			case IngredientEditPart.VISUAL_ID:
+				return new IngredientEditPart(view);
+
+			case IngredientNameEditPart.VISUAL_ID:
+				return new IngredientNameEditPart(view);
+
 			case ComponentEditPart.VISUAL_ID:
 				return new ComponentEditPart(view);
 
@@ -64,8 +76,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case PropertyNameEditPart.VISUAL_ID:
 				return new PropertyNameEditPart(view);
 
-			case RecipeRecipeComponentsCompartmentEditPart.VISUAL_ID:
-				return new RecipeRecipeComponentsCompartmentEditPart(view);
+			case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
+				return new RecipeRecipeIngredientsCompartmentEditPart(view);
+
+			case IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID:
+				return new IngredientIngredientComponentsCompartmentEditPart(
+						view);
 
 			case ComponentComponentComponentsCompartmentEditPart.VISUAL_ID:
 				return new ComponentComponentComponentsCompartmentEditPart(view);
@@ -87,17 +103,23 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case TypeExtensionEditPart.VISUAL_ID:
 				return new TypeExtensionEditPart(view);
 
-			case RecipeRecipeConfigEditPart.VISUAL_ID:
-				return new RecipeRecipeConfigEditPart(view);
+			case RecipeInfrastructuresEditPart.VISUAL_ID:
+				return new RecipeInfrastructuresEditPart(view);
 
 			case WrappingLabelEditPart.VISUAL_ID:
 				return new WrappingLabelEditPart(view);
 
-			case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-				return new ConfigurationConfigExtensionEditPart(view);
+			case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+				return new InfrastructureRecipeConfigEditPart(view);
 
 			case WrappingLabel2EditPart.VISUAL_ID:
 				return new WrappingLabel2EditPart(view);
+
+			case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+				return new ConfigurationConfigExtensionEditPart(view);
+
+			case WrappingLabel3EditPart.VISUAL_ID:
+				return new WrappingLabel3EditPart(view);
 
 			}
 		}

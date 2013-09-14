@@ -13,8 +13,8 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
-
 import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
+
 import domain.diagram.edit.policies.DomainArtifactsDomainArtifactsDomainArtifactCompartmentCanonicalEditPolicy;
 import domain.diagram.edit.policies.DomainArtifactsDomainArtifactsDomainArtifactCompartmentItemSemanticEditPolicy;
 import domain.diagram.part.DomainVisualIDRegistry;

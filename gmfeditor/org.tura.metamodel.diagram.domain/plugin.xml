@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Domain"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="502001,502002,502003,503003,503004,503005,503002,503001"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="504001,504002,504003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="504001,504005,504004,504003"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="502001,502002,502003,503003,503004,503005,503002,503001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="504001,504002,504003"/>
+            <method name="getType()" value="504001,504005,504004,504003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="505001,505002,505004,505006,505007,505008,505005,505003"/>
@@ -427,11 +427,20 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
-               id="org.tura.metamodel.diagram.domain.RecipeRecipeConfig_504002"
-               name="%metatype.name.RecipeRecipeConfig_504002"
+               id="org.tura.metamodel.diagram.domain.RecipeInfrastructures_504005"
+               name="%metatype.name.RecipeInfrastructures_504005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="504002"/>
+            <param name="semanticHint" value="504005"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.diagram.domain.InfrastructureRecipeConfig_504004"
+               name="%metatype.name.InfrastructureRecipeConfig_504004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="504004"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -469,7 +478,8 @@
          <elementType ref="org.tura.metamodel.diagram.domain.DomainArtifact_503002"/>
          <elementType ref="org.tura.metamodel.diagram.domain.DomainApplication_503001"/>
          <elementType ref="org.tura.metamodel.diagram.domain.TypeExtension_504001"/>
-         <elementType ref="org.tura.metamodel.diagram.domain.RecipeRecipeConfig_504002"/>
+         <elementType ref="org.tura.metamodel.diagram.domain.RecipeInfrastructures_504005"/>
+         <elementType ref="org.tura.metamodel.diagram.domain.InfrastructureRecipeConfig_504004"/>
          <elementType ref="org.tura.metamodel.diagram.domain.ConfigurationConfigExtension_504003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>

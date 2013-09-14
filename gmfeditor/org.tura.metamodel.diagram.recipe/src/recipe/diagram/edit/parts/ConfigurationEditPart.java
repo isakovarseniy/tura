@@ -326,7 +326,7 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(DomainElementTypes.RecipeRecipeConfig_304002);
+		types.add(DomainElementTypes.InfrastructureRecipeConfig_304004);
 		types.add(DomainElementTypes.ConfigurationConfigExtension_304003);
 		return types;
 	}
@@ -336,8 +336,8 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.RecipeRecipeConfig_304002) {
-			types.add(DomainElementTypes.Recipe_302001);
+		if (relationshipType == DomainElementTypes.InfrastructureRecipeConfig_304004) {
+			types.add(DomainElementTypes.Infrastructure_302003);
 		} else if (relationshipType == DomainElementTypes.ConfigurationConfigExtension_304003) {
 			types.add(DomainElementTypes.Configuration_302002);
 		}

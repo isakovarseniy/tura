@@ -61,7 +61,7 @@ public class ComponentNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 305003;
+	public static final int VISUAL_ID = 305008;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class ComponentNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.Component_303001,
+							DomainElementTypes.Component_303006,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(recipe.diagram.edit.parts.ComponentNameEditPart.VISUAL_ID));

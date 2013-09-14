@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Recipe#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Recipe#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Recipe#getName <em>Name</em>}</li>
- *   <li>{@link domain.Recipe#getComponents <em>Components</em>}</li>
- *   <li>{@link domain.Recipe#getRecipeConfig <em>Recipe Config</em>}</li>
+ *   <li>{@link domain.Recipe#getIngredients <em>Ingredients</em>}</li>
+ *   <li>{@link domain.Recipe#getInfrastructures <em>Infrastructures</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,48 +109,40 @@ public interface Recipe extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Components</b></em>' containment reference list.
-   * The list contents are of type {@link domain.Component}.
+   * Returns the value of the '<em><b>Ingredients</b></em>' containment reference list.
+   * The list contents are of type {@link domain.Ingredient}.
+   * It is bidirectional and its opposite is '{@link domain.Ingredient#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Components</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Ingredients</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Components</em>' containment reference list.
-   * @see domain.DomainPackage#getRecipe_Components()
-   * @model containment="true"
+   * @return the value of the '<em>Ingredients</em>' containment reference list.
+   * @see domain.DomainPackage#getRecipe_Ingredients()
+   * @see domain.Ingredient#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
-  EList<Component> getComponents();
+  EList<Ingredient> getIngredients();
 
   /**
-   * Returns the value of the '<em><b>Recipe Config</b></em>' reference.
-   * It is bidirectional and its opposite is '{@link domain.Configuration#getRecipe <em>Recipe</em>}'.
+   * Returns the value of the '<em><b>Infrastructures</b></em>' reference list.
+   * The list contents are of type {@link domain.Infrastructure}.
+   * It is bidirectional and its opposite is '{@link domain.Infrastructure#getRecipe <em>Recipe</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Recipe Config</em>' reference isn't clear,
+   * If the meaning of the '<em>Infrastructures</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Recipe Config</em>' reference.
-   * @see #setRecipeConfig(Configuration)
-   * @see domain.DomainPackage#getRecipe_RecipeConfig()
-   * @see domain.Configuration#getRecipe
+   * @return the value of the '<em>Infrastructures</em>' reference list.
+   * @see domain.DomainPackage#getRecipe_Infrastructures()
+   * @see domain.Infrastructure#getRecipe
    * @model opposite="recipe"
    *        annotation="gmf.link target.decoration='arrow' style='dash'"
    * @generated
    */
-  Configuration getRecipeConfig();
-
-  /**
-   * Sets the value of the '{@link domain.Recipe#getRecipeConfig <em>Recipe Config</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Recipe Config</em>' reference.
-   * @see #getRecipeConfig()
-   * @generated
-   */
-  void setRecipeConfig(Configuration value);
+  EList<Infrastructure> getInfrastructures();
 
 } // Recipe

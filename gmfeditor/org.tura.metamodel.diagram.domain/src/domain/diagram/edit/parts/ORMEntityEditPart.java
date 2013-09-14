@@ -5,11 +5,9 @@ package domain.diagram.edit.parts;
 
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -255,19 +253,9 @@ public class ORMEntityEditPart extends ShapeNodeEditPart {
 				.getType(ORMEntityNameEditPart.VISUAL_ID));
 	}
 
-	/**
-	 * @generated
-	 */
 	public class ORMEntityFigure extends RoundedRectangle {
-
-		/**
-		 * @generated
-		 */
 		private WrappingLabel fFigureORMEntityLabelFigure;
 
-		/**
-		 * @generated
-		 */
 		public ORMEntityFigure() {
 			FlowLayout layoutThis = new FlowLayout();
 			layoutThis.setStretchMinorAxis(false);
@@ -280,22 +268,15 @@ public class ORMEntityEditPart extends ShapeNodeEditPart {
 			createContents();
 		}
 
-		/**
-		 * @generated
-		 */
 		private void createContents() {
 			fFigureORMEntityLabelFigure = new WrappingLabel();
 			fFigureORMEntityLabelFigure.setText("Application");
 			this.add(fFigureORMEntityLabelFigure);
 		}
 
-		/**
-		 * @generated
-		 */
 		public WrappingLabel getFigureORMEntityLabelFigure() {
 			return fFigureORMEntityLabelFigure;
 		}
-
 	}
 
 }

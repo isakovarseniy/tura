@@ -37,6 +37,8 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import recipe.diagram.edit.parts.Component2EditPart;
 import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
+import recipe.diagram.edit.parts.InfrastructureEditPart;
+import recipe.diagram.edit.parts.IngredientEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
@@ -80,6 +82,8 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getRecipes_Recipe());
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getRecipes_Configurations());
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getRecipes_Infrastructures());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -117,7 +121,8 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		return visualID == RecipeEditPart.VISUAL_ID
-				|| visualID == ConfigurationEditPart.VISUAL_ID;
+				|| visualID == ConfigurationEditPart.VISUAL_ID
+				|| visualID == InfrastructureEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -302,10 +307,26 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
+		case InfrastructureEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getInfrastructure_302003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case IngredientEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getIngredient_303005ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
 		case ComponentEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getComponent_303001ContainedLinks(view));
+						.getComponent_303006ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

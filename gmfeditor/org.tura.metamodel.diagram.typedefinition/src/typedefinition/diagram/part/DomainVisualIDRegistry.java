@@ -18,13 +18,14 @@ import typedefinition.diagram.edit.parts.EnumAttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
+import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
 import typedefinition.diagram.edit.parts.ParameterEditPart;
 import typedefinition.diagram.edit.parts.ParameterNameEditPart;
-import typedefinition.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.ReturnValuePackageNameTypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
@@ -36,6 +37,7 @@ import typedefinition.diagram.edit.parts.TypeReferencePackageNameTypeNameEditPar
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
 import typedefinition.diagram.edit.parts.WrappingLabel2EditPart;
+import typedefinition.diagram.edit.parts.WrappingLabel3EditPart;
 import typedefinition.diagram.edit.parts.WrappingLabelEditPart;
 import domain.DomainPackage;
 import domain.TypeDefinition;
@@ -309,13 +311,18 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

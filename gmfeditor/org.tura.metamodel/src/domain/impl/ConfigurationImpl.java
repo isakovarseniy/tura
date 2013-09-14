@@ -4,6 +4,7 @@ package domain.impl;
 
 import domain.Configuration;
 import domain.DomainPackage;
+import domain.Infrastructure;
 import domain.Property;
 
 import domain.Recipe;
@@ -32,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.ConfigurationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.ConfigurationImpl#getRecipe <em>Recipe</em>}</li>
+ *   <li>{@link domain.impl.ConfigurationImpl#getInfrastructure <em>Infrastructure</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getConfigExtension <em>Config Extension</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getParent <em>Parent</em>}</li>
@@ -84,14 +85,14 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRecipe() <em>Recipe</em>}' reference.
+   * The cached value of the '{@link #getInfrastructure() <em>Infrastructure</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRecipe()
+   * @see #getInfrastructure()
    * @generated
    * @ordered
    */
-  protected Recipe recipe;
+  protected Infrastructure infrastructure;
 
   /**
    * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
@@ -195,19 +196,19 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
    * <!-- end-user-doc -->
    * @generated
    */
-  public Recipe getRecipe()
+  public Infrastructure getInfrastructure()
   {
-    if (recipe != null && recipe.eIsProxy())
+    if (infrastructure != null && infrastructure.eIsProxy())
     {
-      InternalEObject oldRecipe = (InternalEObject)recipe;
-      recipe = (Recipe)eResolveProxy(oldRecipe);
-      if (recipe != oldRecipe)
+      InternalEObject oldInfrastructure = (InternalEObject)infrastructure;
+      infrastructure = (Infrastructure)eResolveProxy(oldInfrastructure);
+      if (infrastructure != oldInfrastructure)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CONFIGURATION__RECIPE, oldRecipe, recipe));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CONFIGURATION__INFRASTRUCTURE, oldInfrastructure, infrastructure));
       }
     }
-    return recipe;
+    return infrastructure;
   }
 
   /**
@@ -215,9 +216,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
    * <!-- end-user-doc -->
    * @generated
    */
-  public Recipe basicGetRecipe()
+  public Infrastructure basicGetInfrastructure()
   {
-    return recipe;
+    return infrastructure;
   }
 
   /**
@@ -225,13 +226,13 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRecipe(Recipe newRecipe, NotificationChain msgs)
+  public NotificationChain basicSetInfrastructure(Infrastructure newInfrastructure, NotificationChain msgs)
   {
-    Recipe oldRecipe = recipe;
-    recipe = newRecipe;
+    Infrastructure oldInfrastructure = infrastructure;
+    infrastructure = newInfrastructure;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__RECIPE, oldRecipe, newRecipe);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__INFRASTRUCTURE, oldInfrastructure, newInfrastructure);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -242,20 +243,20 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRecipe(Recipe newRecipe)
+  public void setInfrastructure(Infrastructure newInfrastructure)
   {
-    if (newRecipe != recipe)
+    if (newInfrastructure != infrastructure)
     {
       NotificationChain msgs = null;
-      if (recipe != null)
-        msgs = ((InternalEObject)recipe).eInverseRemove(this, DomainPackage.RECIPE__RECIPE_CONFIG, Recipe.class, msgs);
-      if (newRecipe != null)
-        msgs = ((InternalEObject)newRecipe).eInverseAdd(this, DomainPackage.RECIPE__RECIPE_CONFIG, Recipe.class, msgs);
-      msgs = basicSetRecipe(newRecipe, msgs);
+      if (infrastructure != null)
+        msgs = ((InternalEObject)infrastructure).eInverseRemove(this, DomainPackage.INFRASTRUCTURE__RECIPE_CONFIG, Infrastructure.class, msgs);
+      if (newInfrastructure != null)
+        msgs = ((InternalEObject)newInfrastructure).eInverseAdd(this, DomainPackage.INFRASTRUCTURE__RECIPE_CONFIG, Infrastructure.class, msgs);
+      msgs = basicSetInfrastructure(newInfrastructure, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__RECIPE, newRecipe, newRecipe));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__INFRASTRUCTURE, newInfrastructure, newInfrastructure));
   }
 
   /**
@@ -418,10 +419,10 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
   {
     switch (featureID)
     {
-      case DomainPackage.CONFIGURATION__RECIPE:
-        if (recipe != null)
-          msgs = ((InternalEObject)recipe).eInverseRemove(this, DomainPackage.RECIPE__RECIPE_CONFIG, Recipe.class, msgs);
-        return basicSetRecipe((Recipe)otherEnd, msgs);
+      case DomainPackage.CONFIGURATION__INFRASTRUCTURE:
+        if (infrastructure != null)
+          msgs = ((InternalEObject)infrastructure).eInverseRemove(this, DomainPackage.INFRASTRUCTURE__RECIPE_CONFIG, Infrastructure.class, msgs);
+        return basicSetInfrastructure((Infrastructure)otherEnd, msgs);
       case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
         if (configExtension != null)
           msgs = ((InternalEObject)configExtension).eInverseRemove(this, DomainPackage.CONFIGURATION__PARENT, Configuration.class, msgs);
@@ -444,8 +445,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
   {
     switch (featureID)
     {
-      case DomainPackage.CONFIGURATION__RECIPE:
-        return basicSetRecipe(null, msgs);
+      case DomainPackage.CONFIGURATION__INFRASTRUCTURE:
+        return basicSetInfrastructure(null, msgs);
       case DomainPackage.CONFIGURATION__PROPERTIES:
         return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
       case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
@@ -470,9 +471,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
         return getUid();
       case DomainPackage.CONFIGURATION__NAME:
         return getName();
-      case DomainPackage.CONFIGURATION__RECIPE:
-        if (resolve) return getRecipe();
-        return basicGetRecipe();
+      case DomainPackage.CONFIGURATION__INFRASTRUCTURE:
+        if (resolve) return getInfrastructure();
+        return basicGetInfrastructure();
       case DomainPackage.CONFIGURATION__PROPERTIES:
         return getProperties();
       case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
@@ -502,8 +503,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
       case DomainPackage.CONFIGURATION__NAME:
         setName((String)newValue);
         return;
-      case DomainPackage.CONFIGURATION__RECIPE:
-        setRecipe((Recipe)newValue);
+      case DomainPackage.CONFIGURATION__INFRASTRUCTURE:
+        setInfrastructure((Infrastructure)newValue);
         return;
       case DomainPackage.CONFIGURATION__PROPERTIES:
         getProperties().clear();
@@ -535,8 +536,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
       case DomainPackage.CONFIGURATION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DomainPackage.CONFIGURATION__RECIPE:
-        setRecipe((Recipe)null);
+      case DomainPackage.CONFIGURATION__INFRASTRUCTURE:
+        setInfrastructure((Infrastructure)null);
         return;
       case DomainPackage.CONFIGURATION__PROPERTIES:
         getProperties().clear();
@@ -565,8 +566,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.CONFIGURATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.CONFIGURATION__RECIPE:
-        return recipe != null;
+      case DomainPackage.CONFIGURATION__INFRASTRUCTURE:
+        return infrastructure != null;
       case DomainPackage.CONFIGURATION__PROPERTIES:
         return properties != null && !properties.isEmpty();
       case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:

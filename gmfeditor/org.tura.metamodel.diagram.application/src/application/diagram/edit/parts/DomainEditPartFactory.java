@@ -63,17 +63,23 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case TypeExtensionEditPart.VISUAL_ID:
 				return new TypeExtensionEditPart(view);
 
-			case RecipeRecipeConfigEditPart.VISUAL_ID:
-				return new RecipeRecipeConfigEditPart(view);
+			case RecipeInfrastructuresEditPart.VISUAL_ID:
+				return new RecipeInfrastructuresEditPart(view);
 
 			case WrappingLabelEditPart.VISUAL_ID:
 				return new WrappingLabelEditPart(view);
 
-			case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-				return new ConfigurationConfigExtensionEditPart(view);
+			case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+				return new InfrastructureRecipeConfigEditPart(view);
 
 			case WrappingLabel2EditPart.VISUAL_ID:
 				return new WrappingLabel2EditPart(view);
+
+			case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+				return new ConfigurationConfigExtensionEditPart(view);
+
+			case WrappingLabel3EditPart.VISUAL_ID:
+				return new WrappingLabel3EditPart(view);
 
 			}
 		}

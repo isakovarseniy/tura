@@ -23,9 +23,10 @@ import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
+import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.ParameterEditPart;
-import typedefinition.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
@@ -103,7 +104,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeRecipeConfig_104002 = getElementType("org.tura.metamodel.diagram.typedefinition.RecipeRecipeConfig_104002"); //$NON-NLS-1$
+	public static final IElementType InfrastructureRecipeConfig_104004 = getElementType("org.tura.metamodel.diagram.typedefinition.InfrastructureRecipeConfig_104004"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipeInfrastructures_104005 = getElementType("org.tura.metamodel.diagram.typedefinition.RecipeInfrastructures_104005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -249,8 +254,11 @@ public class DomainElementTypes {
 			elements.put(TypeExtension_104001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
-			elements.put(RecipeRecipeConfig_104002,
-					DomainPackage.eINSTANCE.getRecipe_RecipeConfig());
+			elements.put(RecipeInfrastructures_104005,
+					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
+
+			elements.put(InfrastructureRecipeConfig_104004,
+					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
 
 			elements.put(ConfigurationConfigExtension_104003,
 					DomainPackage.eINSTANCE.getConfiguration_ConfigExtension());
@@ -281,7 +289,8 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ReturnValue_103004);
 			KNOWN_ELEMENT_TYPES.add(EnumAttribute_103005);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_104001);
-			KNOWN_ELEMENT_TYPES.add(RecipeRecipeConfig_104002);
+			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_104005);
+			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_104004);
 			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_104003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -312,8 +321,10 @@ public class DomainElementTypes {
 			return EnumAttribute_103005;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_104001;
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return RecipeRecipeConfig_104002;
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return RecipeInfrastructures_104005;
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return InfrastructureRecipeConfig_104004;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return ConfigurationConfigExtension_104003;
 		}

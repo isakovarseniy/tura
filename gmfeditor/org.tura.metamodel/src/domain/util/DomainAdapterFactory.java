@@ -29,6 +29,8 @@ import domain.DomainTypes;
 import domain.EJBService;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.Infrastructure;
+import domain.Ingredient;
 import domain.InsertMethod;
 import domain.JPAService;
 import domain.JavaMapper;
@@ -297,9 +299,24 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createRecipesAdapter();
       }
       @Override
+      public Adapter caseIngredient(Ingredient object)
+      {
+        return createIngredientAdapter();
+      }
+      @Override
       public Adapter caseRecipe(Recipe object)
       {
         return createRecipeAdapter();
+      }
+      @Override
+      public Adapter caseInfrastructure(Infrastructure object)
+      {
+        return createInfrastructureAdapter();
+      }
+      @Override
+      public Adapter caseConfiguration(Configuration object)
+      {
+        return createConfigurationAdapter();
       }
       @Override
       public Adapter caseComponent(Component object)
@@ -310,11 +327,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseModelMapper(ModelMapper object)
       {
         return createModelMapperAdapter();
-      }
-      @Override
-      public Adapter caseConfiguration(Configuration object)
-      {
-        return createConfigurationAdapter();
       }
       @Override
       public Adapter caseProperty(Property object)
@@ -934,6 +946,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRecipesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Ingredient <em>Ingredient</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Ingredient
+   * @generated
+   */
+  public Adapter createIngredientAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Infrastructure <em>Infrastructure</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Infrastructure
+   * @generated
+   */
+  public Adapter createInfrastructureAdapter()
   {
     return null;
   }

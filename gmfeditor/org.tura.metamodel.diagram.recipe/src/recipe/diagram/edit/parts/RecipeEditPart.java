@@ -129,11 +129,11 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 					.getFigureRecipeLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof RecipeRecipeComponentsCompartmentEditPart) {
+		if (childEditPart instanceof RecipeRecipeIngredientsCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getRecipeComponentsCompartmentFigure();
+					.getRecipeIngredientsCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((RecipeRecipeComponentsCompartmentEditPart) childEditPart)
+			pane.add(((RecipeRecipeIngredientsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -147,10 +147,10 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof RecipeNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof RecipeRecipeComponentsCompartmentEditPart) {
+		if (childEditPart instanceof RecipeRecipeIngredientsCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getRecipeComponentsCompartmentFigure();
-			pane.remove(((RecipeRecipeComponentsCompartmentEditPart) childEditPart)
+					.getRecipeIngredientsCompartmentFigure();
+			pane.remove(((RecipeRecipeIngredientsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -181,8 +181,8 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof RecipeRecipeComponentsCompartmentEditPart) {
-			return getPrimaryShape().getRecipeComponentsCompartmentFigure();
+		if (editPart instanceof RecipeRecipeIngredientsCompartmentEditPart) {
+			return getPrimaryShape().getRecipeIngredientsCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -286,7 +286,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.RecipeRecipeConfig_304002);
+		types.add(DomainElementTypes.RecipeInfrastructures_304005);
 		return types;
 	}
 
@@ -296,8 +296,8 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMARelTypesOnSourceAndTarget(
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof ConfigurationEditPart) {
-			types.add(DomainElementTypes.RecipeRecipeConfig_304002);
+		if (targetEditPart instanceof InfrastructureEditPart) {
+			types.add(DomainElementTypes.RecipeInfrastructures_304005);
 		}
 		return types;
 	}
@@ -307,8 +307,8 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.RecipeRecipeConfig_304002) {
-			types.add(DomainElementTypes.Configuration_302002);
+		if (relationshipType == DomainElementTypes.RecipeInfrastructures_304005) {
+			types.add(DomainElementTypes.Infrastructure_302003);
 		}
 		return types;
 	}
@@ -338,7 +338,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fRecipeComponentsCompartmentFigure;
+		private RectangleFigure fRecipeIngredientsCompartmentFigure;
 
 		/**
 		 * @generated
@@ -365,11 +365,11 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureRecipeLabelFigure);
 
-			fRecipeComponentsCompartmentFigure = new RectangleFigure();
+			fRecipeIngredientsCompartmentFigure = new RectangleFigure();
 
-			fRecipeComponentsCompartmentFigure.setOutline(false);
+			fRecipeIngredientsCompartmentFigure.setOutline(false);
 
-			this.add(fRecipeComponentsCompartmentFigure);
+			this.add(fRecipeIngredientsCompartmentFigure);
 
 		}
 
@@ -383,8 +383,8 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getRecipeComponentsCompartmentFigure() {
-			return fRecipeComponentsCompartmentFigure;
+		public RectangleFigure getRecipeIngredientsCompartmentFigure() {
+			return fRecipeIngredientsCompartmentFigure;
 		}
 
 	}

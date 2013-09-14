@@ -39,6 +39,7 @@ import recipe.diagram.part.DomainDiagramEditorPlugin;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.providers.DomainElementTypes;
 import domain.Configuration;
+import domain.Infrastructure;
 import domain.Recipe;
 import domain.Type;
 import domain.TypeElement;
@@ -343,10 +344,10 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateRecipeRecipeConfig_304002(Recipe source,
-				Configuration target) {
+		public boolean canCreateRecipeInfrastructures_304005(Recipe source,
+				Infrastructure target) {
 			if (source != null) {
-				if (source.getRecipeConfig() != null) {
+				if (source.getInfrastructures().contains(target)) {
 					return false;
 				}
 			}
@@ -354,7 +355,24 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistRecipeRecipeConfig_304002(source, target);
+			return canExistRecipeInfrastructures_304005(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateInfrastructureRecipeConfig_304004(
+				Infrastructure source, Configuration target) {
+			if (source != null) {
+				if (source.getRecipeConfig() != null) {
+					return false;
+				}
+			}
+			if (target != null && (target.getInfrastructure() != null)) {
+				return false;
+			}
+
+			return canExistInfrastructureRecipeConfig_304004(source, target);
 		}
 
 		/**
@@ -386,8 +404,16 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistRecipeRecipeConfig_304002(Recipe source,
-				Configuration target) {
+		public boolean canExistRecipeInfrastructures_304005(Recipe source,
+				Infrastructure target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistInfrastructureRecipeConfig_304004(
+				Infrastructure source, Configuration target) {
 			return true;
 		}
 

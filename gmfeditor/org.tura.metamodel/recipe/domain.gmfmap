@@ -22,72 +22,99 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="domain.gmfgraph#Recipe"/>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="domain.ecore#//Recipe/components"/>
+            href="domain.ecore#//Recipe/ingredients"/>
         <ownedChild
             relatedDiagrams="//@diagram">
           <domainMetaElement
-              href="domain.ecore#//Component"/>
+              href="domain.ecore#//Ingredient"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="domain.gmfgraph#ComponentLabel"/>
+                href="domain.gmfgraph#IngredientLabel"/>
             <features
-                href="domain.ecore#//Component/name"/>
+                href="domain.ecore#//Ingredient/name"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
-              href="domain.gmfgraph#Component"/>
+              href="domain.gmfgraph#Ingredient"/>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
             <containmentFeature
-                href="domain.ecore#//Component/mappers"/>
-            <ownedChild>
+                href="domain.ecore#//Ingredient/components"/>
+            <ownedChild
+                relatedDiagrams="//@diagram">
               <domainMetaElement
-                  href="domain.ecore#//ModelMapper"/>
+                  href="domain.ecore#//Component"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping">
                 <diagramLabel
-                    href="domain.gmfgraph#ModelMapperLabel"/>
+                    href="domain.gmfgraph#ComponentLabel"/>
                 <features
-                    href="domain.ecore#//ModelMapper/name"/>
+                    href="domain.ecore#//Component/name"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+                  href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
               <diagramNode
-                  href="domain.gmfgraph#ModelMapper"/>
+                  href="domain.gmfgraph#Component"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.1">
+                <containmentFeature
+                    href="domain.ecore#//Component/mappers"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="domain.ecore#//ModelMapper"/>
+                  <labelMappings
+                      xsi:type="gmfmap:FeatureLabelMapping">
+                    <diagramLabel
+                        href="domain.gmfgraph#ModelMapperLabel"/>
+                    <features
+                        href="domain.ecore#//ModelMapper/name"/>
+                  </labelMappings>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+                  <diagramNode
+                      href="domain.gmfgraph#ModelMapper"/>
+                </ownedChild>
+              </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="domain.ecore#//Component/components"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1">
+                <compartment
+                    href="domain.gmfgraph#ComponentComponentsCompartment"/>
+              </compartments>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0">
+                <compartment
+                    href="domain.gmfgraph#ComponentMappersCompartment"/>
+              </compartments>
             </ownedChild>
           </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
-            <containmentFeature
-                href="domain.ecore#//Component/components"/>
-          </children>
-          <compartments
-              children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.1">
-            <compartment
-                href="domain.gmfgraph#ComponentComponentsCompartment"/>
-          </compartments>
           <compartments
               children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0">
             <compartment
-                href="domain.gmfgraph#ComponentMappersCompartment"/>
+                href="domain.gmfgraph#IngredientComponentsCompartment"/>
           </compartments>
         </ownedChild>
       </children>
       <compartments
           children="//@nodes.0/@ownedChild/@children.0">
         <compartment
-            href="domain.gmfgraph#RecipeComponentsCompartment"/>
+            href="domain.gmfgraph#RecipeIngredientsCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -126,7 +153,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="domain.gmfgraph#Property"/>
         </ownedChild>
@@ -138,6 +165,26 @@
       </compartments>
     </ownedChild>
   </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Recipes/infrastructures"/>
+    <ownedChild>
+      <domainMetaElement
+          href="domain.ecore#//Infrastructure"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#InfrastructureLabel"/>
+        <features
+            href="domain.ecore#//Infrastructure/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+      <diagramNode
+          href="domain.gmfgraph#Infrastructure"/>
+    </ownedChild>
+  </nodes>
   <links>
     <domainMetaElement
         href="domain.ecore#//TypeExtension"/>
@@ -145,7 +192,7 @@
         href="domain.ecore#//Type/extension"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.2"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.3"/>
     <diagramLink
         href="domain.gmfgraph#TypeExtension"/>
     <sourceMetaFeature
@@ -160,16 +207,32 @@
         xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
-          href="domain.gmfgraph#RecipeRecipeConfigExternalLabel"/>
+          href="domain.gmfgraph#RecipeInfrastructuresExternalLabel"/>
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
         href="domain.gmftool#//@palette/@tools.1/@tools.1"/>
     <diagramLink
-        href="domain.gmfgraph#RecipeRecipeConfig"/>
+        href="domain.gmfgraph#RecipeInfrastructures"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="domain.ecore#//Recipe/recipeConfig"/>
+        href="domain.ecore#//Recipe/infrastructures"/>
+  </links>
+  <links>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="domain.gmfgraph#InfrastructureRecipeConfigExternalLabel"/>
+    </labelMappings>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="domain.gmftool#//@palette/@tools.1/@tools.2"/>
+    <diagramLink
+        href="domain.gmfgraph#InfrastructureRecipeConfig"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//Infrastructure/recipeConfig"/>
   </links>
   <links>
     <labelMappings

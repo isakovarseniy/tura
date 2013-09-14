@@ -6,12 +6,14 @@ package mapper.diagram.providers;
 import java.util.ArrayList;
 
 import mapper.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import mapper.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperPackageNameEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
-import mapper.diagram.edit.parts.RecipeRecipeConfigEditPart;
+import mapper.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import mapper.diagram.edit.parts.TypeExtensionEditPart;
 import mapper.diagram.edit.parts.WrappingLabel2EditPart;
+import mapper.diagram.edit.parts.WrappingLabel3EditPart;
 import mapper.diagram.edit.parts.WrappingLabelEditPart;
 import mapper.diagram.part.DomainVisualIDRegistry;
 
@@ -236,9 +238,12 @@ public class DomainViewProvider extends AbstractProvider implements
 			return createTypeExtension_404001(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
-		case RecipeRecipeConfigEditPart.VISUAL_ID:
-			return createRecipeRecipeConfig_404002(containerView, index,
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return createRecipeInfrastructures_404005(containerView, index,
 					persisted, preferencesHint);
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return createInfrastructureRecipeConfig_404004(containerView,
+					index, persisted, preferencesHint);
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return createConfigurationConfigExtension_404003(containerView,
 					index, persisted, preferencesHint);
@@ -350,8 +355,8 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createRecipeRecipeConfig_404002(View containerView, int index,
-			boolean persisted, PreferencesHint preferencesHint) {
+	public Edge createInfrastructureRecipeConfig_404004(View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
@@ -364,7 +369,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge.setType(DomainVisualIDRegistry
-				.getType(RecipeRecipeConfigEditPart.VISUAL_ID));
+				.getType(InfrastructureRecipeConfigEditPart.VISUAL_ID));
 		edge.setElement(null);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
@@ -396,15 +401,77 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label406001 = createLabel(edge,
-				DomainVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
-		label406001.getStyles().add(
+		Node label406003 = createLabel(edge,
+				DomainVisualIDRegistry
+						.getType(WrappingLabel2EditPart.VISUAL_ID));
+		label406003.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label406001.setLayoutConstraint(NotationFactory.eINSTANCE
+		label406003.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location406001 = (Location) label406001.getLayoutConstraint();
-		location406001.setX(0);
-		location406001.setY(40);
+		Location location406003 = (Location) label406003.getLayoutConstraint();
+		location406003.setX(0);
+		location406003.setY(40);
+		return edge;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Edge createRecipeInfrastructures_404005(View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Connector edge = NotationFactory.eINSTANCE.createConnector();
+		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
+				.createRelativeBendpoints();
+		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(
+				2);
+		points.add(new RelativeBendpoint());
+		points.add(new RelativeBendpoint());
+		bendpoints.setPoints(points);
+		edge.setBendpoints(bendpoints);
+		ViewUtil.insertChildView(containerView, edge, index, persisted);
+		edge.setType(DomainVisualIDRegistry
+				.getType(RecipeInfrastructuresEditPart.VISUAL_ID));
+		edge.setElement(null);
+		// initializePreferences
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(edge,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle edgeFontStyle = (FontStyle) edge
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (edgeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			edgeFontStyle.setFontName(fontData.getName());
+			edgeFontStyle.setFontHeight(fontData.getHeight());
+			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Routing routing = Routing.get(prefStore
+				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+		if (routing != null) {
+			ViewUtil.setStructuralFeatureValue(edge,
+					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
+					routing);
+		}
+		Node label406004 = createLabel(edge,
+				DomainVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
+		label406004.getStyles().add(
+				NotationFactory.eINSTANCE.createDescriptionStyle());
+		label406004.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location406004 = (Location) label406004.getLayoutConstraint();
+		location406004.setX(0);
+		location406004.setY(40);
 		return edge;
 	}
 
@@ -459,7 +526,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		}
 		Node label406002 = createLabel(edge,
 				DomainVisualIDRegistry
-						.getType(WrappingLabel2EditPart.VISUAL_ID));
+						.getType(WrappingLabel3EditPart.VISUAL_ID));
 		label406002.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label406002.setLayoutConstraint(NotationFactory.eINSTANCE

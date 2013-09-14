@@ -47,7 +47,6 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import domain.JPAService;
 import domain.diagram.edit.policies.DomainTextSelectionEditPolicy;
 import domain.diagram.part.DomainVisualIDRegistry;
 import domain.diagram.providers.DomainElementTypes;

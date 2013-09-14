@@ -320,6 +320,24 @@ public interface DomainFactory extends EFactory
   Recipes createRecipes();
 
   /**
+   * Returns a new object of class '<em>Ingredient</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ingredient</em>'.
+   * @generated
+   */
+  Ingredient createIngredient();
+
+  /**
+   * Returns a new object of class '<em>Infrastructure</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Infrastructure</em>'.
+   * @generated
+   */
+  Infrastructure createInfrastructure();
+
+  /**
    * Returns a new object of class '<em>Recipe</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
