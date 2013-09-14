@@ -149,11 +149,18 @@ public class OpenDiagramDomainArtifactEditPolicy extends OpenEditPolicy {
 
 			}
 
-			Diagram d = ViewService.createDiagram(
+			Artifacts
 
-			DomainFactory.eINSTANCE.createArtifacts()
+			obj = sourceObject.getArtifact
 
-			, getDiagramKind(), getPreferencesHint());
+			();
+			if (obj == null)
+				obj = DomainFactory.eINSTANCE.createArtifacts()
+
+				;
+
+			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
+					getPreferencesHint());
 			if (d == null) {
 				throw new ExecutionException("Can't create diagram of '"
 						+ getDiagramKind() + "' kind");

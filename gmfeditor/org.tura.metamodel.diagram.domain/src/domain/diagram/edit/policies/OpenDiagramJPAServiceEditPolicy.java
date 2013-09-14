@@ -149,11 +149,18 @@ public class OpenDiagramJPAServiceEditPolicy extends OpenEditPolicy {
 
 			}
 
-			Diagram d = ViewService.createDiagram(
+			Artifacts
 
-			InitDiagram.initJPAServiceDiagram()
+			obj = sourceObject.getArtifact
 
-			, getDiagramKind(), getPreferencesHint());
+			();
+			if (obj == null)
+				obj = InitDiagram.initJPAServiceDiagram()
+
+				;
+
+			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
+					getPreferencesHint());
 			if (d == null) {
 				throw new ExecutionException("Can't create diagram of '"
 						+ getDiagramKind() + "' kind");

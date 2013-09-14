@@ -96,7 +96,9 @@ public class OpenDiagramBusinessPackageEditPolicy extends OpenEditPolicy {
 			diagramFacet = linkStyle;
 		}
 
-		// FIXME canExecute if  !(readOnly && getDiagramToOpen == null), i.e. open works on ro diagrams only when there's associated diagram already
+		// FIXME canExecute if !(readOnly && getDiagramToOpen == null), i.e.
+		// open works on ro diagrams only when there's associated diagram
+		// already
 
 		/**
 		 * @generated
@@ -149,11 +151,12 @@ public class OpenDiagramBusinessPackageEditPolicy extends OpenEditPolicy {
 
 			}
 
-			Diagram d = ViewService.createDiagram(
+			BusinessObjects obj = sourceObject.getBusinessobjects();
+			if (obj == null)
+				obj = DomainFactory.eINSTANCE.createBusinessObjects();
 
-			DomainFactory.eINSTANCE.createBusinessObjects()
-
-			, getDiagramKind(), getPreferencesHint());
+			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
+					getPreferencesHint());
 			if (d == null) {
 				throw new ExecutionException("Can't create diagram of '"
 						+ getDiagramKind() + "' kind");

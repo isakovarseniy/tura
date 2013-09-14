@@ -149,11 +149,18 @@ public class OpenDiagramEJBServiceEditPolicy extends OpenEditPolicy {
 
 			}
 
-			Diagram d = ViewService.createDiagram(
+			Artifacts
 
-			InitDiagram.initEJBServiceDiagram()
+			obj = sourceObject.getArtifact
 
-			, getDiagramKind(), getPreferencesHint());
+			();
+			if (obj == null)
+				obj = InitDiagram.initEJBServiceDiagram()
+
+				;
+
+			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
+					getPreferencesHint());
 			if (d == null) {
 				throw new ExecutionException("Can't create diagram of '"
 						+ getDiagramKind() + "' kind");

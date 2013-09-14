@@ -149,11 +149,18 @@ public class OpenDiagramDomainTypesEditPolicy extends OpenEditPolicy {
 
 			}
 
-			Diagram d = ViewService.createDiagram(
+			TypesRepository
 
-			InitDiagram.initTypesRepositoryDiagram()
+			obj = sourceObject.getTypesrepository
 
-			, getDiagramKind(), getPreferencesHint());
+			();
+			if (obj == null)
+				obj = InitDiagram.initTypesRepositoryDiagram()
+
+				;
+
+			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
+					getPreferencesHint());
 			if (d == null) {
 				throw new ExecutionException("Can't create diagram of '"
 						+ getDiagramKind() + "' kind");

@@ -149,11 +149,18 @@ public class OpenDiagramApplicationMapperEditPolicy extends OpenEditPolicy {
 
 			}
 
-			Diagram d = ViewService.createDiagram(
+			Mappers
 
-			DomainFactory.eINSTANCE.createMappers()
+			obj = sourceObject.getMapper
 
-			, getDiagramKind(), getPreferencesHint());
+			();
+			if (obj == null)
+				obj = DomainFactory.eINSTANCE.createMappers()
+
+				;
+
+			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
+					getPreferencesHint());
 			if (d == null) {
 				throw new ExecutionException("Can't create diagram of '"
 						+ getDiagramKind() + "' kind");

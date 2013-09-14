@@ -149,11 +149,18 @@ public class OpenDiagramApplicationRecipeEditPolicy extends OpenEditPolicy {
 
 			}
 
-			Diagram d = ViewService.createDiagram(
+			Recipes
 
-			DomainFactory.eINSTANCE.createRecipes()
+			obj = sourceObject.getRecipes
 
-			, getDiagramKind(), getPreferencesHint());
+			();
+			if (obj == null)
+				obj = DomainFactory.eINSTANCE.createRecipes()
+
+				;
+
+			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
+					getPreferencesHint());
 			if (d == null) {
 				throw new ExecutionException("Can't create diagram of '"
 						+ getDiagramKind() + "' kind");

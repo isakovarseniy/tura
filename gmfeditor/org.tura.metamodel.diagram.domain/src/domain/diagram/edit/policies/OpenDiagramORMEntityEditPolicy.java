@@ -149,11 +149,18 @@ public class OpenDiagramORMEntityEditPolicy extends OpenEditPolicy {
 
 			}
 
-			Diagram d = ViewService.createDiagram(
+			Artifacts
 
-			InitDiagram.initORMEntityDiagram()
+			obj = sourceObject.getArtifact
 
-			, getDiagramKind(), getPreferencesHint());
+			();
+			if (obj == null)
+				obj = InitDiagram.initORMEntityDiagram()
+
+				;
+
+			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
+					getPreferencesHint());
 			if (d == null) {
 				throw new ExecutionException("Can't create diagram of '"
 						+ getDiagramKind() + "' kind");

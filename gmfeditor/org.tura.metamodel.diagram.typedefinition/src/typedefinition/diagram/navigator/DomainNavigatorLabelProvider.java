@@ -116,45 +116,45 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case EnumAttributeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?EnumAttribute", DomainElementTypes.EnumAttribute_103005); //$NON-NLS-1$
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_104003); //$NON-NLS-1$
-		case TypeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Type", DomainElementTypes.Type_102002); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_104001); //$NON-NLS-1$
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_104004); //$NON-NLS-1$
-		case ParameterEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Parameter", DomainElementTypes.Parameter_103006); //$NON-NLS-1$
-		case TypeReferenceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TypeReference", DomainElementTypes.TypeReference_102001); //$NON-NLS-1$
-		case ReturnValueEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?ReturnValue", DomainElementTypes.ReturnValue_103004); //$NON-NLS-1$
 		case OperationEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Operation", DomainElementTypes.Operation_103002); //$NON-NLS-1$
-		case TypeDefinitionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?TypeDefinition", DomainElementTypes.TypeDefinition_101000); //$NON-NLS-1$
 		case AttributeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Attribute", DomainElementTypes.Attribute_103001); //$NON-NLS-1$
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_104005); //$NON-NLS-1$
 		case EnumaratorEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Enumarator", DomainElementTypes.Enumarator_102003); //$NON-NLS-1$
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_104005); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_104001); //$NON-NLS-1$
+		case ParameterEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Parameter", DomainElementTypes.Parameter_103006); //$NON-NLS-1$
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_104004); //$NON-NLS-1$
+		case TypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Type", DomainElementTypes.Type_102002); //$NON-NLS-1$
+		case ReturnValueEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?ReturnValue", DomainElementTypes.ReturnValue_103004); //$NON-NLS-1$
+		case TypeDefinitionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?TypeDefinition", DomainElementTypes.TypeDefinition_101000); //$NON-NLS-1$
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_104003); //$NON-NLS-1$
+		case TypeReferenceEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?TypeReference", DomainElementTypes.TypeReference_102001); //$NON-NLS-1$
+		case EnumAttributeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?EnumAttribute", DomainElementTypes.EnumAttribute_103005); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -215,32 +215,32 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case EnumAttributeEditPart.VISUAL_ID:
-			return getEnumAttribute_103005Text(view);
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_104003Text(view);
-		case TypeEditPart.VISUAL_ID:
-			return getType_102002Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_104001Text(view);
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getInfrastructureRecipeConfig_104004Text(view);
-		case ParameterEditPart.VISUAL_ID:
-			return getParameter_103006Text(view);
-		case TypeReferenceEditPart.VISUAL_ID:
-			return getTypeReference_102001Text(view);
-		case ReturnValueEditPart.VISUAL_ID:
-			return getReturnValue_103004Text(view);
 		case OperationEditPart.VISUAL_ID:
 			return getOperation_103002Text(view);
-		case TypeDefinitionEditPart.VISUAL_ID:
-			return getTypeDefinition_101000Text(view);
 		case AttributeEditPart.VISUAL_ID:
 			return getAttribute_103001Text(view);
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getRecipeInfrastructures_104005Text(view);
 		case EnumaratorEditPart.VISUAL_ID:
 			return getEnumarator_102003Text(view);
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getRecipeInfrastructures_104005Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_104001Text(view);
+		case ParameterEditPart.VISUAL_ID:
+			return getParameter_103006Text(view);
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return getInfrastructureRecipeConfig_104004Text(view);
+		case TypeEditPart.VISUAL_ID:
+			return getType_102002Text(view);
+		case ReturnValueEditPart.VISUAL_ID:
+			return getReturnValue_103004Text(view);
+		case TypeDefinitionEditPart.VISUAL_ID:
+			return getTypeDefinition_101000Text(view);
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getConfigurationConfigExtension_104003Text(view);
+		case TypeReferenceEditPart.VISUAL_ID:
+			return getTypeReference_102001Text(view);
+		case EnumAttributeEditPart.VISUAL_ID:
+			return getEnumAttribute_103005Text(view);
 		}
 		return getUnknownElementText(view);
 	}

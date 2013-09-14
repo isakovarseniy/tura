@@ -54,9 +54,12 @@
 
 			}
 
+           «EXPAND targetObject» obj = sourceObject.«EXPAND sourceObjectGetMethod»();
+			if (obj == null)
+				obj = «EXPAND targetObjectGenerator»;
+           
 			org.eclipse.gmf.runtime.notation.Diagram d = org.eclipse.gmf.runtime.diagram.core.services.ViewService.createDiagram(
-					«EXPAND targetObjectGenerator»,
-					getDiagramKind(), getPreferencesHint());
+					obj,getDiagramKind(), getPreferencesHint());
 			if (d == null) {
 				throw new org.eclipse.core.commands.ExecutionException("Can't create diagram of '"
 						+ getDiagramKind() + "' kind");
@@ -232,6 +235,34 @@
            null
            «ENDIF»
 «ENDDEFINE»
+
+
+«DEFINE sourceObjectGetMethod FOR gmfgen::OpenDiagramBehaviour»
+           «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
+           getBusinessobjects
+           «ELSEIF editPolicyClassName = 'OpenDiagramPackageEditPolicy'-»
+           getTypedefinition
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'-»
+           getArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'-»
+           getArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy'-»
+           getArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
+           getArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
+           getTypesrepository
+           «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»
+           getApplication
+          «ELSEIF editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy'-» 
+          getMapper
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
+          getRecipes
+           «ELSE»
+           null
+           «ENDIF»
+«ENDDEFINE»
+
 
 «DEFINE targetObject FOR gmfgen::OpenDiagramBehaviour»
            «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy'-»
