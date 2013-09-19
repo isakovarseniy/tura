@@ -151,9 +151,15 @@ public class OpenDiagramBusinessPackageEditPolicy extends OpenEditPolicy {
 
 			}
 
-			BusinessObjects obj = sourceObject.getBusinessobjects();
+			BusinessObjects
+
+			obj = sourceObject.getBusinessobjects
+
+			();
 			if (obj == null)
-				obj = DomainFactory.eINSTANCE.createBusinessObjects();
+				obj = DomainFactory.eINSTANCE.createBusinessObjects()
+
+				;
 
 			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
 					getPreferencesHint());

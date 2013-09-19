@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.tura.metamodel.populate.employee
+Bundle-SymbolicName: org.tura.metamodel.populate.hr;singleton:=true
+Bundle-Version: 0.1.0
+Require-Bundle: org.eclipse.emf.ecore,
+ org.tura.metamodel;bundle-version="1.0.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.8.0",
+ org.tura.metamodel.commons;bundle-version="1.0.0",
+ org.eclipse.gmf.runtime.emf.core;bundle-version="1.4.1",
+ org.tura.metamodel.diagram.domain;bundle-version="1.0.0",
+ org.eclipse.gmf.runtime.diagram.core;bundle-version="1.6.0"

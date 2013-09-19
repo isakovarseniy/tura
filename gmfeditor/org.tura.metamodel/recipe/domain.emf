@@ -397,6 +397,7 @@ class TypeExtension {
 class Attribute extends  TypePointer{
     id attr EString uid;
    attr EString name;
+   attr EBoolean pk;
    ref Type#attributes parent;
 }
 

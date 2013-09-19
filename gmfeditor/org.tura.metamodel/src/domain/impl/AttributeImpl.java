@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link domain.impl.AttributeImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.AttributeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.AttributeImpl#isPk <em>Pk</em>}</li>
  *   <li>{@link domain.impl.AttributeImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -72,6 +73,26 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isPk() <em>Pk</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isPk()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean PK_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isPk() <em>Pk</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isPk()
+   * @generated
+   * @ordered
+   */
+  protected boolean pk = PK_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -138,6 +159,29 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ATTRIBUTE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isPk()
+  {
+    return pk;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPk(boolean newPk)
+  {
+    boolean oldPk = pk;
+    pk = newPk;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ATTRIBUTE__PK, oldPk, pk));
   }
 
   /**
@@ -249,6 +293,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
         return getUid();
       case DomainPackage.ATTRIBUTE__NAME:
         return getName();
+      case DomainPackage.ATTRIBUTE__PK:
+        return isPk();
       case DomainPackage.ATTRIBUTE__PARENT:
         return getParent();
     }
@@ -270,6 +316,9 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
         return;
       case DomainPackage.ATTRIBUTE__NAME:
         setName((String)newValue);
+        return;
+      case DomainPackage.ATTRIBUTE__PK:
+        setPk((Boolean)newValue);
         return;
       case DomainPackage.ATTRIBUTE__PARENT:
         setParent((Type)newValue);
@@ -294,6 +343,9 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
       case DomainPackage.ATTRIBUTE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DomainPackage.ATTRIBUTE__PK:
+        setPk(PK_EDEFAULT);
+        return;
       case DomainPackage.ATTRIBUTE__PARENT:
         setParent((Type)null);
         return;
@@ -315,6 +367,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.ATTRIBUTE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.ATTRIBUTE__PK:
+        return pk != PK_EDEFAULT;
       case DomainPackage.ATTRIBUTE__PARENT:
         return getParent() != null;
     }
@@ -336,6 +390,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute
     result.append(uid);
     result.append(", name: ");
     result.append(name);
+    result.append(", pk: ");
+    result.append(pk);
     result.append(')');
     return result.toString();
   }

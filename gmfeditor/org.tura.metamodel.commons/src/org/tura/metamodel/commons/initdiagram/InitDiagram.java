@@ -84,7 +84,7 @@ public class InitDiagram {
 		return model;
     }
 
-		 
+  	
   	public static domain.Artifacts initORMEntityDiagram(){
  
         domain.Artifacts model = domain.DomainFactory.eINSTANCE.createArtifacts();

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tura.domain="http://tura.org/2013/v1/domain">
+  <tura.domain:TypesRepository uid="8786674f-62a4-416f-ae5a-af88c44322d2" parent="c13b8544-ac65-42cf-8fe4-db6cc204b835">
+    <typeDefinition uid="33a1e3b7-f52d-49ed-81bf-3d9ecd4f2541">
+      <primitives uid="f1def068-37ec-436d-9ac3-19e87c0d66b1" name="String"/>
+      <primitives uid="55eeea4a-9274-4bbe-a63d-059aaa984e2d" name="Boolean"/>
+      <primitives uid="facb7ab5-ed2c-4482-bb88-7fae306ea07e" name="Decimal"/>
+      <primitives uid="b9d853b8-75ab-43b2-ac24-c8ca33e9a2c5" name="Float"/>
+      <primitives uid="915c59da-6bf8-43ce-92b8-e964a561a408" name="Double"/>
+      <primitives uid="c142896b-6258-43ff-a657-a41973e43cb7" name="Duration"/>
+      <primitives uid="02dd6cac-9667-44ac-bed0-2d2975c39e81" name="DateTime"/>
+      <primitives uid="3de81f57-5849-4192-a6f1-fd171e58db96" name="Time"/>
+      <primitives uid="c189c672-bfaf-430f-b32c-c35adf904de4" name="Date"/>
+      <primitives uid="086b1146-638a-4a7b-ba6e-f1e3229934c7" name="GYearMonth"/>
+      <primitives uid="704f1f8b-0375-4911-8ece-2e1b493eb9b8" name="GYear"/>
+      <primitives uid="fe31cb75-34a4-4172-918c-add073052f23" name="GMonthDay"/>
+      <primitives uid="f005e379-9caf-404b-8663-007d05f3e087" name="GDay"/>
+      <primitives uid="1d051789-3ab8-4e20-94bf-2d94539fccd4" name="GMonth"/>
+      <primitives uid="d354b8be-b00d-4287-8088-91c5240db1a5" name="HexBinary"/>
+      <primitives uid="c85f4e17-194d-4c39-898b-5102b34bb8b1" name="Base64Binary"/>
+      <primitives uid="3d72ef04-4d8a-46f8-897e-2419c54667fb" name="Integer"/>
+      <primitives uid="5028c4b7-4a69-431a-ac22-2ad2ee063c42" name="Long"/>
+      <packages uid="128967d9-b1e0-4dd0-8cb0-ce6eb44ed00d" name="Base package" typedefinition="400ff109-bea1-4f1b-93a4-fac7193154f3"/>
+      <packages uid="9a6c50b3-cecb-480f-8d98-7c8206b1daae" name="HR package" typedefinition="3d641248-5c64-4895-970e-968d53e0ab50"/>
+    </typeDefinition>
+  </tura.domain:TypesRepository>
+  <tura.domain:TypeDefinition uid="400ff109-bea1-4f1b-93a4-fac7193154f3" parent="128967d9-b1e0-4dd0-8cb0-ce6eb44ed00d">
+    <types xsi:type="tura.domain:Type" uid="9bd02e0f-337f-4e4e-8c55-d2b77c6d2ec9" name="BaseType">
+      <attributes packageName="Primitives" typeName="Long" uid="4db895f8-0040-4ff1-9b2c-1bc6f528f26e" name="objId" pk="true"/>
+      <attributes packageName="Primitives" typeName="Long" uid="3da7fe24-034e-4e43-a608-f8ae01287652" name="parentId"/>
+      <attributes packageName="Primitives" typeName="String" uid="0b702f42-1f84-49af-a0a6-2570758811bc" name="objType"/>
+      <attributes packageName="Primitives" typeName="String" uid="2a0da616-1509-4ccf-880c-68a0eb8e0002" name="objStatus"/>
+      <attributes packageName="Primitives" typeName="Date" uid="f37a26ff-aa62-43b9-a21b-a0059882c5eb" name="createDate"/>
+      <attributes packageName="Primitives" typeName="Date" uid="d69d7d85-fff5-45f1-87cc-6e9199481bc8" name="updateDate"/>
+      <attributes packageName="Primitives" typeName="Date" uid="ec47c539-497e-4de5-8ae5-c3234eefd7ea" name="activeDate"/>
+      <attributes packageName="Primitives" typeName="Date" uid="13f560a1-f48c-4311-9138-7d801a4d6632" name="expiredDate"/>
+    </types>
+  </tura.domain:TypeDefinition>
+  <tura.domain:TypeDefinition uid="3d641248-5c64-4895-970e-968d53e0ab50" parent="9a6c50b3-cecb-480f-8d98-7c8206b1daae">
+    <types xsi:type="tura.domain:Type" uid="7802aea8-fad5-4a25-ac9c-b579bab80948" name="Department Type">
+      <attributes packageName="Primitives" typeName="Long" uid="3e3edb6c-ff55-4c2a-95ea-be897b27c968" name="departmentId"/>
+      <attributes packageName="Primitives" typeName="String" uid="75ea09e4-5fb7-4ef3-9f09-cc520a3bdbf3" name="departmentName"/>
+      <attributes packageName="Primitives" typeName="Long" uid="7868fca5-be99-438e-b463-64fbe65a5dd0" name="managerId"/>
+      <attributes packageName="Primitives" typeName="Long" uid="4142090f-adfc-4122-a464-6aa23af1d1a2" name="locationId"/>
+      <extension source="7802aea8-fad5-4a25-ac9c-b579bab80948" target="88a454af-fb91-49fc-8f1a-40c7401c81f5"/>
+    </types>
+    <types xsi:type="tura.domain:TypeReference" packageName="Base package" typeName="BaseType" uid="88a454af-fb91-49fc-8f1a-40c7401c81f5"/>
+    <types xsi:type="tura.domain:Type" uid="768aec1f-a67e-40e5-bd37-eddf86d714ea" name="List of Departments"/>
+    <types xsi:type="tura.domain:Type" uid="ea17b53f-5ac4-44be-ad32-2cf0809c1725" name="Search criterias for Departments"/>
+    <types xsi:type="tura.domain:Type" uid="53df3327-744c-4ac0-8d30-f0dc1345d820" name="OrderBy criterias for Departments"/>
+    <types xsi:type="tura.domain:Type" uid="23f57412-4b20-4f35-9dc2-894f2feeafae" name="Departments query service">
+      <operations uid="0ebb0954-bea0-4a78-9aa5-6b58108421d4" name="create">
+        <returnValue packageName="HR package" typeName="Department Type" uid="57064417-faab-4ffc-89f0-7b2417520d4b"/>
+      </operations>
+      <operations uid="41cc3d36-c759-4f18-8b41-871341620ad5" name="find">
+        <parameters packageName="HR package" typeName="Search criterias for Departments" name="search"/>
+        <parameters packageName="HR package" typeName="OrderBy criterias for Departments" name="order"/>
+        <parameters packageName="Primitives" typeName="Integer" name="startIndex"/>
+        <parameters packageName="Primitives" typeName="Integer" name="endIndex"/>
+        <parameters packageName="Primitives" typeName="String" name="className"/>
+      </operations>
+      <operations uid="6c09fed2-bfea-4e38-836e-a47b678f6aed" name="insert">
+        <parameters packageName="HR package" typeName="Department Type" name="obj"/>
+      </operations>
+      <operations uid="08b5a480-b95c-49ce-b255-8834136872bc" name="update">
+        <parameters packageName="HR package" typeName="Department Type" name="obj"/>
+      </operations>
+      <operations uid="bb9baf63-2c87-491b-bb81-c0592b9f2cd0" name="remove">
+        <parameters packageName="HR package" typeName="Department Type" name="obj"/>
+      </operations>
+    </types>
+  </tura.domain:TypeDefinition>
+  <tura.domain:Domain uid="bf6d7e3e-1304-4f84-9875-08a840def32d">
+    <domainArtifacts uid="9fb44851-960e-4540-a440-d8f8d26ca85c" name="Domain artifacts">
+      <domainArtifact xsi:type="tura.domain:JPAService" uid="fbc03146-437a-4a3d-b2f3-dcd022297959" name="JPAService"/>
+      <domainArtifact xsi:type="tura.domain:EJBService" uid="efcf1be8-a029-4af5-be11-63faff4d4bdf" name="EJBService"/>
+      <domainArtifact xsi:type="tura.domain:ORMEntity" uid="85704b1f-f2f1-46a9-aac5-6c54e3b6c60f" name="ORMEntity"/>
+    </domainArtifacts>
+    <domainTypes uid="c13b8544-ac65-42cf-8fe4-db6cc204b835" name="Domain types" typesrepository="8786674f-62a4-416f-ae5a-af88c44322d2"/>
+    <domainApplications uid="46c71511-cdfc-4932-8187-058df1d64377" name="Domain applications"/>
+  </tura.domain:Domain>
+</xmi:XMI>

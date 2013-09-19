@@ -13,6 +13,7 @@ package domain;
  * <ul>
  *   <li>{@link domain.Attribute#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Attribute#getName <em>Name</em>}</li>
+ *   <li>{@link domain.Attribute#isPk <em>Pk</em>}</li>
  *   <li>{@link domain.Attribute#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -74,6 +75,32 @@ public interface Attribute extends TypePointer
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Pk</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Pk</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pk</em>' attribute.
+   * @see #setPk(boolean)
+   * @see domain.DomainPackage#getAttribute_Pk()
+   * @model
+   * @generated
+   */
+  boolean isPk();
+
+  /**
+   * Sets the value of the '{@link domain.Attribute#isPk <em>Pk</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pk</em>' attribute.
+   * @see #isPk()
+   * @generated
+   */
+  void setPk(boolean value);
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' container reference.

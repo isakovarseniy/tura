@@ -63,6 +63,7 @@ public class AttributeItemProvider
 
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
+      addPkPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -114,6 +115,29 @@ public class AttributeItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Pk feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addPkPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Attribute_pk_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Attribute_pk_feature", "_UI_Attribute_type"),
+         DomainPackage.Literals.ATTRIBUTE__PK,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This returns Attribute.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -156,6 +180,7 @@ public class AttributeItemProvider
     {
       case DomainPackage.ATTRIBUTE__UID:
       case DomainPackage.ATTRIBUTE__NAME:
+      case DomainPackage.ATTRIBUTE__PK:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

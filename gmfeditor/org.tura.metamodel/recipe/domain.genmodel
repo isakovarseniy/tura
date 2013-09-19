@@ -265,6 +265,7 @@
     <genClasses ecoreClass="domain.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Attribute/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Attribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Attribute/pk"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Attribute/parent"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Operation">

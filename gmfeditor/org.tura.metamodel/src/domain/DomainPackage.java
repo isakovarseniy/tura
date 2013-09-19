@@ -2970,13 +2970,22 @@ public interface DomainPackage extends EPackage
   int ATTRIBUTE__NAME = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Pk</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__PK = TYPE_POINTER_FEATURE_COUNT + 2;
+
+  /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__PARENT = TYPE_POINTER_FEATURE_COUNT + 2;
+  int ATTRIBUTE__PARENT = TYPE_POINTER_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Attribute</em>' class.
@@ -2985,7 +2994,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 3;
+  int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link domain.impl.OperationImpl <em>Operation</em>}' class.
@@ -5831,6 +5840,17 @@ public interface DomainPackage extends EPackage
   EAttribute getAttribute_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Attribute#isPk <em>Pk</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pk</em>'.
+   * @see domain.Attribute#isPk()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Pk();
+
+  /**
    * Returns the meta object for the container reference '{@link domain.Attribute#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8198,6 +8218,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Pk</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__PK = eINSTANCE.getAttribute_Pk();
 
     /**
      * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
