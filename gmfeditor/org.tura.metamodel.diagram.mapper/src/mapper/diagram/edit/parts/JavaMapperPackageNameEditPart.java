@@ -51,6 +51,7 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
+import domain.TypePointer;
 
 /**
  * @generated
@@ -214,9 +215,8 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 		String text = null;
 		EObject parserElement = getParserElement();
 		if (parserElement != null && getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
-					getParserOptions().intValue());
+			text = ((TypePointer) parserElement).getPackageName() + "."
+					+ ((TypePointer) parserElement).getTypeName();
 
 		}
 		if (text == null || text.length() == 0) {

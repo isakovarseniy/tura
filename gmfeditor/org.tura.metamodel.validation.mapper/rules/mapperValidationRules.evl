@@ -1,13 +1,5 @@
  context JavaMapper {
 
-  constraint HasToPackageName {
-
-      check :  self.mappedToPackageName.isDefined()
-
-      message : 'Unnamed Maping package ' + self.packageName+":"+self.typeName + ' not allowed'
-
-  }
-
   constraint HasToTypeName {
 
       check :  self.mappedToClassName.isDefined()

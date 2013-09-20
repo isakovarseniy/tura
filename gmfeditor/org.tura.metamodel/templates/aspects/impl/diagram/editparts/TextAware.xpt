@@ -12,6 +12,10 @@
 		if (parserElement != null && getParser() != null   ) {
           text = ((domain.ReturnValue)parserElement).getPackageName()+"."+ ((domain.ReturnValue)parserElement).getTypeName();
 
+	«ELSEIF  self.editPartClassName.indexOf('JavaMapperPackageNameEditPart') > 0-»
+		if (parserElement != null && getParser() != null   ) {
+          text = ((domain.TypePointer)parserElement).getPackageName()+"."+ ((domain.TypePointer)parserElement).getTypeName();
+
 	«ELSE-»
 	   if (parserElement != null && getParser() != null ){
 			text = getParser().getPrintString(

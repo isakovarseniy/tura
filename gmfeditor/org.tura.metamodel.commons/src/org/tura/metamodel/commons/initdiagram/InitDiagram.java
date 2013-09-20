@@ -288,6 +288,98 @@ public class InitDiagram {
          return model;
     }
 
+  	
+  	public static domain.ApplicationMapper initPrimitivesMapping(){
+        domain.ApplicationMapper model = domain.DomainFactory.eINSTANCE.createApplicationMapper();
+        model.setUid(UUID.randomUUID().toString());
+        model.setName("Primitives mapper");
+        
+        domain.Mappers mappers = domain.DomainFactory.eINSTANCE.createMappers();
+        mappers.setUid(UUID.randomUUID().toString());
+        model.setMapper(mappers);
+        
+        domain.JavaMapper mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+        mapper.setUid(UUID.randomUUID().toString());
+        mapper.setPackageName("Primitives");
+        mapper.setTypeName("String");
+        mapper.setMappedToPackageName("java.lang");
+        mapper.setMappedToClassName("String");
+        mappers.getMappers().add(mapper);
+ 
+        mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+        mapper.setUid(UUID.randomUUID().toString());
+        mapper.setPackageName("Primitives");
+        mapper.setTypeName("Boolean");
+        mapper.setMappedToPackageName("java.lang");
+        mapper.setMappedToClassName("Boolean");
+        mappers.getMappers().add(mapper);
+         
+        mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+        mapper.setUid(UUID.randomUUID().toString());
+        mapper.setPackageName("Primitives");
+        mapper.setTypeName("Decimal");
+        mapper.setMappedToPackageName("java.lang");
+        mapper.setMappedToClassName("BigDecimal");
+        mappers.getMappers().add(mapper);
+        
+        mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+        mapper.setUid(UUID.randomUUID().toString());
+        mapper.setPackageName("Primitives");
+        mapper.setTypeName("Float");
+        mapper.setMappedToPackageName("java.lang");
+        mapper.setMappedToClassName("Float");
+        mappers.getMappers().add(mapper);
+        
+        mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+        mapper.setUid(UUID.randomUUID().toString());
+        mapper.setPackageName("Primitives");
+        mapper.setTypeName("Double");
+        mapper.setMappedToPackageName("java.lang");
+        mapper.setMappedToClassName("Double");
+        mappers.getMappers().add(mapper);
+        
+        mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+        mapper.setUid(UUID.randomUUID().toString());
+        mapper.setPackageName("Primitives");
+        mapper.setTypeName("DateTime");
+        mapper.setMappedToPackageName("java.util");
+        mapper.setMappedToClassName("Date");
+        mappers.getMappers().add(mapper);
+        
+        mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+        mapper.setUid(UUID.randomUUID().toString());
+        mapper.setPackageName("Primitives");
+        mapper.setTypeName("Date");
+        mapper.setMappedToPackageName("java.util");
+        mapper.setMappedToClassName("Date");
+        mappers.getMappers().add(mapper);
+        
+        mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+        mapper.setUid(UUID.randomUUID().toString());
+        mapper.setPackageName("Primitives");
+        mapper.setTypeName("Integer");
+        mapper.setMappedToPackageName("java.lang");
+        mapper.setMappedToClassName("Integer");
+        mappers.getMappers().add(mapper);
+        
+        mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+        mapper.setUid(UUID.randomUUID().toString());
+        mapper.setPackageName("Primitives");
+        mapper.setTypeName("Long");
+        mapper.setMappedToPackageName("java.lang");
+        mapper.setMappedToClassName("Long");
+        mappers.getMappers().add(mapper);
+        
+        mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+        mapper.setUid(UUID.randomUUID().toString());
+        mapper.setPackageName("Primitives");
+        mapper.setTypeName("HexBinary");
+        mapper.setMappedToPackageName("");
+        mapper.setMappedToClassName("byte[]");
+        mappers.getMappers().add(mapper);
+       
+        return model;
+  	}
 
 
 }
