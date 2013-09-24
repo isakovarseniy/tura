@@ -176,7 +176,7 @@ public class DomainDiagramEditorUtil {
 			protected CommandResult doExecuteWithResult(
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				Artifacts model = createInitialModel();
+				Artifacts model = createInitialModel(modelResource);
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService.createDiagram(model,
@@ -222,7 +222,7 @@ public class DomainDiagramEditorUtil {
 	 * @generated
 	 */
 
-	private static Artifacts createInitialModel() {
+	private static Artifacts createInitialModel(Resource resource) {
 
 		return DomainFactory.eINSTANCE.createArtifacts();
 	}

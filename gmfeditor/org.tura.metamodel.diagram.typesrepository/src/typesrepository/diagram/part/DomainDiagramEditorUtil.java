@@ -176,7 +176,7 @@ public class DomainDiagramEditorUtil {
 			protected CommandResult doExecuteWithResult(
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				TypesRepository model = createInitialModel();
+				TypesRepository model = createInitialModel(modelResource);
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService.createDiagram(model,
@@ -222,9 +222,9 @@ public class DomainDiagramEditorUtil {
 	 * @generated
 	 */
 
-	private static TypesRepository createInitialModel() {
+	private static TypesRepository createInitialModel(Resource resource) {
 
-		return InitDiagram.initTypesRepositoryDiagram();
+		return InitDiagram.initTypesRepositoryDiagram(resource);
 	}
 
 	/**

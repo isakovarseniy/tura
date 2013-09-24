@@ -177,7 +177,7 @@ public class DomainDiagramEditorUtil {
 			protected CommandResult doExecuteWithResult(
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				Mappers model = createInitialModel();
+				Mappers model = createInitialModel(modelResource);
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService.createDiagram(model,
@@ -223,7 +223,7 @@ public class DomainDiagramEditorUtil {
 	 * @generated
 	 */
 
-	private static Mappers createInitialModel() {
+	private static Mappers createInitialModel(Resource resource) {
 
 		return DomainFactory.eINSTANCE.createMappers();
 	}

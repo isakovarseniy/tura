@@ -52,7 +52,7 @@ public class CrateDiagram {
 	    
 	    
 	    // Create the content of the model via this program
-	    Domain model = InitDiagram.initDomainDiagram();
+	    Domain model = InitDiagram.initDomainDiagram(resource);
 	    new PopulateTypes().execute(model,resource);
 	    new PopulateTypesMapping().execute(model, resource);
 	    
