@@ -12,15 +12,9 @@ public class PopulateTypesMapping {
 		domain.DomainApplication app = domain.DomainFactory.eINSTANCE.createDomainApplication();
 		app.setName("HR application");
 		app.setUid(UUID.randomUUID().toString());
-		model.getDomainApplications().getApplications().add(app);
 		
-		domain.Application appl = InitDiagram.initApplicationDiagram();
+		domain.Application appl = InitDiagram.initApplicationDiagram(resource);
 		app.setApplication(appl);
-		resource.getContents().add(appl);
-		
-		domain.ApplicationMapper appmaper  = InitDiagram.initPrimitivesMapping();
-		appl.getApplicationMappers().getMappers().add(appmaper);
-		resource.getContents().add(appmaper.getMapper());
 		
 	}
 }

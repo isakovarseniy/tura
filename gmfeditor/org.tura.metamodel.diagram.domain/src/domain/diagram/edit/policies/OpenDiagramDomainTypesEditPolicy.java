@@ -155,7 +155,8 @@ public class OpenDiagramDomainTypesEditPolicy extends OpenEditPolicy {
 
 			();
 			if (obj == null)
-				obj = InitDiagram.initTypesRepositoryDiagram()
+				obj = InitDiagram.initTypesRepositoryDiagram(sourceObject
+						.eResource())
 
 				;
 

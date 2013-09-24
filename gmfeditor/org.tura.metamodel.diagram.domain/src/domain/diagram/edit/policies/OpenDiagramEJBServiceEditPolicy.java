@@ -155,7 +155,8 @@ public class OpenDiagramEJBServiceEditPolicy extends OpenEditPolicy {
 
 			();
 			if (obj == null)
-				obj = InitDiagram.initEJBServiceDiagram()
+				obj = InitDiagram.initEJBServiceDiagram(sourceObject
+						.eResource())
 
 				;
 

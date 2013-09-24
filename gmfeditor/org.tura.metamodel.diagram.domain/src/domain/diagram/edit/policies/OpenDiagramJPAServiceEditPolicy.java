@@ -155,7 +155,8 @@ public class OpenDiagramJPAServiceEditPolicy extends OpenEditPolicy {
 
 			();
 			if (obj == null)
-				obj = InitDiagram.initJPAServiceDiagram()
+				obj = InitDiagram.initJPAServiceDiagram(sourceObject
+						.eResource())
 
 				;
 

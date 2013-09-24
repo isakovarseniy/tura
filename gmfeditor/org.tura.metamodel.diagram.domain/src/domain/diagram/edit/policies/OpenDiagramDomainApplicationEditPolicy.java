@@ -155,7 +155,8 @@ public class OpenDiagramDomainApplicationEditPolicy extends OpenEditPolicy {
 
 			();
 			if (obj == null)
-				obj = InitDiagram.initApplicationDiagram()
+				obj = InitDiagram.initApplicationDiagram(sourceObject
+						.eResource())
 
 				;
 

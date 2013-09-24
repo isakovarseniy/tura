@@ -298,15 +298,15 @@
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'-»
            domain.DomainFactory.eINSTANCE.createArtifacts()
            «ELSEIF editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'-»
-          org.tura.metamodel.commons.initdiagram.InitDiagram.initORMEntityDiagram()
+          org.tura.metamodel.commons.initdiagram.InitDiagram.initORMEntityDiagram(sourceObject.eResource())
             «ELSEIF editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy'-»
-          org.tura.metamodel.commons.initdiagram.InitDiagram.initJPAServiceDiagram()
+          org.tura.metamodel.commons.initdiagram.InitDiagram.initJPAServiceDiagram(sourceObject.eResource())
             «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
-          org.tura.metamodel.commons.initdiagram.InitDiagram.initEJBServiceDiagram()
+          org.tura.metamodel.commons.initdiagram.InitDiagram.initEJBServiceDiagram(sourceObject.eResource())
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
-           org.tura.metamodel.commons.initdiagram.InitDiagram.initTypesRepositoryDiagram()
+           org.tura.metamodel.commons.initdiagram.InitDiagram.initTypesRepositoryDiagram(sourceObject.eResource())
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»
-           org.tura.metamodel.commons.initdiagram.InitDiagram.initApplicationDiagram()
+           org.tura.metamodel.commons.initdiagram.InitDiagram.initApplicationDiagram(sourceObject.eResource())
           «ELSEIF editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy'-» 
            domain.DomainFactory.eINSTANCE.createMappers()
           «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»

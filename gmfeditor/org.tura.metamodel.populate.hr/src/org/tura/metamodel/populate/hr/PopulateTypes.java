@@ -10,102 +10,13 @@ public class PopulateTypes {
 	public void execute(domain.Domain model, Resource resource) {
 
 		domain.TypesRepository typeRepository = InitDiagram
-				.initTypesRepositoryDiagram();
+				.initTypesRepositoryDiagram(resource);
 		model.getDomainTypes().setTypesrepository(typeRepository);
-		resource.getContents().add(typeRepository);
-        populateBasePackage(model, resource);
         populateHRPackage(model, resource);
 		
 	}
 
 
-	private void populateBasePackage(domain.Domain model, Resource resource) {
-		domain.Package pkg = domain.DomainFactory.eINSTANCE.createPackage();
-		pkg.setName("Base package");
-		pkg.setUid(UUID.randomUUID().toString());
-		resource.getContents().add(pkg);
-
-		model.getDomainTypes().getTypesrepository().getTypeDefinition()
-				.getPackages().add(pkg);
-
-		domain.TypeDefinition td = domain.DomainFactory.eINSTANCE
-				.createTypeDefinition();
-		resource.getContents().add(td);
-		td.setUid(UUID.randomUUID().toString());
-		pkg.setTypedefinition(td);
-
-		domain.Type baseType = domain.DomainFactory.eINSTANCE.createType();
-		resource.getContents().add(baseType);
-		td.getTypes().add(baseType);
-		baseType.setName("BaseType");
-		baseType.setUid(UUID.randomUUID().toString());
-
-		domain.Attribute attr = domain.DomainFactory.eINSTANCE
-				.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setName("objId");
-		attr.setPk(true);
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Long");
-		attr.setUid(UUID.randomUUID().toString());
-
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("parentId");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Long");
-		attr.setUid(UUID.randomUUID().toString());
-
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("objType");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("String");
-		attr.setUid(UUID.randomUUID().toString());
-
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("objStatus");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("String");
-		attr.setUid(UUID.randomUUID().toString());
-
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("createDate");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Date");
-		attr.setUid(UUID.randomUUID().toString());
-
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("updateDate");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Date");
-		attr.setUid(UUID.randomUUID().toString());
-
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("activeDate");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Date");
-		attr.setUid(UUID.randomUUID().toString());
-
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("expiredDate");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Date");
-		attr.setUid(UUID.randomUUID().toString());
-
-	}
 
 	private void populateHRPackage(domain.Domain model, Resource resource) {
 		domain.Package pkg = domain.DomainFactory.eINSTANCE.createPackage();

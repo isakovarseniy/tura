@@ -155,7 +155,8 @@ public class OpenDiagramORMEntityEditPolicy extends OpenEditPolicy {
 
 			();
 			if (obj == null)
-				obj = InitDiagram.initORMEntityDiagram()
+				obj = InitDiagram
+						.initORMEntityDiagram(sourceObject.eResource())
 
 				;
 
