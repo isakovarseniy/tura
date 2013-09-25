@@ -45,10 +45,10 @@ public class CrateDiagram {
 	    
 	    // Create a resource
 	    Resource resource = resSet.createResource(URI
-	        .createURI("employee.domain"));
+	        .createURI("hr.domain"));
 	    
 	    Resource diagramresource = diagresSet.createResource(URI
-		        .createURI("employee.domain_diagram"));
+		        .createURI("hr.domain_diagram"));
 	    
 	    
 	    // Create the content of the model via this program
