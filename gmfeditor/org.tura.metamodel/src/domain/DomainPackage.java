@@ -2219,13 +2219,22 @@ public interface DomainPackage extends EPackage
   int RECIPE__INFRASTRUCTURES = 4;
 
   /**
+   * The feature id for the '<em><b>Mappers</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE__MAPPERS = 5;
+
+  /**
    * The number of structural features of the '<em>Recipe</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECIPE_FEATURE_COUNT = 5;
+  int RECIPE_FEATURE_COUNT = 6;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5248,6 +5257,17 @@ public interface DomainPackage extends EPackage
   EReference getRecipe_Infrastructures();
 
   /**
+   * Returns the meta object for the attribute list '{@link domain.Recipe#getMappers <em>Mappers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Mappers</em>'.
+   * @see domain.Recipe#getMappers()
+   * @see #getRecipe()
+   * @generated
+   */
+  EAttribute getRecipe_Mappers();
+
+  /**
    * Returns the meta object for class '{@link domain.Component <em>Component</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7752,6 +7772,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference RECIPE__INFRASTRUCTURES = eINSTANCE.getRecipe_Infrastructures();
+
+    /**
+     * The meta object literal for the '<em><b>Mappers</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RECIPE__MAPPERS = eINSTANCE.getRecipe_Mappers();
 
     /**
      * The meta object literal for the '{@link domain.impl.ComponentImpl <em>Component</em>}' class.

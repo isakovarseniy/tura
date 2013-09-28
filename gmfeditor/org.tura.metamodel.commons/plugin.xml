@@ -154,6 +154,7 @@
     </propertySections>
   </extension>  
 
+//--//
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
       <?gmfgen generated="true"?>   
@@ -161,69 +162,24 @@
           <propertyTab
              category="domain"
              id="property.tab.domain.custom"
-             label="Type ref"/>
+             label="Available mappers"/>
       </propertyTabs>
- 
-      <propertyTabs contributorId="org.tura.metamodel.diagram.recipe">
-          <propertyTab
-             category="domain"
-             id="property.tab.recipe.custom"
-             label="Specifier"/>
-      </propertyTabs>
-
-      <propertyTabs contributorId="org.tura.metamodel.diagram.recipe">
-          <propertyTab
-             category="domain"
-             id="property.tab.variables.custom"
-             label="Query Var"/>
-      </propertyTabs>
-
-
-
    </extension>
-   
+
+
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="org.tura.metamodel.diagram.recipe">
       
           <propertySection
                tab="property.tab.domain.custom"
-               class="org.metamodel.tura.ui.properties.sections.DomainArtifactPropertySelection"
-               id="org.tura.metamodel.recipe.update">
-              <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
+               class="org.metamodel.tura.ui.properties.sections.MappersListPropertySelection"
+               id="org.tura.metamodel.mapper.update">
+              <input type="recipe.diagram.edit.parts.RecipeEditPart"/>
          </propertySection>        
- 
-          <propertySection
-               tab="property.tab.domain.custom"
-               class="org.metamodel.tura.ui.properties.sections.ArtifactPropertySelection"
-               id="org.tura.metamodel.recipe.update">
-              <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
-         </propertySection>        
-
-
-          <propertySection
-               tab="property.tab.recipe.custom"
-               class="org.metamodel.tura.ui.properties.sections.MappingSpecifierPropertySelection"
-               id="org.tura.metamodel.recipe.update">
-              <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
-         </propertySection>        
-
-          <propertySection
-               tab="property.tab.variables.custom"
-               class="org.metamodel.tura.ui.properties.sections.MappingVariablePropertySelection"
-               id="org.tura.metamodel.recipe.update">
-              <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
-         </propertySection>        
-
 
     </propertySections>
-
-
-
-
   </extension>  
-
-
 
 
 </plugin>

@@ -291,6 +291,7 @@ class Recipe{
   val Ingredient[*]#parent ingredients;
   @gmf.link(target.decoration="arrow", style="dash")
   ref Infrastructure[*]#recipe infrastructures;
+  attr EString[*] mappers;
 }
 
 @gmf.node(label="name")

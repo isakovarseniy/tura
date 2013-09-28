@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -42,6 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.RecipeImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getIngredients <em>Ingredients</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getInfrastructures <em>Infrastructures</em>}</li>
+ *   <li>{@link domain.impl.RecipeImpl#getMappers <em>Mappers</em>}</li>
  * </ul>
  * </p>
  *
@@ -108,6 +110,16 @@ public class RecipeImpl extends EObjectImpl implements Recipe
    * @ordered
    */
   protected EList<Infrastructure> infrastructures;
+
+  /**
+   * The cached value of the '{@link #getMappers() <em>Mappers</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMappers()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> mappers;
 
   /**
    * <!-- begin-user-doc -->
@@ -254,6 +266,20 @@ public class RecipeImpl extends EObjectImpl implements Recipe
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getMappers()
+  {
+    if (mappers == null)
+    {
+      mappers = new EDataTypeUniqueEList<String>(String.class, this, DomainPackage.RECIPE__MAPPERS);
+    }
+    return mappers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
@@ -328,6 +354,8 @@ public class RecipeImpl extends EObjectImpl implements Recipe
         return getIngredients();
       case DomainPackage.RECIPE__INFRASTRUCTURES:
         return getInfrastructures();
+      case DomainPackage.RECIPE__MAPPERS:
+        return getMappers();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -360,6 +388,10 @@ public class RecipeImpl extends EObjectImpl implements Recipe
         getInfrastructures().clear();
         getInfrastructures().addAll((Collection<? extends Infrastructure>)newValue);
         return;
+      case DomainPackage.RECIPE__MAPPERS:
+        getMappers().clear();
+        getMappers().addAll((Collection<? extends String>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -389,6 +421,9 @@ public class RecipeImpl extends EObjectImpl implements Recipe
       case DomainPackage.RECIPE__INFRASTRUCTURES:
         getInfrastructures().clear();
         return;
+      case DomainPackage.RECIPE__MAPPERS:
+        getMappers().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -413,6 +448,8 @@ public class RecipeImpl extends EObjectImpl implements Recipe
         return ingredients != null && !ingredients.isEmpty();
       case DomainPackage.RECIPE__INFRASTRUCTURES:
         return infrastructures != null && !infrastructures.isEmpty();
+      case DomainPackage.RECIPE__MAPPERS:
+        return mappers != null && !mappers.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -432,6 +469,8 @@ public class RecipeImpl extends EObjectImpl implements Recipe
     result.append(uid);
     result.append(", name: ");
     result.append(name);
+    result.append(", mappers: ");
+    result.append(mappers);
     result.append(')');
     return result.toString();
   }

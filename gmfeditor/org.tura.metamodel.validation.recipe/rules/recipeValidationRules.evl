@@ -94,7 +94,7 @@
   constraint RefArtifactNameExist{
       guard : self.satisfies("RefDomainArtifactIsExist")
       check : DomainArtifact.allInstances.selectOne(r|r.name=self.domainArtifact).artifact.isDefined() and   DomainArtifact.allInstances.selectOne(r|r.name=self.domainArtifact).artifact.artifacts.exists(r|r.isKindOf(Artifact) and r.name=self.artifactName) 
-      message : 'Artifact  name  ' + self.artifactName + ' in ' +self.domainArtifac+ '  is not define  '
+      message : 'Artifact  name  ' + self.artifactName + ' in ' +self.domainArtifact+ '  is not define  '
    } 
 
   constraint checkMappingSpecifiers{

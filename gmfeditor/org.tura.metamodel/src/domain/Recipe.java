@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Recipe#getName <em>Name</em>}</li>
  *   <li>{@link domain.Recipe#getIngredients <em>Ingredients</em>}</li>
  *   <li>{@link domain.Recipe#getInfrastructures <em>Infrastructures</em>}</li>
+ *   <li>{@link domain.Recipe#getMappers <em>Mappers</em>}</li>
  * </ul>
  * </p>
  *
@@ -144,5 +145,21 @@ public interface Recipe extends EObject
    * @generated
    */
   EList<Infrastructure> getInfrastructures();
+
+  /**
+   * Returns the value of the '<em><b>Mappers</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Mappers</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Mappers</em>' attribute list.
+   * @see domain.DomainPackage#getRecipe_Mappers()
+   * @model
+   * @generated
+   */
+  EList<String> getMappers();
 
 } // Recipe
