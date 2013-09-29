@@ -1311,7 +1311,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypePointer()
    * @generated
    */
-  int TYPE_POINTER = 54;
+  int TYPE_POINTER = 55;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -2090,6 +2090,34 @@ public interface DomainPackage extends EPackage
   int RECIPES_FEATURE_COUNT = 5;
 
   /**
+   * The meta object id for the '{@link domain.impl.UsingMappersImpl <em>Using Mappers</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.UsingMappersImpl
+   * @see domain.impl.DomainPackageImpl#getUsingMappers()
+   * @generated
+   */
+  int USING_MAPPERS = 33;
+
+  /**
+   * The feature id for the '<em><b>Mappers</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USING_MAPPERS__MAPPERS = 0;
+
+  /**
+   * The number of structural features of the '<em>Using Mappers</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USING_MAPPERS_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link domain.impl.IngredientImpl <em>Ingredient</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2097,7 +2125,16 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getIngredient()
    * @generated
    */
-  int INGREDIENT = 33;
+  int INGREDIENT = 34;
+
+  /**
+   * The feature id for the '<em><b>Mappers</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INGREDIENT__MAPPERS = USING_MAPPERS__MAPPERS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2106,7 +2143,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INGREDIENT__UID = 0;
+  int INGREDIENT__UID = USING_MAPPERS_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2115,7 +2152,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INGREDIENT__NAME = 1;
+  int INGREDIENT__NAME = USING_MAPPERS_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2124,7 +2161,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INGREDIENT__PARENT = 2;
+  int INGREDIENT__PARENT = USING_MAPPERS_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -2133,7 +2170,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INGREDIENT__COMPONENTS = 3;
+  int INGREDIENT__COMPONENTS = USING_MAPPERS_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Layer</b></em>' attribute.
@@ -2142,7 +2179,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INGREDIENT__LAYER = 4;
+  int INGREDIENT__LAYER = USING_MAPPERS_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Ingredient</em>' class.
@@ -2151,7 +2188,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INGREDIENT_FEATURE_COUNT = 5;
+  int INGREDIENT_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link domain.impl.InfrastructureImpl <em>Infrastructure</em>}' class.
@@ -2161,7 +2198,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructure()
    * @generated
    */
-  int INFRASTRUCTURE = 35;
+  int INFRASTRUCTURE = 36;
 
   /**
    * The meta object id for the '{@link domain.impl.RecipeImpl <em>Recipe</em>}' class.
@@ -2171,52 +2208,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRecipe()
    * @generated
    */
-  int RECIPE = 34;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECIPE__UID = 0;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECIPE__PARENT = 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECIPE__NAME = 2;
-
-  /**
-   * The feature id for the '<em><b>Ingredients</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECIPE__INGREDIENTS = 3;
-
-  /**
-   * The feature id for the '<em><b>Infrastructures</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECIPE__INFRASTRUCTURES = 4;
+  int RECIPE = 35;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' attribute list.
@@ -2225,7 +2217,52 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECIPE__MAPPERS = 5;
+  int RECIPE__MAPPERS = USING_MAPPERS__MAPPERS;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE__UID = USING_MAPPERS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE__PARENT = USING_MAPPERS_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE__NAME = USING_MAPPERS_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Ingredients</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE__INGREDIENTS = USING_MAPPERS_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Infrastructures</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE__INFRASTRUCTURES = USING_MAPPERS_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Recipe</em>' class.
@@ -2234,7 +2271,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECIPE_FEATURE_COUNT = 6;
+  int RECIPE_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2289,7 +2326,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getComponent()
    * @generated
    */
-  int COMPONENT = 37;
+  int COMPONENT = 38;
 
   /**
    * The meta object id for the '{@link domain.impl.ArtifactRefImpl <em>Artifact Ref</em>}' class.
@@ -2299,7 +2336,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtifactRef()
    * @generated
    */
-  int ARTIFACT_REF = 42;
+  int ARTIFACT_REF = 43;
 
   /**
    * The meta object id for the '{@link domain.impl.ModelMapperImpl <em>Model Mapper</em>}' class.
@@ -2309,7 +2346,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getModelMapper()
    * @generated
    */
-  int MODEL_MAPPER = 38;
+  int MODEL_MAPPER = 39;
 
   /**
    * The meta object id for the '{@link domain.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -2319,7 +2356,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getConfiguration()
    * @generated
    */
-  int CONFIGURATION = 36;
+  int CONFIGURATION = 37;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2545,7 +2582,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getProperty()
    * @generated
    */
-  int PROPERTY = 39;
+  int PROPERTY = 40;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2591,7 +2628,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMappingSpecifier()
    * @generated
    */
-  int MAPPING_SPECIFIER = 40;
+  int MAPPING_SPECIFIER = 41;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2637,7 +2674,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMappingVariable()
    * @generated
    */
-  int MAPPING_VARIABLE = 41;
+  int MAPPING_VARIABLE = 42;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2683,7 +2720,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeDefinition()
    * @generated
    */
-  int TYPE_DEFINITION = 43;
+  int TYPE_DEFINITION = 44;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2738,7 +2775,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeElement()
    * @generated
    */
-  int TYPE_ELEMENT = 44;
+  int TYPE_ELEMENT = 45;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2766,7 +2803,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getType()
    * @generated
    */
-  int TYPE = 45;
+  int TYPE = 46;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2839,7 +2876,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeReference()
    * @generated
    */
-  int TYPE_REFERENCE = 46;
+  int TYPE_REFERENCE = 47;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2894,7 +2931,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeExtension()
    * @generated
    */
-  int TYPE_EXTENSION = 47;
+  int TYPE_EXTENSION = 48;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2940,7 +2977,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 48;
+  int ATTRIBUTE = 49;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -3013,7 +3050,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOperation()
    * @generated
    */
-  int OPERATION = 49;
+  int OPERATION = 50;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3077,7 +3114,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 50;
+  int PARAMETER = 51;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -3141,7 +3178,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getReturnValue()
    * @generated
    */
-  int RETURN_VALUE = 51;
+  int RETURN_VALUE = 52;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -3187,7 +3224,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnumarator()
    * @generated
    */
-  int ENUMARATOR = 52;
+  int ENUMARATOR = 53;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3242,7 +3279,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnumAttribute()
    * @generated
    */
-  int ENUM_ATTRIBUTE = 53;
+  int ENUM_ATTRIBUTE = 54;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3297,7 +3334,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypesRepository()
    * @generated
    */
-  int TYPES_REPOSITORY = 55;
+  int TYPES_REPOSITORY = 56;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3343,7 +3380,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypes()
    * @generated
    */
-  int TYPES = 56;
+  int TYPES = 57;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3416,7 +3453,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPrimitive()
    * @generated
    */
-  int PRIMITIVE = 57;
+  int PRIMITIVE = 58;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3462,7 +3499,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPackage()
    * @generated
    */
-  int PACKAGE = 58;
+  int PACKAGE = 59;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3517,7 +3554,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getBusinessPackage()
    * @generated
    */
-  int BUSINESS_PACKAGE = 59;
+  int BUSINESS_PACKAGE = 60;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3573,7 +3610,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 60;
+  int PLATFORM_LAYERS = 61;
 
 
   /**
@@ -5073,6 +5110,27 @@ public interface DomainPackage extends EPackage
   EReference getRecipes_Parent();
 
   /**
+   * Returns the meta object for class '{@link domain.UsingMappers <em>Using Mappers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Using Mappers</em>'.
+   * @see domain.UsingMappers
+   * @generated
+   */
+  EClass getUsingMappers();
+
+  /**
+   * Returns the meta object for the attribute list '{@link domain.UsingMappers#getMappers <em>Mappers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Mappers</em>'.
+   * @see domain.UsingMappers#getMappers()
+   * @see #getUsingMappers()
+   * @generated
+   */
+  EAttribute getUsingMappers_Mappers();
+
+  /**
    * Returns the meta object for class '{@link domain.Ingredient <em>Ingredient</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5255,17 +5313,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getRecipe_Infrastructures();
-
-  /**
-   * Returns the meta object for the attribute list '{@link domain.Recipe#getMappers <em>Mappers</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Mappers</em>'.
-   * @see domain.Recipe#getMappers()
-   * @see #getRecipe()
-   * @generated
-   */
-  EAttribute getRecipe_Mappers();
 
   /**
    * Returns the meta object for class '{@link domain.Component <em>Component</em>}'.
@@ -7632,6 +7679,24 @@ public interface DomainPackage extends EPackage
     EReference RECIPES__PARENT = eINSTANCE.getRecipes_Parent();
 
     /**
+     * The meta object literal for the '{@link domain.impl.UsingMappersImpl <em>Using Mappers</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.UsingMappersImpl
+     * @see domain.impl.DomainPackageImpl#getUsingMappers()
+     * @generated
+     */
+    EClass USING_MAPPERS = eINSTANCE.getUsingMappers();
+
+    /**
+     * The meta object literal for the '<em><b>Mappers</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USING_MAPPERS__MAPPERS = eINSTANCE.getUsingMappers_Mappers();
+
+    /**
      * The meta object literal for the '{@link domain.impl.IngredientImpl <em>Ingredient</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7772,14 +7837,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference RECIPE__INFRASTRUCTURES = eINSTANCE.getRecipe_Infrastructures();
-
-    /**
-     * The meta object literal for the '<em><b>Mappers</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute RECIPE__MAPPERS = eINSTANCE.getRecipe_Mappers();
 
     /**
      * The meta object literal for the '{@link domain.impl.ComponentImpl <em>Component</em>}' class.

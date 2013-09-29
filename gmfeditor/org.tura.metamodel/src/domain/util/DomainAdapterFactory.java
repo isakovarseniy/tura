@@ -61,6 +61,7 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UpdateMethod;
+import domain.UsingMappers;
 import domain.Variable;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -297,6 +298,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseRecipes(Recipes object)
       {
         return createRecipesAdapter();
+      }
+      @Override
+      public Adapter caseUsingMappers(UsingMappers object)
+      {
+        return createUsingMappersAdapter();
       }
       @Override
       public Adapter caseIngredient(Ingredient object)
@@ -946,6 +952,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRecipesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.UsingMappers <em>Using Mappers</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.UsingMappers
+   * @generated
+   */
+  public Adapter createUsingMappersAdapter()
   {
     return null;
   }

@@ -63,6 +63,7 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UpdateMethod;
+import domain.UsingMappers;
 import domain.Variable;
 
 import org.eclipse.emf.ecore.EClass;
@@ -159,6 +160,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.MAPPER: return createMapper();
       case DomainPackage.JAVA_MAPPER: return createJavaMapper();
       case DomainPackage.RECIPES: return createRecipes();
+      case DomainPackage.USING_MAPPERS: return createUsingMappers();
       case DomainPackage.INGREDIENT: return createIngredient();
       case DomainPackage.RECIPE: return createRecipe();
       case DomainPackage.INFRASTRUCTURE: return createInfrastructure();
@@ -586,6 +588,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     RecipesImpl recipes = new RecipesImpl();
     return recipes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UsingMappers createUsingMappers()
+  {
+    UsingMappersImpl usingMappers = new UsingMappersImpl();
+    return usingMappers;
   }
 
   /**

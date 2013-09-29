@@ -899,6 +899,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.UsingMappers} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected UsingMappersItemProvider usingMappersItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.UsingMappers}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createUsingMappersAdapter()
+  {
+    if (usingMappersItemProvider == null)
+    {
+      usingMappersItemProvider = new UsingMappersItemProvider(this);
+    }
+
+    return usingMappersItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Ingredient} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1717,6 +1742,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (mapperItemProvider != null) mapperItemProvider.dispose();
     if (javaMapperItemProvider != null) javaMapperItemProvider.dispose();
     if (recipesItemProvider != null) recipesItemProvider.dispose();
+    if (usingMappersItemProvider != null) usingMappersItemProvider.dispose();
     if (ingredientItemProvider != null) ingredientItemProvider.dispose();
     if (recipeItemProvider != null) recipeItemProvider.dispose();
     if (infrastructureItemProvider != null) infrastructureItemProvider.dispose();

@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model annotation="gmf.node label='name'"
  * @generated
  */
-public interface Ingredient extends EObject
+public interface Ingredient extends UsingMappers
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.

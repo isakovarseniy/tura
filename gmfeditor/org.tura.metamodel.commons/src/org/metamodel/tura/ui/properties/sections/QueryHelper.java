@@ -2,8 +2,10 @@ package org.metamodel.tura.ui.properties.sections;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -140,8 +142,53 @@ public class QueryHelper {
 
 	}
 
+	public Set<String> findAvailableMappersForRecipe(domain.Recipe recipe) {
+
+		HashSet<String> mappers = new HashSet<String>();
+		try {
+
+			List<domain.ApplicationMapper> appMapperLst = recipe.getParent()
+					.getParent().getParent().getParent()
+					.getApplicationMappers().getMappers();
+
+			for (Iterator<domain.ApplicationMapper> itr = appMapperLst
+					.iterator(); itr.hasNext();) {
+				domain.ApplicationMapper mapper = itr.next();
+				mappers.add(mapper.getName());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mappers;
+	}
+
+	public Set<String> findAvailableMappersForIngredient(domain.Ingredient ingr) {
+
+		HashSet<String> mappers = new HashSet<String>();
+		try {
+
+			List<domain.ApplicationMapper> appMapperLst = ingr.getParent()
+					.getParent().getParent().getParent().getParent()
+					.getApplicationMappers().getMappers();
+
+			List<String> recipeLs = ingr.getParent().getMappers();
+
+			for (Iterator<domain.ApplicationMapper> itr = appMapperLst
+					.iterator(); itr.hasNext();) {
+				domain.ApplicationMapper mapper = itr.next();
+				if (!recipeLs.contains(mapper.getName()))
+					mappers.add(mapper.getName());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mappers;
+	}
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<String> findMappers(domain.Recipe eObject) {
+	public List<String> removeMappersForRecipe(domain.Recipe eObject) {
 		ArrayList<String> removeMappers = new ArrayList<String>();
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -161,6 +208,40 @@ public class QueryHelper {
 				domain.ApplicationMapper sp = itr2.next();
 				if (sp.getName().equals(ms))
 					isRemove = false;
+			}
+			if (isRemove)
+				removeMappers.add(ms);
+		}
+		return removeMappers;
+
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public List<String> removeMappersForIngredient(domain.Ingredient eObject) {
+		ArrayList<String> removeMappers = new ArrayList<String>();
+
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+		List<String> map = eObject.getMappers();
+
+		List<domain.ApplicationMapper> map1 = eObject.getParent().getParent()
+				.getParent().getParent().getParent().getApplicationMappers()
+				.getMappers();
+
+		List<String> recipeLs = eObject.getParent().getMappers();
+
+		for (Iterator<String> itr1 = map.iterator(); itr1.hasNext();) {
+			String ms = itr1.next();
+			boolean isRemove = true;
+			for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2
+					.hasNext();) {
+				domain.ApplicationMapper sp = itr2.next();
+				if (sp.getName().equals(ms))
+					isRemove = false;
+				if (recipeLs.contains(ms))
+					isRemove = true;
 			}
 			if (isRemove)
 				removeMappers.add(ms);

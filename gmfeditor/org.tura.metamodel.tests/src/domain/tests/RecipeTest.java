@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RecipeTest extends TestCase
+public class RecipeTest extends UsingMappersTest
 {
-
-  /**
-   * The fixture for this Recipe test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Recipe fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class RecipeTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Recipe test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(Recipe fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Recipe test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected Recipe getFixture()
   {
-    return fixture;
+    return (Recipe)fixture;
   }
 
   /**

@@ -1,18 +1,11 @@
 package org.metamodel.tura.ui.properties.sections;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
-import org.eclipse.emf.edit.command.AddCommand;
-import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
-import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -22,7 +15,6 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
-import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -30,22 +22,20 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import domain.DomainPackage;
 
-public class MappersListPropertySelection extends AbstractGridPropertySelection {
+public abstract class MappersListPropertySelection extends AbstractGridPropertySelection {
 
 	// Set the table column property names
 	private final String MAPPERS_COLUMN = "Mappers";
 
-	private MappersList optionList;
+	protected AbstractMappersList optionList;
 
 	// Set column names
 	private String[] columnNames = new String[] { MAPPERS_COLUMN };
@@ -56,15 +46,11 @@ public class MappersListPropertySelection extends AbstractGridPropertySelection 
 
 	}
 
-	public void refresh() {
-		optionList = new MappersList();
-		tableViewer.setInput(optionList);
-	}
-
+	public abstract void refresh() ;
 	/**
 	 * Return the OptionList
 	 */
-	public MappersList getTaskList() {
+	public AbstractMappersList getTaskList() {
 		return optionList;
 	}
 
@@ -189,9 +175,9 @@ public class MappersListPropertySelection extends AbstractGridPropertySelection 
 			ITaskListViewer {
 		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
 			if (newInput != null)
-				((MappersList) newInput).addChangeListener(this);
+				((AbstractMappersList) newInput).addChangeListener(this);
 			if (oldInput != null)
-				((MappersList) oldInput).removeChangeListener(this);
+				((AbstractMappersList) oldInput).removeChangeListener(this);
 		}
 
 		public void dispose() {
@@ -337,195 +323,6 @@ public class MappersListPropertySelection extends AbstractGridPropertySelection 
 		}
 	}
 
-	public class MappersList {
-
-		private ArrayList<String> options = new ArrayList<String>();
-		@SuppressWarnings("rawtypes")
-		private Set changeListeners = new HashSet();
-		private String[] spOptions;
-
-		/**
-		 * Constructor
-		 */
-		public MappersList() {
-			super();
-			this.initData();
-		}
-
-		public String[] getMapperOptions() {
-			return spOptions;
-		}
-
-		private void initData() {
-
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
-
-			try {
-
-				List<String> removeMappers = (new QueryHelper())
-						.findMappers((domain.Recipe) eObject);
-
-				// Remove
-				for (Iterator<String> itr = removeMappers.iterator(); itr
-						.hasNext();) {
-					String ms = itr.next();
-					editingDomain.getCommandStack().execute(
-							RemoveCommand
-									.create(editingDomain,
-											((domain.Recipe) eObject),
-											DomainPackage.eINSTANCE
-													.getRecipe_Mappers(), ms));
-				}
-
-				for (Iterator<String> i = ((domain.Recipe) eObject)
-						.getMappers().iterator(); i.hasNext();) {
-					String p = i.next();
-					options.add(p);
-				}
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-
-		/**
-		 * Return the collection of tasks
-		 */
-		public List<?> getOptions() {
-			return options;
-		}
-
-		/**
-		 * Add a new task to the collection of tasks
-		 */
-		public void addTask() {
-			Set<String> set = mappersList((domain.Recipe) eObject);
-			ListSelectionDialog dlg = new ListSelectionDialog(Display
-					.getCurrent().getActiveShell(), set,
-					new ArrayContentProvider(), new LabelProvider(),
-					"Select Mappers:");
-			dlg.setTitle("Mappers Selection");
-			dlg.setInitialElementSelections(((domain.Recipe) eObject).getMappers());
-			List<Object> result = new ArrayList<>();
-			if (dlg.open() == Window.OK) {
-				result = Arrays.asList(dlg.getResult());
-			}
-
-			List<String> addMappers = new ArrayList<String>();
-			for (Iterator<?> itr = result.iterator(); itr.hasNext();) {
-				String mapper = (String) itr.next();
-				if (!((domain.Recipe) eObject).getMappers().contains(mapper)) {
-					addMappers.add(mapper);
-				}
-			}
-
-			List<String> removeMappers = new ArrayList<String>();
-			for (Iterator<?> itr = ((domain.Recipe) eObject).getMappers()
-					.iterator(); itr.hasNext();) {
-				String mapper = (String) itr.next();
-				if (!result.contains(mapper)) {
-					removeMappers.add(mapper);
-				}
-			}
-
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
-
-			editingDomain.getCommandStack().execute(
-					AddCommand.create(editingDomain, ((domain.Recipe) eObject),
-							DomainPackage.eINSTANCE.getRecipe_Mappers(),
-							addMappers));
-
-			editingDomain.getCommandStack().execute(
-					RemoveCommand.create(editingDomain,
-							((domain.Recipe) eObject),
-							DomainPackage.eINSTANCE.getRecipe_Mappers(),
-							removeMappers));
-
-			options.removeAll(removeMappers);
-			options.addAll(addMappers);
-
-			Iterator<?> iterator = changeListeners.iterator();
-			while (iterator.hasNext())
-				((ITaskListViewer) iterator.next()).addOption(addMappers);
-
-			iterator = changeListeners.iterator();
-			while (iterator.hasNext())
-				((ITaskListViewer) iterator.next()).removeOption(removeMappers);
-			
-		}
-
-		public Set<String> mappersList(domain.Recipe recipe) {
-
-			HashSet<String> mappers = new HashSet<String>();
-			try {
-
-				List<domain.ApplicationMapper> appMapperLst = recipe
-						.getParent().getParent().getParent().getParent()
-						.getApplicationMappers().getMappers();
-
-				for (Iterator<domain.ApplicationMapper> itr = appMapperLst
-						.iterator(); itr.hasNext();) {
-					domain.ApplicationMapper mapper = itr.next();
-					mappers.add(mapper.getName());
-				}
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return mappers;
-		}
-
-		/**
-		 * @param task
-		 */
-		public void removeTask(domain.MappingVariable option) {
-
-			// ArrayList<domain.MappingVariable> ls = new
-			// ArrayList<domain.MappingVariable>();
-			// ls.add(option);
-			//
-			// EditingDomain editingDomain = ((DiagramEditor) getPart())
-			// .getEditingDomain();
-			//
-			// editingDomain.getCommandStack().execute(
-			// RemoveCommand.create(editingDomain,
-			// ((domain.Variable) eObject),
-			// DomainPackage.eINSTANCE.getModelMapper_Variables(),
-			// ls));
-			//
-			// options.remove(option);
-			// Iterator<?> iterator = changeListeners.iterator();
-			// while (iterator.hasNext())
-			// ((ITaskListViewer) iterator.next()).removeOption(option);
-		}
-
-		/**
-		 * @param task
-		 */
-		public void taskChanged(domain.MappingVariable task) {
-			Iterator<?> iterator = changeListeners.iterator();
-			while (iterator.hasNext())
-				((ITaskListViewer) iterator.next()).updateOption(task);
-		}
-
-		/**
-		 * @param viewer
-		 */
-		public void removeChangeListener(ITaskListViewer viewer) {
-			changeListeners.remove(viewer);
-		}
-
-		/**
-		 * @param viewer
-		 */
-		@SuppressWarnings("unchecked")
-		public void addChangeListener(ITaskListViewer viewer) {
-			changeListeners.add(viewer);
-		}
-
-	}
 
 	public interface ITaskListViewer {
 

@@ -61,6 +61,7 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UpdateMethod;
+import domain.UsingMappers;
 import domain.Variable;
 
 import org.eclipse.emf.ecore.EObject;
@@ -381,10 +382,18 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.USING_MAPPERS:
+      {
+        UsingMappers usingMappers = (UsingMappers)theEObject;
+        T result = caseUsingMappers(usingMappers);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.INGREDIENT:
       {
         Ingredient ingredient = (Ingredient)theEObject;
         T result = caseIngredient(ingredient);
+        if (result == null) result = caseUsingMappers(ingredient);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -392,6 +401,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Recipe recipe = (Recipe)theEObject;
         T result = caseRecipe(recipe);
+        if (result == null) result = caseUsingMappers(recipe);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1105,6 +1115,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRecipes(Recipes object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Using Mappers</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Using Mappers</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUsingMappers(UsingMappers object)
   {
     return null;
   }

@@ -173,10 +173,18 @@
       
           <propertySection
                tab="property.tab.domain.custom"
-               class="org.metamodel.tura.ui.properties.sections.MappersListPropertySelection"
-               id="org.tura.metamodel.mapper.update">
+               class="org.metamodel.tura.ui.properties.sections.RecipeMappersListPropertySelection"
+               id="org.tura.metamodel.mapper.recipe">
               <input type="recipe.diagram.edit.parts.RecipeEditPart"/>
          </propertySection>        
+
+          <propertySection
+               tab="property.tab.domain.custom"
+               class="org.metamodel.tura.ui.properties.sections.IngredientMappersListPropertySelection"
+               id="org.tura.metamodel.mapper.ingredient">
+              <input type="recipe.diagram.edit.parts.IngredientEditPart"/>
+         </propertySection>        
+
 
     </propertySections>
   </extension>  

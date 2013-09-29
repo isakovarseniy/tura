@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class IngredientImpl extends EObjectImpl implements Ingredient
+public class IngredientImpl extends UsingMappersImpl implements Ingredient
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.

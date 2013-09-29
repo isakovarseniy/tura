@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class IngredientTest extends TestCase
+public class IngredientTest extends UsingMappersTest
 {
-
-  /**
-   * The fixture for this Ingredient test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Ingredient fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class IngredientTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Ingredient test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(Ingredient fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Ingredient test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected Ingredient getFixture()
   {
-    return fixture;
+    return (Ingredient)fixture;
   }
 
   /**

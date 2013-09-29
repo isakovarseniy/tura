@@ -178,6 +178,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/infrastructures"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/parent"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//UsingMappers">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//UsingMappers/mappers"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//Ingredient">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Ingredient/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Ingredient/name"/>
@@ -191,7 +194,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Recipe/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipe/ingredients"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Recipe/infrastructures"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Recipe/mappers"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Infrastructure">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Infrastructure/uid"/>

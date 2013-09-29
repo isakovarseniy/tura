@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class RecipeItemProvider
-  extends ItemProviderAdapter
+  extends UsingMappersItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -70,7 +70,6 @@ public class RecipeItemProvider
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addInfrastructuresPropertyDescriptor(object);
-      addMappersPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -140,29 +139,6 @@ public class RecipeItemProvider
          false,
          true,
          null,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Mappers feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addMappersPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Recipe_mappers_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Recipe_mappers_feature", "_UI_Recipe_type"),
-         DomainPackage.Literals.RECIPE__MAPPERS,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
          null,
          null));
   }
@@ -243,7 +219,6 @@ public class RecipeItemProvider
     {
       case DomainPackage.RECIPE__UID:
       case DomainPackage.RECIPE__NAME:
-      case DomainPackage.RECIPE__MAPPERS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.RECIPE__INGREDIENTS:
@@ -269,18 +244,6 @@ public class RecipeItemProvider
       (createChildParameter
         (DomainPackage.Literals.RECIPE__INGREDIENTS,
          DomainFactory.eINSTANCE.createIngredient()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return DomainEditPlugin.INSTANCE;
   }
 
 }

@@ -63,6 +63,7 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UpdateMethod;
+import domain.UsingMappers;
 import domain.Variable;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -311,6 +312,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass recipesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass usingMappersEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1966,6 +1974,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getUsingMappers()
+  {
+    return usingMappersEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUsingMappers_Mappers()
+  {
+    return (EAttribute)usingMappersEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getIngredient()
   {
     return ingredientEClass;
@@ -2129,16 +2157,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getRecipe_Infrastructures()
   {
     return (EReference)recipeEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getRecipe_Mappers()
-  {
-    return (EAttribute)recipeEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -3423,6 +3441,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(recipesEClass, RECIPES__INFRASTRUCTURES);
     createEReference(recipesEClass, RECIPES__PARENT);
 
+    usingMappersEClass = createEClass(USING_MAPPERS);
+    createEAttribute(usingMappersEClass, USING_MAPPERS__MAPPERS);
+
     ingredientEClass = createEClass(INGREDIENT);
     createEAttribute(ingredientEClass, INGREDIENT__UID);
     createEAttribute(ingredientEClass, INGREDIENT__NAME);
@@ -3436,7 +3457,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(recipeEClass, RECIPE__NAME);
     createEReference(recipeEClass, RECIPE__INGREDIENTS);
     createEReference(recipeEClass, RECIPE__INFRASTRUCTURES);
-    createEAttribute(recipeEClass, RECIPE__MAPPERS);
 
     infrastructureEClass = createEClass(INFRASTRUCTURE);
     createEAttribute(infrastructureEClass, INFRASTRUCTURE__UID);
@@ -3620,6 +3640,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     otherMethodEClass.getESuperTypes().add(this.getBusinessMethod());
     mapperEClass.getESuperTypes().add(this.getTypePointer());
     javaMapperEClass.getESuperTypes().add(this.getMapper());
+    ingredientEClass.getESuperTypes().add(this.getUsingMappers());
+    recipeEClass.getESuperTypes().add(this.getUsingMappers());
     modelMapperEClass.getESuperTypes().add(this.getArtifactRef());
     typeEClass.getESuperTypes().add(this.getTypeElement());
     typeReferenceEClass.getESuperTypes().add(this.getTypeElement());
@@ -3801,6 +3823,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getRecipes_Infrastructures(), this.getInfrastructure(), null, "infrastructures", null, 0, -1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRecipes_Parent(), this.getApplicationRecipe(), this.getApplicationRecipe_Recipes(), "parent", null, 0, 1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(usingMappersEClass, UsingMappers.class, "UsingMappers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUsingMappers_Mappers(), ecorePackage.getEString(), "mappers", null, 0, -1, UsingMappers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(ingredientEClass, Ingredient.class, "Ingredient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIngredient_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIngredient_Name(), ecorePackage.getEString(), "name", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3814,7 +3839,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getRecipe_Name(), ecorePackage.getEString(), "name", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRecipe_Ingredients(), this.getIngredient(), this.getIngredient_Parent(), "ingredients", null, 0, -1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRecipe_Infrastructures(), this.getInfrastructure(), this.getInfrastructure_Recipe(), "infrastructures", null, 0, -1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRecipe_Mappers(), ecorePackage.getEString(), "mappers", null, 0, -1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(infrastructureEClass, Infrastructure.class, "Infrastructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInfrastructure_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

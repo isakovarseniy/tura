@@ -267,8 +267,12 @@ class Recipes{
 }
 
 
+class UsingMappers{
+  attr EString[*] mappers;
+}
+
 @gmf.node(label="name")
-class Ingredient{
+class Ingredient extends UsingMappers{
   id attr EString uid;
   attr EString name;
   ref Recipe#ingredients parent;
@@ -283,7 +287,7 @@ enum PlatformLayers{
 }
 
 @gmf.node(label="name")
-class Recipe{
+class Recipe extends UsingMappers{
     id attr EString uid;
   ref Recipes#recipe parent;
   attr EString name;
@@ -291,7 +295,6 @@ class Recipe{
   val Ingredient[*]#parent ingredients;
   @gmf.link(target.decoration="arrow", style="dash")
   ref Infrastructure[*]#recipe infrastructures;
-  attr EString[*] mappers;
 }
 
 @gmf.node(label="name")

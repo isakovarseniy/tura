@@ -320,6 +320,15 @@ public interface DomainFactory extends EFactory
   Recipes createRecipes();
 
   /**
+   * Returns a new object of class '<em>Using Mappers</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Using Mappers</em>'.
+   * @generated
+   */
+  UsingMappers createUsingMappers();
+
+  /**
    * Returns a new object of class '<em>Ingredient</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

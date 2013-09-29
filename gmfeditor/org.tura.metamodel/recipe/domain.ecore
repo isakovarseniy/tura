@@ -361,7 +361,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationRecipe"
         eOpposite="#//ApplicationRecipe/recipes"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Ingredient">
+  <eClassifiers xsi:type="ecore:EClass" name="UsingMappers">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappers" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ingredient" eSuperTypes="#//UsingMappers">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
@@ -380,7 +384,7 @@
     <eLiterals name="ServiceLayer"/>
     <eLiterals name="UILayer" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Recipe">
+  <eClassifiers xsi:type="ecore:EClass" name="Recipe" eSuperTypes="#//UsingMappers">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
@@ -400,8 +404,6 @@
         <details key="style" value="dash"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappers" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Infrastructure">
     <eAnnotations source="gmf.node">
