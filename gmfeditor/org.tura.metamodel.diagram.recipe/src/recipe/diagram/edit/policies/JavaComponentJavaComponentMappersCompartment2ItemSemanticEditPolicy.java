@@ -12,14 +12,14 @@ import recipe.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ComponentComponentMappersCompartmentItemSemanticEditPolicy extends
-		DomainBaseItemSemanticEditPolicy {
+public class JavaComponentJavaComponentMappersCompartment2ItemSemanticEditPolicy
+		extends DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public ComponentComponentMappersCompartmentItemSemanticEditPolicy() {
-		super(DomainElementTypes.Component_303006);
+	public JavaComponentJavaComponentMappersCompartment2ItemSemanticEditPolicy() {
+		super(DomainElementTypes.JavaComponent_303008);
 	}
 
 	/**

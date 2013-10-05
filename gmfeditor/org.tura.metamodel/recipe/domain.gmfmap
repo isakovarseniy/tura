@@ -42,7 +42,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="domain.gmfgraph#Ingredient"/>
           <children
@@ -52,19 +52,25 @@
             <ownedChild
                 relatedDiagrams="//@diagram">
               <domainMetaElement
-                  href="domain.ecore#//Component"/>
+                  href="domain.ecore#//JavaComponent"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping">
                 <diagramLabel
-                    href="domain.gmfgraph#ComponentLabel"/>
+                    href="domain.gmfgraph#JavaComponentLabel"/>
                 <features
                     href="domain.ecore#//Component/name"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+                  href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
               <diagramNode
-                  href="domain.gmfgraph#Component"/>
+                  href="domain.gmfgraph#JavaComponent"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="domain.ecore#//Component/components"/>
+              </children>
               <children
                   compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.1">
                 <containmentFeature
@@ -86,21 +92,15 @@
                       href="domain.gmfgraph#ModelMapper"/>
                 </ownedChild>
               </children>
-              <children
-                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0"
-                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
-                <containmentFeature
-                    href="domain.ecore#//Component/components"/>
-              </children>
-              <compartments
-                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1">
-                <compartment
-                    href="domain.gmfgraph#ComponentComponentsCompartment"/>
-              </compartments>
               <compartments
                   children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0">
                 <compartment
-                    href="domain.gmfgraph#ComponentMappersCompartment"/>
+                    href="domain.gmfgraph#JavaComponentComponentsCompartment"/>
+              </compartments>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1">
+                <compartment
+                    href="domain.gmfgraph#JavaComponentMappersCompartment"/>
               </compartments>
             </ownedChild>
           </children>
@@ -134,7 +134,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="domain.gmfgraph#Configuration"/>
       <children
@@ -180,7 +180,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
           href="domain.gmfgraph#Infrastructure"/>
     </ownedChild>

@@ -33,6 +33,7 @@ import domain.Infrastructure;
 import domain.Ingredient;
 import domain.InsertMethod;
 import domain.JPAService;
+import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
@@ -389,6 +390,14 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.RECIPE:
+      {
+        Recipe recipe = (Recipe)theEObject;
+        T result = caseRecipe(recipe);
+        if (result == null) result = caseUsingMappers(recipe);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.INGREDIENT:
       {
         Ingredient ingredient = (Ingredient)theEObject;
@@ -397,11 +406,18 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.RECIPE:
+      case DomainPackage.COMPONENT:
       {
-        Recipe recipe = (Recipe)theEObject;
-        T result = caseRecipe(recipe);
-        if (result == null) result = caseUsingMappers(recipe);
+        Component component = (Component)theEObject;
+        T result = caseComponent(component);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.JAVA_COMPONENT:
+      {
+        JavaComponent javaComponent = (JavaComponent)theEObject;
+        T result = caseJavaComponent(javaComponent);
+        if (result == null) result = caseComponent(javaComponent);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -416,13 +432,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Configuration configuration = (Configuration)theEObject;
         T result = caseConfiguration(configuration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.COMPONENT:
-      {
-        Component component = (Component)theEObject;
-        T result = caseComponent(component);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1195,6 +1204,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseComponent(Component object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Java Component</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Java Component</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJavaComponent(JavaComponent object)
   {
     return null;
   }

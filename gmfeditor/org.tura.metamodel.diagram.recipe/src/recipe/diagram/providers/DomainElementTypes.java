@@ -19,13 +19,13 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
-import recipe.diagram.edit.parts.Component2EditPart;
-import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import recipe.diagram.edit.parts.IngredientEditPart;
+import recipe.diagram.edit.parts.JavaComponent2EditPart;
+import recipe.diagram.edit.parts.JavaComponentEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
@@ -84,15 +84,15 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Component_303006 = getElementType("org.tura.metamodel.diagram.recipe.Component_303006"); //$NON-NLS-1$
+	public static final IElementType JavaComponent_303007 = getElementType("org.tura.metamodel.diagram.recipe.JavaComponent_303007"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType JavaComponent_303008 = getElementType("org.tura.metamodel.diagram.recipe.JavaComponent_303008"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
 	public static final IElementType ModelMapper_303003 = getElementType("org.tura.metamodel.diagram.recipe.ModelMapper_303003"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Component_303002 = getElementType("org.tura.metamodel.diagram.recipe.Component_303002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -238,14 +238,14 @@ public class DomainElementTypes {
 			elements.put(Ingredient_303005,
 					DomainPackage.eINSTANCE.getIngredient());
 
-			elements.put(Component_303006,
-					DomainPackage.eINSTANCE.getComponent());
+			elements.put(JavaComponent_303007,
+					DomainPackage.eINSTANCE.getJavaComponent());
+
+			elements.put(JavaComponent_303008,
+					DomainPackage.eINSTANCE.getJavaComponent());
 
 			elements.put(ModelMapper_303003,
 					DomainPackage.eINSTANCE.getModelMapper());
-
-			elements.put(Component_303002,
-					DomainPackage.eINSTANCE.getComponent());
 
 			elements.put(Property_303004, DomainPackage.eINSTANCE.getProperty());
 
@@ -282,9 +282,9 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Configuration_302002);
 			KNOWN_ELEMENT_TYPES.add(Infrastructure_302003);
 			KNOWN_ELEMENT_TYPES.add(Ingredient_303005);
-			KNOWN_ELEMENT_TYPES.add(Component_303006);
+			KNOWN_ELEMENT_TYPES.add(JavaComponent_303007);
+			KNOWN_ELEMENT_TYPES.add(JavaComponent_303008);
 			KNOWN_ELEMENT_TYPES.add(ModelMapper_303003);
-			KNOWN_ELEMENT_TYPES.add(Component_303002);
 			KNOWN_ELEMENT_TYPES.add(Property_303004);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_304001);
 			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_304005);
@@ -309,12 +309,12 @@ public class DomainElementTypes {
 			return Infrastructure_302003;
 		case IngredientEditPart.VISUAL_ID:
 			return Ingredient_303005;
-		case ComponentEditPart.VISUAL_ID:
-			return Component_303006;
+		case JavaComponentEditPart.VISUAL_ID:
+			return JavaComponent_303007;
+		case JavaComponent2EditPart.VISUAL_ID:
+			return JavaComponent_303008;
 		case ModelMapperEditPart.VISUAL_ID:
 			return ModelMapper_303003;
-		case Component2EditPart.VISUAL_ID:
-			return Component_303002;
 		case PropertyEditPart.VISUAL_ID:
 			return Property_303004;
 		case TypeExtensionEditPart.VISUAL_ID:

@@ -31,7 +31,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
 
-import recipe.diagram.edit.policies.Component2ItemSemanticEditPolicy;
+import recipe.diagram.edit.policies.JavaComponent2ItemSemanticEditPolicy;
 import recipe.diagram.edit.policies.OpenDiagramEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.providers.DomainElementTypes;
@@ -39,12 +39,12 @@ import recipe.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class Component2EditPart extends ShapeNodeEditPart {
+public class JavaComponent2EditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 303002;
+	public static final int VISUAL_ID = 303008;
 
 	/**
 	 * @generated
@@ -59,7 +59,7 @@ public class Component2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public Component2EditPart(View view) {
+	public JavaComponent2EditPart(View view) {
 		super(view);
 	}
 
@@ -72,7 +72,7 @@ public class Component2EditPart extends ShapeNodeEditPart {
 						DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new Component2ItemSemanticEditPolicy());
+				new JavaComponent2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
 				new OpenDiagramEditPolicy());
@@ -110,38 +110,39 @@ public class Component2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new ComponentFigure();
+		return primaryShape = new JavaComponentFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public ComponentFigure getPrimaryShape() {
-		return (ComponentFigure) primaryShape;
+	public JavaComponentFigure getPrimaryShape() {
+		return (JavaComponentFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ComponentName2EditPart) {
-			((ComponentName2EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureComponentLabelFigure());
+		if (childEditPart instanceof JavaComponentName2EditPart) {
+			((JavaComponentName2EditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureJavaComponentLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof ComponentComponentComponentsCompartment2EditPart) {
+		if (childEditPart instanceof JavaComponentJavaComponentComponentsCompartment2EditPart) {
 			IFigure pane = getPrimaryShape()
-					.getComponentComponentsCompartmentFigure();
+					.getJavaComponentComponentsCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((ComponentComponentComponentsCompartment2EditPart) childEditPart)
+			pane.add(((JavaComponentJavaComponentComponentsCompartment2EditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof ComponentComponentMappersCompartment2EditPart) {
+		if (childEditPart instanceof JavaComponentJavaComponentMappersCompartment2EditPart) {
 			IFigure pane = getPrimaryShape()
-					.getComponentMappersCompartmentFigure();
+					.getJavaComponentMappersCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((ComponentComponentMappersCompartment2EditPart) childEditPart)
+			pane.add(((JavaComponentJavaComponentMappersCompartment2EditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -152,20 +153,20 @@ public class Component2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ComponentName2EditPart) {
+		if (childEditPart instanceof JavaComponentName2EditPart) {
 			return true;
 		}
-		if (childEditPart instanceof ComponentComponentComponentsCompartment2EditPart) {
+		if (childEditPart instanceof JavaComponentJavaComponentComponentsCompartment2EditPart) {
 			IFigure pane = getPrimaryShape()
-					.getComponentComponentsCompartmentFigure();
-			pane.remove(((ComponentComponentComponentsCompartment2EditPart) childEditPart)
+					.getJavaComponentComponentsCompartmentFigure();
+			pane.remove(((JavaComponentJavaComponentComponentsCompartment2EditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof ComponentComponentMappersCompartment2EditPart) {
+		if (childEditPart instanceof JavaComponentJavaComponentMappersCompartment2EditPart) {
 			IFigure pane = getPrimaryShape()
-					.getComponentMappersCompartmentFigure();
-			pane.remove(((ComponentComponentMappersCompartment2EditPart) childEditPart)
+					.getJavaComponentMappersCompartmentFigure();
+			pane.remove(((JavaComponentJavaComponentMappersCompartment2EditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -196,11 +197,12 @@ public class Component2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof ComponentComponentComponentsCompartment2EditPart) {
-			return getPrimaryShape().getComponentComponentsCompartmentFigure();
+		if (editPart instanceof JavaComponentJavaComponentComponentsCompartment2EditPart) {
+			return getPrimaryShape()
+					.getJavaComponentComponentsCompartmentFigure();
 		}
-		if (editPart instanceof ComponentComponentMappersCompartment2EditPart) {
-			return getPrimaryShape().getComponentMappersCompartmentFigure();
+		if (editPart instanceof JavaComponentJavaComponentMappersCompartment2EditPart) {
+			return getPrimaryShape().getJavaComponentMappersCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -296,7 +298,7 @@ public class Component2EditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(ComponentName2EditPart.VISUAL_ID));
+				.getType(JavaComponentName2EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -311,7 +313,7 @@ public class Component2EditPart extends ShapeNodeEditPart {
 					.getAdapter(IElementType.class);
 			if (type == DomainElementTypes.ModelMapper_303003) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(ComponentComponentMappersCompartment2EditPart.VISUAL_ID));
+						.getType(JavaComponentJavaComponentMappersCompartment2EditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);
@@ -320,25 +322,25 @@ public class Component2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class ComponentFigure extends RoundedRectangle {
+	public class JavaComponentFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureComponentLabelFigure;
+		private WrappingLabel fFigureJavaComponentLabelFigure;
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fComponentComponentsCompartmentFigure;
+		private RectangleFigure fJavaComponentComponentsCompartmentFigure;
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fComponentMappersCompartmentFigure;
+		private RectangleFigure fJavaComponentMappersCompartmentFigure;
 
 		/**
 		 * @generated
 		 */
-		public ComponentFigure() {
+		public JavaComponentFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
@@ -352,47 +354,47 @@ public class Component2EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureComponentLabelFigure = new WrappingLabel();
+			fFigureJavaComponentLabelFigure = new WrappingLabel();
 
-			fFigureComponentLabelFigure.setText("Component");
-			fFigureComponentLabelFigure.setMaximumSize(new Dimension(
+			fFigureJavaComponentLabelFigure.setText("JavaComponent");
+			fFigureJavaComponentLabelFigure.setMaximumSize(new Dimension(
 					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
-			this.add(fFigureComponentLabelFigure);
+			this.add(fFigureJavaComponentLabelFigure);
 
-			fComponentComponentsCompartmentFigure = new RectangleFigure();
+			fJavaComponentComponentsCompartmentFigure = new RectangleFigure();
 
-			fComponentComponentsCompartmentFigure.setOutline(false);
+			fJavaComponentComponentsCompartmentFigure.setOutline(false);
 
-			this.add(fComponentComponentsCompartmentFigure);
+			this.add(fJavaComponentComponentsCompartmentFigure);
 
-			fComponentMappersCompartmentFigure = new RectangleFigure();
+			fJavaComponentMappersCompartmentFigure = new RectangleFigure();
 
-			fComponentMappersCompartmentFigure.setOutline(false);
+			fJavaComponentMappersCompartmentFigure.setOutline(false);
 
-			this.add(fComponentMappersCompartmentFigure);
+			this.add(fJavaComponentMappersCompartmentFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureComponentLabelFigure() {
-			return fFigureComponentLabelFigure;
+		public WrappingLabel getFigureJavaComponentLabelFigure() {
+			return fFigureJavaComponentLabelFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getComponentComponentsCompartmentFigure() {
-			return fComponentComponentsCompartmentFigure;
+		public RectangleFigure getJavaComponentComponentsCompartmentFigure() {
+			return fJavaComponentComponentsCompartmentFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getComponentMappersCompartmentFigure() {
-			return fComponentMappersCompartmentFigure;
+		public RectangleFigure getJavaComponentMappersCompartmentFigure() {
+			return fJavaComponentMappersCompartmentFigure;
 		}
 
 	}

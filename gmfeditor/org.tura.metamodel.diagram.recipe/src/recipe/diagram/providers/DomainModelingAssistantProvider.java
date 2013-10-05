@@ -24,13 +24,13 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import recipe.diagram.edit.parts.Component2EditPart;
-import recipe.diagram.edit.parts.ComponentComponentComponentsCompartment2EditPart;
-import recipe.diagram.edit.parts.ComponentComponentComponentsCompartmentEditPart;
-import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.IngredientIngredientComponentsCompartmentEditPart;
+import recipe.diagram.edit.parts.JavaComponent2EditPart;
+import recipe.diagram.edit.parts.JavaComponentEditPart;
+import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartment2EditPart;
+import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
@@ -60,12 +60,12 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.Property_303004);
 			return types;
 		}
-		if (editPart instanceof ComponentEditPart) {
+		if (editPart instanceof JavaComponentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.ModelMapper_303003);
 			return types;
 		}
-		if (editPart instanceof Component2EditPart) {
+		if (editPart instanceof JavaComponent2EditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.ModelMapper_303003);
 			return types;
@@ -77,17 +77,17 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (editPart instanceof IngredientIngredientComponentsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Component_303006);
+			types.add(DomainElementTypes.JavaComponent_303007);
 			return types;
 		}
-		if (editPart instanceof ComponentComponentComponentsCompartmentEditPart) {
+		if (editPart instanceof JavaComponentJavaComponentComponentsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Component_303002);
+			types.add(DomainElementTypes.JavaComponent_303008);
 			return types;
 		}
-		if (editPart instanceof ComponentComponentComponentsCompartment2EditPart) {
+		if (editPart instanceof JavaComponentJavaComponentComponentsCompartment2EditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Component_303002);
+			types.add(DomainElementTypes.JavaComponent_303008);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

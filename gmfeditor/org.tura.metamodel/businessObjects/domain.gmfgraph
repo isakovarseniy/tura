@@ -683,39 +683,6 @@
           figure="//@figures.0/@descriptors.24/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="IngredientFigure">
-      <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle"
-          name="IngredientFigure">
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="IngredientLabelFigure"
-            text="Ingredient">
-          <maximumSize
-              dx="10000"
-              dy="50"/>
-        </children>
-        <children
-            xsi:type="gmfgraph:Rectangle"
-            name="IngredientComponentsCompartmentFigure"
-            outline="false"/>
-      </actualFigure>
-      <accessors
-          accessor="getFigureIngredientLabelFigure"
-          figure="//@figures.0/@descriptors.25/@actualFigure/@children.0"/>
-      <accessors
-          accessor="getIngredientComponentsCompartmentFigure"
-          figure="//@figures.0/@descriptors.25/@actualFigure/@children.1"/>
-    </descriptors>
-    <descriptors
         name="RecipeFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
@@ -743,10 +710,83 @@
       </actualFigure>
       <accessors
           accessor="getFigureRecipeLabelFigure"
-          figure="//@figures.0/@descriptors.26/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.25/@actualFigure/@children.0"/>
       <accessors
           accessor="getRecipeIngredientsCompartmentFigure"
+          figure="//@figures.0/@descriptors.25/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="IngredientFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="IngredientFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="IngredientLabelFigure"
+            text="Ingredient">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="IngredientComponentsCompartmentFigure"
+            outline="false"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureIngredientLabelFigure"
+          figure="//@figures.0/@descriptors.26/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getIngredientComponentsCompartmentFigure"
           figure="//@figures.0/@descriptors.26/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="JavaComponentFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="JavaComponentFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="JavaComponentLabelFigure"
+            text="JavaComponent">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="JavaComponentComponentsCompartmentFigure"
+            outline="false"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="JavaComponentMappersCompartmentFigure"
+            outline="false"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureJavaComponentLabelFigure"
+          figure="//@figures.0/@descriptors.27/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getJavaComponentComponentsCompartmentFigure"
+          figure="//@figures.0/@descriptors.27/@actualFigure/@children.1"/>
+      <accessors
+          accessor="getJavaComponentMappersCompartmentFigure"
+          figure="//@figures.0/@descriptors.27/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="InfrastructureFigure">
@@ -768,7 +808,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureInfrastructureLabelFigure"
-          figure="//@figures.0/@descriptors.27/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.28/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="ConfigurationFigure">
@@ -798,50 +838,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureConfigurationLabelFigure"
-          figure="//@figures.0/@descriptors.28/@actualFigure/@children.0"/>
-      <accessors
-          accessor="getConfigurationPropertiesCompartmentFigure"
-          figure="//@figures.0/@descriptors.28/@actualFigure/@children.1"/>
-    </descriptors>
-    <descriptors
-        name="ComponentFigure">
-      <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle"
-          name="ComponentFigure">
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="ComponentLabelFigure"
-            text="Component">
-          <maximumSize
-              dx="10000"
-              dy="50"/>
-        </children>
-        <children
-            xsi:type="gmfgraph:Rectangle"
-            name="ComponentComponentsCompartmentFigure"
-            outline="false"/>
-        <children
-            xsi:type="gmfgraph:Rectangle"
-            name="ComponentMappersCompartmentFigure"
-            outline="false"/>
-      </actualFigure>
-      <accessors
-          accessor="getFigureComponentLabelFigure"
           figure="//@figures.0/@descriptors.29/@actualFigure/@children.0"/>
       <accessors
-          accessor="getComponentComponentsCompartmentFigure"
+          accessor="getConfigurationPropertiesCompartmentFigure"
           figure="//@figures.0/@descriptors.29/@actualFigure/@children.1"/>
-      <accessors
-          accessor="getComponentMappersCompartmentFigure"
-          figure="//@figures.0/@descriptors.29/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="ModelMapperFigure">
@@ -1352,20 +1352,20 @@
       name="JavaMapper"
       figure="JavaMapperFigure"/>
   <nodes
+      name="Recipe"
+      figure="RecipeFigure"/>
+  <nodes
       name="Ingredient"
       figure="IngredientFigure"/>
   <nodes
-      name="Recipe"
-      figure="RecipeFigure"/>
+      name="JavaComponent"
+      figure="JavaComponentFigure"/>
   <nodes
       name="Infrastructure"
       figure="InfrastructureFigure"/>
   <nodes
       name="Configuration"
       figure="ConfigurationFigure"/>
-  <nodes
-      name="Component"
-      figure="ComponentFigure"/>
   <nodes
       name="ModelMapper"
       figure="ModelMapperFigure"/>
@@ -1486,30 +1486,30 @@
       collapsible="true"
       accessor="//@figures.0/@descriptors.17/@accessors.6"/>
   <compartments
-      name="IngredientComponentsCompartment"
-      figure="IngredientFigure"
-      collapsible="true"
-      accessor="//@figures.0/@descriptors.25/@accessors.1"/>
-  <compartments
       name="RecipeIngredientsCompartment"
       figure="RecipeFigure"
       collapsible="true"
+      accessor="//@figures.0/@descriptors.25/@accessors.1"/>
+  <compartments
+      name="IngredientComponentsCompartment"
+      figure="IngredientFigure"
+      collapsible="true"
       accessor="//@figures.0/@descriptors.26/@accessors.1"/>
+  <compartments
+      name="JavaComponentComponentsCompartment"
+      figure="JavaComponentFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.27/@accessors.1"/>
+  <compartments
+      name="JavaComponentMappersCompartment"
+      figure="JavaComponentFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.27/@accessors.2"/>
   <compartments
       name="ConfigurationPropertiesCompartment"
       figure="ConfigurationFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.28/@accessors.1"/>
-  <compartments
-      name="ComponentComponentsCompartment"
-      figure="ComponentFigure"
-      collapsible="true"
       accessor="//@figures.0/@descriptors.29/@accessors.1"/>
-  <compartments
-      name="ComponentMappersCompartment"
-      figure="ComponentFigure"
-      collapsible="true"
-      accessor="//@figures.0/@descriptors.29/@accessors.2"/>
   <compartments
       name="TypeAttributesCompartment"
       figure="TypeFigure"
@@ -1651,24 +1651,24 @@
       figure="JavaMapperFigure"
       accessor="//@figures.0/@descriptors.24/@accessors.0"/>
   <labels
-      name="IngredientLabel"
-      figure="IngredientFigure"
-      accessor="//@figures.0/@descriptors.25/@accessors.0"/>
-  <labels
       name="RecipeLabel"
       figure="RecipeFigure"
+      accessor="//@figures.0/@descriptors.25/@accessors.0"/>
+  <labels
+      name="IngredientLabel"
+      figure="IngredientFigure"
       accessor="//@figures.0/@descriptors.26/@accessors.0"/>
+  <labels
+      name="JavaComponentLabel"
+      figure="JavaComponentFigure"
+      accessor="//@figures.0/@descriptors.27/@accessors.0"/>
   <labels
       name="InfrastructureLabel"
       figure="InfrastructureFigure"
-      accessor="//@figures.0/@descriptors.27/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.28/@accessors.0"/>
   <labels
       name="ConfigurationLabel"
       figure="ConfigurationFigure"
-      accessor="//@figures.0/@descriptors.28/@accessors.0"/>
-  <labels
-      name="ComponentLabel"
-      figure="ComponentFigure"
       accessor="//@figures.0/@descriptors.29/@accessors.0"/>
   <labels
       name="ModelMapperLabel"

@@ -365,6 +365,15 @@ public interface DomainFactory extends EFactory
   Component createComponent();
 
   /**
+   * Returns a new object of class '<em>Java Component</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Java Component</em>'.
+   * @generated
+   */
+  JavaComponent createJavaComponent();
+
+  /**
    * Returns a new object of class '<em>Model Mapper</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

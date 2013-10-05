@@ -24,7 +24,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import recipe.diagram.edit.parts.ModelMapperEditPart;
+import recipe.diagram.edit.parts.JavaComponent2EditPart;
 import recipe.diagram.part.DomainDiagramUpdater;
 import recipe.diagram.part.DomainNodeDescriptor;
 import recipe.diagram.part.DomainVisualIDRegistry;
@@ -33,8 +33,8 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class ComponentComponentMappersCompartmentCanonicalEditPolicy extends
-		CanonicalEditPolicy {
+public class JavaComponentJavaComponentComponentsCompartmentCanonicalEditPolicy
+		extends CanonicalEditPolicy {
 
 	/**
 	 * @generated
@@ -52,7 +52,7 @@ public class ComponentComponentMappersCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return DomainPackage.eINSTANCE.getComponent_Mappers();
+		return DomainPackage.eINSTANCE.getComponent_Components();
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class ComponentComponentMappersCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getComponentComponentMappersCompartment_307009SemanticChildren(viewObject);
+				.getJavaComponentJavaComponentComponentsCompartment_307010SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -83,7 +83,7 @@ public class ComponentComponentMappersCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return ModelMapperEditPart.VISUAL_ID == DomainVisualIDRegistry
+		return JavaComponent2EditPart.VISUAL_ID == DomainVisualIDRegistry
 				.getVisualID(view);
 	}
 
@@ -96,7 +96,7 @@ public class ComponentComponentMappersCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getComponentComponentMappersCompartment_307009SemanticChildren((View) getHost()
+				.getJavaComponentJavaComponentComponentsCompartment_307010SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

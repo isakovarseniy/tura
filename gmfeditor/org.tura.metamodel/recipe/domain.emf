@@ -266,19 +266,8 @@ class Recipes{
   ref ApplicationRecipe#recipes parent;
 }
 
-
 class UsingMappers{
   attr EString[*] mappers;
-}
-
-@gmf.node(label="name")
-class Ingredient extends UsingMappers{
-  id attr EString uid;
-  attr EString name;
-  ref Recipe#ingredients parent;
-  @gmf.compartment
-  val Component[*] components;
-  attr PlatformLayers layer;
 }
 
 enum PlatformLayers{
@@ -296,6 +285,36 @@ class Recipe extends UsingMappers{
   @gmf.link(target.decoration="arrow", style="dash")
   ref Infrastructure[*]#recipe infrastructures;
 }
+
+@gmf.node(label="name")
+class Ingredient extends UsingMappers{
+  id attr EString uid;
+  attr EString name;
+  ref Recipe#ingredients parent;
+  @gmf.compartment
+  val Component[*] components;
+  attr PlatformLayers layer;
+}
+
+class Component{
+    id attr EString uid;
+   attr EString name;
+     @gmf.compartment
+  val Component[*]#parent components;
+  @gmf.compartment(layout="list")
+   val ModelMapper[*]#parent mappers;
+   attr EString buildScript;
+   attr EString deployScript;
+}
+
+@gmf.node(label="name")
+class JavaComponent extends Component{
+   attr EString artifactId;
+   attr EString groupId;
+   attr EString version;
+   attr EString basePackage;   
+}
+
 
 @gmf.node(label="name")
 class Infrastructure{
@@ -317,15 +336,6 @@ class Configuration{
    ref Configuration#parent configExtension;
    ref Configuration#configExtension parent;
 }
-@gmf.node(label="name")
-class Component{
-    id attr EString uid;
-   attr EString name;
-     @gmf.compartment
-  val Component[*]#parent components;
-  @gmf.compartment(layout="list")
-   val ModelMapper[*]#parent mappers;
-}
 
 @gmf.node(label="name")
 class ModelMapper extends ArtifactRef{
@@ -334,8 +344,6 @@ class ModelMapper extends ArtifactRef{
    val MappingSpecifier[*] specifiers;
    val MappingVariable[*] variables;
 }
-
-
 
 @gmf.node(label="name")
 class Property{

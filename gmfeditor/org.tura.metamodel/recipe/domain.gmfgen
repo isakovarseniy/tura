@@ -80,43 +80,90 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="303006"
-        editPartClassName="ComponentEditPart"
-        itemSemanticEditPolicyClassName="ComponentItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="ComponentCanonicalEditPolicy"
+        visualID="303007"
+        editPartClassName="JavaComponentEditPart"
+        itemSemanticEditPolicyClassName="JavaComponentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="JavaComponentCanonicalEditPolicy"
         compartments="//@diagram/@compartments.2 //@diagram/@compartments.3"
-        graphicalNodeEditPolicyClassName="ComponentGraphicalNodeEditPolicy"
-        createCommandClassName="ComponentCreateCommand"
+        graphicalNodeEditPolicyClassName="JavaComponentGraphicalNodeEditPolicy"
+        createCommandClassName="JavaComponentCreateCommand"
         containers="//@diagram/@compartments.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="ComponentEditHelper"/>
+          editHelperClassName="JavaComponentEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="ComponentFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ComponentFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureComponentLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fComponentComponentsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fComponentMappersCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ComponentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureComponentLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureComponentLabelFigure.setText(&quot;Component&quot;);&#xA;fFigureComponentLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureComponentLabelFigure);&#xA;&#xA;&#xA;&#xA;fComponentComponentsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fComponentComponentsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fComponentComponentsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fComponentMappersCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fComponentMappersCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fComponentMappersCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureComponentLabelFigure() {&#xA;&#x9;&#x9;return fFigureComponentLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getComponentComponentsCompartmentFigure() {&#xA;&#x9;&#x9;return fComponentComponentsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getComponentMappersCompartmentFigure() {&#xA;&#x9;&#x9;return fComponentMappersCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="JavaComponentFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class JavaComponentFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureJavaComponentLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fJavaComponentComponentsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fJavaComponentMappersCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public JavaComponentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureJavaComponentLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureJavaComponentLabelFigure.setText(&quot;JavaComponent&quot;);&#xA;fFigureJavaComponentLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureJavaComponentLabelFigure);&#xA;&#xA;&#xA;&#xA;fJavaComponentComponentsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fJavaComponentComponentsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fJavaComponentComponentsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fJavaComponentMappersCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fJavaComponentMappersCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fJavaComponentMappersCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureJavaComponentLabelFigure() {&#xA;&#x9;&#x9;return fFigureJavaComponentLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getJavaComponentComponentsCompartmentFigure() {&#xA;&#x9;&#x9;return fJavaComponentComponentsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getJavaComponentMappersCompartmentFigure() {&#xA;&#x9;&#x9;return fJavaComponentMappersCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <behaviour
           xsi:type="gmfgen:OpenDiagramBehaviour"/>
       <modelFacet>
         <metaClass
-            href="domain.genmodel#//domain/Component"/>
+            href="domain.genmodel#//domain/JavaComponent"/>
         <containmentMetaFeature
             href="domain.genmodel#//domain/Ingredient/components"/>
         <childMetaFeature
             href="domain.genmodel#//domain/Ingredient/components"/>
       </modelFacet>
       <labels
-          visualID="305008"
-          editPartClassName="ComponentNameEditPart"
-          itemSemanticEditPolicyClassName="ComponentNameItemSemanticEditPolicy"
+          visualID="305011"
+          editPartClassName="JavaComponentNameEditPart"
+          itemSemanticEditPolicyClassName="JavaComponentNameItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureComponentLabelFigure"
+            getterName="getFigureJavaComponentLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/Component/name"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="303008"
+        editPartClassName="JavaComponent2EditPart"
+        itemSemanticEditPolicyClassName="JavaComponent2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="JavaComponent2CanonicalEditPolicy"
+        compartments="//@diagram/@compartments.4 //@diagram/@compartments.5"
+        graphicalNodeEditPolicyClassName="JavaComponent2GraphicalNodeEditPolicy"
+        createCommandClassName="JavaComponent2CreateCommand"
+        containers="//@diagram/@compartments.4 //@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.1/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="JavaComponentFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class JavaComponentFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureJavaComponentLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fJavaComponentComponentsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fJavaComponentMappersCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public JavaComponentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureJavaComponentLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureJavaComponentLabelFigure.setText(&quot;JavaComponent&quot;);&#xA;fFigureJavaComponentLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureJavaComponentLabelFigure);&#xA;&#xA;&#xA;&#xA;fJavaComponentComponentsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fJavaComponentComponentsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fJavaComponentComponentsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fJavaComponentMappersCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fJavaComponentMappersCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fJavaComponentMappersCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureJavaComponentLabelFigure() {&#xA;&#x9;&#x9;return fFigureJavaComponentLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getJavaComponentComponentsCompartmentFigure() {&#xA;&#x9;&#x9;return fJavaComponentComponentsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getJavaComponentMappersCompartmentFigure() {&#xA;&#x9;&#x9;return fJavaComponentMappersCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/JavaComponent"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Component/components"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Component/components"/>
+      </modelFacet>
+      <labels
+          visualID="305010"
+          editPartClassName="JavaComponentName2EditPart"
+          itemSemanticEditPolicyClassName="JavaComponentName2ItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureJavaComponentLabelFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
@@ -133,7 +180,7 @@
         canonicalEditPolicyClassName="ModelMapperCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ModelMapperGraphicalNodeEditPolicy"
         createCommandClassName="ModelMapperCreateCommand"
-        containers="//@diagram/@compartments.3 //@diagram/@compartments.5">
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.3">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -172,53 +219,6 @@
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
               href="domain.genmodel#//domain/ModelMapper/name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="303002"
-        editPartClassName="Component2EditPart"
-        itemSemanticEditPolicyClassName="Component2ItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="Component2CanonicalEditPolicy"
-        compartments="//@diagram/@compartments.4 //@diagram/@compartments.5"
-        graphicalNodeEditPolicyClassName="Component2GraphicalNodeEditPolicy"
-        createCommandClassName="Component2CreateCommand"
-        containers="//@diagram/@compartments.4 //@diagram/@compartments.2">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.1/@elementType"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="ComponentFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ComponentFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureComponentLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fComponentComponentsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fComponentMappersCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ComponentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureComponentLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureComponentLabelFigure.setText(&quot;Component&quot;);&#xA;fFigureComponentLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureComponentLabelFigure);&#xA;&#xA;&#xA;&#xA;fComponentComponentsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fComponentComponentsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fComponentComponentsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fComponentMappersCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fComponentMappersCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fComponentMappersCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureComponentLabelFigure() {&#xA;&#x9;&#x9;return fFigureComponentLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getComponentComponentsCompartmentFigure() {&#xA;&#x9;&#x9;return fComponentComponentsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getComponentMappersCompartmentFigure() {&#xA;&#x9;&#x9;return fComponentMappersCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <behaviour
-          xsi:type="gmfgen:OpenDiagramBehaviour"/>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/Component"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/Component/components"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/Component/components"/>
-      </modelFacet>
-      <labels
-          visualID="305002"
-          editPartClassName="ComponentName2EditPart"
-          itemSemanticEditPolicyClassName="ComponentName2ItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureComponentLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/Component/name"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -584,12 +584,12 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="307008"
-        editPartClassName="ComponentComponentComponentsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="ComponentComponentComponentsCompartmentItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="ComponentComponentComponentsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.3"
-        title="ComponentComponentsCompartment"
+        visualID="307010"
+        editPartClassName="JavaComponentJavaComponentComponentsCompartmentEditPart"
+        itemSemanticEditPolicyClassName="JavaComponentJavaComponentComponentsCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="JavaComponentJavaComponentComponentsCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.2"
+        title="JavaComponentComponentsCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.1"
         listLayout="false">
@@ -597,56 +597,56 @@
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getComponentComponentsCompartmentFigure"
+          getterName="getJavaComponentComponentsCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="307009"
-        editPartClassName="ComponentComponentMappersCompartmentEditPart"
-        itemSemanticEditPolicyClassName="ComponentComponentMappersCompartmentItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="ComponentComponentMappersCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.2"
-        title="ComponentMappersCompartment"
+        visualID="307011"
+        editPartClassName="JavaComponentJavaComponentMappersCompartmentEditPart"
+        itemSemanticEditPolicyClassName="JavaComponentJavaComponentMappersCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="JavaComponentJavaComponentMappersCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.3"
+        title="JavaComponentMappersCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getComponentMappersCompartmentFigure"
+          getterName="getJavaComponentMappersCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="307004"
-        editPartClassName="ComponentComponentComponentsCompartment2EditPart"
-        itemSemanticEditPolicyClassName="ComponentComponentComponentsCompartment2ItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="ComponentComponentComponentsCompartment2CanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.3"
-        title="ComponentComponentsCompartment"
+        visualID="307012"
+        editPartClassName="JavaComponentJavaComponentComponentsCompartment2EditPart"
+        itemSemanticEditPolicyClassName="JavaComponentJavaComponentComponentsCompartment2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="JavaComponentJavaComponentComponentsCompartment2CanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.2"
+        title="JavaComponentComponentsCompartment"
         needsTitle="false"
-        node="//@diagram/@childNodes.3"
+        node="//@diagram/@childNodes.2"
         listLayout="false">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getComponentComponentsCompartmentFigure"
+          getterName="getJavaComponentComponentsCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="307005"
-        editPartClassName="ComponentComponentMappersCompartment2EditPart"
-        itemSemanticEditPolicyClassName="ComponentComponentMappersCompartment2ItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="ComponentComponentMappersCompartment2CanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.2"
-        title="ComponentMappersCompartment"
+        visualID="307013"
+        editPartClassName="JavaComponentJavaComponentMappersCompartment2EditPart"
+        itemSemanticEditPolicyClassName="JavaComponentJavaComponentMappersCompartment2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="JavaComponentJavaComponentMappersCompartment2CanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.3"
+        title="JavaComponentMappersCompartment"
         needsTitle="false"
-        node="//@diagram/@childNodes.3">
+        node="//@diagram/@childNodes.2">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getComponentMappersCompartmentFigure"
+          getterName="getJavaComponentMappersCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
@@ -671,11 +671,6 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Component"
-            description="Create new Component"
-            genNodes="//@diagram/@childNodes.1 //@diagram/@childNodes.3"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Configuration"
             description="Create new Configuration"
             genNodes="//@diagram/@topLevelNodes.1"/>
@@ -691,9 +686,14 @@
             genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="JavaComponent"
+            description="Create new JavaComponent"
+            genNodes="//@diagram/@childNodes.1 //@diagram/@childNodes.2"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="ModelMapper"
             description="Create new ModelMapper"
-            genNodes="//@diagram/@childNodes.2"/>
+            genNodes="//@diagram/@childNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Property"
@@ -769,14 +769,14 @@
     <childReferences
         child="//@diagram"/>
     <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.2"/>
+    <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.3"/>
+    <childReferences
         parent="//@diagram/@childNodes.1"
         child="//@diagram/@childNodes.2"/>
-    <childReferences
-        parent="//@diagram/@childNodes.3"
-        child="//@diagram/@childNodes.2"/>
-    <childReferences
-        parent="//@diagram/@childNodes.3"
-        child="//@diagram/@childNodes.3"/>
     <childReferences
         parent="//@diagram/@childNodes.1"
         child="//@diagram/@childNodes.3"/>
@@ -917,7 +917,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet"/>
     <implementations
         xsi:type="gmfgen:ExternalParser"
         uses="//@diagram/@links.1/@labels.0/@modelFacet //@diagram/@links.2/@labels.0/@modelFacet //@diagram/@links.3/@labels.0/@modelFacet"/>

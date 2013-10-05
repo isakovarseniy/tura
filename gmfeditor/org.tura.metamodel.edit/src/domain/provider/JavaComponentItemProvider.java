@@ -3,19 +3,14 @@
 package domain.provider;
 
 
-import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.Ingredient;
+import domain.JavaComponent;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -25,17 +20,16 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link domain.Ingredient} object.
+ * This is the item provider adapter for a {@link domain.JavaComponent} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class IngredientItemProvider
-  extends UsingMappersItemProvider
+public class JavaComponentItemProvider
+  extends ComponentItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -49,7 +43,7 @@ public class IngredientItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public IngredientItemProvider(AdapterFactory adapterFactory)
+  public JavaComponentItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -67,28 +61,29 @@ public class IngredientItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
-      addLayerPropertyDescriptor(object);
+      addArtifactIdPropertyDescriptor(object);
+      addGroupIdPropertyDescriptor(object);
+      addVersionPropertyDescriptor(object);
+      addBasePackagePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Uid feature.
+   * This adds a property descriptor for the Artifact Id feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addUidPropertyDescriptor(Object object)
+  protected void addArtifactIdPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Ingredient_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Ingredient_uid_feature", "_UI_Ingredient_type"),
-         DomainPackage.Literals.INGREDIENT__UID,
+         getString("_UI_JavaComponent_artifactId_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_artifactId_feature", "_UI_JavaComponent_type"),
+         DomainPackage.Literals.JAVA_COMPONENT__ARTIFACT_ID,
          true,
          false,
          false,
@@ -98,20 +93,20 @@ public class IngredientItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Name feature.
+   * This adds a property descriptor for the Group Id feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addNamePropertyDescriptor(Object object)
+  protected void addGroupIdPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Ingredient_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Ingredient_name_feature", "_UI_Ingredient_type"),
-         DomainPackage.Literals.INGREDIENT__NAME,
+         getString("_UI_JavaComponent_groupId_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_groupId_feature", "_UI_JavaComponent_type"),
+         DomainPackage.Literals.JAVA_COMPONENT__GROUP_ID,
          true,
          false,
          false,
@@ -121,20 +116,20 @@ public class IngredientItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Layer feature.
+   * This adds a property descriptor for the Version feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addLayerPropertyDescriptor(Object object)
+  protected void addVersionPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Ingredient_layer_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Ingredient_layer_feature", "_UI_Ingredient_type"),
-         DomainPackage.Literals.INGREDIENT__LAYER,
+         getString("_UI_JavaComponent_version_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_version_feature", "_UI_JavaComponent_type"),
+         DomainPackage.Literals.JAVA_COMPONENT__VERSION,
          true,
          false,
          false,
@@ -144,40 +139,30 @@ public class IngredientItemProvider
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * This adds a property descriptor for the Base Package feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  protected void addBasePackagePropertyDescriptor(Object object)
   {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.INGREDIENT__COMPONENTS);
-    }
-    return childrenFeatures;
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_JavaComponent_basePackage_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_basePackage_feature", "_UI_JavaComponent_type"),
+         DomainPackage.Literals.JAVA_COMPONENT__BASE_PACKAGE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
-  {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
-  }
-
-  /**
-   * This returns Ingredient.gif.
+   * This returns JavaComponent.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -185,7 +170,7 @@ public class IngredientItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Ingredient"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/JavaComponent"));
   }
 
   /**
@@ -197,10 +182,10 @@ public class IngredientItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Ingredient)object).getName();
+    String label = ((JavaComponent)object).getName();
     return label == null || label.length() == 0 ?
-      getString("_UI_Ingredient_type") :
-      getString("_UI_Ingredient_type") + " " + label;
+      getString("_UI_JavaComponent_type") :
+      getString("_UI_JavaComponent_type") + " " + label;
   }
 
   /**
@@ -215,15 +200,13 @@ public class IngredientItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(Ingredient.class))
+    switch (notification.getFeatureID(JavaComponent.class))
     {
-      case DomainPackage.INGREDIENT__UID:
-      case DomainPackage.INGREDIENT__NAME:
-      case DomainPackage.INGREDIENT__LAYER:
+      case DomainPackage.JAVA_COMPONENT__ARTIFACT_ID:
+      case DomainPackage.JAVA_COMPONENT__GROUP_ID:
+      case DomainPackage.JAVA_COMPONENT__VERSION:
+      case DomainPackage.JAVA_COMPONENT__BASE_PACKAGE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-      case DomainPackage.INGREDIENT__COMPONENTS:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
     super.notifyChanged(notification);
@@ -240,16 +223,6 @@ public class IngredientItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.INGREDIENT__COMPONENTS,
-         DomainFactory.eINSTANCE.createComponent()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.INGREDIENT__COMPONENTS,
-         DomainFactory.eINSTANCE.createJavaComponent()));
   }
 
 }

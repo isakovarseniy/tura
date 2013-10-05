@@ -4,9 +4,8 @@
 package recipe.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
@@ -16,41 +15,34 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
-import recipe.diagram.edit.policies.ComponentComponentMappersCompartmentCanonicalEditPolicy;
-import recipe.diagram.edit.policies.ComponentComponentMappersCompartmentItemSemanticEditPolicy;
+import recipe.diagram.edit.policies.JavaComponentJavaComponentComponentsCompartmentCanonicalEditPolicy;
+import recipe.diagram.edit.policies.JavaComponentJavaComponentComponentsCompartmentItemSemanticEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class ComponentComponentMappersCompartmentEditPart extends
-		ListCompartmentEditPart {
+public class JavaComponentJavaComponentComponentsCompartmentEditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 307009;
+	public static final int VISUAL_ID = 307010;
 
 	/**
 	 * @generated
 	 */
-	public ComponentComponentMappersCompartmentEditPart(View view) {
+	public JavaComponentJavaComponentComponentsCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected boolean hasModelChildrenChanged(Notification evt) {
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
 	public String getCompartmentName() {
-		return Messages.ComponentComponentMappersCompartmentEditPart_title;
+		return Messages.JavaComponentJavaComponentComponentsCompartmentEditPart_title;
 	}
 
 	/**
@@ -62,7 +54,7 @@ public class ComponentComponentMappersCompartmentEditPart extends
 				.createFigure();
 		result.setTitleVisibility(false);
 		HTMLLikeLayout layout = new HTMLLikeLayout();
-		layout.setColumns(1);
+		layout.setColumns(5);
 		result.getContentPane().setLayoutManager(layout);
 		return result;
 	}
@@ -76,14 +68,15 @@ public class ComponentComponentMappersCompartmentEditPart extends
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new ComponentComponentMappersCompartmentItemSemanticEditPolicy());
+				new JavaComponentJavaComponentComponentsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new ComponentComponentMappersCompartmentCanonicalEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
+				new JavaComponentJavaComponentComponentsCompartmentCanonicalEditPolicy());
 	}
 
 	/**

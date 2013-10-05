@@ -14,26 +14,26 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 
-import recipe.diagram.edit.policies.ComponentComponentComponentsCompartment2CanonicalEditPolicy;
-import recipe.diagram.edit.policies.ComponentComponentComponentsCompartment2ItemSemanticEditPolicy;
+import recipe.diagram.edit.policies.JavaComponentJavaComponentComponentsCompartment2CanonicalEditPolicy;
+import recipe.diagram.edit.policies.JavaComponentJavaComponentComponentsCompartment2ItemSemanticEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class ComponentComponentComponentsCompartment2EditPart extends
+public class JavaComponentJavaComponentComponentsCompartment2EditPart extends
 		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 307004;
+	public static final int VISUAL_ID = 307012;
 
 	/**
 	 * @generated
 	 */
-	public ComponentComponentComponentsCompartment2EditPart(View view) {
+	public JavaComponentJavaComponentComponentsCompartment2EditPart(View view) {
 		super(view);
 	}
 
@@ -41,7 +41,7 @@ public class ComponentComponentComponentsCompartment2EditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.ComponentComponentComponentsCompartment2EditPart_title;
+		return Messages.JavaComponentJavaComponentComponentsCompartment2EditPart_title;
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class ComponentComponentComponentsCompartment2EditPart extends
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new ComponentComponentComponentsCompartment2ItemSemanticEditPolicy());
+				new JavaComponentJavaComponentComponentsCompartment2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
@@ -72,7 +72,7 @@ public class ComponentComponentComponentsCompartment2EditPart extends
 				new DragDropEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.CANONICAL_ROLE,
-				new ComponentComponentComponentsCompartment2CanonicalEditPolicy());
+				new JavaComponentJavaComponentComponentsCompartment2CanonicalEditPolicy());
 	}
 
 	/**

@@ -34,6 +34,7 @@ import domain.Infrastructure;
 import domain.Ingredient;
 import domain.InsertMethod;
 import domain.JPAService;
+import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
@@ -347,6 +348,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass componentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass javaComponentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2214,6 +2222,76 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getComponent_BuildScript()
+  {
+    return (EAttribute)componentEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getComponent_DeployScript()
+  {
+    return (EAttribute)componentEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getJavaComponent()
+  {
+    return javaComponentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getJavaComponent_ArtifactId()
+  {
+    return (EAttribute)javaComponentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getJavaComponent_GroupId()
+  {
+    return (EAttribute)javaComponentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getJavaComponent_Version()
+  {
+    return (EAttribute)javaComponentEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getJavaComponent_BasePackage()
+  {
+    return (EAttribute)javaComponentEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getModelMapper()
   {
     return modelMapperEClass;
@@ -3444,6 +3522,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     usingMappersEClass = createEClass(USING_MAPPERS);
     createEAttribute(usingMappersEClass, USING_MAPPERS__MAPPERS);
 
+    recipeEClass = createEClass(RECIPE);
+    createEAttribute(recipeEClass, RECIPE__UID);
+    createEReference(recipeEClass, RECIPE__PARENT);
+    createEAttribute(recipeEClass, RECIPE__NAME);
+    createEReference(recipeEClass, RECIPE__INGREDIENTS);
+    createEReference(recipeEClass, RECIPE__INFRASTRUCTURES);
+
     ingredientEClass = createEClass(INGREDIENT);
     createEAttribute(ingredientEClass, INGREDIENT__UID);
     createEAttribute(ingredientEClass, INGREDIENT__NAME);
@@ -3451,12 +3536,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(ingredientEClass, INGREDIENT__COMPONENTS);
     createEAttribute(ingredientEClass, INGREDIENT__LAYER);
 
-    recipeEClass = createEClass(RECIPE);
-    createEAttribute(recipeEClass, RECIPE__UID);
-    createEReference(recipeEClass, RECIPE__PARENT);
-    createEAttribute(recipeEClass, RECIPE__NAME);
-    createEReference(recipeEClass, RECIPE__INGREDIENTS);
-    createEReference(recipeEClass, RECIPE__INFRASTRUCTURES);
+    componentEClass = createEClass(COMPONENT);
+    createEAttribute(componentEClass, COMPONENT__UID);
+    createEAttribute(componentEClass, COMPONENT__NAME);
+    createEReference(componentEClass, COMPONENT__COMPONENTS);
+    createEReference(componentEClass, COMPONENT__MAPPERS);
+    createEAttribute(componentEClass, COMPONENT__BUILD_SCRIPT);
+    createEAttribute(componentEClass, COMPONENT__DEPLOY_SCRIPT);
+
+    javaComponentEClass = createEClass(JAVA_COMPONENT);
+    createEAttribute(javaComponentEClass, JAVA_COMPONENT__ARTIFACT_ID);
+    createEAttribute(javaComponentEClass, JAVA_COMPONENT__GROUP_ID);
+    createEAttribute(javaComponentEClass, JAVA_COMPONENT__VERSION);
+    createEAttribute(javaComponentEClass, JAVA_COMPONENT__BASE_PACKAGE);
 
     infrastructureEClass = createEClass(INFRASTRUCTURE);
     createEAttribute(infrastructureEClass, INFRASTRUCTURE__UID);
@@ -3471,12 +3563,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(configurationEClass, CONFIGURATION__PROPERTIES);
     createEReference(configurationEClass, CONFIGURATION__CONFIG_EXTENSION);
     createEReference(configurationEClass, CONFIGURATION__PARENT);
-
-    componentEClass = createEClass(COMPONENT);
-    createEAttribute(componentEClass, COMPONENT__UID);
-    createEAttribute(componentEClass, COMPONENT__NAME);
-    createEReference(componentEClass, COMPONENT__COMPONENTS);
-    createEReference(componentEClass, COMPONENT__MAPPERS);
 
     modelMapperEClass = createEClass(MODEL_MAPPER);
     createEAttribute(modelMapperEClass, MODEL_MAPPER__NAME);
@@ -3640,8 +3726,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     otherMethodEClass.getESuperTypes().add(this.getBusinessMethod());
     mapperEClass.getESuperTypes().add(this.getTypePointer());
     javaMapperEClass.getESuperTypes().add(this.getMapper());
-    ingredientEClass.getESuperTypes().add(this.getUsingMappers());
     recipeEClass.getESuperTypes().add(this.getUsingMappers());
+    ingredientEClass.getESuperTypes().add(this.getUsingMappers());
+    javaComponentEClass.getESuperTypes().add(this.getComponent());
     modelMapperEClass.getESuperTypes().add(this.getArtifactRef());
     typeEClass.getESuperTypes().add(this.getTypeElement());
     typeReferenceEClass.getESuperTypes().add(this.getTypeElement());
@@ -3826,6 +3913,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(usingMappersEClass, UsingMappers.class, "UsingMappers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUsingMappers_Mappers(), ecorePackage.getEString(), "mappers", null, 0, -1, UsingMappers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(recipeEClass, Recipe.class, "Recipe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRecipe_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRecipe_Parent(), this.getRecipes(), this.getRecipes_Recipe(), "parent", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRecipe_Name(), ecorePackage.getEString(), "name", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRecipe_Ingredients(), this.getIngredient(), this.getIngredient_Parent(), "ingredients", null, 0, -1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRecipe_Infrastructures(), this.getInfrastructure(), this.getInfrastructure_Recipe(), "infrastructures", null, 0, -1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(ingredientEClass, Ingredient.class, "Ingredient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIngredient_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIngredient_Name(), ecorePackage.getEString(), "name", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3833,12 +3927,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getIngredient_Components(), this.getComponent(), null, "components", null, 0, -1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIngredient_Layer(), this.getPlatformLayers(), "layer", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(recipeEClass, Recipe.class, "Recipe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRecipe_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRecipe_Parent(), this.getRecipes(), this.getRecipes_Recipe(), "parent", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRecipe_Name(), ecorePackage.getEString(), "name", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRecipe_Ingredients(), this.getIngredient(), this.getIngredient_Parent(), "ingredients", null, 0, -1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRecipe_Infrastructures(), this.getInfrastructure(), this.getInfrastructure_Recipe(), "infrastructures", null, 0, -1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getComponent_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponent_Components(), this.getComponent(), null, "components", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponent_Mappers(), this.getModelMapper(), this.getModelMapper_Parent(), "mappers", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getComponent_BuildScript(), ecorePackage.getEString(), "buildScript", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getComponent_DeployScript(), ecorePackage.getEString(), "deployScript", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(javaComponentEClass, JavaComponent.class, "JavaComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getJavaComponent_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, JavaComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getJavaComponent_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, JavaComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getJavaComponent_Version(), ecorePackage.getEString(), "version", null, 0, 1, JavaComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getJavaComponent_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, JavaComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(infrastructureEClass, Infrastructure.class, "Infrastructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInfrastructure_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3853,12 +3954,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getConfiguration_Properties(), this.getProperty(), null, "properties", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConfiguration_ConfigExtension(), this.getConfiguration(), this.getConfiguration_Parent(), "configExtension", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConfiguration_Parent(), this.getConfiguration(), this.getConfiguration_ConfigExtension(), "parent", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getComponent_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponent_Components(), this.getComponent(), null, "components", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponent_Mappers(), this.getModelMapper(), this.getModelMapper_Parent(), "mappers", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modelMapperEClass, ModelMapper.class, "ModelMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModelMapper_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4231,19 +4326,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "packageName"
        });			
     addAnnotation
-      (ingredientEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "name"
-       });			
-    addAnnotation
       (recipeEClass, 
        source, 
        new String[] 
        {
        "label", "name"
        });				
+    addAnnotation
+      (ingredientEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name"
+       });					
+    addAnnotation
+      (javaComponentEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name"
+       });		
     addAnnotation
       (infrastructureEClass, 
        source, 
@@ -4253,13 +4355,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        });			
     addAnnotation
       (configurationEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "name"
-       });				
-    addAnnotation
-      (componentEClass, 
        source, 
        new String[] 
        {
@@ -4453,24 +4548,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        });												
     addAnnotation
-      (getIngredient_Components(), 
-       source, 
-       new String[] 
-       {
-       });			
-    addAnnotation
       (getRecipe_Ingredients(), 
        source, 
        new String[] 
        {
-       });						
+       });				
     addAnnotation
-      (getConfiguration_Properties(), 
+      (getIngredient_Components(), 
        source, 
        new String[] 
        {
-       "layout", "list"
-       });				
+       });		
     addAnnotation
       (getComponent_Components(), 
        source, 
@@ -4484,6 +4572,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "layout", "list"
        });						
+    addAnnotation
+      (getConfiguration_Properties(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });							
     addAnnotation
       (getType_Attributes(), 
        source, 
@@ -4627,7 +4722,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_9Annotations()
   {
-    String source = "gmf.link";																																																			
+    String source = "gmf.link";																																																	
     addAnnotation
       (getRecipe_Infrastructures(), 
        source, 
@@ -4635,7 +4730,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "target.decoration", "arrow",
        "style", "dash"
-       });			
+       });								
     addAnnotation
       (getInfrastructure_RecipeConfig(), 
        source, 
@@ -4652,7 +4747,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "style", "dot",
        "width", "2",
        "target.decoration", "closedarrow"
-       });												
+       });									
     addAnnotation
       (typeExtensionEClass, 
        source, 

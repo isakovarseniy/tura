@@ -38,7 +38,8 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createJavaMapper1CreationTool());
+		paletteContainer.add(createIngredient1CreationTool());
+		paletteContainer.add(createJavaMapper2CreationTool());
 		return paletteContainer;
 	}
 
@@ -60,12 +61,23 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createJavaMapper1CreationTool() {
+	private ToolEntry createIngredient1CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Ingredient1CreationTool_title,
+				Messages.Ingredient1CreationTool_desc, null, null) {
+		};
+		entry.setId("createIngredient1CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createJavaMapper2CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.JavaMapper1CreationTool_title,
-				Messages.JavaMapper1CreationTool_desc,
+				Messages.JavaMapper2CreationTool_title,
+				Messages.JavaMapper2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.JavaMapper_402001));
-		entry.setId("createJavaMapper1CreationTool"); //$NON-NLS-1$
+		entry.setId("createJavaMapper2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.JavaMapper_402001));
 		entry.setLargeIcon(entry.getSmallIcon());

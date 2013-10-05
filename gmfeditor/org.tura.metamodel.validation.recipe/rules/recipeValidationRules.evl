@@ -27,6 +27,20 @@
    } 
 }
 
+
+
+ context Component {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+}
+
+
  context Infrastructure {
 
   constraint HasName {

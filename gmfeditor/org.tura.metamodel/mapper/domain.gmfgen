@@ -224,6 +224,10 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="Ingredient"
+            description="Create new Ingredient"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="JavaMapper"
             description="Create new JavaMapper"
             genNodes="//@diagram/@topLevelNodes.0"/>

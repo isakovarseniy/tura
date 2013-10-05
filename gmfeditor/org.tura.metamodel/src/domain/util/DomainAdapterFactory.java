@@ -33,6 +33,7 @@ import domain.Infrastructure;
 import domain.Ingredient;
 import domain.InsertMethod;
 import domain.JPAService;
+import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
@@ -305,14 +306,24 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createUsingMappersAdapter();
       }
       @Override
+      public Adapter caseRecipe(Recipe object)
+      {
+        return createRecipeAdapter();
+      }
+      @Override
       public Adapter caseIngredient(Ingredient object)
       {
         return createIngredientAdapter();
       }
       @Override
-      public Adapter caseRecipe(Recipe object)
+      public Adapter caseComponent(Component object)
       {
-        return createRecipeAdapter();
+        return createComponentAdapter();
+      }
+      @Override
+      public Adapter caseJavaComponent(JavaComponent object)
+      {
+        return createJavaComponentAdapter();
       }
       @Override
       public Adapter caseInfrastructure(Infrastructure object)
@@ -323,11 +334,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseConfiguration(Configuration object)
       {
         return createConfigurationAdapter();
-      }
-      @Override
-      public Adapter caseComponent(Component object)
-      {
-        return createComponentAdapter();
       }
       @Override
       public Adapter caseModelMapper(ModelMapper object)
@@ -1027,6 +1033,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createComponentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.JavaComponent <em>Java Component</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.JavaComponent
+   * @generated
+   */
+  public Adapter createJavaComponentAdapter()
   {
     return null;
   }

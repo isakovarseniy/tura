@@ -1024,6 +1024,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.JavaComponent} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected JavaComponentItemProvider javaComponentItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.JavaComponent}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createJavaComponentAdapter()
+  {
+    if (javaComponentItemProvider == null)
+    {
+      javaComponentItemProvider = new JavaComponentItemProvider(this);
+    }
+
+    return javaComponentItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.ModelMapper} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1743,11 +1768,12 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (javaMapperItemProvider != null) javaMapperItemProvider.dispose();
     if (recipesItemProvider != null) recipesItemProvider.dispose();
     if (usingMappersItemProvider != null) usingMappersItemProvider.dispose();
-    if (ingredientItemProvider != null) ingredientItemProvider.dispose();
     if (recipeItemProvider != null) recipeItemProvider.dispose();
+    if (ingredientItemProvider != null) ingredientItemProvider.dispose();
+    if (componentItemProvider != null) componentItemProvider.dispose();
+    if (javaComponentItemProvider != null) javaComponentItemProvider.dispose();
     if (infrastructureItemProvider != null) infrastructureItemProvider.dispose();
     if (configurationItemProvider != null) configurationItemProvider.dispose();
-    if (componentItemProvider != null) componentItemProvider.dispose();
     if (modelMapperItemProvider != null) modelMapperItemProvider.dispose();
     if (propertyItemProvider != null) propertyItemProvider.dispose();
     if (mappingSpecifierItemProvider != null) mappingSpecifierItemProvider.dispose();

@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Recipe"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="302001,302002,302003,303005,303006,303003,303002,303004"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="302001,302002,302003,303005,303007,303008,303003,303004"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="304001,304005,304004,304003"/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="Recipe"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="302001,302002,302003,303005,303006,303003,303002,303004"/>
+            <method name="getType()" value="302001,302002,302003,303005,303007,303008,303003,303004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="304001,304005,304004,304003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="305004,305006,305007,305009,305008,305001,305002,305005"/>
+            <method name="getType()" value="305004,305006,305007,305009,305011,305010,305001,305005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="307001,307007,307008,307009,307004,307005,307006"/>
+            <method name="getType()" value="307001,307007,307010,307011,307012,307013,307006"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -377,13 +377,22 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.diagram.recipe.Component_303006"
-               name="%metatype.name.Component_303006"
+               id="org.tura.metamodel.diagram.recipe.JavaComponent_303007"
+               name="%metatype.name.JavaComponent_303007"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Component"
-               edithelper="recipe.diagram.edit.helpers.ComponentEditHelper">
-            <param name="semanticHint" value="303006"/>
+               eclass="JavaComponent"
+               edithelper="recipe.diagram.edit.helpers.JavaComponentEditHelper">
+            <param name="semanticHint" value="303007"/>
          </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.diagram.recipe.JavaComponent_303008"
+               name="%metatype.name.JavaComponent_303008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.tura.metamodel.diagram.recipe.JavaComponent_303007"/>
+            <param name="semanticHint" value="303008"/>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
@@ -394,15 +403,6 @@
                edithelper="recipe.diagram.edit.helpers.ModelMapperEditHelper">
             <param name="semanticHint" value="303003"/>
          </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <specializationType
-               id="org.tura.metamodel.diagram.recipe.Component_303002"
-               name="%metatype.name.Component_303002"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.tura.metamodel.diagram.recipe.Component_303006"/>
-            <param name="semanticHint" value="303002"/>
-         </specializationType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
@@ -472,9 +472,9 @@
          <elementType ref="org.tura.metamodel.diagram.recipe.Configuration_302002"/>
          <elementType ref="org.tura.metamodel.diagram.recipe.Infrastructure_302003"/>
          <elementType ref="org.tura.metamodel.diagram.recipe.Ingredient_303005"/>
-         <elementType ref="org.tura.metamodel.diagram.recipe.Component_303006"/>
+         <elementType ref="org.tura.metamodel.diagram.recipe.JavaComponent_303007"/>
+         <elementType ref="org.tura.metamodel.diagram.recipe.JavaComponent_303008"/>
          <elementType ref="org.tura.metamodel.diagram.recipe.ModelMapper_303003"/>
-         <elementType ref="org.tura.metamodel.diagram.recipe.Component_303002"/>
          <elementType ref="org.tura.metamodel.diagram.recipe.Property_303004"/>
          <elementType ref="org.tura.metamodel.diagram.recipe.TypeExtension_304001"/>
          <elementType ref="org.tura.metamodel.diagram.recipe.RecipeInfrastructures_304005"/>

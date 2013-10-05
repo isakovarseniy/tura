@@ -15,19 +15,19 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import domain.Component;
 import domain.DomainFactory;
 import domain.Ingredient;
+import domain.JavaComponent;
 
 /**
  * @generated
  */
-public class ComponentCreateCommand extends EditElementCommand {
+public class JavaComponentCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public ComponentCreateCommand(CreateElementRequest req) {
+	public JavaComponentCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -57,7 +57,8 @@ public class ComponentCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Component newElement = DomainFactory.eINSTANCE.createComponent();
+		JavaComponent newElement = DomainFactory.eINSTANCE
+				.createJavaComponent();
 
 		Ingredient owner = (Ingredient) getElementToEdit();
 		owner.getComponents().add(newElement);
@@ -73,8 +74,9 @@ public class ComponentCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Component newElement, IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected void doConfigure(JavaComponent newElement,
+			IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(

@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import recipe.diagram.edit.parts.Component2EditPart;
-import recipe.diagram.edit.parts.ComponentComponentComponentsCompartmentEditPart;
-import recipe.diagram.edit.parts.ComponentComponentMappersCompartmentEditPart;
+import recipe.diagram.edit.parts.JavaComponent2EditPart;
+import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartment2EditPart;
+import recipe.diagram.edit.parts.JavaComponentJavaComponentMappersCompartment2EditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.providers.DomainElementTypes;
@@ -25,14 +25,14 @@ import recipe.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class ComponentItemSemanticEditPolicy extends
+public class JavaComponent2ItemSemanticEditPolicy extends
 		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public ComponentItemSemanticEditPolicy() {
-		super(DomainElementTypes.Component_303006);
+	public JavaComponent2ItemSemanticEditPolicy() {
+		super(DomainElementTypes.JavaComponent_303008);
 	}
 
 	/**
@@ -64,12 +64,12 @@ public class ComponentItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (DomainVisualIDRegistry.getVisualID(node)) {
-			case ComponentComponentComponentsCompartmentEditPart.VISUAL_ID:
+			case JavaComponentJavaComponentComponentsCompartment2EditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
-					case Component2EditPart.VISUAL_ID:
+					case JavaComponent2EditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true
@@ -79,7 +79,7 @@ public class ComponentItemSemanticEditPolicy extends
 					}
 				}
 				break;
-			case ComponentComponentMappersCompartmentEditPart.VISUAL_ID:
+			case JavaComponentJavaComponentMappersCompartment2EditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

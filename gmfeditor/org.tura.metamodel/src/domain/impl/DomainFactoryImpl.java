@@ -34,6 +34,7 @@ import domain.Infrastructure;
 import domain.Ingredient;
 import domain.InsertMethod;
 import domain.JPAService;
+import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
@@ -161,11 +162,12 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.JAVA_MAPPER: return createJavaMapper();
       case DomainPackage.RECIPES: return createRecipes();
       case DomainPackage.USING_MAPPERS: return createUsingMappers();
-      case DomainPackage.INGREDIENT: return createIngredient();
       case DomainPackage.RECIPE: return createRecipe();
+      case DomainPackage.INGREDIENT: return createIngredient();
+      case DomainPackage.COMPONENT: return createComponent();
+      case DomainPackage.JAVA_COMPONENT: return createJavaComponent();
       case DomainPackage.INFRASTRUCTURE: return createInfrastructure();
       case DomainPackage.CONFIGURATION: return createConfiguration();
-      case DomainPackage.COMPONENT: return createComponent();
       case DomainPackage.MODEL_MAPPER: return createModelMapper();
       case DomainPackage.PROPERTY: return createProperty();
       case DomainPackage.MAPPING_SPECIFIER: return createMappingSpecifier();
@@ -643,6 +645,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ComponentImpl component = new ComponentImpl();
     return component;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public JavaComponent createJavaComponent()
+  {
+    JavaComponentImpl javaComponent = new JavaComponentImpl();
+    return javaComponent;
   }
 
   /**

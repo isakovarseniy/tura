@@ -33,8 +33,8 @@ import domain.DomainPackage;
 /**
  * @generated
  */
-public class ComponentComponentMappersCompartment2CanonicalEditPolicy extends
-		CanonicalEditPolicy {
+public class JavaComponentJavaComponentMappersCompartmentCanonicalEditPolicy
+		extends CanonicalEditPolicy {
 
 	/**
 	 * @generated
@@ -63,7 +63,7 @@ public class ComponentComponentMappersCompartment2CanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getComponentComponentMappersCompartment_307005SemanticChildren(viewObject);
+				.getJavaComponentJavaComponentMappersCompartment_307011SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -96,7 +96,7 @@ public class ComponentComponentMappersCompartment2CanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getComponentComponentMappersCompartment_307005SemanticChildren((View) getHost()
+				.getJavaComponentJavaComponentMappersCompartment_307011SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

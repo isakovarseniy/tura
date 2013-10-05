@@ -17,16 +17,17 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import domain.Component;
 import domain.DomainFactory;
+import domain.JavaComponent;
 
 /**
  * @generated
  */
-public class Component2CreateCommand extends EditElementCommand {
+public class JavaComponent2CreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public Component2CreateCommand(CreateElementRequest req) {
+	public JavaComponent2CreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -56,7 +57,8 @@ public class Component2CreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Component newElement = DomainFactory.eINSTANCE.createComponent();
+		JavaComponent newElement = DomainFactory.eINSTANCE
+				.createJavaComponent();
 
 		Component owner = (Component) getElementToEdit();
 		owner.getComponents().add(newElement);
@@ -72,8 +74,9 @@ public class Component2CreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Component newElement, IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected void doConfigure(JavaComponent newElement,
+			IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(

@@ -256,42 +256,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Component1CreationTool_title;
+	public static String Configuration1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Component1CreationTool_desc;
+	public static String Configuration1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Configuration2CreationTool_title;
+	public static String Infrastructure2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Configuration2CreationTool_desc;
+	public static String Infrastructure2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure3CreationTool_title;
+	public static String Ingredient3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure3CreationTool_desc;
+	public static String Ingredient3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient4CreationTool_title;
+	public static String JavaComponent4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient4CreationTool_desc;
+	public static String JavaComponent4CreationTool_desc;
 
 	/**
 	 * @generated
@@ -376,22 +376,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ComponentComponentComponentsCompartmentEditPart_title;
+	public static String JavaComponentJavaComponentComponentsCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ComponentComponentMappersCompartmentEditPart_title;
+	public static String JavaComponentJavaComponentMappersCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ComponentComponentComponentsCompartment2EditPart_title;
+	public static String JavaComponentJavaComponentComponentsCompartment2EditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ComponentComponentMappersCompartment2EditPart_title;
+	public static String JavaComponentJavaComponentMappersCompartment2EditPart_title;
 
 	/**
 	 * @generated
@@ -406,21 +406,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Recipes_301000_links;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_target;
 
 	/**
@@ -431,12 +416,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
+	public static String NavigatorGroupName_RecipeInfrastructures_304005_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Infrastructure_302003_outgoinglinks;
+	public static String NavigatorGroupName_RecipeInfrastructures_304005_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Recipes_301000_links;
 
 	/**
 	 * @generated
@@ -451,17 +441,27 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Infrastructure_302003_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_RecipeInfrastructures_304005_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_RecipeInfrastructures_304005_source;
 
 	/**
 	 * @generated

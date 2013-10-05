@@ -16,12 +16,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
-import recipe.diagram.edit.parts.Component2EditPart;
-import recipe.diagram.edit.parts.ComponentComponentComponentsCompartment2EditPart;
-import recipe.diagram.edit.parts.ComponentComponentComponentsCompartmentEditPart;
-import recipe.diagram.edit.parts.ComponentComponentMappersCompartment2EditPart;
-import recipe.diagram.edit.parts.ComponentComponentMappersCompartmentEditPart;
-import recipe.diagram.edit.parts.ComponentEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
@@ -29,6 +23,12 @@ import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import recipe.diagram.edit.parts.IngredientEditPart;
 import recipe.diagram.edit.parts.IngredientIngredientComponentsCompartmentEditPart;
+import recipe.diagram.edit.parts.JavaComponent2EditPart;
+import recipe.diagram.edit.parts.JavaComponentEditPart;
+import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartment2EditPart;
+import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartmentEditPart;
+import recipe.diagram.edit.parts.JavaComponentJavaComponentMappersCompartment2EditPart;
+import recipe.diagram.edit.parts.JavaComponentJavaComponentMappersCompartmentEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
@@ -42,6 +42,7 @@ import domain.Configuration;
 import domain.DomainPackage;
 import domain.Infrastructure;
 import domain.Ingredient;
+import domain.JavaComponent;
 import domain.ModelMapper;
 import domain.Property;
 import domain.Recipe;
@@ -71,14 +72,14 @@ public class DomainDiagramUpdater {
 			return getRecipeRecipeIngredientsCompartment_307001SemanticChildren(view);
 		case IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID:
 			return getIngredientIngredientComponentsCompartment_307007SemanticChildren(view);
-		case ComponentComponentComponentsCompartmentEditPart.VISUAL_ID:
-			return getComponentComponentComponentsCompartment_307008SemanticChildren(view);
-		case ComponentComponentMappersCompartmentEditPart.VISUAL_ID:
-			return getComponentComponentMappersCompartment_307009SemanticChildren(view);
-		case ComponentComponentComponentsCompartment2EditPart.VISUAL_ID:
-			return getComponentComponentComponentsCompartment_307004SemanticChildren(view);
-		case ComponentComponentMappersCompartment2EditPart.VISUAL_ID:
-			return getComponentComponentMappersCompartment_307005SemanticChildren(view);
+		case JavaComponentJavaComponentComponentsCompartmentEditPart.VISUAL_ID:
+			return getJavaComponentJavaComponentComponentsCompartment_307010SemanticChildren(view);
+		case JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID:
+			return getJavaComponentJavaComponentMappersCompartment_307011SemanticChildren(view);
+		case JavaComponentJavaComponentComponentsCompartment2EditPart.VISUAL_ID:
+			return getJavaComponentJavaComponentComponentsCompartment_307012SemanticChildren(view);
+		case JavaComponentJavaComponentMappersCompartment2EditPart.VISUAL_ID:
+			return getJavaComponentJavaComponentMappersCompartment_307013SemanticChildren(view);
 		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
 			return getConfigurationConfigurationPropertiesCompartment_307006SemanticChildren(view);
 		}
@@ -172,7 +173,7 @@ public class DomainDiagramUpdater {
 			Component childElement = (Component) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == ComponentEditPart.VISUAL_ID) {
+			if (visualID == JavaComponentEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -183,7 +184,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getComponentComponentComponentsCompartment_307008SemanticChildren(
+	public static List<DomainNodeDescriptor> getJavaComponentJavaComponentComponentsCompartment_307010SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -192,14 +193,14 @@ public class DomainDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.emptyList();
 		}
-		Component modelElement = (Component) containerView.getElement();
+		JavaComponent modelElement = (JavaComponent) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getComponents().iterator(); it
 				.hasNext();) {
 			Component childElement = (Component) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == Component2EditPart.VISUAL_ID) {
+			if (visualID == JavaComponent2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -210,7 +211,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getComponentComponentMappersCompartment_307009SemanticChildren(
+	public static List<DomainNodeDescriptor> getJavaComponentJavaComponentMappersCompartment_307011SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -219,7 +220,7 @@ public class DomainDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.emptyList();
 		}
-		Component modelElement = (Component) containerView.getElement();
+		JavaComponent modelElement = (JavaComponent) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getMappers().iterator(); it
 				.hasNext();) {
@@ -237,7 +238,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getComponentComponentComponentsCompartment_307004SemanticChildren(
+	public static List<DomainNodeDescriptor> getJavaComponentJavaComponentComponentsCompartment_307012SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -246,14 +247,14 @@ public class DomainDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.emptyList();
 		}
-		Component modelElement = (Component) containerView.getElement();
+		JavaComponent modelElement = (JavaComponent) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getComponents().iterator(); it
 				.hasNext();) {
 			Component childElement = (Component) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == Component2EditPart.VISUAL_ID) {
+			if (visualID == JavaComponent2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -264,7 +265,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getComponentComponentMappersCompartment_307005SemanticChildren(
+	public static List<DomainNodeDescriptor> getJavaComponentJavaComponentMappersCompartment_307013SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -273,7 +274,7 @@ public class DomainDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.emptyList();
 		}
-		Component modelElement = (Component) containerView.getElement();
+		JavaComponent modelElement = (JavaComponent) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getMappers().iterator(); it
 				.hasNext();) {
@@ -330,12 +331,12 @@ public class DomainDiagramUpdater {
 			return getInfrastructure_302003ContainedLinks(view);
 		case IngredientEditPart.VISUAL_ID:
 			return getIngredient_303005ContainedLinks(view);
-		case ComponentEditPart.VISUAL_ID:
-			return getComponent_303006ContainedLinks(view);
+		case JavaComponentEditPart.VISUAL_ID:
+			return getJavaComponent_303007ContainedLinks(view);
+		case JavaComponent2EditPart.VISUAL_ID:
+			return getJavaComponent_303008ContainedLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003ContainedLinks(view);
-		case Component2EditPart.VISUAL_ID:
-			return getComponent_303002ContainedLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303004ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -357,12 +358,12 @@ public class DomainDiagramUpdater {
 			return getInfrastructure_302003IncomingLinks(view);
 		case IngredientEditPart.VISUAL_ID:
 			return getIngredient_303005IncomingLinks(view);
-		case ComponentEditPart.VISUAL_ID:
-			return getComponent_303006IncomingLinks(view);
+		case JavaComponentEditPart.VISUAL_ID:
+			return getJavaComponent_303007IncomingLinks(view);
+		case JavaComponent2EditPart.VISUAL_ID:
+			return getJavaComponent_303008IncomingLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003IncomingLinks(view);
-		case Component2EditPart.VISUAL_ID:
-			return getComponent_303002IncomingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303004IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -384,12 +385,12 @@ public class DomainDiagramUpdater {
 			return getInfrastructure_302003OutgoingLinks(view);
 		case IngredientEditPart.VISUAL_ID:
 			return getIngredient_303005OutgoingLinks(view);
-		case ComponentEditPart.VISUAL_ID:
-			return getComponent_303006OutgoingLinks(view);
+		case JavaComponentEditPart.VISUAL_ID:
+			return getJavaComponent_303007OutgoingLinks(view);
+		case JavaComponent2EditPart.VISUAL_ID:
+			return getJavaComponent_303008OutgoingLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003OutgoingLinks(view);
-		case Component2EditPart.VISUAL_ID:
-			return getComponent_303002OutgoingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303004OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -450,7 +451,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getComponent_303006ContainedLinks(
+	public static List<DomainLinkDescriptor> getJavaComponent_303007ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getJavaComponent_303008ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -459,14 +468,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getModelMapper_303003ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getComponent_303002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -536,7 +537,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getComponent_303006IncomingLinks(
+	public static List<DomainLinkDescriptor> getJavaComponent_303007IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getJavaComponent_303008IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -545,14 +554,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getModelMapper_303003IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getComponent_303002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -617,7 +618,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getComponent_303006OutgoingLinks(
+	public static List<DomainLinkDescriptor> getJavaComponent_303007OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getJavaComponent_303008OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -626,14 +635,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getModelMapper_303003OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getComponent_303002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

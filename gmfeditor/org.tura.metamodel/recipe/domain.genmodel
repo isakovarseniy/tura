@@ -181,6 +181,13 @@
     <genClasses ecoreClass="domain.ecore#//UsingMappers">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//UsingMappers/mappers"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Recipe">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Recipe/uid"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Recipe/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Recipe/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipe/ingredients"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Recipe/infrastructures"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//Ingredient">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Ingredient/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Ingredient/name"/>
@@ -188,12 +195,19 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Ingredient/components"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Ingredient/layer"/>
     </genClasses>
-    <genClasses ecoreClass="domain.ecore#//Recipe">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Recipe/uid"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Recipe/parent"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Recipe/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipe/ingredients"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Recipe/infrastructures"/>
+    <genClasses ecoreClass="domain.ecore#//Component">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Component/components"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Component/mappers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/buildScript"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/deployScript"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//JavaComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaComponent/artifactId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaComponent/groupId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaComponent/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaComponent/basePackage"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Infrastructure">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Infrastructure/uid"/>
@@ -208,12 +222,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Configuration/properties"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Configuration/configExtension"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Configuration/parent"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//Component">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Component/components"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Component/mappers"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ModelMapper">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ModelMapper/name"/>

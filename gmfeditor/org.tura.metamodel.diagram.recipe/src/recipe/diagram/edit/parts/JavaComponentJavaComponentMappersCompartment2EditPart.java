@@ -15,26 +15,26 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 
-import recipe.diagram.edit.policies.ComponentComponentMappersCompartment2CanonicalEditPolicy;
-import recipe.diagram.edit.policies.ComponentComponentMappersCompartment2ItemSemanticEditPolicy;
+import recipe.diagram.edit.policies.JavaComponentJavaComponentMappersCompartment2CanonicalEditPolicy;
+import recipe.diagram.edit.policies.JavaComponentJavaComponentMappersCompartment2ItemSemanticEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class ComponentComponentMappersCompartment2EditPart extends
+public class JavaComponentJavaComponentMappersCompartment2EditPart extends
 		ListCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 307005;
+	public static final int VISUAL_ID = 307013;
 
 	/**
 	 * @generated
 	 */
-	public ComponentComponentMappersCompartment2EditPart(View view) {
+	public JavaComponentJavaComponentMappersCompartment2EditPart(View view) {
 		super(view);
 	}
 
@@ -49,7 +49,7 @@ public class ComponentComponentMappersCompartment2EditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.ComponentComponentMappersCompartment2EditPart_title;
+		return Messages.JavaComponentJavaComponentMappersCompartment2EditPart_title;
 	}
 
 	/**
@@ -72,14 +72,15 @@ public class ComponentComponentMappersCompartment2EditPart extends
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new ComponentComponentMappersCompartment2ItemSemanticEditPolicy());
+				new JavaComponentJavaComponentMappersCompartment2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new ComponentComponentMappersCompartment2CanonicalEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
+				new JavaComponentJavaComponentMappersCompartment2CanonicalEditPolicy());
 	}
 
 	/**

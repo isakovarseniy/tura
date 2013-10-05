@@ -52,23 +52,23 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case IngredientNameEditPart.VISUAL_ID:
 				return new IngredientNameEditPart(view);
 
-			case ComponentEditPart.VISUAL_ID:
-				return new ComponentEditPart(view);
+			case JavaComponentEditPart.VISUAL_ID:
+				return new JavaComponentEditPart(view);
 
-			case ComponentNameEditPart.VISUAL_ID:
-				return new ComponentNameEditPart(view);
+			case JavaComponentNameEditPart.VISUAL_ID:
+				return new JavaComponentNameEditPart(view);
+
+			case JavaComponent2EditPart.VISUAL_ID:
+				return new JavaComponent2EditPart(view);
+
+			case JavaComponentName2EditPart.VISUAL_ID:
+				return new JavaComponentName2EditPart(view);
 
 			case ModelMapperEditPart.VISUAL_ID:
 				return new ModelMapperEditPart(view);
 
 			case ModelMapperNameEditPart.VISUAL_ID:
 				return new ModelMapperNameEditPart(view);
-
-			case Component2EditPart.VISUAL_ID:
-				return new Component2EditPart(view);
-
-			case ComponentName2EditPart.VISUAL_ID:
-				return new ComponentName2EditPart(view);
 
 			case PropertyEditPart.VISUAL_ID:
 				return new PropertyEditPart(view);
@@ -83,18 +83,21 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new IngredientIngredientComponentsCompartmentEditPart(
 						view);
 
-			case ComponentComponentComponentsCompartmentEditPart.VISUAL_ID:
-				return new ComponentComponentComponentsCompartmentEditPart(view);
-
-			case ComponentComponentMappersCompartmentEditPart.VISUAL_ID:
-				return new ComponentComponentMappersCompartmentEditPart(view);
-
-			case ComponentComponentComponentsCompartment2EditPart.VISUAL_ID:
-				return new ComponentComponentComponentsCompartment2EditPart(
+			case JavaComponentJavaComponentComponentsCompartmentEditPart.VISUAL_ID:
+				return new JavaComponentJavaComponentComponentsCompartmentEditPart(
 						view);
 
-			case ComponentComponentMappersCompartment2EditPart.VISUAL_ID:
-				return new ComponentComponentMappersCompartment2EditPart(view);
+			case JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID:
+				return new JavaComponentJavaComponentMappersCompartmentEditPart(
+						view);
+
+			case JavaComponentJavaComponentComponentsCompartment2EditPart.VISUAL_ID:
+				return new JavaComponentJavaComponentComponentsCompartment2EditPart(
+						view);
+
+			case JavaComponentJavaComponentMappersCompartment2EditPart.VISUAL_ID:
+				return new JavaComponentJavaComponentMappersCompartment2EditPart(
+						view);
 
 			case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
 				return new ConfigurationConfigurationPropertiesCompartmentEditPart(

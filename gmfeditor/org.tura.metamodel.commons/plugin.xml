@@ -103,8 +103,8 @@
       <propertyTabs contributorId="org.tura.metamodel.diagram.artifact">
           <propertyTab
              category="domain"
-             id="property.tab.domain.custom"
-             label="Type ref"/>
+             id="property.tab.domain.specifierOptions"
+             label="Specifier options"/>
       </propertyTabs>
    </extension>
    
@@ -113,9 +113,9 @@
       <propertySections contributorId="org.tura.metamodel.diagram.artifact">
       
           <propertySection
-               tab="property.tab.domain.custom"
+               tab="property.tab.domain.specifierOptions"
                class="org.metamodel.tura.ui.properties.sections.OptionPropertySelection"
-               id="org.tura.metamodel.artifact.create">
+               id="org.tura.metamodel.artifact.option">
               <input type="artifact.diagram.edit.parts.SpecifierEditPart"/>
            </propertySection>        
  
@@ -128,8 +128,8 @@
       <propertyTabs contributorId="org.tura.metamodel.diagram.mapper">
           <propertyTab
              category="domain"
-             id="property.tab.domain.custom"
-             label="Type ref"/>
+             id="property.tab.domain.typeReference"
+             label="Mapped type"/>
       </propertyTabs>
    </extension>
    
@@ -138,32 +138,47 @@
       <propertySections contributorId="org.tura.metamodel.diagram.mapper">
       
           <propertySection
-               tab="property.tab.domain.custom"
+               tab="property.tab.domain.typeReference"
                class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
-               id="org.tura.metamodel.mapper.update">
+               id="org.tura.metamodel.mapper.typeName">
               <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
          </propertySection>        
  
           <propertySection
-               tab="property.tab.domain.custom"
+               tab="property.tab.domain.typeReference"
                class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
-               id="org.tura.metamodel.mapper.update">
+               id="org.tura.metamodel.mapper.packageName">
               <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
          </propertySection>        
 
     </propertySections>
   </extension>  
 
-//--//
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
       <?gmfgen generated="true"?>   
       <propertyTabs contributorId="org.tura.metamodel.diagram.recipe">
           <propertyTab
              category="domain"
-             id="property.tab.domain.custom"
+             id="property.tab.domain.availableMappers"
              label="Available mappers"/>
+
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.selectArtifact"
+             label="Select Artifact"/>
+
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.mappingSpecifier"
+             label="Mapping Specifier"/>
+
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.mappingVariable"
+             label="Model query parameters"/>
       </propertyTabs>
+
    </extension>
 
 
@@ -172,17 +187,45 @@
       <propertySections contributorId="org.tura.metamodel.diagram.recipe">
       
           <propertySection
-               tab="property.tab.domain.custom"
+               tab="property.tab.domain.availableMappers"
                class="org.metamodel.tura.ui.properties.sections.RecipeMappersListPropertySelection"
                id="org.tura.metamodel.mapper.recipe">
               <input type="recipe.diagram.edit.parts.RecipeEditPart"/>
          </propertySection>        
 
           <propertySection
-               tab="property.tab.domain.custom"
+               tab="property.tab.domain.availableMappers"
                class="org.metamodel.tura.ui.properties.sections.IngredientMappersListPropertySelection"
                id="org.tura.metamodel.mapper.ingredient">
               <input type="recipe.diagram.edit.parts.IngredientEditPart"/>
+         </propertySection>        
+         
+         <propertySection
+               tab="property.tab.domain.selectArtifact"
+               class="org.metamodel.tura.ui.properties.sections.DomainArtifactPropertySelection"
+               id="org.tura.metamodel.mapper.domainArtifact">
+              <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
+         </propertySection>        
+         
+         <propertySection
+               tab="property.tab.domain.selectArtifact"
+               class="org.metamodel.tura.ui.properties.sections.ArtifactPropertySelection"
+               id="org.tura.metamodel.mapper.artifact">
+              <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
+         </propertySection>        
+         
+         <propertySection
+               tab="property.tab.domain.mappingSpecifier"
+               class="org.metamodel.tura.ui.properties.sections.MappingSpecifierPropertySelection"
+               id="org.tura.metamodel.mapper.mappingSpecifier">
+              <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
+         </propertySection>        
+
+         <propertySection
+               tab="property.tab.domain.mappingVariable"
+               class="org.metamodel.tura.ui.properties.sections.MappingVariablePropertySelection"
+               id="org.tura.metamodel.mapper.mappingVariable">
+              <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
          </propertySection>        
 
 
