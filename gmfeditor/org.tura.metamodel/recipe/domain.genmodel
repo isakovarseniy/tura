@@ -249,18 +249,24 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtifactRef/domainArtifact"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtifactRef/artifactName"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//TypePointer">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//TypePointer/packageRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//TypePointer/typeRef"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//TypeDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TypeDefinition/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//TypeDefinition/types"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//TypeDefinition/enums"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//TypeDefinition/parent"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//TypeElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TypeElement/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//TypeElement/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Primitive">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Primitive/uid"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Type/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Type/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Type/attributes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Type/operations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Type/extension"/>
@@ -296,8 +302,6 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Enumarator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Enumarator/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Enumarator/name"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Enumarator/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Enumarator/values"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//EnumAttribute">
@@ -305,10 +309,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//EnumAttribute/parent"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//EnumAttribute/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//EnumAttribute/value"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//TypePointer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TypePointer/packageName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TypePointer/typeName"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//TypesRepository">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TypesRepository/uid"/>
@@ -319,14 +319,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Types/uid"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Types/parent"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Types/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Types/primitives"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Types/packages"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Types/businessPackages"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//Primitive">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Primitive/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Primitive/name"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Primitive/parent"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Package/uid"/>

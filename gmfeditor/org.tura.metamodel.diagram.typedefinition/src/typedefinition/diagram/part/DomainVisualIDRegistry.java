@@ -25,15 +25,17 @@ import typedefinition.diagram.edit.parts.OperationOperationParametersCompartment
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
 import typedefinition.diagram.edit.parts.ParameterEditPart;
 import typedefinition.diagram.edit.parts.ParameterNameEditPart;
+import typedefinition.diagram.edit.parts.PrimitiveEditPart;
+import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
-import typedefinition.diagram.edit.parts.ReturnValuePackageNameTypeNameEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueUidEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
-import typedefinition.diagram.edit.parts.TypeReferencePackageNameTypeNameEditPart;
+import typedefinition.diagram.edit.parts.TypeReferenceUidEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
 import typedefinition.diagram.edit.parts.WrappingLabel2EditPart;
@@ -155,6 +157,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return TypeReferenceEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getPrimitive().isSuperTypeOf(
+					domainElement.eClass())) {
+				return PrimitiveEditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getType().isSuperTypeOf(
 					domainElement.eClass())) {
 				return TypeEditPart.VISUAL_ID;
@@ -224,6 +230,9 @@ public class DomainVisualIDRegistry {
 			if (TypeReferenceEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (PrimitiveEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (TypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -232,7 +241,12 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case TypeReferenceEditPart.VISUAL_ID:
-			if (TypeReferencePackageNameTypeNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (TypeReferenceUidEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case PrimitiveEditPart.VISUAL_ID:
+			if (PrimitiveNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -277,7 +291,7 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case ReturnValueEditPart.VISUAL_ID:
-			if (ReturnValuePackageNameTypeNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (ReturnValueUidEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -392,6 +406,7 @@ public class DomainVisualIDRegistry {
 		case TypeDefinitionEditPart.VISUAL_ID:
 			return false;
 		case TypeReferenceEditPart.VISUAL_ID:
+		case PrimitiveEditPart.VISUAL_ID:
 		case AttributeEditPart.VISUAL_ID:
 		case ReturnValueEditPart.VISUAL_ID:
 		case EnumAttributeEditPart.VISUAL_ID:

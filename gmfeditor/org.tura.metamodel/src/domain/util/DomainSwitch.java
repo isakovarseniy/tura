@@ -471,6 +471,13 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.TYPE_POINTER:
+      {
+        TypePointer typePointer = (TypePointer)theEObject;
+        T result = caseTypePointer(typePointer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.TYPE_DEFINITION:
       {
         TypeDefinition typeDefinition = (TypeDefinition)theEObject;
@@ -482,6 +489,14 @@ public class DomainSwitch<T> extends Switch<T>
       {
         TypeElement typeElement = (TypeElement)theEObject;
         T result = caseTypeElement(typeElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.PRIMITIVE:
+      {
+        Primitive primitive = (Primitive)theEObject;
+        T result = casePrimitive(primitive);
+        if (result == null) result = caseTypeElement(primitive);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -544,6 +559,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Enumarator enumarator = (Enumarator)theEObject;
         T result = caseEnumarator(enumarator);
+        if (result == null) result = caseTypeElement(enumarator);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -551,13 +567,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         EnumAttribute enumAttribute = (EnumAttribute)theEObject;
         T result = caseEnumAttribute(enumAttribute);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.TYPE_POINTER:
-      {
-        TypePointer typePointer = (TypePointer)theEObject;
-        T result = caseTypePointer(typePointer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -572,13 +581,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Types types = (Types)theEObject;
         T result = caseTypes(types);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.PRIMITIVE:
-      {
-        Primitive primitive = (Primitive)theEObject;
-        T result = casePrimitive(primitive);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

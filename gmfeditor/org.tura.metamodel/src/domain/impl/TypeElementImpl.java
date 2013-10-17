@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.TypeElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.TypeElementImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -32,6 +33,25 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class TypeElementImpl extends EObjectImpl implements TypeElement
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -51,6 +71,29 @@ public class TypeElementImpl extends EObjectImpl implements TypeElement
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.TYPE_ELEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_ELEMENT__NAME, oldName, name));
   }
 
   /**
@@ -158,6 +201,8 @@ public class TypeElementImpl extends EObjectImpl implements TypeElement
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE_ELEMENT__NAME:
+        return getName();
       case DomainPackage.TYPE_ELEMENT__PARENT:
         return getParent();
     }
@@ -174,6 +219,9 @@ public class TypeElementImpl extends EObjectImpl implements TypeElement
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE_ELEMENT__NAME:
+        setName((String)newValue);
+        return;
       case DomainPackage.TYPE_ELEMENT__PARENT:
         setParent((TypeDefinition)newValue);
         return;
@@ -191,6 +239,9 @@ public class TypeElementImpl extends EObjectImpl implements TypeElement
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE_ELEMENT__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case DomainPackage.TYPE_ELEMENT__PARENT:
         setParent((TypeDefinition)null);
         return;
@@ -208,10 +259,29 @@ public class TypeElementImpl extends EObjectImpl implements TypeElement
   {
     switch (featureID)
     {
+      case DomainPackage.TYPE_ELEMENT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.TYPE_ELEMENT__PARENT:
         return getParent() != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //TypeElementImpl

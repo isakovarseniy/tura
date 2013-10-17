@@ -39,6 +39,7 @@ import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.ParameterEditPart;
+import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
@@ -58,11 +59,6 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	private Set<EStructuralFeature> myFeaturesToSynchronize;
-
-	/**
-	 * @generated
-	 */
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -75,15 +71,8 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
-					.getTypeDefinition_Types());
-			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
-					.getTypeDefinition_Enums());
-		}
-		return myFeaturesToSynchronize;
+	protected EStructuralFeature getFeatureToSynchronize() {
+		return DomainPackage.eINSTANCE.getTypeDefinition_Types();
 	}
 
 	/**
@@ -118,9 +107,14 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
-		return visualID == TypeReferenceEditPart.VISUAL_ID
-				|| visualID == TypeEditPart.VISUAL_ID
-				|| visualID == EnumaratorEditPart.VISUAL_ID;
+		switch (visualID) {
+		case TypeReferenceEditPart.VISUAL_ID:
+		case PrimitiveEditPart.VISUAL_ID:
+		case TypeEditPart.VISUAL_ID:
+		case EnumaratorEditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -298,6 +292,14 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
+		case PrimitiveEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getPrimitive_102004ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
 		case TypeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
@@ -309,7 +311,7 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 		case EnumaratorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getEnumarator_102003ContainedLinks(view));
+						.getEnumarator_102005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

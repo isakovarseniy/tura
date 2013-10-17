@@ -1,7 +1,7 @@
 /*
  * 
  */
-package typesrepository.diagram.edit.helpers;
+package typedefinition.diagram.edit.helpers;
 
 /**
  * @generated

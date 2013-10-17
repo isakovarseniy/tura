@@ -28,27 +28,6 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="domain.ecore#//Types/primitives"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//Primitive"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#PrimitiveLabel"/>
-            <features
-                href="domain.ecore#//Primitive/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
-          <diagramNode
-              href="domain.gmfgraph#Primitive"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.1">
-        <containmentFeature
             href="domain.ecore#//Types/packages"/>
         <ownedChild>
           <domainMetaElement
@@ -68,7 +47,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.0/@ownedChild/@compartments.2">
+          compartment="//@nodes.0/@ownedChild/@compartments.1">
         <containmentFeature
             href="domain.ecore#//Types/businessPackages"/>
         <ownedChild>
@@ -91,15 +70,10 @@
       <compartments
           children="//@nodes.0/@ownedChild/@children.0">
         <compartment
-            href="domain.gmfgraph#TypesPrimitivesCompartment"/>
-      </compartments>
-      <compartments
-          children="//@nodes.0/@ownedChild/@children.1">
-        <compartment
             href="domain.gmfgraph#TypesPackagesCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.2">
+          children="//@nodes.0/@ownedChild/@children.1">
         <compartment
             href="domain.gmfgraph#TypesBusinessPackagesCompartment"/>
       </compartments>

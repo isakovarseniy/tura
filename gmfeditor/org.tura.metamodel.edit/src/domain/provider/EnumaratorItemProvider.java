@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class EnumaratorItemProvider
-  extends ItemProviderAdapter
+  extends TypeElementItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -68,7 +68,6 @@ public class EnumaratorItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -88,29 +87,6 @@ public class EnumaratorItemProvider
          getString("_UI_Enumarator_uid_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Enumarator_uid_feature", "_UI_Enumarator_type"),
          DomainPackage.Literals.ENUMARATOR__UID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Enumarator_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Enumarator_name_feature", "_UI_Enumarator_type"),
-         DomainPackage.Literals.ENUMARATOR__NAME,
          true,
          false,
          false,
@@ -194,7 +170,6 @@ public class EnumaratorItemProvider
     switch (notification.getFeatureID(Enumarator.class))
     {
       case DomainPackage.ENUMARATOR__UID:
-      case DomainPackage.ENUMARATOR__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.ENUMARATOR__VALUES:
@@ -220,18 +195,6 @@ public class EnumaratorItemProvider
       (createChildParameter
         (DomainPackage.Literals.ENUMARATOR__VALUES,
          DomainFactory.eINSTANCE.createEnumAttribute()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return DomainEditPlugin.INSTANCE;
   }
 
 }

@@ -110,7 +110,7 @@ public class ReturnValueItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((ReturnValue)object).getPackageName();
+    String label = ((ReturnValue)object).getUid();
     return label == null || label.length() == 0 ?
       getString("_UI_ReturnValue_type") :
       getString("_UI_ReturnValue_type") + " " + label;

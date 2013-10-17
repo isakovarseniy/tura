@@ -23,7 +23,6 @@ import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
-import typesrepository.diagram.edit.parts.PrimitiveEditPart;
 import typesrepository.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
@@ -68,10 +67,6 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Primitive_203001 = getElementType("org.tura.metamodel.diagram.typesrepository.Primitive_203001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
 	public static final IElementType Package_203002 = getElementType("org.tura.metamodel.diagram.typesrepository.Package_203002"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -84,11 +79,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType InfrastructureRecipeConfig_204004 = getElementType("org.tura.metamodel.diagram.typesrepository.InfrastructureRecipeConfig_204004"); //$NON-NLS-1$
+	public static final IElementType RecipeInfrastructures_204005 = getElementType("org.tura.metamodel.diagram.typesrepository.RecipeInfrastructures_204005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeInfrastructures_204005 = getElementType("org.tura.metamodel.diagram.typesrepository.RecipeInfrastructures_204005"); //$NON-NLS-1$
+	public static final IElementType InfrastructureRecipeConfig_204004 = getElementType("org.tura.metamodel.diagram.typesrepository.InfrastructureRecipeConfig_204004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -210,9 +205,6 @@ public class DomainElementTypes {
 
 			elements.put(Types_202001, DomainPackage.eINSTANCE.getTypes());
 
-			elements.put(Primitive_203001,
-					DomainPackage.eINSTANCE.getPrimitive());
-
 			elements.put(Package_203002, DomainPackage.eINSTANCE.getPackage());
 
 			elements.put(BusinessPackage_203003,
@@ -248,7 +240,6 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(TypesRepository_201000);
 			KNOWN_ELEMENT_TYPES.add(Types_202001);
-			KNOWN_ELEMENT_TYPES.add(Primitive_203001);
 			KNOWN_ELEMENT_TYPES.add(Package_203002);
 			KNOWN_ELEMENT_TYPES.add(BusinessPackage_203003);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_204001);
@@ -268,8 +259,6 @@ public class DomainElementTypes {
 			return TypesRepository_201000;
 		case TypesEditPart.VISUAL_ID:
 			return Types_202001;
-		case PrimitiveEditPart.VISUAL_ID:
-			return Primitive_203001;
 		case PackageEditPart.VISUAL_ID:
 			return Package_203002;
 		case BusinessPackageEditPart.VISUAL_ID:

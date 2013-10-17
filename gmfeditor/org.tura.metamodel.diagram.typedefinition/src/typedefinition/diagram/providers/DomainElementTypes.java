@@ -26,6 +26,7 @@ import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.ParameterEditPart;
+import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
@@ -72,11 +73,17 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Primitive_102004 = getElementType("org.tura.metamodel.diagram.typedefinition.Primitive_102004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType Type_102002 = getElementType("org.tura.metamodel.diagram.typedefinition.Type_102002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Enumarator_102003 = getElementType("org.tura.metamodel.diagram.typedefinition.Enumarator_102003"); //$NON-NLS-1$
+	public static final IElementType Enumarator_102005 = getElementType("org.tura.metamodel.diagram.typedefinition.Enumarator_102005"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -231,9 +238,12 @@ public class DomainElementTypes {
 			elements.put(TypeReference_102001,
 					DomainPackage.eINSTANCE.getTypeReference());
 
+			elements.put(Primitive_102004,
+					DomainPackage.eINSTANCE.getPrimitive());
+
 			elements.put(Type_102002, DomainPackage.eINSTANCE.getType());
 
-			elements.put(Enumarator_102003,
+			elements.put(Enumarator_102005,
 					DomainPackage.eINSTANCE.getEnumarator());
 
 			elements.put(Attribute_103001,
@@ -281,8 +291,9 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(TypeDefinition_101000);
 			KNOWN_ELEMENT_TYPES.add(TypeReference_102001);
+			KNOWN_ELEMENT_TYPES.add(Primitive_102004);
 			KNOWN_ELEMENT_TYPES.add(Type_102002);
-			KNOWN_ELEMENT_TYPES.add(Enumarator_102003);
+			KNOWN_ELEMENT_TYPES.add(Enumarator_102005);
 			KNOWN_ELEMENT_TYPES.add(Attribute_103001);
 			KNOWN_ELEMENT_TYPES.add(Operation_103002);
 			KNOWN_ELEMENT_TYPES.add(Parameter_103006);
@@ -305,10 +316,12 @@ public class DomainElementTypes {
 			return TypeDefinition_101000;
 		case TypeReferenceEditPart.VISUAL_ID:
 			return TypeReference_102001;
+		case PrimitiveEditPart.VISUAL_ID:
+			return Primitive_102004;
 		case TypeEditPart.VISUAL_ID:
 			return Type_102002;
 		case EnumaratorEditPart.VISUAL_ID:
-			return Enumarator_102003;
+			return Enumarator_102005;
 		case AttributeEditPart.VISUAL_ID:
 			return Attribute_103001;
 		case OperationEditPart.VISUAL_ID:

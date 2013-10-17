@@ -18,7 +18,6 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import typesrepository.diagram.edit.parts.BusinessPackageNameEditPart;
 import typesrepository.diagram.edit.parts.PackageNameEditPart;
-import typesrepository.diagram.edit.parts.PrimitiveNameEditPart;
 import typesrepository.diagram.edit.parts.TypesNameEditPart;
 import typesrepository.diagram.parsers.MessageFormatParser;
 import typesrepository.diagram.part.DomainVisualIDRegistry;
@@ -46,24 +45,6 @@ public class DomainParserProvider extends AbstractProvider implements
 			typesName_205004Parser = parser;
 		}
 		return typesName_205004Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser primitiveName_205001Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getPrimitiveName_205001Parser() {
-		if (primitiveName_205001Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getPrimitive_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			primitiveName_205001Parser = parser;
-		}
-		return primitiveName_205001Parser;
 	}
 
 	/**
@@ -109,8 +90,6 @@ public class DomainParserProvider extends AbstractProvider implements
 		switch (visualID) {
 		case TypesNameEditPart.VISUAL_ID:
 			return getTypesName_205004Parser();
-		case PrimitiveNameEditPart.VISUAL_ID:
-			return getPrimitiveName_205001Parser();
 		case PackageNameEditPart.VISUAL_ID:
 			return getPackageName_205002Parser();
 		case BusinessPackageNameEditPart.VISUAL_ID:

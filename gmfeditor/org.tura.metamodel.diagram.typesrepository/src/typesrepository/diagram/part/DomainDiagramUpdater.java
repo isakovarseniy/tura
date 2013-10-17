@@ -13,16 +13,13 @@ import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
-import typesrepository.diagram.edit.parts.PrimitiveEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesBusinessPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
-import typesrepository.diagram.edit.parts.TypesTypesPrimitivesCompartmentEditPart;
 import domain.BusinessPackage;
 import domain.Package;
-import domain.Primitive;
 import domain.Types;
 import domain.TypesRepository;
 
@@ -46,12 +43,10 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypesRepositoryEditPart.VISUAL_ID:
 			return getTypesRepository_201000SemanticChildren(view);
-		case TypesTypesPrimitivesCompartmentEditPart.VISUAL_ID:
-			return getTypesTypesPrimitivesCompartment_207001SemanticChildren(view);
 		case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
-			return getTypesTypesPackagesCompartment_207002SemanticChildren(view);
+			return getTypesTypesPackagesCompartment_207001SemanticChildren(view);
 		case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
-			return getTypesTypesBusinessPackagesCompartment_207003SemanticChildren(view);
+			return getTypesTypesBusinessPackagesCompartment_207002SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -80,34 +75,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getTypesTypesPrimitivesCompartment_207001SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		Types modelElement = (Types) containerView.getElement();
-		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getPrimitives().iterator(); it
-				.hasNext();) {
-			Primitive childElement = (Primitive) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == PrimitiveEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainNodeDescriptor> getTypesTypesPackagesCompartment_207002SemanticChildren(
+	public static List<DomainNodeDescriptor> getTypesTypesPackagesCompartment_207001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -134,7 +102,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getTypesTypesBusinessPackagesCompartment_207003SemanticChildren(
+	public static List<DomainNodeDescriptor> getTypesTypesBusinessPackagesCompartment_207002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -167,8 +135,6 @@ public class DomainDiagramUpdater {
 			return getTypesRepository_201000ContainedLinks(view);
 		case TypesEditPart.VISUAL_ID:
 			return getTypes_202001ContainedLinks(view);
-		case PrimitiveEditPart.VISUAL_ID:
-			return getPrimitive_203001ContainedLinks(view);
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_203002ContainedLinks(view);
 		case BusinessPackageEditPart.VISUAL_ID:
@@ -186,8 +152,6 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypesEditPart.VISUAL_ID:
 			return getTypes_202001IncomingLinks(view);
-		case PrimitiveEditPart.VISUAL_ID:
-			return getPrimitive_203001IncomingLinks(view);
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_203002IncomingLinks(view);
 		case BusinessPackageEditPart.VISUAL_ID:
@@ -205,8 +169,6 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypesEditPart.VISUAL_ID:
 			return getTypes_202001OutgoingLinks(view);
-		case PrimitiveEditPart.VISUAL_ID:
-			return getPrimitive_203001OutgoingLinks(view);
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_203002OutgoingLinks(view);
 		case BusinessPackageEditPart.VISUAL_ID:
@@ -229,14 +191,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTypes_202001ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getPrimitive_203001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -276,14 +230,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPrimitive_203001IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getPackage_203002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -309,14 +255,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTypes_202001OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getPrimitive_203001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

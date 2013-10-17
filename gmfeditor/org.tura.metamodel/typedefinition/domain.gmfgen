@@ -209,8 +209,8 @@
       </modelFacet>
       <labels
           visualID="105004"
-          editPartClassName="ReturnValuePackageNameTypeNameEditPart"
-          itemSemanticEditPolicyClassName="ReturnValuePackageNameTypeNameItemSemanticEditPolicy"
+          editPartClassName="ReturnValueUidEditPart"
+          itemSemanticEditPolicyClassName="ReturnValueUidItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -222,9 +222,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/TypePointer/packageName"/>
-          <metaFeatures
-              href="domain.genmodel#//domain/TypePointer/typeName"/>
+              href="domain.genmodel#//domain/ReturnValue/uid"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -303,8 +301,8 @@
       </modelFacet>
       <labels
           visualID="105001"
-          editPartClassName="TypeReferencePackageNameTypeNameEditPart"
-          itemSemanticEditPolicyClassName="TypeReferencePackageNameTypeNameItemSemanticEditPolicy"
+          editPartClassName="TypeReferenceUidEditPart"
+          itemSemanticEditPolicyClassName="TypeReferenceUidItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -316,9 +314,50 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/TypePointer/packageName"/>
+              href="domain.genmodel#//domain/TypeReference/uid"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="102004"
+        editPartClassName="PrimitiveEditPart"
+        itemSemanticEditPolicyClassName="PrimitiveItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PrimitiveCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PrimitiveGraphicalNodeEditPolicy"
+        createCommandClassName="PrimitiveCreateCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PrimitiveEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="PrimitiveFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PrimitiveFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePrimitiveLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PrimitiveFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePrimitiveLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePrimitiveLabelFigure.setText(&quot;Primitive&quot;);&#xA;&#xA;this.add(fFigurePrimitiveLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePrimitiveLabelFigure() {&#xA;&#x9;&#x9;return fFigurePrimitiveLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/Primitive"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/TypeDefinition/types"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/TypeDefinition/types"/>
+      </modelFacet>
+      <labels
+          visualID="105010"
+          editPartClassName="PrimitiveNameEditPart"
+          itemSemanticEditPolicyClassName="PrimitiveNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigurePrimitiveLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/TypePointer/typeName"/>
+              href="domain.genmodel#//domain/TypeElement/name"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
@@ -364,12 +403,12 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/Type/name"/>
+              href="domain.genmodel#//domain/TypeElement/name"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="102003"
+        visualID="102005"
         editPartClassName="EnumaratorEditPart"
         itemSemanticEditPolicyClassName="EnumaratorItemSemanticEditPolicy"
         canonicalEditPolicyClassName="EnumaratorCanonicalEditPolicy"
@@ -391,12 +430,12 @@
         <metaClass
             href="domain.genmodel#//domain/Enumarator"/>
         <containmentMetaFeature
-            href="domain.genmodel#//domain/TypeDefinition/enums"/>
+            href="domain.genmodel#//domain/TypeDefinition/types"/>
         <childMetaFeature
-            href="domain.genmodel#//domain/TypeDefinition/enums"/>
+            href="domain.genmodel#//domain/TypeDefinition/types"/>
       </modelFacet>
       <labels
-          visualID="105008"
+          visualID="105011"
           editPartClassName="EnumaratorNameEditPart"
           itemSemanticEditPolicyClassName="EnumaratorNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -410,7 +449,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/Enumarator/name"/>
+              href="domain.genmodel#//domain/TypeElement/name"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
@@ -565,7 +604,7 @@
         childNodes="//@diagram/@childNodes.0"
         title="TypeAttributesCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.1"
+        node="//@diagram/@topLevelNodes.2"
         listLayout="false">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -582,7 +621,7 @@
         childNodes="//@diagram/@childNodes.1"
         title="TypeOperationsCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.1"
+        node="//@diagram/@topLevelNodes.2"
         listLayout="false">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -626,14 +665,14 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="107005"
+        visualID="107006"
         editPartClassName="EnumaratorEnumaratorValuesCompartmentEditPart"
         itemSemanticEditPolicyClassName="EnumaratorEnumaratorValuesCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="EnumaratorEnumaratorValuesCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.4"
         title="EnumaratorValuesCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.2"
+        node="//@diagram/@topLevelNodes.3"
         listLayout="false">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -660,7 +699,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="Enumarator"
             description="Create new Enumarator"
-            genNodes="//@diagram/@topLevelNodes.2"/>
+            genNodes="//@diagram/@topLevelNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Operation"
@@ -673,6 +712,11 @@
             genNodes="//@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="Primitive"
+            description="Create new Primitive"
+            genNodes="//@diagram/@topLevelNodes.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="ReturnValue"
             description="Create new ReturnValue"
             genNodes="//@diagram/@childNodes.3"/>
@@ -680,7 +724,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="Type"
             description="Create new Type"
-            genNodes="//@diagram/@topLevelNodes.1"/>
+            genNodes="//@diagram/@topLevelNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="TypeReference"
@@ -754,7 +798,10 @@
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.1"
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.1"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.2"
         child="//@diagram/@childNodes.0"/>
     <childReferences
         parent="//@diagram/@childNodes.1"
@@ -763,17 +810,17 @@
         parent="//@diagram/@childNodes.1"
         child="//@diagram/@childNodes.3"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.1"
+        parent="//@diagram/@topLevelNodes.2"
         child="//@diagram/@childNodes.1"/>
     <childReferences
         parent="//@diagram"
-        child="//@diagram/@topLevelNodes.1"/>
+        child="//@diagram/@topLevelNodes.2"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.2"
+        parent="//@diagram/@topLevelNodes.3"
         child="//@diagram/@childNodes.4"/>
     <childReferences
         parent="//@diagram"
-        child="//@diagram/@topLevelNodes.2"/>
+        child="//@diagram/@topLevelNodes.3"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@links.0"
@@ -805,6 +852,30 @@
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.2"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@links.0"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.3"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.3"
+        child="//@diagram/@links.0"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
         child="//@diagram/@topLevelNodes.0"
         referenceType="in_source"
         groupName="source"
@@ -823,6 +894,30 @@
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@links.0"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.2"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@links.0"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.3"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.3"
         child="//@diagram/@links.0"
         referenceType="out_target"
         groupName="outgoing links"
@@ -869,7 +964,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet"/>
+        uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet"/>
     <implementations
         xsi:type="gmfgen:ExternalParser"
         uses="//@diagram/@links.1/@labels.0/@modelFacet //@diagram/@links.2/@labels.0/@modelFacet //@diagram/@links.3/@labels.0/@modelFacet"/>

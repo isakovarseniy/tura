@@ -1,12 +1,13 @@
 package org.metamodel.tura.ui.properties.sections;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.ocl.OCL;
@@ -19,36 +20,41 @@ import domain.DomainPackage;
 public class PackageNamePropertySection extends
 		AbstractEnumerationPropertySection {
 
-	private ArrayList<String> values;
+	private LinkedHashMap<String,domain.Package> values;
 
-	protected EAttribute getFeature() {
-		return DomainPackage.eINSTANCE.getTypePointer_PackageName();
+	protected EStructuralFeature getFeature() {
+		return DomainPackage.eINSTANCE.getTypePointer_PackageRef();
 	}
 
 	protected String getFeatureAsText() {
-		return ((domain.TypePointer) eObject).getPackageName();
+		if (((domain.TypePointer) eObject).getPackageRef() != null)
+		    return ((domain.TypePointer) eObject).getPackageRef().getName();
+		else
+			return "";
 	}
 
-	protected Object getFeatureValue(int index) {
-		return values.get(index);
+	protected Object getFeatureValue(Object key) {
+		return values.get(key);
 	}
 
 	protected String getLabelText() {
 		return "Package name";//$NON-NLS-1$
 	}
 
-	protected boolean isEqual(int index) {
-		if (((domain.TypePointer) eObject).getPackageName() == null)
+	protected boolean isEqual(Object key) {
+		if (((domain.TypePointer) eObject).getPackageRef() == null)
 			return false;
-		return values.get(index).equals(
-				((domain.TypePointer) eObject).getPackageName());
+		if (((domain.TypePointer) eObject).getPackageRef().getName() == null)
+			return false;
+		return values.get(key).equals(
+				((domain.TypePointer) eObject).getPackageRef().getName());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	protected String[] getEnumerationFeatureValues() {
+	protected HashMap<String,?> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new ArrayList<String>();
+			values = new LinkedHashMap<String,domain.Package>();
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
 			try {
@@ -68,15 +74,13 @@ public class PackageNamePropertySection extends
 
 				for (Iterator<domain.Package> i = map.iterator(); i.hasNext();) {
 					domain.Package p = i.next();
-					values.add(p.getName());
+					values.put(p.getName(),p);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			values.add("Primitives");
-
 		}
 
-		return values.toArray(new String[values.size()]);
+		return values;
 	}
 }

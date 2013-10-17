@@ -3,12 +3,15 @@
 package domain.impl;
 
 import domain.DomainPackage;
+import domain.TypeElement;
+import domain.Type;
 import domain.TypePointer;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -19,8 +22,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.TypePointerImpl#getPackageName <em>Package Name</em>}</li>
- *   <li>{@link domain.impl.TypePointerImpl#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link domain.impl.TypePointerImpl#getPackageRef <em>Package Ref</em>}</li>
+ *   <li>{@link domain.impl.TypePointerImpl#getTypeRef <em>Type Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,44 +32,24 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 public class TypePointerImpl extends EObjectImpl implements TypePointer
 {
   /**
-   * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
+   * The cached value of the '{@link #getPackageRef() <em>Package Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPackageName()
+   * @see #getPackageRef()
    * @generated
    * @ordered
    */
-  protected static final String PACKAGE_NAME_EDEFAULT = null;
+  protected domain.Package packageRef;
 
   /**
-   * The cached value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
+   * The cached value of the '{@link #getTypeRef() <em>Type Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPackageName()
+   * @see #getTypeRef()
    * @generated
    * @ordered
    */
-  protected String packageName = PACKAGE_NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTypeName()
-   * @generated
-   * @ordered
-   */
-  protected static final String TYPE_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTypeName()
-   * @generated
-   * @ordered
-   */
-  protected String typeName = TYPE_NAME_EDEFAULT;
+  protected TypeElement typeRef;
 
   /**
    * <!-- begin-user-doc -->
@@ -94,9 +77,19 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPackageName()
+  public domain.Package getPackageRef()
   {
-    return packageName;
+    if (packageRef != null && packageRef.eIsProxy())
+    {
+      InternalEObject oldPackageRef = (InternalEObject)packageRef;
+      packageRef = (domain.Package)eResolveProxy(oldPackageRef);
+      if (packageRef != oldPackageRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.TYPE_POINTER__PACKAGE_REF, oldPackageRef, packageRef));
+      }
+    }
+    return packageRef;
   }
 
   /**
@@ -104,12 +97,22 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPackageName(String newPackageName)
+  public domain.Package basicGetPackageRef()
   {
-    String oldPackageName = packageName;
-    packageName = newPackageName;
+    return packageRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPackageRef(domain.Package newPackageRef)
+  {
+    domain.Package oldPackageRef = packageRef;
+    packageRef = newPackageRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_POINTER__PACKAGE_NAME, oldPackageName, packageName));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_POINTER__PACKAGE_REF, oldPackageRef, packageRef));
   }
 
   /**
@@ -117,9 +120,19 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTypeName()
+  public TypeElement getTypeRef()
   {
-    return typeName;
+    if (typeRef != null && typeRef.eIsProxy())
+    {
+      InternalEObject oldTypeRef = (InternalEObject)typeRef;
+      typeRef = (TypeElement)eResolveProxy(oldTypeRef);
+      if (typeRef != oldTypeRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.TYPE_POINTER__TYPE_REF, oldTypeRef, typeRef));
+      }
+    }
+    return typeRef;
   }
 
   /**
@@ -127,12 +140,22 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypeName(String newTypeName)
+  public TypeElement basicGetTypeRef()
   {
-    String oldTypeName = typeName;
-    typeName = newTypeName;
+    return typeRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeRef(TypeElement newTypeRef)
+  {
+    TypeElement oldTypeRef = typeRef;
+    typeRef = newTypeRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_POINTER__TYPE_NAME, oldTypeName, typeName));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_POINTER__TYPE_REF, oldTypeRef, typeRef));
   }
 
   /**
@@ -145,10 +168,12 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE_POINTER__PACKAGE_NAME:
-        return getPackageName();
-      case DomainPackage.TYPE_POINTER__TYPE_NAME:
-        return getTypeName();
+      case DomainPackage.TYPE_POINTER__PACKAGE_REF:
+        if (resolve) return getPackageRef();
+        return basicGetPackageRef();
+      case DomainPackage.TYPE_POINTER__TYPE_REF:
+        if (resolve) return getTypeRef();
+        return basicGetTypeRef();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -163,11 +188,11 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE_POINTER__PACKAGE_NAME:
-        setPackageName((String)newValue);
+      case DomainPackage.TYPE_POINTER__PACKAGE_REF:
+        setPackageRef((domain.Package)newValue);
         return;
-      case DomainPackage.TYPE_POINTER__TYPE_NAME:
-        setTypeName((String)newValue);
+      case DomainPackage.TYPE_POINTER__TYPE_REF:
+        setTypeRef((TypeElement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,11 +208,11 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE_POINTER__PACKAGE_NAME:
-        setPackageName(PACKAGE_NAME_EDEFAULT);
+      case DomainPackage.TYPE_POINTER__PACKAGE_REF:
+        setPackageRef((domain.Package)null);
         return;
-      case DomainPackage.TYPE_POINTER__TYPE_NAME:
-        setTypeName(TYPE_NAME_EDEFAULT);
+      case DomainPackage.TYPE_POINTER__TYPE_REF:
+        setTypeRef((TypeElement)null);
         return;
     }
     super.eUnset(featureID);
@@ -203,31 +228,12 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE_POINTER__PACKAGE_NAME:
-        return PACKAGE_NAME_EDEFAULT == null ? packageName != null : !PACKAGE_NAME_EDEFAULT.equals(packageName);
-      case DomainPackage.TYPE_POINTER__TYPE_NAME:
-        return TYPE_NAME_EDEFAULT == null ? typeName != null : !TYPE_NAME_EDEFAULT.equals(typeName);
+      case DomainPackage.TYPE_POINTER__PACKAGE_REF:
+        return packageRef != null;
+      case DomainPackage.TYPE_POINTER__TYPE_REF:
+        return typeRef != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (packageName: ");
-    result.append(packageName);
-    result.append(", typeName: ");
-    result.append(typeName);
-    result.append(')');
-    return result.toString();
   }
 
 } //TypePointerImpl

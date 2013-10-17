@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link domain.TypePointer#getPackageName <em>Package Name</em>}</li>
- *   <li>{@link domain.TypePointer#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link domain.TypePointer#getPackageRef <em>Package Ref</em>}</li>
+ *   <li>{@link domain.TypePointer#getTypeRef <em>Type Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,55 +24,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface TypePointer extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Package Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Package Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Package Ref</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Package Name</em>' attribute.
-   * @see #setPackageName(String)
-   * @see domain.DomainPackage#getTypePointer_PackageName()
+   * @return the value of the '<em>Package Ref</em>' reference.
+   * @see #setPackageRef(domain.Package)
+   * @see domain.DomainPackage#getTypePointer_PackageRef()
    * @model
    * @generated
    */
-  String getPackageName();
+  domain.Package getPackageRef();
 
   /**
-   * Sets the value of the '{@link domain.TypePointer#getPackageName <em>Package Name</em>}' attribute.
+   * Sets the value of the '{@link domain.TypePointer#getPackageRef <em>Package Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Package Name</em>' attribute.
-   * @see #getPackageName()
+   * @param value the new value of the '<em>Package Ref</em>' reference.
+   * @see #getPackageRef()
    * @generated
    */
-  void setPackageName(String value);
+  void setPackageRef(domain.Package value);
 
   /**
-   * Returns the value of the '<em><b>Type Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Type Ref</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type Name</em>' attribute.
-   * @see #setTypeName(String)
-   * @see domain.DomainPackage#getTypePointer_TypeName()
+   * @return the value of the '<em>Type Ref</em>' reference.
+   * @see #setTypeRef(TypeElement)
+   * @see domain.DomainPackage#getTypePointer_TypeRef()
    * @model
    * @generated
    */
-  String getTypeName();
+  TypeElement getTypeRef();
 
   /**
-   * Sets the value of the '{@link domain.TypePointer#getTypeName <em>Type Name</em>}' attribute.
+   * Sets the value of the '{@link domain.TypePointer#getTypeRef <em>Type Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type Name</em>' attribute.
-   * @see #getTypeName()
+   * @param value the new value of the '<em>Type Ref</em>' reference.
+   * @see #getTypeRef()
    * @generated
    */
-  void setTypeName(String value);
+  void setTypeRef(TypeElement value);
 
 } // TypePointer

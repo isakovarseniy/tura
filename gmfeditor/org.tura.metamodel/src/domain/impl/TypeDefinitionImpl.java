@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.TypeDefinitionImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TypeDefinitionImpl#getTypes <em>Types</em>}</li>
- *   <li>{@link domain.impl.TypeDefinitionImpl#getEnums <em>Enums</em>}</li>
  *   <li>{@link domain.impl.TypeDefinitionImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -70,16 +69,6 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
    * @ordered
    */
   protected EList<TypeElement> types;
-
-  /**
-   * The cached value of the '{@link #getEnums() <em>Enums</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEnums()
-   * @generated
-   * @ordered
-   */
-  protected EList<Enumarator> enums;
 
   /**
    * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
@@ -147,20 +136,6 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
       types = new EObjectContainmentWithInverseEList<TypeElement>(TypeElement.class, this, DomainPackage.TYPE_DEFINITION__TYPES, DomainPackage.TYPE_ELEMENT__PARENT);
     }
     return types;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Enumarator> getEnums()
-  {
-    if (enums == null)
-    {
-      enums = new EObjectContainmentWithInverseEList<Enumarator>(Enumarator.class, this, DomainPackage.TYPE_DEFINITION__ENUMS, DomainPackage.ENUMARATOR__PARENT);
-    }
-    return enums;
   }
 
   /**
@@ -244,8 +219,6 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
     {
       case DomainPackage.TYPE_DEFINITION__TYPES:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getTypes()).basicAdd(otherEnd, msgs);
-      case DomainPackage.TYPE_DEFINITION__ENUMS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getEnums()).basicAdd(otherEnd, msgs);
       case DomainPackage.TYPE_DEFINITION__PARENT:
         if (parent != null)
           msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.PACKAGE__TYPEDEFINITION, domain.Package.class, msgs);
@@ -266,8 +239,6 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
     {
       case DomainPackage.TYPE_DEFINITION__TYPES:
         return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
-      case DomainPackage.TYPE_DEFINITION__ENUMS:
-        return ((InternalEList<?>)getEnums()).basicRemove(otherEnd, msgs);
       case DomainPackage.TYPE_DEFINITION__PARENT:
         return basicSetParent(null, msgs);
     }
@@ -288,8 +259,6 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
         return getUid();
       case DomainPackage.TYPE_DEFINITION__TYPES:
         return getTypes();
-      case DomainPackage.TYPE_DEFINITION__ENUMS:
-        return getEnums();
       case DomainPackage.TYPE_DEFINITION__PARENT:
         if (resolve) return getParent();
         return basicGetParent();
@@ -315,10 +284,6 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
         getTypes().clear();
         getTypes().addAll((Collection<? extends TypeElement>)newValue);
         return;
-      case DomainPackage.TYPE_DEFINITION__ENUMS:
-        getEnums().clear();
-        getEnums().addAll((Collection<? extends Enumarator>)newValue);
-        return;
       case DomainPackage.TYPE_DEFINITION__PARENT:
         setParent((domain.Package)newValue);
         return;
@@ -342,9 +307,6 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
       case DomainPackage.TYPE_DEFINITION__TYPES:
         getTypes().clear();
         return;
-      case DomainPackage.TYPE_DEFINITION__ENUMS:
-        getEnums().clear();
-        return;
       case DomainPackage.TYPE_DEFINITION__PARENT:
         setParent((domain.Package)null);
         return;
@@ -366,8 +328,6 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.TYPE_DEFINITION__TYPES:
         return types != null && !types.isEmpty();
-      case DomainPackage.TYPE_DEFINITION__ENUMS:
-        return enums != null && !enums.isEmpty();
       case DomainPackage.TYPE_DEFINITION__PARENT:
         return parent != null;
     }

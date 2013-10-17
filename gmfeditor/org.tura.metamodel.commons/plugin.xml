@@ -35,12 +35,20 @@
                tab="property.tab.domain.custom"
                class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
                id="org.tura.metamodel.typedefinition.type.reference">
-              <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
               <input type="typedefinition.diagram.edit.parts.ParameterEditPart"/>
               <input type="typedefinition.diagram.edit.parts.ReturnValueEditPart"/>
          </propertySection>        
   
+          <propertySection
+               tab="property.tab.domain.custom"
+               class="org.metamodel.tura.ui.properties.sections.TypeRefTypeNamePropertySection"
+               id="org.tura.metamodel.typedefinition.type.reference">
+              <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
+         </propertySection>        
+
+
+
     </propertySections>
   </extension>  
 
@@ -72,7 +80,7 @@
  
           <propertySection
                tab="property.tab.domain.custom"
-               class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.AbstractTypeNamePropertySection"
                id="org.tura.metamodel.businessobjects.insert">
               <input type="businessobjects.diagram.edit.parts.CreateMethodEditPart"/>
               <input type="businessobjects.diagram.edit.parts.InsertMethodEditPart"/>
@@ -139,7 +147,7 @@
       
           <propertySection
                tab="property.tab.domain.typeReference"
-               class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.AbstractTypeNamePropertySection"
                id="org.tura.metamodel.mapper.typeName">
               <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
          </propertySection>        

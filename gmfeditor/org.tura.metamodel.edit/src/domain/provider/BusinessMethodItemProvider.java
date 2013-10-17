@@ -134,7 +134,7 @@ public class BusinessMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((BusinessMethod)object).getPackageName();
+    String label = ((BusinessMethod)object).getUid();
     return label == null || label.length() == 0 ?
       getString("_UI_BusinessMethod_type") :
       getString("_UI_BusinessMethod_type") + " " + label;

@@ -1311,25 +1311,25 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypePointer()
    * @generated
    */
-  int TYPE_POINTER = 56;
+  int TYPE_POINTER = 45;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_POINTER__PACKAGE_NAME = 0;
+  int TYPE_POINTER__PACKAGE_REF = 0;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_POINTER__TYPE_NAME = 1;
+  int TYPE_POINTER__TYPE_REF = 1;
 
   /**
    * The number of structural features of the '<em>Type Pointer</em>' class.
@@ -1351,22 +1351,22 @@ public interface DomainPackage extends EPackage
   int BUSINESS_METHOD = 22;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+  int BUSINESS_METHOD__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
+  int BUSINESS_METHOD__TYPE_REF = TYPE_POINTER__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1406,22 +1406,22 @@ public interface DomainPackage extends EPackage
   int CREATE_METHOD = 23;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+  int CREATE_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+  int CREATE_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1470,22 +1470,22 @@ public interface DomainPackage extends EPackage
   int INSERT_METHOD = 24;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+  int INSERT_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+  int INSERT_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1534,22 +1534,22 @@ public interface DomainPackage extends EPackage
   int UPDATE_METHOD = 25;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UPDATE_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+  int UPDATE_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UPDATE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+  int UPDATE_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1598,22 +1598,22 @@ public interface DomainPackage extends EPackage
   int REMOVE_METHOD = 26;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REMOVE_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+  int REMOVE_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REMOVE_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+  int REMOVE_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1662,22 +1662,22 @@ public interface DomainPackage extends EPackage
   int SEARCH_METHOD = 27;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEARCH_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+  int SEARCH_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEARCH_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+  int SEARCH_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1726,22 +1726,22 @@ public interface DomainPackage extends EPackage
   int OTHER_METHOD = 28;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OTHER_METHOD__PACKAGE_NAME = BUSINESS_METHOD__PACKAGE_NAME;
+  int OTHER_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OTHER_METHOD__TYPE_NAME = BUSINESS_METHOD__TYPE_NAME;
+  int OTHER_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1836,22 +1836,22 @@ public interface DomainPackage extends EPackage
   int MAPPER = 30;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAPPER__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+  int MAPPER__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAPPER__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
+  int MAPPER__TYPE_REF = TYPE_POINTER__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1909,22 +1909,22 @@ public interface DomainPackage extends EPackage
   int JAVA_MAPPER = 31;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JAVA_MAPPER__PACKAGE_NAME = MAPPER__PACKAGE_NAME;
+  int JAVA_MAPPER__PACKAGE_REF = MAPPER__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JAVA_MAPPER__TYPE_NAME = MAPPER__TYPE_NAME;
+  int JAVA_MAPPER__TYPE_REF = MAPPER__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2847,7 +2847,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeDefinition()
    * @generated
    */
-  int TYPE_DEFINITION = 45;
+  int TYPE_DEFINITION = 46;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2868,22 +2868,13 @@ public interface DomainPackage extends EPackage
   int TYPE_DEFINITION__TYPES = 1;
 
   /**
-   * The feature id for the '<em><b>Enums</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_DEFINITION__ENUMS = 2;
-
-  /**
    * The feature id for the '<em><b>Parent</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_DEFINITION__PARENT = 3;
+  int TYPE_DEFINITION__PARENT = 2;
 
   /**
    * The number of structural features of the '<em>Type Definition</em>' class.
@@ -2892,7 +2883,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_DEFINITION_FEATURE_COUNT = 4;
+  int TYPE_DEFINITION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.TypeElementImpl <em>Type Element</em>}' class.
@@ -2902,7 +2893,16 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeElement()
    * @generated
    */
-  int TYPE_ELEMENT = 46;
+  int TYPE_ELEMENT = 47;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_ELEMENT__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2911,7 +2911,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_ELEMENT__PARENT = 0;
+  int TYPE_ELEMENT__PARENT = 1;
 
   /**
    * The number of structural features of the '<em>Type Element</em>' class.
@@ -2920,7 +2920,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_ELEMENT_FEATURE_COUNT = 1;
+  int TYPE_ELEMENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link domain.impl.TypeImpl <em>Type</em>}' class.
@@ -2930,7 +2930,162 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getType()
    * @generated
    */
-  int TYPE = 47;
+  int TYPE = 49;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypeReferenceImpl
+   * @see domain.impl.DomainPackageImpl#getTypeReference()
+   * @generated
+   */
+  int TYPE_REFERENCE = 50;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypeExtensionImpl <em>Type Extension</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypeExtensionImpl
+   * @see domain.impl.DomainPackageImpl#getTypeExtension()
+   * @generated
+   */
+  int TYPE_EXTENSION = 51;
+
+  /**
+   * The meta object id for the '{@link domain.impl.AttributeImpl <em>Attribute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.AttributeImpl
+   * @see domain.impl.DomainPackageImpl#getAttribute()
+   * @generated
+   */
+  int ATTRIBUTE = 52;
+
+  /**
+   * The meta object id for the '{@link domain.impl.OperationImpl <em>Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.OperationImpl
+   * @see domain.impl.DomainPackageImpl#getOperation()
+   * @generated
+   */
+  int OPERATION = 53;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ParameterImpl <em>Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ParameterImpl
+   * @see domain.impl.DomainPackageImpl#getParameter()
+   * @generated
+   */
+  int PARAMETER = 54;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ReturnValueImpl <em>Return Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ReturnValueImpl
+   * @see domain.impl.DomainPackageImpl#getReturnValue()
+   * @generated
+   */
+  int RETURN_VALUE = 55;
+
+  /**
+   * The meta object id for the '{@link domain.impl.EnumaratorImpl <em>Enumarator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.EnumaratorImpl
+   * @see domain.impl.DomainPackageImpl#getEnumarator()
+   * @generated
+   */
+  int ENUMARATOR = 56;
+
+  /**
+   * The meta object id for the '{@link domain.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.EnumAttributeImpl
+   * @see domain.impl.DomainPackageImpl#getEnumAttribute()
+   * @generated
+   */
+  int ENUM_ATTRIBUTE = 57;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypesRepositoryImpl <em>Types Repository</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypesRepositoryImpl
+   * @see domain.impl.DomainPackageImpl#getTypesRepository()
+   * @generated
+   */
+  int TYPES_REPOSITORY = 58;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TypesImpl <em>Types</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TypesImpl
+   * @see domain.impl.DomainPackageImpl#getTypes()
+   * @generated
+   */
+  int TYPES = 59;
+
+  /**
+   * The meta object id for the '{@link domain.impl.PrimitiveImpl <em>Primitive</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.PrimitiveImpl
+   * @see domain.impl.DomainPackageImpl#getPrimitive()
+   * @generated
+   */
+  int PRIMITIVE = 48;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE__NAME = TYPE_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE__PARENT = TYPE_ELEMENT__PARENT;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE__UID = TYPE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Primitive</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__NAME = TYPE_ELEMENT__NAME;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2951,22 +3106,13 @@ public interface DomainPackage extends EPackage
   int TYPE__UID = TYPE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__NAME = TYPE_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__ATTRIBUTES = TYPE_ELEMENT_FEATURE_COUNT + 2;
+  int TYPE__ATTRIBUTES = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -2975,7 +3121,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__OPERATIONS = TYPE_ELEMENT_FEATURE_COUNT + 3;
+  int TYPE__OPERATIONS = TYPE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Extension</b></em>' containment reference.
@@ -2984,7 +3130,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__EXTENSION = TYPE_ELEMENT_FEATURE_COUNT + 4;
+  int TYPE__EXTENSION = TYPE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -2993,17 +3139,16 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 5;
+  int TYPE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
-   * The meta object id for the '{@link domain.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.TypeReferenceImpl
-   * @see domain.impl.DomainPackageImpl#getTypeReference()
    * @generated
+   * @ordered
    */
-  int TYPE_REFERENCE = 48;
+  int TYPE_REFERENCE__NAME = TYPE_ELEMENT__NAME;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -3015,22 +3160,22 @@ public interface DomainPackage extends EPackage
   int TYPE_REFERENCE__PARENT = TYPE_ELEMENT__PARENT;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE__PACKAGE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 0;
+  int TYPE_REFERENCE__PACKAGE_REF = TYPE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE__TYPE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 1;
+  int TYPE_REFERENCE__TYPE_REF = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3049,16 +3194,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link domain.impl.TypeExtensionImpl <em>Type Extension</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.TypeExtensionImpl
-   * @see domain.impl.DomainPackageImpl#getTypeExtension()
-   * @generated
-   */
-  int TYPE_EXTENSION = 49;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3097,32 +3232,22 @@ public interface DomainPackage extends EPackage
   int TYPE_EXTENSION_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.AttributeImpl <em>Attribute</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.AttributeImpl
-   * @see domain.impl.DomainPackageImpl#getAttribute()
-   * @generated
-   */
-  int ATTRIBUTE = 50;
-
-  /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+  int ATTRIBUTE__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
+  int ATTRIBUTE__TYPE_REF = TYPE_POINTER__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3168,16 +3293,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 4;
-
-  /**
-   * The meta object id for the '{@link domain.impl.OperationImpl <em>Operation</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.OperationImpl
-   * @see domain.impl.DomainPackageImpl#getOperation()
-   * @generated
-   */
-  int OPERATION = 51;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3234,32 +3349,22 @@ public interface DomainPackage extends EPackage
   int OPERATION_FEATURE_COUNT = 5;
 
   /**
-   * The meta object id for the '{@link domain.impl.ParameterImpl <em>Parameter</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ParameterImpl
-   * @see domain.impl.DomainPackageImpl#getParameter()
-   * @generated
-   */
-  int PARAMETER = 52;
-
-  /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+  int PARAMETER__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
+  int PARAMETER__TYPE_REF = TYPE_POINTER__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3298,32 +3403,22 @@ public interface DomainPackage extends EPackage
   int PARAMETER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.ReturnValueImpl <em>Return Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.ReturnValueImpl
-   * @see domain.impl.DomainPackageImpl#getReturnValue()
-   * @generated
-   */
-  int RETURN_VALUE = 53;
-
-  /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RETURN_VALUE__PACKAGE_NAME = TYPE_POINTER__PACKAGE_NAME;
+  int RETURN_VALUE__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RETURN_VALUE__TYPE_NAME = TYPE_POINTER__TYPE_NAME;
+  int RETURN_VALUE__TYPE_REF = TYPE_POINTER__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3344,32 +3439,13 @@ public interface DomainPackage extends EPackage
   int RETURN_VALUE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link domain.impl.EnumaratorImpl <em>Enumarator</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.EnumaratorImpl
-   * @see domain.impl.DomainPackageImpl#getEnumarator()
-   * @generated
-   */
-  int ENUMARATOR = 54;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUMARATOR__UID = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUMARATOR__NAME = 1;
+  int ENUMARATOR__NAME = TYPE_ELEMENT__NAME;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -3378,7 +3454,16 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUMARATOR__PARENT = 2;
+  int ENUMARATOR__PARENT = TYPE_ELEMENT__PARENT;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMARATOR__UID = TYPE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -3387,7 +3472,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUMARATOR__VALUES = 3;
+  int ENUMARATOR__VALUES = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Enumarator</em>' class.
@@ -3396,17 +3481,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUMARATOR_FEATURE_COUNT = 4;
-
-  /**
-   * The meta object id for the '{@link domain.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.EnumAttributeImpl
-   * @see domain.impl.DomainPackageImpl#getEnumAttribute()
-   * @generated
-   */
-  int ENUM_ATTRIBUTE = 55;
+  int ENUMARATOR_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3454,16 +3529,6 @@ public interface DomainPackage extends EPackage
   int ENUM_ATTRIBUTE_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link domain.impl.TypesRepositoryImpl <em>Types Repository</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.TypesRepositoryImpl
-   * @see domain.impl.DomainPackageImpl#getTypesRepository()
-   * @generated
-   */
-  int TYPES_REPOSITORY = 57;
-
-  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3500,16 +3565,6 @@ public interface DomainPackage extends EPackage
   int TYPES_REPOSITORY_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.TypesImpl <em>Types</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.TypesImpl
-   * @see domain.impl.DomainPackageImpl#getTypes()
-   * @generated
-   */
-  int TYPES = 58;
-
-  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3537,22 +3592,13 @@ public interface DomainPackage extends EPackage
   int TYPES__NAME = 2;
 
   /**
-   * The feature id for the '<em><b>Primitives</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPES__PRIMITIVES = 3;
-
-  /**
    * The feature id for the '<em><b>Packages</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPES__PACKAGES = 4;
+  int TYPES__PACKAGES = 3;
 
   /**
    * The feature id for the '<em><b>Business Packages</b></em>' containment reference list.
@@ -3561,7 +3607,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES__BUSINESS_PACKAGES = 5;
+  int TYPES__BUSINESS_PACKAGES = 4;
 
   /**
    * The number of structural features of the '<em>Types</em>' class.
@@ -3570,53 +3616,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES_FEATURE_COUNT = 6;
-
-  /**
-   * The meta object id for the '{@link domain.impl.PrimitiveImpl <em>Primitive</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.PrimitiveImpl
-   * @see domain.impl.DomainPackageImpl#getPrimitive()
-   * @generated
-   */
-  int PRIMITIVE = 59;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMITIVE__UID = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMITIVE__NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMITIVE__PARENT = 2;
-
-  /**
-   * The number of structural features of the '<em>Primitive</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMITIVE_FEATURE_COUNT = 3;
+  int TYPES_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link domain.impl.PackageImpl <em>Package</em>}' class.
@@ -5906,17 +5906,6 @@ public interface DomainPackage extends EPackage
   EReference getTypeDefinition_Types();
 
   /**
-   * Returns the meta object for the containment reference list '{@link domain.TypeDefinition#getEnums <em>Enums</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Enums</em>'.
-   * @see domain.TypeDefinition#getEnums()
-   * @see #getTypeDefinition()
-   * @generated
-   */
-  EReference getTypeDefinition_Enums();
-
-  /**
    * Returns the meta object for the reference '{@link domain.TypeDefinition#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5936,6 +5925,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getTypeElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.TypeElement#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.TypeElement#getName()
+   * @see #getTypeElement()
+   * @generated
+   */
+  EAttribute getTypeElement_Name();
 
   /**
    * Returns the meta object for the container reference '{@link domain.TypeElement#getParent <em>Parent</em>}'.
@@ -5968,17 +5968,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EAttribute getType_Uid();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.Type#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see domain.Type#getName()
-   * @see #getType()
-   * @generated
-   */
-  EAttribute getType_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link domain.Type#getAttributes <em>Attributes</em>}'.
@@ -6282,28 +6271,6 @@ public interface DomainPackage extends EPackage
   EAttribute getEnumarator_Uid();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Enumarator#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see domain.Enumarator#getName()
-   * @see #getEnumarator()
-   * @generated
-   */
-  EAttribute getEnumarator_Name();
-
-  /**
-   * Returns the meta object for the container reference '{@link domain.Enumarator#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
-   * @see domain.Enumarator#getParent()
-   * @see #getEnumarator()
-   * @generated
-   */
-  EReference getEnumarator_Parent();
-
-  /**
    * Returns the meta object for the containment reference list '{@link domain.Enumarator#getValues <em>Values</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6379,26 +6346,26 @@ public interface DomainPackage extends EPackage
   EClass getTypePointer();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.TypePointer#getPackageName <em>Package Name</em>}'.
+   * Returns the meta object for the reference '{@link domain.TypePointer#getPackageRef <em>Package Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Package Name</em>'.
-   * @see domain.TypePointer#getPackageName()
+   * @return the meta object for the reference '<em>Package Ref</em>'.
+   * @see domain.TypePointer#getPackageRef()
    * @see #getTypePointer()
    * @generated
    */
-  EAttribute getTypePointer_PackageName();
+  EReference getTypePointer_PackageRef();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.TypePointer#getTypeName <em>Type Name</em>}'.
+   * Returns the meta object for the reference '{@link domain.TypePointer#getTypeRef <em>Type Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type Name</em>'.
-   * @see domain.TypePointer#getTypeName()
+   * @return the meta object for the reference '<em>Type Ref</em>'.
+   * @see domain.TypePointer#getTypeRef()
    * @see #getTypePointer()
    * @generated
    */
-  EAttribute getTypePointer_TypeName();
+  EReference getTypePointer_TypeRef();
 
   /**
    * Returns the meta object for class '{@link domain.TypesRepository <em>Types Repository</em>}'.
@@ -6487,17 +6454,6 @@ public interface DomainPackage extends EPackage
   EAttribute getTypes_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link domain.Types#getPrimitives <em>Primitives</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Primitives</em>'.
-   * @see domain.Types#getPrimitives()
-   * @see #getTypes()
-   * @generated
-   */
-  EReference getTypes_Primitives();
-
-  /**
    * Returns the meta object for the containment reference list '{@link domain.Types#getPackages <em>Packages</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6539,28 +6495,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EAttribute getPrimitive_Uid();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.Primitive#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see domain.Primitive#getName()
-   * @see #getPrimitive()
-   * @generated
-   */
-  EAttribute getPrimitive_Name();
-
-  /**
-   * Returns the meta object for the container reference '{@link domain.Primitive#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
-   * @see domain.Primitive#getParent()
-   * @see #getPrimitive()
-   * @generated
-   */
-  EReference getPrimitive_Parent();
 
   /**
    * Returns the meta object for class '{@link domain.Package <em>Package</em>}'.
@@ -8404,14 +8338,6 @@ public interface DomainPackage extends EPackage
     EReference TYPE_DEFINITION__TYPES = eINSTANCE.getTypeDefinition_Types();
 
     /**
-     * The meta object literal for the '<em><b>Enums</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TYPE_DEFINITION__ENUMS = eINSTANCE.getTypeDefinition_Enums();
-
-    /**
      * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8428,6 +8354,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass TYPE_ELEMENT = eINSTANCE.getTypeElement();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_ELEMENT__NAME = eINSTANCE.getTypeElement_Name();
 
     /**
      * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
@@ -8454,14 +8388,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute TYPE__UID = eINSTANCE.getType_Uid();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE__NAME = eINSTANCE.getType_Name();
 
     /**
      * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
@@ -8702,22 +8628,6 @@ public interface DomainPackage extends EPackage
     EAttribute ENUMARATOR__UID = eINSTANCE.getEnumarator_Uid();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENUMARATOR__NAME = eINSTANCE.getEnumarator_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENUMARATOR__PARENT = eINSTANCE.getEnumarator_Parent();
-
-    /**
      * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8778,20 +8688,20 @@ public interface DomainPackage extends EPackage
     EClass TYPE_POINTER = eINSTANCE.getTypePointer();
 
     /**
-     * The meta object literal for the '<em><b>Package Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Package Ref</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TYPE_POINTER__PACKAGE_NAME = eINSTANCE.getTypePointer_PackageName();
+    EReference TYPE_POINTER__PACKAGE_REF = eINSTANCE.getTypePointer_PackageRef();
 
     /**
-     * The meta object literal for the '<em><b>Type Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Type Ref</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TYPE_POINTER__TYPE_NAME = eINSTANCE.getTypePointer_TypeName();
+    EReference TYPE_POINTER__TYPE_REF = eINSTANCE.getTypePointer_TypeRef();
 
     /**
      * The meta object literal for the '{@link domain.impl.TypesRepositoryImpl <em>Types Repository</em>}' class.
@@ -8862,14 +8772,6 @@ public interface DomainPackage extends EPackage
     EAttribute TYPES__NAME = eINSTANCE.getTypes_Name();
 
     /**
-     * The meta object literal for the '<em><b>Primitives</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TYPES__PRIMITIVES = eINSTANCE.getTypes_Primitives();
-
-    /**
      * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8902,22 +8804,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute PRIMITIVE__UID = eINSTANCE.getPrimitive_Uid();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PRIMITIVE__NAME = eINSTANCE.getPrimitive_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRIMITIVE__PARENT = eINSTANCE.getPrimitive_Parent();
 
     /**
      * The meta object literal for the '{@link domain.impl.PackageImpl <em>Package</em>}' class.

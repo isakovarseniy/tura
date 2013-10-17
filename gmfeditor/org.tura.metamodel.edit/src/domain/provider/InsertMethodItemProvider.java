@@ -82,7 +82,7 @@ public class InsertMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((InsertMethod)object).getPackageName();
+    String label = ((InsertMethod)object).getUid();
     return label == null || label.length() == 0 ?
       getString("_UI_InsertMethod_type") :
       getString("_UI_InsertMethod_type") + " " + label;

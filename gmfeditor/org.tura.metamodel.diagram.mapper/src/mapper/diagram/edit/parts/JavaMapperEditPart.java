@@ -114,10 +114,9 @@ public class JavaMapperEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof JavaMapperPackageNameEditPart) {
-			((JavaMapperPackageNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureJavaMapperLabelFigure());
+		if (childEditPart instanceof JavaMapperUidEditPart) {
+			((JavaMapperUidEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureJavaMapperLabelFigure());
 			return true;
 		}
 		return false;
@@ -127,7 +126,7 @@ public class JavaMapperEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof JavaMapperPackageNameEditPart) {
+		if (childEditPart instanceof JavaMapperUidEditPart) {
 			return true;
 		}
 		return false;
@@ -251,7 +250,7 @@ public class JavaMapperEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(JavaMapperPackageNameEditPart.VISUAL_ID));
+				.getType(JavaMapperUidEditPart.VISUAL_ID));
 	}
 
 	/**

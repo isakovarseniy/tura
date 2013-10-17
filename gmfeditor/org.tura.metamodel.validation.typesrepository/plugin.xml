@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
 
-  <extension
+  <!--extension
          point="org.eclipse.epsilon.evl.emf.validation">
       <constraintsBinding
             constraints="rules/typesrepositoryValidationRules.evl"
@@ -21,7 +21,7 @@
             class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
             markerType="org.eclipse.emf.ecore.diagnostic">
       </markerResolutionGenerator>
-   </extension>     
+   </extension-->     
    
    
 </plugin>

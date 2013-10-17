@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PrimitiveTest extends TestCase
+public class PrimitiveTest extends TypeElementTest
 {
-
-  /**
-   * The fixture for this Primitive test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Primitive fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class PrimitiveTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Primitive test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(Primitive fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Primitive test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected Primitive getFixture()
   {
-    return fixture;
+    return (Primitive)fixture;
   }
 
   /**

@@ -16,8 +16,6 @@ import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.edit.parts.PackageNameEditPart;
-import typesrepository.diagram.edit.parts.PrimitiveEditPart;
-import typesrepository.diagram.edit.parts.PrimitiveNameEditPart;
 import typesrepository.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
@@ -25,7 +23,6 @@ import typesrepository.diagram.edit.parts.TypesNameEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesBusinessPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
-import typesrepository.diagram.edit.parts.TypesTypesPrimitivesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.WrappingLabel2EditPart;
 import typesrepository.diagram.edit.parts.WrappingLabel3EditPart;
 import typesrepository.diagram.edit.parts.WrappingLabelEditPart;
@@ -146,12 +143,6 @@ public class DomainVisualIDRegistry {
 				return TypesEditPart.VISUAL_ID;
 			}
 			break;
-		case TypesTypesPrimitivesCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPrimitive().isSuperTypeOf(
-					domainElement.eClass())) {
-				return PrimitiveEditPart.VISUAL_ID;
-			}
-			break;
 		case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getPackage().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -199,18 +190,10 @@ public class DomainVisualIDRegistry {
 			if (TypesNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (TypesTypesPrimitivesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (TypesTypesPackagesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case PrimitiveEditPart.VISUAL_ID:
-			if (PrimitiveNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -221,11 +204,6 @@ public class DomainVisualIDRegistry {
 			break;
 		case BusinessPackageEditPart.VISUAL_ID:
 			if (BusinessPackageNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TypesTypesPrimitivesCompartmentEditPart.VISUAL_ID:
-			if (PrimitiveEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -300,7 +278,6 @@ public class DomainVisualIDRegistry {
 	 */
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
-		case TypesTypesPrimitivesCompartmentEditPart.VISUAL_ID:
 		case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
 		case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
 			return true;
@@ -317,7 +294,6 @@ public class DomainVisualIDRegistry {
 		switch (visualID) {
 		case TypesRepositoryEditPart.VISUAL_ID:
 			return false;
-		case PrimitiveEditPart.VISUAL_ID:
 		case PackageEditPart.VISUAL_ID:
 		case BusinessPackageEditPart.VISUAL_ID:
 			return true;

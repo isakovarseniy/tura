@@ -133,7 +133,6 @@ public class TypesItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.TYPES__PRIMITIVES);
       childrenFeatures.add(DomainPackage.Literals.TYPES__PACKAGES);
       childrenFeatures.add(DomainPackage.Literals.TYPES__BUSINESS_PACKAGES);
     }
@@ -199,7 +198,6 @@ public class TypesItemProvider
       case DomainPackage.TYPES__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.TYPES__PRIMITIVES:
       case DomainPackage.TYPES__PACKAGES:
       case DomainPackage.TYPES__BUSINESS_PACKAGES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -219,11 +217,6 @@ public class TypesItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.TYPES__PRIMITIVES,
-         DomainFactory.eINSTANCE.createPrimitive()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -1,11 +1,10 @@
 /*
  * 
  */
-package typesrepository.diagram.edit.parts;
+package typedefinition.diagram.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
-
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -46,22 +45,22 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-
-import typesrepository.diagram.edit.policies.DomainTextSelectionEditPolicy;
-import typesrepository.diagram.part.DomainVisualIDRegistry;
-import typesrepository.diagram.providers.DomainElementTypes;
-import typesrepository.diagram.providers.DomainParserProvider;
+import typedefinition.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
+import typedefinition.diagram.providers.DomainElementTypes;
+import typedefinition.diagram.providers.DomainParserProvider;
+import domain.TypeReference;
 
 /**
  * @generated
  */
-public class PrimitiveNameEditPart extends CompartmentEditPart implements
+public class TypeReferenceUidEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 205001;
+	public static final int VISUAL_ID = 105001;
 
 	/**
 	 * @generated
@@ -91,7 +90,7 @@ public class PrimitiveNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public PrimitiveNameEditPart(View view) {
+	public TypeReferenceUidEditPart(View view) {
 		super(view);
 	}
 
@@ -105,7 +104,7 @@ public class PrimitiveNameEditPart extends CompartmentEditPart implements
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new TypesRepositoryEditPart.NodeLabelDragPolicy());
+				new TypeDefinitionEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -214,9 +213,15 @@ public class PrimitiveNameEditPart extends CompartmentEditPart implements
 		String text = null;
 		EObject parserElement = getParserElement();
 		if (parserElement != null && getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
-					getParserOptions().intValue());
+			String packPart = "NA";
+			String typePart = "NA";
+			if (((TypeReference) parserElement).getPackageRef() != null)
+				packPart = ((TypeReference) parserElement).getPackageRef()
+						.getName();
+			if (((TypeReference) parserElement).getTypeRef() != null)
+				typePart = ((TypeReference) parserElement).getTypeRef()
+						.getName();
+			text = packPart + "." + typePart;
 
 		}
 		if (text == null || text.length() == 0) {
@@ -313,10 +318,10 @@ public class PrimitiveNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.Primitive_203001,
+							DomainElementTypes.TypeReference_102001,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(typesrepository.diagram.edit.parts.PrimitiveNameEditPart.VISUAL_ID));
+									.getType(typedefinition.diagram.edit.parts.TypeReferenceUidEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

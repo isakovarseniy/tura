@@ -1,7 +1,7 @@
 /*
  * 
  */
-package typesrepository.diagram.edit.commands;
+package typedefinition.diagram.edit.commands;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -17,7 +17,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import domain.DomainFactory;
 import domain.Primitive;
-import domain.Types;
+import domain.TypeDefinition;
 
 /**
  * @generated
@@ -59,8 +59,8 @@ public class PrimitiveCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		Primitive newElement = DomainFactory.eINSTANCE.createPrimitive();
 
-		Types owner = (Types) getElementToEdit();
-		owner.getPrimitives().add(newElement);
+		TypeDefinition owner = (TypeDefinition) getElementToEdit();
+		owner.getTypes().add(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 

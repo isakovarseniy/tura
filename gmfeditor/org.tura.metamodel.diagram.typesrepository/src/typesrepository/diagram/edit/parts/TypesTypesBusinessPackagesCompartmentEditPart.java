@@ -29,7 +29,7 @@ public class TypesTypesBusinessPackagesCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 207003;
+	public static final int VISUAL_ID = 207002;
 
 	/**
 	 * @generated

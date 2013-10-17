@@ -24,9 +24,11 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
+import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
+import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
@@ -47,10 +49,11 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof TypeDefinitionEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
 			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
 			types.add(DomainElementTypes.Type_102002);
-			types.add(DomainElementTypes.Enumarator_102003);
+			types.add(DomainElementTypes.Enumarator_102005);
 			return types;
 		}
 		if (editPart instanceof TypeTypeAttributesCompartmentEditPart) {
@@ -91,8 +94,15 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((TypeReferenceEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
+		if (sourceEditPart instanceof PrimitiveEditPart) {
+			return ((PrimitiveEditPart) sourceEditPart).getMARelTypesOnSource();
+		}
 		if (sourceEditPart instanceof TypeEditPart) {
 			return ((TypeEditPart) sourceEditPart).getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof EnumaratorEditPart) {
+			return ((EnumaratorEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -107,8 +117,15 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((TypeReferenceEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
+		if (targetEditPart instanceof PrimitiveEditPart) {
+			return ((PrimitiveEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
 		if (targetEditPart instanceof TypeEditPart) {
 			return ((TypeEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof EnumaratorEditPart) {
+			return ((EnumaratorEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -126,8 +143,16 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((TypeReferenceEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
+		if (sourceEditPart instanceof PrimitiveEditPart) {
+			return ((PrimitiveEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		if (sourceEditPart instanceof TypeEditPart) {
 			return ((TypeEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof EnumaratorEditPart) {
+			return ((EnumaratorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		return Collections.EMPTY_LIST;
@@ -144,8 +169,16 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((TypeReferenceEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
+		if (targetEditPart instanceof PrimitiveEditPart) {
+			return ((PrimitiveEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
 		if (targetEditPart instanceof TypeEditPart) {
 			return ((TypeEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof EnumaratorEditPart) {
+			return ((EnumaratorEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;
@@ -162,8 +195,16 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((TypeReferenceEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
+		if (sourceEditPart instanceof PrimitiveEditPart) {
+			return ((PrimitiveEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
 		if (sourceEditPart instanceof TypeEditPart) {
 			return ((TypeEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof EnumaratorEditPart) {
+			return ((EnumaratorEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

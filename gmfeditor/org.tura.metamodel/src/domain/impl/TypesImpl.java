@@ -35,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.TypesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TypesImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.TypesImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.TypesImpl#getPrimitives <em>Primitives</em>}</li>
  *   <li>{@link domain.impl.TypesImpl#getPackages <em>Packages</em>}</li>
  *   <li>{@link domain.impl.TypesImpl#getBusinessPackages <em>Business Packages</em>}</li>
  * </ul>
@@ -84,16 +83,6 @@ public class TypesImpl extends EObjectImpl implements Types
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getPrimitives() <em>Primitives</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPrimitives()
-   * @generated
-   * @ordered
-   */
-  protected EList<Primitive> primitives;
 
   /**
    * The cached value of the '{@link #getPackages() <em>Packages</em>}' containment reference list.
@@ -232,20 +221,6 @@ public class TypesImpl extends EObjectImpl implements Types
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Primitive> getPrimitives()
-  {
-    if (primitives == null)
-    {
-      primitives = new EObjectContainmentWithInverseEList<Primitive>(Primitive.class, this, DomainPackage.TYPES__PRIMITIVES, DomainPackage.PRIMITIVE__PARENT);
-    }
-    return primitives;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<domain.Package> getPackages()
   {
     if (packages == null)
@@ -284,8 +259,6 @@ public class TypesImpl extends EObjectImpl implements Types
         if (eInternalContainer() != null)
           msgs = eBasicRemoveFromContainer(msgs);
         return basicSetParent((TypesRepository)otherEnd, msgs);
-      case DomainPackage.TYPES__PRIMITIVES:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getPrimitives()).basicAdd(otherEnd, msgs);
       case DomainPackage.TYPES__PACKAGES:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getPackages()).basicAdd(otherEnd, msgs);
       case DomainPackage.TYPES__BUSINESS_PACKAGES:
@@ -306,8 +279,6 @@ public class TypesImpl extends EObjectImpl implements Types
     {
       case DomainPackage.TYPES__PARENT:
         return basicSetParent(null, msgs);
-      case DomainPackage.TYPES__PRIMITIVES:
-        return ((InternalEList<?>)getPrimitives()).basicRemove(otherEnd, msgs);
       case DomainPackage.TYPES__PACKAGES:
         return ((InternalEList<?>)getPackages()).basicRemove(otherEnd, msgs);
       case DomainPackage.TYPES__BUSINESS_PACKAGES:
@@ -348,8 +319,6 @@ public class TypesImpl extends EObjectImpl implements Types
         return getParent();
       case DomainPackage.TYPES__NAME:
         return getName();
-      case DomainPackage.TYPES__PRIMITIVES:
-        return getPrimitives();
       case DomainPackage.TYPES__PACKAGES:
         return getPackages();
       case DomainPackage.TYPES__BUSINESS_PACKAGES:
@@ -377,10 +346,6 @@ public class TypesImpl extends EObjectImpl implements Types
         return;
       case DomainPackage.TYPES__NAME:
         setName((String)newValue);
-        return;
-      case DomainPackage.TYPES__PRIMITIVES:
-        getPrimitives().clear();
-        getPrimitives().addAll((Collection<? extends Primitive>)newValue);
         return;
       case DomainPackage.TYPES__PACKAGES:
         getPackages().clear();
@@ -413,9 +378,6 @@ public class TypesImpl extends EObjectImpl implements Types
       case DomainPackage.TYPES__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DomainPackage.TYPES__PRIMITIVES:
-        getPrimitives().clear();
-        return;
       case DomainPackage.TYPES__PACKAGES:
         getPackages().clear();
         return;
@@ -442,8 +404,6 @@ public class TypesImpl extends EObjectImpl implements Types
         return getParent() != null;
       case DomainPackage.TYPES__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.TYPES__PRIMITIVES:
-        return primitives != null && !primitives.isEmpty();
       case DomainPackage.TYPES__PACKAGES:
         return packages != null && !packages.isEmpty();
       case DomainPackage.TYPES__BUSINESS_PACKAGES:

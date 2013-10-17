@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.TypeDefinition#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.TypeDefinition#getTypes <em>Types</em>}</li>
- *   <li>{@link domain.TypeDefinition#getEnums <em>Enums</em>}</li>
  *   <li>{@link domain.TypeDefinition#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -70,24 +69,6 @@ public interface TypeDefinition extends EObject
    * @generated
    */
   EList<TypeElement> getTypes();
-
-  /**
-   * Returns the value of the '<em><b>Enums</b></em>' containment reference list.
-   * The list contents are of type {@link domain.Enumarator}.
-   * It is bidirectional and its opposite is '{@link domain.Enumarator#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Enums</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Enums</em>' containment reference list.
-   * @see domain.DomainPackage#getTypeDefinition_Enums()
-   * @see domain.Enumarator#getParent
-   * @model opposite="parent" containment="true"
-   * @generated
-   */
-  EList<Enumarator> getEnums();
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' reference.

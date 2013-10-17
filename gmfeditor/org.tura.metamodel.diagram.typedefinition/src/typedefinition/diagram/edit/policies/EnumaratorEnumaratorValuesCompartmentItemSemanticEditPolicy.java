@@ -19,7 +19,7 @@ public class EnumaratorEnumaratorValuesCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public EnumaratorEnumaratorValuesCompartmentItemSemanticEditPolicy() {
-		super(DomainElementTypes.Enumarator_102003);
+		super(DomainElementTypes.Enumarator_102005);
 	}
 
 	/**

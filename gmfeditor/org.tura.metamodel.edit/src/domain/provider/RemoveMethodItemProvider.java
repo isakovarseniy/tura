@@ -84,7 +84,7 @@ public class RemoveMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((RemoveMethod)object).getPackageName();
+    String label = ((RemoveMethod)object).getUid();
     return label == null || label.length() == 0 ?
       getString("_UI_RemoveMethod_type") :
       getString("_UI_RemoveMethod_type") + " " + label;

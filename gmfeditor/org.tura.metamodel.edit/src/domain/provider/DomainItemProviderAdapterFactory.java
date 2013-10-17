@@ -1779,8 +1779,10 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (mappingSpecifierItemProvider != null) mappingSpecifierItemProvider.dispose();
     if (mappingVariableItemProvider != null) mappingVariableItemProvider.dispose();
     if (artifactRefItemProvider != null) artifactRefItemProvider.dispose();
+    if (typePointerItemProvider != null) typePointerItemProvider.dispose();
     if (typeDefinitionItemProvider != null) typeDefinitionItemProvider.dispose();
     if (typeElementItemProvider != null) typeElementItemProvider.dispose();
+    if (primitiveItemProvider != null) primitiveItemProvider.dispose();
     if (typeItemProvider != null) typeItemProvider.dispose();
     if (typeReferenceItemProvider != null) typeReferenceItemProvider.dispose();
     if (typeExtensionItemProvider != null) typeExtensionItemProvider.dispose();
@@ -1790,10 +1792,8 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (returnValueItemProvider != null) returnValueItemProvider.dispose();
     if (enumaratorItemProvider != null) enumaratorItemProvider.dispose();
     if (enumAttributeItemProvider != null) enumAttributeItemProvider.dispose();
-    if (typePointerItemProvider != null) typePointerItemProvider.dispose();
     if (typesRepositoryItemProvider != null) typesRepositoryItemProvider.dispose();
     if (typesItemProvider != null) typesItemProvider.dispose();
-    if (primitiveItemProvider != null) primitiveItemProvider.dispose();
     if (packageItemProvider != null) packageItemProvider.dispose();
     if (businessPackageItemProvider != null) businessPackageItemProvider.dispose();
   }

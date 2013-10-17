@@ -95,14 +95,10 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPrimitive3CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Primitive3CreationTool_title,
-				Messages.Primitive3CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Primitive_203001));
+		ToolEntry entry = new ToolEntry(Messages.Primitive3CreationTool_title,
+				Messages.Primitive3CreationTool_desc, null, null) {
+		};
 		entry.setId("createPrimitive3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Primitive_203001));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

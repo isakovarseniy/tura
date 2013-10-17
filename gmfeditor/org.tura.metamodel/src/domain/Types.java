@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Types#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Types#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Types#getName <em>Name</em>}</li>
- *   <li>{@link domain.Types#getPrimitives <em>Primitives</em>}</li>
  *   <li>{@link domain.Types#getPackages <em>Packages</em>}</li>
  *   <li>{@link domain.Types#getBusinessPackages <em>Business Packages</em>}</li>
  * </ul>
@@ -108,24 +107,6 @@ public interface Types extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Primitives</b></em>' containment reference list.
-   * The list contents are of type {@link domain.Primitive}.
-   * It is bidirectional and its opposite is '{@link domain.Primitive#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Primitives</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Primitives</em>' containment reference list.
-   * @see domain.DomainPackage#getTypes_Primitives()
-   * @see domain.Primitive#getParent
-   * @model opposite="parent" containment="true"
-   * @generated
-   */
-  EList<Primitive> getPrimitives();
 
   /**
    * Returns the value of the '<em><b>Packages</b></em>' containment reference list.

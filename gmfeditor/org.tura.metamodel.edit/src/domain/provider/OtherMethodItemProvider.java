@@ -82,7 +82,7 @@ public class OtherMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((OtherMethod)object).getPackageName();
+    String label = ((OtherMethod)object).getUid();
     return label == null || label.length() == 0 ?
       getString("_UI_OtherMethod_type") :
       getString("_UI_OtherMethod_type") + " " + label;

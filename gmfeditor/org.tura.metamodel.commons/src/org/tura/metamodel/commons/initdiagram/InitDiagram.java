@@ -1,11 +1,44 @@
 package org.tura.metamodel.commons.initdiagram;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.UUID;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
 public class InitDiagram {
 
+	public static String PRIVATE_PACKAGE = "Primitive package";
+	public static String BASE_PACKAGE = "Base package";
+	public static String PRIMITIVES_MAPPER="Primitives mapper";
+	public static String DOMAIN_APPLICATIONS = "Domain applications";
+	public static String DOMAIN_TYPES="Domain types";
+	public static String DOMAIN_ARTIFACTS="Domain artifacts";
+	public static String JPASERVICE="JPAService";
+	public static String EJBSERVICE="EJBService";
+	public static String ORMENTITY="ORMEntity";
+	public static String APPLICATION_RECIPES ="Application recipes";
+	public static String APPLICATION_MAPPER="Application mapper";
+	public static String ENTITYOBJECT="entityObject";
+	public static String SERVICE_BEAN="Service Bean";
+	public static String CONFIGURATION_JPA="Configuration JPA";
+	public static String JPA_IMPLEMENTATION = "JPA implementation";
+	public static String DATABASE_TYPE="Database type";
+	public static String CONNECTION_TYPE = "Connection type";
+	public static String DATABASE_IP="DataBase IP";
+	public static String DATABASE_SOCKET = "DataBase socket";
+	public static String DATABASE_USER = "DataBase user";
+	public static String DATABASE_PASSWORD = "DataBase password";
+	public static String DATABASE_SCHEMA = "DataBase schema";
+	public static String JNDI_ACCESS_STRING = "jndi access string";
+	public static String PERSISTENS_XML="persistens.xml";
+
+	public static String MAVEN_POM_ENTITY_JAR = "Maven pom (entity jar)";
+	public static String MAVEN_POM_JPA_SERVICE = "Maven pom JPA Service";
+	public static String MAVEN_POM_EJB_SERVICE_JAR = "Maven pom EJB Service jar";
+	
+	
 	public static domain.Domain initDomainDiagram(Resource resource) {
 
 		domain.Domain model = domain.DomainFactory.eINSTANCE.createDomain();
@@ -13,36 +46,36 @@ public class InitDiagram {
 
 		domain.DomainApplications domainApplications = domain.DomainFactory.eINSTANCE
 				.createDomainApplications();
-		domainApplications.setName("Domain applications");
+		domainApplications.setName(DOMAIN_APPLICATIONS);
 		domainApplications.setUid(UUID.randomUUID().toString());
 
 		domain.DomainTypes domainTypes = domain.DomainFactory.eINSTANCE
 				.createDomainTypes();
-		domainTypes.setName("Domain types");
+		domainTypes.setName(DOMAIN_TYPES);
 		domainTypes.setUid(UUID.randomUUID().toString());
 
 		domain.DomainArtifacts domainArtifacts = domain.DomainFactory.eINSTANCE
 				.createDomainArtifacts();
-		domainArtifacts.setName("Domain artifacts");
+		domainArtifacts.setName(DOMAIN_ARTIFACTS);
 		domainArtifacts.setUid(UUID.randomUUID().toString());
 
 		domain.JPAService jpaService = domain.DomainFactory.eINSTANCE
 				.createJPAService();
-		jpaService.setName("JPAService");
+		jpaService.setName(JPASERVICE);
 		jpaService.setUid(UUID.randomUUID().toString());
 		domainArtifacts.getDomainArtifact().add(jpaService);
 		jpaService.setArtifact(initJPAServiceDiagram(resource));
 
 		domain.EJBService ejbService = domain.DomainFactory.eINSTANCE
 				.createEJBService();
-		ejbService.setName("EJBService");
+		ejbService.setName(EJBSERVICE);
 		ejbService.setUid(UUID.randomUUID().toString());
 		domainArtifacts.getDomainArtifact().add(ejbService);
 		ejbService.setArtifact(initEJBServiceDiagram(resource));
 
 		domain.ORMEntity ormEntity = domain.DomainFactory.eINSTANCE
 				.createORMEntity();
-		ormEntity.setName("ORMEntity");
+		ormEntity.setName(ORMENTITY);
 		ormEntity.setUid(UUID.randomUUID().toString());
 		domainArtifacts.getDomainArtifact().add(ormEntity);
 		ormEntity.setArtifact(initORMEntityDiagram(resource));
@@ -63,12 +96,12 @@ public class InitDiagram {
 
 		domain.ApplicationRecipes applicationRecipes = domain.DomainFactory.eINSTANCE
 				.createApplicationRecipes();
-		applicationRecipes.setName("Application recipes");
+		applicationRecipes.setName(APPLICATION_RECIPES);
 		applicationRecipes.setUid(UUID.randomUUID().toString());
 
 		domain.ApplicationMappers applicationMappers = domain.DomainFactory.eINSTANCE
 				.createApplicationMappers();
-		applicationMappers.setName("Application mapper");
+		applicationMappers.setName(APPLICATION_MAPPER);
 		applicationMappers.setUid(UUID.randomUUID().toString());
 
 		model.setApplicationRecipes(applicationRecipes);
@@ -93,18 +126,11 @@ public class InitDiagram {
 
 		model.setTypeDefinition(types);
 
-		for (int i = 0; i < org.tura.metamodel.commons.PlatformPrimetiveTypes
-				.values().length; i++) {
-			domain.Primitive primitive = domain.DomainFactory.eINSTANCE
-					.createPrimitive();
-			primitive.setUid(UUID.randomUUID().toString());
-			primitive.setName(org.tura.metamodel.commons.PlatformPrimetiveTypes
-					.values()[i].name());
-			types.getPrimitives().add(primitive);
-		}
+		domain.Package pkg = initPrimitivesPackage(resource);
+		types.getPackages().add(pkg);
 
-		domain.Package pkg = initBasePackage(resource);
-		model.getTypeDefinition().getPackages().add(pkg);
+		pkg = initBasePackage(resource);
+		types.getPackages().add(pkg);
 
 		return model;
 	}
@@ -119,13 +145,13 @@ public class InitDiagram {
 		domain.Artifact artifact = domain.DomainFactory.eINSTANCE
 				.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setName("entityObject");
+		artifact.setName(ENTITYOBJECT);
 		artifact.setTemplate("j2ee/entity/entityObject");
 		model.getArtifacts().add(artifact);
 
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setName("Maven pom (entity jar)");
+		artifact.setName(MAVEN_POM_ENTITY_JAR);
 		artifact.setTemplate("j2ee/entity/mavenPom_Entity_jar");
 		model.getArtifacts().add(artifact);
 
@@ -142,26 +168,26 @@ public class InitDiagram {
 		domain.Artifact artifact = domain.DomainFactory.eINSTANCE
 				.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setName("serviceBean");
+		artifact.setName(SERVICE_BEAN);
 		artifact.setTemplate("j2ee/jpa/serviceBean");
 		model.getArtifacts().add(artifact);
 
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setName("Maven pom JPA Service");
+		artifact.setName(MAVEN_POM_JPA_SERVICE);
 		artifact.setTemplate("j2ee/jpa/mavenPom_JPAService_jar");
 		model.getArtifacts().add(artifact);
 
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setName("Configuration JPA");
+		artifact.setName(CONFIGURATION_JPA);
 		artifact.setTemplate("j2ee/jpa/configJPA");
 		model.getArtifacts().add(artifact);
 
 		domain.Specifier specifier = domain.DomainFactory.eINSTANCE
 				.createSpecifier();
 		specifier.setUid(UUID.randomUUID().toString());
-		specifier.setName("JPA implementation");
+		specifier.setName(JPA_IMPLEMENTATION);
 		artifact.getSpecifiers().add(specifier);
 
 		domain.Option option = domain.DomainFactory.eINSTANCE.createOption();
@@ -176,7 +202,7 @@ public class InitDiagram {
 
 		specifier = domain.DomainFactory.eINSTANCE.createSpecifier();
 		specifier.setUid(UUID.randomUUID().toString());
-		specifier.setName("Database type");
+		specifier.setName(DATABASE_TYPE);
 		artifact.getSpecifiers().add(specifier);
 
 		option = domain.DomainFactory.eINSTANCE.createOption();
@@ -196,13 +222,13 @@ public class InitDiagram {
 
 		specifier = domain.DomainFactory.eINSTANCE.createSpecifier();
 		specifier.setUid(UUID.randomUUID().toString());
-		specifier.setName("Connection type");
+		specifier.setName(CONNECTION_TYPE);
 		artifact.getSpecifiers().add(specifier);
 
 		option = domain.DomainFactory.eINSTANCE.createOption();
 		option.setUid(UUID.randomUUID().toString());
 		specifier.getOptions().add(option);
-		option.setValue("jdbc direct access");
+		option.setValue("jdbc");
 
 		option = domain.DomainFactory.eINSTANCE.createOption();
 		option.setUid(UUID.randomUUID().toString());
@@ -212,32 +238,32 @@ public class InitDiagram {
 		domain.ConfigVariable confVar = domain.DomainFactory.eINSTANCE
 				.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("DataBase IP");
+		confVar.setName(DATABASE_IP);
 		artifact.getConfigVariables().add(confVar);
 
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("DataBase socket");
+		confVar.setName(DATABASE_SOCKET);
 		artifact.getConfigVariables().add(confVar);
 
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("DataBase user");
+		confVar.setName(DATABASE_USER);
 		artifact.getConfigVariables().add(confVar);
 
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("DataBase password");
+		confVar.setName(DATABASE_PASSWORD);
 		artifact.getConfigVariables().add(confVar);
 
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("DataBase schema");
+		confVar.setName(DATABASE_SCHEMA);
 		artifact.getConfigVariables().add(confVar);
 
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("jndi access string");
+		confVar.setName(JNDI_ACCESS_STRING);
 		artifact.getConfigVariables().add(confVar);
 
 		return model;
@@ -252,27 +278,27 @@ public class InitDiagram {
 
 		domain.Artifact artifact = domain.DomainFactory.eINSTANCE
 				.createArtifact();
-		artifact.setName("Service Bean");
+		artifact.setName(SERVICE_BEAN);
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setTemplate("j2ee/ejb/serviceBean");
 		model.getArtifacts().add(artifact);
 
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
-		artifact.setName("Maven pom EJB Service jar");
+		artifact.setName(MAVEN_POM_EJB_SERVICE_JAR);
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setTemplate("j2ee/ejb/mavenPom_EJBService_jar");
 		model.getArtifacts().add(artifact);
 
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setName("persistens.xml");
+		artifact.setName(PERSISTENS_XML);
 		artifact.setTemplate("j2ee/ejb");
 		model.getArtifacts().add(artifact);
 
 		domain.Specifier specifier = domain.DomainFactory.eINSTANCE
 				.createSpecifier();
 		specifier.setUid(UUID.randomUUID().toString());
-		specifier.setName("JPA implementation");
+		specifier.setName(JPA_IMPLEMENTATION);
 		artifact.getSpecifiers().add(specifier);
 
 		domain.Option option = domain.DomainFactory.eINSTANCE.createOption();
@@ -287,7 +313,7 @@ public class InitDiagram {
 
 		specifier = domain.DomainFactory.eINSTANCE.createSpecifier();
 		specifier.setUid(UUID.randomUUID().toString());
-		specifier.setName("Database type");
+		specifier.setName(DATABASE_TYPE);
 		artifact.getSpecifiers().add(specifier);
 
 		option = domain.DomainFactory.eINSTANCE.createOption();
@@ -308,32 +334,32 @@ public class InitDiagram {
 		domain.ConfigVariable confVar = domain.DomainFactory.eINSTANCE
 				.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("DataBase IP");
+		confVar.setName(DATABASE_IP);
 		artifact.getConfigVariables().add(confVar);
 
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("DataBase socket");
+		confVar.setName(DATABASE_SOCKET);
 		artifact.getConfigVariables().add(confVar);
 
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("DataBase user");
+		confVar.setName(DATABASE_USER);
 		artifact.getConfigVariables().add(confVar);
 
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("DataBase password");
+		confVar.setName(DATABASE_PASSWORD);
 		artifact.getConfigVariables().add(confVar);
 
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("DataBase schema");
+		confVar.setName(DATABASE_SCHEMA);
 		artifact.getConfigVariables().add(confVar);
 
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName("jndi access string");
+		confVar.setName(JNDI_ACCESS_STRING);
 		artifact.getConfigVariables().add(confVar);
 
 		return model;
@@ -341,104 +367,106 @@ public class InitDiagram {
 
 	public static domain.ApplicationMapper initPrimitivesMapping(
 			Resource resource) {
+		
+		HashMap<String, domain.TypeElement>  typesHash = getTypeElements(resource);
+		
 		domain.ApplicationMapper model = domain.DomainFactory.eINSTANCE
 				.createApplicationMapper();
 		model.setUid(UUID.randomUUID().toString());
-		model.setName("Primitives mapper");
+		model.setName(PRIMITIVES_MAPPER);
 
 		domain.Mappers mappers = domain.DomainFactory.eINSTANCE.createMappers();
 		mappers.setUid(UUID.randomUUID().toString());
 		model.setMapper(mappers);
 		resource.getContents().add(mappers);
 
-		domain.JavaMapper mapper = domain.DomainFactory.eINSTANCE
-				.createJavaMapper();
-		mapper.setUid(UUID.randomUUID().toString());
-		mapper.setPackageName("Primitives");
-		mapper.setTypeName("String");
-		mapper.setMappedToPackageName("java.lang");
-		mapper.setMappedToClassName("String");
-		mappers.getMappers().add(mapper);
-
-		mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
-		mapper.setUid(UUID.randomUUID().toString());
-		mapper.setPackageName("Primitives");
-		mapper.setTypeName("Boolean");
-		mapper.setMappedToPackageName("java.lang");
-		mapper.setMappedToClassName("Boolean");
-		mappers.getMappers().add(mapper);
-
-		mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
-		mapper.setUid(UUID.randomUUID().toString());
-		mapper.setPackageName("Primitives");
-		mapper.setTypeName("Decimal");
-		mapper.setMappedToPackageName("java.lang");
-		mapper.setMappedToClassName("BigDecimal");
-		mappers.getMappers().add(mapper);
-
-		mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
-		mapper.setUid(UUID.randomUUID().toString());
-		mapper.setPackageName("Primitives");
-		mapper.setTypeName("Float");
-		mapper.setMappedToPackageName("java.lang");
-		mapper.setMappedToClassName("Float");
-		mappers.getMappers().add(mapper);
-
-		mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
-		mapper.setUid(UUID.randomUUID().toString());
-		mapper.setPackageName("Primitives");
-		mapper.setTypeName("Double");
-		mapper.setMappedToPackageName("java.lang");
-		mapper.setMappedToClassName("Double");
-		mappers.getMappers().add(mapper);
-
-		mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
-		mapper.setUid(UUID.randomUUID().toString());
-		mapper.setPackageName("Primitives");
-		mapper.setTypeName("DateTime");
-		mapper.setMappedToPackageName("java.util");
-		mapper.setMappedToClassName("Date");
-		mappers.getMappers().add(mapper);
-
-		mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
-		mapper.setUid(UUID.randomUUID().toString());
-		mapper.setPackageName("Primitives");
-		mapper.setTypeName("Date");
-		mapper.setMappedToPackageName("java.util");
-		mapper.setMappedToClassName("Date");
-		mappers.getMappers().add(mapper);
-
-		mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
-		mapper.setUid(UUID.randomUUID().toString());
-		mapper.setPackageName("Primitives");
-		mapper.setTypeName("Integer");
-		mapper.setMappedToPackageName("java.lang");
-		mapper.setMappedToClassName("Integer");
-		mappers.getMappers().add(mapper);
-
-		mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
-		mapper.setUid(UUID.randomUUID().toString());
-		mapper.setPackageName("Primitives");
-		mapper.setTypeName("Long");
-		mapper.setMappedToPackageName("java.lang");
-		mapper.setMappedToClassName("Long");
-		mappers.getMappers().add(mapper);
-
-		mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
-		mapper.setUid(UUID.randomUUID().toString());
-		mapper.setPackageName("Primitives");
-		mapper.setTypeName("HexBinary");
-		mapper.setMappedToPackageName("");
-		mapper.setMappedToClassName("byte[]");
-		mappers.getMappers().add(mapper);
+		 domain.JavaMapper mapper = domain.DomainFactory.eINSTANCE
+		 .createJavaMapper();
+		 mapper.setUid(UUID.randomUUID().toString());
+		 mapper.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_String").getParent().getParent());
+		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_String"));
+		 mapper.setMappedToPackageName("java.lang");
+		 mapper.setMappedToClassName("String");
+		 mappers.getMappers().add(mapper);
+		
+		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+		 mapper.setUid(UUID.randomUUID().toString());
+		 mapper.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Boolean").getParent().getParent());
+		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Boolean"));
+		 mapper.setMappedToPackageName("java.lang");
+		 mapper.setMappedToClassName("Boolean");
+		 mappers.getMappers().add(mapper);
+		
+		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+		 mapper.setUid(UUID.randomUUID().toString());
+		 mapper.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Decimal").getParent().getParent());
+		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Decimal"));
+		 mapper.setMappedToPackageName("java.lang");
+		 mapper.setMappedToClassName("BigDecimal");
+		 mappers.getMappers().add(mapper);
+		
+		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+		 mapper.setUid(UUID.randomUUID().toString());
+		 mapper.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Float").getParent().getParent());
+		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Float"));
+		 mapper.setMappedToPackageName("java.lang");
+		 mapper.setMappedToClassName("Float");
+		 mappers.getMappers().add(mapper);
+		
+		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+		 mapper.setUid(UUID.randomUUID().toString());
+		 mapper.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Double").getParent().getParent());
+		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Double"));
+		 mapper.setMappedToPackageName("java.lang");
+		 mapper.setMappedToClassName("Double");
+		 mappers.getMappers().add(mapper);
+		
+		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+		 mapper.setUid(UUID.randomUUID().toString());
+		 mapper.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_DateTime").getParent().getParent());
+		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_DateTime"));
+		 mapper.setMappedToPackageName("java.util");
+		 mapper.setMappedToClassName("Date");
+		 mappers.getMappers().add(mapper);
+		
+		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+		 mapper.setUid(UUID.randomUUID().toString());
+		 mapper.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Date").getParent().getParent());
+		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Date"));
+		 mapper.setMappedToPackageName("java.util");
+		 mapper.setMappedToClassName("Date");
+		 mappers.getMappers().add(mapper);
+		
+		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+		 mapper.setUid(UUID.randomUUID().toString());
+		 mapper.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Integer").getParent().getParent());
+		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Integer"));
+		 mapper.setMappedToPackageName("java.lang");
+		 mapper.setMappedToClassName("Integer");
+		 mappers.getMappers().add(mapper);
+		
+		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+		 mapper.setUid(UUID.randomUUID().toString());
+		 mapper.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Long").getParent().getParent());
+		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Long"));
+		 mapper.setMappedToPackageName("java.lang");
+		 mapper.setMappedToClassName("Long");
+		 mappers.getMappers().add(mapper);
+		
+		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+		 mapper.setUid(UUID.randomUUID().toString());
+		 mapper.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_HexBinary").getParent().getParent());
+		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_HexBinary"));
+		 mapper.setMappedToPackageName("");
+		 mapper.setMappedToClassName("byte[]");
+		 mappers.getMappers().add(mapper);
 
 		return model;
 	}
 
-	public static domain.Package initBasePackage(Resource resource) {
-
+	public static domain.Package initPrimitivesPackage(Resource resource) {
 		domain.Package pkg = domain.DomainFactory.eINSTANCE.createPackage();
-		pkg.setName("Base package");
+		pkg.setName(PRIVATE_PACKAGE);
 		pkg.setUid(UUID.randomUUID().toString());
 		resource.getContents().add(pkg);
 
@@ -448,78 +476,129 @@ public class InitDiagram {
 		td.setUid(UUID.randomUUID().toString());
 		pkg.setTypedefinition(td);
 
-		domain.Type baseType = domain.DomainFactory.eINSTANCE.createType();
-		resource.getContents().add(baseType);
-		td.getTypes().add(baseType);
-		baseType.setName("BaseType");
-		baseType.setUid(UUID.randomUUID().toString());
+		for (int i = 0; i < org.tura.metamodel.commons.PlatformPrimetiveTypes
+				.values().length; i++) {
+			domain.Primitive primitive = domain.DomainFactory.eINSTANCE
+					.createPrimitive();
+			primitive.setUid(UUID.randomUUID().toString());
+			primitive.setName(org.tura.metamodel.commons.PlatformPrimetiveTypes
+					.values()[i].name());
+			pkg.getTypedefinition().getTypes().add(primitive);
+		}
 
-		domain.Attribute attr = domain.DomainFactory.eINSTANCE
-				.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setName("objId");
-		attr.setPk(true);
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Long");
-		attr.setUid(UUID.randomUUID().toString());
+		return pkg;
 
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("parentId");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Long");
-		attr.setUid(UUID.randomUUID().toString());
+	}
 
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("objType");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("String");
-		attr.setUid(UUID.randomUUID().toString());
+	public static domain.Package initBasePackage(Resource resource) {
 
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("objStatus");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("String");
-		attr.setUid(UUID.randomUUID().toString());
+		HashMap<String, domain.TypeElement>  typesHash = getTypeElements(resource);
+		
+		domain.Package pkg = domain.DomainFactory.eINSTANCE.createPackage();
+		pkg.setName(BASE_PACKAGE);
+		pkg.setUid(UUID.randomUUID().toString());
+		resource.getContents().add(pkg);
 
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("createDate");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Date");
-		attr.setUid(UUID.randomUUID().toString());
+		domain.TypeDefinition td = domain.DomainFactory.eINSTANCE
+				.createTypeDefinition();
+		resource.getContents().add(td);
+		td.setUid(UUID.randomUUID().toString());
+		pkg.setTypedefinition(td);
 
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("updateDate");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Date");
-		attr.setUid(UUID.randomUUID().toString());
-
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("activeDate");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Date");
-		attr.setUid(UUID.randomUUID().toString());
-
-		attr = domain.DomainFactory.eINSTANCE.createAttribute();
-		baseType.getAttributes().add(attr);
-		attr.setPk(false);
-		attr.setName("expiredDate");
-		attr.setPackageName("Primitives");
-		attr.setTypeName("Date");
-		attr.setUid(UUID.randomUUID().toString());
+		 domain.Type baseType = domain.DomainFactory.eINSTANCE.createType();
+		 resource.getContents().add(baseType);
+		 td.getTypes().add(baseType);
+		 baseType.setName("BaseType");
+		 baseType.setUid(UUID.randomUUID().toString());
+		
+		 domain.Attribute attr = domain.DomainFactory.eINSTANCE
+		 .createAttribute();
+		 baseType.getAttributes().add(attr);
+		 attr.setName("objId");
+		 attr.setPk(true);
+		 attr.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Long").getParent().getParent());
+		 attr.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Long"));
+		 attr.setUid(UUID.randomUUID().toString());
+		
+		 attr = domain.DomainFactory.eINSTANCE.createAttribute();
+		 baseType.getAttributes().add(attr);
+		 attr.setPk(false);
+		 attr.setName("parentId");
+		 attr.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Long").getParent().getParent());
+		 attr.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Long"));
+		 attr.setUid(UUID.randomUUID().toString());
+		
+		 attr = domain.DomainFactory.eINSTANCE.createAttribute();
+		 baseType.getAttributes().add(attr);
+		 attr.setPk(false);
+		 attr.setName("objType");
+		 attr.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_String").getParent().getParent());
+		 attr.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_String"));
+		 attr.setUid(UUID.randomUUID().toString());
+		
+		 attr = domain.DomainFactory.eINSTANCE.createAttribute();
+		 baseType.getAttributes().add(attr);
+		 attr.setPk(false);
+		 attr.setName("objStatus");
+		 attr.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_String").getParent().getParent());
+		 attr.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_String"));
+		 attr.setUid(UUID.randomUUID().toString());
+		
+		 attr = domain.DomainFactory.eINSTANCE.createAttribute();
+		 baseType.getAttributes().add(attr);
+		 attr.setPk(false);
+		 attr.setName("createDate");
+		 attr.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Date").getParent().getParent());
+		 attr.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Date"));
+		 attr.setUid(UUID.randomUUID().toString());
+		
+		 attr = domain.DomainFactory.eINSTANCE.createAttribute();
+		 baseType.getAttributes().add(attr);
+		 attr.setPk(false);
+		 attr.setName("updateDate");
+		 attr.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Date").getParent().getParent());
+		 attr.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Date"));
+		 attr.setUid(UUID.randomUUID().toString());
+		
+		 attr = domain.DomainFactory.eINSTANCE.createAttribute();
+		 baseType.getAttributes().add(attr);
+		 attr.setPk(false);
+		 attr.setName("activeDate");
+		 attr.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Date").getParent().getParent());
+		 attr.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Date"));
+		 attr.setUid(UUID.randomUUID().toString());
+		
+		 attr = domain.DomainFactory.eINSTANCE.createAttribute();
+		 baseType.getAttributes().add(attr);
+		 attr.setPk(false);
+		 attr.setName("expiredDate");
+		 attr.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Date").getParent().getParent());
+		 attr.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Date"));
+		 attr.setUid(UUID.randomUUID().toString());
 
 		return pkg;
 	}
 
+	public static HashMap<String, domain.TypeElement> getTypeElements(
+			Resource resource) {
+		
+		HashMap<String, domain.TypeElement> map = new HashMap<String, domain.TypeElement>();
+		
+		for (Iterator<EObject> itr = resource.getContents().iterator(); itr
+				.hasNext();) {
+			EObject obj = itr.next();
+			if (obj instanceof domain.TypeDefinition) {
+				for (Iterator<domain.TypeElement> typesItr = ((domain.TypeDefinition)obj).getTypes().iterator();typesItr.hasNext(); ){
+					domain.TypeElement typeElement = typesItr.next();
+					map.put(typeElement.getParent().getParent().getName()+"_"+ typeElement.getName()  ,typeElement );
+				}
+			}
+		}
+		return map;
+	}
+
+	public static void  addType( HashMap<String, domain.TypeElement> map, domain.TypeElement typeElement ) {
+		map.put(typeElement.getParent().getParent().getName()+"_"+ typeElement.getName()  ,typeElement );
+	}	
+	
 }

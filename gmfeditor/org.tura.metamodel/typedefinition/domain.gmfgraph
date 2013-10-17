@@ -912,6 +912,28 @@
           figure="//@figures.0/@descriptors.31/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
+        name="PrimitiveFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="PrimitiveFigure">
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="PrimitiveLabelFigure"
+            text="Primitive"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigurePrimitiveLabelFigure"
+          figure="//@figures.0/@descriptors.32/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="TypeFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
@@ -943,13 +965,13 @@
       </actualFigure>
       <accessors
           accessor="getFigureTypeLabelFigure"
-          figure="//@figures.0/@descriptors.32/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.33/@actualFigure/@children.0"/>
       <accessors
           accessor="getTypeAttributesCompartmentFigure"
-          figure="//@figures.0/@descriptors.32/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.33/@actualFigure/@children.1"/>
       <accessors
           accessor="getTypeOperationsCompartmentFigure"
-          figure="//@figures.0/@descriptors.32/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.33/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="TypeReferenceFigure">
@@ -971,7 +993,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureTypeReferenceLabelFigure"
-          figure="//@figures.0/@descriptors.33/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.34/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="AttributeFigure">
@@ -989,7 +1011,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureAttributeLabelFigure"
-          figure="//@figures.0/@descriptors.34/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.35/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="OperationFigure">
@@ -1023,13 +1045,13 @@
       </actualFigure>
       <accessors
           accessor="getFigureOperationLabelFigure"
-          figure="//@figures.0/@descriptors.35/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.36/@actualFigure/@children.0"/>
       <accessors
           accessor="getOperationParametersCompartmentFigure"
-          figure="//@figures.0/@descriptors.35/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.36/@actualFigure/@children.1"/>
       <accessors
           accessor="getOperationReturnValueCompartmentFigure"
-          figure="//@figures.0/@descriptors.35/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.36/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="ParameterFigure">
@@ -1047,7 +1069,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureParameterLabelFigure"
-          figure="//@figures.0/@descriptors.36/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.37/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="ReturnValueFigure">
@@ -1065,7 +1087,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureReturnValueLabelFigure"
-          figure="//@figures.0/@descriptors.37/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.38/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="EnumaratorFigure">
@@ -1095,10 +1117,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureEnumaratorLabelFigure"
-          figure="//@figures.0/@descriptors.38/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.39/@actualFigure/@children.0"/>
       <accessors
           accessor="getEnumaratorValuesCompartmentFigure"
-          figure="//@figures.0/@descriptors.38/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.39/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="EnumAttributeFigure">
@@ -1116,7 +1138,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureEnumAttributeLabelFigure"
-          figure="//@figures.0/@descriptors.39/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.40/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="TypesFigure">
@@ -1141,10 +1163,6 @@
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
-            name="TypesPrimitivesCompartmentFigure"
-            outline="false"/>
-        <children
-            xsi:type="gmfgraph:Rectangle"
             name="TypesPackagesCompartmentFigure"
             outline="false"/>
         <children
@@ -1154,38 +1172,13 @@
       </actualFigure>
       <accessors
           accessor="getFigureTypesLabelFigure"
-          figure="//@figures.0/@descriptors.40/@actualFigure/@children.0"/>
-      <accessors
-          accessor="getTypesPrimitivesCompartmentFigure"
-          figure="//@figures.0/@descriptors.40/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.41/@actualFigure/@children.0"/>
       <accessors
           accessor="getTypesPackagesCompartmentFigure"
-          figure="//@figures.0/@descriptors.40/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.41/@actualFigure/@children.1"/>
       <accessors
           accessor="getTypesBusinessPackagesCompartmentFigure"
-          figure="//@figures.0/@descriptors.40/@actualFigure/@children.3"/>
-    </descriptors>
-    <descriptors
-        name="PrimitiveFigure">
-      <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle"
-          name="PrimitiveFigure">
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="PrimitiveLabelFigure"
-            text="Primitive"/>
-      </actualFigure>
-      <accessors
-          accessor="getFigurePrimitiveLabelFigure"
-          figure="//@figures.0/@descriptors.41/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.41/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="PackageFigure">
@@ -1381,6 +1374,9 @@
       name="Property"
       figure="PropertyFigure"/>
   <nodes
+      name="Primitive"
+      figure="PrimitiveFigure"/>
+  <nodes
       name="Type"
       figure="TypeFigure"/>
   <nodes
@@ -1407,9 +1403,6 @@
   <nodes
       name="Types"
       figure="TypesFigure"/>
-  <nodes
-      name="Primitive"
-      figure="PrimitiveFigure"/>
   <nodes
       name="Package"
       figure="PackageFigure"/>
@@ -1522,42 +1515,37 @@
       name="TypeAttributesCompartment"
       figure="TypeFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.32/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.33/@accessors.1"/>
   <compartments
       name="TypeOperationsCompartment"
       figure="TypeFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.32/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.33/@accessors.2"/>
   <compartments
       name="OperationParametersCompartment"
       figure="OperationFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.35/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.36/@accessors.1"/>
   <compartments
       name="OperationReturnValueCompartment"
       figure="OperationFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.35/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.36/@accessors.2"/>
   <compartments
       name="EnumaratorValuesCompartment"
       figure="EnumaratorFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.38/@accessors.1"/>
-  <compartments
-      name="TypesPrimitivesCompartment"
-      figure="TypesFigure"
-      collapsible="true"
-      accessor="//@figures.0/@descriptors.40/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.39/@accessors.1"/>
   <compartments
       name="TypesPackagesCompartment"
       figure="TypesFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.40/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.41/@accessors.1"/>
   <compartments
       name="TypesBusinessPackagesCompartment"
       figure="TypesFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.40/@accessors.3"/>
+      accessor="//@figures.0/@descriptors.41/@accessors.2"/>
   <labels
       name="DomainArtifactsLabel"
       figure="DomainArtifactsFigure"
@@ -1687,44 +1675,44 @@
       figure="PropertyFigure"
       accessor="//@figures.0/@descriptors.31/@accessors.0"/>
   <labels
+      name="PrimitiveLabel"
+      figure="PrimitiveFigure"
+      accessor="//@figures.0/@descriptors.32/@accessors.0"/>
+  <labels
       name="TypeLabel"
       figure="TypeFigure"
-      accessor="//@figures.0/@descriptors.32/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.33/@accessors.0"/>
   <labels
       name="TypeReferenceLabel"
       figure="TypeReferenceFigure"
-      accessor="//@figures.0/@descriptors.33/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.34/@accessors.0"/>
   <labels
       name="AttributeLabel"
       figure="AttributeFigure"
-      accessor="//@figures.0/@descriptors.34/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.35/@accessors.0"/>
   <labels
       name="OperationLabel"
       figure="OperationFigure"
-      accessor="//@figures.0/@descriptors.35/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.36/@accessors.0"/>
   <labels
       name="ParameterLabel"
       figure="ParameterFigure"
-      accessor="//@figures.0/@descriptors.36/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.37/@accessors.0"/>
   <labels
       name="ReturnValueLabel"
       figure="ReturnValueFigure"
-      accessor="//@figures.0/@descriptors.37/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.38/@accessors.0"/>
   <labels
       name="EnumaratorLabel"
       figure="EnumaratorFigure"
-      accessor="//@figures.0/@descriptors.38/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.39/@accessors.0"/>
   <labels
       name="EnumAttributeLabel"
       figure="EnumAttributeFigure"
-      accessor="//@figures.0/@descriptors.39/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.40/@accessors.0"/>
   <labels
       name="TypesLabel"
       figure="TypesFigure"
-      accessor="//@figures.0/@descriptors.40/@accessors.0"/>
-  <labels
-      name="PrimitiveLabel"
-      figure="PrimitiveFigure"
       accessor="//@figures.0/@descriptors.41/@accessors.0"/>
   <labels
       name="PackageLabel"

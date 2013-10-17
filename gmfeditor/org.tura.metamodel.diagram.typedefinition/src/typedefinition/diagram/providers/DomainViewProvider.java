@@ -61,15 +61,17 @@ import typedefinition.diagram.edit.parts.OperationOperationParametersCompartment
 import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
 import typedefinition.diagram.edit.parts.ParameterEditPart;
 import typedefinition.diagram.edit.parts.ParameterNameEditPart;
+import typedefinition.diagram.edit.parts.PrimitiveEditPart;
+import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
-import typedefinition.diagram.edit.parts.ReturnValuePackageNameTypeNameEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueUidEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
-import typedefinition.diagram.edit.parts.TypeReferencePackageNameTypeNameEditPart;
+import typedefinition.diagram.edit.parts.TypeReferenceUidEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
 import typedefinition.diagram.edit.parts.WrappingLabel2EditPart;
@@ -169,6 +171,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				}
 				switch (visualID) {
 				case TypeReferenceEditPart.VISUAL_ID:
+				case PrimitiveEditPart.VISUAL_ID:
 				case TypeEditPart.VISUAL_ID:
 				case EnumaratorEditPart.VISUAL_ID:
 				case AttributeEditPart.VISUAL_ID:
@@ -189,6 +192,7 @@ public class DomainViewProvider extends AbstractProvider implements
 			}
 		}
 		return TypeReferenceEditPart.VISUAL_ID == visualID
+				|| PrimitiveEditPart.VISUAL_ID == visualID
 				|| TypeEditPart.VISUAL_ID == visualID
 				|| EnumaratorEditPart.VISUAL_ID == visualID
 				|| AttributeEditPart.VISUAL_ID == visualID
@@ -255,11 +259,14 @@ public class DomainViewProvider extends AbstractProvider implements
 		case TypeReferenceEditPart.VISUAL_ID:
 			return createTypeReference_102001(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case PrimitiveEditPart.VISUAL_ID:
+			return createPrimitive_102004(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case TypeEditPart.VISUAL_ID:
 			return createType_102002(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case EnumaratorEditPart.VISUAL_ID:
-			return createEnumarator_102003(domainElement, containerView, index,
+			return createEnumarator_102005(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case AttributeEditPart.VISUAL_ID:
 			return createAttribute_103001(domainElement, containerView, index,
@@ -349,10 +356,55 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label105001 = createLabel(
-				node,
+		Node label105001 = createLabel(node,
 				DomainVisualIDRegistry
-						.getType(TypeReferencePackageNameTypeNameEditPart.VISUAL_ID));
+						.getType(TypeReferenceUidEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createPrimitive_102004(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(PrimitiveEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label105010 = createLabel(node,
+				DomainVisualIDRegistry.getType(PrimitiveNameEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -415,7 +467,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createEnumarator_102003(EObject domainElement,
+	public Node createEnumarator_102005(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -455,7 +507,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label105008 = createLabel(node,
+		Node label105011 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(EnumaratorNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -653,10 +705,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label105004 = createLabel(
-				node,
+		Node label105004 = createLabel(node,
 				DomainVisualIDRegistry
-						.getType(ReturnValuePackageNameTypeNameEditPart.VISUAL_ID));
+						.getType(ReturnValueUidEditPart.VISUAL_ID));
 		return node;
 	}
 

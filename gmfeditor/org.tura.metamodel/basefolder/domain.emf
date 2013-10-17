@@ -246,7 +246,7 @@ class Mapper extends TypePointer{
     attr boolean uiLayer;
 }
 
-@gmf.node(label="packageName")
+@gmf.node(label="uid")
 class JavaMapper extends Mapper{
    attr EString mappedToPackageName;
    attr EString mappedToClassName;
@@ -369,23 +369,34 @@ class ArtifactRef{
    attr EString artifactName;
 }
 
+class TypePointer{
+  ref Package packageRef;
+  ref TypeElement typeRef;
+  
+}
 
 @gmf.diagram.typedefinition
 class TypeDefinition{
     id attr EString uid;
    val TypeElement[*]#parent types;
-   val Enumarator[*]#parent enums;
    ref Package#typedefinition parent;
 }
 
 class TypeElement{
+   attr EString name; 
    ref TypeDefinition#types parent;
 }
+
+
+@gmf.node(label="name")
+class Primitive extends TypeElement{
+    id attr EString uid;
+}
+
 
 @gmf.node(label="name")
 class Type extends TypeElement {
     id attr EString uid;
-   attr EString name;
    @gmf.compartment
    val Attribute[*]#parent attributes;
    @gmf.compartment
@@ -393,7 +404,7 @@ class Type extends TypeElement {
    val TypeExtension[0..1] extension;
 }
 
-@gmf.node(label="packageName,typeName")
+@gmf.node(label="uid")
 class TypeReference extends TypeElement , TypePointer{
     id attr EString uid;
  }
@@ -433,16 +444,14 @@ class Parameter extends  TypePointer{
 }
 
 
-@gmf.node(label="packageName,typeName")
+@gmf.node(label="uid")
 class ReturnValue extends TypePointer{
     id attr EString uid;
 }
 
 @gmf.node(label="name")
-class Enumarator{
+class Enumarator extends TypeElement{
     id attr EString uid;
-   attr EString name;
-   ref TypeDefinition#enums parent;
   @gmf.compartment
    val EnumAttribute[*]#parent values;
 }
@@ -453,13 +462,6 @@ class EnumAttribute{
    ref Enumarator#values parent;
    attr EString name;
    attr EString  value;
-}
-
-
-class TypePointer{
-  attr EString packageName;
-  attr EString typeName;
-  
 }
 
 
@@ -476,19 +478,10 @@ class Types {
    ref TypesRepository#typeDefinition parent;
    attr EString name;
    @gmf.compartment
-   val Primitive[*]#parent primitives;
-   @gmf.compartment
    val Package[*]#parent packages;
    @gmf.compartment
    val BusinessPackage[*]#parent businessPackages;
    
-}
-
-@gmf.node(label="name")
-class Primitive {
-    id attr EString uid;
-   attr EString name;
-   ref  Types#primitives parent;
 }
 
 @gmf.node(label="name")

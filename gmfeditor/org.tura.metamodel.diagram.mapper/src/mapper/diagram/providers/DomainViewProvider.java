@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import mapper.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import mapper.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
-import mapper.diagram.edit.parts.JavaMapperPackageNameEditPart;
+import mapper.diagram.edit.parts.JavaMapperUidEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 import mapper.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import mapper.diagram.edit.parts.TypeExtensionEditPart;
@@ -294,8 +294,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label405001 = createLabel(node,
-				DomainVisualIDRegistry
-						.getType(JavaMapperPackageNameEditPart.VISUAL_ID));
+				DomainVisualIDRegistry.getType(JavaMapperUidEditPart.VISUAL_ID));
 		return node;
 	}
 

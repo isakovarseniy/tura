@@ -63,8 +63,32 @@ public class TypeElementItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypeElement_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypeElement_name_feature", "_UI_TypeElement_type"),
+         DomainPackage.Literals.TYPE_ELEMENT__NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -88,7 +112,10 @@ public class TypeElementItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_TypeElement_type");
+    String label = ((TypeElement)object).getName();
+    return label == null || label.length() == 0 ?
+      getString("_UI_TypeElement_type") :
+      getString("_UI_TypeElement_type") + " " + label;
   }
 
   /**
@@ -102,6 +129,13 @@ public class TypeElementItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
+
+    switch (notification.getFeatureID(TypeElement.class))
+    {
+      case DomainPackage.TYPE_ELEMENT__NAME:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+    }
     super.notifyChanged(notification);
   }
 

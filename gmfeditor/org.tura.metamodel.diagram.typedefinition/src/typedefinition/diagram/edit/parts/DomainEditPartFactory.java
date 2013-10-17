@@ -31,8 +31,14 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case TypeReferenceEditPart.VISUAL_ID:
 				return new TypeReferenceEditPart(view);
 
-			case TypeReferencePackageNameTypeNameEditPart.VISUAL_ID:
-				return new TypeReferencePackageNameTypeNameEditPart(view);
+			case TypeReferenceUidEditPart.VISUAL_ID:
+				return new TypeReferenceUidEditPart(view);
+
+			case PrimitiveEditPart.VISUAL_ID:
+				return new PrimitiveEditPart(view);
+
+			case PrimitiveNameEditPart.VISUAL_ID:
+				return new PrimitiveNameEditPart(view);
 
 			case TypeEditPart.VISUAL_ID:
 				return new TypeEditPart(view);
@@ -67,8 +73,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ReturnValueEditPart.VISUAL_ID:
 				return new ReturnValueEditPart(view);
 
-			case ReturnValuePackageNameTypeNameEditPart.VISUAL_ID:
-				return new ReturnValuePackageNameTypeNameEditPart(view);
+			case ReturnValueUidEditPart.VISUAL_ID:
+				return new ReturnValueUidEditPart(view);
 
 			case EnumAttributeEditPart.VISUAL_ID:
 				return new EnumAttributeEditPart(view);

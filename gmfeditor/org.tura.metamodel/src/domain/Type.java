@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.Type#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.Type#getName <em>Name</em>}</li>
  *   <li>{@link domain.Type#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link domain.Type#getOperations <em>Operations</em>}</li>
  *   <li>{@link domain.Type#getExtension <em>Extension</em>}</li>
@@ -51,32 +50,6 @@ public interface Type extends TypeElement
    * @generated
    */
   void setUid(String value);
-
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see domain.DomainPackage#getType_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link domain.Type#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.

@@ -121,8 +121,6 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='BusinessPackage');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Package');
 delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Primitive');
-delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Types');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ConfigVariable');

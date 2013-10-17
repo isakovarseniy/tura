@@ -17,7 +17,7 @@
         <diagramLabel
             href="domain.gmfgraph#JavaMapperLabel"/>
         <features
-            href="domain.ecore#//TypePointer/packageName"/>
+            href="domain.ecore#//Mapper/uid"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"

@@ -336,11 +336,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypesTypesPrimitivesCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String TypesTypesPackagesCompartmentEditPart_title;
 
 	/**

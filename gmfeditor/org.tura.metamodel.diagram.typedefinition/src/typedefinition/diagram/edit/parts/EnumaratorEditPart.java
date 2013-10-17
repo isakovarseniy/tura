@@ -3,6 +3,9 @@
  */
 package typedefinition.diagram.edit.parts;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
@@ -24,6 +27,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -32,6 +36,7 @@ import org.eclipse.swt.graphics.Color;
 import typedefinition.diagram.edit.policies.EnumaratorItemSemanticEditPolicy;
 import typedefinition.diagram.edit.policies.OpenDiagramEditPolicy;
 import typedefinition.diagram.part.DomainVisualIDRegistry;
+import typedefinition.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
@@ -41,7 +46,7 @@ public class EnumaratorEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 102003;
+	public static final int VISUAL_ID = 102005;
 
 	/**
 	 * @generated
@@ -273,6 +278,73 @@ public class EnumaratorEditPart extends ShapeNodeEditPart {
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
 				.getType(EnumaratorNameEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> getMARelTypesOnSource() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+		types.add(DomainElementTypes.TypeExtension_104001);
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
+		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof TypeReferenceEditPart) {
+			types.add(DomainElementTypes.TypeExtension_104001);
+		}
+		if (targetEditPart instanceof PrimitiveEditPart) {
+			types.add(DomainElementTypes.TypeExtension_104001);
+		}
+		if (targetEditPart instanceof TypeEditPart) {
+			types.add(DomainElementTypes.TypeExtension_104001);
+		}
+		if (targetEditPart instanceof typedefinition.diagram.edit.parts.EnumaratorEditPart) {
+			types.add(DomainElementTypes.TypeExtension_104001);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
+			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.Enumarator_102005);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> getMARelTypesOnTarget() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+		types.add(DomainElementTypes.TypeExtension_104001);
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
+			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.Enumarator_102005);
+		}
+		return types;
 	}
 
 	/**

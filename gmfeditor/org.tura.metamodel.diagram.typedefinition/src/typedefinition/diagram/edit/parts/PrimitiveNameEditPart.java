@@ -1,15 +1,10 @@
 /*
  * 
  */
-package mapper.diagram.edit.parts;
+package typedefinition.diagram.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
-
-import mapper.diagram.edit.policies.DomainTextSelectionEditPolicy;
-import mapper.diagram.part.DomainVisualIDRegistry;
-import mapper.diagram.providers.DomainElementTypes;
-import mapper.diagram.providers.DomainParserProvider;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
@@ -51,18 +46,22 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-import domain.TypePointer;
+
+import typedefinition.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import typedefinition.diagram.part.DomainVisualIDRegistry;
+import typedefinition.diagram.providers.DomainElementTypes;
+import typedefinition.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
  */
-public class JavaMapperPackageNameEditPart extends CompartmentEditPart
-		implements ITextAwareEditPart {
+public class PrimitiveNameEditPart extends CompartmentEditPart implements
+		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 405001;
+	public static final int VISUAL_ID = 105010;
 
 	/**
 	 * @generated
@@ -92,7 +91,7 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public JavaMapperPackageNameEditPart(View view) {
+	public PrimitiveNameEditPart(View view) {
 		super(view);
 	}
 
@@ -106,7 +105,7 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new MappersEditPart.NodeLabelDragPolicy());
+				new TypeDefinitionEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -215,8 +214,9 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 		String text = null;
 		EObject parserElement = getParserElement();
 		if (parserElement != null && getParser() != null) {
-			text = ((TypePointer) parserElement).getPackageName() + "."
-					+ ((TypePointer) parserElement).getTypeName();
+			text = getParser().getPrintString(
+					new EObjectAdapter(parserElement),
+					getParserOptions().intValue());
 
 		}
 		if (text == null || text.length() == 0) {
@@ -313,10 +313,10 @@ public class JavaMapperPackageNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.JavaMapper_402001,
+							DomainElementTypes.Primitive_102004,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(mapper.diagram.edit.parts.JavaMapperPackageNameEditPart.VISUAL_ID));
+									.getType(typedefinition.diagram.edit.parts.PrimitiveNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

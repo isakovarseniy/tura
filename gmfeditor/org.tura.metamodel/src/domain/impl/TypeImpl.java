@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.TypeImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.TypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getOperations <em>Operations</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getExtension <em>Extension</em>}</li>
@@ -61,26 +60,6 @@ public class TypeImpl extends TypeElementImpl implements Type
    * @ordered
    */
   protected String uid = UID_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -154,29 +133,6 @@ public class TypeImpl extends TypeElementImpl implements Type
     uid = newUid;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE__UID, oldUid, uid));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE__NAME, oldName, name));
   }
 
   /**
@@ -306,8 +262,6 @@ public class TypeImpl extends TypeElementImpl implements Type
     {
       case DomainPackage.TYPE__UID:
         return getUid();
-      case DomainPackage.TYPE__NAME:
-        return getName();
       case DomainPackage.TYPE__ATTRIBUTES:
         return getAttributes();
       case DomainPackage.TYPE__OPERATIONS:
@@ -331,9 +285,6 @@ public class TypeImpl extends TypeElementImpl implements Type
     {
       case DomainPackage.TYPE__UID:
         setUid((String)newValue);
-        return;
-      case DomainPackage.TYPE__NAME:
-        setName((String)newValue);
         return;
       case DomainPackage.TYPE__ATTRIBUTES:
         getAttributes().clear();
@@ -363,9 +314,6 @@ public class TypeImpl extends TypeElementImpl implements Type
       case DomainPackage.TYPE__UID:
         setUid(UID_EDEFAULT);
         return;
-      case DomainPackage.TYPE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case DomainPackage.TYPE__ATTRIBUTES:
         getAttributes().clear();
         return;
@@ -391,8 +339,6 @@ public class TypeImpl extends TypeElementImpl implements Type
     {
       case DomainPackage.TYPE__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.TYPE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.TYPE__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
       case DomainPackage.TYPE__OPERATIONS:
@@ -416,8 +362,6 @@ public class TypeImpl extends TypeElementImpl implements Type
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
-    result.append(", name: ");
-    result.append(name);
     result.append(')');
     return result.toString();
   }

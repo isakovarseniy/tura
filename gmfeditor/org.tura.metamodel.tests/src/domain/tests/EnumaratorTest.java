@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnumaratorTest extends TestCase
+public class EnumaratorTest extends TypeElementTest
 {
-
-  /**
-   * The fixture for this Enumarator test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Enumarator fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class EnumaratorTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Enumarator test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(Enumarator fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Enumarator test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected Enumarator getFixture()
   {
-    return fixture;
+    return (Enumarator)fixture;
   }
 
   /**

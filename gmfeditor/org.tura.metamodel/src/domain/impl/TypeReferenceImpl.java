@@ -3,6 +3,8 @@
 package domain.impl;
 
 import domain.DomainPackage;
+import domain.TypeElement;
+import domain.Type;
 import domain.TypePointer;
 import domain.TypeReference;
 
@@ -10,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -19,8 +22,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.TypeReferenceImpl#getPackageName <em>Package Name</em>}</li>
- *   <li>{@link domain.impl.TypeReferenceImpl#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link domain.impl.TypeReferenceImpl#getPackageRef <em>Package Ref</em>}</li>
+ *   <li>{@link domain.impl.TypeReferenceImpl#getTypeRef <em>Type Ref</em>}</li>
  *   <li>{@link domain.impl.TypeReferenceImpl#getUid <em>Uid</em>}</li>
  * </ul>
  * </p>
@@ -30,44 +33,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
 {
   /**
-   * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
+   * The cached value of the '{@link #getPackageRef() <em>Package Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPackageName()
+   * @see #getPackageRef()
    * @generated
    * @ordered
    */
-  protected static final String PACKAGE_NAME_EDEFAULT = null;
+  protected domain.Package packageRef;
 
   /**
-   * The cached value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
+   * The cached value of the '{@link #getTypeRef() <em>Type Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPackageName()
+   * @see #getTypeRef()
    * @generated
    * @ordered
    */
-  protected String packageName = PACKAGE_NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTypeName()
-   * @generated
-   * @ordered
-   */
-  protected static final String TYPE_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTypeName()
-   * @generated
-   * @ordered
-   */
-  protected String typeName = TYPE_NAME_EDEFAULT;
+  protected TypeElement typeRef;
 
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -115,9 +98,19 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPackageName()
+  public domain.Package getPackageRef()
   {
-    return packageName;
+    if (packageRef != null && packageRef.eIsProxy())
+    {
+      InternalEObject oldPackageRef = (InternalEObject)packageRef;
+      packageRef = (domain.Package)eResolveProxy(oldPackageRef);
+      if (packageRef != oldPackageRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.TYPE_REFERENCE__PACKAGE_REF, oldPackageRef, packageRef));
+      }
+    }
+    return packageRef;
   }
 
   /**
@@ -125,12 +118,22 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPackageName(String newPackageName)
+  public domain.Package basicGetPackageRef()
   {
-    String oldPackageName = packageName;
-    packageName = newPackageName;
+    return packageRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPackageRef(domain.Package newPackageRef)
+  {
+    domain.Package oldPackageRef = packageRef;
+    packageRef = newPackageRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_REFERENCE__PACKAGE_NAME, oldPackageName, packageName));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_REFERENCE__PACKAGE_REF, oldPackageRef, packageRef));
   }
 
   /**
@@ -138,9 +141,19 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTypeName()
+  public TypeElement getTypeRef()
   {
-    return typeName;
+    if (typeRef != null && typeRef.eIsProxy())
+    {
+      InternalEObject oldTypeRef = (InternalEObject)typeRef;
+      typeRef = (TypeElement)eResolveProxy(oldTypeRef);
+      if (typeRef != oldTypeRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.TYPE_REFERENCE__TYPE_REF, oldTypeRef, typeRef));
+      }
+    }
+    return typeRef;
   }
 
   /**
@@ -148,12 +161,22 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypeName(String newTypeName)
+  public TypeElement basicGetTypeRef()
   {
-    String oldTypeName = typeName;
-    typeName = newTypeName;
+    return typeRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeRef(TypeElement newTypeRef)
+  {
+    TypeElement oldTypeRef = typeRef;
+    typeRef = newTypeRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_REFERENCE__TYPE_NAME, oldTypeName, typeName));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_REFERENCE__TYPE_REF, oldTypeRef, typeRef));
   }
 
   /**
@@ -189,10 +212,12 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE_REFERENCE__PACKAGE_NAME:
-        return getPackageName();
-      case DomainPackage.TYPE_REFERENCE__TYPE_NAME:
-        return getTypeName();
+      case DomainPackage.TYPE_REFERENCE__PACKAGE_REF:
+        if (resolve) return getPackageRef();
+        return basicGetPackageRef();
+      case DomainPackage.TYPE_REFERENCE__TYPE_REF:
+        if (resolve) return getTypeRef();
+        return basicGetTypeRef();
       case DomainPackage.TYPE_REFERENCE__UID:
         return getUid();
     }
@@ -209,11 +234,11 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE_REFERENCE__PACKAGE_NAME:
-        setPackageName((String)newValue);
+      case DomainPackage.TYPE_REFERENCE__PACKAGE_REF:
+        setPackageRef((domain.Package)newValue);
         return;
-      case DomainPackage.TYPE_REFERENCE__TYPE_NAME:
-        setTypeName((String)newValue);
+      case DomainPackage.TYPE_REFERENCE__TYPE_REF:
+        setTypeRef((TypeElement)newValue);
         return;
       case DomainPackage.TYPE_REFERENCE__UID:
         setUid((String)newValue);
@@ -232,11 +257,11 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE_REFERENCE__PACKAGE_NAME:
-        setPackageName(PACKAGE_NAME_EDEFAULT);
+      case DomainPackage.TYPE_REFERENCE__PACKAGE_REF:
+        setPackageRef((domain.Package)null);
         return;
-      case DomainPackage.TYPE_REFERENCE__TYPE_NAME:
-        setTypeName(TYPE_NAME_EDEFAULT);
+      case DomainPackage.TYPE_REFERENCE__TYPE_REF:
+        setTypeRef((TypeElement)null);
         return;
       case DomainPackage.TYPE_REFERENCE__UID:
         setUid(UID_EDEFAULT);
@@ -255,10 +280,10 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE_REFERENCE__PACKAGE_NAME:
-        return PACKAGE_NAME_EDEFAULT == null ? packageName != null : !PACKAGE_NAME_EDEFAULT.equals(packageName);
-      case DomainPackage.TYPE_REFERENCE__TYPE_NAME:
-        return TYPE_NAME_EDEFAULT == null ? typeName != null : !TYPE_NAME_EDEFAULT.equals(typeName);
+      case DomainPackage.TYPE_REFERENCE__PACKAGE_REF:
+        return packageRef != null;
+      case DomainPackage.TYPE_REFERENCE__TYPE_REF:
+        return typeRef != null;
       case DomainPackage.TYPE_REFERENCE__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
     }
@@ -277,8 +302,8 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
     {
       switch (derivedFeatureID)
       {
-        case DomainPackage.TYPE_REFERENCE__PACKAGE_NAME: return DomainPackage.TYPE_POINTER__PACKAGE_NAME;
-        case DomainPackage.TYPE_REFERENCE__TYPE_NAME: return DomainPackage.TYPE_POINTER__TYPE_NAME;
+        case DomainPackage.TYPE_REFERENCE__PACKAGE_REF: return DomainPackage.TYPE_POINTER__PACKAGE_REF;
+        case DomainPackage.TYPE_REFERENCE__TYPE_REF: return DomainPackage.TYPE_POINTER__TYPE_REF;
         default: return -1;
       }
     }
@@ -297,8 +322,8 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
     {
       switch (baseFeatureID)
       {
-        case DomainPackage.TYPE_POINTER__PACKAGE_NAME: return DomainPackage.TYPE_REFERENCE__PACKAGE_NAME;
-        case DomainPackage.TYPE_POINTER__TYPE_NAME: return DomainPackage.TYPE_REFERENCE__TYPE_NAME;
+        case DomainPackage.TYPE_POINTER__PACKAGE_REF: return DomainPackage.TYPE_REFERENCE__PACKAGE_REF;
+        case DomainPackage.TYPE_POINTER__TYPE_REF: return DomainPackage.TYPE_REFERENCE__TYPE_REF;
         default: return -1;
       }
     }
@@ -316,11 +341,7 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (packageName: ");
-    result.append(packageName);
-    result.append(", typeName: ");
-    result.append(typeName);
-    result.append(", uid: ");
+    result.append(" (uid: ");
     result.append(uid);
     result.append(')');
     return result.toString();

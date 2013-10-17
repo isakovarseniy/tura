@@ -61,7 +61,7 @@ public class EnumaratorNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 105008;
+	public static final int VISUAL_ID = 105011;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class EnumaratorNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.Enumarator_102003,
+							DomainElementTypes.Enumarator_102005,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(typedefinition.diagram.edit.parts.EnumaratorNameEditPart.VISUAL_ID));

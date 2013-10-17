@@ -361,6 +361,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createArtifactRefAdapter();
       }
       @Override
+      public Adapter caseTypePointer(TypePointer object)
+      {
+        return createTypePointerAdapter();
+      }
+      @Override
       public Adapter caseTypeDefinition(TypeDefinition object)
       {
         return createTypeDefinitionAdapter();
@@ -369,6 +374,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseTypeElement(TypeElement object)
       {
         return createTypeElementAdapter();
+      }
+      @Override
+      public Adapter casePrimitive(Primitive object)
+      {
+        return createPrimitiveAdapter();
       }
       @Override
       public Adapter caseType(Type object)
@@ -416,11 +426,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createEnumAttributeAdapter();
       }
       @Override
-      public Adapter caseTypePointer(TypePointer object)
-      {
-        return createTypePointerAdapter();
-      }
-      @Override
       public Adapter caseTypesRepository(TypesRepository object)
       {
         return createTypesRepositoryAdapter();
@@ -429,11 +434,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseTypes(Types object)
       {
         return createTypesAdapter();
-      }
-      @Override
-      public Adapter casePrimitive(Primitive object)
-      {
-        return createPrimitiveAdapter();
       }
       @Override
       public Adapter casePackage(domain.Package object)

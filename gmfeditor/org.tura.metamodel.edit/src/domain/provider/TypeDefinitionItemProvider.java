@@ -134,7 +134,6 @@ public class TypeDefinitionItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.TYPE_DEFINITION__TYPES);
-      childrenFeatures.add(DomainPackage.Literals.TYPE_DEFINITION__ENUMS);
     }
     return childrenFeatures;
   }
@@ -198,7 +197,6 @@ public class TypeDefinitionItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.TYPE_DEFINITION__TYPES:
-      case DomainPackage.TYPE_DEFINITION__ENUMS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -225,6 +223,11 @@ public class TypeDefinitionItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.TYPE_DEFINITION__TYPES,
+         DomainFactory.eINSTANCE.createPrimitive()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.TYPE_DEFINITION__TYPES,
          DomainFactory.eINSTANCE.createType()));
 
     newChildDescriptors.add
@@ -234,7 +237,7 @@ public class TypeDefinitionItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.TYPE_DEFINITION__ENUMS,
+        (DomainPackage.Literals.TYPE_DEFINITION__TYPES,
          DomainFactory.eINSTANCE.createEnumarator()));
   }
 

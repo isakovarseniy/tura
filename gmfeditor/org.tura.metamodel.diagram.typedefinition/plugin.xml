@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Typedefinition"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="102001,102002,102003,103001,103002,103006,103004,103005"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="102001,102004,102002,102005,103001,103002,103006,103004,103005"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="104001,104005,104004,104003"/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="Typedefinition"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="102001,102002,102003,103001,103002,103006,103004,103005"/>
+            <method name="getType()" value="102001,102004,102002,102005,103001,103002,103006,103004,103005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="104001,104005,104004,104003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="105001,105006,105008,105002,105005,105009,105004,105007"/>
+            <method name="getType()" value="105001,105010,105006,105011,105002,105005,105009,105004,105007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="107001,107002,107003,107004,107005"/>
+            <method name="getType()" value="107001,107002,107003,107004,107006"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -292,9 +292,10 @@
          <Priority name="Lowest"/>
          <object class="typedefinition.diagram.edit.parts.TypeDefinitionEditPart" id="TypeDefinition_101000"/>
          <object class="typedefinition.diagram.edit.parts.TypeReferenceEditPart" id="TypeReference_102001"/>
+         <object class="typedefinition.diagram.edit.parts.PrimitiveEditPart" id="Primitive_102004"/>
          <object class="typedefinition.diagram.edit.parts.TypeEditPart" id="Type_102002"/>
-         <object class="typedefinition.diagram.edit.parts.EnumaratorEditPart" id="Enumarator_102003"/>
-         <context elements="TypeDefinition_101000,TypeReference_102001,Type_102002,Enumarator_102003"/>
+         <object class="typedefinition.diagram.edit.parts.EnumaratorEditPart" id="Enumarator_102005"/>
+         <context elements="TypeDefinition_101000,TypeReference_102001,Primitive_102004,Type_102002,Enumarator_102005"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -317,7 +318,7 @@
       <decoratorProvider class="typedefinition.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="102001,102002,102003"/>
+            <method name="getType()" value="102001,102004,102002,102005"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -347,6 +348,16 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
+               id="org.tura.metamodel.diagram.typedefinition.Primitive_102004"
+               name="%metatype.name.Primitive_102004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Primitive"
+               edithelper="typedefinition.diagram.edit.helpers.PrimitiveEditHelper">
+            <param name="semanticHint" value="102004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
                id="org.tura.metamodel.diagram.typedefinition.Type_102002"
                name="%metatype.name.Type_102002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -357,12 +368,12 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.diagram.typedefinition.Enumarator_102003"
-               name="%metatype.name.Enumarator_102003"
+               id="org.tura.metamodel.diagram.typedefinition.Enumarator_102005"
+               name="%metatype.name.Enumarator_102005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Enumarator"
                edithelper="typedefinition.diagram.edit.helpers.EnumaratorEditHelper">
-            <param name="semanticHint" value="102003"/>
+            <param name="semanticHint" value="102005"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -470,8 +481,9 @@
       <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.diagram.typedefinition.TypeDefinition_101000"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.TypeReference_102001"/>
+         <elementType ref="org.tura.metamodel.diagram.typedefinition.Primitive_102004"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Type_102002"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.Enumarator_102003"/>
+         <elementType ref="org.tura.metamodel.diagram.typedefinition.Enumarator_102005"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Attribute_103001"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Operation_103002"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Parameter_103006"/>

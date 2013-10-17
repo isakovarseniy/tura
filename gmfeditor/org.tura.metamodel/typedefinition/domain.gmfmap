@@ -17,15 +17,33 @@
         <diagramLabel
             href="domain.gmfgraph#TypeReferenceLabel"/>
         <features
-            href="domain.ecore#//TypePointer/packageName"/>
-        <features
-            href="domain.ecore#//TypePointer/typeName"/>
+            href="domain.ecore#//TypeReference/uid"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
       <diagramNode
           href="domain.gmfgraph#TypeReference"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//TypeDefinition/types"/>
+    <ownedChild>
+      <domainMetaElement
+          href="domain.ecore#//Primitive"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#PrimitiveLabel"/>
+        <features
+            href="domain.ecore#//TypeElement/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+      <diagramNode
+          href="domain.gmfgraph#Primitive"/>
     </ownedChild>
   </nodes>
   <nodes>
@@ -40,15 +58,15 @@
         <diagramLabel
             href="domain.gmfgraph#TypeLabel"/>
         <features
-            href="domain.ecore#//Type/name"/>
+            href="domain.ecore#//TypeElement/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
       <diagramNode
           href="domain.gmfgraph#Type"/>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.0">
+          compartment="//@nodes.2/@ownedChild/@compartments.0">
         <containmentFeature
             href="domain.ecore#//Type/attributes"/>
         <ownedChild>
@@ -69,7 +87,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.1">
+          compartment="//@nodes.2/@ownedChild/@compartments.1">
         <containmentFeature
             href="domain.ecore#//Type/operations"/>
         <ownedChild
@@ -89,7 +107,7 @@
           <diagramNode
               href="domain.gmfgraph#Operation"/>
           <children
-              compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@compartments.0">
+              compartment="//@nodes.2/@ownedChild/@children.1/@ownedChild/@compartments.0">
             <containmentFeature
                 href="domain.ecore#//Operation/parameters"/>
             <ownedChild>
@@ -110,7 +128,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@compartments.1">
+              compartment="//@nodes.2/@ownedChild/@children.1/@ownedChild/@compartments.1">
             <containmentFeature
                 href="domain.ecore#//Operation/returnValue"/>
             <ownedChild>
@@ -121,36 +139,34 @@
                 <diagramLabel
                     href="domain.gmfgraph#ReturnValueLabel"/>
                 <features
-                    href="domain.ecore#//TypePointer/packageName"/>
-                <features
-                    href="domain.ecore#//TypePointer/typeName"/>
+                    href="domain.ecore#//ReturnValue/uid"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+                  href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
               <diagramNode
                   href="domain.gmfgraph#ReturnValue"/>
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.1/@ownedChild/@children.1/@ownedChild/@children.0">
+              children="//@nodes.2/@ownedChild/@children.1/@ownedChild/@children.0">
             <compartment
                 href="domain.gmfgraph#OperationParametersCompartment"/>
           </compartments>
           <compartments
-              children="//@nodes.1/@ownedChild/@children.1/@ownedChild/@children.1">
+              children="//@nodes.2/@ownedChild/@children.1/@ownedChild/@children.1">
             <compartment
                 href="domain.gmfgraph#OperationReturnValueCompartment"/>
           </compartments>
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.0">
+          children="//@nodes.2/@ownedChild/@children.0">
         <compartment
             href="domain.gmfgraph#TypeAttributesCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.1">
+          children="//@nodes.2/@ownedChild/@children.1">
         <compartment
             href="domain.gmfgraph#TypeOperationsCompartment"/>
       </compartments>
@@ -158,7 +174,7 @@
   </nodes>
   <nodes>
     <containmentFeature
-        href="domain.ecore#//TypeDefinition/enums"/>
+        href="domain.ecore#//TypeDefinition/types"/>
     <ownedChild
         relatedDiagrams="//@diagram">
       <domainMetaElement
@@ -168,7 +184,7 @@
         <diagramLabel
             href="domain.gmfgraph#EnumaratorLabel"/>
         <features
-            href="domain.ecore#//Enumarator/name"/>
+            href="domain.ecore#//TypeElement/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
@@ -176,7 +192,7 @@
       <diagramNode
           href="domain.gmfgraph#Enumarator"/>
       <children
-          compartment="//@nodes.2/@ownedChild/@compartments.0">
+          compartment="//@nodes.3/@ownedChild/@compartments.0">
         <containmentFeature
             href="domain.ecore#//Enumarator/values"/>
         <ownedChild>
@@ -197,7 +213,7 @@
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.2/@ownedChild/@children.0">
+          children="//@nodes.3/@ownedChild/@children.0">
         <compartment
             href="domain.gmfgraph#EnumaratorValuesCompartment"/>
       </compartments>

@@ -1,8 +1,8 @@
 package org.metamodel.tura.ui.properties.sections;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EventObject;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.command.BasicCommandStack;
@@ -28,7 +28,7 @@ import domain.DomainPackage;
 public class ArtifactPropertySelection extends
 		AbstractEnumerationPropertySection {
 
-	protected ArrayList<String> values;
+	protected HashMap<String,domain.Artifact> values;
 	private boolean isFirstTime = true;
 	private CommandStackListener commandStackListener;
 
@@ -56,7 +56,7 @@ public class ArtifactPropertySelection extends
 						if (cmd instanceof SetCommand) {
 							if (((SetCommand) cmd).getFeature().equals(
 									DomainPackage.eINSTANCE
-											.getTypePointer_PackageName())) {
+											.getTypePointer_PackageRef())) {
 								values = null;
 
 								EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -80,34 +80,34 @@ public class ArtifactPropertySelection extends
 
 	}
 
-	protected Object getFeatureValue(int index) {
-		return values.get(index);
+	protected Object getFeatureValue(Object key) {
+		return values.get(key);
 	}
 
 	protected String getLabelText() {
 		return "Artifact name";//$NON-NLS-1$
 	}
 
-	protected boolean isEqual(int index) {
+	protected boolean isEqual(Object key) {
 		if (((domain.ArtifactRef) eObject).getArtifactName() == null)
 			return false;
 
-		return values.get(index).equals(
+		return values.get(key).equals(
 				((domain.ArtifactRef) eObject).getArtifactName());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	protected String[] getEnumerationFeatureValues() {
+	protected HashMap<String,domain.Artifact> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new ArrayList<String>();
+			values = new HashMap<String,domain.Artifact>();
 
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
 			EObject types = (EObject) diagram.getElement();
 
 			if (((domain.ArtifactRef) eObject).getDomainArtifact() == null)
-				return new String[] {};
+				return values;
 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
@@ -126,7 +126,7 @@ public class ArtifactPropertySelection extends
 
 				for (Iterator<domain.Artifact> i = map.iterator(); i.hasNext();) {
 					domain.Artifact p = i.next();
-					values.add(p.getName());
+					values.put(p.getName(),p);
 				}
 
 			} catch (Exception e) {
@@ -134,7 +134,7 @@ public class ArtifactPropertySelection extends
 			}
 		}
 
-		return values.toArray(new String[values.size()]);
+		return values;
 	}
 
 	public void dispose() {

@@ -34,12 +34,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case TypesNameEditPart.VISUAL_ID:
 				return new TypesNameEditPart(view);
 
-			case PrimitiveEditPart.VISUAL_ID:
-				return new PrimitiveEditPart(view);
-
-			case PrimitiveNameEditPart.VISUAL_ID:
-				return new PrimitiveNameEditPart(view);
-
 			case PackageEditPart.VISUAL_ID:
 				return new PackageEditPart(view);
 
@@ -51,9 +45,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case BusinessPackageNameEditPart.VISUAL_ID:
 				return new BusinessPackageNameEditPart(view);
-
-			case TypesTypesPrimitivesCompartmentEditPart.VISUAL_ID:
-				return new TypesTypesPrimitivesCompartmentEditPart(view);
 
 			case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
 				return new TypesTypesPackagesCompartmentEditPart(view);

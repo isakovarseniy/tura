@@ -16,7 +16,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getTypeReference()
- * @model annotation="gmf.node label='packageName,typeName'"
+ * @model annotation="gmf.node label='uid'"
  * @generated
  */
 public interface TypeReference extends TypeElement, TypePointer

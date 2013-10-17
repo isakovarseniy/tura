@@ -1,7 +1,7 @@
 package org.metamodel.tura.ui.properties.sections;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -19,7 +19,7 @@ import domain.DomainPackage;
 public class DomainArtifactPropertySelection extends
 		AbstractEnumerationPropertySection {
 
-	private ArrayList<String> values;
+	private HashMap<String,domain.DomainArtifact> values;
 
 	protected EAttribute getFeature() {
 		return DomainPackage.eINSTANCE.getArtifactRef_DomainArtifact();
@@ -29,26 +29,26 @@ public class DomainArtifactPropertySelection extends
 		return ((domain.ArtifactRef) eObject).getDomainArtifact();
 	}
 
-	protected Object getFeatureValue(int index) {
-		return values.get(index);
+	protected Object getFeatureValue(Object key) {
+		return values.get(key);
 	}
 
 	protected String getLabelText() {
 		return "Domain artifact name";//$NON-NLS-1$
 	}
 
-	protected boolean isEqual(int index) {
+	protected boolean isEqual(Object  key) {
 		if (((domain.ArtifactRef) eObject).getDomainArtifact() == null)
 			return false;
-		return values.get(index).equals(
+		return values.get(key).equals(
 				((domain.ArtifactRef) eObject).getArtifactName());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	protected String[] getEnumerationFeatureValues() {
+	protected HashMap<String,domain.DomainArtifact> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new ArrayList<String>();
+			values = new HashMap<String,domain.DomainArtifact>();
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
 			try {
@@ -68,13 +68,13 @@ public class DomainArtifactPropertySelection extends
 
 				for (Iterator<domain.DomainArtifact> i = map.iterator(); i.hasNext();) {
 					domain.DomainArtifact p = i.next();
-					values.add(p.getName());
+					values.put(p.getName(),p);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		return values.toArray(new String[values.size()]);
+		return values;
 	}
 }

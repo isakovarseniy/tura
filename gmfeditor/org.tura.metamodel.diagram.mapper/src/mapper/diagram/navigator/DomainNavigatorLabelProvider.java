@@ -6,10 +6,11 @@ package mapper.diagram.navigator;
 import mapper.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import mapper.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
-import mapper.diagram.edit.parts.JavaMapperPackageNameEditPart;
+import mapper.diagram.edit.parts.JavaMapperUidEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 import mapper.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import mapper.diagram.edit.parts.TypeExtensionEditPart;
+import mapper.diagram.edit.parts.WrappingLabelEditPart;
 import mapper.diagram.part.DomainDiagramEditorPlugin;
 import mapper.diagram.part.DomainVisualIDRegistry;
 import mapper.diagram.providers.DomainElementTypes;
@@ -106,21 +107,21 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_404005); //$NON-NLS-1$
-		case MappersEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?Mappers", DomainElementTypes.Mappers_401000); //$NON-NLS-1$
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_404003); //$NON-NLS-1$
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_404004); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_404001); //$NON-NLS-1$
 		case JavaMapperEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaMapper", DomainElementTypes.JavaMapper_402001); //$NON-NLS-1$
+		case MappersEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?Mappers", DomainElementTypes.Mappers_401000); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_404001); //$NON-NLS-1$
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_404004); //$NON-NLS-1$
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_404003); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -183,16 +184,16 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return getRecipeInfrastructures_404005Text(view);
-		case MappersEditPart.VISUAL_ID:
-			return getMappers_401000Text(view);
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_404003Text(view);
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getInfrastructureRecipeConfig_404004Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_404001Text(view);
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_402001Text(view);
+		case MappersEditPart.VISUAL_ID:
+			return getMappers_401000Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_404001Text(view);
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return getInfrastructureRecipeConfig_404004Text(view);
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getConfigurationConfigExtension_404003Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -258,11 +259,11 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getJavaMapper_402001Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.JavaMapper_402001,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry
-						.getType(JavaMapperPackageNameEditPart.VISUAL_ID));
+		IParser parser = DomainParserProvider
+				.getParser(DomainElementTypes.JavaMapper_402001, view
+						.getElement() != null ? view.getElement() : view,
+						DomainVisualIDRegistry
+								.getType(JavaMapperUidEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),

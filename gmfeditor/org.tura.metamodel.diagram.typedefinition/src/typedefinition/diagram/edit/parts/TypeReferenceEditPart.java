@@ -120,8 +120,8 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof TypeReferencePackageNameTypeNameEditPart) {
-			((TypeReferencePackageNameTypeNameEditPart) childEditPart)
+		if (childEditPart instanceof TypeReferenceUidEditPart) {
+			((TypeReferenceUidEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureTypeReferenceLabelFigure());
 			return true;
@@ -133,7 +133,7 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof TypeReferencePackageNameTypeNameEditPart) {
+		if (childEditPart instanceof TypeReferenceUidEditPart) {
 			return true;
 		}
 		return false;
@@ -257,7 +257,7 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(TypeReferencePackageNameTypeNameEditPart.VISUAL_ID));
+				.getType(TypeReferenceUidEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -278,7 +278,13 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 		if (targetEditPart instanceof typedefinition.diagram.edit.parts.TypeReferenceEditPart) {
 			types.add(DomainElementTypes.TypeExtension_104001);
 		}
+		if (targetEditPart instanceof PrimitiveEditPart) {
+			types.add(DomainElementTypes.TypeExtension_104001);
+		}
 		if (targetEditPart instanceof TypeEditPart) {
+			types.add(DomainElementTypes.TypeExtension_104001);
+		}
+		if (targetEditPart instanceof EnumaratorEditPart) {
 			types.add(DomainElementTypes.TypeExtension_104001);
 		}
 		return types;
@@ -291,7 +297,9 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
 			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
 			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.Enumarator_102005);
 		}
 		return types;
 	}
@@ -312,7 +320,9 @@ public class TypeReferenceEditPart extends ShapeNodeEditPart {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
 			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
 			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.Enumarator_102005);
 		}
 		return types;
 	}

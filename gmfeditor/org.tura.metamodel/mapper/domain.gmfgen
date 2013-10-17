@@ -58,8 +58,8 @@
       </modelFacet>
       <labels
           visualID="405001"
-          editPartClassName="JavaMapperPackageNameEditPart"
-          itemSemanticEditPolicyClassName="JavaMapperPackageNameItemSemanticEditPolicy"
+          editPartClassName="JavaMapperUidEditPart"
+          itemSemanticEditPolicyClassName="JavaMapperUidItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -71,7 +71,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/TypePointer/packageName"/>
+              href="domain.genmodel#//domain/Mapper/uid"/>
         </modelFacet>
       </labels>
     </topLevelNodes>

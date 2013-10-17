@@ -43,9 +43,10 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createEnumarator3CreationTool());
 		paletteContainer.add(createOperation4CreationTool());
 		paletteContainer.add(createParameter5CreationTool());
-		paletteContainer.add(createReturnValue6CreationTool());
-		paletteContainer.add(createType7CreationTool());
-		paletteContainer.add(createTypeReference8CreationTool());
+		paletteContainer.add(createPrimitive6CreationTool());
+		paletteContainer.add(createReturnValue7CreationTool());
+		paletteContainer.add(createType8CreationTool());
+		paletteContainer.add(createTypeReference9CreationTool());
 		return paletteContainer;
 	}
 
@@ -102,10 +103,10 @@ public class DomainPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Enumarator3CreationTool_title,
 				Messages.Enumarator3CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Enumarator_102003));
+				Collections.singletonList(DomainElementTypes.Enumarator_102005));
 		entry.setId("createEnumarator3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Enumarator_102003));
+				.getImageDescriptor(DomainElementTypes.Enumarator_102005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -143,13 +144,28 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createReturnValue6CreationTool() {
+	private ToolEntry createPrimitive6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ReturnValue6CreationTool_title,
-				Messages.ReturnValue6CreationTool_desc,
+				Messages.Primitive6CreationTool_title,
+				Messages.Primitive6CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Primitive_102004));
+		entry.setId("createPrimitive6CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Primitive_102004));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createReturnValue7CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.ReturnValue7CreationTool_title,
+				Messages.ReturnValue7CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ReturnValue_103004));
-		entry.setId("createReturnValue6CreationTool"); //$NON-NLS-1$
+		entry.setId("createReturnValue7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ReturnValue_103004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -159,12 +175,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createType7CreationTool() {
+	private ToolEntry createType8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Type7CreationTool_title,
-				Messages.Type7CreationTool_desc,
+				Messages.Type8CreationTool_title,
+				Messages.Type8CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Type_102002));
-		entry.setId("createType7CreationTool"); //$NON-NLS-1$
+		entry.setId("createType8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Type_102002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -174,13 +190,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypeReference8CreationTool() {
+	private ToolEntry createTypeReference9CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.TypeReference8CreationTool_title,
-				Messages.TypeReference8CreationTool_desc,
+				Messages.TypeReference9CreationTool_title,
+				Messages.TypeReference9CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.TypeReference_102001));
-		entry.setId("createTypeReference8CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypeReference9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.TypeReference_102001));
 		entry.setLargeIcon(entry.getSmallIcon());

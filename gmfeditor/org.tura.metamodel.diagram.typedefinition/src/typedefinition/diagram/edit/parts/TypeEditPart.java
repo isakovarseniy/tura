@@ -317,7 +317,13 @@ public class TypeEditPart extends ShapeNodeEditPart {
 		if (targetEditPart instanceof TypeReferenceEditPart) {
 			types.add(DomainElementTypes.TypeExtension_104001);
 		}
+		if (targetEditPart instanceof PrimitiveEditPart) {
+			types.add(DomainElementTypes.TypeExtension_104001);
+		}
 		if (targetEditPart instanceof typedefinition.diagram.edit.parts.TypeEditPart) {
+			types.add(DomainElementTypes.TypeExtension_104001);
+		}
+		if (targetEditPart instanceof EnumaratorEditPart) {
 			types.add(DomainElementTypes.TypeExtension_104001);
 		}
 		return types;
@@ -330,7 +336,9 @@ public class TypeEditPart extends ShapeNodeEditPart {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
 			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
 			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.Enumarator_102005);
 		}
 		return types;
 	}
@@ -351,7 +359,9 @@ public class TypeEditPart extends ShapeNodeEditPart {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
 			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
 			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.Enumarator_102005);
 		}
 		return types;
 	}

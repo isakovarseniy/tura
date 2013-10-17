@@ -60,7 +60,7 @@ public class EnumaratorCreateCommand extends EditElementCommand {
 		Enumarator newElement = DomainFactory.eINSTANCE.createEnumarator();
 
 		TypeDefinition owner = (TypeDefinition) getElementToEdit();
-		owner.getEnums().add(newElement);
+		owner.getTypes().add(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 

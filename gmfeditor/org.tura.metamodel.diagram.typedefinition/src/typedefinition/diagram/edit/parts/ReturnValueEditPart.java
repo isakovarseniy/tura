@@ -111,10 +111,9 @@ public class ReturnValueEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ReturnValuePackageNameTypeNameEditPart) {
-			((ReturnValuePackageNameTypeNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureReturnValueLabelFigure());
+		if (childEditPart instanceof ReturnValueUidEditPart) {
+			((ReturnValueUidEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureReturnValueLabelFigure());
 			return true;
 		}
 		return false;
@@ -124,7 +123,7 @@ public class ReturnValueEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ReturnValuePackageNameTypeNameEditPart) {
+		if (childEditPart instanceof ReturnValueUidEditPart) {
 			return true;
 		}
 		return false;
@@ -248,7 +247,7 @@ public class ReturnValueEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(ReturnValuePackageNameTypeNameEditPart.VISUAL_ID));
+				.getType(ReturnValueUidEditPart.VISUAL_ID));
 	}
 
 	/**

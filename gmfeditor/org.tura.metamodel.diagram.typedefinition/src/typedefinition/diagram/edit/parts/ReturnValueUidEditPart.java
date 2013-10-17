@@ -5,7 +5,6 @@ package typedefinition.diagram.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
-
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -46,17 +45,17 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-
 import typedefinition.diagram.edit.policies.DomainTextSelectionEditPolicy;
 import typedefinition.diagram.part.DomainVisualIDRegistry;
 import typedefinition.diagram.providers.DomainElementTypes;
 import typedefinition.diagram.providers.DomainParserProvider;
+import domain.ReturnValue;
 
 /**
  * @generated
  */
-public class ReturnValuePackageNameTypeNameEditPart extends CompartmentEditPart
-		implements ITextAwareEditPart {
+public class ReturnValueUidEditPart extends CompartmentEditPart implements
+		ITextAwareEditPart {
 
 	/**
 	 * @generated
@@ -91,7 +90,7 @@ public class ReturnValuePackageNameTypeNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public ReturnValuePackageNameTypeNameEditPart(View view) {
+	public ReturnValueUidEditPart(View view) {
 		super(view);
 	}
 
@@ -214,9 +213,14 @@ public class ReturnValuePackageNameTypeNameEditPart extends CompartmentEditPart
 		String text = null;
 		EObject parserElement = getParserElement();
 		if (parserElement != null && getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
-					getParserOptions().intValue());
+			String packPart = "NA";
+			String typePart = "NA";
+			if (((ReturnValue) parserElement).getPackageRef() != null)
+				packPart = ((ReturnValue) parserElement).getPackageRef()
+						.getName();
+			if (((ReturnValue) parserElement).getTypeRef() != null)
+				typePart = ((ReturnValue) parserElement).getTypeRef().getName();
+			text = packPart + "." + typePart;
 
 		}
 		if (text == null || text.length() == 0) {
@@ -316,7 +320,7 @@ public class ReturnValuePackageNameTypeNameEditPart extends CompartmentEditPart
 							DomainElementTypes.ReturnValue_103004,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(typedefinition.diagram.edit.parts.ReturnValuePackageNameTypeNameEditPart.VISUAL_ID));
+									.getType(typedefinition.diagram.edit.parts.ReturnValueUidEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

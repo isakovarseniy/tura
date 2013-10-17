@@ -1,9 +1,11 @@
 package org.metamodel.tura.ui.properties.sections;
 
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
 
 import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
@@ -74,13 +76,13 @@ public abstract class AbstractEnumerationPropertySection extends
 	protected void handleComboModified() {
 
 		int index = combo.getSelectionIndex();
-		boolean equals = isEqual(index);
+		boolean equals = isEqual(combo.getItem(index));
 		if (!equals) {
             updated = true;
             
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
-			Object value = getFeatureValue(index);
+			Object value = getFeatureValue(combo.getItem(index));
 			if (eObjectList.size() == 1) {
 				/* apply the property change to single selected object */
 				editingDomain.getCommandStack().execute(
@@ -103,7 +105,8 @@ public abstract class AbstractEnumerationPropertySection extends
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
 	 */
 	public void refresh() {
-		combo.setItems(getEnumerationFeatureValues());
+		Set<String> keySet =  getEnumerationFeatureValues().keySet();
+		combo.setItems(keySet.toArray(new String[keySet.size()]));
 		if (getFeatureAsText() != null) {
 			combo.setText(getFeatureAsText());
 		}
@@ -118,14 +121,14 @@ public abstract class AbstractEnumerationPropertySection extends
 	 * @return <code>true</code> if the new index value is equal to the current
 	 *         property setting.
 	 */
-	protected abstract boolean isEqual(int index);
+	protected abstract boolean isEqual(Object key);
 
 	/**
 	 * Get the feature for the combo field for the section.
 	 * 
 	 * @return the feature for the text.
 	 */
-	protected abstract EAttribute getFeature();
+	protected abstract EStructuralFeature getFeature();
 
 	/**
 	 * Get the enumeration values of the feature for the combo field for the
@@ -133,7 +136,7 @@ public abstract class AbstractEnumerationPropertySection extends
 	 * 
 	 * @return the list of values of the feature as text.
 	 */
-	protected abstract String[] getEnumerationFeatureValues();
+	protected abstract HashMap<String,?> getEnumerationFeatureValues();
 
 	/**
 	 * Get the value of the feature as text for the combo field for the section.
@@ -149,7 +152,7 @@ public abstract class AbstractEnumerationPropertySection extends
 	 *            the new index in the enumeration.
 	 * @return the new value of the feature.
 	 */
-	protected abstract Object getFeatureValue(int index);
+	protected abstract Object getFeatureValue(Object key);
 
 	/**
 	 * Get the label for the combo field for the section.

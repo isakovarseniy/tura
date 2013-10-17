@@ -173,8 +173,10 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.MAPPING_SPECIFIER: return createMappingSpecifier();
       case DomainPackage.MAPPING_VARIABLE: return createMappingVariable();
       case DomainPackage.ARTIFACT_REF: return createArtifactRef();
+      case DomainPackage.TYPE_POINTER: return createTypePointer();
       case DomainPackage.TYPE_DEFINITION: return createTypeDefinition();
       case DomainPackage.TYPE_ELEMENT: return createTypeElement();
+      case DomainPackage.PRIMITIVE: return createPrimitive();
       case DomainPackage.TYPE: return createType();
       case DomainPackage.TYPE_REFERENCE: return createTypeReference();
       case DomainPackage.TYPE_EXTENSION: return createTypeExtension();
@@ -184,10 +186,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.RETURN_VALUE: return createReturnValue();
       case DomainPackage.ENUMARATOR: return createEnumarator();
       case DomainPackage.ENUM_ATTRIBUTE: return createEnumAttribute();
-      case DomainPackage.TYPE_POINTER: return createTypePointer();
       case DomainPackage.TYPES_REPOSITORY: return createTypesRepository();
       case DomainPackage.TYPES: return createTypes();
-      case DomainPackage.PRIMITIVE: return createPrimitive();
       case DomainPackage.PACKAGE: return createPackage();
       case DomainPackage.BUSINESS_PACKAGE: return createBusinessPackage();
       default:

@@ -3,7 +3,8 @@
  */
 package mapper.diagram.providers;
 
-import mapper.diagram.edit.parts.JavaMapperPackageNameEditPart;
+import mapper.diagram.edit.parts.JavaMapperUidEditPart;
+import mapper.diagram.edit.parts.WrappingLabelEditPart;
 import mapper.diagram.parsers.MessageFormatParser;
 import mapper.diagram.part.DomainVisualIDRegistry;
 
@@ -31,19 +32,19 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser javaMapperPackageName_405001Parser;
+	private IParser javaMapperUid_405001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getJavaMapperPackageName_405001Parser() {
-		if (javaMapperPackageName_405001Parser == null) {
+	private IParser getJavaMapperUid_405001Parser() {
+		if (javaMapperUid_405001Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTypePointer_PackageName() };
+					.getMapper_Uid() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			javaMapperPackageName_405001Parser = parser;
+			javaMapperUid_405001Parser = parser;
 		}
-		return javaMapperPackageName_405001Parser;
+		return javaMapperUid_405001Parser;
 	}
 
 	/**
@@ -51,8 +52,8 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case JavaMapperPackageNameEditPart.VISUAL_ID:
-			return getJavaMapperPackageName_405001Parser();
+		case JavaMapperUidEditPart.VISUAL_ID:
+			return getJavaMapperUid_405001Parser();
 		}
 		return null;
 	}

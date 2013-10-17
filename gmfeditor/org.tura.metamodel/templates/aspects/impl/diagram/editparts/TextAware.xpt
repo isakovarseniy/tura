@@ -4,17 +4,35 @@
 	protected String getLabelText() {
 		String text = null;
 		org.eclipse.emf.ecore.EObject parserElement = getParserElement();
-	«IF  self.editPartClassName.indexOf('TypeReferencePackageNameTypeNameEditPart') > 0-»
+	«IF  self.editPartClassName.indexOf('TypeReferenceUidEditPart') > 0-»
 		if (parserElement != null && getParser() != null  ) {
-           text = ((domain.TypeReference)parserElement).getPackageName()+"."+ ((domain.TypeReference)parserElement).getTypeName();
+		   String packPart="NA";
+		   String typePart = "NA";
+		   if (((domain.TypeReference)parserElement).getPackageRef() != null)
+		          packPart = ((domain.TypeReference)parserElement).getPackageRef().getName();
+           if ( ((domain.TypeReference)parserElement).getTypeRef() != null)  
+                 typePart = ((domain.TypeReference)parserElement).getTypeRef().getName();
+           text =packPart +"."+ typePart;
 
-	«ELSEIF  self.editPartClassName.indexOf('ReturnValuePackageNameEditPart') > 0-»
+	«ELSEIF  self.editPartClassName.indexOf('ReturnValueUidEditPart') > 0-»
 		if (parserElement != null && getParser() != null   ) {
-          text = ((domain.ReturnValue)parserElement).getPackageName()+"."+ ((domain.ReturnValue)parserElement).getTypeName();
+		   String packPart="NA";
+		   String typePart = "NA";
+		   if (((domain.ReturnValue)parserElement).getPackageRef() != null)
+		          packPart = ((domain.ReturnValue)parserElement).getPackageRef().getName();
+           if ( ((domain.ReturnValue)parserElement).getTypeRef() != null)  
+                 typePart = ((domain.ReturnValue)parserElement).getTypeRef().getName();
+           text =packPart +"."+ typePart;
 
-	«ELSEIF  self.editPartClassName.indexOf('JavaMapperPackageNameEditPart') > 0-»
+	«ELSEIF  self.editPartClassName.indexOf('JavaMapperUidEditPart') > 0-»
 		if (parserElement != null && getParser() != null   ) {
-          text = ((domain.TypePointer)parserElement).getPackageName()+"."+ ((domain.TypePointer)parserElement).getTypeName();
+		   String packPart="NA";
+		   String typePart = "NA";
+		   if (((domain.TypePointer)parserElement).getPackageRef() != null)
+		          packPart = ((domain.TypePointer)parserElement).getPackageRef().getName();
+           if ( ((domain.TypePointer)parserElement).getTypeRef() != null)  
+                 typePart = ((domain.TypePointer)parserElement).getTypeRef().getName();
+           text =packPart +"."+ typePart;
 
 	«ELSE-»
 	   if (parserElement != null && getParser() != null ){

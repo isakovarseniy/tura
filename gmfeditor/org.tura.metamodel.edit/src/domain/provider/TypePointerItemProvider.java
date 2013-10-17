@@ -64,54 +64,54 @@ public class TypePointerItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addPackageNamePropertyDescriptor(object);
-      addTypeNamePropertyDescriptor(object);
+      addPackageRefPropertyDescriptor(object);
+      addTypeRefPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Package Name feature.
+   * This adds a property descriptor for the Package Ref feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addPackageNamePropertyDescriptor(Object object)
+  protected void addPackageRefPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_TypePointer_packageName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_packageName_feature", "_UI_TypePointer_type"),
-         DomainPackage.Literals.TYPE_POINTER__PACKAGE_NAME,
+         getString("_UI_TypePointer_packageRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_packageRef_feature", "_UI_TypePointer_type"),
+         DomainPackage.Literals.TYPE_POINTER__PACKAGE_REF,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
 
   /**
-   * This adds a property descriptor for the Type Name feature.
+   * This adds a property descriptor for the Type Ref feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addTypeNamePropertyDescriptor(Object object)
+  protected void addTypeRefPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_TypePointer_typeName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_typeName_feature", "_UI_TypePointer_type"),
-         DomainPackage.Literals.TYPE_POINTER__TYPE_NAME,
+         getString("_UI_TypePointer_typeRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_typeRef_feature", "_UI_TypePointer_type"),
+         DomainPackage.Literals.TYPE_POINTER__TYPE_REF,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
@@ -137,10 +137,7 @@ public class TypePointerItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((TypePointer)object).getPackageName();
-    return label == null || label.length() == 0 ?
-      getString("_UI_TypePointer_type") :
-      getString("_UI_TypePointer_type") + " " + label;
+    return getString("_UI_TypePointer_type");
   }
 
   /**
@@ -154,14 +151,6 @@ public class TypePointerItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(TypePointer.class))
-    {
-      case DomainPackage.TYPE_POINTER__PACKAGE_NAME:
-      case DomainPackage.TYPE_POINTER__TYPE_NAME:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-    }
     super.notifyChanged(notification);
   }
 

@@ -1,8 +1,8 @@
 package org.metamodel.tura.ui.properties.sections;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EventObject;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.command.BasicCommandStack;
@@ -24,10 +24,11 @@ import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.ui.IWorkbenchPart;
 
 import domain.DomainPackage;
+
 public class MethodNamePropertySection extends
 		AbstractEnumerationPropertySection {
 
-	protected ArrayList<String> values;
+	protected HashMap<String, domain.Operation> values;
 	private boolean isFirstTime = true;
 	private CommandStackListener commandStackListener;
 
@@ -54,15 +55,16 @@ public class MethodNamePropertySection extends
 						if (cmd instanceof SetCommand) {
 							if (((SetCommand) cmd).getFeature().equals(
 									DomainPackage.eINSTANCE
-											.getTypePointer_TypeName())) {
+											.getTypePointer_TypeRef())) {
 								values = null;
 
 								EditingDomain editingDomain = ((DiagramEditor) getPart())
 										.getEditingDomain();
-	
+
 								editingDomain.getCommandStack().execute(
-								SetCommand.create(editingDomain, ((SetCommand) cmd).getOwner(),
-										getFeature(), null));
+										SetCommand.create(editingDomain,
+												((SetCommand) cmd).getOwner(),
+												getFeature(), null));
 
 								refresh();
 							}
@@ -77,78 +79,65 @@ public class MethodNamePropertySection extends
 
 	}
 
-	protected Object getFeatureValue(int index) {
-		return values.get(index);
+	protected Object getFeatureValue(Object key) {
+		return values.get(key);
 	}
 
 	protected String getLabelText() {
 		return "Method name";//$NON-NLS-1$
 	}
 
-	protected boolean isEqual(int index) {
+	protected boolean isEqual(Object key) {
 		if (((domain.BusinessMethod) eObject).getMethod() == null)
 			return false;
 
-		return values.get(index).equals(((domain.BusinessMethod) eObject).getMethod());
+		return values.get(key).equals(
+				((domain.BusinessMethod) eObject).getMethod());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	protected String[] getEnumerationFeatureValues() {
+	protected HashMap<String, domain.Operation> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new ArrayList<String>();
+			values = new HashMap<String, domain.Operation>();
 
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
 			EObject types = (EObject) diagram.getElement();
 
-			if ((((domain.BusinessMethod) eObject).getTypeName() == null)
-					|| ((domain.BusinessMethod) eObject).getPackageName() == null)
-				return new String[] {};
+			if ((((domain.BusinessMethod) eObject).getTypeRef() == null)
+					|| ((domain.BusinessMethod) eObject).getPackageRef() == null)
+				return values;
 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
 					.createOCLHelper();
-			helper.setContext(DomainPackage.eINSTANCE
-					.getEClassifier("Types"));
-
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Types"));		
+			
 			try {
-				if ((((domain.BusinessMethod) eObject).getPackageName())
-						.equals("Primitives")) {
-					OCLExpression<EClassifier> query = helper
-							.createQuery("self.primitives");
-					Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
-							.evaluate(types, query);
-					for (Iterator<domain.Primitive> i = map.iterator(); i
-							.hasNext();) {
-						domain.Primitive p = i.next();
-						values.add(p.getName());
-					}
-				} else {
-					OCLExpression<EClassifier> query = helper
-							.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
-									+ ((domain.TypePointer) eObject)
-											.getPackageName()
-									+ "').oclAsType(domain::Package).typedefinition.types->select(r|r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '"
-									+ ((domain.BusinessMethod) eObject).getTypeName()
-									+ "').oclAsType(domain::Type).operations");
+				OCLExpression<EClassifier> query = helper
+						.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
+								+ ((domain.TypePointer) eObject)
+										.getPackageRef().getName()
+								+ "').oclAsType(domain::Package).typedefinition.types->select(r|r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '"
+								+ ((domain.BusinessMethod) eObject)
+										.getTypeRef().getName()
+								+ "').oclAsType(domain::Type).operations");
 
-					Collection<domain.Operation> map = (Collection<domain.Operation>) ocl
-							.evaluate(types, query);
+				Collection<domain.Operation> map = (Collection<domain.Operation>) ocl
+						.evaluate(types, query);
 
-					for (Iterator<domain.Operation> i = map.iterator(); i
-							.hasNext();) {
-						domain.Operation p = i.next();
-						values.add(p.getName());
-					}
-
+				for (Iterator<domain.Operation> i = map.iterator(); i.hasNext();) {
+					domain.Operation p = i.next();
+					values.put(p.getName(), p);
 				}
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		return values.toArray(new String[values.size()]);
+		return values;
 	}
 
 	public void dispose() {

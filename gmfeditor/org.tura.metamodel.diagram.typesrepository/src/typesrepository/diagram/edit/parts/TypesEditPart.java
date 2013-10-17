@@ -123,14 +123,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 					.getFigureTypesLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof TypesTypesPrimitivesCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getTypesPrimitivesCompartmentFigure();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((TypesTypesPrimitivesCompartmentEditPart) childEditPart)
-					.getFigure());
-			return true;
-		}
 		if (childEditPart instanceof TypesTypesPackagesCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getTypesPackagesCompartmentFigure();
@@ -155,13 +147,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof TypesNameEditPart) {
-			return true;
-		}
-		if (childEditPart instanceof TypesTypesPrimitivesCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getTypesPrimitivesCompartmentFigure();
-			pane.remove(((TypesTypesPrimitivesCompartmentEditPart) childEditPart)
-					.getFigure());
 			return true;
 		}
 		if (childEditPart instanceof TypesTypesPackagesCompartmentEditPart) {
@@ -205,9 +190,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof TypesTypesPrimitivesCompartmentEditPart) {
-			return getPrimaryShape().getTypesPrimitivesCompartmentFigure();
-		}
 		if (editPart instanceof TypesTypesPackagesCompartmentEditPart) {
 			return getPrimaryShape().getTypesPackagesCompartmentFigure();
 		}
@@ -337,10 +319,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fTypesPrimitivesCompartmentFigure;
-		/**
-		 * @generated
-		 */
 		private RectangleFigure fTypesPackagesCompartmentFigure;
 		/**
 		 * @generated
@@ -372,12 +350,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureTypesLabelFigure);
 
-			fTypesPrimitivesCompartmentFigure = new RectangleFigure();
-
-			fTypesPrimitivesCompartmentFigure.setOutline(false);
-
-			this.add(fTypesPrimitivesCompartmentFigure);
-
 			fTypesPackagesCompartmentFigure = new RectangleFigure();
 
 			fTypesPackagesCompartmentFigure.setOutline(false);
@@ -397,13 +369,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureTypesLabelFigure() {
 			return fFigureTypesLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getTypesPrimitivesCompartmentFigure() {
-			return fTypesPrimitivesCompartmentFigure;
 		}
 
 		/**
