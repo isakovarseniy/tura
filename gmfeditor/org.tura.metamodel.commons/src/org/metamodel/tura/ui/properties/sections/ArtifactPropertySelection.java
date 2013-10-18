@@ -8,9 +8,9 @@ import java.util.Iterator;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
@@ -32,8 +32,10 @@ public class ArtifactPropertySelection extends
 	private boolean isFirstTime = true;
 	private CommandStackListener commandStackListener;
 
-	protected EAttribute getFeature() {
-		return DomainPackage.eINSTANCE.getArtifactRef_ArtifactName();
+	protected EStructuralFeature[] getFeature() {
+		return  new EStructuralFeature[] {
+				DomainPackage.eINSTANCE.getArtifactRef_ArtifactName()		
+		};
 	}
 
 	protected String getFeatureAsText() {
@@ -80,8 +82,8 @@ public class ArtifactPropertySelection extends
 
 	}
 
-	protected Object getFeatureValue(Object key) {
-		return values.get(key);
+	protected Object getFeatureValue(EStructuralFeature feature,Object... obj) {
+		return values.get(obj[0]);
 	}
 
 	protected String getLabelText() {

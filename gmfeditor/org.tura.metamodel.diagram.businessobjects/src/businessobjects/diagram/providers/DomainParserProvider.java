@@ -17,12 +17,12 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import businessobjects.diagram.edit.parts.BusinessObjectNameEditPart;
-import businessobjects.diagram.edit.parts.CreateMethodMethodEditPart;
-import businessobjects.diagram.edit.parts.InsertMethodMethodEditPart;
-import businessobjects.diagram.edit.parts.OtherMethodMethodEditPart;
-import businessobjects.diagram.edit.parts.RemoveMethodMethodEditPart;
-import businessobjects.diagram.edit.parts.SearchMethodMethodEditPart;
-import businessobjects.diagram.edit.parts.UpdateMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodFakeMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodFakeMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodFakeMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodFakeMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodFakeMethodEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodFakeMethodEditPart;
 import businessobjects.diagram.parsers.MessageFormatParser;
 import businessobjects.diagram.part.DomainVisualIDRegistry;
 import domain.DomainPackage;
@@ -54,109 +54,109 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser createMethodMethod_605001Parser;
+	private IParser createMethodFakeMethod_605001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCreateMethodMethod_605001Parser() {
-		if (createMethodMethod_605001Parser == null) {
+	private IParser getCreateMethodFakeMethod_605001Parser() {
+		if (createMethodFakeMethod_605001Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getBusinessMethod_Method() };
+					.getBusinessMethod_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			createMethodMethod_605001Parser = parser;
+			createMethodFakeMethod_605001Parser = parser;
 		}
-		return createMethodMethod_605001Parser;
+		return createMethodFakeMethod_605001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser insertMethodMethod_605002Parser;
+	private IParser insertMethodFakeMethod_605002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getInsertMethodMethod_605002Parser() {
-		if (insertMethodMethod_605002Parser == null) {
+	private IParser getInsertMethodFakeMethod_605002Parser() {
+		if (insertMethodFakeMethod_605002Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getBusinessMethod_Method() };
+					.getBusinessMethod_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			insertMethodMethod_605002Parser = parser;
+			insertMethodFakeMethod_605002Parser = parser;
 		}
-		return insertMethodMethod_605002Parser;
+		return insertMethodFakeMethod_605002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser updateMethodMethod_605008Parser;
+	private IParser updateMethodFakeMethod_605008Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getUpdateMethodMethod_605008Parser() {
-		if (updateMethodMethod_605008Parser == null) {
+	private IParser getUpdateMethodFakeMethod_605008Parser() {
+		if (updateMethodFakeMethod_605008Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getBusinessMethod_Method() };
+					.getBusinessMethod_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			updateMethodMethod_605008Parser = parser;
+			updateMethodFakeMethod_605008Parser = parser;
 		}
-		return updateMethodMethod_605008Parser;
+		return updateMethodFakeMethod_605008Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser removeMethodMethod_605009Parser;
+	private IParser removeMethodFakeMethod_605009Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRemoveMethodMethod_605009Parser() {
-		if (removeMethodMethod_605009Parser == null) {
+	private IParser getRemoveMethodFakeMethod_605009Parser() {
+		if (removeMethodFakeMethod_605009Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getBusinessMethod_Method() };
+					.getBusinessMethod_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			removeMethodMethod_605009Parser = parser;
+			removeMethodFakeMethod_605009Parser = parser;
 		}
-		return removeMethodMethod_605009Parser;
+		return removeMethodFakeMethod_605009Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser searchMethodMethod_605010Parser;
+	private IParser searchMethodFakeMethod_605010Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSearchMethodMethod_605010Parser() {
-		if (searchMethodMethod_605010Parser == null) {
+	private IParser getSearchMethodFakeMethod_605010Parser() {
+		if (searchMethodFakeMethod_605010Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getBusinessMethod_Method() };
+					.getBusinessMethod_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			searchMethodMethod_605010Parser = parser;
+			searchMethodFakeMethod_605010Parser = parser;
 		}
-		return searchMethodMethod_605010Parser;
+		return searchMethodFakeMethod_605010Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser otherMethodMethod_605006Parser;
+	private IParser otherMethodFakeMethod_605006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getOtherMethodMethod_605006Parser() {
-		if (otherMethodMethod_605006Parser == null) {
+	private IParser getOtherMethodFakeMethod_605006Parser() {
+		if (otherMethodFakeMethod_605006Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getBusinessMethod_Method() };
+					.getBusinessMethod_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			otherMethodMethod_605006Parser = parser;
+			otherMethodFakeMethod_605006Parser = parser;
 		}
-		return otherMethodMethod_605006Parser;
+		return otherMethodFakeMethod_605006Parser;
 	}
 
 	/**
@@ -166,18 +166,18 @@ public class DomainParserProvider extends AbstractProvider implements
 		switch (visualID) {
 		case BusinessObjectNameEditPart.VISUAL_ID:
 			return getBusinessObjectName_605007Parser();
-		case CreateMethodMethodEditPart.VISUAL_ID:
-			return getCreateMethodMethod_605001Parser();
-		case InsertMethodMethodEditPart.VISUAL_ID:
-			return getInsertMethodMethod_605002Parser();
-		case UpdateMethodMethodEditPart.VISUAL_ID:
-			return getUpdateMethodMethod_605008Parser();
-		case RemoveMethodMethodEditPart.VISUAL_ID:
-			return getRemoveMethodMethod_605009Parser();
-		case SearchMethodMethodEditPart.VISUAL_ID:
-			return getSearchMethodMethod_605010Parser();
-		case OtherMethodMethodEditPart.VISUAL_ID:
-			return getOtherMethodMethod_605006Parser();
+		case CreateMethodFakeMethodEditPart.VISUAL_ID:
+			return getCreateMethodFakeMethod_605001Parser();
+		case InsertMethodFakeMethodEditPart.VISUAL_ID:
+			return getInsertMethodFakeMethod_605002Parser();
+		case UpdateMethodFakeMethodEditPart.VISUAL_ID:
+			return getUpdateMethodFakeMethod_605008Parser();
+		case RemoveMethodFakeMethodEditPart.VISUAL_ID:
+			return getRemoveMethodFakeMethod_605009Parser();
+		case SearchMethodFakeMethodEditPart.VISUAL_ID:
+			return getSearchMethodFakeMethod_605010Parser();
+		case OtherMethodFakeMethodEditPart.VISUAL_ID:
+			return getOtherMethodFakeMethod_605006Parser();
 		}
 		return null;
 	}

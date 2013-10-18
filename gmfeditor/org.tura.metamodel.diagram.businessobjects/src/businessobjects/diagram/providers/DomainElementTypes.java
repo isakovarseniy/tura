@@ -99,11 +99,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType InfrastructureRecipeConfig_604004 = getElementType("org.tura.metamodel.diagram.businessobjects.InfrastructureRecipeConfig_604004"); //$NON-NLS-1$
+	public static final IElementType RecipeInfrastructures_604005 = getElementType("org.tura.metamodel.diagram.businessobjects.RecipeInfrastructures_604005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeInfrastructures_604005 = getElementType("org.tura.metamodel.diagram.businessobjects.RecipeInfrastructures_604005"); //$NON-NLS-1$
+	public static final IElementType InfrastructureRecipeConfig_604004 = getElementType("org.tura.metamodel.diagram.businessobjects.InfrastructureRecipeConfig_604004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */

@@ -4,13 +4,15 @@ import java.util.Collection;
 import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
-import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
@@ -32,16 +34,22 @@ public class MethodNamePropertySection extends
 	private boolean isFirstTime = true;
 	private CommandStackListener commandStackListener;
 
-	protected EAttribute getFeature() {
-		return DomainPackage.eINSTANCE.getBusinessMethod_Method();
+	protected EStructuralFeature[] getFeature() {
+		return new EStructuralFeature[] {
+				DomainPackage.eINSTANCE.getBusinessMethod_MethodRef(),
+				DomainPackage.eINSTANCE.getBusinessMethod_FakeMethod() };
 	}
 
 	protected String getFeatureAsText() {
-		return ((domain.BusinessMethod) eObject).getMethod();
+		if (((domain.BusinessMethod) eObject).getMethodRef() != null)
+			return ((domain.BusinessMethod) eObject).getMethodRef().getName();
+		else
+			return "";
 	}
 
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
+		values = null;
 		if (isFirstTime) {
 			isFirstTime = false;
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -52,19 +60,35 @@ public class MethodNamePropertySection extends
 					if (event.getSource() instanceof BasicCommandStack) {
 						Command cmd = ((BasicCommandStack) event.getSource())
 								.getMostRecentCommand();
-						if (cmd instanceof SetCommand) {
-							if (((SetCommand) cmd).getFeature().equals(
-									DomainPackage.eINSTANCE
-											.getTypePointer_TypeRef())) {
-								values = null;
+						if (cmd instanceof CompoundCommand) {
 
-								EditingDomain editingDomain = ((DiagramEditor) getPart())
-										.getEditingDomain();
+							List<Command> list = ((CompoundCommand) cmd)
+									.getCommandList();
+							for (Iterator<Command> itr = list.iterator(); itr
+									.hasNext();) {
+								Command currCommand = itr.next();
+								if (currCommand instanceof SetCommand) {
+									if (((SetCommand) currCommand).getFeature()
+											.equals(DomainPackage.eINSTANCE
+													.getTypePointer_TypeRef())) {
+										values = null;
 
-								editingDomain.getCommandStack().execute(
-										SetCommand.create(editingDomain,
-												((SetCommand) cmd).getOwner(),
-												getFeature(), null));
+										EditingDomain editingDomain = ((DiagramEditor) getPart())
+												.getEditingDomain();
+										CompoundCommand compoundCommand = new CompoundCommand();
+										EStructuralFeature[] features = getFeature();
+										for (int i = 0; i < features.length; i++) {
+											compoundCommand.append(SetCommand
+													.create(editingDomain,
+															eObject,
+															features[i], null));
+										}
+										editingDomain.getCommandStack()
+												.execute(compoundCommand);
+
+									}
+
+								}
 
 								refresh();
 							}
@@ -79,8 +103,16 @@ public class MethodNamePropertySection extends
 
 	}
 
-	protected Object getFeatureValue(Object key) {
-		return values.get(key);
+	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
+		if (feature.equals(DomainPackage.eINSTANCE
+				.getBusinessMethod_MethodRef()))
+			return values.get(obj[0]);
+
+		if (feature.equals(DomainPackage.eINSTANCE
+				.getBusinessMethod_FakeMethod()))
+			return values.get(obj[0]).getName();
+
+		return null;
 	}
 
 	protected String getLabelText() {
@@ -88,11 +120,14 @@ public class MethodNamePropertySection extends
 	}
 
 	protected boolean isEqual(Object key) {
-		if (((domain.BusinessMethod) eObject).getMethod() == null)
+		if (((domain.BusinessMethod) eObject).getMethodRef() == null)
+			return false;
+
+		if (((domain.BusinessMethod) eObject).getMethodRef().getName() == null)
 			return false;
 
 		return values.get(key).equals(
-				((domain.BusinessMethod) eObject).getMethod());
+				((domain.BusinessMethod) eObject).getMethodRef().getName());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -112,8 +147,8 @@ public class MethodNamePropertySection extends
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
 					.createOCLHelper();
-			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Types"));		
-			
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Types"));
+
 			try {
 				OCLExpression<EClassifier> query = helper
 						.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"

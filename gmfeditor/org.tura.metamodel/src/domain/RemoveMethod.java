@@ -16,7 +16,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getRemoveMethod()
- * @model annotation="gmf.node label='method'"
+ * @model annotation="gmf.node label='fakeMethod'"
  * @generated
  */
 public interface RemoveMethod extends BusinessMethod

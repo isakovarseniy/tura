@@ -55,13 +55,13 @@ import businessobjects.diagram.providers.DomainParserProvider;
 /**
  * @generated
  */
-public class RemoveMethodMethodEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class UpdateMethodFakeMethodEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 605009;
+	public static final int VISUAL_ID = 605008;
 
 	/**
 	 * @generated
@@ -91,7 +91,7 @@ public class RemoveMethodMethodEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public RemoveMethodMethodEditPart(View view) {
+	public UpdateMethodFakeMethodEditPart(View view) {
 		super(view);
 	}
 
@@ -313,10 +313,10 @@ public class RemoveMethodMethodEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.RemoveMethod_603008,
+							DomainElementTypes.UpdateMethod_603007,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(businessobjects.diagram.edit.parts.RemoveMethodMethodEditPart.VISUAL_ID));
+									.getType(businessobjects.diagram.edit.parts.UpdateMethodFakeMethodEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

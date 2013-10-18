@@ -1332,13 +1332,31 @@ public interface DomainPackage extends EPackage
   int TYPE_POINTER__TYPE_REF = 1;
 
   /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_POINTER__FAKE_PACKAGE_NAME = 2;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_POINTER__FAKE_TYPE_NAME = 3;
+
+  /**
    * The number of structural features of the '<em>Type Pointer</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_POINTER_FEATURE_COUNT = 2;
+  int TYPE_POINTER_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.BusinessMethodImpl <em>Business Method</em>}' class.
@@ -1369,6 +1387,24 @@ public interface DomainPackage extends EPackage
   int BUSINESS_METHOD__TYPE_REF = TYPE_POINTER__TYPE_REF;
 
   /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_METHOD__FAKE_PACKAGE_NAME = TYPE_POINTER__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_METHOD__FAKE_TYPE_NAME = TYPE_POINTER__FAKE_TYPE_NAME;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1378,13 +1414,22 @@ public interface DomainPackage extends EPackage
   int BUSINESS_METHOD__UID = TYPE_POINTER_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD__METHOD = TYPE_POINTER_FEATURE_COUNT + 1;
+  int BUSINESS_METHOD__METHOD_REF = TYPE_POINTER_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUSINESS_METHOD__FAKE_METHOD = TYPE_POINTER_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Business Method</em>' class.
@@ -1393,7 +1438,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 2;
+  int BUSINESS_METHOD_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link domain.impl.CreateMethodImpl <em>Create Method</em>}' class.
@@ -1424,6 +1469,24 @@ public interface DomainPackage extends EPackage
   int CREATE_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1433,13 +1496,22 @@ public interface DomainPackage extends EPackage
   int CREATE_METHOD__UID = BUSINESS_METHOD__UID;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+  int CREATE_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1488,6 +1560,24 @@ public interface DomainPackage extends EPackage
   int INSERT_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1497,13 +1587,22 @@ public interface DomainPackage extends EPackage
   int INSERT_METHOD__UID = BUSINESS_METHOD__UID;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+  int INSERT_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1552,6 +1651,24 @@ public interface DomainPackage extends EPackage
   int UPDATE_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1561,13 +1678,22 @@ public interface DomainPackage extends EPackage
   int UPDATE_METHOD__UID = BUSINESS_METHOD__UID;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UPDATE_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+  int UPDATE_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1616,6 +1742,24 @@ public interface DomainPackage extends EPackage
   int REMOVE_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REMOVE_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REMOVE_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1625,13 +1769,22 @@ public interface DomainPackage extends EPackage
   int REMOVE_METHOD__UID = BUSINESS_METHOD__UID;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REMOVE_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+  int REMOVE_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REMOVE_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1680,6 +1833,24 @@ public interface DomainPackage extends EPackage
   int SEARCH_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1689,13 +1860,22 @@ public interface DomainPackage extends EPackage
   int SEARCH_METHOD__UID = BUSINESS_METHOD__UID;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEARCH_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+  int SEARCH_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1744,6 +1924,24 @@ public interface DomainPackage extends EPackage
   int OTHER_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
 
   /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1753,13 +1951,22 @@ public interface DomainPackage extends EPackage
   int OTHER_METHOD__UID = BUSINESS_METHOD__UID;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OTHER_METHOD__METHOD = BUSINESS_METHOD__METHOD;
+  int OTHER_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1854,6 +2061,24 @@ public interface DomainPackage extends EPackage
   int MAPPER__TYPE_REF = TYPE_POINTER__TYPE_REF;
 
   /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPER__FAKE_PACKAGE_NAME = TYPE_POINTER__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPER__FAKE_TYPE_NAME = TYPE_POINTER__FAKE_TYPE_NAME;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1925,6 +2150,24 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int JAVA_MAPPER__TYPE_REF = MAPPER__TYPE_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__FAKE_PACKAGE_NAME = MAPPER__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAPPER__FAKE_TYPE_NAME = MAPPER__FAKE_TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3178,13 +3421,31 @@ public interface DomainPackage extends EPackage
   int TYPE_REFERENCE__TYPE_REF = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_REFERENCE__FAKE_PACKAGE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_REFERENCE__FAKE_TYPE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE__UID = TYPE_ELEMENT_FEATURE_COUNT + 2;
+  int TYPE_REFERENCE__UID = TYPE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Type Reference</em>' class.
@@ -3193,7 +3454,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 3;
+  int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3248,6 +3509,24 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int ATTRIBUTE__TYPE_REF = TYPE_POINTER__TYPE_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__FAKE_PACKAGE_NAME = TYPE_POINTER__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__FAKE_TYPE_NAME = TYPE_POINTER__FAKE_TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3367,6 +3646,24 @@ public interface DomainPackage extends EPackage
   int PARAMETER__TYPE_REF = TYPE_POINTER__TYPE_REF;
 
   /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__FAKE_PACKAGE_NAME = TYPE_POINTER__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__FAKE_TYPE_NAME = TYPE_POINTER__FAKE_TYPE_NAME;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3419,6 +3716,24 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int RETURN_VALUE__TYPE_REF = TYPE_POINTER__TYPE_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN_VALUE__FAKE_PACKAGE_NAME = TYPE_POINTER__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN_VALUE__FAKE_TYPE_NAME = TYPE_POINTER__FAKE_TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4862,15 +5177,26 @@ public interface DomainPackage extends EPackage
   EAttribute getBusinessMethod_Uid();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.BusinessMethod#getMethod <em>Method</em>}'.
+   * Returns the meta object for the reference '{@link domain.BusinessMethod#getMethodRef <em>Method Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Method</em>'.
-   * @see domain.BusinessMethod#getMethod()
+   * @return the meta object for the reference '<em>Method Ref</em>'.
+   * @see domain.BusinessMethod#getMethodRef()
    * @see #getBusinessMethod()
    * @generated
    */
-  EAttribute getBusinessMethod_Method();
+  EReference getBusinessMethod_MethodRef();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.BusinessMethod#getFakeMethod <em>Fake Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Method</em>'.
+   * @see domain.BusinessMethod#getFakeMethod()
+   * @see #getBusinessMethod()
+   * @generated
+   */
+  EAttribute getBusinessMethod_FakeMethod();
 
   /**
    * Returns the meta object for class '{@link domain.CreateMethod <em>Create Method</em>}'.
@@ -6368,6 +6694,28 @@ public interface DomainPackage extends EPackage
   EReference getTypePointer_TypeRef();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.TypePointer#getFakePackageName <em>Fake Package Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Package Name</em>'.
+   * @see domain.TypePointer#getFakePackageName()
+   * @see #getTypePointer()
+   * @generated
+   */
+  EAttribute getTypePointer_FakePackageName();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.TypePointer#getFakeTypeName <em>Fake Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Type Name</em>'.
+   * @see domain.TypePointer#getFakeTypeName()
+   * @see #getTypePointer()
+   * @generated
+   */
+  EAttribute getTypePointer_FakeTypeName();
+
+  /**
    * Returns the meta object for class '{@link domain.TypesRepository <em>Types Repository</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7516,12 +7864,20 @@ public interface DomainPackage extends EPackage
     EAttribute BUSINESS_METHOD__UID = eINSTANCE.getBusinessMethod_Uid();
 
     /**
-     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Method Ref</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute BUSINESS_METHOD__METHOD = eINSTANCE.getBusinessMethod_Method();
+    EReference BUSINESS_METHOD__METHOD_REF = eINSTANCE.getBusinessMethod_MethodRef();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUSINESS_METHOD__FAKE_METHOD = eINSTANCE.getBusinessMethod_FakeMethod();
 
     /**
      * The meta object literal for the '{@link domain.impl.CreateMethodImpl <em>Create Method</em>}' class.
@@ -8702,6 +9058,22 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference TYPE_POINTER__TYPE_REF = eINSTANCE.getTypePointer_TypeRef();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Package Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_POINTER__FAKE_PACKAGE_NAME = eINSTANCE.getTypePointer_FakePackageName();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Type Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_POINTER__FAKE_TYPE_NAME = eINSTANCE.getTypePointer_FakeTypeName();
 
     /**
      * The meta object literal for the '{@link domain.impl.TypesRepositoryImpl <em>Types Repository</em>}' class.

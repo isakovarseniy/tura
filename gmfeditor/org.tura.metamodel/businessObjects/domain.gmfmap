@@ -37,7 +37,7 @@
             <diagramLabel
                 href="domain.gmfgraph#CreateMethodLabel"/>
             <features
-                href="domain.ecore#//BusinessMethod/method"/>
+                href="domain.ecore#//BusinessMethod/fakeMethod"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -58,7 +58,7 @@
             <diagramLabel
                 href="domain.gmfgraph#InsertMethodLabel"/>
             <features
-                href="domain.ecore#//BusinessMethod/method"/>
+                href="domain.ecore#//BusinessMethod/fakeMethod"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -79,7 +79,7 @@
             <diagramLabel
                 href="domain.gmfgraph#UpdateMethodLabel"/>
             <features
-                href="domain.ecore#//BusinessMethod/method"/>
+                href="domain.ecore#//BusinessMethod/fakeMethod"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -100,7 +100,7 @@
             <diagramLabel
                 href="domain.gmfgraph#RemoveMethodLabel"/>
             <features
-                href="domain.ecore#//BusinessMethod/method"/>
+                href="domain.ecore#//BusinessMethod/fakeMethod"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -121,7 +121,7 @@
             <diagramLabel
                 href="domain.gmfgraph#SearchMethodLabel"/>
             <features
-                href="domain.ecore#//BusinessMethod/method"/>
+                href="domain.ecore#//BusinessMethod/fakeMethod"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -142,7 +142,7 @@
             <diagramLabel
                 href="domain.gmfgraph#OtherMethodLabel"/>
             <features
-                href="domain.ecore#//BusinessMethod/method"/>
+                href="domain.ecore#//BusinessMethod/fakeMethod"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"

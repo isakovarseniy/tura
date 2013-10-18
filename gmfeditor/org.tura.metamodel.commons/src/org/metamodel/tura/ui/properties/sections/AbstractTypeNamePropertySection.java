@@ -4,10 +4,12 @@ import java.util.Collection;
 import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -32,8 +34,10 @@ public abstract class AbstractTypeNamePropertySection extends
 	private boolean isFirstTime = true;
 	private CommandStackListener commandStackListener;
 
-	protected EStructuralFeature getFeature() {
-		return DomainPackage.eINSTANCE.getTypePointer_TypeRef();
+	protected EStructuralFeature[] getFeature() {
+		return new EStructuralFeature[] {
+				DomainPackage.eINSTANCE.getTypePointer_TypeRef(),
+				DomainPackage.eINSTANCE.getTypePointer_FakeTypeName() };
 	}
 
 	protected String getFeatureAsText() {
@@ -46,29 +50,47 @@ public abstract class AbstractTypeNamePropertySection extends
 
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
+		values=null;
 		if (isFirstTime) {
 			isFirstTime = false;
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
-
+			
 			commandStackListener = new CommandStackListener() {
 				public void commandStackChanged(final EventObject event) {
 					if (event.getSource() instanceof BasicCommandStack) {
 						Command cmd = ((BasicCommandStack) event.getSource())
 								.getMostRecentCommand();
-						if (cmd instanceof SetCommand) {
-							if (((SetCommand) cmd).getFeature().equals(
-									DomainPackage.eINSTANCE
-											.getTypePointer_PackageRef())) {
-								values = null;
+						if (cmd instanceof CompoundCommand) {
 
-								EditingDomain editingDomain = ((DiagramEditor) getPart())
-										.getEditingDomain();
+							List<Command> list = ((CompoundCommand) cmd)
+									.getCommandList();
+							for (Iterator<Command> itr = list.iterator(); itr
+									.hasNext();) {
+								Command currCommand = itr.next();
+								if (currCommand instanceof SetCommand) {
+									if (((SetCommand) currCommand)
+											.getFeature()
+											.equals(DomainPackage.eINSTANCE
+													.getTypePointer_PackageRef())) {
+										values = null;
 
-								editingDomain.getCommandStack().execute(
-										SetCommand.create(editingDomain,
-												((SetCommand) cmd).getOwner(),
-												getFeature(), null));
+										EditingDomain editingDomain = ((DiagramEditor) getPart())
+												.getEditingDomain();
+										CompoundCommand compoundCommand = new CompoundCommand();
+										EStructuralFeature[] features = getFeature();
+										for (int i = 0; i < features.length; i++) {
+											compoundCommand.append(SetCommand
+													.create(editingDomain,
+															eObject,
+															features[i], null));
+										}
+										editingDomain.getCommandStack()
+												.execute(compoundCommand);
+
+									}
+
+								}
 
 								refresh();
 							}
@@ -83,8 +105,15 @@ public abstract class AbstractTypeNamePropertySection extends
 
 	}
 
-	protected Object getFeatureValue(Object key) {
-		return values.get(key);
+	protected Object getFeatureValue(EStructuralFeature feature, Object... objj) {
+		if (feature.equals(DomainPackage.eINSTANCE.getTypePointer_TypeRef()))
+			return values.get(objj[0]);
+
+		if (feature.equals(DomainPackage.eINSTANCE
+				.getTypePointer_FakeTypeName()))
+			return values.get(objj[0]).getName();
+
+		return null;
 	}
 
 	protected String getLabelText() {
@@ -98,7 +127,8 @@ public abstract class AbstractTypeNamePropertySection extends
 		if (((domain.TypePointer) eObject).getTypeRef().getName() == null)
 			return false;
 
-		return values.get(key).equals(((domain.TypePointer) eObject).getTypeRef().getName());
+		return values.get(key).equals(
+				((domain.TypePointer) eObject).getTypeRef().getName());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

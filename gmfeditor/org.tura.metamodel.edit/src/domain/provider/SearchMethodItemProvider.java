@@ -84,7 +84,7 @@ public class SearchMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((SearchMethod)object).getUid();
+    String label = ((SearchMethod)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_SearchMethod_type") :
       getString("_UI_SearchMethod_type") + " " + label;

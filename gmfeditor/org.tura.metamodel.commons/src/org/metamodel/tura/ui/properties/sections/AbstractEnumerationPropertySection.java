@@ -1,7 +1,6 @@
 package org.metamodel.tura.ui.properties.sections;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
 
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -33,7 +32,7 @@ public abstract class AbstractEnumerationPropertySection extends
 	 * the combo box control for the section.
 	 */
 	protected CCombo combo;
-	protected boolean updated=false;
+	protected boolean updated = false;
 
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite,
@@ -78,26 +77,18 @@ public abstract class AbstractEnumerationPropertySection extends
 		int index = combo.getSelectionIndex();
 		boolean equals = isEqual(combo.getItem(index));
 		if (!equals) {
-            updated = true;
-            
+			updated = true;
+
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
-			Object value = getFeatureValue(combo.getItem(index));
-			if (eObjectList.size() == 1) {
-				/* apply the property change to single selected object */
-				editingDomain.getCommandStack().execute(
-						SetCommand.create(editingDomain, eObject, getFeature(),
-								value));
-			} else {
-				CompoundCommand compoundCommand = new CompoundCommand();
-				/* apply the property change to all selected elements */
-				for (Iterator<Object> i = eObjectList.iterator(); i.hasNext();) {
-					Object nextObject = i.next();
-					compoundCommand.append(SetCommand.create(editingDomain,
-							nextObject, getFeature(), value));
-				}
-				editingDomain.getCommandStack().execute(compoundCommand);
+			CompoundCommand compoundCommand = new CompoundCommand();
+			EStructuralFeature[] features = getFeature();
+			for (int i = 0; i < features.length; i++) {
+				compoundCommand.append(SetCommand.create(editingDomain,
+						eObject, features[i],
+						getFeatureValue(features[i], combo.getItem(index))));
 			}
+			editingDomain.getCommandStack().execute(compoundCommand);
 		}
 	}
 
@@ -105,7 +96,7 @@ public abstract class AbstractEnumerationPropertySection extends
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
 	 */
 	public void refresh() {
-		Set<String> keySet =  getEnumerationFeatureValues().keySet();
+		Set<String> keySet = getEnumerationFeatureValues().keySet();
 		combo.setItems(keySet.toArray(new String[keySet.size()]));
 		if (getFeatureAsText() != null) {
 			combo.setText(getFeatureAsText());
@@ -128,7 +119,7 @@ public abstract class AbstractEnumerationPropertySection extends
 	 * 
 	 * @return the feature for the text.
 	 */
-	protected abstract EStructuralFeature getFeature();
+	protected abstract EStructuralFeature[] getFeature();
 
 	/**
 	 * Get the enumeration values of the feature for the combo field for the
@@ -136,7 +127,7 @@ public abstract class AbstractEnumerationPropertySection extends
 	 * 
 	 * @return the list of values of the feature as text.
 	 */
-	protected abstract HashMap<String,?> getEnumerationFeatureValues();
+	protected abstract HashMap<String, ?> getEnumerationFeatureValues();
 
 	/**
 	 * Get the value of the feature as text for the combo field for the section.
@@ -152,7 +143,8 @@ public abstract class AbstractEnumerationPropertySection extends
 	 *            the new index in the enumeration.
 	 * @return the new value of the feature.
 	 */
-	protected abstract Object getFeatureValue(Object key);
+	protected abstract Object getFeatureValue(EStructuralFeature feature,
+			Object... obj);
 
 	/**
 	 * Get the label for the combo field for the section.

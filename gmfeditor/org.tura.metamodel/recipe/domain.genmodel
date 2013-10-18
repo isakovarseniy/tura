@@ -132,7 +132,8 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//BusinessMethod">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//BusinessMethod/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//BusinessMethod/method"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessMethod/methodRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//BusinessMethod/fakeMethod"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//CreateMethod">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//CreateMethod/parent"/>
@@ -252,6 +253,8 @@
     <genClasses ecoreClass="domain.ecore#//TypePointer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//TypePointer/packageRef"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//TypePointer/typeRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TypePointer/fakePackageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TypePointer/fakeTypeName"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//TypeDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TypeDefinition/uid"/>

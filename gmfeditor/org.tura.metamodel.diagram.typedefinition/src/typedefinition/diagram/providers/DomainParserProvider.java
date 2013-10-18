@@ -22,11 +22,9 @@ import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.ParameterNameEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
-import typedefinition.diagram.edit.parts.ReturnValueUidEditPart;
+import typedefinition.diagram.edit.parts.ReturnValueFakePackageNameFakeTypeEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
-import typedefinition.diagram.edit.parts.TypeReferenceUidEditPart;
-import typedefinition.diagram.edit.parts.WrappingLabel2EditPart;
-import typedefinition.diagram.edit.parts.WrappingLabelEditPart;
+import typedefinition.diagram.edit.parts.TypeReferenceFakePackageNameFakeTypeEditPart;
 import typedefinition.diagram.parsers.MessageFormatParser;
 import typedefinition.diagram.part.DomainVisualIDRegistry;
 import domain.DomainPackage;
@@ -40,19 +38,20 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser typeReferenceUid_105001Parser;
+	private IParser typeReferenceFakePackageNameFakeTypeName_105001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTypeReferenceUid_105001Parser() {
-		if (typeReferenceUid_105001Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getTypeReference_Uid() };
+	private IParser getTypeReferenceFakePackageNameFakeTypeName_105001Parser() {
+		if (typeReferenceFakePackageNameFakeTypeName_105001Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
+					DomainPackage.eINSTANCE.getTypePointer_FakeTypeName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			typeReferenceUid_105001Parser = parser;
+			typeReferenceFakePackageNameFakeTypeName_105001Parser = parser;
 		}
-		return typeReferenceUid_105001Parser;
+		return typeReferenceFakePackageNameFakeTypeName_105001Parser;
 	}
 
 	/**
@@ -166,19 +165,20 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser returnValueUid_105004Parser;
+	private IParser returnValueFakePackageNameFakeTypeName_105004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getReturnValueUid_105004Parser() {
-		if (returnValueUid_105004Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getReturnValue_Uid() };
+	private IParser getReturnValueFakePackageNameFakeTypeName_105004Parser() {
+		if (returnValueFakePackageNameFakeTypeName_105004Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
+					DomainPackage.eINSTANCE.getTypePointer_FakeTypeName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			returnValueUid_105004Parser = parser;
+			returnValueFakePackageNameFakeTypeName_105004Parser = parser;
 		}
-		return returnValueUid_105004Parser;
+		return returnValueFakePackageNameFakeTypeName_105004Parser;
 	}
 
 	/**
@@ -204,8 +204,8 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case TypeReferenceUidEditPart.VISUAL_ID:
-			return getTypeReferenceUid_105001Parser();
+		case TypeReferenceFakePackageNameFakeTypeEditPart.VISUAL_ID:
+			return getTypeReferenceFakePackageNameFakeTypeName_105001Parser();
 		case PrimitiveNameEditPart.VISUAL_ID:
 			return getPrimitiveName_105010Parser();
 		case TypeNameEditPart.VISUAL_ID:
@@ -218,8 +218,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getOperationName_105005Parser();
 		case ParameterNameEditPart.VISUAL_ID:
 			return getParameterName_105009Parser();
-		case ReturnValueUidEditPart.VISUAL_ID:
-			return getReturnValueUid_105004Parser();
+		case ReturnValueFakePackageNameFakeTypeEditPart.VISUAL_ID:
+			return getReturnValueFakePackageNameFakeTypeName_105004Parser();
 		case EnumAttributeNameEditPart.VISUAL_ID:
 			return getEnumAttributeName_105007Parser();
 		}

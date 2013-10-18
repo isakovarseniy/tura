@@ -111,8 +111,8 @@ public class CreateMethodEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CreateMethodMethodEditPart) {
-			((CreateMethodMethodEditPart) childEditPart)
+		if (childEditPart instanceof CreateMethodFakeMethodEditPart) {
+			((CreateMethodFakeMethodEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureCreateMethodLabelFigure());
 			return true;
@@ -124,7 +124,7 @@ public class CreateMethodEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CreateMethodMethodEditPart) {
+		if (childEditPart instanceof CreateMethodFakeMethodEditPart) {
 			return true;
 		}
 		return false;
@@ -248,7 +248,7 @@ public class CreateMethodEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(CreateMethodMethodEditPart.VISUAL_ID));
+				.getType(CreateMethodFakeMethodEditPart.VISUAL_ID));
 	}
 
 	/**

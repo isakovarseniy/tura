@@ -4,7 +4,7 @@
 	protected String getLabelText() {
 		String text = null;
 		org.eclipse.emf.ecore.EObject parserElement = getParserElement();
-	«IF  self.editPartClassName.indexOf('TypeReferenceUidEditPart') > 0-»
+	«IF  self.editPartClassName.indexOf('TypeReferenceFakePackageNameFakeTypeEditPart') > 0-»
 		if (parserElement != null && getParser() != null  ) {
 		   String packPart="NA";
 		   String typePart = "NA";
@@ -14,7 +14,7 @@
                  typePart = ((domain.TypeReference)parserElement).getTypeRef().getName();
            text =packPart +"."+ typePart;
 
-	«ELSEIF  self.editPartClassName.indexOf('ReturnValueUidEditPart') > 0-»
+	«ELSEIF  self.editPartClassName.indexOf('ReturnValueFakePackageNameFakeTypeEditPart') > 0-»
 		if (parserElement != null && getParser() != null   ) {
 		   String packPart="NA";
 		   String typePart = "NA";
@@ -24,7 +24,7 @@
                  typePart = ((domain.ReturnValue)parserElement).getTypeRef().getName();
            text =packPart +"."+ typePart;
 
-	«ELSEIF  self.editPartClassName.indexOf('JavaMapperUidEditPart') > 0-»
+	«ELSEIF  self.editPartClassName.indexOf('JavaMapperFakePackageNameFakeTypeEditPart') > 0-»
 		if (parserElement != null && getParser() != null   ) {
 		   String packPart="NA";
 		   String typePart = "NA";

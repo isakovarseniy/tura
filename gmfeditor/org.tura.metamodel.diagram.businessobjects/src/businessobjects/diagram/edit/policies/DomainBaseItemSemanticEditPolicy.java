@@ -344,23 +344,6 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateInfrastructureRecipeConfig_604004(
-				Infrastructure source, Configuration target) {
-			if (source != null) {
-				if (source.getRecipeConfig() != null) {
-					return false;
-				}
-			}
-			if (target != null && (target.getInfrastructure() != null)) {
-				return false;
-			}
-
-			return canExistInfrastructureRecipeConfig_604004(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
 		public boolean canCreateRecipeInfrastructures_604005(Recipe source,
 				Infrastructure target) {
 			if (source != null) {
@@ -373,6 +356,23 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 			}
 
 			return canExistRecipeInfrastructures_604005(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateInfrastructureRecipeConfig_604004(
+				Infrastructure source, Configuration target) {
+			if (source != null) {
+				if (source.getRecipeConfig() != null) {
+					return false;
+				}
+			}
+			if (target != null && (target.getInfrastructure() != null)) {
+				return false;
+			}
+
+			return canExistInfrastructureRecipeConfig_604004(source, target);
 		}
 
 		/**
@@ -404,16 +404,16 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistInfrastructureRecipeConfig_604004(
-				Infrastructure source, Configuration target) {
+		public boolean canExistRecipeInfrastructures_604005(Recipe source,
+				Infrastructure target) {
 			return true;
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canExistRecipeInfrastructures_604005(Recipe source,
-				Infrastructure target) {
+		public boolean canExistInfrastructureRecipeConfig_604004(
+				Infrastructure source, Configuration target) {
 			return true;
 		}
 

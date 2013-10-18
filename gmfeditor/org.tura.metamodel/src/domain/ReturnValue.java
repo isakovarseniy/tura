@@ -16,7 +16,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getReturnValue()
- * @model annotation="gmf.node label='uid'"
+ * @model annotation="gmf.node label='fakePackageName,fakeTypeName'"
  * @generated
  */
 public interface ReturnValue extends TypePointer

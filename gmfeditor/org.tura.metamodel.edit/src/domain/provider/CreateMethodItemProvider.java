@@ -82,7 +82,7 @@ public class CreateMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((CreateMethod)object).getUid();
+    String label = ((CreateMethod)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_CreateMethod_type") :
       getString("_UI_CreateMethod_type") + " " + label;

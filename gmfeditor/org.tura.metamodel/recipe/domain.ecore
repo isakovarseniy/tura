@@ -276,46 +276,47 @@
   <eClassifiers xsi:type="ecore:EClass" name="BusinessMethod" eSuperTypes="#//TypePointer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodRef" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CreateMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
-      <details key="label" value="method"/>
+      <details key="label" value="fakeMethod"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
         eOpposite="#//BusinessObject/createMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InsertMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
-      <details key="label" value="method"/>
+      <details key="label" value="fakeMethod"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
         eOpposite="#//BusinessObject/insertMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UpdateMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
-      <details key="label" value="method"/>
+      <details key="label" value="fakeMethod"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
         eOpposite="#//BusinessObject/updateMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RemoveMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
-      <details key="label" value="method"/>
+      <details key="label" value="fakeMethod"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
         eOpposite="#//BusinessObject/removeMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SearchMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
-      <details key="label" value="method"/>
+      <details key="label" value="fakeMethod"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
         eOpposite="#//BusinessObject/searchMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OtherMethod" eSuperTypes="#//BusinessMethod">
     <eAnnotations source="gmf.node">
-      <details key="label" value="method"/>
+      <details key="label" value="fakeMethod"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
         eOpposite="#//BusinessObject/othersMethods"/>
@@ -339,7 +340,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaMapper" eSuperTypes="#//Mapper">
     <eAnnotations source="gmf.node">
-      <details key="label" value="uid"/>
+      <details key="label" value="fakePackageName,fakeTypeName"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedToPackageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedToClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -516,6 +517,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="TypePointer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="packageRef" eType="#//Package"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="#//TypeElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakePackageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeDefinition">
     <eAnnotations source="gmf.diagram.typedefinition"/>
@@ -557,7 +560,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeReference" eSuperTypes="#//TypeElement #//TypePointer">
     <eAnnotations source="gmf.node">
-      <details key="label" value="uid"/>
+      <details key="label" value="fakePackageName,fakeTypeName"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -616,7 +619,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" eSuperTypes="#//TypePointer">
     <eAnnotations source="gmf.node">
-      <details key="label" value="uid"/>
+      <details key="label" value="fakePackageName,fakeTypeName"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>

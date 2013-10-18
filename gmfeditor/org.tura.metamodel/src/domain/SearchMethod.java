@@ -16,7 +16,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getSearchMethod()
- * @model annotation="gmf.node label='method'"
+ * @model annotation="gmf.node label='fakeMethod'"
  * @generated
  */
 public interface SearchMethod extends BusinessMethod

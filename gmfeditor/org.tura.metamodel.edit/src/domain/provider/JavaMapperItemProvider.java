@@ -230,7 +230,7 @@ public class JavaMapperItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((JavaMapper)object).getMappedToPackageName();
+    String label = ((JavaMapper)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_JavaMapper_type") :
       getString("_UI_JavaMapper_type") + " " + label;

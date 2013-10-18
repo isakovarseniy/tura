@@ -64,8 +64,8 @@
       </modelFacet>
       <labels
           visualID="605001"
-          editPartClassName="CreateMethodMethodEditPart"
-          itemSemanticEditPolicyClassName="CreateMethodMethodItemSemanticEditPolicy"
+          editPartClassName="CreateMethodFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="CreateMethodFakeMethodItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -77,7 +77,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/BusinessMethod/method"/>
+              href="domain.genmodel#//domain/BusinessMethod/fakeMethod"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -113,8 +113,8 @@
       </modelFacet>
       <labels
           visualID="605002"
-          editPartClassName="InsertMethodMethodEditPart"
-          itemSemanticEditPolicyClassName="InsertMethodMethodItemSemanticEditPolicy"
+          editPartClassName="InsertMethodFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="InsertMethodFakeMethodItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -126,7 +126,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/BusinessMethod/method"/>
+              href="domain.genmodel#//domain/BusinessMethod/fakeMethod"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -162,8 +162,8 @@
       </modelFacet>
       <labels
           visualID="605008"
-          editPartClassName="UpdateMethodMethodEditPart"
-          itemSemanticEditPolicyClassName="UpdateMethodMethodItemSemanticEditPolicy"
+          editPartClassName="UpdateMethodFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="UpdateMethodFakeMethodItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -175,7 +175,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/BusinessMethod/method"/>
+              href="domain.genmodel#//domain/BusinessMethod/fakeMethod"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -211,8 +211,8 @@
       </modelFacet>
       <labels
           visualID="605009"
-          editPartClassName="RemoveMethodMethodEditPart"
-          itemSemanticEditPolicyClassName="RemoveMethodMethodItemSemanticEditPolicy"
+          editPartClassName="RemoveMethodFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="RemoveMethodFakeMethodItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -224,7 +224,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/BusinessMethod/method"/>
+              href="domain.genmodel#//domain/BusinessMethod/fakeMethod"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -260,8 +260,8 @@
       </modelFacet>
       <labels
           visualID="605010"
-          editPartClassName="SearchMethodMethodEditPart"
-          itemSemanticEditPolicyClassName="SearchMethodMethodItemSemanticEditPolicy"
+          editPartClassName="SearchMethodFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="SearchMethodFakeMethodItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -273,7 +273,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/BusinessMethod/method"/>
+              href="domain.genmodel#//domain/BusinessMethod/fakeMethod"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -309,8 +309,8 @@
       </modelFacet>
       <labels
           visualID="605006"
-          editPartClassName="OtherMethodMethodEditPart"
-          itemSemanticEditPolicyClassName="OtherMethodMethodItemSemanticEditPolicy"
+          editPartClassName="OtherMethodFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="OtherMethodFakeMethodItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -322,7 +322,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/BusinessMethod/method"/>
+              href="domain.genmodel#//domain/BusinessMethod/fakeMethod"/>
         </modelFacet>
       </labels>
     </childNodes>

@@ -1,10 +1,11 @@
 /*
  * 
  */
-package typedefinition.diagram.edit.parts;
+package businessobjects.diagram.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -45,22 +46,22 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-import typedefinition.diagram.edit.policies.DomainTextSelectionEditPolicy;
-import typedefinition.diagram.part.DomainVisualIDRegistry;
-import typedefinition.diagram.providers.DomainElementTypes;
-import typedefinition.diagram.providers.DomainParserProvider;
-import domain.TypeReference;
+
+import businessobjects.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import businessobjects.diagram.part.DomainVisualIDRegistry;
+import businessobjects.diagram.providers.DomainElementTypes;
+import businessobjects.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
  */
-public class TypeReferenceUidEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class OtherMethodFakeMethodEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 105001;
+	public static final int VISUAL_ID = 605006;
 
 	/**
 	 * @generated
@@ -90,7 +91,7 @@ public class TypeReferenceUidEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public TypeReferenceUidEditPart(View view) {
+	public OtherMethodFakeMethodEditPart(View view) {
 		super(view);
 	}
 
@@ -104,7 +105,7 @@ public class TypeReferenceUidEditPart extends CompartmentEditPart implements
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new TypeDefinitionEditPart.NodeLabelDragPolicy());
+				new BusinessObjectsEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -213,15 +214,9 @@ public class TypeReferenceUidEditPart extends CompartmentEditPart implements
 		String text = null;
 		EObject parserElement = getParserElement();
 		if (parserElement != null && getParser() != null) {
-			String packPart = "NA";
-			String typePart = "NA";
-			if (((TypeReference) parserElement).getPackageRef() != null)
-				packPart = ((TypeReference) parserElement).getPackageRef()
-						.getName();
-			if (((TypeReference) parserElement).getTypeRef() != null)
-				typePart = ((TypeReference) parserElement).getTypeRef()
-						.getName();
-			text = packPart + "." + typePart;
+			text = getParser().getPrintString(
+					new EObjectAdapter(parserElement),
+					getParserOptions().intValue());
 
 		}
 		if (text == null || text.length() == 0) {
@@ -318,10 +313,10 @@ public class TypeReferenceUidEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.TypeReference_102001,
+							DomainElementTypes.OtherMethod_603006,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(typedefinition.diagram.edit.parts.TypeReferenceUidEditPart.VISUAL_ID));
+									.getType(businessobjects.diagram.edit.parts.OtherMethodFakeMethodEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

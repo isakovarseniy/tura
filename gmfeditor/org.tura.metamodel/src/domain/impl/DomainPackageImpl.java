@@ -1632,9 +1632,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBusinessMethod_Method()
+  public EReference getBusinessMethod_MethodRef()
   {
-    return (EAttribute)businessMethodEClass.getEStructuralFeatures().get(1);
+    return (EReference)businessMethodEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBusinessMethod_FakeMethod()
+  {
+    return (EAttribute)businessMethodEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3032,6 +3042,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getTypePointer_FakePackageName()
+  {
+    return (EAttribute)typePointerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypePointer_FakeTypeName()
+  {
+    return (EAttribute)typePointerEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTypesRepository()
   {
     return typesRepositoryEClass;
@@ -3413,7 +3443,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     businessMethodEClass = createEClass(BUSINESS_METHOD);
     createEAttribute(businessMethodEClass, BUSINESS_METHOD__UID);
-    createEAttribute(businessMethodEClass, BUSINESS_METHOD__METHOD);
+    createEReference(businessMethodEClass, BUSINESS_METHOD__METHOD_REF);
+    createEAttribute(businessMethodEClass, BUSINESS_METHOD__FAKE_METHOD);
 
     createMethodEClass = createEClass(CREATE_METHOD);
     createEReference(createMethodEClass, CREATE_METHOD__PARENT);
@@ -3533,6 +3564,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     typePointerEClass = createEClass(TYPE_POINTER);
     createEReference(typePointerEClass, TYPE_POINTER__PACKAGE_REF);
     createEReference(typePointerEClass, TYPE_POINTER__TYPE_REF);
+    createEAttribute(typePointerEClass, TYPE_POINTER__FAKE_PACKAGE_NAME);
+    createEAttribute(typePointerEClass, TYPE_POINTER__FAKE_TYPE_NAME);
 
     typeDefinitionEClass = createEClass(TYPE_DEFINITION);
     createEAttribute(typeDefinitionEClass, TYPE_DEFINITION__UID);
@@ -3800,7 +3833,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(businessMethodEClass, BusinessMethod.class, "BusinessMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBusinessMethod_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, BusinessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBusinessMethod_Method(), ecorePackage.getEString(), "method", null, 0, 1, BusinessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBusinessMethod_MethodRef(), this.getOperation(), null, "methodRef", null, 0, 1, BusinessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBusinessMethod_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, BusinessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createMethodEClass, CreateMethod.class, "CreateMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCreateMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_CreateMethods(), "parent", null, 0, 1, CreateMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3920,6 +3954,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(typePointerEClass, TypePointer.class, "TypePointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypePointer_PackageRef(), this.getPackage(), null, "packageRef", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypePointer_TypeRef(), this.getTypeElement(), null, "typeRef", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypePointer_FakePackageName(), ecorePackage.getEString(), "fakePackageName", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypePointer_FakeTypeName(), ecorePackage.getEString(), "fakeTypeName", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeDefinitionEClass, TypeDefinition.class, "TypeDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeDefinition_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4211,49 +4247,49 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "method"
+       "label", "fakeMethod"
        });		
     addAnnotation
       (insertMethodEClass, 
        source, 
        new String[] 
        {
-       "label", "method"
+       "label", "fakeMethod"
        });		
     addAnnotation
       (updateMethodEClass, 
        source, 
        new String[] 
        {
-       "label", "method"
+       "label", "fakeMethod"
        });		
     addAnnotation
       (removeMethodEClass, 
        source, 
        new String[] 
        {
-       "label", "method"
+       "label", "fakeMethod"
        });		
     addAnnotation
       (searchMethodEClass, 
        source, 
        new String[] 
        {
-       "label", "method"
+       "label", "fakeMethod"
        });		
     addAnnotation
       (otherMethodEClass, 
        source, 
        new String[] 
        {
-       "label", "method"
+       "label", "fakeMethod"
        });			
     addAnnotation
       (javaMapperEClass, 
        source, 
        new String[] 
        {
-       "label", "uid"
+       "label", "fakePackageName,fakeTypeName"
        });			
     addAnnotation
       (recipeEClass, 
@@ -4323,7 +4359,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "uid"
+       "label", "fakePackageName,fakeTypeName"
        });			
     addAnnotation
       (attributeEClass, 
@@ -4351,7 +4387,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "uid"
+       "label", "fakePackageName,fakeTypeName"
        });		
     addAnnotation
       (enumaratorEClass, 

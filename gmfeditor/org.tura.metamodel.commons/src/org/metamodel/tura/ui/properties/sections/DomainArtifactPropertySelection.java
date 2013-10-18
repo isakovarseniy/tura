@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.ocl.OCL;
@@ -19,25 +19,26 @@ import domain.DomainPackage;
 public class DomainArtifactPropertySelection extends
 		AbstractEnumerationPropertySection {
 
-	private HashMap<String,domain.DomainArtifact> values;
+	private HashMap<String, domain.DomainArtifact> values;
 
-	protected EAttribute getFeature() {
-		return DomainPackage.eINSTANCE.getArtifactRef_DomainArtifact();
+	protected EStructuralFeature[] getFeature() {
+		return new EStructuralFeature[] { DomainPackage.eINSTANCE
+				.getArtifactRef_DomainArtifact() };
 	}
 
 	protected String getFeatureAsText() {
 		return ((domain.ArtifactRef) eObject).getDomainArtifact();
 	}
 
-	protected Object getFeatureValue(Object key) {
-		return values.get(key);
+	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
+		return values.get(obj[0]);
 	}
 
 	protected String getLabelText() {
 		return "Domain artifact name";//$NON-NLS-1$
 	}
 
-	protected boolean isEqual(Object  key) {
+	protected boolean isEqual(Object key) {
 		if (((domain.ArtifactRef) eObject).getDomainArtifact() == null)
 			return false;
 		return values.get(key).equals(
@@ -45,10 +46,10 @@ public class DomainArtifactPropertySelection extends
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	protected HashMap<String,domain.DomainArtifact> getEnumerationFeatureValues() {
+	protected HashMap<String, domain.DomainArtifact> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new HashMap<String,domain.DomainArtifact>();
+			values = new HashMap<String, domain.DomainArtifact>();
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
 			try {
@@ -66,9 +67,10 @@ public class DomainArtifactPropertySelection extends
 				Collection<domain.DomainArtifact> map = (Collection<domain.DomainArtifact>) ocl
 						.evaluate(types, query);
 
-				for (Iterator<domain.DomainArtifact> i = map.iterator(); i.hasNext();) {
+				for (Iterator<domain.DomainArtifact> i = map.iterator(); i
+						.hasNext();) {
 					domain.DomainArtifact p = i.next();
-					values.put(p.getName(),p);
+					values.put(p.getName(), p);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

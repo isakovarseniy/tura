@@ -209,8 +209,8 @@
       </modelFacet>
       <labels
           visualID="105004"
-          editPartClassName="ReturnValueUidEditPart"
-          itemSemanticEditPolicyClassName="ReturnValueUidItemSemanticEditPolicy"
+          editPartClassName="ReturnValueFakePackageNameFakeTypeEditPart"
+          itemSemanticEditPolicyClassName="ReturnValueFakePackageNameFakeTypeItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -222,7 +222,9 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/ReturnValue/uid"/>
+              href="domain.genmodel#//domain/TypePointer/fakePackageName"/>
+          <metaFeatures
+              href="domain.genmodel#//domain/TypePointer/fakeTypeName"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -301,8 +303,8 @@
       </modelFacet>
       <labels
           visualID="105001"
-          editPartClassName="TypeReferenceUidEditPart"
-          itemSemanticEditPolicyClassName="TypeReferenceUidItemSemanticEditPolicy"
+          editPartClassName="TypeReferenceFakePackageNameFakeTypeEditPart"
+          itemSemanticEditPolicyClassName="TypeReferenceFakePackageNameFakeTypeItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -314,7 +316,9 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/TypeReference/uid"/>
+              href="domain.genmodel#//domain/TypePointer/fakePackageName"/>
+          <metaFeatures
+              href="domain.genmodel#//domain/TypePointer/fakeTypeName"/>
         </modelFacet>
       </labels>
     </topLevelNodes>

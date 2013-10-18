@@ -66,6 +66,8 @@ public class TypePointerItemProvider
 
       addPackageRefPropertyDescriptor(object);
       addTypeRefPropertyDescriptor(object);
+      addFakePackageNamePropertyDescriptor(object);
+      addFakeTypeNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -117,6 +119,52 @@ public class TypePointerItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Fake Package Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFakePackageNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypePointer_fakePackageName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_fakePackageName_feature", "_UI_TypePointer_type"),
+         DomainPackage.Literals.TYPE_POINTER__FAKE_PACKAGE_NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Fake Type Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFakeTypeNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypePointer_fakeTypeName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_fakeTypeName_feature", "_UI_TypePointer_type"),
+         DomainPackage.Literals.TYPE_POINTER__FAKE_TYPE_NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This returns TypePointer.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -137,7 +185,10 @@ public class TypePointerItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_TypePointer_type");
+    String label = ((TypePointer)object).getFakePackageName();
+    return label == null || label.length() == 0 ?
+      getString("_UI_TypePointer_type") :
+      getString("_UI_TypePointer_type") + " " + label;
   }
 
   /**
@@ -151,6 +202,14 @@ public class TypePointerItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
+
+    switch (notification.getFeatureID(TypePointer.class))
+    {
+      case DomainPackage.TYPE_POINTER__FAKE_PACKAGE_NAME:
+      case DomainPackage.TYPE_POINTER__FAKE_TYPE_NAME:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+    }
     super.notifyChanged(notification);
   }
 

@@ -21,20 +21,20 @@ import businessobjects.diagram.edit.parts.BusinessObjectNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
 import businessobjects.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodEditPart;
-import businessobjects.diagram.edit.parts.CreateMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodEditPart;
-import businessobjects.diagram.edit.parts.InsertMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodEditPart;
-import businessobjects.diagram.edit.parts.OtherMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
-import businessobjects.diagram.edit.parts.RemoveMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.SearchMethodEditPart;
-import businessobjects.diagram.edit.parts.SearchMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.TypeExtensionEditPart;
 import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
-import businessobjects.diagram.edit.parts.UpdateMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.WrappingLabel2EditPart;
 import businessobjects.diagram.edit.parts.WrappingLabel3EditPart;
 import businessobjects.diagram.edit.parts.WrappingLabelEditPart;
@@ -246,32 +246,32 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case CreateMethodEditPart.VISUAL_ID:
-			if (CreateMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
+			if (CreateMethodFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case InsertMethodEditPart.VISUAL_ID:
-			if (InsertMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
+			if (InsertMethodFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case UpdateMethodEditPart.VISUAL_ID:
-			if (UpdateMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
+			if (UpdateMethodFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case RemoveMethodEditPart.VISUAL_ID:
-			if (RemoveMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
+			if (RemoveMethodFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case SearchMethodEditPart.VISUAL_ID:
-			if (SearchMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
+			if (SearchMethodFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case OtherMethodEditPart.VISUAL_ID:
-			if (OtherMethodMethodEditPart.VISUAL_ID == nodeVisualID) {
+			if (OtherMethodFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

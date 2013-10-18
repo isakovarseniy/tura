@@ -31,8 +31,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case JavaMapperEditPart.VISUAL_ID:
 				return new JavaMapperEditPart(view);
 
-			case JavaMapperUidEditPart.VISUAL_ID:
-				return new JavaMapperUidEditPart(view);
+			case JavaMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
+				return new JavaMapperFakePackageNameFakeTypeEditPart(view);
 
 			case TypeExtensionEditPart.VISUAL_ID:
 				return new TypeExtensionEditPart(view);

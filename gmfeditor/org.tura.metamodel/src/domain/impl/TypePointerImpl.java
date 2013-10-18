@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link domain.impl.TypePointerImpl#getPackageRef <em>Package Ref</em>}</li>
  *   <li>{@link domain.impl.TypePointerImpl#getTypeRef <em>Type Ref</em>}</li>
+ *   <li>{@link domain.impl.TypePointerImpl#getFakePackageName <em>Fake Package Name</em>}</li>
+ *   <li>{@link domain.impl.TypePointerImpl#getFakeTypeName <em>Fake Type Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,6 +52,46 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
    * @ordered
    */
   protected TypeElement typeRef;
+
+  /**
+   * The default value of the '{@link #getFakePackageName() <em>Fake Package Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFakePackageName()
+   * @generated
+   * @ordered
+   */
+  protected static final String FAKE_PACKAGE_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFakePackageName() <em>Fake Package Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFakePackageName()
+   * @generated
+   * @ordered
+   */
+  protected String fakePackageName = FAKE_PACKAGE_NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getFakeTypeName() <em>Fake Type Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFakeTypeName()
+   * @generated
+   * @ordered
+   */
+  protected static final String FAKE_TYPE_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFakeTypeName() <em>Fake Type Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFakeTypeName()
+   * @generated
+   * @ordered
+   */
+  protected String fakeTypeName = FAKE_TYPE_NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -163,6 +205,52 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getFakePackageName()
+  {
+    return fakePackageName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFakePackageName(String newFakePackageName)
+  {
+    String oldFakePackageName = fakePackageName;
+    fakePackageName = newFakePackageName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_POINTER__FAKE_PACKAGE_NAME, oldFakePackageName, fakePackageName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getFakeTypeName()
+  {
+    return fakeTypeName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFakeTypeName(String newFakeTypeName)
+  {
+    String oldFakeTypeName = fakeTypeName;
+    fakeTypeName = newFakeTypeName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_POINTER__FAKE_TYPE_NAME, oldFakeTypeName, fakeTypeName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -174,6 +262,10 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
       case DomainPackage.TYPE_POINTER__TYPE_REF:
         if (resolve) return getTypeRef();
         return basicGetTypeRef();
+      case DomainPackage.TYPE_POINTER__FAKE_PACKAGE_NAME:
+        return getFakePackageName();
+      case DomainPackage.TYPE_POINTER__FAKE_TYPE_NAME:
+        return getFakeTypeName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -193,6 +285,12 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
         return;
       case DomainPackage.TYPE_POINTER__TYPE_REF:
         setTypeRef((TypeElement)newValue);
+        return;
+      case DomainPackage.TYPE_POINTER__FAKE_PACKAGE_NAME:
+        setFakePackageName((String)newValue);
+        return;
+      case DomainPackage.TYPE_POINTER__FAKE_TYPE_NAME:
+        setFakeTypeName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -214,6 +312,12 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
       case DomainPackage.TYPE_POINTER__TYPE_REF:
         setTypeRef((TypeElement)null);
         return;
+      case DomainPackage.TYPE_POINTER__FAKE_PACKAGE_NAME:
+        setFakePackageName(FAKE_PACKAGE_NAME_EDEFAULT);
+        return;
+      case DomainPackage.TYPE_POINTER__FAKE_TYPE_NAME:
+        setFakeTypeName(FAKE_TYPE_NAME_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -232,8 +336,31 @@ public class TypePointerImpl extends EObjectImpl implements TypePointer
         return packageRef != null;
       case DomainPackage.TYPE_POINTER__TYPE_REF:
         return typeRef != null;
+      case DomainPackage.TYPE_POINTER__FAKE_PACKAGE_NAME:
+        return FAKE_PACKAGE_NAME_EDEFAULT == null ? fakePackageName != null : !FAKE_PACKAGE_NAME_EDEFAULT.equals(fakePackageName);
+      case DomainPackage.TYPE_POINTER__FAKE_TYPE_NAME:
+        return FAKE_TYPE_NAME_EDEFAULT == null ? fakeTypeName != null : !FAKE_TYPE_NAME_EDEFAULT.equals(fakeTypeName);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (fakePackageName: ");
+    result.append(fakePackageName);
+    result.append(", fakeTypeName: ");
+    result.append(fakeTypeName);
+    result.append(')');
+    return result.toString();
   }
 
 } //TypePointerImpl

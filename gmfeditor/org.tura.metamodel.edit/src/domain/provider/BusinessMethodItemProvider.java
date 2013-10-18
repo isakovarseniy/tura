@@ -62,7 +62,8 @@ public class BusinessMethodItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addMethodPropertyDescriptor(object);
+      addMethodRefPropertyDescriptor(object);
+      addFakeMethodPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -91,20 +92,43 @@ public class BusinessMethodItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Method feature.
+   * This adds a property descriptor for the Method Ref feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addMethodPropertyDescriptor(Object object)
+  protected void addMethodRefPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_BusinessMethod_method_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_BusinessMethod_method_feature", "_UI_BusinessMethod_type"),
-         DomainPackage.Literals.BUSINESS_METHOD__METHOD,
+         getString("_UI_BusinessMethod_methodRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_BusinessMethod_methodRef_feature", "_UI_BusinessMethod_type"),
+         DomainPackage.Literals.BUSINESS_METHOD__METHOD_REF,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Fake Method feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFakeMethodPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_BusinessMethod_fakeMethod_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_BusinessMethod_fakeMethod_feature", "_UI_BusinessMethod_type"),
+         DomainPackage.Literals.BUSINESS_METHOD__FAKE_METHOD,
          true,
          false,
          false,
@@ -134,7 +158,7 @@ public class BusinessMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((BusinessMethod)object).getUid();
+    String label = ((BusinessMethod)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_BusinessMethod_type") :
       getString("_UI_BusinessMethod_type") + " " + label;
@@ -155,7 +179,7 @@ public class BusinessMethodItemProvider
     switch (notification.getFeatureID(BusinessMethod.class))
     {
       case DomainPackage.BUSINESS_METHOD__UID:
-      case DomainPackage.BUSINESS_METHOD__METHOD:
+      case DomainPackage.BUSINESS_METHOD__FAKE_METHOD:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

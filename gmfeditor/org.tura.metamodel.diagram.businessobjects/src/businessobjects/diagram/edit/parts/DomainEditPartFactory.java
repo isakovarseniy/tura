@@ -37,38 +37,38 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case CreateMethodEditPart.VISUAL_ID:
 				return new CreateMethodEditPart(view);
 
-			case CreateMethodMethodEditPart.VISUAL_ID:
-				return new CreateMethodMethodEditPart(view);
+			case CreateMethodFakeMethodEditPart.VISUAL_ID:
+				return new CreateMethodFakeMethodEditPart(view);
 
 			case InsertMethodEditPart.VISUAL_ID:
 				return new InsertMethodEditPart(view);
 
-			case InsertMethodMethodEditPart.VISUAL_ID:
-				return new InsertMethodMethodEditPart(view);
+			case InsertMethodFakeMethodEditPart.VISUAL_ID:
+				return new InsertMethodFakeMethodEditPart(view);
 
 			case UpdateMethodEditPart.VISUAL_ID:
 				return new UpdateMethodEditPart(view);
 
-			case UpdateMethodMethodEditPart.VISUAL_ID:
-				return new UpdateMethodMethodEditPart(view);
+			case UpdateMethodFakeMethodEditPart.VISUAL_ID:
+				return new UpdateMethodFakeMethodEditPart(view);
 
 			case RemoveMethodEditPart.VISUAL_ID:
 				return new RemoveMethodEditPart(view);
 
-			case RemoveMethodMethodEditPart.VISUAL_ID:
-				return new RemoveMethodMethodEditPart(view);
+			case RemoveMethodFakeMethodEditPart.VISUAL_ID:
+				return new RemoveMethodFakeMethodEditPart(view);
 
 			case SearchMethodEditPart.VISUAL_ID:
 				return new SearchMethodEditPart(view);
 
-			case SearchMethodMethodEditPart.VISUAL_ID:
-				return new SearchMethodMethodEditPart(view);
+			case SearchMethodFakeMethodEditPart.VISUAL_ID:
+				return new SearchMethodFakeMethodEditPart(view);
 
 			case OtherMethodEditPart.VISUAL_ID:
 				return new OtherMethodEditPart(view);
 
-			case OtherMethodMethodEditPart.VISUAL_ID:
-				return new OtherMethodMethodEditPart(view);
+			case OtherMethodFakeMethodEditPart.VISUAL_ID:
+				return new OtherMethodFakeMethodEditPart(view);
 
 			case BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart.VISUAL_ID:
 				return new BusinessObjectBusinessObjectCreateMethodsCompartmentEditPart(

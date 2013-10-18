@@ -67,6 +67,11 @@ public abstract class AbstractTuraPropertySection extends
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
 		this.propertySheetPage = aTabbedPropertySheetPage;
+		
+	}
+
+	public TabbedPropertySheetPage getPropertySheetPage() {
+		return propertySheetPage;
 	}
 
 	/**

@@ -1,10 +1,15 @@
 /*
  * 
  */
-package businessobjects.diagram.edit.parts;
+package mapper.diagram.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
+
+import mapper.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import mapper.diagram.part.DomainVisualIDRegistry;
+import mapper.diagram.providers.DomainElementTypes;
+import mapper.diagram.providers.DomainParserProvider;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
@@ -46,22 +51,18 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-
-import businessobjects.diagram.edit.policies.DomainTextSelectionEditPolicy;
-import businessobjects.diagram.part.DomainVisualIDRegistry;
-import businessobjects.diagram.providers.DomainElementTypes;
-import businessobjects.diagram.providers.DomainParserProvider;
+import domain.TypePointer;
 
 /**
  * @generated
  */
-public class OtherMethodMethodEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class JavaMapperFakePackageNameFakeTypeEditPart extends
+		CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 605006;
+	public static final int VISUAL_ID = 405001;
 
 	/**
 	 * @generated
@@ -91,7 +92,7 @@ public class OtherMethodMethodEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public OtherMethodMethodEditPart(View view) {
+	public JavaMapperFakePackageNameFakeTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -105,7 +106,7 @@ public class OtherMethodMethodEditPart extends CompartmentEditPart implements
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new BusinessObjectsEditPart.NodeLabelDragPolicy());
+				new MappersEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -214,9 +215,14 @@ public class OtherMethodMethodEditPart extends CompartmentEditPart implements
 		String text = null;
 		EObject parserElement = getParserElement();
 		if (parserElement != null && getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
-					getParserOptions().intValue());
+			String packPart = "NA";
+			String typePart = "NA";
+			if (((TypePointer) parserElement).getPackageRef() != null)
+				packPart = ((TypePointer) parserElement).getPackageRef()
+						.getName();
+			if (((TypePointer) parserElement).getTypeRef() != null)
+				typePart = ((TypePointer) parserElement).getTypeRef().getName();
+			text = packPart + "." + typePart;
 
 		}
 		if (text == null || text.length() == 0) {
@@ -313,10 +319,10 @@ public class OtherMethodMethodEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.OtherMethod_603006,
+							DomainElementTypes.JavaMapper_402001,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(businessobjects.diagram.edit.parts.OtherMethodMethodEditPart.VISUAL_ID));
+									.getType(mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

@@ -1,14 +1,11 @@
 /*
  * 
  */
-package mapper.diagram.edit.parts;
+package businessobjects.diagram.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
-import mapper.diagram.edit.policies.DomainTextSelectionEditPolicy;
-import mapper.diagram.part.DomainVisualIDRegistry;
-import mapper.diagram.providers.DomainElementTypes;
-import mapper.diagram.providers.DomainParserProvider;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -49,18 +46,22 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-import domain.TypePointer;
+
+import businessobjects.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import businessobjects.diagram.part.DomainVisualIDRegistry;
+import businessobjects.diagram.providers.DomainElementTypes;
+import businessobjects.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
  */
-public class JavaMapperUidEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class CreateMethodFakeMethodEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 405001;
+	public static final int VISUAL_ID = 605001;
 
 	/**
 	 * @generated
@@ -90,7 +91,7 @@ public class JavaMapperUidEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public JavaMapperUidEditPart(View view) {
+	public CreateMethodFakeMethodEditPart(View view) {
 		super(view);
 	}
 
@@ -104,7 +105,7 @@ public class JavaMapperUidEditPart extends CompartmentEditPart implements
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new MappersEditPart.NodeLabelDragPolicy());
+				new BusinessObjectsEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -213,14 +214,9 @@ public class JavaMapperUidEditPart extends CompartmentEditPart implements
 		String text = null;
 		EObject parserElement = getParserElement();
 		if (parserElement != null && getParser() != null) {
-			String packPart = "NA";
-			String typePart = "NA";
-			if (((TypePointer) parserElement).getPackageRef() != null)
-				packPart = ((TypePointer) parserElement).getPackageRef()
-						.getName();
-			if (((TypePointer) parserElement).getTypeRef() != null)
-				typePart = ((TypePointer) parserElement).getTypeRef().getName();
-			text = packPart + "." + typePart;
+			text = getParser().getPrintString(
+					new EObjectAdapter(parserElement),
+					getParserOptions().intValue());
 
 		}
 		if (text == null || text.length() == 0) {
@@ -317,10 +313,10 @@ public class JavaMapperUidEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.JavaMapper_402001,
+							DomainElementTypes.CreateMethod_603001,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(mapper.diagram.edit.parts.JavaMapperUidEditPart.VISUAL_ID));
+									.getType(businessobjects.diagram.edit.parts.CreateMethodFakeMethodEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

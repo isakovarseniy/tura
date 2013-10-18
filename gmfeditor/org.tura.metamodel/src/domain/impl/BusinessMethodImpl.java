@@ -5,10 +5,12 @@ package domain.impl;
 import domain.BusinessMethod;
 import domain.DomainPackage;
 
+import domain.Operation;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -19,7 +21,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.BusinessMethodImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.BusinessMethodImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link domain.impl.BusinessMethodImpl#getMethodRef <em>Method Ref</em>}</li>
+ *   <li>{@link domain.impl.BusinessMethodImpl#getFakeMethod <em>Fake Method</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,24 +51,34 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
+   * The cached value of the '{@link #getMethodRef() <em>Method Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMethod()
+   * @see #getMethodRef()
    * @generated
    * @ordered
    */
-  protected static final String METHOD_EDEFAULT = null;
+  protected Operation methodRef;
 
   /**
-   * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
+   * The default value of the '{@link #getFakeMethod() <em>Fake Method</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMethod()
+   * @see #getFakeMethod()
    * @generated
    * @ordered
    */
-  protected String method = METHOD_EDEFAULT;
+  protected static final String FAKE_METHOD_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFakeMethod() <em>Fake Method</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFakeMethod()
+   * @generated
+   * @ordered
+   */
+  protected String fakeMethod = FAKE_METHOD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -116,9 +129,19 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMethod()
+  public Operation getMethodRef()
   {
-    return method;
+    if (methodRef != null && methodRef.eIsProxy())
+    {
+      InternalEObject oldMethodRef = (InternalEObject)methodRef;
+      methodRef = (Operation)eResolveProxy(oldMethodRef);
+      if (methodRef != oldMethodRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.BUSINESS_METHOD__METHOD_REF, oldMethodRef, methodRef));
+      }
+    }
+    return methodRef;
   }
 
   /**
@@ -126,12 +149,45 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMethod(String newMethod)
+  public Operation basicGetMethodRef()
   {
-    String oldMethod = method;
-    method = newMethod;
+    return methodRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMethodRef(Operation newMethodRef)
+  {
+    Operation oldMethodRef = methodRef;
+    methodRef = newMethodRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.BUSINESS_METHOD__METHOD, oldMethod, method));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.BUSINESS_METHOD__METHOD_REF, oldMethodRef, methodRef));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getFakeMethod()
+  {
+    return fakeMethod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFakeMethod(String newFakeMethod)
+  {
+    String oldFakeMethod = fakeMethod;
+    fakeMethod = newFakeMethod;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.BUSINESS_METHOD__FAKE_METHOD, oldFakeMethod, fakeMethod));
   }
 
   /**
@@ -146,8 +202,11 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
     {
       case DomainPackage.BUSINESS_METHOD__UID:
         return getUid();
-      case DomainPackage.BUSINESS_METHOD__METHOD:
-        return getMethod();
+      case DomainPackage.BUSINESS_METHOD__METHOD_REF:
+        if (resolve) return getMethodRef();
+        return basicGetMethodRef();
+      case DomainPackage.BUSINESS_METHOD__FAKE_METHOD:
+        return getFakeMethod();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -165,8 +224,11 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
       case DomainPackage.BUSINESS_METHOD__UID:
         setUid((String)newValue);
         return;
-      case DomainPackage.BUSINESS_METHOD__METHOD:
-        setMethod((String)newValue);
+      case DomainPackage.BUSINESS_METHOD__METHOD_REF:
+        setMethodRef((Operation)newValue);
+        return;
+      case DomainPackage.BUSINESS_METHOD__FAKE_METHOD:
+        setFakeMethod((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -185,8 +247,11 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
       case DomainPackage.BUSINESS_METHOD__UID:
         setUid(UID_EDEFAULT);
         return;
-      case DomainPackage.BUSINESS_METHOD__METHOD:
-        setMethod(METHOD_EDEFAULT);
+      case DomainPackage.BUSINESS_METHOD__METHOD_REF:
+        setMethodRef((Operation)null);
+        return;
+      case DomainPackage.BUSINESS_METHOD__FAKE_METHOD:
+        setFakeMethod(FAKE_METHOD_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -204,8 +269,10 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
     {
       case DomainPackage.BUSINESS_METHOD__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.BUSINESS_METHOD__METHOD:
-        return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
+      case DomainPackage.BUSINESS_METHOD__METHOD_REF:
+        return methodRef != null;
+      case DomainPackage.BUSINESS_METHOD__FAKE_METHOD:
+        return FAKE_METHOD_EDEFAULT == null ? fakeMethod != null : !FAKE_METHOD_EDEFAULT.equals(fakeMethod);
     }
     return super.eIsSet(featureID);
   }
@@ -223,8 +290,8 @@ public class BusinessMethodImpl extends TypePointerImpl implements BusinessMetho
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
-    result.append(", method: ");
-    result.append(method);
+    result.append(", fakeMethod: ");
+    result.append(fakeMethod);
     result.append(')');
     return result.toString();
   }

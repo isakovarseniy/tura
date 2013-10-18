@@ -16,7 +16,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getInsertMethod()
- * @model annotation="gmf.node label='method'"
+ * @model annotation="gmf.node label='fakeMethod'"
  * @generated
  */
 public interface InsertMethod extends BusinessMethod

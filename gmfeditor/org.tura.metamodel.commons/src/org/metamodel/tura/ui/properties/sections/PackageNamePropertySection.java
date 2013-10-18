@@ -22,8 +22,10 @@ public class PackageNamePropertySection extends
 
 	private LinkedHashMap<String,domain.Package> values;
 
-	protected EStructuralFeature getFeature() {
-		return DomainPackage.eINSTANCE.getTypePointer_PackageRef();
+	protected EStructuralFeature[] getFeature() {
+		return new EStructuralFeature[]{
+				DomainPackage.eINSTANCE.getTypePointer_PackageRef(),
+				DomainPackage.eINSTANCE.getTypePointer_FakePackageName()};
 	}
 
 	protected String getFeatureAsText() {
@@ -33,8 +35,14 @@ public class PackageNamePropertySection extends
 			return "";
 	}
 
-	protected Object getFeatureValue(Object key) {
-		return values.get(key);
+	protected Object getFeatureValue(EStructuralFeature feature,Object... obj) {
+		if (feature.equals(DomainPackage.eINSTANCE.getTypePointer_PackageRef()) )
+		    return values.get(obj[0]);
+
+		if (feature.equals(DomainPackage.eINSTANCE.getTypePointer_FakePackageName()) )
+		    return values.get(obj[0]).getName();
+		
+		return null;
 	}
 
 	protected String getLabelText() {

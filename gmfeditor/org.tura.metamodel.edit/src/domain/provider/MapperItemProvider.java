@@ -158,7 +158,7 @@ public class MapperItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Mapper)object).getUid();
+    String label = ((Mapper)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_Mapper_type") :
       getString("_UI_Mapper_type") + " " + label;

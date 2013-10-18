@@ -197,36 +197,39 @@ class BusinessObject {
 
 class BusinessMethod extends TypePointer {
     id attr EString uid;
-   attr EString method;
+    ref Operation methodRef;
+
+  // To support display label
+    attr EString fakeMethod;
 }
 
-@gmf.node(label="method")
+@gmf.node(label="fakeMethod")
 class CreateMethod extends BusinessMethod{
    ref BusinessObject#createMethods parent;
 }
 
-@gmf.node(label="method")
+@gmf.node(label="fakeMethod")
 class InsertMethod extends BusinessMethod{
    ref BusinessObject#insertMethods parent;
 }
 
-@gmf.node(label="method")
+@gmf.node(label="fakeMethod")
 class UpdateMethod extends BusinessMethod{
    ref BusinessObject#updateMethods parent;
    
 }
 
-@gmf.node(label="method")
+@gmf.node(label="fakeMethod")
 class RemoveMethod extends BusinessMethod{
    ref BusinessObject#removeMethods parent;
 }
 
-@gmf.node(label="method")
+@gmf.node(label="fakeMethod")
 class SearchMethod extends BusinessMethod{
    ref BusinessObject#searchMethods parent;
 }
 
-@gmf.node(label="method")
+@gmf.node(label="fakeMethod")
 class OtherMethod extends BusinessMethod{
    ref BusinessObject#othersMethods parent;
 }
@@ -246,7 +249,7 @@ class Mapper extends TypePointer{
     attr boolean uiLayer;
 }
 
-@gmf.node(label="uid")
+@gmf.node(label="fakePackageName,fakeTypeName")
 class JavaMapper extends Mapper{
    attr EString mappedToPackageName;
    attr EString mappedToClassName;
@@ -372,7 +375,10 @@ class ArtifactRef{
 class TypePointer{
   ref Package packageRef;
   ref TypeElement typeRef;
-  
+
+  // To support display label
+  attr EString fakePackageName;
+  attr EString fakeTypeName;
 }
 
 @gmf.diagram.typedefinition
@@ -404,7 +410,7 @@ class Type extends TypeElement {
    val TypeExtension[0..1] extension;
 }
 
-@gmf.node(label="uid")
+@gmf.node(label="fakePackageName,fakeTypeName")
 class TypeReference extends TypeElement , TypePointer{
     id attr EString uid;
  }
@@ -444,7 +450,7 @@ class Parameter extends  TypePointer{
 }
 
 
-@gmf.node(label="uid")
+@gmf.node(label="fakePackageName,fakeTypeName")
 class ReturnValue extends TypePointer{
     id attr EString uid;
 }

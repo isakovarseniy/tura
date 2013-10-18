@@ -16,7 +16,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getOtherMethod()
- * @model annotation="gmf.node label='method'"
+ * @model annotation="gmf.node label='fakeMethod'"
  * @generated
  */
 public interface OtherMethod extends BusinessMethod

@@ -26,20 +26,20 @@ import businessobjects.diagram.edit.parts.BusinessObjectNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
 import businessobjects.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodEditPart;
-import businessobjects.diagram.edit.parts.CreateMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.CreateMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodEditPart;
-import businessobjects.diagram.edit.parts.InsertMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.InsertMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodEditPart;
-import businessobjects.diagram.edit.parts.OtherMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.OtherMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
-import businessobjects.diagram.edit.parts.RemoveMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.RemoveMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.SearchMethodEditPart;
-import businessobjects.diagram.edit.parts.SearchMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.SearchMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.TypeExtensionEditPart;
 import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
-import businessobjects.diagram.edit.parts.UpdateMethodMethodEditPart;
+import businessobjects.diagram.edit.parts.UpdateMethodFakeMethodEditPart;
 import businessobjects.diagram.part.DomainDiagramEditorPlugin;
 import businessobjects.diagram.part.DomainVisualIDRegistry;
 import businessobjects.diagram.providers.DomainElementTypes;
@@ -114,42 +114,42 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case OtherMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?OtherMethod", DomainElementTypes.OtherMethod_603006); //$NON-NLS-1$
-		case BusinessObjectsEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?BusinessObjects", DomainElementTypes.BusinessObjects_601000); //$NON-NLS-1$
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_604004); //$NON-NLS-1$
-		case RemoveMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?RemoveMethod", DomainElementTypes.RemoveMethod_603008); //$NON-NLS-1$
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_604005); //$NON-NLS-1$
-		case UpdateMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?UpdateMethod", DomainElementTypes.UpdateMethod_603007); //$NON-NLS-1$
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_604001); //$NON-NLS-1$
+		case UpdateMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?UpdateMethod", DomainElementTypes.UpdateMethod_603007); //$NON-NLS-1$
 		case BusinessObjectEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?BusinessObject", DomainElementTypes.BusinessObject_602001); //$NON-NLS-1$
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_604003); //$NON-NLS-1$
-		case InsertMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?InsertMethod", DomainElementTypes.InsertMethod_603002); //$NON-NLS-1$
+					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_604004); //$NON-NLS-1$
 		case SearchMethodEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?SearchMethod", DomainElementTypes.SearchMethod_603009); //$NON-NLS-1$
 		case CreateMethodEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?CreateMethod", DomainElementTypes.CreateMethod_603001); //$NON-NLS-1$
+		case BusinessObjectsEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?BusinessObjects", DomainElementTypes.BusinessObjects_601000); //$NON-NLS-1$
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_604003); //$NON-NLS-1$
+		case OtherMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?OtherMethod", DomainElementTypes.OtherMethod_603006); //$NON-NLS-1$
+		case InsertMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?InsertMethod", DomainElementTypes.InsertMethod_603002); //$NON-NLS-1$
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_604005); //$NON-NLS-1$
+		case RemoveMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?RemoveMethod", DomainElementTypes.RemoveMethod_603008); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -210,30 +210,30 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case OtherMethodEditPart.VISUAL_ID:
-			return getOtherMethod_603006Text(view);
-		case BusinessObjectsEditPart.VISUAL_ID:
-			return getBusinessObjects_601000Text(view);
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getInfrastructureRecipeConfig_604004Text(view);
-		case RemoveMethodEditPart.VISUAL_ID:
-			return getRemoveMethod_603008Text(view);
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getRecipeInfrastructures_604005Text(view);
-		case UpdateMethodEditPart.VISUAL_ID:
-			return getUpdateMethod_603007Text(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_604001Text(view);
+		case UpdateMethodEditPart.VISUAL_ID:
+			return getUpdateMethod_603007Text(view);
 		case BusinessObjectEditPart.VISUAL_ID:
 			return getBusinessObject_602001Text(view);
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_604003Text(view);
-		case InsertMethodEditPart.VISUAL_ID:
-			return getInsertMethod_603002Text(view);
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return getInfrastructureRecipeConfig_604004Text(view);
 		case SearchMethodEditPart.VISUAL_ID:
 			return getSearchMethod_603009Text(view);
 		case CreateMethodEditPart.VISUAL_ID:
 			return getCreateMethod_603001Text(view);
+		case BusinessObjectsEditPart.VISUAL_ID:
+			return getBusinessObjects_601000Text(view);
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getConfigurationConfigExtension_604003Text(view);
+		case OtherMethodEditPart.VISUAL_ID:
+			return getOtherMethod_603006Text(view);
+		case InsertMethodEditPart.VISUAL_ID:
+			return getInsertMethod_603002Text(view);
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getRecipeInfrastructures_604005Text(view);
+		case RemoveMethodEditPart.VISUAL_ID:
+			return getRemoveMethod_603008Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -241,19 +241,33 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getCreateMethod_603001Text(View view) {
+	private String getTypeExtension_604001Text(View view) {
+		TypeExtension domainModelElement = (TypeExtension) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 604001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getUpdateMethod_603007Text(View view) {
 		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.CreateMethod_603001,
+				DomainElementTypes.UpdateMethod_603007,
 				view.getElement() != null ? view.getElement() : view,
 				DomainVisualIDRegistry
-						.getType(CreateMethodMethodEditPart.VISUAL_ID));
+						.getType(UpdateMethodFakeMethodEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 605001); //$NON-NLS-1$
+					"Parser was not found for label " + 605008); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -281,6 +295,80 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
+	private String getInfrastructureRecipeConfig_604004Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.InfrastructureRecipeConfig_604004,
+				view.getElement() != null ? view.getElement() : view,
+				CommonParserHint.DESCRIPTION);
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 606003); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getSearchMethod_603009Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.SearchMethod_603009,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(SearchMethodFakeMethodEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 605010); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getCreateMethod_603001Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.CreateMethod_603001,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(CreateMethodFakeMethodEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 605001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getBusinessObjects_601000Text(View view) {
+		BusinessObjects domainModelElement = (BusinessObjects) view
+				.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 601000); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	private String getConfigurationConfigExtension_604003Text(View view) {
 		IParser parser = DomainParserProvider.getParser(
 				DomainElementTypes.ConfigurationConfigExtension_604003,
@@ -300,13 +388,19 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getTypeExtension_604001Text(View view) {
-		TypeExtension domainModelElement = (TypeExtension) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+	private String getOtherMethod_603006Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.OtherMethod_603006,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(OtherMethodFakeMethodEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 604001); //$NON-NLS-1$
+					"Parser was not found for label " + 605006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -314,19 +408,19 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getUpdateMethod_603007Text(View view) {
+	private String getInsertMethod_603002Text(View view) {
 		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.UpdateMethod_603007,
+				DomainElementTypes.InsertMethod_603002,
 				view.getElement() != null ? view.getElement() : view,
 				DomainVisualIDRegistry
-						.getType(UpdateMethodMethodEditPart.VISUAL_ID));
+						.getType(InsertMethodFakeMethodEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 605008); //$NON-NLS-1$
+					"Parser was not found for label " + 605002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -353,91 +447,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getInfrastructureRecipeConfig_604004Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.InfrastructureRecipeConfig_604004,
-				view.getElement() != null ? view.getElement() : view,
-				CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 606003); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getInsertMethod_603002Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.InsertMethod_603002,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry
-						.getType(InsertMethodMethodEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 605002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getOtherMethod_603006Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.OtherMethod_603006,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry
-						.getType(OtherMethodMethodEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 605006); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getSearchMethod_603009Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.SearchMethod_603009,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry
-						.getType(SearchMethodMethodEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 605010); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	private String getRemoveMethod_603008Text(View view) {
 		IParser parser = DomainParserProvider.getParser(
 				DomainElementTypes.RemoveMethod_603008,
 				view.getElement() != null ? view.getElement() : view,
 				DomainVisualIDRegistry
-						.getType(RemoveMethodMethodEditPart.VISUAL_ID));
+						.getType(RemoveMethodFakeMethodEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
@@ -445,21 +460,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 605009); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getBusinessObjects_601000Text(View view) {
-		BusinessObjects domainModelElement = (BusinessObjects) view
-				.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getUid();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 601000); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

@@ -84,7 +84,7 @@ public class UpdateMethodItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((UpdateMethod)object).getUid();
+    String label = ((UpdateMethod)object).getFakePackageName();
     return label == null || label.length() == 0 ?
       getString("_UI_UpdateMethod_type") :
       getString("_UI_UpdateMethod_type") + " " + label;

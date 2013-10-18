@@ -74,7 +74,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Primitive_102004 = getElementType("org.tura.metamodel.diagram.typedefinition.Primitive_102004"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
@@ -83,7 +82,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Enumarator_102005 = getElementType("org.tura.metamodel.diagram.typedefinition.Enumarator_102005"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
@@ -111,11 +109,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType InfrastructureRecipeConfig_104004 = getElementType("org.tura.metamodel.diagram.typedefinition.InfrastructureRecipeConfig_104004"); //$NON-NLS-1$
+	public static final IElementType RecipeInfrastructures_104005 = getElementType("org.tura.metamodel.diagram.typedefinition.RecipeInfrastructures_104005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeInfrastructures_104005 = getElementType("org.tura.metamodel.diagram.typedefinition.RecipeInfrastructures_104005"); //$NON-NLS-1$
+	public static final IElementType InfrastructureRecipeConfig_104004 = getElementType("org.tura.metamodel.diagram.typedefinition.InfrastructureRecipeConfig_104004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */

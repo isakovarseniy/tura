@@ -6,7 +6,7 @@ package mapper.diagram.part;
 import mapper.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import mapper.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
-import mapper.diagram.edit.parts.JavaMapperUidEditPart;
+import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 import mapper.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import mapper.diagram.edit.parts.TypeExtensionEditPart;
@@ -170,7 +170,7 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case JavaMapperEditPart.VISUAL_ID:
-			if (JavaMapperUidEditPart.VISUAL_ID == nodeVisualID) {
+			if (JavaMapperFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

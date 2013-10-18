@@ -63,6 +63,8 @@ public class TypeReferenceItemProvider
 
       addPackageRefPropertyDescriptor(object);
       addTypeRefPropertyDescriptor(object);
+      addFakePackageNamePropertyDescriptor(object);
+      addFakeTypeNamePropertyDescriptor(object);
       addUidPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -110,6 +112,52 @@ public class TypeReferenceItemProvider
          false,
          true,
          null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Fake Package Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFakePackageNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypePointer_fakePackageName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_fakePackageName_feature", "_UI_TypePointer_type"),
+         DomainPackage.Literals.TYPE_POINTER__FAKE_PACKAGE_NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Fake Type Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFakeTypeNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TypePointer_fakeTypeName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TypePointer_fakeTypeName_feature", "_UI_TypePointer_type"),
+         DomainPackage.Literals.TYPE_POINTER__FAKE_TYPE_NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
          null,
          null));
   }
@@ -178,6 +226,8 @@ public class TypeReferenceItemProvider
 
     switch (notification.getFeatureID(TypeReference.class))
     {
+      case DomainPackage.TYPE_REFERENCE__FAKE_PACKAGE_NAME:
+      case DomainPackage.TYPE_REFERENCE__FAKE_TYPE_NAME:
       case DomainPackage.TYPE_REFERENCE__UID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
