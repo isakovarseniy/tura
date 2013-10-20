@@ -33,9 +33,9 @@ public class QueryHelper {
 
 		OCLExpression<EClassifier> query = helper
 				.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).name='"
-						+ eObject.getDomainArtifact()
+						+ eObject.getDomainArtifactRef().getName()
 						+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).name ='"
-						+ eObject.getArtifactName()
+						+ eObject.getArtifactRef().getName()
 						+ "').oclAsType(domain::Artifact).specifiers");
 
 		Collection<domain.Specifier> map1 = (Collection<domain.Specifier>) ocl
@@ -49,7 +49,8 @@ public class QueryHelper {
 			for (Iterator<domain.Specifier> itr2 = map1.iterator(); itr2
 					.hasNext();) {
 				domain.Specifier sp = itr2.next();
-				if (sp.getName().equals(ms.getName()))
+				if ((ms.getSpecifierRef() != null)
+						&& (sp.getUid().equals(ms.getSpecifierRef().getUid())))
 					isRemove = false;
 			}
 			if (isRemove)
@@ -67,7 +68,9 @@ public class QueryHelper {
 				for (Iterator<domain.MappingSpecifier> itr2 = map.iterator(); itr2
 						.hasNext();) {
 					domain.MappingSpecifier sp = itr2.next();
-					if (sp.getName().equals(ms.getName()))
+					if ((sp.getSpecifierRef() != null)
+							&& (sp.getSpecifierRef().getUid().equals(ms
+									.getUid())))
 						isAdd = false;
 				}
 			}
@@ -93,9 +96,9 @@ public class QueryHelper {
 
 		OCLExpression<EClassifier> query = helper
 				.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).name='"
-						+ eObject.getDomainArtifact()
+						+ eObject.getDomainArtifactRef().getName()
 						+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).name ='"
-						+ eObject.getArtifactName()
+						+ eObject.getArtifactRef().getName()
 						+ "').oclAsType(domain::Artifact).modelQuery");
 
 		Collection<domain.Variable> map1 = (Collection<domain.Variable>) ocl
@@ -109,7 +112,7 @@ public class QueryHelper {
 			for (Iterator<domain.Variable> itr2 = map1.iterator(); itr2
 					.hasNext();) {
 				domain.Variable sp = itr2.next();
-				if (sp.getName().equals(ms.getName()))
+				if ((ms.getVariableRef() != null)&&(sp.getUid().equals(ms.getVariableRef().getUid())))
 					isRemove = false;
 			}
 			if (isRemove)
@@ -127,7 +130,7 @@ public class QueryHelper {
 				for (Iterator<domain.MappingVariable> itr2 = map.iterator(); itr2
 						.hasNext();) {
 					domain.MappingVariable sp = itr2.next();
-					if (sp.getName().equals(ms.getName()))
+					if ((sp.getVariableRef() != null) &&(sp.getVariableRef().getUid().equals(ms.getUid())))
 						isAdd = false;
 				}
 			}
@@ -142,9 +145,10 @@ public class QueryHelper {
 
 	}
 
-	public Set<String> findAvailableMappersForRecipe(domain.Recipe recipe) {
+	public Set<domain.ApplicationMapper> findAvailableMappersForRecipe(
+			domain.Recipe recipe) {
 
-		HashSet<String> mappers = new HashSet<String>();
+		HashSet<domain.ApplicationMapper> mappers = new HashSet<domain.ApplicationMapper>();
 		try {
 
 			List<domain.ApplicationMapper> appMapperLst = recipe.getParent()
@@ -154,7 +158,7 @@ public class QueryHelper {
 			for (Iterator<domain.ApplicationMapper> itr = appMapperLst
 					.iterator(); itr.hasNext();) {
 				domain.ApplicationMapper mapper = itr.next();
-				mappers.add(mapper.getName());
+				mappers.add(mapper);
 			}
 
 		} catch (Exception e) {
@@ -163,22 +167,23 @@ public class QueryHelper {
 		return mappers;
 	}
 
-	public Set<String> findAvailableMappersForIngredient(domain.Ingredient ingr) {
+	public Set<domain.ApplicationMapper> findAvailableMappersForIngredient(
+			domain.Ingredient ingr) {
 
-		HashSet<String> mappers = new HashSet<String>();
+		HashSet<domain.ApplicationMapper> mappers = new HashSet<domain.ApplicationMapper>();
 		try {
 
 			List<domain.ApplicationMapper> appMapperLst = ingr.getParent()
 					.getParent().getParent().getParent().getParent()
 					.getApplicationMappers().getMappers();
 
-			List<String> recipeLs = ingr.getParent().getMappers();
+			List<domain.Mappers> recipeLs = ingr.getParent().getMappers();
 
 			for (Iterator<domain.ApplicationMapper> itr = appMapperLst
 					.iterator(); itr.hasNext();) {
 				domain.ApplicationMapper mapper = itr.next();
 				if (!recipeLs.contains(mapper.getName()))
-					mappers.add(mapper.getName());
+					mappers.add(mapper);
 			}
 
 		} catch (Exception e) {
@@ -188,20 +193,20 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<String> removeMappersForRecipe(domain.Recipe eObject) {
-		ArrayList<String> removeMappers = new ArrayList<String>();
+	public List<domain.Mappers> removeMappersForRecipe(domain.Recipe eObject) {
+		ArrayList<domain.Mappers> removeMappers = new ArrayList<domain.Mappers>();
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-		List<String> map = eObject.getMappers();
+		List<domain.Mappers> map = eObject.getMappers();
 
 		List<domain.ApplicationMapper> map1 = eObject.getParent().getParent()
 				.getParent().getParent().getApplicationMappers().getMappers();
 
-		for (Iterator<String> itr1 = map.iterator(); itr1.hasNext();) {
-			String ms = itr1.next();
+		for (Iterator<domain.Mappers> itr1 = map.iterator(); itr1.hasNext();) {
+			domain.Mappers ms = itr1.next();
 			boolean isRemove = true;
 			for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2
 					.hasNext();) {
@@ -217,28 +222,29 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<String> removeMappersForIngredient(domain.Ingredient eObject) {
-		ArrayList<String> removeMappers = new ArrayList<String>();
+	public List<domain.Mappers> removeMappersForIngredient(
+			domain.Ingredient eObject) {
+		ArrayList<domain.Mappers> removeMappers = new ArrayList<domain.Mappers>();
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-		List<String> map = eObject.getMappers();
+		List<domain.Mappers> map = eObject.getMappers();
 
 		List<domain.ApplicationMapper> map1 = eObject.getParent().getParent()
 				.getParent().getParent().getParent().getApplicationMappers()
 				.getMappers();
 
-		List<String> recipeLs = eObject.getParent().getMappers();
+		List<domain.Mappers> recipeLs = eObject.getParent().getMappers();
 
-		for (Iterator<String> itr1 = map.iterator(); itr1.hasNext();) {
-			String ms = itr1.next();
+		for (Iterator<domain.Mappers> itr1 = map.iterator(); itr1.hasNext();) {
+			domain.Mappers ms = itr1.next();
 			boolean isRemove = true;
 			for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2
 					.hasNext();) {
 				domain.ApplicationMapper sp = itr2.next();
-				if (sp.getName().equals(ms))
+				if (sp.getUid().equals(ms.getUid()))
 					isRemove = false;
 				if (recipeLs.contains(ms))
 					isRemove = true;

@@ -3,6 +3,7 @@
 package domain.impl;
 
 import domain.DomainPackage;
+import domain.Mappers;
 import domain.UsingMappers;
 
 import java.util.Collection;
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -31,14 +33,14 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 public class UsingMappersImpl extends EObjectImpl implements UsingMappers
 {
   /**
-   * The cached value of the '{@link #getMappers() <em>Mappers</em>}' attribute list.
+   * The cached value of the '{@link #getMappers() <em>Mappers</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMappers()
    * @generated
    * @ordered
    */
-  protected EList<String> mappers;
+  protected EList<Mappers> mappers;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,11 +68,11 @@ public class UsingMappersImpl extends EObjectImpl implements UsingMappers
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getMappers()
+  public EList<Mappers> getMappers()
   {
     if (mappers == null)
     {
-      mappers = new EDataTypeUniqueEList<String>(String.class, this, DomainPackage.USING_MAPPERS__MAPPERS);
+      mappers = new EObjectResolvingEList<Mappers>(Mappers.class, this, DomainPackage.USING_MAPPERS__MAPPERS);
     }
     return mappers;
   }
@@ -104,7 +106,7 @@ public class UsingMappersImpl extends EObjectImpl implements UsingMappers
     {
       case DomainPackage.USING_MAPPERS__MAPPERS:
         getMappers().clear();
-        getMappers().addAll((Collection<? extends String>)newValue);
+        getMappers().addAll((Collection<? extends Mappers>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,23 +143,6 @@ public class UsingMappersImpl extends EObjectImpl implements UsingMappers
         return mappers != null && !mappers.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (mappers: ");
-    result.append(mappers);
-    result.append(')');
-    return result.toString();
   }
 
 } //UsingMappersImpl

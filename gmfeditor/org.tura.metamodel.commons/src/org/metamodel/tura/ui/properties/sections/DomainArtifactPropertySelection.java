@@ -23,15 +23,21 @@ public class DomainArtifactPropertySelection extends
 
 	protected EStructuralFeature[] getFeature() {
 		return new EStructuralFeature[] { DomainPackage.eINSTANCE
-				.getArtifactRef_DomainArtifact() };
+				.getArtifactRef_DomainArtifactRef() };
 	}
 
 	protected String getFeatureAsText() {
-		return ((domain.ArtifactRef) eObject).getDomainArtifact();
+		if (((domain.ArtifactRef) eObject).getDomainArtifactRef() != null)
+		    return ((domain.ArtifactRef) eObject).getDomainArtifactRef().getName();
+		else
+			return "";
 	}
 
 	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
-		return values.get(obj[0]);
+		if (feature.equals(DomainPackage.eINSTANCE.getArtifactRef_DomainArtifactRef()) )
+		    return values.get(obj[0]);
+
+		return null;
 	}
 
 	protected String getLabelText() {
@@ -39,10 +45,12 @@ public class DomainArtifactPropertySelection extends
 	}
 
 	protected boolean isEqual(Object key) {
-		if (((domain.ArtifactRef) eObject).getDomainArtifact() == null)
+		if (((domain.ArtifactRef) eObject).getDomainArtifactRef() == null)
+			return false;
+		if (((domain.ArtifactRef) eObject).getDomainArtifactRef().getName() == null)
 			return false;
 		return values.get(key).equals(
-				((domain.ArtifactRef) eObject).getArtifactName());
+				((domain.ArtifactRef) eObject).getDomainArtifactRef().getName());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

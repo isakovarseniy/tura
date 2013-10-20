@@ -270,7 +270,7 @@ class Recipes{
 }
 
 class UsingMappers{
-  attr EString[*] mappers;
+  ref Mappers[*] mappers;
 }
 
 enum PlatformLayers{
@@ -357,19 +357,19 @@ class Property{
 
 class MappingSpecifier{
     id attr EString uid;
-   attr EString name;
-   attr EString value;
+   ref  Specifier specifierRef;
+   ref Option valueRef;
 }
 class MappingVariable{
     id attr EString uid;
-   attr EString name;
+   ref Variable variableRef;
    attr EString value;
 }
 
 class ArtifactRef{
     id attr EString uid;
-   attr EString domainArtifact;
-   attr EString artifactName;
+   ref DomainArtifact domainArtifactRef;
+   ref Artifact artifactRef;
 }
 
 class TypePointer{

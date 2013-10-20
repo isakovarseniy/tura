@@ -406,12 +406,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_target;
+	public static String NavigatorGroupName_Recipes_301000_links;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_source;
+	public static String NavigatorGroupName_Configuration_302002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Configuration_302002_outgoinglinks;
 
 	/**
 	 * @generated
@@ -426,17 +431,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Recipes_301000_links;
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Configuration_302002_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Configuration_302002_outgoinglinks;
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_source;
 
 	/**
 	 * @generated

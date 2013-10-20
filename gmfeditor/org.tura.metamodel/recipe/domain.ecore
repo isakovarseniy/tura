@@ -363,8 +363,8 @@
         eOpposite="#//ApplicationRecipe/recipes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UsingMappers">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappers" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappers" upperBound="-1"
+        eType="#//Mappers"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PlatformLayers">
     <eLiterals name="ServiceLayer"/>
@@ -499,20 +499,20 @@
   <eClassifiers xsi:type="ecore:EClass" name="MappingSpecifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specifierRef" eType="#//Specifier"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueRef" eType="#//Option"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MappingVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variableRef" eType="#//Variable"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArtifactRef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domainArtifact" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainArtifactRef" eType="#//DomainArtifact"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="artifactRef" eType="#//Artifact"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypePointer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="packageRef" eType="#//Package"/>

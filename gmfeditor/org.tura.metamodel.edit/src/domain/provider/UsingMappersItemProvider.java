@@ -86,8 +86,8 @@ public class UsingMappersItemProvider
          DomainPackage.Literals.USING_MAPPERS__MAPPERS,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
@@ -127,13 +127,6 @@ public class UsingMappersItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(UsingMappers.class))
-    {
-      case DomainPackage.USING_MAPPERS__MAPPERS:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-    }
     super.notifyChanged(notification);
   }
 

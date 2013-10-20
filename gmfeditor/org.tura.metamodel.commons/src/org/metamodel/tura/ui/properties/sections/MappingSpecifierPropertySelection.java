@@ -2,40 +2,35 @@ package org.metamodel.tura.ui.properties.sections;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
-import org.eclipse.ocl.OCL;
-import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
-import org.eclipse.ocl.expressions.OCLExpression;
-import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -89,8 +84,6 @@ public class MappingSpecifierPropertySelection extends
 		return Arrays.asList(columnNames);
 	}
 
-	
-	
 	/**
 	 * Add the "Add", "Delete" and "Close" buttons
 	 * 
@@ -98,10 +91,31 @@ public class MappingSpecifierPropertySelection extends
 	 *            the parent composite
 	 */
 	protected void createButtons(Composite parent) {
+
+		GridData gridData = new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING);
+		gridData.widthHint = 80;
+		
+		// Create and configure the "Delete" button
+		Button delete = new Button(parent, SWT.PUSH | SWT.CENTER);
+		delete.setText("Delete");
+		gridData = new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING);
+		gridData.widthHint = 80;
+		delete.setLayoutData(gridData);
+
+		delete.addSelectionListener(new SelectionAdapter() {
+
+			// Remove the selection and refresh the view
+			public void widgetSelected(SelectionEvent e) {
+				Object row = ((IStructuredSelection) tableViewer
+						.getSelection()).getFirstElement();
+				if (row != null) {
+					removeRow(row);
+				}
+			}
+		});
+		
 	}
-	
-	
-	
+
 	/**
 	 * Create the Table
 	 */
@@ -265,12 +279,21 @@ public class MappingSpecifierPropertySelection extends
 		public String getColumnText(Object element, int columnIndex) {
 			String result = "";
 			domain.MappingSpecifier task = (domain.MappingSpecifier) element;
+			if (task.getSpecifierRef() == null)
+				return "";
 			switch (columnIndex) {
 			case 0:
-				result = task.getName();
+				if (task.getSpecifierRef() == null)
+					result = "";
+				else
+					result = task.getSpecifierRef().getName();
 				break;
 			case 1:
-				result = task.getValue();
+				if (task.getValueRef() == null)
+					result = "";
+				else
+					result = task.getValueRef().getValue();
+
 				break;
 			default:
 				break;
@@ -346,15 +369,24 @@ public class MappingSpecifierPropertySelection extends
 		@SuppressWarnings("deprecation")
 		protected int compareOptions(domain.MappingSpecifier opt1,
 				domain.MappingSpecifier opt2) {
-			return collator.compare(opt1.getName(), opt2.getName());
+			if ((opt1.getSpecifierRef() == null)
+					|| (opt2.getSpecifierRef() == null))
+				return -1;
+			return collator.compare(opt1.getSpecifierRef().getName(), opt2
+					.getSpecifierRef().getName());
 		}
 
 		@SuppressWarnings("deprecation")
 		protected int compareValues(domain.MappingSpecifier opt1,
 				domain.MappingSpecifier opt2) {
-			if ((opt1.getValue() == null) || (opt2.getValue() == null))
+			if ((opt1.getValueRef() == null) || (opt2.getValueRef() == null))
 				return -1;
-			return collator.compare(opt1.getValue(), opt2.getValue());
+			if ((opt1.getValueRef().getValue() == null)
+					|| (opt2.getValueRef().getValue() == null))
+				return -1;
+
+			return collator.compare(opt1.getValueRef().getValue(), opt2
+					.getValueRef().getValue());
 		}
 
 		/**
@@ -386,47 +418,12 @@ public class MappingSpecifierPropertySelection extends
 			return spOptions;
 		}
 
-		@SuppressWarnings({ "unchecked", "rawtypes" })
-		public String[] initOptions(domain.MappingSpecifier ms) {
+		public List<domain.Option> initOptions(domain.MappingSpecifier ms) {
 
-			if (ms == null)
-				return new String[] {};
+			if (ms.getSpecifierRef() == null)
+				return new ArrayList<domain.Option>();
+			return ms.getSpecifierRef().getOptions();
 
-			ShapeImpl diagram = (ShapeImpl) editPart.getModel();
-			try {
-				OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-				OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-						.createOCLHelper();
-				helper.setContext(DomainPackage.eINSTANCE
-						.getEClassifier("Domain"));
-
-				EObject types = (EObject) diagram.getElement();
-
-				OCLExpression<EClassifier> query = helper
-						.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).name='"
-								+ ((domain.ModelMapper) eObject)
-										.getDomainArtifact()
-								+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).name ='"
-								+ ((domain.ModelMapper) eObject)
-										.getArtifactName()
-								+ "').oclAsType(domain::Artifact).specifiers->select(r|r.oclAsType(domain::Specifier).name='"
-								+ ms.getName()
-								+ "').oclAsType(domain::Specifier).options");
-
-				Collection<domain.Option> map = (Collection<domain.Option>) ocl
-						.evaluate(types, query);
-
-				ArrayList<String> ls = new ArrayList<>();
-				for (Iterator<domain.Option> itr = map.iterator(); itr
-						.hasNext();) {
-					domain.Option opt = itr.next();
-					ls.add(opt.getValue());
-				}
-				return ls.toArray(new String[ls.size()]);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return null;
 		}
 
 		@SuppressWarnings({ "unchecked" })
@@ -439,18 +436,19 @@ public class MappingSpecifierPropertySelection extends
 			try {
 
 				EObject types = (EObject) diagram.getElement();
-				Object[] result =  (new QueryHelper()).findMappingSpecifiers((domain.ModelMapper)eObject, types);	
-				
+				Object[] result = (new QueryHelper()).findMappingSpecifiers(
+						(domain.ModelMapper) eObject, types);
+
 				List<domain.Specifier> addSpecifiers = (List<Specifier>) result[0];
 				List<domain.MappingSpecifier> removeSpecifiers = (List<MappingSpecifier>) result[1];
-				
+
 				// Add new
 				for (Iterator<domain.Specifier> itr = addSpecifiers.iterator(); itr
 						.hasNext();) {
 					domain.Specifier specifier = itr.next();
 					domain.MappingSpecifier ms = DomainFactory.eINSTANCE
 							.createMappingSpecifier();
-					ms.setName(specifier.getName());
+					ms.setSpecifierRef(specifier);
 					editingDomain.getCommandStack().execute(
 							AddCommand.create(editingDomain,
 									((domain.ModelMapper) eObject),
@@ -491,26 +489,6 @@ public class MappingSpecifierPropertySelection extends
 		 * Add a new task to the collection of tasks
 		 */
 		public void addTask() {
-			domain.MappingSpecifier option = DomainFactory.eINSTANCE
-					.createMappingSpecifier();
-			option.setValue("New option");
-			ArrayList<domain.MappingSpecifier> ls = new ArrayList<domain.MappingSpecifier>();
-			ls.add(option);
-
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
-
-			editingDomain.getCommandStack()
-					.execute(
-							AddCommand.create(editingDomain,
-									((domain.Specifier) eObject),
-									DomainPackage.eINSTANCE
-											.getSpecifier_Options(), ls));
-
-			options.add(options.size(), option);
-			Iterator<?> iterator = changeListeners.iterator();
-			while (iterator.hasNext())
-				((ITaskListViewer) iterator.next()).addOption(option);
 		}
 
 		/**
@@ -527,9 +505,9 @@ public class MappingSpecifierPropertySelection extends
 			editingDomain.getCommandStack()
 					.execute(
 							RemoveCommand.create(editingDomain,
-									((domain.Specifier) eObject),
+									((domain.ModelMapper) eObject),
 									DomainPackage.eINSTANCE
-											.getSpecifier_Options(), ls));
+											.getModelMapper_Specifiers(), ls));
 
 			options.remove(option);
 			Iterator<?> iterator = changeListeners.iterator();
@@ -632,21 +610,32 @@ public class MappingSpecifierPropertySelection extends
 
 			switch (columnIndex) {
 			case 0: // VALUE_COLUMN
-				result = opt.getName();
+				if (opt.getSpecifierRef() == null)
+					result = "";
+				else
+					result = opt.getSpecifierRef().getName();
 				break;
 			case 1: // VALUE_COLUMN
 
-				String[] choices = optionList.initOptions(opt);
-				((ComboBoxCellEditor) (tableViewer.getCellEditors()[1]))
-						.setItems(choices);
+				List<domain.Option> choicesOptions = optionList
+						.initOptions(opt);
 
-				String stringValue = opt.getValue();
-				if (stringValue == null) {
+				ArrayList<String> choices = new ArrayList<String>();
+				for (Iterator<domain.Option> itr = choicesOptions.iterator(); itr
+						.hasNext();) {
+					choices.add(itr.next().getValue());
+				}
+				((ComboBoxCellEditor) (tableViewer.getCellEditors()[1]))
+						.setItems(choices.toArray(new String[choices.size()]));
+
+				domain.Option optValue = opt.getValueRef();
+				if (optValue == null) {
 					result = new Integer(0);
 					break;
 				}
-				int i = choices.length - 1;
-				while (!stringValue.equals(choices[i]) && i > 0)
+				int i = choicesOptions.size() - 1;
+				while (!optValue.getUid()
+						.equals(choicesOptions.get(i).getUid()) && i > 0)
 					--i;
 				result = new Integer(i);
 				break;
@@ -675,14 +664,25 @@ public class MappingSpecifierPropertySelection extends
 				String valueString = ((ComboBoxCellEditor) (tableViewer
 						.getCellEditors()[1])).getItems()[(int) value];
 
-				EditingDomain editingDomain = ((DiagramEditor) getPart())
-						.getEditingDomain();
-				/* apply the property change to single selected object */
-				editingDomain.getCommandStack().execute(
-						SetCommand.create(editingDomain, opt,
-								DomainPackage.eINSTANCE
-										.getMappingSpecifier_Value(),
-								valueString));
+				List<domain.Option> choicesOptions = optionList
+						.initOptions(opt);
+
+				for (Iterator<domain.Option> itr = choicesOptions.iterator(); itr
+						.hasNext();) {
+					domain.Option option = itr.next();
+					if (option.getValue().equals(valueString)){
+						EditingDomain editingDomain = ((DiagramEditor) getPart())
+								.getEditingDomain();
+						/* apply the property change to single selected object */
+						editingDomain.getCommandStack().execute(
+								SetCommand.create(editingDomain, opt,
+										DomainPackage.eINSTANCE
+												.getMappingSpecifier_ValueRef(),
+												option));
+						break;
+					}
+				}
+				
 				break;
 			default:
 			}

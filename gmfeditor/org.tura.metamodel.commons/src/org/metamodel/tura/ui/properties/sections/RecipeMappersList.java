@@ -9,18 +9,18 @@ import domain.UsingMappers;
 public class RecipeMappersList extends AbstractMappersList {
 
 	public RecipeMappersList(
-			MappersListPropertySelection mappersListPropertySelection) {
+			AbstractMappersListPropertySelection mappersListPropertySelection) {
 		super(mappersListPropertySelection);
 
 	}
 
 	@Override
-	public List<String> findRemovedMappers(UsingMappers usingMappers) {
+	public List<domain.Mappers> findRemovedMappers(UsingMappers usingMappers) {
 		return new QueryHelper().removeMappersForRecipe((Recipe) usingMappers);
 	}
 
 	@Override
-	public Set<String> findAvailableMappers(UsingMappers usingMappers) {
+	public Set<domain.ApplicationMapper> findAvailableMappers(UsingMappers usingMappers) {
 		return new QueryHelper().findAvailableMappersForRecipe((domain.Recipe)usingMappers);
 	}
 

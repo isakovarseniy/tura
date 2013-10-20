@@ -65,8 +65,8 @@ public class MappingSpecifierItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
-      addValuePropertyDescriptor(object);
+      addSpecifierRefPropertyDescriptor(object);
+      addValueRefPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -95,47 +95,47 @@ public class MappingSpecifierItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Name feature.
+   * This adds a property descriptor for the Specifier Ref feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addNamePropertyDescriptor(Object object)
+  protected void addSpecifierRefPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_MappingSpecifier_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_MappingSpecifier_name_feature", "_UI_MappingSpecifier_type"),
-         DomainPackage.Literals.MAPPING_SPECIFIER__NAME,
+         getString("_UI_MappingSpecifier_specifierRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_MappingSpecifier_specifierRef_feature", "_UI_MappingSpecifier_type"),
+         DomainPackage.Literals.MAPPING_SPECIFIER__SPECIFIER_REF,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
 
   /**
-   * This adds a property descriptor for the Value feature.
+   * This adds a property descriptor for the Value Ref feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addValuePropertyDescriptor(Object object)
+  protected void addValueRefPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_MappingSpecifier_value_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_MappingSpecifier_value_feature", "_UI_MappingSpecifier_type"),
-         DomainPackage.Literals.MAPPING_SPECIFIER__VALUE,
+         getString("_UI_MappingSpecifier_valueRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_MappingSpecifier_valueRef_feature", "_UI_MappingSpecifier_type"),
+         DomainPackage.Literals.MAPPING_SPECIFIER__VALUE_REF,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
@@ -161,7 +161,7 @@ public class MappingSpecifierItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((MappingSpecifier)object).getName();
+    String label = ((MappingSpecifier)object).getUid();
     return label == null || label.length() == 0 ?
       getString("_UI_MappingSpecifier_type") :
       getString("_UI_MappingSpecifier_type") + " " + label;
@@ -182,8 +182,6 @@ public class MappingSpecifierItemProvider
     switch (notification.getFeatureID(MappingSpecifier.class))
     {
       case DomainPackage.MAPPING_SPECIFIER__UID:
-      case DomainPackage.MAPPING_SPECIFIER__NAME:
-      case DomainPackage.MAPPING_SPECIFIER__VALUE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

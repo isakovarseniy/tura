@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.MappingVariable#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.MappingVariable#getName <em>Name</em>}</li>
+ *   <li>{@link domain.MappingVariable#getVariableRef <em>Variable Ref</em>}</li>
  *   <li>{@link domain.MappingVariable#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -51,30 +51,30 @@ public interface MappingVariable extends EObject
   void setUid(String value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Variable Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Variable Ref</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see domain.DomainPackage#getMappingVariable_Name()
+   * @return the value of the '<em>Variable Ref</em>' reference.
+   * @see #setVariableRef(Variable)
+   * @see domain.DomainPackage#getMappingVariable_VariableRef()
    * @model
    * @generated
    */
-  String getName();
+  Variable getVariableRef();
 
   /**
-   * Sets the value of the '{@link domain.MappingVariable#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link domain.MappingVariable#getVariableRef <em>Variable Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Variable Ref</em>' reference.
+   * @see #getVariableRef()
    * @generated
    */
-  void setName(String value);
+  void setVariableRef(Variable value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

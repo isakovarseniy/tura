@@ -84,11 +84,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType InfrastructureRecipeConfig_704004 = getElementType("org.tura.metamodel.diagram.artifact.InfrastructureRecipeConfig_704004"); //$NON-NLS-1$
+	public static final IElementType RecipeInfrastructures_704005 = getElementType("org.tura.metamodel.diagram.artifact.RecipeInfrastructures_704005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeInfrastructures_704005 = getElementType("org.tura.metamodel.diagram.artifact.RecipeInfrastructures_704005"); //$NON-NLS-1$
+	public static final IElementType InfrastructureRecipeConfig_704004 = getElementType("org.tura.metamodel.diagram.artifact.InfrastructureRecipeConfig_704004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */

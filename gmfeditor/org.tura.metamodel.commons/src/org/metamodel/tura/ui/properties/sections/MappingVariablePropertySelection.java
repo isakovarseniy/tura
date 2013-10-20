@@ -80,8 +80,6 @@ public class MappingVariablePropertySelection extends
 		return Arrays.asList(columnNames);
 	}
 
-	
-	
 	/**
 	 * Add the "Add", "Delete" and "Close" buttons
 	 * 
@@ -90,9 +88,7 @@ public class MappingVariablePropertySelection extends
 	 */
 	protected void createButtons(Composite parent) {
 	}
-	
-	
-	
+
 	/**
 	 * Create the Table
 	 */
@@ -119,8 +115,8 @@ public class MappingVariablePropertySelection extends
 		column.addSelectionListener(new SelectionAdapter() {
 
 			public void widgetSelected(SelectionEvent e) {
-				tableViewer.setSorter(new VariableSorter(
-						VariableSorter.OPTION));
+				tableViewer
+						.setSorter(new VariableSorter(VariableSorter.OPTION));
 			}
 		});
 
@@ -133,8 +129,8 @@ public class MappingVariablePropertySelection extends
 		column.addSelectionListener(new SelectionAdapter() {
 
 			public void widgetSelected(SelectionEvent e) {
-				tableViewer.setSorter(new VariableSorter(
-						VariableSorter.OPTION));
+				tableViewer
+						.setSorter(new VariableSorter(VariableSorter.OPTION));
 			}
 		});
 
@@ -259,7 +255,10 @@ public class MappingVariablePropertySelection extends
 			domain.MappingVariable task = (domain.MappingVariable) element;
 			switch (columnIndex) {
 			case 0:
-				result = task.getName();
+				if (task.getVariableRef() == null)
+					result = "";
+				else
+					result = task.getVariableRef().getName();
 				break;
 			case 1:
 				result = task.getValue();
@@ -267,7 +266,7 @@ public class MappingVariablePropertySelection extends
 			default:
 				break;
 			}
-			
+
 			return result;
 		}
 
@@ -339,7 +338,12 @@ public class MappingVariablePropertySelection extends
 		@SuppressWarnings("deprecation")
 		protected int compareOptions(domain.MappingVariable opt1,
 				domain.MappingVariable opt2) {
-			return collator.compare(opt1.getName(), opt2.getName());
+			if ((opt1.getVariableRef() == null)
+					|| (opt2.getVariableRef() == null))
+				return -1;
+
+			return collator.compare(opt1.getVariableRef().getName(), opt2
+					.getVariableRef().getName());
 		}
 
 		@SuppressWarnings("deprecation")
@@ -379,7 +383,7 @@ public class MappingVariablePropertySelection extends
 			return spOptions;
 		}
 
-		@SuppressWarnings({ "unchecked"})
+		@SuppressWarnings({ "unchecked" })
 		private void initData() {
 
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -387,9 +391,10 @@ public class MappingVariablePropertySelection extends
 
 			ShapeImpl diagram = (ShapeImpl) editPart.getModel();
 			try {
-				
+
 				EObject types = (EObject) diagram.getElement();
-				Object[] result = (new QueryHelper()).findMappingVariable((domain.ModelMapper) eObject, types);
+				Object[] result = (new QueryHelper()).findMappingVariable(
+						(domain.ModelMapper) eObject, types);
 
 				List<domain.Variable> addVariables = (List<Variable>) result[0];
 				List<domain.MappingVariable> removeVariables = (List<MappingVariable>) result[1];
@@ -400,7 +405,7 @@ public class MappingVariablePropertySelection extends
 					domain.Variable Variable = itr.next();
 					domain.MappingVariable ms = DomainFactory.eINSTANCE
 							.createMappingVariable();
-					ms.setName(Variable.getName());
+					ms.setVariableRef(Variable);
 					editingDomain.getCommandStack().execute(
 							AddCommand.create(editingDomain,
 									((domain.ModelMapper) eObject),
@@ -450,12 +455,11 @@ public class MappingVariablePropertySelection extends
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 
-			editingDomain.getCommandStack()
-					.execute(
-							AddCommand.create(editingDomain,
-									((domain.Variable) eObject),
-									DomainPackage.eINSTANCE
-											.getModelMapper_Variables(), ls));
+			editingDomain.getCommandStack().execute(
+					AddCommand.create(editingDomain,
+							((domain.Variable) eObject),
+							DomainPackage.eINSTANCE.getModelMapper_Variables(),
+							ls));
 
 			options.add(options.size(), option);
 			Iterator<?> iterator = changeListeners.iterator();
@@ -474,12 +478,11 @@ public class MappingVariablePropertySelection extends
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 
-			editingDomain.getCommandStack()
-					.execute(
-							RemoveCommand.create(editingDomain,
-									((domain.Variable) eObject),
-									DomainPackage.eINSTANCE
-											.getModelMapper_Variables(), ls));
+			editingDomain.getCommandStack().execute(
+					RemoveCommand.create(editingDomain,
+							((domain.Variable) eObject),
+							DomainPackage.eINSTANCE.getModelMapper_Variables(),
+							ls));
 
 			options.remove(option);
 			Iterator<?> iterator = changeListeners.iterator();
@@ -582,12 +585,15 @@ public class MappingVariablePropertySelection extends
 
 			switch (columnIndex) {
 			case 0: // VALUE_COLUMN
-				result = opt.getName();
+				if (opt.getVariableRef() == null)
+					result = "";
+				else
+					result = opt.getVariableRef().getName();
 				break;
 			case 1: // VALUE_COLUMN
 				result = opt.getValue();
 				if (result == null)
-					result ="";
+					result = "";
 				break;
 			default:
 				result = "";
@@ -616,7 +622,8 @@ public class MappingVariablePropertySelection extends
 				/* apply the property change to single selected object */
 				editingDomain.getCommandStack().execute(
 						SetCommand.create(editingDomain, opt,
-								DomainPackage.eINSTANCE.getMappingVariable_Value(),
+								DomainPackage.eINSTANCE
+										.getMappingVariable_Value(),
 								valueString));
 				break;
 			default:

@@ -180,7 +180,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/parent"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//UsingMappers">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//UsingMappers/mappers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//UsingMappers/mappers"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Recipe">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Recipe/uid"/>
@@ -237,18 +237,18 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//MappingSpecifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MappingSpecifier/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MappingSpecifier/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MappingSpecifier/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//MappingSpecifier/specifierRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//MappingSpecifier/valueRef"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//MappingVariable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MappingVariable/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MappingVariable/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//MappingVariable/variableRef"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MappingVariable/value"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ArtifactRef">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtifactRef/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtifactRef/domainArtifact"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtifactRef/artifactName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//ArtifactRef/domainArtifactRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//ArtifactRef/artifactRef"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//TypePointer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//TypePointer/packageRef"/>

@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.ArtifactRef#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.ArtifactRef#getDomainArtifact <em>Domain Artifact</em>}</li>
- *   <li>{@link domain.ArtifactRef#getArtifactName <em>Artifact Name</em>}</li>
+ *   <li>{@link domain.ArtifactRef#getDomainArtifactRef <em>Domain Artifact Ref</em>}</li>
+ *   <li>{@link domain.ArtifactRef#getArtifactRef <em>Artifact Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,55 +51,55 @@ public interface ArtifactRef extends EObject
   void setUid(String value);
 
   /**
-   * Returns the value of the '<em><b>Domain Artifact</b></em>' attribute.
+   * Returns the value of the '<em><b>Domain Artifact Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Domain Artifact</em>' attribute isn't clear,
+   * If the meaning of the '<em>Domain Artifact Ref</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Domain Artifact</em>' attribute.
-   * @see #setDomainArtifact(String)
-   * @see domain.DomainPackage#getArtifactRef_DomainArtifact()
+   * @return the value of the '<em>Domain Artifact Ref</em>' reference.
+   * @see #setDomainArtifactRef(DomainArtifact)
+   * @see domain.DomainPackage#getArtifactRef_DomainArtifactRef()
    * @model
    * @generated
    */
-  String getDomainArtifact();
+  DomainArtifact getDomainArtifactRef();
 
   /**
-   * Sets the value of the '{@link domain.ArtifactRef#getDomainArtifact <em>Domain Artifact</em>}' attribute.
+   * Sets the value of the '{@link domain.ArtifactRef#getDomainArtifactRef <em>Domain Artifact Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Domain Artifact</em>' attribute.
-   * @see #getDomainArtifact()
+   * @param value the new value of the '<em>Domain Artifact Ref</em>' reference.
+   * @see #getDomainArtifactRef()
    * @generated
    */
-  void setDomainArtifact(String value);
+  void setDomainArtifactRef(DomainArtifact value);
 
   /**
-   * Returns the value of the '<em><b>Artifact Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Artifact Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Artifact Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Artifact Ref</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Artifact Name</em>' attribute.
-   * @see #setArtifactName(String)
-   * @see domain.DomainPackage#getArtifactRef_ArtifactName()
+   * @return the value of the '<em>Artifact Ref</em>' reference.
+   * @see #setArtifactRef(Artifact)
+   * @see domain.DomainPackage#getArtifactRef_ArtifactRef()
    * @model
    * @generated
    */
-  String getArtifactName();
+  Artifact getArtifactRef();
 
   /**
-   * Sets the value of the '{@link domain.ArtifactRef#getArtifactName <em>Artifact Name</em>}' attribute.
+   * Sets the value of the '{@link domain.ArtifactRef#getArtifactRef <em>Artifact Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Artifact Name</em>' attribute.
-   * @see #getArtifactName()
+   * @param value the new value of the '<em>Artifact Ref</em>' reference.
+   * @see #getArtifactRef()
    * @generated
    */
-  void setArtifactName(String value);
+  void setArtifactRef(Artifact value);
 
 } // ArtifactRef

@@ -2002,9 +2002,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUsingMappers_Mappers()
+  public EReference getUsingMappers_Mappers()
   {
-    return (EAttribute)usingMappersEClass.getEStructuralFeatures().get(0);
+    return (EReference)usingMappersEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2482,9 +2482,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMappingSpecifier_Name()
+  public EReference getMappingSpecifier_SpecifierRef()
   {
-    return (EAttribute)mappingSpecifierEClass.getEStructuralFeatures().get(1);
+    return (EReference)mappingSpecifierEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2492,9 +2492,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMappingSpecifier_Value()
+  public EReference getMappingSpecifier_ValueRef()
   {
-    return (EAttribute)mappingSpecifierEClass.getEStructuralFeatures().get(2);
+    return (EReference)mappingSpecifierEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2522,9 +2522,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMappingVariable_Name()
+  public EReference getMappingVariable_VariableRef()
   {
-    return (EAttribute)mappingVariableEClass.getEStructuralFeatures().get(1);
+    return (EReference)mappingVariableEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2562,9 +2562,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getArtifactRef_DomainArtifact()
+  public EReference getArtifactRef_DomainArtifactRef()
   {
-    return (EAttribute)artifactRefEClass.getEStructuralFeatures().get(1);
+    return (EReference)artifactRefEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2572,9 +2572,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getArtifactRef_ArtifactName()
+  public EReference getArtifactRef_ArtifactRef()
   {
-    return (EAttribute)artifactRefEClass.getEStructuralFeatures().get(2);
+    return (EReference)artifactRefEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3491,7 +3491,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(recipesEClass, RECIPES__PARENT);
 
     usingMappersEClass = createEClass(USING_MAPPERS);
-    createEAttribute(usingMappersEClass, USING_MAPPERS__MAPPERS);
+    createEReference(usingMappersEClass, USING_MAPPERS__MAPPERS);
 
     recipeEClass = createEClass(RECIPE);
     createEAttribute(recipeEClass, RECIPE__UID);
@@ -3548,18 +3548,18 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     mappingSpecifierEClass = createEClass(MAPPING_SPECIFIER);
     createEAttribute(mappingSpecifierEClass, MAPPING_SPECIFIER__UID);
-    createEAttribute(mappingSpecifierEClass, MAPPING_SPECIFIER__NAME);
-    createEAttribute(mappingSpecifierEClass, MAPPING_SPECIFIER__VALUE);
+    createEReference(mappingSpecifierEClass, MAPPING_SPECIFIER__SPECIFIER_REF);
+    createEReference(mappingSpecifierEClass, MAPPING_SPECIFIER__VALUE_REF);
 
     mappingVariableEClass = createEClass(MAPPING_VARIABLE);
     createEAttribute(mappingVariableEClass, MAPPING_VARIABLE__UID);
-    createEAttribute(mappingVariableEClass, MAPPING_VARIABLE__NAME);
+    createEReference(mappingVariableEClass, MAPPING_VARIABLE__VARIABLE_REF);
     createEAttribute(mappingVariableEClass, MAPPING_VARIABLE__VALUE);
 
     artifactRefEClass = createEClass(ARTIFACT_REF);
     createEAttribute(artifactRefEClass, ARTIFACT_REF__UID);
-    createEAttribute(artifactRefEClass, ARTIFACT_REF__DOMAIN_ARTIFACT);
-    createEAttribute(artifactRefEClass, ARTIFACT_REF__ARTIFACT_NAME);
+    createEReference(artifactRefEClass, ARTIFACT_REF__DOMAIN_ARTIFACT_REF);
+    createEReference(artifactRefEClass, ARTIFACT_REF__ARTIFACT_REF);
 
     typePointerEClass = createEClass(TYPE_POINTER);
     createEReference(typePointerEClass, TYPE_POINTER__PACKAGE_REF);
@@ -3881,7 +3881,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getRecipes_Parent(), this.getApplicationRecipe(), this.getApplicationRecipe_Recipes(), "parent", null, 0, 1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(usingMappersEClass, UsingMappers.class, "UsingMappers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUsingMappers_Mappers(), ecorePackage.getEString(), "mappers", null, 0, -1, UsingMappers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUsingMappers_Mappers(), this.getMappers(), null, "mappers", null, 0, -1, UsingMappers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(recipeEClass, Recipe.class, "Recipe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRecipe_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3938,18 +3938,18 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(mappingSpecifierEClass, MappingSpecifier.class, "MappingSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMappingSpecifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMappingSpecifier_Name(), ecorePackage.getEString(), "name", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMappingSpecifier_Value(), ecorePackage.getEString(), "value", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMappingSpecifier_SpecifierRef(), this.getSpecifier(), null, "specifierRef", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMappingSpecifier_ValueRef(), this.getOption(), null, "valueRef", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mappingVariableEClass, MappingVariable.class, "MappingVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMappingVariable_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MappingVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMappingVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, MappingVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMappingVariable_VariableRef(), this.getVariable(), null, "variableRef", null, 0, 1, MappingVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMappingVariable_Value(), ecorePackage.getEString(), "value", null, 0, 1, MappingVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(artifactRefEClass, ArtifactRef.class, "ArtifactRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getArtifactRef_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ArtifactRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getArtifactRef_DomainArtifact(), ecorePackage.getEString(), "domainArtifact", null, 0, 1, ArtifactRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getArtifactRef_ArtifactName(), ecorePackage.getEString(), "artifactName", null, 0, 1, ArtifactRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArtifactRef_DomainArtifactRef(), this.getDomainArtifact(), null, "domainArtifactRef", null, 0, 1, ArtifactRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArtifactRef_ArtifactRef(), this.getArtifact(), null, "artifactRef", null, 0, 1, ArtifactRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typePointerEClass, TypePointer.class, "TypePointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypePointer_PackageRef(), this.getPackage(), null, "packageRef", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

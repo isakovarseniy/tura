@@ -25,19 +25,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface UsingMappers extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Mappers</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Mappers</b></em>' reference list.
+   * The list contents are of type {@link domain.Mappers}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Mappers</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Mappers</em>' attribute list.
+   * @return the value of the '<em>Mappers</em>' reference list.
    * @see domain.DomainPackage#getUsingMappers_Mappers()
    * @model
    * @generated
    */
-  EList<String> getMappers();
+  EList<Mappers> getMappers();
 
 } // UsingMappers

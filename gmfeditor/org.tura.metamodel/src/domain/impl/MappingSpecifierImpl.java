@@ -5,10 +5,13 @@ package domain.impl;
 import domain.DomainPackage;
 import domain.MappingSpecifier;
 
+import domain.Option;
+import domain.Specifier;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -20,8 +23,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.MappingSpecifierImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.MappingSpecifierImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.MappingSpecifierImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link domain.impl.MappingSpecifierImpl#getSpecifierRef <em>Specifier Ref</em>}</li>
+ *   <li>{@link domain.impl.MappingSpecifierImpl#getValueRef <em>Value Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,44 +53,24 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getSpecifierRef() <em>Specifier Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getSpecifierRef()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected Specifier specifierRef;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getValueRef() <em>Value Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getValueRef()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
+  protected Option valueRef;
 
   /**
    * <!-- begin-user-doc -->
@@ -138,9 +121,19 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Specifier getSpecifierRef()
   {
-    return name;
+    if (specifierRef != null && specifierRef.eIsProxy())
+    {
+      InternalEObject oldSpecifierRef = (InternalEObject)specifierRef;
+      specifierRef = (Specifier)eResolveProxy(oldSpecifierRef);
+      if (specifierRef != oldSpecifierRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.MAPPING_SPECIFIER__SPECIFIER_REF, oldSpecifierRef, specifierRef));
+      }
+    }
+    return specifierRef;
   }
 
   /**
@@ -148,12 +141,22 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public Specifier basicGetSpecifierRef()
   {
-    String oldName = name;
-    name = newName;
+    return specifierRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSpecifierRef(Specifier newSpecifierRef)
+  {
+    Specifier oldSpecifierRef = specifierRef;
+    specifierRef = newSpecifierRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPING_SPECIFIER__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPING_SPECIFIER__SPECIFIER_REF, oldSpecifierRef, specifierRef));
   }
 
   /**
@@ -161,9 +164,19 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public Option getValueRef()
   {
-    return value;
+    if (valueRef != null && valueRef.eIsProxy())
+    {
+      InternalEObject oldValueRef = (InternalEObject)valueRef;
+      valueRef = (Option)eResolveProxy(oldValueRef);
+      if (valueRef != oldValueRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.MAPPING_SPECIFIER__VALUE_REF, oldValueRef, valueRef));
+      }
+    }
+    return valueRef;
   }
 
   /**
@@ -171,12 +184,22 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public Option basicGetValueRef()
   {
-    String oldValue = value;
-    value = newValue;
+    return valueRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValueRef(Option newValueRef)
+  {
+    Option oldValueRef = valueRef;
+    valueRef = newValueRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPING_SPECIFIER__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPING_SPECIFIER__VALUE_REF, oldValueRef, valueRef));
   }
 
   /**
@@ -191,10 +214,12 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
     {
       case DomainPackage.MAPPING_SPECIFIER__UID:
         return getUid();
-      case DomainPackage.MAPPING_SPECIFIER__NAME:
-        return getName();
-      case DomainPackage.MAPPING_SPECIFIER__VALUE:
-        return getValue();
+      case DomainPackage.MAPPING_SPECIFIER__SPECIFIER_REF:
+        if (resolve) return getSpecifierRef();
+        return basicGetSpecifierRef();
+      case DomainPackage.MAPPING_SPECIFIER__VALUE_REF:
+        if (resolve) return getValueRef();
+        return basicGetValueRef();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -212,11 +237,11 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
       case DomainPackage.MAPPING_SPECIFIER__UID:
         setUid((String)newValue);
         return;
-      case DomainPackage.MAPPING_SPECIFIER__NAME:
-        setName((String)newValue);
+      case DomainPackage.MAPPING_SPECIFIER__SPECIFIER_REF:
+        setSpecifierRef((Specifier)newValue);
         return;
-      case DomainPackage.MAPPING_SPECIFIER__VALUE:
-        setValue((String)newValue);
+      case DomainPackage.MAPPING_SPECIFIER__VALUE_REF:
+        setValueRef((Option)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +260,11 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
       case DomainPackage.MAPPING_SPECIFIER__UID:
         setUid(UID_EDEFAULT);
         return;
-      case DomainPackage.MAPPING_SPECIFIER__NAME:
-        setName(NAME_EDEFAULT);
+      case DomainPackage.MAPPING_SPECIFIER__SPECIFIER_REF:
+        setSpecifierRef((Specifier)null);
         return;
-      case DomainPackage.MAPPING_SPECIFIER__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case DomainPackage.MAPPING_SPECIFIER__VALUE_REF:
+        setValueRef((Option)null);
         return;
     }
     super.eUnset(featureID);
@@ -257,10 +282,10 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
     {
       case DomainPackage.MAPPING_SPECIFIER__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.MAPPING_SPECIFIER__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.MAPPING_SPECIFIER__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case DomainPackage.MAPPING_SPECIFIER__SPECIFIER_REF:
+        return specifierRef != null;
+      case DomainPackage.MAPPING_SPECIFIER__VALUE_REF:
+        return valueRef != null;
     }
     return super.eIsSet(featureID);
   }
@@ -278,10 +303,6 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
-    result.append(", name: ");
-    result.append(name);
-    result.append(", value: ");
-    result.append(value);
     result.append(')');
     return result.toString();
   }

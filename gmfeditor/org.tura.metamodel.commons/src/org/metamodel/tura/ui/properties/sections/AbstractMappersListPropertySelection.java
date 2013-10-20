@@ -30,7 +30,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import domain.DomainPackage;
 
-public abstract class MappersListPropertySelection extends AbstractGridPropertySelection {
+public abstract class AbstractMappersListPropertySelection extends AbstractGridPropertySelection {
 
 	// Set the table column property names
 	private final String MAPPERS_COLUMN = "Mappers";
@@ -194,8 +194,8 @@ public abstract class MappersListPropertySelection extends AbstractGridPropertyS
 		 * 
 		 * @see ITaskListViewer#addTask(ExampleTask)
 		 */
-		public void addOption(List<String> task) {
-			tableViewer.add(task.toArray(new String[task.size()]));
+		public void addOption(List<domain.Mappers> task) {
+			tableViewer.add(task.toArray(new domain.Mappers[task.size()]));
 		}
 
 		/*
@@ -203,8 +203,8 @@ public abstract class MappersListPropertySelection extends AbstractGridPropertyS
 		 * 
 		 * @see ITaskListViewer#removeTask(ExampleTask)
 		 */
-		public void removeOption(List<String> task) {
-			tableViewer.remove(task.toArray(new String[task.size()]));
+		public void removeOption(List<domain.Mappers> task) {
+			tableViewer.remove(task.toArray(new domain.Mappers[task.size()]));
 		}
 
 		/*
@@ -332,7 +332,7 @@ public abstract class MappersListPropertySelection extends AbstractGridPropertyS
 		 * 
 		 * @param task
 		 */
-		public void addOption(List<String> task);
+		public void addOption(List<domain.Mappers> task);
 
 		/**
 		 * Update the view to reflect the fact that a task was removed from the
@@ -340,7 +340,7 @@ public abstract class MappersListPropertySelection extends AbstractGridPropertyS
 		 * 
 		 * @param task
 		 */
-		public void removeOption(List<String> task);
+		public void removeOption(List<domain.Mappers> task);
 
 		/**
 		 * Update the view to reflect the fact that one of the tasks was
@@ -352,7 +352,7 @@ public abstract class MappersListPropertySelection extends AbstractGridPropertyS
 	}
 
 	public class VariableCellModifier implements ICellModifier {
-		private MappersListPropertySelection tableViewerExample;
+		private AbstractMappersListPropertySelection tableViewerExample;
 
 		/**
 		 * Constructor
@@ -361,7 +361,7 @@ public abstract class MappersListPropertySelection extends AbstractGridPropertyS
 		 *            an instance of a TableViewerExample
 		 */
 		public VariableCellModifier(
-				MappersListPropertySelection tableViewerExample) {
+				AbstractMappersListPropertySelection tableViewerExample) {
 			super();
 			this.tableViewerExample = tableViewerExample;
 		}
@@ -390,10 +390,12 @@ public abstract class MappersListPropertySelection extends AbstractGridPropertyS
 
 			Object result = null;
 			domain.MappingVariable opt = (domain.MappingVariable) element;
+			if (opt.getVariableRef() == null)
+				return "";
 
 			switch (columnIndex) {
 			case 0: // VALUE_COLUMN
-				result = opt.getName();
+				result = opt.getVariableRef().getName();
 				break;
 			default:
 				result = "";

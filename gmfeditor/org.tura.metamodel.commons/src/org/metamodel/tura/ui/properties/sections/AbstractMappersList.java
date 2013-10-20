@@ -16,23 +16,25 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.dialogs.ListSelectionDialog;
-import org.metamodel.tura.ui.properties.sections.MappersListPropertySelection.ITaskListViewer;
+import org.metamodel.tura.ui.properties.sections.AbstractMappersListPropertySelection.ITaskListViewer;
 
+import domain.ApplicationMapper;
 import domain.DomainPackage;
+import domain.Mappers;
 
 public abstract class AbstractMappersList {
 
-	private ArrayList<String> options = new ArrayList<String>();
+	private ArrayList<domain.Mappers> options = new ArrayList<domain.Mappers>();
 	@SuppressWarnings("rawtypes")
 	private Set changeListeners = new HashSet();
 	private String[] spOptions;
-	private MappersListPropertySelection mappersListPropertySelection;
+	private AbstractMappersListPropertySelection mappersListPropertySelection;
 
 	/**
 	 * Constructor
 	 */
 	public AbstractMappersList(
-			MappersListPropertySelection mappersListPropertySelection) {
+			AbstractMappersListPropertySelection mappersListPropertySelection) {
 		super();
 		this.mappersListPropertySelection = mappersListPropertySelection;
 		this.initData();
@@ -42,10 +44,10 @@ public abstract class AbstractMappersList {
 		return spOptions;
 	}
 
-	public abstract List<String> findRemovedMappers(
+	public abstract List<domain.Mappers> findRemovedMappers(
 			domain.UsingMappers usingMappers);
 
-	public abstract Set<String> findAvailableMappers(
+	public abstract Set<domain.ApplicationMapper> findAvailableMappers(
 			domain.UsingMappers usingMappers);
 
 	private void initData() {
@@ -55,11 +57,11 @@ public abstract class AbstractMappersList {
 
 		try {
 
-			List<String> removeMappers = findRemovedMappers((domain.UsingMappers) mappersListPropertySelection.eObject);
+			List<Mappers> removeMappers = findRemovedMappers((domain.UsingMappers) mappersListPropertySelection.eObject);
 
 			// Remove
-			for (Iterator<String> itr = removeMappers.iterator(); itr.hasNext();) {
-				String ms = itr.next();
+			for (Iterator<Mappers> itr = removeMappers.iterator(); itr.hasNext();) {
+				Mappers ms = itr.next();
 				editingDomain
 						.getCommandStack()
 						.execute(
@@ -71,9 +73,9 @@ public abstract class AbstractMappersList {
 												ms));
 			}
 
-			for (Iterator<String> i = ((domain.UsingMappers) mappersListPropertySelection.eObject)
+			for (Iterator<domain.Mappers> i = ((domain.UsingMappers) mappersListPropertySelection.eObject)
 					.getMappers().iterator(); i.hasNext();) {
-				String p = i.next();
+				domain.Mappers p = i.next();
 				options.add(p);
 			}
 
@@ -93,7 +95,7 @@ public abstract class AbstractMappersList {
 	 * Add a new task to the collection of tasks
 	 */
 	public void addTask() {
-		Set<String> set = findAvailableMappers((domain.UsingMappers) mappersListPropertySelection.eObject);
+		Set<ApplicationMapper> set = findAvailableMappers((domain.UsingMappers) mappersListPropertySelection.eObject);
 		ListSelectionDialog dlg = new ListSelectionDialog(Display.getCurrent()
 				.getActiveShell(), set, new ArrayContentProvider(),
 				new LabelProvider(), "Select Mappers:");
@@ -105,19 +107,19 @@ public abstract class AbstractMappersList {
 			result = Arrays.asList(dlg.getResult());
 		}
 
-		List<String> addMappers = new ArrayList<String>();
+		List<domain.Mappers> addMappers = new ArrayList<domain.Mappers>();
 		for (Iterator<?> itr = result.iterator(); itr.hasNext();) {
-			String mapper = (String) itr.next();
+			domain.Mappers mapper = (domain.Mappers) itr.next();
 			if (!((domain.UsingMappers) mappersListPropertySelection.eObject)
 					.getMappers().contains(mapper)) {
 				addMappers.add(mapper);
 			}
 		}
 
-		List<String> removeMappers = new ArrayList<String>();
+		List<domain.Mappers> removeMappers = new ArrayList<domain.Mappers>();
 		for (Iterator<?> itr = ((domain.UsingMappers) mappersListPropertySelection.eObject)
 				.getMappers().iterator(); itr.hasNext();) {
-			String mapper = (String) itr.next();
+			domain.Mappers mapper = (domain.Mappers) itr.next();
 			if (!result.contains(mapper)) {
 				removeMappers.add(mapper);
 			}

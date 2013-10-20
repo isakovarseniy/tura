@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.MappingSpecifier#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.MappingSpecifier#getName <em>Name</em>}</li>
- *   <li>{@link domain.MappingSpecifier#getValue <em>Value</em>}</li>
+ *   <li>{@link domain.MappingSpecifier#getSpecifierRef <em>Specifier Ref</em>}</li>
+ *   <li>{@link domain.MappingSpecifier#getValueRef <em>Value Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,55 +51,55 @@ public interface MappingSpecifier extends EObject
   void setUid(String value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Specifier Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Specifier Ref</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see domain.DomainPackage#getMappingSpecifier_Name()
+   * @return the value of the '<em>Specifier Ref</em>' reference.
+   * @see #setSpecifierRef(Specifier)
+   * @see domain.DomainPackage#getMappingSpecifier_SpecifierRef()
    * @model
    * @generated
    */
-  String getName();
+  Specifier getSpecifierRef();
 
   /**
-   * Sets the value of the '{@link domain.MappingSpecifier#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link domain.MappingSpecifier#getSpecifierRef <em>Specifier Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Specifier Ref</em>' reference.
+   * @see #getSpecifierRef()
    * @generated
    */
-  void setName(String value);
+  void setSpecifierRef(Specifier value);
 
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Value Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Value Ref</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
-   * @see domain.DomainPackage#getMappingSpecifier_Value()
+   * @return the value of the '<em>Value Ref</em>' reference.
+   * @see #setValueRef(Option)
+   * @see domain.DomainPackage#getMappingSpecifier_ValueRef()
    * @model
    * @generated
    */
-  String getValue();
+  Option getValueRef();
 
   /**
-   * Sets the value of the '{@link domain.MappingSpecifier#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link domain.MappingSpecifier#getValueRef <em>Value Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
-   * @see #getValue()
+   * @param value the new value of the '<em>Value Ref</em>' reference.
+   * @see #getValueRef()
    * @generated
    */
-  void setValue(String value);
+  void setValueRef(Option value);
 
 } // MappingSpecifier

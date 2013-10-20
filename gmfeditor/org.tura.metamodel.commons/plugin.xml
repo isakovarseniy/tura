@@ -162,7 +162,7 @@
       
           <propertySection
                tab="property.tab.domain.typeReference"
-               class="org.metamodel.tura.ui.properties.sections.AbstractTypeNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
                id="org.tura.metamodel.mapper.typeName">
               <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
          </propertySection>        

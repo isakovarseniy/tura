@@ -65,7 +65,7 @@ public class MappingVariableItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
+      addVariableRefPropertyDescriptor(object);
       addValuePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -95,24 +95,24 @@ public class MappingVariableItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Name feature.
+   * This adds a property descriptor for the Variable Ref feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addNamePropertyDescriptor(Object object)
+  protected void addVariableRefPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_MappingVariable_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_MappingVariable_name_feature", "_UI_MappingVariable_type"),
-         DomainPackage.Literals.MAPPING_VARIABLE__NAME,
+         getString("_UI_MappingVariable_variableRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_MappingVariable_variableRef_feature", "_UI_MappingVariable_type"),
+         DomainPackage.Literals.MAPPING_VARIABLE__VARIABLE_REF,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
@@ -161,7 +161,7 @@ public class MappingVariableItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((MappingVariable)object).getName();
+    String label = ((MappingVariable)object).getUid();
     return label == null || label.length() == 0 ?
       getString("_UI_MappingVariable_type") :
       getString("_UI_MappingVariable_type") + " " + label;
@@ -182,7 +182,6 @@ public class MappingVariableItemProvider
     switch (notification.getFeatureID(MappingVariable.class))
     {
       case DomainPackage.MAPPING_VARIABLE__UID:
-      case DomainPackage.MAPPING_VARIABLE__NAME:
       case DomainPackage.MAPPING_VARIABLE__VALUE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

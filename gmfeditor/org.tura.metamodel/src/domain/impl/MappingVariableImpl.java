@@ -5,10 +5,12 @@ package domain.impl;
 import domain.DomainPackage;
 import domain.MappingVariable;
 
+import domain.Variable;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -20,7 +22,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.MappingVariableImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.MappingVariableImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.MappingVariableImpl#getVariableRef <em>Variable Ref</em>}</li>
  *   <li>{@link domain.impl.MappingVariableImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -50,24 +52,14 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getVariableRef() <em>Variable Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getVariableRef()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected Variable variableRef;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -138,9 +130,19 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Variable getVariableRef()
   {
-    return name;
+    if (variableRef != null && variableRef.eIsProxy())
+    {
+      InternalEObject oldVariableRef = (InternalEObject)variableRef;
+      variableRef = (Variable)eResolveProxy(oldVariableRef);
+      if (variableRef != oldVariableRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.MAPPING_VARIABLE__VARIABLE_REF, oldVariableRef, variableRef));
+      }
+    }
+    return variableRef;
   }
 
   /**
@@ -148,12 +150,22 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public Variable basicGetVariableRef()
   {
-    String oldName = name;
-    name = newName;
+    return variableRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVariableRef(Variable newVariableRef)
+  {
+    Variable oldVariableRef = variableRef;
+    variableRef = newVariableRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPING_VARIABLE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPING_VARIABLE__VARIABLE_REF, oldVariableRef, variableRef));
   }
 
   /**
@@ -191,8 +203,9 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
     {
       case DomainPackage.MAPPING_VARIABLE__UID:
         return getUid();
-      case DomainPackage.MAPPING_VARIABLE__NAME:
-        return getName();
+      case DomainPackage.MAPPING_VARIABLE__VARIABLE_REF:
+        if (resolve) return getVariableRef();
+        return basicGetVariableRef();
       case DomainPackage.MAPPING_VARIABLE__VALUE:
         return getValue();
     }
@@ -212,8 +225,8 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
       case DomainPackage.MAPPING_VARIABLE__UID:
         setUid((String)newValue);
         return;
-      case DomainPackage.MAPPING_VARIABLE__NAME:
-        setName((String)newValue);
+      case DomainPackage.MAPPING_VARIABLE__VARIABLE_REF:
+        setVariableRef((Variable)newValue);
         return;
       case DomainPackage.MAPPING_VARIABLE__VALUE:
         setValue((String)newValue);
@@ -235,8 +248,8 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
       case DomainPackage.MAPPING_VARIABLE__UID:
         setUid(UID_EDEFAULT);
         return;
-      case DomainPackage.MAPPING_VARIABLE__NAME:
-        setName(NAME_EDEFAULT);
+      case DomainPackage.MAPPING_VARIABLE__VARIABLE_REF:
+        setVariableRef((Variable)null);
         return;
       case DomainPackage.MAPPING_VARIABLE__VALUE:
         setValue(VALUE_EDEFAULT);
@@ -257,8 +270,8 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
     {
       case DomainPackage.MAPPING_VARIABLE__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.MAPPING_VARIABLE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.MAPPING_VARIABLE__VARIABLE_REF:
+        return variableRef != null;
       case DomainPackage.MAPPING_VARIABLE__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
@@ -278,8 +291,6 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
-    result.append(", name: ");
-    result.append(name);
     result.append(", value: ");
     result.append(value);
     result.append(')');
