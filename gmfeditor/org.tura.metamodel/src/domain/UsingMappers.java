@@ -26,7 +26,7 @@ public interface UsingMappers extends EObject
 {
   /**
    * Returns the value of the '<em><b>Mappers</b></em>' reference list.
-   * The list contents are of type {@link domain.Mappers}.
+   * The list contents are of type {@link domain.ApplicationMapper}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Mappers</em>' attribute list isn't clear,
@@ -38,6 +38,6 @@ public interface UsingMappers extends EObject
    * @model
    * @generated
    */
-  EList<Mappers> getMappers();
+  EList<ApplicationMapper> getMappers();
 
 } // UsingMappers

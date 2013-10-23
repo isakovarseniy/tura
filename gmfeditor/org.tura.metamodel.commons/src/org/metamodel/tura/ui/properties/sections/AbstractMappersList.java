@@ -20,11 +20,10 @@ import org.metamodel.tura.ui.properties.sections.AbstractMappersListPropertySele
 
 import domain.ApplicationMapper;
 import domain.DomainPackage;
-import domain.Mappers;
 
 public abstract class AbstractMappersList {
 
-	private ArrayList<domain.Mappers> options = new ArrayList<domain.Mappers>();
+	private ArrayList<domain.ApplicationMapper> options = new ArrayList<domain.ApplicationMapper>();
 	@SuppressWarnings("rawtypes")
 	private Set changeListeners = new HashSet();
 	private String[] spOptions;
@@ -44,7 +43,7 @@ public abstract class AbstractMappersList {
 		return spOptions;
 	}
 
-	public abstract List<domain.Mappers> findRemovedMappers(
+	public abstract List<domain.ApplicationMapper> findRemovedMappers(
 			domain.UsingMappers usingMappers);
 
 	public abstract Set<domain.ApplicationMapper> findAvailableMappers(
@@ -57,11 +56,12 @@ public abstract class AbstractMappersList {
 
 		try {
 
-			List<Mappers> removeMappers = findRemovedMappers((domain.UsingMappers) mappersListPropertySelection.eObject);
+			List<ApplicationMapper> removeMappers = findRemovedMappers((domain.UsingMappers) mappersListPropertySelection.eObject);
 
 			// Remove
-			for (Iterator<Mappers> itr = removeMappers.iterator(); itr.hasNext();) {
-				Mappers ms = itr.next();
+			for (Iterator<ApplicationMapper> itr = removeMappers.iterator(); itr
+					.hasNext();) {
+				ApplicationMapper ms = itr.next();
 				editingDomain
 						.getCommandStack()
 						.execute(
@@ -73,9 +73,9 @@ public abstract class AbstractMappersList {
 												ms));
 			}
 
-			for (Iterator<domain.Mappers> i = ((domain.UsingMappers) mappersListPropertySelection.eObject)
+			for (Iterator<domain.ApplicationMapper> i = ((domain.UsingMappers) mappersListPropertySelection.eObject)
 					.getMappers().iterator(); i.hasNext();) {
-				domain.Mappers p = i.next();
+				domain.ApplicationMapper p = i.next();
 				options.add(p);
 			}
 
@@ -98,66 +98,68 @@ public abstract class AbstractMappersList {
 		Set<ApplicationMapper> set = findAvailableMappers((domain.UsingMappers) mappersListPropertySelection.eObject);
 		ListSelectionDialog dlg = new ListSelectionDialog(Display.getCurrent()
 				.getActiveShell(), set, new ArrayContentProvider(),
-				new LabelProvider(), "Select Mappers:");
+				new MappersLabelProvider(), "Select Mappers:");
 		dlg.setTitle("Mappers Selection");
 		dlg.setInitialElementSelections(((domain.UsingMappers) mappersListPropertySelection.eObject)
 				.getMappers());
 		List<Object> result = new ArrayList<>();
 		if (dlg.open() == Window.OK) {
 			result = Arrays.asList(dlg.getResult());
-		}
 
-		List<domain.Mappers> addMappers = new ArrayList<domain.Mappers>();
-		for (Iterator<?> itr = result.iterator(); itr.hasNext();) {
-			domain.Mappers mapper = (domain.Mappers) itr.next();
-			if (!((domain.UsingMappers) mappersListPropertySelection.eObject)
-					.getMappers().contains(mapper)) {
-				addMappers.add(mapper);
+			List<domain.ApplicationMapper> addMappers = new ArrayList<domain.ApplicationMapper>();
+			for (Iterator<?> itr = result.iterator(); itr.hasNext();) {
+				domain.ApplicationMapper mapper = (domain.ApplicationMapper) itr
+						.next();
+				if (!((domain.UsingMappers) mappersListPropertySelection.eObject)
+						.getMappers().contains(mapper)) {
+					addMappers.add(mapper);
+				}
 			}
-		}
 
-		List<domain.Mappers> removeMappers = new ArrayList<domain.Mappers>();
-		for (Iterator<?> itr = ((domain.UsingMappers) mappersListPropertySelection.eObject)
-				.getMappers().iterator(); itr.hasNext();) {
-			domain.Mappers mapper = (domain.Mappers) itr.next();
-			if (!result.contains(mapper)) {
-				removeMappers.add(mapper);
+			List<domain.ApplicationMapper> removeMappers = new ArrayList<domain.ApplicationMapper>();
+			for (Iterator<?> itr = ((domain.UsingMappers) mappersListPropertySelection.eObject)
+					.getMappers().iterator(); itr.hasNext();) {
+				domain.ApplicationMapper mapper = (domain.ApplicationMapper) itr
+						.next();
+				if (!result.contains(mapper)) {
+					removeMappers.add(mapper);
+				}
 			}
+
+			EditingDomain editingDomain = ((DiagramEditor) mappersListPropertySelection
+					.getPart()).getEditingDomain();
+
+			editingDomain
+					.getCommandStack()
+					.execute(
+							AddCommand
+									.create(editingDomain,
+											((domain.UsingMappers) mappersListPropertySelection.eObject),
+											DomainPackage.eINSTANCE
+													.getUsingMappers_Mappers(),
+											addMappers));
+
+			editingDomain
+					.getCommandStack()
+					.execute(
+							RemoveCommand
+									.create(editingDomain,
+											((domain.UsingMappers) mappersListPropertySelection.eObject),
+											DomainPackage.eINSTANCE
+													.getUsingMappers_Mappers(),
+											removeMappers));
+
+			options.removeAll(removeMappers);
+			options.addAll(addMappers);
+
+			Iterator<?> iterator = changeListeners.iterator();
+			while (iterator.hasNext())
+				((ITaskListViewer) iterator.next()).addOption(addMappers);
+
+			iterator = changeListeners.iterator();
+			while (iterator.hasNext())
+				((ITaskListViewer) iterator.next()).removeOption(removeMappers);
 		}
-
-		EditingDomain editingDomain = ((DiagramEditor) mappersListPropertySelection
-				.getPart()).getEditingDomain();
-
-		editingDomain
-				.getCommandStack()
-				.execute(
-						AddCommand
-								.create(editingDomain,
-										((domain.UsingMappers) mappersListPropertySelection.eObject),
-										DomainPackage.eINSTANCE
-												.getUsingMappers_Mappers(),
-										addMappers));
-
-		editingDomain
-				.getCommandStack()
-				.execute(
-						RemoveCommand
-								.create(editingDomain,
-										((domain.UsingMappers) mappersListPropertySelection.eObject),
-										DomainPackage.eINSTANCE
-												.getUsingMappers_Mappers(),
-										removeMappers));
-
-		options.removeAll(removeMappers);
-		options.addAll(addMappers);
-
-		Iterator<?> iterator = changeListeners.iterator();
-		while (iterator.hasNext())
-			((ITaskListViewer) iterator.next()).addOption(addMappers);
-
-		iterator = changeListeners.iterator();
-		while (iterator.hasNext())
-			((ITaskListViewer) iterator.next()).removeOption(removeMappers);
 
 	}
 
@@ -171,7 +173,7 @@ public abstract class AbstractMappersList {
 	/**
 	 * @param task
 	 */
-	public void taskChanged(domain.MappingVariable task) {
+	public void taskChanged(domain.ApplicationMapper task) {
 		Iterator<?> iterator = changeListeners.iterator();
 		while (iterator.hasNext())
 			((ITaskListViewer) iterator.next()).updateOption(task);
@@ -190,6 +192,13 @@ public abstract class AbstractMappersList {
 	@SuppressWarnings("unchecked")
 	public void addChangeListener(ITaskListViewer viewer) {
 		changeListeners.add(viewer);
+	}
+
+	class MappersLabelProvider extends LabelProvider {
+		public String getText(Object element) {
+			return element == null ? "" : ((domain.ApplicationMapper) element).getName();//$NON-NLS-1$
+		}
+
 	}
 
 }

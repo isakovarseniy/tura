@@ -3,11 +3,7 @@ package org.metamodel.tura.ui.properties.sections;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.CellEditor;
-import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -24,11 +20,9 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
-import domain.DomainPackage;
 
 public abstract class AbstractMappersListPropertySelection extends AbstractGridPropertySelection {
 
@@ -141,7 +135,6 @@ public abstract class AbstractMappersListPropertySelection extends AbstractGridP
 		// Assign the cell editors to the viewer
 		tableViewer.setCellEditors(editors);
 		// Set the cell modifier for the viewer
-		tableViewer.setCellModifier(new VariableCellModifier(this));
 		// Set the default sorter for the viewer
 		tableViewer.setSorter(new MappersSorter(MappersSorter.MAPPERS_COLUMN));
 	}
@@ -163,7 +156,7 @@ public abstract class AbstractMappersListPropertySelection extends AbstractGridP
 
 	@Override
 	protected void removeRow(Object o) {
-		optionList.removeTask((domain.MappingVariable) o);
+		optionList.removeTask((domain.ApplicationMapper) o);
 	}
 
 	/**
@@ -194,8 +187,8 @@ public abstract class AbstractMappersListPropertySelection extends AbstractGridP
 		 * 
 		 * @see ITaskListViewer#addTask(ExampleTask)
 		 */
-		public void addOption(List<domain.Mappers> task) {
-			tableViewer.add(task.toArray(new domain.Mappers[task.size()]));
+		public void addOption(List<domain.ApplicationMapper> task) {
+			tableViewer.add(task.toArray(new domain.ApplicationMapper[task.size()]));
 		}
 
 		/*
@@ -203,8 +196,8 @@ public abstract class AbstractMappersListPropertySelection extends AbstractGridP
 		 * 
 		 * @see ITaskListViewer#removeTask(ExampleTask)
 		 */
-		public void removeOption(List<domain.Mappers> task) {
-			tableViewer.remove(task.toArray(new domain.Mappers[task.size()]));
+		public void removeOption(List<domain.ApplicationMapper> task) {
+			tableViewer.remove(task.toArray(new domain.ApplicationMapper[task.size()]));
 		}
 
 		/*
@@ -212,7 +205,7 @@ public abstract class AbstractMappersListPropertySelection extends AbstractGridP
 		 * 
 		 * @see ITaskListViewer#updateTask(ExampleTask)
 		 */
-		public void updateOption(domain.MappingVariable task) {
+		public void updateOption(domain.ApplicationMapper task) {
 			tableViewer.update(task, null);
 		}
 	}
@@ -231,7 +224,7 @@ public abstract class AbstractMappersListPropertySelection extends AbstractGridP
 		 */
 		public String getColumnText(Object element, int columnIndex) {
 			String result = "";
-			String task = (String) element;
+			String task =( (domain.ApplicationMapper) element).getName();
 			switch (columnIndex) {
 			case 0:
 				result = task;
@@ -281,8 +274,8 @@ public abstract class AbstractMappersListPropertySelection extends AbstractGridP
 		 */
 		public int compare(Viewer viewer, Object o1, Object o2) {
 
-			String op1 = (String) o1;
-			String op2 = (String) o2;
+			domain.ApplicationMapper op1 = (domain.ApplicationMapper) o1;
+			domain.ApplicationMapper op2 = (domain.ApplicationMapper) o2;
 
 			switch (criteria) {
 			case MAPPERS_COLUMN:
@@ -307,10 +300,10 @@ public abstract class AbstractMappersListPropertySelection extends AbstractGridP
 		 */
 
 		@SuppressWarnings("deprecation")
-		protected int compareOptions(String opt1, String opt2) {
+		protected int compareOptions(domain.ApplicationMapper opt1, domain.ApplicationMapper opt2) {
 			if ((opt1 == null) || (opt2 == null))
 				return -1;
-			return collator.compare(opt1, opt2);
+			return collator.compare(opt1.getName(), opt2.getName());
 		}
 
 		/**
@@ -332,7 +325,7 @@ public abstract class AbstractMappersListPropertySelection extends AbstractGridP
 		 * 
 		 * @param task
 		 */
-		public void addOption(List<domain.Mappers> task);
+		public void addOption(List<domain.ApplicationMapper> task);
 
 		/**
 		 * Update the view to reflect the fact that a task was removed from the
@@ -340,7 +333,7 @@ public abstract class AbstractMappersListPropertySelection extends AbstractGridP
 		 * 
 		 * @param task
 		 */
-		public void removeOption(List<domain.Mappers> task);
+		public void removeOption(List<domain.ApplicationMapper> task);
 
 		/**
 		 * Update the view to reflect the fact that one of the tasks was
@@ -348,89 +341,8 @@ public abstract class AbstractMappersListPropertySelection extends AbstractGridP
 		 * 
 		 * @param task
 		 */
-		public void updateOption(domain.MappingVariable task);
+		public void updateOption(domain.ApplicationMapper task);
 	}
 
-	public class VariableCellModifier implements ICellModifier {
-		private AbstractMappersListPropertySelection tableViewerExample;
 
-		/**
-		 * Constructor
-		 * 
-		 * @param TableViewerExample
-		 *            an instance of a TableViewerExample
-		 */
-		public VariableCellModifier(
-				AbstractMappersListPropertySelection tableViewerExample) {
-			super();
-			this.tableViewerExample = tableViewerExample;
-		}
-
-		/**
-		 * @see org.eclipse.jface.viewers.ICellModifier#canModify(java.lang.Object,
-		 *      java.lang.String)
-		 */
-		public boolean canModify(Object element, String property) {
-			int columnIndex = tableViewerExample.getColumnNames().indexOf(
-					property);
-			if (columnIndex == 0)
-				return false;
-			return true;
-		}
-
-		/**
-		 * @see org.eclipse.jface.viewers.ICellModifier#getValue(java.lang.Object,
-		 *      java.lang.String)
-		 */
-		public Object getValue(Object element, String property) {
-
-			// Find the index of the column
-			int columnIndex = tableViewerExample.getColumnNames().indexOf(
-					property);
-
-			Object result = null;
-			domain.MappingVariable opt = (domain.MappingVariable) element;
-			if (opt.getVariableRef() == null)
-				return "";
-
-			switch (columnIndex) {
-			case 0: // VALUE_COLUMN
-				result = opt.getVariableRef().getName();
-				break;
-			default:
-				result = "";
-			}
-			return result;
-		}
-
-		/**
-		 * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object,
-		 *      java.lang.String, java.lang.Object)
-		 */
-		public void modify(Object element, String property, Object value) {
-			// Find the index of the column
-			int columnIndex = tableViewerExample.getColumnNames().indexOf(
-					property);
-
-			TableItem item = (TableItem) element;
-			domain.MappingVariable opt = (domain.MappingVariable) item
-					.getData();
-
-			switch (columnIndex) {
-			case 0: // VALUE_COLUMN
-				String valueString = ((String) value).trim();
-				EditingDomain editingDomain = ((DiagramEditor) getPart())
-						.getEditingDomain();
-				/* apply the property change to single selected object */
-				editingDomain.getCommandStack().execute(
-						SetCommand.create(editingDomain, opt,
-								DomainPackage.eINSTANCE
-										.getMappingVariable_Value(),
-								valueString));
-				break;
-			default:
-			}
-			tableViewerExample.getTaskList().taskChanged(opt);
-		}
-	}
 }

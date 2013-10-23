@@ -270,7 +270,7 @@ class Recipes{
 }
 
 class UsingMappers{
-  ref Mappers[*] mappers;
+  ref ApplicationMapper[*] mappers;
 }
 
 enum PlatformLayers{

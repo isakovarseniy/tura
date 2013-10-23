@@ -2,6 +2,7 @@
  */
 package domain.impl;
 
+import domain.ApplicationMapper;
 import domain.DomainPackage;
 import domain.Mappers;
 import domain.UsingMappers;
@@ -40,7 +41,7 @@ public class UsingMappersImpl extends EObjectImpl implements UsingMappers
    * @generated
    * @ordered
    */
-  protected EList<Mappers> mappers;
+  protected EList<ApplicationMapper> mappers;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,11 +69,11 @@ public class UsingMappersImpl extends EObjectImpl implements UsingMappers
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Mappers> getMappers()
+  public EList<ApplicationMapper> getMappers()
   {
     if (mappers == null)
     {
-      mappers = new EObjectResolvingEList<Mappers>(Mappers.class, this, DomainPackage.USING_MAPPERS__MAPPERS);
+      mappers = new EObjectResolvingEList<ApplicationMapper>(ApplicationMapper.class, this, DomainPackage.USING_MAPPERS__MAPPERS);
     }
     return mappers;
   }
@@ -106,7 +107,7 @@ public class UsingMappersImpl extends EObjectImpl implements UsingMappers
     {
       case DomainPackage.USING_MAPPERS__MAPPERS:
         getMappers().clear();
-        getMappers().addAll((Collection<? extends Mappers>)newValue);
+        getMappers().addAll((Collection<? extends ApplicationMapper>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

@@ -364,7 +364,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UsingMappers">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappers" upperBound="-1"
-        eType="#//Mappers"/>
+        eType="#//ApplicationMapper"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PlatformLayers">
     <eLiterals name="ServiceLayer"/>

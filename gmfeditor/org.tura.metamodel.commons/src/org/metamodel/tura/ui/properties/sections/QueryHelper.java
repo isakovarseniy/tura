@@ -177,12 +177,12 @@ public class QueryHelper {
 					.getParent().getParent().getParent().getParent()
 					.getApplicationMappers().getMappers();
 
-			List<domain.Mappers> recipeLs = ingr.getParent().getMappers();
+			List<domain.ApplicationMapper> recipeLs = ingr.getParent().getMappers();
 
 			for (Iterator<domain.ApplicationMapper> itr = appMapperLst
 					.iterator(); itr.hasNext();) {
 				domain.ApplicationMapper mapper = itr.next();
-				if (!recipeLs.contains(mapper.getName()))
+				if (!recipeLs.contains(mapper))
 					mappers.add(mapper);
 			}
 
@@ -193,25 +193,27 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<domain.Mappers> removeMappersForRecipe(domain.Recipe eObject) {
-		ArrayList<domain.Mappers> removeMappers = new ArrayList<domain.Mappers>();
+	public List<domain.ApplicationMapper> removeMappersForRecipe(domain.Recipe eObject) {
+		ArrayList<domain.ApplicationMapper> removeMappers = new ArrayList<domain.ApplicationMapper>();
+		if  (eObject.getMappers()  ==  null || eObject.getMappers() .size() == 0)
+			return removeMappers;
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-		List<domain.Mappers> map = eObject.getMappers();
+		List<domain.ApplicationMapper> map = eObject.getMappers();
 
 		List<domain.ApplicationMapper> map1 = eObject.getParent().getParent()
 				.getParent().getParent().getApplicationMappers().getMappers();
 
-		for (Iterator<domain.Mappers> itr1 = map.iterator(); itr1.hasNext();) {
-			domain.Mappers ms = itr1.next();
+		for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1.hasNext();) {
+			domain.ApplicationMapper ms = itr1.next();
 			boolean isRemove = true;
 			for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2
 					.hasNext();) {
 				domain.ApplicationMapper sp = itr2.next();
-				if (sp.getName().equals(ms))
+				if (sp.getUid().equals(ms.getUid()))
 					isRemove = false;
 			}
 			if (isRemove)
@@ -222,24 +224,24 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<domain.Mappers> removeMappersForIngredient(
+	public List<domain.ApplicationMapper> removeMappersForIngredient(
 			domain.Ingredient eObject) {
-		ArrayList<domain.Mappers> removeMappers = new ArrayList<domain.Mappers>();
+		ArrayList<domain.ApplicationMapper> removeMappers = new ArrayList<domain.ApplicationMapper>();
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-		List<domain.Mappers> map = eObject.getMappers();
+		List<domain.ApplicationMapper> map = eObject.getMappers();
 
 		List<domain.ApplicationMapper> map1 = eObject.getParent().getParent()
 				.getParent().getParent().getParent().getApplicationMappers()
 				.getMappers();
 
-		List<domain.Mappers> recipeLs = eObject.getParent().getMappers();
+		List<domain.ApplicationMapper> recipeLs = eObject.getParent().getMappers();
 
-		for (Iterator<domain.Mappers> itr1 = map.iterator(); itr1.hasNext();) {
-			domain.Mappers ms = itr1.next();
+		for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1.hasNext();) {
+			domain.ApplicationMapper ms = itr1.next();
 			boolean isRemove = true;
 			for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2
 					.hasNext();) {

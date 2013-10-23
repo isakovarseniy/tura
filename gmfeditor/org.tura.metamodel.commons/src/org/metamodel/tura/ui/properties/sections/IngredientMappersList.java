@@ -3,6 +3,7 @@ package org.metamodel.tura.ui.properties.sections;
 import java.util.List;
 import java.util.Set;
 
+import domain.ApplicationMapper;
 import domain.Ingredient;
 import domain.UsingMappers;
 
@@ -15,7 +16,7 @@ public class IngredientMappersList extends AbstractMappersList {
 	}
 
 	@Override
-	public List<domain.Mappers> findRemovedMappers(UsingMappers usingMappers) {
+	public List<ApplicationMapper> findRemovedMappers(UsingMappers usingMappers) {
 		return new QueryHelper().removeMappersForIngredient((Ingredient) usingMappers);
 	}
 
