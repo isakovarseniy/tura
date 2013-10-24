@@ -154,7 +154,7 @@ public abstract class AbstractTypeNamePropertySection extends
 				String strQuery = getQuery().replaceAll(
 						"\\$1",
 						((domain.TypePointer) eObject).getPackageRef()
-								.getName());
+								.getUid());
 
 				OCLExpression<EClassifier> query = helper.createQuery(strQuery);
 

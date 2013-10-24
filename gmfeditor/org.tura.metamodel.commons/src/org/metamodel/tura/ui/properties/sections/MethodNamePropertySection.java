@@ -151,9 +151,9 @@ public class MethodNamePropertySection extends
 
 			try {
 				OCLExpression<EClassifier> query = helper
-						.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
+						.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).uid='"
 								+ ((domain.TypePointer) eObject)
-										.getPackageRef().getName()
+										.getPackageRef().getUid()
 								+ "').oclAsType(domain::Package).typedefinition.types->select(r|r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '"
 								+ ((domain.BusinessMethod) eObject)
 										.getTypeRef().getName()
