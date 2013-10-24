@@ -389,6 +389,7 @@ class TypeDefinition{
 }
 
 class TypeElement{
+    id attr EString uid;
    attr EString name; 
    ref TypeDefinition#types parent;
 }
@@ -396,13 +397,11 @@ class TypeElement{
 
 @gmf.node(label="name")
 class Primitive extends TypeElement{
-    id attr EString uid;
 }
 
 
 @gmf.node(label="name")
 class Type extends TypeElement {
-    id attr EString uid;
    @gmf.compartment
    val Attribute[*]#parent attributes;
    @gmf.compartment
@@ -412,7 +411,6 @@ class Type extends TypeElement {
 
 @gmf.node(label="fakePackageName,fakeTypeName")
 class TypeReference extends TypeElement , TypePointer{
-    id attr EString uid;
  }
 
 @gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
@@ -457,7 +455,6 @@ class ReturnValue extends TypePointer{
 
 @gmf.node(label="name")
 class Enumarator extends TypeElement{
-    id attr EString uid;
   @gmf.compartment
    val EnumAttribute[*]#parent values;
 }
