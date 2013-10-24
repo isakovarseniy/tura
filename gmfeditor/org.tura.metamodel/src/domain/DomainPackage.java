@@ -3139,13 +3139,22 @@ public interface DomainPackage extends EPackage
   int TYPE_ELEMENT = 47;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_ELEMENT__UID = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_ELEMENT__NAME = 0;
+  int TYPE_ELEMENT__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -3154,7 +3163,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_ELEMENT__PARENT = 1;
+  int TYPE_ELEMENT__PARENT = 2;
 
   /**
    * The number of structural features of the '<em>Type Element</em>' class.
@@ -3163,7 +3172,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_ELEMENT_FEATURE_COUNT = 2;
+  int TYPE_ELEMENT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.TypeImpl <em>Type</em>}' class.
@@ -3286,6 +3295,15 @@ public interface DomainPackage extends EPackage
   int PRIMITIVE = 48;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE__UID = TYPE_ELEMENT__UID;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3304,22 +3322,22 @@ public interface DomainPackage extends EPackage
   int PRIMITIVE__PARENT = TYPE_ELEMENT__PARENT;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMITIVE__UID = TYPE_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
    * The number of structural features of the '<em>Primitive</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMITIVE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 1;
+  int PRIMITIVE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__UID = TYPE_ELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3340,22 +3358,13 @@ public interface DomainPackage extends EPackage
   int TYPE__PARENT = TYPE_ELEMENT__PARENT;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__UID = TYPE_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__ATTRIBUTES = TYPE_ELEMENT_FEATURE_COUNT + 1;
+  int TYPE__ATTRIBUTES = TYPE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -3364,7 +3373,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__OPERATIONS = TYPE_ELEMENT_FEATURE_COUNT + 2;
+  int TYPE__OPERATIONS = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Extension</b></em>' containment reference.
@@ -3373,7 +3382,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__EXTENSION = TYPE_ELEMENT_FEATURE_COUNT + 3;
+  int TYPE__EXTENSION = TYPE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -3382,7 +3391,16 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 4;
+  int TYPE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_REFERENCE__UID = TYPE_ELEMENT__UID;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3439,22 +3457,13 @@ public interface DomainPackage extends EPackage
   int TYPE_REFERENCE__FAKE_TYPE_NAME = TYPE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_REFERENCE__UID = TYPE_ELEMENT_FEATURE_COUNT + 4;
-
-  /**
    * The number of structural features of the '<em>Type Reference</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 5;
+  int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3754,6 +3763,15 @@ public interface DomainPackage extends EPackage
   int RETURN_VALUE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMARATOR__UID = TYPE_ELEMENT__UID;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3772,22 +3790,13 @@ public interface DomainPackage extends EPackage
   int ENUMARATOR__PARENT = TYPE_ELEMENT__PARENT;
 
   /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUMARATOR__UID = TYPE_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Values</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUMARATOR__VALUES = TYPE_ELEMENT_FEATURE_COUNT + 1;
+  int ENUMARATOR__VALUES = TYPE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Enumarator</em>' class.
@@ -3796,7 +3805,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUMARATOR_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 2;
+  int ENUMARATOR_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6253,6 +6262,17 @@ public interface DomainPackage extends EPackage
   EClass getTypeElement();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.TypeElement#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.TypeElement#getUid()
+   * @see #getTypeElement()
+   * @generated
+   */
+  EAttribute getTypeElement_Uid();
+
+  /**
    * Returns the meta object for the attribute '{@link domain.TypeElement#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6283,17 +6303,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getType();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.Type#getUid <em>Uid</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.Type#getUid()
-   * @see #getType()
-   * @generated
-   */
-  EAttribute getType_Uid();
 
   /**
    * Returns the meta object for the containment reference list '{@link domain.Type#getAttributes <em>Attributes</em>}'.
@@ -6337,17 +6346,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getTypeReference();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.TypeReference#getUid <em>Uid</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.TypeReference#getUid()
-   * @see #getTypeReference()
-   * @generated
-   */
-  EAttribute getTypeReference_Uid();
 
   /**
    * Returns the meta object for class '{@link domain.TypeExtension <em>Type Extension</em>}'.
@@ -6586,17 +6584,6 @@ public interface DomainPackage extends EPackage
   EClass getEnumarator();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Enumarator#getUid <em>Uid</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.Enumarator#getUid()
-   * @see #getEnumarator()
-   * @generated
-   */
-  EAttribute getEnumarator_Uid();
-
-  /**
    * Returns the meta object for the containment reference list '{@link domain.Enumarator#getValues <em>Values</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6832,17 +6819,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EClass getPrimitive();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.Primitive#getUid <em>Uid</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.Primitive#getUid()
-   * @see #getPrimitive()
-   * @generated
-   */
-  EAttribute getPrimitive_Uid();
 
   /**
    * Returns the meta object for class '{@link domain.Package <em>Package</em>}'.
@@ -8712,6 +8688,14 @@ public interface DomainPackage extends EPackage
     EClass TYPE_ELEMENT = eINSTANCE.getTypeElement();
 
     /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_ELEMENT__UID = eINSTANCE.getTypeElement_Uid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8736,14 +8720,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass TYPE = eINSTANCE.getType();
-
-    /**
-     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE__UID = eINSTANCE.getType_Uid();
 
     /**
      * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
@@ -8778,14 +8754,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass TYPE_REFERENCE = eINSTANCE.getTypeReference();
-
-    /**
-     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_REFERENCE__UID = eINSTANCE.getTypeReference_Uid();
 
     /**
      * The meta object literal for the '{@link domain.impl.TypeExtensionImpl <em>Type Extension</em>}' class.
@@ -8976,14 +8944,6 @@ public interface DomainPackage extends EPackage
     EClass ENUMARATOR = eINSTANCE.getEnumarator();
 
     /**
-     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENUMARATOR__UID = eINSTANCE.getEnumarator_Uid();
-
-    /**
      * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9168,14 +9128,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EClass PRIMITIVE = eINSTANCE.getPrimitive();
-
-    /**
-     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PRIMITIVE__UID = eINSTANCE.getPrimitive_Uid();
 
     /**
      * The meta object literal for the '{@link domain.impl.PackageImpl <em>Package</em>}' class.

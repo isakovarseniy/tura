@@ -67,32 +67,8 @@ public class EnumaratorItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addUidPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Uid feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addUidPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Enumarator_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Enumarator_uid_feature", "_UI_Enumarator_type"),
-         DomainPackage.Literals.ENUMARATOR__UID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -169,9 +145,6 @@ public class EnumaratorItemProvider
 
     switch (notification.getFeatureID(Enumarator.class))
     {
-      case DomainPackage.ENUMARATOR__UID:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
       case DomainPackage.ENUMARATOR__VALUES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;

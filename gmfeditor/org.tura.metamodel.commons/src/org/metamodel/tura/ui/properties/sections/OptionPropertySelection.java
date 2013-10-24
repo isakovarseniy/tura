@@ -386,12 +386,12 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 				EObject types = (EObject) diagram.getElement();
 
 				OCLExpression<EClassifier> query = helper
-						.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).name ='"
-								+domainArtifact.getName()+
-								"').oclAsType(domain::DomainArtifact).artifact.artifacts-> select(r|r.oclAsType(domain::Artifact).name ='"
-								+artifact.getName()
-								+"').oclAsType(domain::Artifact).specifiers->select(r|r.oclAsType(domain::Specifier).name ='" 
-								+ ((domain.Specifier) eObject).getName()
+						.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid ='"
+								+domainArtifact.getUid()+
+								"').oclAsType(domain::DomainArtifact).artifact.artifacts-> select(r|r.oclAsType(domain::Artifact).uid ='"
+								+artifact.getUid()
+								+"').oclAsType(domain::Artifact).specifiers->select(r|r.oclAsType(domain::Specifier).uid ='" 
+								+ ((domain.Specifier) eObject).getUid()
 								+ "').oclAsType(domain::Specifier).options");
 
 				Collection<domain.Option> map = (Collection<domain.Option>) ocl

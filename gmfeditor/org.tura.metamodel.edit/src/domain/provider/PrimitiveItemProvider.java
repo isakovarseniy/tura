@@ -64,32 +64,8 @@ public class PrimitiveItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addUidPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Uid feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addUidPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Primitive_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Primitive_uid_feature", "_UI_Primitive_type"),
-         DomainPackage.Literals.PRIMITIVE__UID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -130,13 +106,6 @@ public class PrimitiveItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(Primitive.class))
-    {
-      case DomainPackage.PRIMITIVE__UID:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-    }
     super.notifyChanged(notification);
   }
 

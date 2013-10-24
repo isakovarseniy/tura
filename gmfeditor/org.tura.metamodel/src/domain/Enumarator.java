@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link domain.Enumarator#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Enumarator#getValues <em>Values</em>}</li>
  * </ul>
  * </p>
@@ -25,32 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Enumarator extends TypeElement
 {
-  /**
-   * Returns the value of the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Uid</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Uid</em>' attribute.
-   * @see #setUid(String)
-   * @see domain.DomainPackage#getEnumarator_Uid()
-   * @model id="true"
-   * @generated
-   */
-  String getUid();
-
-  /**
-   * Sets the value of the '{@link domain.Enumarator#getUid <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Uid</em>' attribute.
-   * @see #getUid()
-   * @generated
-   */
-  void setUid(String value);
-
   /**
    * Returns the value of the '<em><b>Values</b></em>' containment reference list.
    * The list contents are of type {@link domain.EnumAttribute}.

@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.TypeImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getOperations <em>Operations</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getExtension <em>Extension</em>}</li>
@@ -41,26 +40,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class TypeImpl extends TypeElementImpl implements Type
 {
-  /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
-  protected static final String UID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
-  protected String uid = UID_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -110,29 +89,6 @@ public class TypeImpl extends TypeElementImpl implements Type
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.TYPE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getUid()
-  {
-    return uid;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setUid(String newUid)
-  {
-    String oldUid = uid;
-    uid = newUid;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE__UID, oldUid, uid));
   }
 
   /**
@@ -260,8 +216,6 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE__UID:
-        return getUid();
       case DomainPackage.TYPE__ATTRIBUTES:
         return getAttributes();
       case DomainPackage.TYPE__OPERATIONS:
@@ -283,9 +237,6 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE__UID:
-        setUid((String)newValue);
-        return;
       case DomainPackage.TYPE__ATTRIBUTES:
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
@@ -311,9 +262,6 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE__UID:
-        setUid(UID_EDEFAULT);
-        return;
       case DomainPackage.TYPE__ATTRIBUTES:
         getAttributes().clear();
         return;
@@ -337,8 +285,6 @@ public class TypeImpl extends TypeElementImpl implements Type
   {
     switch (featureID)
     {
-      case DomainPackage.TYPE__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.TYPE__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
       case DomainPackage.TYPE__OPERATIONS:
@@ -347,23 +293,6 @@ public class TypeImpl extends TypeElementImpl implements Type
         return extension != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(')');
-    return result.toString();
   }
 
 } //TypeImpl

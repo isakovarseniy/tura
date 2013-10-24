@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link domain.impl.TypeReferenceImpl#getTypeRef <em>Type Ref</em>}</li>
  *   <li>{@link domain.impl.TypeReferenceImpl#getFakePackageName <em>Fake Package Name</em>}</li>
  *   <li>{@link domain.impl.TypeReferenceImpl#getFakeTypeName <em>Fake Type Name</em>}</li>
- *   <li>{@link domain.impl.TypeReferenceImpl#getUid <em>Uid</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,26 +92,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * @ordered
    */
   protected String fakeTypeName = FAKE_TYPE_NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
-  protected static final String UID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUid()
-   * @generated
-   * @ordered
-   */
-  protected String uid = UID_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -272,29 +251,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getUid()
-  {
-    return uid;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setUid(String newUid)
-  {
-    String oldUid = uid;
-    uid = newUid;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE_REFERENCE__UID, oldUid, uid));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -310,8 +266,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
         return getFakePackageName();
       case DomainPackage.TYPE_REFERENCE__FAKE_TYPE_NAME:
         return getFakeTypeName();
-      case DomainPackage.TYPE_REFERENCE__UID:
-        return getUid();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -337,9 +291,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
         return;
       case DomainPackage.TYPE_REFERENCE__FAKE_TYPE_NAME:
         setFakeTypeName((String)newValue);
-        return;
-      case DomainPackage.TYPE_REFERENCE__UID:
-        setUid((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -367,9 +318,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
       case DomainPackage.TYPE_REFERENCE__FAKE_TYPE_NAME:
         setFakeTypeName(FAKE_TYPE_NAME_EDEFAULT);
         return;
-      case DomainPackage.TYPE_REFERENCE__UID:
-        setUid(UID_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -392,8 +340,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
         return FAKE_PACKAGE_NAME_EDEFAULT == null ? fakePackageName != null : !FAKE_PACKAGE_NAME_EDEFAULT.equals(fakePackageName);
       case DomainPackage.TYPE_REFERENCE__FAKE_TYPE_NAME:
         return FAKE_TYPE_NAME_EDEFAULT == null ? fakeTypeName != null : !FAKE_TYPE_NAME_EDEFAULT.equals(fakeTypeName);
-      case DomainPackage.TYPE_REFERENCE__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
     }
     return super.eIsSet(featureID);
   }
@@ -457,8 +403,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference
     result.append(fakePackageName);
     result.append(", fakeTypeName: ");
     result.append(fakeTypeName);
-    result.append(", uid: ");
-    result.append(uid);
     result.append(')');
     return result.toString();
   }

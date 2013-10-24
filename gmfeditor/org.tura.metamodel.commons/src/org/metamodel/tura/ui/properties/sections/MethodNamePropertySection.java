@@ -154,9 +154,9 @@ public class MethodNamePropertySection extends
 						.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).uid='"
 								+ ((domain.TypePointer) eObject)
 										.getPackageRef().getUid()
-								+ "').oclAsType(domain::Package).typedefinition.types->select(r|r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '"
+								+ "').oclAsType(domain::Package).typedefinition.types->select(r|r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).uid = '"
 								+ ((domain.BusinessMethod) eObject)
-										.getTypeRef().getName()
+										.getTypeRef().getUid()
 								+ "').oclAsType(domain::Type).operations");
 
 				Collection<domain.Operation> map = (Collection<domain.Operation>) ocl

@@ -32,10 +32,10 @@ public class QueryHelper {
 		Collection<domain.MappingSpecifier> map = eObject.getSpecifiers();
 
 		OCLExpression<EClassifier> query = helper
-				.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).name='"
-						+ eObject.getDomainArtifactRef().getName()
-						+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).name ='"
-						+ eObject.getArtifactRef().getName()
+				.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
+						+ eObject.getDomainArtifactRef().getUid()
+						+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).uid ='"
+						+ eObject.getArtifactRef().getUid()
 						+ "').oclAsType(domain::Artifact).specifiers");
 
 		Collection<domain.Specifier> map1 = (Collection<domain.Specifier>) ocl
@@ -95,10 +95,10 @@ public class QueryHelper {
 				.getVariables();
 
 		OCLExpression<EClassifier> query = helper
-				.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).name='"
-						+ eObject.getDomainArtifactRef().getName()
-						+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).name ='"
-						+ eObject.getArtifactRef().getName()
+				.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
+						+ eObject.getDomainArtifactRef().getUid()
+						+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).uid ='"
+						+ eObject.getArtifactRef().getUid()
 						+ "').oclAsType(domain::Artifact).modelQuery");
 
 		Collection<domain.Variable> map1 = (Collection<domain.Variable>) ocl
