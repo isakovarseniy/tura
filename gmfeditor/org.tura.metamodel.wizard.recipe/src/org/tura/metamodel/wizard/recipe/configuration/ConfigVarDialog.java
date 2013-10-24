@@ -107,10 +107,10 @@ public class ConfigVarDialog {
 							.getEClassifier("Domain"));
 
 					OCLExpression<EClassifier> query = helper
-							.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).name='"
-									+ mapper.getDomainArtifact()
-									+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).name ='"
-									+ mapper.getArtifactName()
+							.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
+									+ mapper.getDomainArtifactRef().getUid()
+									+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).uid ='"
+									+ mapper.getArtifactRef().getUid()
 									+ "').oclAsType(domain::Artifact).configVariables");
 
 					Collection<domain.ConfigVariable> map = (Collection<domain.ConfigVariable>) ocl
