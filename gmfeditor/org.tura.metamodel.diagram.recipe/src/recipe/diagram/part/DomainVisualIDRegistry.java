@@ -31,6 +31,7 @@ import recipe.diagram.edit.parts.JavaComponentNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
+import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.PropertyNameEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
@@ -302,7 +303,7 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case PropertyEditPart.VISUAL_ID:
-			if (PropertyNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (PropertyFakeNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

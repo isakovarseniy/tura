@@ -12,7 +12,7 @@ wizard PopulateRecipeConfiguration {
        for( property in properties ){
            
            var prop : new Property;
-           prop.name= property;
+           prop.confVarRef= property;
            prop.uid = uuid.randomUUID().toString();
            self.properties.add(prop);
        

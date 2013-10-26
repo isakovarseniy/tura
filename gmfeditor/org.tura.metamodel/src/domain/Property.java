@@ -13,13 +13,14 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.Property#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.Property#getName <em>Name</em>}</li>
+ *   <li>{@link domain.Property#getConfVarRef <em>Conf Var Ref</em>}</li>
  *   <li>{@link domain.Property#getValue <em>Value</em>}</li>
+ *   <li>{@link domain.Property#getFakeName <em>Fake Name</em>}</li>
  * </ul>
  * </p>
  *
  * @see domain.DomainPackage#getProperty()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='fakeName'"
  * @generated
  */
 public interface Property extends EObject
@@ -51,30 +52,30 @@ public interface Property extends EObject
   void setUid(String value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Conf Var Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Conf Var Ref</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see domain.DomainPackage#getProperty_Name()
+   * @return the value of the '<em>Conf Var Ref</em>' reference.
+   * @see #setConfVarRef(ConfigVariable)
+   * @see domain.DomainPackage#getProperty_ConfVarRef()
    * @model
    * @generated
    */
-  String getName();
+  ConfigVariable getConfVarRef();
 
   /**
-   * Sets the value of the '{@link domain.Property#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link domain.Property#getConfVarRef <em>Conf Var Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Conf Var Ref</em>' reference.
+   * @see #getConfVarRef()
    * @generated
    */
-  void setName(String value);
+  void setConfVarRef(ConfigVariable value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -101,5 +102,31 @@ public interface Property extends EObject
    * @generated
    */
   void setValue(String value);
+
+  /**
+   * Returns the value of the '<em><b>Fake Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Fake Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Fake Name</em>' attribute.
+   * @see #setFakeName(String)
+   * @see domain.DomainPackage#getProperty_FakeName()
+   * @model
+   * @generated
+   */
+  String getFakeName();
+
+  /**
+   * Sets the value of the '{@link domain.Property#getFakeName <em>Fake Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Fake Name</em>' attribute.
+   * @see #getFakeName()
+   * @generated
+   */
+  void setFakeName(String value);
 
 } // Property

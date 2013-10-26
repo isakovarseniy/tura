@@ -73,8 +73,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case PropertyEditPart.VISUAL_ID:
 				return new PropertyEditPart(view);
 
-			case PropertyNameEditPart.VISUAL_ID:
-				return new PropertyNameEditPart(view);
+			case PropertyFakeNameEditPart.VISUAL_ID:
+				return new PropertyFakeNameEditPart(view);
 
 			case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
 				return new RecipeRecipeIngredientsCompartmentEditPart(view);

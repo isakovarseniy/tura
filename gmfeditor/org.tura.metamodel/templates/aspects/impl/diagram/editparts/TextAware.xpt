@@ -34,6 +34,13 @@
                  typePart = ((domain.TypePointer)parserElement).getTypeRef().getName();
            text =packPart +"."+ typePart;
 
+	«ELSEIF  self.editPartClassName.indexOf('PropertyFakeNameEditPart') > 0-»
+		if (parserElement != null && getParser() != null   ) {
+		   String name="NA";
+		   String typePart = "NA";
+		   if (((domain.Property)parserElement).getConfVarRef() != null)
+		          name = ((domain.Property)parserElement).getConfVarRef().getName();
+           text =name;
 	«ELSE-»
 	   if (parserElement != null && getParser() != null ){
 			text = getParser().getPrintString(

@@ -67,6 +67,7 @@ import recipe.diagram.edit.parts.JavaComponentNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
+import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.PropertyNameEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
@@ -716,7 +717,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label305005 = createLabel(node,
-				DomainVisualIDRegistry.getType(PropertyNameEditPart.VISUAL_ID));
+				DomainVisualIDRegistry
+						.getType(PropertyFakeNameEditPart.VISUAL_ID));
 		return node;
 	}
 

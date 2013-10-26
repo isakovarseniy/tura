@@ -24,15 +24,15 @@ import domain.ConfigVariable;
 import domain.DomainPackage;
 
 public class ConfigVarDialog {
-	private HashSet<String> configVar = new HashSet<String>();
+	private HashSet<ConfigVariable> configVar = new HashSet<ConfigVariable>();
 
 	public List<?> runDialog(domain.Configuration config) {
 
-		Set<String> set = propertiesList(config);
+		Set<ConfigVariable> set = propertiesList(config);
 		ListSelectionDialog dlg = new ListSelectionDialog( Display.getCurrent().getActiveShell(),
 				set,
 				new ArrayContentProvider(),
-				new LabelProvider(), "Select configuration variables:");
+				new ConfigVarLabelProvider(), "Select configuration variables:");
 		dlg.setTitle("Variables Selection");
 		List<Object> result = new ArrayList<>();
 		if (dlg.open() == Window.OK){
@@ -42,7 +42,7 @@ public class ConfigVarDialog {
 		return result;
 	}
 
-	public Set<String> propertiesList(domain.Configuration config){
+	public Set<ConfigVariable> propertiesList(domain.Configuration config){
 		
 		ArrayList<domain.Property> available = new ArrayList<domain.Property>();
 		if (config == null)
@@ -70,7 +70,10 @@ public class ConfigVarDialog {
 				domain.Ingredient ingridient = itr.next();
 				searchConfigParameters(ingridient.getComponents());
 			}
-			configVar.removeAll(convert2Set(available));
+			
+			for (Iterator<domain.Property> itr = available.iterator(); itr.hasNext();){
+				configVar.remove(itr.next().getConfVarRef());
+			}
 		}
 		
 
@@ -78,15 +81,6 @@ public class ConfigVarDialog {
 		
 	}
 	
-	private Set<String> convert2Set(List<domain.Property> list) {
-		HashSet<String> set = new HashSet<String>();
-		for (Iterator<domain.Property> itr = list.iterator(); itr.hasNext();) {
-			domain.Property pr = itr.next();
-			set.add(pr.getName());
-		}
-		return set;
-	}
-
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void searchConfigParameters(List<domain.Component> components) {
 
@@ -119,7 +113,7 @@ public class ConfigVarDialog {
 					for (Iterator<ConfigVariable> itrCnf = map.iterator(); itrCnf
 							.hasNext();) {
 						domain.ConfigVariable cnfVar = itrCnf.next();
-						this.configVar.add(cnfVar.getName());
+						this.configVar.add(cnfVar);
 					}
 
 				} catch (Exception e) {
@@ -127,6 +121,13 @@ public class ConfigVarDialog {
 				}
 
 			}
+		}
+
+	}
+	
+	class ConfigVarLabelProvider extends LabelProvider {
+		public String getText(Object element) {
+			return element == null ? "" : ((domain.ConfigVariable) element).getName();//$NON-NLS-1$
 		}
 
 	}

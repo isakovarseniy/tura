@@ -129,43 +129,21 @@
 
  context TypePointer {
 
-  constraint PackageName {
+  constraint PackageRef {
 
-      check :  self.packageName.isDefined()
+      check :  self.packageRef.isDefined()
 
       message : 'Undefined  package name ' + self.eClass().name + ' not allowed'
 
   }
   
-  constraint TypeName {
+  constraint TypeRef {
 
-      check :  self.typeName.isDefined()
+      check :  self.typeRef.isDefined()
 
       message : 'Undefined  type name ' + self.eClass().name + ' not allowed'
 
   }
-  
-  constraint TypeReference {
-  
-     guard : self.satisfies("TypeName") and  self.satisfies("PackageName") and self.packageName<>'Primitives'
-
-      check :   Package.allInstances.exists(p|p.name=self.packageName) and  Package.allInstances.selectOne(p|p.name=self.packageName).typedefinition.types.exists(r|r.isKindOf(Type) and r.name=self.typeName) 
- 
-      message : 'Wrong reference to type ' + self.eClass().name + " to " +self.packageName+'::'+ self.typeName
-
-  }
-
-
-  constraint PrimitiveReference {
-  
-     guard : self.satisfies("TypeName") and  self.satisfies("PackageName") and self.packageName='Primitives'
-
-      check :   Primitive.allInstances.exists(p|p.name=self.typeName) 
- 
-      message : 'Wrong reference to primitive ' + self.eClass().name +  " to " + self.typeName
-
-  }
-
 
 }
 

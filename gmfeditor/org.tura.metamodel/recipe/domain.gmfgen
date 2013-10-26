@@ -254,8 +254,8 @@
       </modelFacet>
       <labels
           visualID="305005"
-          editPartClassName="PropertyNameEditPart"
-          itemSemanticEditPolicyClassName="PropertyNameItemSemanticEditPolicy"
+          editPartClassName="PropertyFakeNameEditPart"
+          itemSemanticEditPolicyClassName="PropertyFakeNameItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -267,7 +267,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/Property/name"/>
+              href="domain.genmodel#//domain/Property/fakeName"/>
         </modelFacet>
       </labels>
     </childNodes>

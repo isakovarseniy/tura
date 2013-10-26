@@ -111,9 +111,9 @@ public class PropertyEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof PropertyNameEditPart) {
-			((PropertyNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigurePropertyLabelFigure());
+		if (childEditPart instanceof PropertyFakeNameEditPart) {
+			((PropertyFakeNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigurePropertyLabelFigure());
 			return true;
 		}
 		return false;
@@ -123,7 +123,7 @@ public class PropertyEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof PropertyNameEditPart) {
+		if (childEditPart instanceof PropertyFakeNameEditPart) {
 			return true;
 		}
 		return false;
@@ -247,7 +247,7 @@ public class PropertyEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(PropertyNameEditPart.VISUAL_ID));
+				.getType(PropertyFakeNameEditPart.VISUAL_ID));
 	}
 
 	/**

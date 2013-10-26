@@ -149,7 +149,7 @@
             <diagramLabel
                 href="domain.gmfgraph#PropertyLabel"/>
             <features
-                href="domain.ecore#//Property/name"/>
+                href="domain.ecore#//Property/fakeName"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"

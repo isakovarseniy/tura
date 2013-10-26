@@ -2,6 +2,7 @@
  */
 package domain.impl;
 
+import domain.ConfigVariable;
 import domain.DomainPackage;
 import domain.Property;
 
@@ -9,6 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -20,8 +22,9 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.PropertyImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.PropertyImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.PropertyImpl#getConfVarRef <em>Conf Var Ref</em>}</li>
  *   <li>{@link domain.impl.PropertyImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link domain.impl.PropertyImpl#getFakeName <em>Fake Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,24 +53,14 @@ public class PropertyImpl extends EObjectImpl implements Property
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getConfVarRef() <em>Conf Var Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getConfVarRef()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected ConfigVariable confVarRef;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -88,6 +81,26 @@ public class PropertyImpl extends EObjectImpl implements Property
    * @ordered
    */
   protected String value = VALUE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getFakeName() <em>Fake Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFakeName()
+   * @generated
+   * @ordered
+   */
+  protected static final String FAKE_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFakeName() <em>Fake Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFakeName()
+   * @generated
+   * @ordered
+   */
+  protected String fakeName = FAKE_NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -138,9 +151,19 @@ public class PropertyImpl extends EObjectImpl implements Property
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public ConfigVariable getConfVarRef()
   {
-    return name;
+    if (confVarRef != null && confVarRef.eIsProxy())
+    {
+      InternalEObject oldConfVarRef = (InternalEObject)confVarRef;
+      confVarRef = (ConfigVariable)eResolveProxy(oldConfVarRef);
+      if (confVarRef != oldConfVarRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.PROPERTY__CONF_VAR_REF, oldConfVarRef, confVarRef));
+      }
+    }
+    return confVarRef;
   }
 
   /**
@@ -148,12 +171,22 @@ public class PropertyImpl extends EObjectImpl implements Property
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public ConfigVariable basicGetConfVarRef()
   {
-    String oldName = name;
-    name = newName;
+    return confVarRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConfVarRef(ConfigVariable newConfVarRef)
+  {
+    ConfigVariable oldConfVarRef = confVarRef;
+    confVarRef = newConfVarRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.PROPERTY__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.PROPERTY__CONF_VAR_REF, oldConfVarRef, confVarRef));
   }
 
   /**
@@ -184,6 +217,29 @@ public class PropertyImpl extends EObjectImpl implements Property
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getFakeName()
+  {
+    return fakeName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFakeName(String newFakeName)
+  {
+    String oldFakeName = fakeName;
+    fakeName = newFakeName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.PROPERTY__FAKE_NAME, oldFakeName, fakeName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -191,10 +247,13 @@ public class PropertyImpl extends EObjectImpl implements Property
     {
       case DomainPackage.PROPERTY__UID:
         return getUid();
-      case DomainPackage.PROPERTY__NAME:
-        return getName();
+      case DomainPackage.PROPERTY__CONF_VAR_REF:
+        if (resolve) return getConfVarRef();
+        return basicGetConfVarRef();
       case DomainPackage.PROPERTY__VALUE:
         return getValue();
+      case DomainPackage.PROPERTY__FAKE_NAME:
+        return getFakeName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -212,11 +271,14 @@ public class PropertyImpl extends EObjectImpl implements Property
       case DomainPackage.PROPERTY__UID:
         setUid((String)newValue);
         return;
-      case DomainPackage.PROPERTY__NAME:
-        setName((String)newValue);
+      case DomainPackage.PROPERTY__CONF_VAR_REF:
+        setConfVarRef((ConfigVariable)newValue);
         return;
       case DomainPackage.PROPERTY__VALUE:
         setValue((String)newValue);
+        return;
+      case DomainPackage.PROPERTY__FAKE_NAME:
+        setFakeName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +297,14 @@ public class PropertyImpl extends EObjectImpl implements Property
       case DomainPackage.PROPERTY__UID:
         setUid(UID_EDEFAULT);
         return;
-      case DomainPackage.PROPERTY__NAME:
-        setName(NAME_EDEFAULT);
+      case DomainPackage.PROPERTY__CONF_VAR_REF:
+        setConfVarRef((ConfigVariable)null);
         return;
       case DomainPackage.PROPERTY__VALUE:
         setValue(VALUE_EDEFAULT);
+        return;
+      case DomainPackage.PROPERTY__FAKE_NAME:
+        setFakeName(FAKE_NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -257,10 +322,12 @@ public class PropertyImpl extends EObjectImpl implements Property
     {
       case DomainPackage.PROPERTY__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.PROPERTY__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.PROPERTY__CONF_VAR_REF:
+        return confVarRef != null;
       case DomainPackage.PROPERTY__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case DomainPackage.PROPERTY__FAKE_NAME:
+        return FAKE_NAME_EDEFAULT == null ? fakeName != null : !FAKE_NAME_EDEFAULT.equals(fakeName);
     }
     return super.eIsSet(featureID);
   }
@@ -278,10 +345,10 @@ public class PropertyImpl extends EObjectImpl implements Property
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
-    result.append(", name: ");
-    result.append(name);
     result.append(", value: ");
     result.append(value);
+    result.append(", fakeName: ");
+    result.append(fakeName);
     result.append(')');
     return result.toString();
   }

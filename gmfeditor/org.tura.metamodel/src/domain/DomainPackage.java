@@ -2964,13 +2964,13 @@ public interface DomainPackage extends EPackage
   int PROPERTY__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Conf Var Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROPERTY__NAME = 1;
+  int PROPERTY__CONF_VAR_REF = 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2982,13 +2982,22 @@ public interface DomainPackage extends EPackage
   int PROPERTY__VALUE = 2;
 
   /**
+   * The feature id for the '<em><b>Fake Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPERTY__FAKE_NAME = 3;
+
+  /**
    * The number of structural features of the '<em>Property</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROPERTY_FEATURE_COUNT = 3;
+  int PROPERTY_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.MappingSpecifierImpl <em>Mapping Specifier</em>}' class.
@@ -6058,15 +6067,15 @@ public interface DomainPackage extends EPackage
   EAttribute getProperty_Uid();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Property#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link domain.Property#getConfVarRef <em>Conf Var Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see domain.Property#getName()
+   * @return the meta object for the reference '<em>Conf Var Ref</em>'.
+   * @see domain.Property#getConfVarRef()
    * @see #getProperty()
    * @generated
    */
-  EAttribute getProperty_Name();
+  EReference getProperty_ConfVarRef();
 
   /**
    * Returns the meta object for the attribute '{@link domain.Property#getValue <em>Value</em>}'.
@@ -6078,6 +6087,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EAttribute getProperty_Value();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Property#getFakeName <em>Fake Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fake Name</em>'.
+   * @see domain.Property#getFakeName()
+   * @see #getProperty()
+   * @generated
+   */
+  EAttribute getProperty_FakeName();
 
   /**
    * Returns the meta object for class '{@link domain.MappingSpecifier <em>Mapping Specifier</em>}'.
@@ -8526,12 +8546,12 @@ public interface DomainPackage extends EPackage
     EAttribute PROPERTY__UID = eINSTANCE.getProperty_Uid();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Conf Var Ref</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
+    EReference PROPERTY__CONF_VAR_REF = eINSTANCE.getProperty_ConfVarRef();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -8540,6 +8560,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Fake Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROPERTY__FAKE_NAME = eINSTANCE.getProperty_FakeName();
 
     /**
      * The meta object literal for the '{@link domain.impl.MappingSpecifierImpl <em>Mapping Specifier</em>}' class.

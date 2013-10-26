@@ -50,10 +50,19 @@
       message : 'Unnamed ' + self.eClass().name + ' not allowed'
 
   }
+  
+ constraint RecipeConnection {
+
+      guard : self.satisfies("HasName")
+      check :  self.recipe.isDefined()
+      message : 'Infrastructure  ' + self.name + ' disconected from recipe'
+
+  }
+   
 
    constraint UniqueName{
 
-      guard : self.satisfies("HasName")
+      guard : self.satisfies("RecipeConnection")
       check : self.recipe.infrastructures.select(r|r.isKindOf(Infrastructure) and r.name=self.name).size() = 1
       message : 'Infrastructure name  ' + self.name + ' is not unique'
    
@@ -76,6 +85,18 @@
    
 }
 
+context Configuration{
+
+ constraint ConfigurationConnection {
+
+      check :  self.infrastructure.isDefined()
+      message : 'Configuration  id  disconected from infrastructure'
+
+  }
+
+}
+
+
  context ModelMapper {
 
   constraint HasName {
@@ -94,25 +115,20 @@
    
    } 
 
-   constraint HasRefFomainArtifact{
-      check : self.domainArtifact.isDefined()
+   constraint HasRefDomainArtifact{
+      check : self.domainArtifactRef.isDefined()
       message : 'ModelMapper name  ' + self.name + ' DomainArtifact is not define'
    } 
 
-  constraint RefDomainArtifactIsExist{
-      guard : self.satisfies("HasRefFomainArtifact")
-      check :  DomainArtifact.allInstances.exists(p|p.name=self.domainArtifact)
-      message : 'ModelMapper name  ' + self.name + ' DomainArtifact is not define'
-   } 
 
-  constraint RefArtifactNameExist{
-      guard : self.satisfies("RefDomainArtifactIsExist")
-      check : DomainArtifact.allInstances.selectOne(r|r.name=self.domainArtifact).artifact.isDefined() and   DomainArtifact.allInstances.selectOne(r|r.name=self.domainArtifact).artifact.artifacts.exists(r|r.isKindOf(Artifact) and r.name=self.artifactName) 
-      message : 'Artifact  name  ' + self.artifactName + ' in ' +self.domainArtifact+ '  is not define  '
+  constraint HasRefArtifact{
+      guard : self.satisfies("HasRefDomainArtifact")
+      check : self.artifactRef.isDefined()
+      message : 'ModelMapper name  ' + self.name + ' in ' + ' Artifacr  is not define  '
    } 
 
   constraint checkMappingSpecifiers{
-      guard : self.satisfies("RefArtifactNameExist")
+      guard : self.satisfies("HasRefArtifact")
       check{
  	   var helper := new Native('org.metamodel.tura.ui.properties.sections.QueryHelper');
 	   var result = helper.findMappingSpecifiers(self, self);
@@ -126,7 +142,7 @@
   }
 
   constraint checkMappingVariables{
-      guard : self.satisfies("RefArtifactNameExist")
+      guard : self.satisfies("HasRefArtifact")
       check{
  	   var helper := new Native('org.metamodel.tura.ui.properties.sections.QueryHelper');
 	   var result = helper.findMappingVariable(self, self);
@@ -138,58 +154,55 @@
       message : 'MappingVariables   for ' + self.name +  '  is not define  properly'
 
   }
-
-
-
 }
-
-context Property {
-
-  constraint HasName {
-
-      check :  self.name.isDefined()
-
-      message : 'Unnamed ' + self.eClass().name + ' not allowed'
-
-  }
-
-  constraint HasValue {
-
-      check :  self.value.isDefined()
-
-      message : 'No value ' + self.name + ' not allowed'
-
-  }
-}
- 
 
  context MappingSpecifier {
 
   constraint HasName {
 
-      check :  self.name.isDefined()
-
-      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+      check :  self.specifierRef.isDefined()
+      message : 'No reference for  Specifier ' + self.eClass().name + ' not allowed'
 
   }
 
   constraint HasValue {
-
-      check :  self.value.isDefined()
-
-      message : 'No value ' + self.name + ' not allowed'
+  
+     check :  self.valueRef.isDefined()
+      message : 'No value ' + self.specifierRef.name + ' not allowed'
 
   }
 
 }
 
+
+context Property {
+
+  constraint HasName {
+
+      check :  self.confVarRef.isDefined()
+
+      message : 'No reference for Property ' + self.eClass().name + ' not allowed'
+
+  }
+
+  constraint HasValue {
+
+       guard : self.satisfies("HasName")
+       check :  self.value.isDefined()
+
+       message : 'No value ' + self.confVarRef.name + ' not allowed'
+
+  }
+}
+ 
+
  context MappingVariable {
 
   constraint HasName {
 
-      check :  self.name.isDefined()
+      check :  self.variableRef.isDefined()
 
-      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+      message : 'No reference for  Variable ' + self.eClass().name + ' not allowed'
 
   }
 
@@ -197,7 +210,7 @@ context Property {
 
       check :  self.value.isDefined()
 
-      message : 'No value ' + self.name + ' not allowed'
+      message : 'No value ' + self.variableRef.name + ' not allowed'
 
   }
 

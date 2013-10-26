@@ -348,11 +348,12 @@ class ModelMapper extends ArtifactRef{
    val MappingVariable[*] variables;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="fakeName")
 class Property{
     id attr EString uid;
-   attr EString name;
-   attr EString value;
+    ref ConfigVariable confVarRef;
+    attr EString value;
+    attr EString fakeName;
 }
 
 class MappingSpecifier{

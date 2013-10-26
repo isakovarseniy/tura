@@ -22,6 +22,7 @@ import recipe.diagram.edit.parts.IngredientNameEditPart;
 import recipe.diagram.edit.parts.JavaComponentName2EditPart;
 import recipe.diagram.edit.parts.JavaComponentNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
+import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.PropertyNameEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
 import recipe.diagram.parsers.MessageFormatParser;
@@ -163,19 +164,19 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser propertyName_305005Parser;
+	private IParser propertyFakeName_305005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPropertyName_305005Parser() {
-		if (propertyName_305005Parser == null) {
+	private IParser getPropertyFakeName_305005Parser() {
+		if (propertyFakeName_305005Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getProperty_Name() };
+					.getProperty_FakeName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			propertyName_305005Parser = parser;
+			propertyFakeName_305005Parser = parser;
 		}
-		return propertyName_305005Parser;
+		return propertyFakeName_305005Parser;
 	}
 
 	/**
@@ -197,8 +198,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getJavaComponentName_305010Parser();
 		case ModelMapperNameEditPart.VISUAL_ID:
 			return getModelMapperName_305001Parser();
-		case PropertyNameEditPart.VISUAL_ID:
-			return getPropertyName_305005Parser();
+		case PropertyFakeNameEditPart.VISUAL_ID:
+			return getPropertyFakeName_305005Parser();
 		}
 		return null;
 	}

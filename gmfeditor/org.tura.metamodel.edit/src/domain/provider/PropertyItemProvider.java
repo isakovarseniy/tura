@@ -65,8 +65,9 @@ public class PropertyItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
+      addConfVarRefPropertyDescriptor(object);
       addValuePropertyDescriptor(object);
+      addFakeNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -95,24 +96,24 @@ public class PropertyItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Name feature.
+   * This adds a property descriptor for the Conf Var Ref feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addNamePropertyDescriptor(Object object)
+  protected void addConfVarRefPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Property_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Property_name_feature", "_UI_Property_type"),
-         DomainPackage.Literals.PROPERTY__NAME,
+         getString("_UI_Property_confVarRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Property_confVarRef_feature", "_UI_Property_type"),
+         DomainPackage.Literals.PROPERTY__CONF_VAR_REF,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
@@ -132,6 +133,29 @@ public class PropertyItemProvider
          getString("_UI_Property_value_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Property_value_feature", "_UI_Property_type"),
          DomainPackage.Literals.PROPERTY__VALUE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Fake Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFakeNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Property_fakeName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Property_fakeName_feature", "_UI_Property_type"),
+         DomainPackage.Literals.PROPERTY__FAKE_NAME,
          true,
          false,
          false,
@@ -161,7 +185,7 @@ public class PropertyItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Property)object).getName();
+    String label = ((Property)object).getFakeName();
     return label == null || label.length() == 0 ?
       getString("_UI_Property_type") :
       getString("_UI_Property_type") + " " + label;
@@ -182,8 +206,8 @@ public class PropertyItemProvider
     switch (notification.getFeatureID(Property.class))
     {
       case DomainPackage.PROPERTY__UID:
-      case DomainPackage.PROPERTY__NAME:
       case DomainPackage.PROPERTY__VALUE:
+      case DomainPackage.PROPERTY__FAKE_NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }
