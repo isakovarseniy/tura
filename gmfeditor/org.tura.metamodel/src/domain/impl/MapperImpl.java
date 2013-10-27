@@ -6,6 +6,7 @@ import domain.DomainPackage;
 import domain.Mapper;
 import domain.Mappers;
 
+import domain.PlatformLayers;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -89,7 +90,6 @@ public class MapperImpl extends TypePointerImpl implements Mapper
    * @ordered
    */
   protected boolean uiLayer = UI_LAYER_EDEFAULT;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

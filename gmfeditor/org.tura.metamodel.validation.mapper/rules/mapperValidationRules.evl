@@ -4,8 +4,14 @@
 
       check :  self.mappedToClassName.isDefined()
 
-      message : 'Unnamed Maping class ' + self.packageName+":"+self.typeName + ' not allowed'
-
+      message :  'Unnamed Maping class ' + self.refName() + ' not allowed'
   }
+}
 
+operation Mapper refName() : String {
+     if (self.packageRef <> null  and  self.typeRef <> null ) {
+              return self.packageRef.name+":"+self.typeRef.name; }
+     else {
+          return "NA:NA";
+     }
 }

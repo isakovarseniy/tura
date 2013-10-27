@@ -90,7 +90,7 @@ context Configuration{
  constraint ConfigurationConnection {
 
       check :  self.infrastructure.isDefined()
-      message : 'Configuration  id  disconected from infrastructure'
+      message : 'Configuration is  disconected from infrastructure'
 
   }
 

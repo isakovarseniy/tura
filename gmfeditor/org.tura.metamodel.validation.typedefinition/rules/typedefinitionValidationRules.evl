@@ -18,6 +18,29 @@
 
 }
 
+ context Primitive {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.types.select(r|r.isKindOf(Primitive) and r.name=self.name).size() = 1
+      message : 'Type name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+
+
+
  context Attribute {
 
   constraint HasName {

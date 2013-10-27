@@ -21,18 +21,9 @@
  context BusinessMethod{
  
    constraint HasName {
-      check :  self.method.isDefined()
+      check :  self.methodRef.isDefined()
       message : 'Undefined method name ' + self.eClass().name + ' not allowed'
 
   }
   
-  constraint MethodExist{
-  
-        check :   Operation.allInstances.exists(p|p.name=self.method)  and   
-                       Operation.allInstances.selectOne(r|r.name=self.method).parent.exists(r|r.name=self.typeName)   
-                       and Operation.allInstances.selectOne(r|r.name=self.method).parent.selectOne(r|r.name=self.typeName).parent.parent.exists(r|r.name=self.packageName)  
- 
-         message : 'Wrong reference to Method ' + self.eClass().name + " to " +self.packageName+'::'+ self.typeName+'::'+self.method
-  
-  } 
  }
