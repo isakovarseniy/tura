@@ -38,6 +38,10 @@ public class InitDiagram {
 	public static String MAVEN_POM_JPA_SERVICE = "Maven pom JPA Service";
 	public static String MAVEN_POM_EJB_SERVICE_JAR = "Maven pom EJB Service jar";
 	
+	public static String VAR_PACKAGE_NAME = "Package name";
+	public static String VAR_TYPE_NAME = "Type name";
+	
+	
 	
 	public static domain.Domain initDomainDiagram(Resource resource) {
 
@@ -147,6 +151,17 @@ public class InitDiagram {
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(ENTITYOBJECT);
 		artifact.setTemplate("j2ee/entity/entityObject");
+		
+		domain.Variable var = domain.DomainFactory.eINSTANCE.createVariable();
+		var.setUid(UUID.randomUUID().toString());
+		var.setName(VAR_PACKAGE_NAME);
+		artifact.getModelQuery().add(var);
+		
+		var = domain.DomainFactory.eINSTANCE.createVariable();
+		var.setUid(UUID.randomUUID().toString());
+		var.setName(VAR_TYPE_NAME);
+		artifact.getModelQuery().add(var);
+		
 		model.getArtifacts().add(artifact);
 
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
@@ -281,6 +296,17 @@ public class InitDiagram {
 		artifact.setName(SERVICE_BEAN);
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setTemplate("j2ee/ejb/serviceBean");
+		
+		domain.Variable var = domain.DomainFactory.eINSTANCE.createVariable();
+		var.setName(VAR_PACKAGE_NAME);
+		var.setUid(UUID.randomUUID().toString());
+		artifact.getModelQuery().add(var);
+		
+		var = domain.DomainFactory.eINSTANCE.createVariable();
+		var.setName(VAR_TYPE_NAME);
+		var.setUid(UUID.randomUUID().toString());
+		artifact.getModelQuery().add(var);
+
 		model.getArtifacts().add(artifact);
 
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
