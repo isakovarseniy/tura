@@ -8,18 +8,7 @@ import org.tura.metamodel.commons.initdiagram.InitDiagram;
 
 public class PopulateTypes {
 
-	public static String PACKAGE_HR = "HR package";
 
-	public static String TYPE_LIST_OF_DEPARTMENTS = "List of Departments";
-	public static String TYPE_DEPARTMENT = "Department Type";
-	public static String TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS = "Search criterias for Departments";
-	public static String TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS = "OrderBy criterias for Departments";
-	public static String TYPE_DEPARTMENTS_QUERY_SERVICE = "Departments query service";
-	public static String TYPE_EMPLOYEE = "Employee Type";
-	public static String TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES = "Search criterias for Employees";
-	public static String TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES = "OrderBy criterias for Employees";
-	public static String TYPE_LIST_OF_EMPLOYEES = "List of Employees";
-	public static String TYPE_EMPLOYEES_QUERY_SERVICE = "Employees query service";
 
 	public void execute(domain.Domain model, Resource resource) {
 
@@ -32,7 +21,7 @@ public class PopulateTypes {
 
 	private void populateHRPackage(domain.Domain model, Resource resource) {
 		domain.Package pkg = domain.DomainFactory.eINSTANCE.createPackage();
-		pkg.setName(PACKAGE_HR);
+		pkg.setName(Constants.PACKAGE_HR);
 		pkg.setUid(UUID.randomUUID().toString());
 		resource.getContents().add(pkg);
 
@@ -57,7 +46,7 @@ public class PopulateTypes {
 		domain.Type department = domain.DomainFactory.eINSTANCE.createType();
 		resource.getContents().add(department);
 		td.getTypes().add(department);
-		department.setName(TYPE_DEPARTMENT);
+		department.setName(Constants.TYPE_DEPARTMENT);
 		department.setUid(UUID.randomUUID().toString());
 		InitDiagram.addType(typesHash, department);
 
@@ -120,7 +109,7 @@ public class PopulateTypes {
 				.createType();
 		resource.getContents().add(departmentsList);
 		td.getTypes().add(departmentsList);
-		departmentsList.setName(TYPE_LIST_OF_DEPARTMENTS);
+		departmentsList.setName(Constants.TYPE_LIST_OF_DEPARTMENTS);
 		departmentsList.setUid(UUID.randomUUID().toString());
 
 		domain.Type departmentsSearchCriteria = domain.DomainFactory.eINSTANCE
@@ -128,7 +117,7 @@ public class PopulateTypes {
 		resource.getContents().add(departmentsSearchCriteria);
 		td.getTypes().add(departmentsSearchCriteria);
 		departmentsSearchCriteria
-				.setName(TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS);
+				.setName(Constants.TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS);
 		departmentsSearchCriteria.setUid(UUID.randomUUID().toString());
 		InitDiagram.addType(typesHash, departmentsSearchCriteria);
 
@@ -138,7 +127,7 @@ public class PopulateTypes {
 		resource.getContents().add(departmentsOrderByCriteria);
 		td.getTypes().add(departmentsOrderByCriteria);
 		departmentsOrderByCriteria
-				.setName(TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS);
+				.setName(Constants.TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS);
 		departmentsOrderByCriteria.setUid(UUID.randomUUID().toString());
 		InitDiagram.addType(typesHash, departmentsOrderByCriteria);
 
@@ -146,7 +135,7 @@ public class PopulateTypes {
 				.createType();
 		resource.getContents().add(departmentsService);
 		td.getTypes().add(departmentsService);
-		departmentsService.setName(TYPE_DEPARTMENTS_QUERY_SERVICE);
+		departmentsService.setName(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE);
 		departmentsService.setUid(UUID.randomUUID().toString());
 		InitDiagram.addType(typesHash, departmentsService);
 
@@ -159,9 +148,9 @@ public class PopulateTypes {
 				.createReturnValue();
 		opr.setReturnValue(ret);
 		ret.setUid(UUID.randomUUID().toString());
-		ret.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_DEPARTMENT)
+		ret.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT)
 				.getParent().getParent());
-		ret.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_DEPARTMENT)));
+		ret.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" +Constants. TYPE_DEPARTMENT)));
 
 		opr = domain.DomainFactory.eINSTANCE.createOperation();
 		departmentsService.getOperations().add(opr);
@@ -172,16 +161,16 @@ public class PopulateTypes {
 				.createParameter();
 		opr.getParameters().add(param);
 		param.setName("search");
-		param.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS)
+		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS)
 				.getParent().getParent());
-		param.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS)));
+		param.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS)));
 
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("order");
-		param.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS)
+		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS)
 				.getParent().getParent());
-		param.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS)));
+		param.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS)));
 
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
@@ -212,9 +201,9 @@ public class PopulateTypes {
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");
-		param.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_DEPARTMENT)
+		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT)
 				.getParent().getParent());
-		param.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_DEPARTMENT)));
+		param.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT)));
 
 		opr = domain.DomainFactory.eINSTANCE.createOperation();
 		departmentsService.getOperations().add(opr);
@@ -224,9 +213,9 @@ public class PopulateTypes {
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");
-		param.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_DEPARTMENT)
+		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" +Constants. TYPE_DEPARTMENT)
 				.getParent().getParent());
-		param.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_DEPARTMENT)));
+		param.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT)));
 
 		opr = domain.DomainFactory.eINSTANCE.createOperation();
 		departmentsService.getOperations().add(opr);
@@ -236,9 +225,9 @@ public class PopulateTypes {
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");
-		param.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_DEPARTMENT)
+		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT)
 				.getParent().getParent());
-		param.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_DEPARTMENT)));
+		param.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT)));
 
 	}
 
@@ -251,7 +240,7 @@ public class PopulateTypes {
 		domain.Type employee = domain.DomainFactory.eINSTANCE.createType();
 		resource.getContents().add(employee);
 		td.getTypes().add(employee);
-		employee.setName(TYPE_EMPLOYEE);
+		employee.setName(Constants.TYPE_EMPLOYEE);
 		employee.setUid(UUID.randomUUID().toString());
 		InitDiagram.addType(typesHash, employee);
 
@@ -377,7 +366,7 @@ public class PopulateTypes {
 		domain.Type employeesList = domain.DomainFactory.eINSTANCE.createType();
 		resource.getContents().add(employeesList);
 		td.getTypes().add(employeesList);
-		employeesList.setName(TYPE_LIST_OF_EMPLOYEES);
+		employeesList.setName(Constants.TYPE_LIST_OF_EMPLOYEES);
 		employeesList.setUid(UUID.randomUUID().toString());
 		InitDiagram.addType(typesHash, employeesList);
 
@@ -385,7 +374,7 @@ public class PopulateTypes {
 				.createType();
 		resource.getContents().add(employeesSearchCriteria);
 		td.getTypes().add(employeesSearchCriteria);
-		employeesSearchCriteria.setName(TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES);
+		employeesSearchCriteria.setName(Constants.TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES);
 		employeesSearchCriteria.setUid(UUID.randomUUID().toString());
 		InitDiagram.addType(typesHash, employeesSearchCriteria);
 
@@ -393,7 +382,7 @@ public class PopulateTypes {
 				.createType();
 		resource.getContents().add(employeesOrderByCriteria);
 		td.getTypes().add(employeesOrderByCriteria);
-		employeesOrderByCriteria.setName(TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES);
+		employeesOrderByCriteria.setName(Constants.TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES);
 		employeesOrderByCriteria.setUid(UUID.randomUUID().toString());
 		InitDiagram.addType(typesHash, employeesOrderByCriteria);
 
@@ -401,7 +390,7 @@ public class PopulateTypes {
 				.createType();
 		resource.getContents().add(employeesService);
 		td.getTypes().add(employeesService);
-		employeesService.setName(TYPE_EMPLOYEES_QUERY_SERVICE);
+		employeesService.setName(Constants.TYPE_EMPLOYEES_QUERY_SERVICE);
 		employeesService.setUid(UUID.randomUUID().toString());
 		InitDiagram.addType(typesHash, employeesService);
 
@@ -414,9 +403,9 @@ public class PopulateTypes {
 				.createReturnValue();
 		opr.setReturnValue(ret);
 		ret.setUid(UUID.randomUUID().toString());
-		ret.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_EMPLOYEE)
+		ret.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE)
 				.getParent().getParent());
-		ret.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_EMPLOYEE)));
+		ret.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE)));
 		
 
 		opr = domain.DomainFactory.eINSTANCE.createOperation();
@@ -428,16 +417,16 @@ public class PopulateTypes {
 				.createParameter();
 		opr.getParameters().add(param);
 		param.setName("search");
-		param.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES)
+		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES)
 				.getParent().getParent());
-		param.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES)));
+		param.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES)));
 
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("order");
-		param.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES)
+		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES)
 				.getParent().getParent());
-		param.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES)));
+		param.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES)));
 
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
@@ -471,9 +460,9 @@ public class PopulateTypes {
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");
-		param.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_EMPLOYEE)
+		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE)
 				.getParent().getParent());
-		param.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_EMPLOYEE)));
+		param.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE)));
 
 		opr = domain.DomainFactory.eINSTANCE.createOperation();
 		employeesService.getOperations().add(opr);
@@ -483,9 +472,9 @@ public class PopulateTypes {
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");
-		param.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_EMPLOYEE)
+		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE)
 				.getParent().getParent());
-		param.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_EMPLOYEE)));
+		param.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE)));
 
 		opr = domain.DomainFactory.eINSTANCE.createOperation();
 		employeesService.getOperations().add(opr);
@@ -495,9 +484,9 @@ public class PopulateTypes {
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");
-		param.setPackageRef(typesHash.get(PACKAGE_HR + "_" + TYPE_EMPLOYEE)
+		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" +Constants. TYPE_EMPLOYEE)
 				.getParent().getParent());
-		param.setTypeRef(typesHash.get(typesHash.get(PACKAGE_HR + "_" + TYPE_EMPLOYEE)));
+		param.setTypeRef(typesHash.get(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE)));
 
 	}
 

@@ -597,6 +597,27 @@ public class InitDiagram {
 		return map;
 	}
 
+	public static HashMap<String, domain.Artifact> getArtifactElements(
+			Resource resource) {
+		
+		HashMap<String, domain.Artifact> map = new HashMap<String, domain.Artifact>();
+		
+		for (Iterator<EObject> itr = resource.getContents().iterator(); itr
+				.hasNext();) {
+			EObject obj = itr.next();
+			if (obj instanceof domain.Artifacts) {
+				for (Iterator<domain.Artifact> artitr = ((domain.Artifacts)obj).getArtifacts().iterator();artitr.hasNext(); ){
+					domain.Artifact artifact = artitr.next();
+					map.put(artifact.getParent().getParent().getName()+"_"+ artifact.getName()  ,artifact );
+				}
+			}
+		}
+		return map;
+	}
+
+	
+	
+	
 	public static void  addType( HashMap<String, domain.TypeElement> map, domain.TypeElement typeElement ) {
 		map.put(typeElement.getParent().getParent().getName()+"_"+ typeElement.getName()  ,typeElement );
 	}	

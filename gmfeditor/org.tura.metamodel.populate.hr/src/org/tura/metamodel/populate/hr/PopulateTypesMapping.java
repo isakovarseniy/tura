@@ -8,10 +8,11 @@ import org.tura.metamodel.commons.initdiagram.InitDiagram;
 
 public class PopulateTypesMapping {
 
+	
 	public void execute(domain.Domain model, Resource resource) {
 		
 		domain.DomainApplication app = domain.DomainFactory.eINSTANCE.createDomainApplication();
-		app.setName("HR application");
+		app.setName(Constants.HR_APPLICATION);
 		app.setUid(UUID.randomUUID().toString());
 		model.getDomainApplications().getApplications().add(app);
 		
@@ -21,7 +22,7 @@ public class PopulateTypesMapping {
 		domain.ApplicationMapper mapping = domain.DomainFactory.eINSTANCE
 				.createApplicationMapper();
 		mapping.setUid(UUID.randomUUID().toString());
-		mapping.setName("HR types mapper");
+		mapping.setName(Constants.HR_TYPE_MAPPER);
 		resource.getContents().add(mapping);
 		
 		appl.getApplicationMappers().getMappers().add(populateDepartmentsTypeMapping(mapping,resource));
@@ -41,9 +42,9 @@ public class PopulateTypesMapping {
 		
 		domain.JavaMapper jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_DEPARTMENT)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_DEPARTMENT));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT));
         
         jm.setMappedToPackageName("org.elsoft.platform.hr.departments");
         jm.setMappedToClassName("DepartmentsDAO");
@@ -55,9 +56,9 @@ public class PopulateTypesMapping {
         
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_DEPARTMENT)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_DEPARTMENT));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT));
         jm.setMappedToPackageName("org.elsoft.platform.hr.objects");
         jm.setMappedToClassName("DepartmentsDAO");
         jm.setUiLayer(false);
@@ -65,9 +66,9 @@ public class PopulateTypesMapping {
         
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_DEPARTMENTS_QUERY_SERVICE)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENTS_QUERY_SERVICE)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_DEPARTMENTS_QUERY_SERVICE));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENTS_QUERY_SERVICE));
         jm.setMappedToPackageName("org.elsoft.platform.hr.departments.impl");
         jm.setMappedToClassName("DepartmentsService");
         jm.setGroupId("org.elsoft.platform.Manufacturing.BackOffice");
@@ -78,9 +79,9 @@ public class PopulateTypesMapping {
         
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_DEPARTMENTS_QUERY_SERVICE)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENTS_QUERY_SERVICE)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_DEPARTMENTS_QUERY_SERVICE));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENTS_QUERY_SERVICE));
         jm.setMappedToPackageName("org.elsoft.platform.hr.departments");
         jm.setMappedToClassName("DepartmentsService");
         jm.setUiLayer(false);
@@ -88,9 +89,9 @@ public class PopulateTypesMapping {
 
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_LIST_OF_DEPARTMENTS)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_LIST_OF_DEPARTMENTS)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_LIST_OF_DEPARTMENTS));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_LIST_OF_DEPARTMENTS));
         jm.setMappedToPackageName("java.util");
         jm.setMappedToClassName("List<org.elsoft.platform.hr.objects.DepartmentsDAO>");
         jm.setUiLayer(true);
@@ -99,9 +100,9 @@ public class PopulateTypesMapping {
 
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_DEPARTMENTS));
         jm.setMappedToPackageName("java.util");
         jm.setMappedToClassName("List<org.elsoft.platform.SearchCriteria>");
         jm.setUiLayer(true);
@@ -109,9 +110,9 @@ public class PopulateTypesMapping {
         
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_DEPARTMENTS));
         jm.setMappedToPackageName("java.util");
         jm.setMappedToClassName("List<org.elsoft.platform.OrderCriteria>");
         jm.setUiLayer(true);
@@ -133,9 +134,9 @@ public class PopulateTypesMapping {
 		
 		domain.JavaMapper jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_EMPLOYEE)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE)
   				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_EMPLOYEE));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE));
         jm.setMappedToPackageName("org.elsoft.platform.hr.employees");
         jm.setMappedToClassName("EmployeesDAO");
         jm.setGroupId("org.elsoft.platform.Manufacturing.BackOffice");
@@ -160,9 +161,9 @@ public class PopulateTypesMapping {
         
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_EMPLOYEE)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE)
   				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_EMPLOYEE));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE));
         jm.setMappedToPackageName("org.elsoft.platform.hr.objects");
         jm.setMappedToClassName("EmployeesDAO");
         jm.setUiLayer(false);
@@ -170,9 +171,9 @@ public class PopulateTypesMapping {
         
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_EMPLOYEES_QUERY_SERVICE)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEES_QUERY_SERVICE)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_EMPLOYEES_QUERY_SERVICE));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEES_QUERY_SERVICE));
         jm.setMappedToPackageName("org.elsoft.platform.hr.employees.impl");
         jm.setMappedToClassName("EmployeesService");
         jm.setGroupId("org.elsoft.platform.Manufacturing.BackOffice");
@@ -183,9 +184,9 @@ public class PopulateTypesMapping {
         
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_EMPLOYEES_QUERY_SERVICE)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEES_QUERY_SERVICE)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_EMPLOYEES_QUERY_SERVICE));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEES_QUERY_SERVICE));
         jm.setMappedToPackageName("org.elsoft.platform.hr.employees");
         jm.setMappedToClassName("EmployeesService");
         jm.setUiLayer(false);
@@ -193,9 +194,9 @@ public class PopulateTypesMapping {
 
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_LIST_OF_EMPLOYEES)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_LIST_OF_EMPLOYEES)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_LIST_OF_EMPLOYEES));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_LIST_OF_EMPLOYEES));
         jm.setMappedToPackageName("java.util");
         jm.setMappedToClassName("List<org.elsoft.platform.hr.objects.EmployeesDAO>");
         jm.setUiLayer(true);
@@ -204,9 +205,9 @@ public class PopulateTypesMapping {
 
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_SEARCH_CRITERIAS_FOR_EMPLOYEES));
         jm.setMappedToPackageName("java.util");
         jm.setMappedToClassName("List<org.elsoft.platform.SearchCriteria>");
         jm.setUiLayer(true);
@@ -214,9 +215,9 @@ public class PopulateTypesMapping {
         
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
-        jm.setPackageRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES)
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES)
 				.getParent().getParent());
-        jm.setTypeRef(typesHash.get(PopulateTypes.PACKAGE_HR + "_" + PopulateTypes.TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES));
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_ORDERBY_CRITERIAS_FOR_EMPLOYEES));
         jm.setMappedToPackageName("java.util");
         jm.setMappedToClassName("List<org.elsoft.platform.OrderCriteria>");
         jm.setUiLayer(true);
