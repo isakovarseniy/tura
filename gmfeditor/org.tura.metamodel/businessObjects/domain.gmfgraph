@@ -309,10 +309,10 @@
           figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="VariableFigure">
+        name="ModelQueryFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
-          name="VariableFigure">
+          name="ModelQueryFigure">
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -323,11 +323,11 @@
         </border>
         <children
             xsi:type="gmfgraph:Label"
-            name="VariableLabelFigure"
-            text="Variable"/>
+            name="ModelQueryLabelFigure"
+            text="ModelQuery"/>
       </actualFigure>
       <accessors
-          accessor="getFigureVariableLabelFigure"
+          accessor="getFigureModelQueryLabelFigure"
           figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
@@ -1300,8 +1300,8 @@
       name="ConfigVariable"
       figure="ConfigVariableFigure"/>
   <nodes
-      name="Variable"
-      figure="VariableFigure"/>
+      name="ModelQuery"
+      figure="ModelQueryFigure"/>
   <nodes
       name="Specifier"
       figure="SpecifierFigure"/>
@@ -1579,8 +1579,8 @@
       figure="ConfigVariableFigure"
       accessor="//@figures.0/@descriptors.9/@accessors.0"/>
   <labels
-      name="VariableLabel"
-      figure="VariableFigure"
+      name="ModelQueryLabel"
+      figure="ModelQueryFigure"
       accessor="//@figures.0/@descriptors.10/@accessors.0"/>
   <labels
       name="SpecifierLabel"

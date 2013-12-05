@@ -56,12 +56,12 @@ import artifact.diagram.edit.parts.ConfigVariableEditPart;
 import artifact.diagram.edit.parts.ConfigVariableNameEditPart;
 import artifact.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import artifact.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import artifact.diagram.edit.parts.ModelQueryEditPart;
+import artifact.diagram.edit.parts.ModelQueryNameEditPart;
 import artifact.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.edit.parts.SpecifierNameEditPart;
 import artifact.diagram.edit.parts.TypeExtensionEditPart;
-import artifact.diagram.edit.parts.VariableEditPart;
-import artifact.diagram.edit.parts.VariableNameEditPart;
 import artifact.diagram.edit.parts.WrappingLabel2EditPart;
 import artifact.diagram.edit.parts.WrappingLabel3EditPart;
 import artifact.diagram.edit.parts.WrappingLabelEditPart;
@@ -159,7 +159,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				switch (visualID) {
 				case ArtifactEditPart.VISUAL_ID:
 				case ConfigVariableEditPart.VISUAL_ID:
-				case VariableEditPart.VISUAL_ID:
+				case ModelQueryEditPart.VISUAL_ID:
 				case SpecifierEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
@@ -175,7 +175,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		}
 		return ArtifactEditPart.VISUAL_ID == visualID
 				|| ConfigVariableEditPart.VISUAL_ID == visualID
-				|| VariableEditPart.VISUAL_ID == visualID
+				|| ModelQueryEditPart.VISUAL_ID == visualID
 				|| SpecifierEditPart.VISUAL_ID == visualID;
 	}
 
@@ -239,8 +239,8 @@ public class DomainViewProvider extends AbstractProvider implements
 		case ConfigVariableEditPart.VISUAL_ID:
 			return createConfigVariable_703004(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case VariableEditPart.VISUAL_ID:
-			return createVariable_703002(domainElement, containerView, index,
+		case ModelQueryEditPart.VISUAL_ID:
+			return createModelQuery_703005(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case SpecifierEditPart.VISUAL_ID:
 			return createSpecifier_703003(domainElement, containerView, index,
@@ -388,12 +388,13 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createVariable_703002(EObject domainElement,
+	public Node createModelQuery_703005(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(DomainVisualIDRegistry.getType(VariableEditPart.VISUAL_ID));
+		node.setType(DomainVisualIDRegistry
+				.getType(ModelQueryEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -424,8 +425,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label705002 = createLabel(node,
-				DomainVisualIDRegistry.getType(VariableNameEditPart.VISUAL_ID));
+		Node label705006 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(ModelQueryNameEditPart.VISUAL_ID));
 		return node;
 	}
 

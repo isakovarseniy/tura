@@ -104,11 +104,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType InfrastructureRecipeConfig_504004 = getElementType("org.tura.metamodel.diagram.domain.InfrastructureRecipeConfig_504004"); //$NON-NLS-1$
+	public static final IElementType RecipeInfrastructures_504005 = getElementType("org.tura.metamodel.diagram.domain.RecipeInfrastructures_504005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeInfrastructures_504005 = getElementType("org.tura.metamodel.diagram.domain.RecipeInfrastructures_504005"); //$NON-NLS-1$
+	public static final IElementType InfrastructureRecipeConfig_504004 = getElementType("org.tura.metamodel.diagram.domain.InfrastructureRecipeConfig_504004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */

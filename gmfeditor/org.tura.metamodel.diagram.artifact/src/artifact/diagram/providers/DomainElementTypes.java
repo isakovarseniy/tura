@@ -24,10 +24,10 @@ import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
 import artifact.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import artifact.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.edit.parts.TypeExtensionEditPart;
-import artifact.diagram.edit.parts.VariableEditPart;
 import artifact.diagram.part.DomainDiagramEditorPlugin;
 import domain.DomainPackage;
 
@@ -72,7 +72,7 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Variable_703002 = getElementType("org.tura.metamodel.diagram.artifact.Variable_703002"); //$NON-NLS-1$
+	public static final IElementType ModelQuery_703005 = getElementType("org.tura.metamodel.diagram.artifact.ModelQuery_703005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -213,7 +213,8 @@ public class DomainElementTypes {
 			elements.put(ConfigVariable_703004,
 					DomainPackage.eINSTANCE.getConfigVariable());
 
-			elements.put(Variable_703002, DomainPackage.eINSTANCE.getVariable());
+			elements.put(ModelQuery_703005,
+					DomainPackage.eINSTANCE.getModelQuery());
 
 			elements.put(Specifier_703003,
 					DomainPackage.eINSTANCE.getSpecifier());
@@ -249,7 +250,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Artifacts_701000);
 			KNOWN_ELEMENT_TYPES.add(Artifact_702001);
 			KNOWN_ELEMENT_TYPES.add(ConfigVariable_703004);
-			KNOWN_ELEMENT_TYPES.add(Variable_703002);
+			KNOWN_ELEMENT_TYPES.add(ModelQuery_703005);
 			KNOWN_ELEMENT_TYPES.add(Specifier_703003);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_704001);
 			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_704005);
@@ -270,8 +271,8 @@ public class DomainElementTypes {
 			return Artifact_702001;
 		case ConfigVariableEditPart.VISUAL_ID:
 			return ConfigVariable_703004;
-		case VariableEditPart.VISUAL_ID:
-			return Variable_703002;
+		case ModelQueryEditPart.VISUAL_ID:
+			return ModelQuery_703005;
 		case SpecifierEditPart.VISUAL_ID:
 			return Specifier_703003;
 		case TypeExtensionEditPart.VISUAL_ID:

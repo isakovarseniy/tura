@@ -278,7 +278,7 @@ public class ArtifactItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.ARTIFACT__MODEL_QUERY,
-         DomainFactory.eINSTANCE.createVariable()));
+         DomainFactory.eINSTANCE.createModelQuery()));
 
     newChildDescriptors.add
       (createChildParameter

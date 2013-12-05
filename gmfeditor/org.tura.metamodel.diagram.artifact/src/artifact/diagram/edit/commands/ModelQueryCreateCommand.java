@@ -17,17 +17,17 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import domain.Artifact;
 import domain.DomainFactory;
-import domain.Variable;
+import domain.ModelQuery;
 
 /**
  * @generated
  */
-public class VariableCreateCommand extends EditElementCommand {
+public class ModelQueryCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public VariableCreateCommand(CreateElementRequest req) {
+	public ModelQueryCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -57,7 +57,7 @@ public class VariableCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Variable newElement = DomainFactory.eINSTANCE.createVariable();
+		ModelQuery newElement = DomainFactory.eINSTANCE.createModelQuery();
 
 		Artifact owner = (Artifact) getElementToEdit();
 		owner.getModelQuery().add(newElement);
@@ -73,7 +73,7 @@ public class VariableCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Variable newElement, IProgressMonitor monitor,
+	protected void doConfigure(ModelQuery newElement, IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();

@@ -52,19 +52,19 @@
             href="domain.ecore#//Artifact/modelQuery"/>
         <ownedChild>
           <domainMetaElement
-              href="domain.ecore#//Variable"/>
+              href="domain.ecore#//ModelQuery"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="domain.gmfgraph#VariableLabel"/>
+                href="domain.gmfgraph#ModelQueryLabel"/>
             <features
-                href="domain.ecore#//Variable/name"/>
+                href="domain.ecore#//ModelQuery/name"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
-              href="domain.gmfgraph#Variable"/>
+              href="domain.gmfgraph#ModelQuery"/>
         </ownedChild>
       </children>
       <children
@@ -83,7 +83,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="domain.gmfgraph#Specifier"/>
         </ownedChild>

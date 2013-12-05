@@ -6,7 +6,9 @@ import domain.DomainPackage;
 import domain.ReturnValue;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -33,6 +35,7 @@ public class ReturnValueImpl extends TypePointerImpl implements ReturnValue
    * @ordered
    */
   protected static final String UID_EDEFAULT = null;
+
   /**
    * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
    * <!-- begin-user-doc -->

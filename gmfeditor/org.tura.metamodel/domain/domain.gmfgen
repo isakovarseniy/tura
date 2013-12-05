@@ -632,6 +632,10 @@
             genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ModelQuery"
+            description="Create new ModelQuery"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="ORMEntity"
             description="Create new ORMEntity"
             genNodes="//@diagram/@childNodes.0"/>

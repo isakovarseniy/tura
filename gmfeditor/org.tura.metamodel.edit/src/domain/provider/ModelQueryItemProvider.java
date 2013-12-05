@@ -3,8 +3,9 @@
 package domain.provider;
 
 
+import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.MappingVariable;
+import domain.ModelQuery;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,6 +14,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -26,12 +29,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link domain.MappingVariable} object.
+ * This is the item provider adapter for a {@link domain.ModelQuery} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MappingVariableItemProvider
+public class ModelQueryItemProvider
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -46,7 +49,7 @@ public class MappingVariableItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public MappingVariableItemProvider(AdapterFactory adapterFactory)
+  public ModelQueryItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -65,8 +68,8 @@ public class MappingVariableItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addVariableRefPropertyDescriptor(object);
-      addValuePropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
+      addQueryPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -83,9 +86,9 @@ public class MappingVariableItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_MappingVariable_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_MappingVariable_uid_feature", "_UI_MappingVariable_type"),
-         DomainPackage.Literals.MAPPING_VARIABLE__UID,
+         getString("_UI_ModelQuery_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ModelQuery_uid_feature", "_UI_ModelQuery_type"),
+         DomainPackage.Literals.MODEL_QUERY__UID,
          true,
          false,
          false,
@@ -95,43 +98,20 @@ public class MappingVariableItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Variable Ref feature.
+   * This adds a property descriptor for the Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addVariableRefPropertyDescriptor(Object object)
+  protected void addNamePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_MappingVariable_variableRef_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_MappingVariable_variableRef_feature", "_UI_MappingVariable_type"),
-         DomainPackage.Literals.MAPPING_VARIABLE__VARIABLE_REF,
-         true,
-         false,
-         true,
-         null,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Value feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addValuePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_MappingVariable_value_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_MappingVariable_value_feature", "_UI_MappingVariable_type"),
-         DomainPackage.Literals.MAPPING_VARIABLE__VALUE,
+         getString("_UI_ModelQuery_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ModelQuery_name_feature", "_UI_ModelQuery_type"),
+         DomainPackage.Literals.MODEL_QUERY__NAME,
          true,
          false,
          false,
@@ -141,7 +121,63 @@ public class MappingVariableItemProvider
   }
 
   /**
-   * This returns MappingVariable.gif.
+   * This adds a property descriptor for the Query feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addQueryPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ModelQuery_query_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ModelQuery_query_feature", "_UI_ModelQuery_type"),
+         DomainPackage.Literals.MODEL_QUERY__QUERY,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  {
+    if (childrenFeatures == null)
+    {
+      super.getChildrenFeatures(object);
+      childrenFeatures.add(DomainPackage.Literals.MODEL_QUERY__PARAMETERS);
+    }
+    return childrenFeatures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EStructuralFeature getChildFeature(Object object, Object child)
+  {
+    // Check the type of the specified child object and return the proper feature to use for
+    // adding (see {@link AddCommand}) it as a child.
+
+    return super.getChildFeature(object, child);
+  }
+
+  /**
+   * This returns ModelQuery.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -149,7 +185,7 @@ public class MappingVariableItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/MappingVariable"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/ModelQuery"));
   }
 
   /**
@@ -161,10 +197,10 @@ public class MappingVariableItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((MappingVariable)object).getUid();
+    String label = ((ModelQuery)object).getName();
     return label == null || label.length() == 0 ?
-      getString("_UI_MappingVariable_type") :
-      getString("_UI_MappingVariable_type") + " " + label;
+      getString("_UI_ModelQuery_type") :
+      getString("_UI_ModelQuery_type") + " " + label;
   }
 
   /**
@@ -179,11 +215,15 @@ public class MappingVariableItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(MappingVariable.class))
+    switch (notification.getFeatureID(ModelQuery.class))
     {
-      case DomainPackage.MAPPING_VARIABLE__UID:
-      case DomainPackage.MAPPING_VARIABLE__VALUE:
+      case DomainPackage.MODEL_QUERY__UID:
+      case DomainPackage.MODEL_QUERY__NAME:
+      case DomainPackage.MODEL_QUERY__QUERY:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+      case DomainPackage.MODEL_QUERY__PARAMETERS:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
     super.notifyChanged(notification);
@@ -200,6 +240,11 @@ public class MappingVariableItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.MODEL_QUERY__PARAMETERS,
+         DomainFactory.eINSTANCE.createQueryParameter()));
   }
 
   /**

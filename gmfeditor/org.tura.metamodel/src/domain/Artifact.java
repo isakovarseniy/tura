@@ -157,8 +157,8 @@ public interface Artifact extends EObject
 
   /**
    * Returns the value of the '<em><b>Model Query</b></em>' containment reference list.
-   * The list contents are of type {@link domain.Variable}.
-   * It is bidirectional and its opposite is '{@link domain.Variable#getParent <em>Parent</em>}'.
+   * The list contents are of type {@link domain.ModelQuery}.
+   * It is bidirectional and its opposite is '{@link domain.ModelQuery#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Model Query</em>' containment reference list isn't clear,
@@ -167,11 +167,11 @@ public interface Artifact extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Model Query</em>' containment reference list.
    * @see domain.DomainPackage#getArtifact_ModelQuery()
-   * @see domain.Variable#getParent
+   * @see domain.ModelQuery#getParent
    * @model opposite="parent" containment="true"
    * @generated
    */
-  EList<Variable> getModelQuery();
+  EList<ModelQuery> getModelQuery();
 
   /**
    * Returns the value of the '<em><b>Specifiers</b></em>' containment reference list.

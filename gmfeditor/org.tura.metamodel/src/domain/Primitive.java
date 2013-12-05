@@ -2,7 +2,6 @@
  */
 package domain;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,5 +15,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Primitive extends TypeElement
 {
-
 } // Primitive

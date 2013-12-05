@@ -35,9 +35,9 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import artifact.diagram.edit.parts.ArtifactEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
+import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.edit.parts.TypeExtensionEditPart;
-import artifact.diagram.edit.parts.VariableEditPart;
 import artifact.diagram.part.DomainDiagramUpdater;
 import artifact.diagram.part.DomainLinkDescriptor;
 import artifact.diagram.part.DomainNodeDescriptor;
@@ -286,10 +286,10 @@ public class ArtifactsCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case VariableEditPart.VISUAL_ID: {
+		case ModelQueryEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getVariable_703002ContainedLinks(view));
+						.getModelQuery_703005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

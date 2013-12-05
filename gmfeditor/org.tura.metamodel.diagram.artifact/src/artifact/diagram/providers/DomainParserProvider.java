@@ -18,8 +18,8 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import artifact.diagram.edit.parts.ArtifactNameEditPart;
 import artifact.diagram.edit.parts.ConfigVariableNameEditPart;
+import artifact.diagram.edit.parts.ModelQueryNameEditPart;
 import artifact.diagram.edit.parts.SpecifierNameEditPart;
-import artifact.diagram.edit.parts.VariableNameEditPart;
 import artifact.diagram.parsers.MessageFormatParser;
 import artifact.diagram.part.DomainVisualIDRegistry;
 import domain.DomainPackage;
@@ -69,19 +69,19 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser variableName_705002Parser;
+	private IParser modelQueryName_705006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getVariableName_705002Parser() {
-		if (variableName_705002Parser == null) {
+	private IParser getModelQueryName_705006Parser() {
+		if (modelQueryName_705006Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getVariable_Name() };
+					.getModelQuery_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			variableName_705002Parser = parser;
+			modelQueryName_705006Parser = parser;
 		}
-		return variableName_705002Parser;
+		return modelQueryName_705006Parser;
 	}
 
 	/**
@@ -111,8 +111,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getArtifactName_705004Parser();
 		case ConfigVariableNameEditPart.VISUAL_ID:
 			return getConfigVariableName_705005Parser();
-		case VariableNameEditPart.VISUAL_ID:
-			return getVariableName_705002Parser();
+		case ModelQueryNameEditPart.VISUAL_ID:
+			return getModelQueryName_705006Parser();
 		case SpecifierNameEditPart.VISUAL_ID:
 			return getSpecifierName_705003Parser();
 		}

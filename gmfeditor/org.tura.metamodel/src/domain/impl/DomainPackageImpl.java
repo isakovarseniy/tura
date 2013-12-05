@@ -39,8 +39,8 @@ import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
-import domain.MappingVariable;
 import domain.ModelMapper;
+import domain.ModelQuery;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
@@ -49,6 +49,8 @@ import domain.Parameter;
 import domain.PlatformLayers;
 import domain.Primitive;
 import domain.Property;
+import domain.QueryParameter;
+import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
 import domain.RemoveMethod;
@@ -65,7 +67,6 @@ import domain.Types;
 import domain.TypesRepository;
 import domain.UpdateMethod;
 import domain.UsingMappers;
-import domain.Variable;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -172,7 +173,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass variableEClass = null;
+  private EClass modelQueryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass queryParameterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -326,21 +334,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass ingredientEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass infrastructureEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass recipeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ingredientEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -361,7 +362,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass modelMapperEClass = null;
+  private EClass infrastructureEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -369,6 +370,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass configurationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass modelMapperEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -389,7 +397,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass mappingVariableEClass = null;
+  private EClass queryVariableEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -397,6 +405,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass artifactRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typePointerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -411,6 +426,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass typeElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass primitiveEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -480,13 +502,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass typePointerEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass typesRepositoryEClass = null;
 
   /**
@@ -495,13 +510,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass typesEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass primitiveEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1092,9 +1100,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getVariable()
+  public EClass getModelQuery()
   {
-    return variableEClass;
+    return modelQueryEClass;
   }
 
   /**
@@ -1102,9 +1110,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_Uid()
+  public EAttribute getModelQuery_Uid()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)modelQueryEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1112,9 +1120,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_Name()
+  public EAttribute getModelQuery_Name()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)modelQueryEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1122,9 +1130,69 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getVariable_Parent()
+  public EAttribute getModelQuery_Query()
   {
-    return (EReference)variableEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)modelQueryEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModelQuery_Parent()
+  {
+    return (EReference)modelQueryEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModelQuery_Parameters()
+  {
+    return (EReference)modelQueryEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getQueryParameter()
+  {
+    return queryParameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getQueryParameter_Uid()
+  {
+    return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQueryParameter_Parent()
+  {
+    return (EReference)queryParameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getQueryParameter_Value()
+  {
+    return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2012,116 +2080,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getIngredient()
-  {
-    return ingredientEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getIngredient_Uid()
-  {
-    return (EAttribute)ingredientEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getIngredient_Name()
-  {
-    return (EAttribute)ingredientEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getIngredient_Parent()
-  {
-    return (EReference)ingredientEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getIngredient_Components()
-  {
-    return (EReference)ingredientEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getIngredient_Layer()
-  {
-    return (EAttribute)ingredientEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getInfrastructure()
-  {
-    return infrastructureEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getInfrastructure_Uid()
-  {
-    return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getInfrastructure_Recipe()
-  {
-    return (EReference)infrastructureEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getInfrastructure_Name()
-  {
-    return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getInfrastructure_RecipeConfig()
-  {
-    return (EReference)infrastructureEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getRecipe()
   {
     return recipeEClass;
@@ -2175,6 +2133,66 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getRecipe_Infrastructures()
   {
     return (EReference)recipeEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIngredient()
+  {
+    return ingredientEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIngredient_Uid()
+  {
+    return (EAttribute)ingredientEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIngredient_Name()
+  {
+    return (EAttribute)ingredientEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIngredient_Parent()
+  {
+    return (EReference)ingredientEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIngredient_Components()
+  {
+    return (EReference)ingredientEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIngredient_Layer()
+  {
+    return (EAttribute)ingredientEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2302,9 +2320,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getModelMapper()
+  public EClass getInfrastructure()
   {
-    return modelMapperEClass;
+    return infrastructureEClass;
   }
 
   /**
@@ -2312,9 +2330,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getModelMapper_Name()
+  public EAttribute getInfrastructure_Uid()
   {
-    return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2322,9 +2340,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModelMapper_Parent()
+  public EReference getInfrastructure_Recipe()
   {
-    return (EReference)modelMapperEClass.getEStructuralFeatures().get(1);
+    return (EReference)infrastructureEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2332,9 +2350,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModelMapper_Specifiers()
+  public EAttribute getInfrastructure_Name()
   {
-    return (EReference)modelMapperEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2342,9 +2360,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModelMapper_Variables()
+  public EReference getInfrastructure_RecipeConfig()
   {
-    return (EReference)modelMapperEClass.getEStructuralFeatures().get(3);
+    return (EReference)infrastructureEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2415,6 +2433,56 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getConfiguration_Parent()
   {
     return (EReference)configurationEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getModelMapper()
+  {
+    return modelMapperEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getModelMapper_Name()
+  {
+    return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModelMapper_Parent()
+  {
+    return (EReference)modelMapperEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModelMapper_Specifiers()
+  {
+    return (EReference)modelMapperEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModelMapper_Variables()
+  {
+    return (EReference)modelMapperEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2512,9 +2580,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMappingVariable()
+  public EClass getQueryVariable()
   {
-    return mappingVariableEClass;
+    return queryVariableEClass;
   }
 
   /**
@@ -2522,9 +2590,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMappingVariable_Uid()
+  public EAttribute getQueryVariable_Uid()
   {
-    return (EAttribute)mappingVariableEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)queryVariableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2532,9 +2600,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMappingVariable_VariableRef()
+  public EReference getQueryVariable_QueryParamRef()
   {
-    return (EReference)mappingVariableEClass.getEStructuralFeatures().get(1);
+    return (EReference)queryVariableEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2542,9 +2610,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMappingVariable_Value()
+  public EAttribute getQueryVariable_Value()
   {
-    return (EAttribute)mappingVariableEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)queryVariableEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2585,6 +2653,56 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getArtifactRef_ArtifactRef()
   {
     return (EReference)artifactRefEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTypePointer()
+  {
+    return typePointerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypePointer_PackageRef()
+  {
+    return (EReference)typePointerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypePointer_TypeRef()
+  {
+    return (EReference)typePointerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypePointer_FakePackageName()
+  {
+    return (EAttribute)typePointerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypePointer_FakeTypeName()
+  {
+    return (EAttribute)typePointerEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2665,6 +2783,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getTypeElement_Parent()
   {
     return (EReference)typeElementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPrimitive()
+  {
+    return primitiveEClass;
   }
 
   /**
@@ -3002,56 +3130,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTypePointer()
-  {
-    return typePointerEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getTypePointer_PackageRef()
-  {
-    return (EReference)typePointerEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getTypePointer_TypeRef()
-  {
-    return (EReference)typePointerEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTypePointer_FakePackageName()
-  {
-    return (EAttribute)typePointerEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTypePointer_FakeTypeName()
-  {
-    return (EAttribute)typePointerEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getTypesRepository()
   {
     return typesRepositoryEClass;
@@ -3145,16 +3223,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getTypes_BusinessPackages()
   {
     return (EReference)typesEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getPrimitive()
-  {
-    return primitiveEClass;
   }
 
   /**
@@ -3359,10 +3427,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(configVariableEClass, CONFIG_VARIABLE__NAME);
     createEReference(configVariableEClass, CONFIG_VARIABLE__PARENT);
 
-    variableEClass = createEClass(VARIABLE);
-    createEAttribute(variableEClass, VARIABLE__UID);
-    createEAttribute(variableEClass, VARIABLE__NAME);
-    createEReference(variableEClass, VARIABLE__PARENT);
+    modelQueryEClass = createEClass(MODEL_QUERY);
+    createEAttribute(modelQueryEClass, MODEL_QUERY__UID);
+    createEAttribute(modelQueryEClass, MODEL_QUERY__NAME);
+    createEAttribute(modelQueryEClass, MODEL_QUERY__QUERY);
+    createEReference(modelQueryEClass, MODEL_QUERY__PARENT);
+    createEReference(modelQueryEClass, MODEL_QUERY__PARAMETERS);
+
+    queryParameterEClass = createEClass(QUERY_PARAMETER);
+    createEAttribute(queryParameterEClass, QUERY_PARAMETER__UID);
+    createEReference(queryParameterEClass, QUERY_PARAMETER__PARENT);
+    createEAttribute(queryParameterEClass, QUERY_PARAMETER__VALUE);
 
     specifierEClass = createEClass(SPECIFIER);
     createEAttribute(specifierEClass, SPECIFIER__UID);
@@ -3532,10 +3607,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(mappingSpecifierEClass, MAPPING_SPECIFIER__SPECIFIER_REF);
     createEReference(mappingSpecifierEClass, MAPPING_SPECIFIER__VALUE_REF);
 
-    mappingVariableEClass = createEClass(MAPPING_VARIABLE);
-    createEAttribute(mappingVariableEClass, MAPPING_VARIABLE__UID);
-    createEReference(mappingVariableEClass, MAPPING_VARIABLE__VARIABLE_REF);
-    createEAttribute(mappingVariableEClass, MAPPING_VARIABLE__VALUE);
+    queryVariableEClass = createEClass(QUERY_VARIABLE);
+    createEAttribute(queryVariableEClass, QUERY_VARIABLE__UID);
+    createEReference(queryVariableEClass, QUERY_VARIABLE__QUERY_PARAM_REF);
+    createEAttribute(queryVariableEClass, QUERY_VARIABLE__VALUE);
 
     artifactRefEClass = createEClass(ARTIFACT_REF);
     createEAttribute(artifactRefEClass, ARTIFACT_REF__UID);
@@ -3738,7 +3813,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getArtifact_Description(), ecorePackage.getEString(), "description", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArtifact_Parent(), this.getArtifacts(), this.getArtifacts_Artifacts(), "parent", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArtifact_ConfigVariables(), this.getConfigVariable(), this.getConfigVariable_Parent(), "configVariables", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getArtifact_ModelQuery(), this.getVariable(), this.getVariable_Parent(), "modelQuery", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArtifact_ModelQuery(), this.getModelQuery(), this.getModelQuery_Parent(), "modelQuery", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArtifact_Specifiers(), this.getSpecifier(), this.getSpecifier_Parent(), "specifiers", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArtifact_Template(), ecorePackage.getEString(), "template", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3747,10 +3822,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getConfigVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConfigVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConfigVariable_Parent(), this.getArtifact(), this.getArtifact_ConfigVariables(), "parent", null, 0, 1, ConfigVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariable_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariable_Parent(), this.getArtifact(), this.getArtifact_ModelQuery(), "parent", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(modelQueryEClass, ModelQuery.class, "ModelQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModelQuery_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModelQuery_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModelQuery_Query(), ecorePackage.getEString(), "query", null, 0, 1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModelQuery_Parent(), this.getArtifact(), this.getArtifact_ModelQuery(), "parent", null, 0, 1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModelQuery_Parameters(), this.getQueryParameter(), this.getQueryParameter_Parent(), "parameters", null, 0, -1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(queryParameterEClass, QueryParameter.class, "QueryParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getQueryParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQueryParameter_Parent(), this.getModelQuery(), this.getModelQuery_Parameters(), "parent", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getQueryParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(specifierEClass, Specifier.class, "Specifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSpecifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Specifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3907,7 +3989,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getModelMapper_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelMapper_Parent(), this.getComponent(), this.getComponent_Mappers(), "parent", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelMapper_Specifiers(), this.getMappingSpecifier(), null, "specifiers", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModelMapper_Variables(), this.getMappingVariable(), null, "variables", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModelMapper_Variables(), this.getQueryVariable(), null, "variables", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProperty_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3920,10 +4002,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getMappingSpecifier_SpecifierRef(), this.getSpecifier(), null, "specifierRef", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMappingSpecifier_ValueRef(), this.getOption(), null, "valueRef", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(mappingVariableEClass, MappingVariable.class, "MappingVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMappingVariable_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MappingVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMappingVariable_VariableRef(), this.getVariable(), null, "variableRef", null, 0, 1, MappingVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMappingVariable_Value(), ecorePackage.getEString(), "value", null, 0, 1, MappingVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(queryVariableEClass, QueryVariable.class, "QueryVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getQueryVariable_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, QueryVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQueryVariable_QueryParamRef(), this.getQueryParameter(), null, "queryParamRef", null, 0, 1, QueryVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getQueryVariable_Value(), ecorePackage.getEString(), "value", null, 0, 1, QueryVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(artifactRefEClass, ArtifactRef.class, "ArtifactRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getArtifactRef_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ArtifactRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4163,7 +4245,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name"
        });		
     addAnnotation
-      (variableEClass, 
+      (modelQueryEClass, 
        source, 
        new String[] 
        {

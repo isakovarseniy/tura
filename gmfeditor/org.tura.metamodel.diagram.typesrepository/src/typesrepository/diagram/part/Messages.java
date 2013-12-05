@@ -266,32 +266,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Package2CreationTool_title;
+	public static String ModelQuery2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Package2CreationTool_desc;
+	public static String ModelQuery2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive3CreationTool_title;
+	public static String Package3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive3CreationTool_desc;
+	public static String Package3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Types4CreationTool_title;
+	public static String Primitive4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Types4CreationTool_desc;
+	public static String Primitive4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Types5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Types5CreationTool_desc;
 
 	/**
 	 * @generated

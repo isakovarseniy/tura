@@ -75,6 +75,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="ModelQuery"
+          description="Create new ModelQuery">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="ORMEntity"
           description="Create new ORMEntity">
         <smallIcon

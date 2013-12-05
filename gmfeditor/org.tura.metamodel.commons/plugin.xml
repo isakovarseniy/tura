@@ -128,6 +128,12 @@
              category="domain"
              id="property.tab.domain.specifierOptions"
              label="Specifier options"/>
+
+       <propertyTab
+             category="domain"
+             id="property.tab.domain.queryParameters"
+             label="Query parameters"/>
+
       </propertyTabs>
    </extension>
    
@@ -136,12 +142,21 @@
       <propertySections contributorId="org.tura.metamodel.diagram.artifact">
       
           <propertySection
+               tab="property.tab.domain.queryParameters"
+               class="org.metamodel.tura.ui.properties.sections.QueryParameterPropertySelection"
+               id="org.tura.metamodel.artifact.queryParams">
+              <input type="artifact.diagram.edit.parts.ModelQueryEditPart"/>
+           </propertySection>        
+ 
+          <propertySection
                tab="property.tab.domain.specifierOptions"
                class="org.metamodel.tura.ui.properties.sections.OptionPropertySelection"
                id="org.tura.metamodel.artifact.option">
               <input type="artifact.diagram.edit.parts.SpecifierEditPart"/>
            </propertySection>        
- 
+
+
+
     </propertySections>
   </extension>  
 

@@ -1,7 +1,7 @@
 /*
  * 
  */
-package recipe.diagram.edit.parts;
+package artifact.diagram.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
@@ -47,21 +47,21 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import recipe.diagram.edit.policies.DomainTextSelectionEditPolicy;
-import recipe.diagram.part.DomainVisualIDRegistry;
-import recipe.diagram.providers.DomainElementTypes;
-import recipe.diagram.providers.DomainParserProvider;
+import artifact.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import artifact.diagram.part.DomainVisualIDRegistry;
+import artifact.diagram.providers.DomainElementTypes;
+import artifact.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
  */
-public class PropertyNameEditPart extends CompartmentEditPart implements
+public class ModelQueryNameEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 305005;
+	public static final int VISUAL_ID = 705006;
 
 	/**
 	 * @generated
@@ -91,7 +91,7 @@ public class PropertyNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public PropertyNameEditPart(View view) {
+	public ModelQueryNameEditPart(View view) {
 		super(view);
 	}
 
@@ -105,7 +105,7 @@ public class PropertyNameEditPart extends CompartmentEditPart implements
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new RecipesEditPart.NodeLabelDragPolicy());
+				new ArtifactsEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -313,10 +313,10 @@ public class PropertyNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.Property_303004,
+							DomainElementTypes.ModelQuery_703005,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(recipe.diagram.edit.parts.PropertyNameEditPart.VISUAL_ID));
+									.getType(artifact.diagram.edit.parts.ModelQueryNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

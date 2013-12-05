@@ -5,8 +5,8 @@ package domain.impl;
 import domain.Component;
 import domain.DomainPackage;
 import domain.MappingSpecifier;
-import domain.MappingVariable;
 import domain.ModelMapper;
+import domain.QueryVariable;
 
 import java.util.Collection;
 
@@ -80,7 +80,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
    * @generated
    * @ordered
    */
-  protected EList<MappingVariable> variables;
+  protected EList<QueryVariable> variables;
 
   /**
    * <!-- begin-user-doc -->
@@ -190,11 +190,11 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<MappingVariable> getVariables()
+  public EList<QueryVariable> getVariables()
   {
     if (variables == null)
     {
-      variables = new EObjectContainmentEList<MappingVariable>(MappingVariable.class, this, DomainPackage.MODEL_MAPPER__VARIABLES);
+      variables = new EObjectContainmentEList<QueryVariable>(QueryVariable.class, this, DomainPackage.MODEL_MAPPER__VARIABLES);
     }
     return variables;
   }
@@ -298,7 +298,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
         return;
       case DomainPackage.MODEL_MAPPER__VARIABLES:
         getVariables().clear();
-        getVariables().addAll((Collection<? extends MappingVariable>)newValue);
+        getVariables().addAll((Collection<? extends QueryVariable>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

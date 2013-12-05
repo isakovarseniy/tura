@@ -638,6 +638,10 @@
             genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ModelQuery"
+            description="Create new ModelQuery"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="OtherMethod"
             description="Create new OtherMethod"
             genNodes="//@diagram/@childNodes.5"/>

@@ -77,46 +77,46 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="703002"
-        editPartClassName="VariableEditPart"
-        itemSemanticEditPolicyClassName="VariableItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="VariableCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="VariableGraphicalNodeEditPolicy"
-        createCommandClassName="VariableCreateCommand"
+        visualID="703005"
+        editPartClassName="ModelQueryEditPart"
+        itemSemanticEditPolicyClassName="ModelQueryItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ModelQueryCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ModelQueryGraphicalNodeEditPolicy"
+        createCommandClassName="ModelQueryCreateCommand"
         containers="//@diagram/@compartments.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="VariableEditHelper"/>
+          editHelperClassName="ModelQueryEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="VariableFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class VariableFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureVariableLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public VariableFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureVariableLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureVariableLabelFigure.setText(&quot;Variable&quot;);&#xA;&#xA;this.add(fFigureVariableLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureVariableLabelFigure() {&#xA;&#x9;&#x9;return fFigureVariableLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="ModelQueryFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ModelQueryFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureModelQueryLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ModelQueryFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureModelQueryLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureModelQueryLabelFigure.setText(&quot;ModelQuery&quot;);&#xA;&#xA;this.add(fFigureModelQueryLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureModelQueryLabelFigure() {&#xA;&#x9;&#x9;return fFigureModelQueryLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="domain.genmodel#//domain/Variable"/>
+            href="domain.genmodel#//domain/ModelQuery"/>
         <containmentMetaFeature
             href="domain.genmodel#//domain/Artifact/modelQuery"/>
         <childMetaFeature
             href="domain.genmodel#//domain/Artifact/modelQuery"/>
       </modelFacet>
       <labels
-          visualID="705002"
-          editPartClassName="VariableNameEditPart"
-          itemSemanticEditPolicyClassName="VariableNameItemSemanticEditPolicy"
+          visualID="705006"
+          editPartClassName="ModelQueryNameEditPart"
+          itemSemanticEditPolicyClassName="ModelQueryNameItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureVariableLabelFigure"
+            getterName="getFigureModelQueryLabelFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/Variable/name"/>
+              href="domain.genmodel#//domain/ModelQuery/name"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -420,14 +420,14 @@
             genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ModelQuery"
+            description="Create new ModelQuery"
+            genNodes="//@diagram/@childNodes.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Specifier"
             description="Create new Specifier"
             genNodes="//@diagram/@childNodes.2"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Variable"
-            description="Create new Variable"
-            genNodes="//@diagram/@childNodes.1"/>
       </groups>
       <groups
           title="Connections"

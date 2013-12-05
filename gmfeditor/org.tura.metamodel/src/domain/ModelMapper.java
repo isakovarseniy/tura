@@ -97,7 +97,7 @@ public interface ModelMapper extends ArtifactRef
 
   /**
    * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
-   * The list contents are of type {@link domain.MappingVariable}.
+   * The list contents are of type {@link domain.QueryVariable}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
@@ -109,6 +109,6 @@ public interface ModelMapper extends ArtifactRef
    * @model containment="true"
    * @generated
    */
-  EList<MappingVariable> getVariables();
+  EList<QueryVariable> getVariables();
 
 } // ModelMapper

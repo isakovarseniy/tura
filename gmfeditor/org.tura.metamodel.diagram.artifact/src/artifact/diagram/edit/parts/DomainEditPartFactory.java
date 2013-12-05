@@ -40,11 +40,11 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ConfigVariableNameEditPart.VISUAL_ID:
 				return new ConfigVariableNameEditPart(view);
 
-			case VariableEditPart.VISUAL_ID:
-				return new VariableEditPart(view);
+			case ModelQueryEditPart.VISUAL_ID:
+				return new ModelQueryEditPart(view);
 
-			case VariableNameEditPart.VISUAL_ID:
-				return new VariableNameEditPart(view);
+			case ModelQueryNameEditPart.VISUAL_ID:
+				return new ModelQueryNameEditPart(view);
 
 			case SpecifierEditPart.VISUAL_ID:
 				return new SpecifierEditPart(view);

@@ -38,6 +38,8 @@ public class InitDiagram {
 	public static String MAVEN_POM_JPA_SERVICE = "Maven pom JPA Service";
 	public static String MAVEN_POM_EJB_SERVICE_JAR = "Maven pom EJB Service jar";
 	
+
+	public static String QUERY_TYPE= "Query type";
 	public static String VAR_PACKAGE_NAME = "Package name";
 	public static String VAR_TYPE_NAME = "Type name";
 	
@@ -152,15 +154,21 @@ public class InitDiagram {
 		artifact.setName(ENTITYOBJECT);
 		artifact.setTemplate("j2ee/entity/entityObject");
 		
-		domain.Variable var = domain.DomainFactory.eINSTANCE.createVariable();
-		var.setUid(UUID.randomUUID().toString());
-		var.setName(VAR_PACKAGE_NAME);
-		artifact.getModelQuery().add(var);
+		domain.ModelQuery query = domain.DomainFactory.eINSTANCE.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE);
+		artifact.getModelQuery().add(query);
 		
-		var = domain.DomainFactory.eINSTANCE.createVariable();
-		var.setUid(UUID.randomUUID().toString());
-		var.setName(VAR_TYPE_NAME);
-		artifact.getModelQuery().add(var);
+		domain.QueryParameter param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setValue(VAR_TYPE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setValue(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+		
 		
 		model.getArtifacts().add(artifact);
 
@@ -297,15 +305,20 @@ public class InitDiagram {
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setTemplate("j2ee/ejb/serviceBean");
 		
-		domain.Variable var = domain.DomainFactory.eINSTANCE.createVariable();
-		var.setName(VAR_PACKAGE_NAME);
-		var.setUid(UUID.randomUUID().toString());
-		artifact.getModelQuery().add(var);
+		domain.ModelQuery query = domain.DomainFactory.eINSTANCE.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE);
+		artifact.getModelQuery().add(query);
 		
-		var = domain.DomainFactory.eINSTANCE.createVariable();
-		var.setName(VAR_TYPE_NAME);
-		var.setUid(UUID.randomUUID().toString());
-		artifact.getModelQuery().add(var);
+		domain.QueryParameter param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setValue(VAR_TYPE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setValue(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
 
 		model.getArtifacts().add(artifact);
 

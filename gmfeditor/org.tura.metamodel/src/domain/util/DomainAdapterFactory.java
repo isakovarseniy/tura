@@ -38,8 +38,8 @@ import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
-import domain.MappingVariable;
 import domain.ModelMapper;
+import domain.ModelQuery;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
@@ -47,6 +47,8 @@ import domain.OtherMethod;
 import domain.Parameter;
 import domain.Primitive;
 import domain.Property;
+import domain.QueryParameter;
+import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
 import domain.RemoveMethod;
@@ -63,7 +65,6 @@ import domain.Types;
 import domain.TypesRepository;
 import domain.UpdateMethod;
 import domain.UsingMappers;
-import domain.Variable;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -196,9 +197,14 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createConfigVariableAdapter();
       }
       @Override
-      public Adapter caseVariable(Variable object)
+      public Adapter caseModelQuery(ModelQuery object)
       {
-        return createVariableAdapter();
+        return createModelQueryAdapter();
+      }
+      @Override
+      public Adapter caseQueryParameter(QueryParameter object)
+      {
+        return createQueryParameterAdapter();
       }
       @Override
       public Adapter caseSpecifier(Specifier object)
@@ -351,9 +357,9 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createMappingSpecifierAdapter();
       }
       @Override
-      public Adapter caseMappingVariable(MappingVariable object)
+      public Adapter caseQueryVariable(QueryVariable object)
       {
-        return createMappingVariableAdapter();
+        return createQueryVariableAdapter();
       }
       @Override
       public Adapter caseArtifactRef(ArtifactRef object)
@@ -648,16 +654,31 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link domain.Variable <em>Variable</em>}'.
+   * Creates a new adapter for an object of class '{@link domain.ModelQuery <em>Model Query</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see domain.Variable
+   * @see domain.ModelQuery
    * @generated
    */
-  public Adapter createVariableAdapter()
+  public Adapter createModelQueryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.QueryParameter <em>Query Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.QueryParameter
+   * @generated
+   */
+  public Adapter createQueryParameterAdapter()
   {
     return null;
   }
@@ -978,36 +999,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link domain.Ingredient <em>Ingredient</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.Ingredient
-   * @generated
-   */
-  public Adapter createIngredientAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.Infrastructure <em>Infrastructure</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.Infrastructure
-   * @generated
-   */
-  public Adapter createInfrastructureAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link domain.Recipe <em>Recipe</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1018,6 +1009,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRecipeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Ingredient <em>Ingredient</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Ingredient
+   * @generated
+   */
+  public Adapter createIngredientAdapter()
   {
     return null;
   }
@@ -1053,16 +1059,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link domain.ModelMapper <em>Model Mapper</em>}'.
+   * Creates a new adapter for an object of class '{@link domain.Infrastructure <em>Infrastructure</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see domain.ModelMapper
+   * @see domain.Infrastructure
    * @generated
    */
-  public Adapter createModelMapperAdapter()
+  public Adapter createInfrastructureAdapter()
   {
     return null;
   }
@@ -1078,6 +1084,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConfigurationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ModelMapper <em>Model Mapper</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ModelMapper
+   * @generated
+   */
+  public Adapter createModelMapperAdapter()
   {
     return null;
   }
@@ -1113,16 +1134,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link domain.MappingVariable <em>Mapping Variable</em>}'.
+   * Creates a new adapter for an object of class '{@link domain.QueryVariable <em>Query Variable</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see domain.MappingVariable
+   * @see domain.QueryVariable
    * @generated
    */
-  public Adapter createMappingVariableAdapter()
+  public Adapter createQueryVariableAdapter()
   {
     return null;
   }
@@ -1138,6 +1159,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createArtifactRefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.TypePointer <em>Type Pointer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.TypePointer
+   * @generated
+   */
+  public Adapter createTypePointerAdapter()
   {
     return null;
   }
@@ -1168,6 +1204,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Primitive <em>Primitive</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Primitive
+   * @generated
+   */
+  public Adapter createPrimitiveAdapter()
   {
     return null;
   }
@@ -1308,21 +1359,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link domain.TypePointer <em>Type Pointer</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.TypePointer
-   * @generated
-   */
-  public Adapter createTypePointerAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link domain.TypesRepository <em>Types Repository</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1348,21 +1384,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypesAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.Primitive <em>Primitive</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.Primitive
-   * @generated
-   */
-  public Adapter createPrimitiveAdapter()
   {
     return null;
   }

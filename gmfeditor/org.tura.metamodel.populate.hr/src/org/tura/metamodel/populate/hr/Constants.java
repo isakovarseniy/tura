@@ -15,7 +15,7 @@ public class Constants {
 	public static String TYPE_LIST_OF_EMPLOYEES = "List of Employees";
 	public static String TYPE_EMPLOYEES_QUERY_SERVICE = "Employees query service";
 	public static String HR_RECIPE="Hr recipe";
-	public static String HR_SERVICE_INGREDIENT =  "HR Service layer ingredient";
+	public static String HR_SERVICE_INGREDIENT =  "Java Service layer ingredient";
 	public static String HR_SERVICE =  "HR Services";
 
 	

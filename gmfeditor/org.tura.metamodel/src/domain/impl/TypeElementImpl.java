@@ -43,6 +43,7 @@ public class TypeElementImpl extends EObjectImpl implements TypeElement
    * @ordered
    */
   protected static final String UID_EDEFAULT = null;
+
   /**
    * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -52,6 +53,7 @@ public class TypeElementImpl extends EObjectImpl implements TypeElement
    * @ordered
    */
   protected String uid = UID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -61,6 +63,7 @@ public class TypeElementImpl extends EObjectImpl implements TypeElement
    * @ordered
    */
   protected static final String NAME_EDEFAULT = null;
+
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->

@@ -16,14 +16,14 @@ import artifact.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class VariableItemSemanticEditPolicy extends
+public class ModelQueryItemSemanticEditPolicy extends
 		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public VariableItemSemanticEditPolicy() {
-		super(DomainElementTypes.Variable_703002);
+	public ModelQueryItemSemanticEditPolicy() {
+		super(DomainElementTypes.ModelQuery_703005);
 	}
 
 	/**

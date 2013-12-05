@@ -7,7 +7,6 @@ import domain.DomainPackage;
 import domain.Infrastructure;
 import domain.Property;
 
-import domain.Recipe;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

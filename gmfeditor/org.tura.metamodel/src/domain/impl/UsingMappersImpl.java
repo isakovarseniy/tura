@@ -4,7 +4,6 @@ package domain.impl;
 
 import domain.ApplicationMapper;
 import domain.DomainPackage;
-import domain.Mappers;
 import domain.UsingMappers;
 
 import java.util.Collection;
@@ -16,7 +15,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->

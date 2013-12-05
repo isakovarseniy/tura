@@ -6,8 +6,8 @@ import domain.Artifact;
 import domain.Artifacts;
 import domain.ConfigVariable;
 import domain.DomainPackage;
+import domain.ModelQuery;
 import domain.Specifier;
-import domain.Variable;
 
 import java.util.Collection;
 
@@ -126,7 +126,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
    * @generated
    * @ordered
    */
-  protected EList<Variable> modelQuery;
+  protected EList<ModelQuery> modelQuery;
 
   /**
    * The cached value of the '{@link #getSpecifiers() <em>Specifiers</em>}' containment reference list.
@@ -312,11 +312,11 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Variable> getModelQuery()
+  public EList<ModelQuery> getModelQuery()
   {
     if (modelQuery == null)
     {
-      modelQuery = new EObjectContainmentWithInverseEList<Variable>(Variable.class, this, DomainPackage.ARTIFACT__MODEL_QUERY, DomainPackage.VARIABLE__PARENT);
+      modelQuery = new EObjectContainmentWithInverseEList<ModelQuery>(ModelQuery.class, this, DomainPackage.ARTIFACT__MODEL_QUERY, DomainPackage.MODEL_QUERY__PARENT);
     }
     return modelQuery;
   }
@@ -480,7 +480,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact
         return;
       case DomainPackage.ARTIFACT__MODEL_QUERY:
         getModelQuery().clear();
-        getModelQuery().addAll((Collection<? extends Variable>)newValue);
+        getModelQuery().addAll((Collection<? extends ModelQuery>)newValue);
         return;
       case DomainPackage.ARTIFACT__SPECIFIERS:
         getSpecifiers().clear();

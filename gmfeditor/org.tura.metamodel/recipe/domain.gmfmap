@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
       <diagramNode
           href="domain.gmfgraph#Recipe"/>
       <children
@@ -153,7 +153,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
               href="domain.gmfgraph#Property"/>
         </ownedChild>

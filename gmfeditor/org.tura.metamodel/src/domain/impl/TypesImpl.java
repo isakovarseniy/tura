@@ -4,7 +4,6 @@ package domain.impl;
 
 import domain.BusinessPackage;
 import domain.DomainPackage;
-import domain.Primitive;
 import domain.Types;
 import domain.TypesRepository;
 

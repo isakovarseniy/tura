@@ -374,28 +374,53 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.Variable} instances.
+   * This keeps track of the one adapter used for all {@link domain.ModelQuery} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected VariableItemProvider variableItemProvider;
+  protected ModelQueryItemProvider modelQueryItemProvider;
 
   /**
-   * This creates an adapter for a {@link domain.Variable}.
+   * This creates an adapter for a {@link domain.ModelQuery}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createVariableAdapter()
+  public Adapter createModelQueryAdapter()
   {
-    if (variableItemProvider == null)
+    if (modelQueryItemProvider == null)
     {
-      variableItemProvider = new VariableItemProvider(this);
+      modelQueryItemProvider = new ModelQueryItemProvider(this);
     }
 
-    return variableItemProvider;
+    return modelQueryItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.QueryParameter} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected QueryParameterItemProvider queryParameterItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.QueryParameter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createQueryParameterAdapter()
+  {
+    if (queryParameterItemProvider == null)
+    {
+      queryParameterItemProvider = new QueryParameterItemProvider(this);
+    }
+
+    return queryParameterItemProvider;
   }
 
   /**
@@ -924,56 +949,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.Ingredient} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected IngredientItemProvider ingredientItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Ingredient}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createIngredientAdapter()
-  {
-    if (ingredientItemProvider == null)
-    {
-      ingredientItemProvider = new IngredientItemProvider(this);
-    }
-
-    return ingredientItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.Infrastructure} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected InfrastructureItemProvider infrastructureItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Infrastructure}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createInfrastructureAdapter()
-  {
-    if (infrastructureItemProvider == null)
-    {
-      infrastructureItemProvider = new InfrastructureItemProvider(this);
-    }
-
-    return infrastructureItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link domain.Recipe} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -996,6 +971,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return recipeItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Ingredient} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected IngredientItemProvider ingredientItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Ingredient}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createIngredientAdapter()
+  {
+    if (ingredientItemProvider == null)
+    {
+      ingredientItemProvider = new IngredientItemProvider(this);
+    }
+
+    return ingredientItemProvider;
   }
 
   /**
@@ -1049,28 +1049,28 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.ModelMapper} instances.
+   * This keeps track of the one adapter used for all {@link domain.Infrastructure} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelMapperItemProvider modelMapperItemProvider;
+  protected InfrastructureItemProvider infrastructureItemProvider;
 
   /**
-   * This creates an adapter for a {@link domain.ModelMapper}.
+   * This creates an adapter for a {@link domain.Infrastructure}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createModelMapperAdapter()
+  public Adapter createInfrastructureAdapter()
   {
-    if (modelMapperItemProvider == null)
+    if (infrastructureItemProvider == null)
     {
-      modelMapperItemProvider = new ModelMapperItemProvider(this);
+      infrastructureItemProvider = new InfrastructureItemProvider(this);
     }
 
-    return modelMapperItemProvider;
+    return infrastructureItemProvider;
   }
 
   /**
@@ -1096,6 +1096,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return configurationItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ModelMapper} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ModelMapperItemProvider modelMapperItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ModelMapper}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createModelMapperAdapter()
+  {
+    if (modelMapperItemProvider == null)
+    {
+      modelMapperItemProvider = new ModelMapperItemProvider(this);
+    }
+
+    return modelMapperItemProvider;
   }
 
   /**
@@ -1149,28 +1174,28 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.MappingVariable} instances.
+   * This keeps track of the one adapter used for all {@link domain.QueryVariable} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MappingVariableItemProvider mappingVariableItemProvider;
+  protected QueryVariableItemProvider queryVariableItemProvider;
 
   /**
-   * This creates an adapter for a {@link domain.MappingVariable}.
+   * This creates an adapter for a {@link domain.QueryVariable}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createMappingVariableAdapter()
+  public Adapter createQueryVariableAdapter()
   {
-    if (mappingVariableItemProvider == null)
+    if (queryVariableItemProvider == null)
     {
-      mappingVariableItemProvider = new MappingVariableItemProvider(this);
+      queryVariableItemProvider = new QueryVariableItemProvider(this);
     }
 
-    return mappingVariableItemProvider;
+    return queryVariableItemProvider;
   }
 
   /**
@@ -1196,6 +1221,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return artifactRefItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.TypePointer} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TypePointerItemProvider typePointerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TypePointer}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTypePointerAdapter()
+  {
+    if (typePointerItemProvider == null)
+    {
+      typePointerItemProvider = new TypePointerItemProvider(this);
+    }
+
+    return typePointerItemProvider;
   }
 
   /**
@@ -1246,6 +1296,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return typeElementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Primitive} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PrimitiveItemProvider primitiveItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Primitive}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPrimitiveAdapter()
+  {
+    if (primitiveItemProvider == null)
+    {
+      primitiveItemProvider = new PrimitiveItemProvider(this);
+    }
+
+    return primitiveItemProvider;
   }
 
   /**
@@ -1474,31 +1549,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.TypePointer} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected TypePointerItemProvider typePointerItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.TypePointer}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createTypePointerAdapter()
-  {
-    if (typePointerItemProvider == null)
-    {
-      typePointerItemProvider = new TypePointerItemProvider(this);
-    }
-
-    return typePointerItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link domain.TypesRepository} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1546,31 +1596,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     }
 
     return typesItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.Primitive} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected PrimitiveItemProvider primitiveItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Primitive}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createPrimitiveAdapter()
-  {
-    if (primitiveItemProvider == null)
-    {
-      primitiveItemProvider = new PrimitiveItemProvider(this);
-    }
-
-    return primitiveItemProvider;
   }
 
   /**
@@ -1746,7 +1771,8 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (artifactsItemProvider != null) artifactsItemProvider.dispose();
     if (artifactItemProvider != null) artifactItemProvider.dispose();
     if (configVariableItemProvider != null) configVariableItemProvider.dispose();
-    if (variableItemProvider != null) variableItemProvider.dispose();
+    if (modelQueryItemProvider != null) modelQueryItemProvider.dispose();
+    if (queryParameterItemProvider != null) queryParameterItemProvider.dispose();
     if (specifierItemProvider != null) specifierItemProvider.dispose();
     if (optionItemProvider != null) optionItemProvider.dispose();
     if (applicationItemProvider != null) applicationItemProvider.dispose();
@@ -1777,7 +1803,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (modelMapperItemProvider != null) modelMapperItemProvider.dispose();
     if (propertyItemProvider != null) propertyItemProvider.dispose();
     if (mappingSpecifierItemProvider != null) mappingSpecifierItemProvider.dispose();
-    if (mappingVariableItemProvider != null) mappingVariableItemProvider.dispose();
+    if (queryVariableItemProvider != null) queryVariableItemProvider.dispose();
     if (artifactRefItemProvider != null) artifactRefItemProvider.dispose();
     if (typePointerItemProvider != null) typePointerItemProvider.dispose();
     if (typeDefinitionItemProvider != null) typeDefinitionItemProvider.dispose();

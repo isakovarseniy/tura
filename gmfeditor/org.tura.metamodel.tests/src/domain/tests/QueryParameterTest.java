@@ -3,7 +3,7 @@
 package domain.tests;
 
 import domain.DomainFactory;
-import domain.MappingVariable;
+import domain.QueryParameter;
 
 import junit.framework.TestCase;
 
@@ -11,20 +11,20 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Mapping Variable</b></em>'.
+ * A test case for the model object '<em><b>Query Parameter</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class MappingVariableTest extends TestCase
+public class QueryParameterTest extends TestCase
 {
 
   /**
-   * The fixture for this Mapping Variable test case.
+   * The fixture for this Query Parameter test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MappingVariable fixture = null;
+  protected QueryParameter fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -33,38 +33,38 @@ public class MappingVariableTest extends TestCase
    */
   public static void main(String[] args)
   {
-    TestRunner.run(MappingVariableTest.class);
+    TestRunner.run(QueryParameterTest.class);
   }
 
   /**
-   * Constructs a new Mapping Variable test case with the given name.
+   * Constructs a new Query Parameter test case with the given name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public MappingVariableTest(String name)
+  public QueryParameterTest(String name)
   {
     super(name);
   }
 
   /**
-   * Sets the fixture for this Mapping Variable test case.
+   * Sets the fixture for this Query Parameter test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void setFixture(MappingVariable fixture)
+  protected void setFixture(QueryParameter fixture)
   {
     this.fixture = fixture;
   }
 
   /**
-   * Returns the fixture for this Mapping Variable test case.
+   * Returns the fixture for this Query Parameter test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MappingVariable getFixture()
+  protected QueryParameter getFixture()
   {
     return fixture;
   }
@@ -78,7 +78,7 @@ public class MappingVariableTest extends TestCase
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createMappingVariable());
+    setFixture(DomainFactory.eINSTANCE.createQueryParameter());
   }
 
   /**
@@ -93,4 +93,4 @@ public class MappingVariableTest extends TestCase
     setFixture(null);
   }
 
-} //MappingVariableTest
+} //QueryParameterTest

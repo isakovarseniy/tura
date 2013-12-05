@@ -41,10 +41,11 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createBusinessObject1CreationTool());
 		paletteContainer.add(createCreateMethod2CreationTool());
 		paletteContainer.add(createInsertMethod3CreationTool());
-		paletteContainer.add(createOtherMethod4CreationTool());
-		paletteContainer.add(createRemoveMethod5CreationTool());
-		paletteContainer.add(createSearchMethod6CreationTool());
-		paletteContainer.add(createUpdateMethod7CreationTool());
+		paletteContainer.add(createModelQuery4CreationTool());
+		paletteContainer.add(createOtherMethod5CreationTool());
+		paletteContainer.add(createRemoveMethod6CreationTool());
+		paletteContainer.add(createSearchMethod7CreationTool());
+		paletteContainer.add(createUpdateMethod8CreationTool());
 		return paletteContainer;
 	}
 
@@ -114,13 +115,24 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createOtherMethod4CreationTool() {
+	private ToolEntry createModelQuery4CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.ModelQuery4CreationTool_title,
+				Messages.ModelQuery4CreationTool_desc, null, null) {
+		};
+		entry.setId("createModelQuery4CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createOtherMethod5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.OtherMethod4CreationTool_title,
-				Messages.OtherMethod4CreationTool_desc,
+				Messages.OtherMethod5CreationTool_title,
+				Messages.OtherMethod5CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.OtherMethod_603006));
-		entry.setId("createOtherMethod4CreationTool"); //$NON-NLS-1$
+		entry.setId("createOtherMethod5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.OtherMethod_603006));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -130,13 +142,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRemoveMethod5CreationTool() {
+	private ToolEntry createRemoveMethod6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.RemoveMethod5CreationTool_title,
-				Messages.RemoveMethod5CreationTool_desc,
+				Messages.RemoveMethod6CreationTool_title,
+				Messages.RemoveMethod6CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.RemoveMethod_603008));
-		entry.setId("createRemoveMethod5CreationTool"); //$NON-NLS-1$
+		entry.setId("createRemoveMethod6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.RemoveMethod_603008));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -146,13 +158,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSearchMethod6CreationTool() {
+	private ToolEntry createSearchMethod7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.SearchMethod6CreationTool_title,
-				Messages.SearchMethod6CreationTool_desc,
+				Messages.SearchMethod7CreationTool_title,
+				Messages.SearchMethod7CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.SearchMethod_603009));
-		entry.setId("createSearchMethod6CreationTool"); //$NON-NLS-1$
+		entry.setId("createSearchMethod7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.SearchMethod_603009));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -162,13 +174,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createUpdateMethod7CreationTool() {
+	private ToolEntry createUpdateMethod8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.UpdateMethod7CreationTool_title,
-				Messages.UpdateMethod7CreationTool_desc,
+				Messages.UpdateMethod8CreationTool_title,
+				Messages.UpdateMethod8CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.UpdateMethod_603007));
-		entry.setId("createUpdateMethod7CreationTool"); //$NON-NLS-1$
+		entry.setId("createUpdateMethod8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.UpdateMethod_603007));
 		entry.setLargeIcon(entry.getSmallIcon());

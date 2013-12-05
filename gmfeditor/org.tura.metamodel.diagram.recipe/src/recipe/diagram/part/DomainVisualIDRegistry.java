@@ -32,7 +32,6 @@ import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
-import recipe.diagram.edit.parts.PropertyNameEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;

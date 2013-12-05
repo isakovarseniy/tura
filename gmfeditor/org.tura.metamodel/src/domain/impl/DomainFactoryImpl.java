@@ -39,8 +39,8 @@ import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
-import domain.MappingVariable;
 import domain.ModelMapper;
+import domain.ModelQuery;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
@@ -49,6 +49,8 @@ import domain.Parameter;
 import domain.PlatformLayers;
 import domain.Primitive;
 import domain.Property;
+import domain.QueryParameter;
+import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
 import domain.RemoveMethod;
@@ -65,7 +67,6 @@ import domain.Types;
 import domain.TypesRepository;
 import domain.UpdateMethod;
 import domain.UsingMappers;
-import domain.Variable;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -140,7 +141,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.ARTIFACTS: return createArtifacts();
       case DomainPackage.ARTIFACT: return createArtifact();
       case DomainPackage.CONFIG_VARIABLE: return createConfigVariable();
-      case DomainPackage.VARIABLE: return createVariable();
+      case DomainPackage.MODEL_QUERY: return createModelQuery();
+      case DomainPackage.QUERY_PARAMETER: return createQueryParameter();
       case DomainPackage.SPECIFIER: return createSpecifier();
       case DomainPackage.OPTION: return createOption();
       case DomainPackage.APPLICATION: return createApplication();
@@ -171,7 +173,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.MODEL_MAPPER: return createModelMapper();
       case DomainPackage.PROPERTY: return createProperty();
       case DomainPackage.MAPPING_SPECIFIER: return createMappingSpecifier();
-      case DomainPackage.MAPPING_VARIABLE: return createMappingVariable();
+      case DomainPackage.QUERY_VARIABLE: return createQueryVariable();
       case DomainPackage.ARTIFACT_REF: return createArtifactRef();
       case DomainPackage.TYPE_POINTER: return createTypePointer();
       case DomainPackage.TYPE_DEFINITION: return createTypeDefinition();
@@ -366,10 +368,21 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Variable createVariable()
+  public ModelQuery createModelQuery()
   {
-    VariableImpl variable = new VariableImpl();
-    return variable;
+    ModelQueryImpl modelQuery = new ModelQueryImpl();
+    return modelQuery;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QueryParameter createQueryParameter()
+  {
+    QueryParameterImpl queryParameter = new QueryParameterImpl();
+    return queryParameter;
   }
 
   /**
@@ -608,32 +621,21 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Ingredient createIngredient()
-  {
-    IngredientImpl ingredient = new IngredientImpl();
-    return ingredient;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Infrastructure createInfrastructure()
-  {
-    InfrastructureImpl infrastructure = new InfrastructureImpl();
-    return infrastructure;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Recipe createRecipe()
   {
     RecipeImpl recipe = new RecipeImpl();
     return recipe;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Ingredient createIngredient()
+  {
+    IngredientImpl ingredient = new IngredientImpl();
+    return ingredient;
   }
 
   /**
@@ -663,10 +665,10 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ModelMapper createModelMapper()
+  public Infrastructure createInfrastructure()
   {
-    ModelMapperImpl modelMapper = new ModelMapperImpl();
-    return modelMapper;
+    InfrastructureImpl infrastructure = new InfrastructureImpl();
+    return infrastructure;
   }
 
   /**
@@ -678,6 +680,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ConfigurationImpl configuration = new ConfigurationImpl();
     return configuration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ModelMapper createModelMapper()
+  {
+    ModelMapperImpl modelMapper = new ModelMapperImpl();
+    return modelMapper;
   }
 
   /**
@@ -707,10 +720,10 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MappingVariable createMappingVariable()
+  public QueryVariable createQueryVariable()
   {
-    MappingVariableImpl mappingVariable = new MappingVariableImpl();
-    return mappingVariable;
+    QueryVariableImpl queryVariable = new QueryVariableImpl();
+    return queryVariable;
   }
 
   /**
@@ -722,6 +735,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ArtifactRefImpl artifactRef = new ArtifactRefImpl();
     return artifactRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypePointer createTypePointer()
+  {
+    TypePointerImpl typePointer = new TypePointerImpl();
+    return typePointer;
   }
 
   /**
@@ -744,6 +768,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     TypeElementImpl typeElement = new TypeElementImpl();
     return typeElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Primitive createPrimitive()
+  {
+    PrimitiveImpl primitive = new PrimitiveImpl();
+    return primitive;
   }
 
   /**
@@ -850,17 +885,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypePointer createTypePointer()
-  {
-    TypePointerImpl typePointer = new TypePointerImpl();
-    return typePointer;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public TypesRepository createTypesRepository()
   {
     TypesRepositoryImpl typesRepository = new TypesRepositoryImpl();
@@ -876,17 +900,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     TypesImpl types = new TypesImpl();
     return types;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Primitive createPrimitive()
-  {
-    PrimitiveImpl primitive = new PrimitiveImpl();
-    return primitive;
   }
 
   /**

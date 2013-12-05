@@ -23,7 +23,6 @@ import recipe.diagram.edit.parts.JavaComponentName2EditPart;
 import recipe.diagram.edit.parts.JavaComponentNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
 import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
-import recipe.diagram.edit.parts.PropertyNameEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
 import recipe.diagram.parsers.MessageFormatParser;
 import recipe.diagram.part.DomainVisualIDRegistry;

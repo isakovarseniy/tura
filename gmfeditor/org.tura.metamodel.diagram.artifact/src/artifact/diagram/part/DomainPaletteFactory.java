@@ -40,8 +40,8 @@ public class DomainPaletteFactory {
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createArtifact1CreationTool());
 		paletteContainer.add(createConfigVariable2CreationTool());
-		paletteContainer.add(createSpecifier3CreationTool());
-		paletteContainer.add(createVariable4CreationTool());
+		paletteContainer.add(createModelQuery3CreationTool());
+		paletteContainer.add(createSpecifier4CreationTool());
 		return paletteContainer;
 	}
 
@@ -94,14 +94,14 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSpecifier3CreationTool() {
+	private ToolEntry createModelQuery3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Specifier3CreationTool_title,
-				Messages.Specifier3CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Specifier_703003));
-		entry.setId("createSpecifier3CreationTool"); //$NON-NLS-1$
+				Messages.ModelQuery3CreationTool_title,
+				Messages.ModelQuery3CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.ModelQuery_703005));
+		entry.setId("createModelQuery3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Specifier_703003));
+				.getImageDescriptor(DomainElementTypes.ModelQuery_703005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -109,14 +109,14 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createVariable4CreationTool() {
+	private ToolEntry createSpecifier4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Variable4CreationTool_title,
-				Messages.Variable4CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Variable_703002));
-		entry.setId("createVariable4CreationTool"); //$NON-NLS-1$
+				Messages.Specifier4CreationTool_title,
+				Messages.Specifier4CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Specifier_703003));
+		entry.setId("createSpecifier4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Variable_703002));
+				.getImageDescriptor(DomainElementTypes.Specifier_703003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

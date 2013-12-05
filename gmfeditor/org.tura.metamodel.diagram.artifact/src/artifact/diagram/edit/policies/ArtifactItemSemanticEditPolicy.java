@@ -19,8 +19,8 @@ import artifact.diagram.edit.parts.ArtifactArtifactConfigVariablesCompartmentEdi
 import artifact.diagram.edit.parts.ArtifactArtifactModelQueryCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactSpecifiersCompartmentEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
+import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
-import artifact.diagram.edit.parts.VariableEditPart;
 import artifact.diagram.part.DomainVisualIDRegistry;
 import artifact.diagram.providers.DomainElementTypes;
 
@@ -86,7 +86,7 @@ public class ArtifactItemSemanticEditPolicy extends
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
-					case VariableEditPart.VISUAL_ID:
+					case ModelQueryEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

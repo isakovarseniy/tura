@@ -30,8 +30,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Specifier"
-          description="Create new Specifier">
+          title="ModelQuery"
+          description="Create new ModelQuery">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -39,8 +39,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Variable"
-          description="Create new Variable">
+          title="Specifier"
+          description="Create new Specifier">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

@@ -423,6 +423,10 @@
             title="ApplicationRecipes"
             description="Create new ApplicationRecipes"
             genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ModelQuery"
+            description="Create new ModelQuery"/>
       </groups>
       <groups
           title="Connections"

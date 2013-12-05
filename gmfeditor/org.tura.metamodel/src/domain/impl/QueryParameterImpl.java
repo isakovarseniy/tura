@@ -3,33 +3,35 @@
 package domain.impl;
 
 import domain.DomainPackage;
-import domain.MappingVariable;
+import domain.ModelQuery;
+import domain.QueryParameter;
 
-import domain.Variable;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Mapping Variable</b></em>'.
+ * An implementation of the model object '<em><b>Query Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.MappingVariableImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.MappingVariableImpl#getVariableRef <em>Variable Ref</em>}</li>
- *   <li>{@link domain.impl.MappingVariableImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link domain.impl.QueryParameterImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.impl.QueryParameterImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link domain.impl.QueryParameterImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MappingVariableImpl extends EObjectImpl implements MappingVariable
+public class QueryParameterImpl extends EObjectImpl implements QueryParameter
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -50,16 +52,6 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
    * @ordered
    */
   protected String uid = UID_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getVariableRef() <em>Variable Ref</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVariableRef()
-   * @generated
-   * @ordered
-   */
-  protected Variable variableRef;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -86,7 +78,7 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MappingVariableImpl()
+  protected QueryParameterImpl()
   {
     super();
   }
@@ -99,7 +91,7 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
   @Override
   protected EClass eStaticClass()
   {
-    return DomainPackage.Literals.MAPPING_VARIABLE;
+    return DomainPackage.Literals.QUERY_PARAMETER;
   }
 
   /**
@@ -122,7 +114,7 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
     String oldUid = uid;
     uid = newUid;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPING_VARIABLE__UID, oldUid, uid));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY_PARAMETER__UID, oldUid, uid));
   }
 
   /**
@@ -130,42 +122,44 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
    * <!-- end-user-doc -->
    * @generated
    */
-  public Variable getVariableRef()
+  public ModelQuery getParent()
   {
-    if (variableRef != null && variableRef.eIsProxy())
+    if (eContainerFeatureID() != DomainPackage.QUERY_PARAMETER__PARENT) return null;
+    return (ModelQuery)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(ModelQuery newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.QUERY_PARAMETER__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(ModelQuery newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.QUERY_PARAMETER__PARENT && newParent != null))
     {
-      InternalEObject oldVariableRef = (InternalEObject)variableRef;
-      variableRef = (Variable)eResolveProxy(oldVariableRef);
-      if (variableRef != oldVariableRef)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.MAPPING_VARIABLE__VARIABLE_REF, oldVariableRef, variableRef));
-      }
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.MODEL_QUERY__PARAMETERS, ModelQuery.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
     }
-    return variableRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Variable basicGetVariableRef()
-  {
-    return variableRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setVariableRef(Variable newVariableRef)
-  {
-    Variable oldVariableRef = variableRef;
-    variableRef = newVariableRef;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPING_VARIABLE__VARIABLE_REF, oldVariableRef, variableRef));
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY_PARAMETER__PARENT, newParent, newParent));
   }
 
   /**
@@ -188,7 +182,57 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MAPPING_VARIABLE__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY_PARAMETER__VALUE, oldValue, value));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.QUERY_PARAMETER__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((ModelQuery)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.QUERY_PARAMETER__PARENT:
+        return basicSetParent(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.QUERY_PARAMETER__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.MODEL_QUERY__PARAMETERS, ModelQuery.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
   }
 
   /**
@@ -201,12 +245,11 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
   {
     switch (featureID)
     {
-      case DomainPackage.MAPPING_VARIABLE__UID:
+      case DomainPackage.QUERY_PARAMETER__UID:
         return getUid();
-      case DomainPackage.MAPPING_VARIABLE__VARIABLE_REF:
-        if (resolve) return getVariableRef();
-        return basicGetVariableRef();
-      case DomainPackage.MAPPING_VARIABLE__VALUE:
+      case DomainPackage.QUERY_PARAMETER__PARENT:
+        return getParent();
+      case DomainPackage.QUERY_PARAMETER__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -222,13 +265,13 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
   {
     switch (featureID)
     {
-      case DomainPackage.MAPPING_VARIABLE__UID:
+      case DomainPackage.QUERY_PARAMETER__UID:
         setUid((String)newValue);
         return;
-      case DomainPackage.MAPPING_VARIABLE__VARIABLE_REF:
-        setVariableRef((Variable)newValue);
+      case DomainPackage.QUERY_PARAMETER__PARENT:
+        setParent((ModelQuery)newValue);
         return;
-      case DomainPackage.MAPPING_VARIABLE__VALUE:
+      case DomainPackage.QUERY_PARAMETER__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -245,13 +288,13 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
   {
     switch (featureID)
     {
-      case DomainPackage.MAPPING_VARIABLE__UID:
+      case DomainPackage.QUERY_PARAMETER__UID:
         setUid(UID_EDEFAULT);
         return;
-      case DomainPackage.MAPPING_VARIABLE__VARIABLE_REF:
-        setVariableRef((Variable)null);
+      case DomainPackage.QUERY_PARAMETER__PARENT:
+        setParent((ModelQuery)null);
         return;
-      case DomainPackage.MAPPING_VARIABLE__VALUE:
+      case DomainPackage.QUERY_PARAMETER__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -268,11 +311,11 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
   {
     switch (featureID)
     {
-      case DomainPackage.MAPPING_VARIABLE__UID:
+      case DomainPackage.QUERY_PARAMETER__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.MAPPING_VARIABLE__VARIABLE_REF:
-        return variableRef != null;
-      case DomainPackage.MAPPING_VARIABLE__VALUE:
+      case DomainPackage.QUERY_PARAMETER__PARENT:
+        return getParent() != null;
+      case DomainPackage.QUERY_PARAMETER__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -297,4 +340,4 @@ public class MappingVariableImpl extends EObjectImpl implements MappingVariable
     return result.toString();
   }
 
-} //MappingVariableImpl
+} //QueryParameterImpl

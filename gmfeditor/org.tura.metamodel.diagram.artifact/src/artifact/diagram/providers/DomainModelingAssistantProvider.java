@@ -54,7 +54,7 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (editPart instanceof ArtifactArtifactModelQueryCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Variable_703002);
+			types.add(DomainElementTypes.ModelQuery_703005);
 			return types;
 		}
 		if (editPart instanceof ArtifactArtifactSpecifiersCompartmentEditPart) {

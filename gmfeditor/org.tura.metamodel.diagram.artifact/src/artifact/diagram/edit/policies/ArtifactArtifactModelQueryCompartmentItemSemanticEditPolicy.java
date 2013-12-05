@@ -6,7 +6,7 @@ package artifact.diagram.edit.policies;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-import artifact.diagram.edit.commands.VariableCreateCommand;
+import artifact.diagram.edit.commands.ModelQueryCreateCommand;
 import artifact.diagram.providers.DomainElementTypes;
 
 /**
@@ -26,8 +26,8 @@ public class ArtifactArtifactModelQueryCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.Variable_703002 == req.getElementType()) {
-			return getGEFWrapper(new VariableCreateCommand(req));
+		if (DomainElementTypes.ModelQuery_703005 == req.getElementType()) {
+			return getGEFWrapper(new ModelQueryCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

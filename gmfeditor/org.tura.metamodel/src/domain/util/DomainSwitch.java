@@ -38,8 +38,8 @@ import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
-import domain.MappingVariable;
 import domain.ModelMapper;
+import domain.ModelQuery;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
@@ -47,6 +47,8 @@ import domain.OtherMethod;
 import domain.Parameter;
 import domain.Primitive;
 import domain.Property;
+import domain.QueryParameter;
+import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
 import domain.RemoveMethod;
@@ -63,7 +65,6 @@ import domain.Types;
 import domain.TypesRepository;
 import domain.UpdateMethod;
 import domain.UsingMappers;
-import domain.Variable;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -220,10 +221,17 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.VARIABLE:
+      case DomainPackage.MODEL_QUERY:
       {
-        Variable variable = (Variable)theEObject;
-        T result = caseVariable(variable);
+        ModelQuery modelQuery = (ModelQuery)theEObject;
+        T result = caseModelQuery(modelQuery);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.QUERY_PARAMETER:
+      {
+        QueryParameter queryParameter = (QueryParameter)theEObject;
+        T result = caseQueryParameter(queryParameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -457,10 +465,10 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.MAPPING_VARIABLE:
+      case DomainPackage.QUERY_VARIABLE:
       {
-        MappingVariable mappingVariable = (MappingVariable)theEObject;
-        T result = caseMappingVariable(mappingVariable);
+        QueryVariable queryVariable = (QueryVariable)theEObject;
+        T result = caseQueryVariable(queryVariable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -795,17 +803,33 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Model Query</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Model Query</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVariable(Variable object)
+  public T caseModelQuery(ModelQuery object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Query Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Query Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseQueryParameter(QueryParameter object)
   {
     return null;
   }
@@ -1147,38 +1171,6 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Ingredient</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ingredient</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIngredient(Ingredient object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Infrastructure</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Infrastructure</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseInfrastructure(Infrastructure object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Recipe</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1190,6 +1182,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRecipe(Recipe object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ingredient</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ingredient</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIngredient(Ingredient object)
   {
     return null;
   }
@@ -1227,17 +1235,17 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model Mapper</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Infrastructure</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model Mapper</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Infrastructure</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModelMapper(ModelMapper object)
+  public T caseInfrastructure(Infrastructure object)
   {
     return null;
   }
@@ -1254,6 +1262,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConfiguration(Configuration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Model Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Model Mapper</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModelMapper(ModelMapper object)
   {
     return null;
   }
@@ -1291,17 +1315,17 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Mapping Variable</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Query Variable</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mapping Variable</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Query Variable</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMappingVariable(MappingVariable object)
+  public T caseQueryVariable(QueryVariable object)
   {
     return null;
   }
@@ -1318,6 +1342,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseArtifactRef(ArtifactRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Pointer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Pointer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypePointer(TypePointer object)
   {
     return null;
   }
@@ -1350,6 +1390,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTypeElement(TypeElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Primitive</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Primitive</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrimitive(Primitive object)
   {
     return null;
   }
@@ -1499,22 +1555,6 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Type Pointer</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type Pointer</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTypePointer(TypePointer object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Types Repository</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1542,22 +1582,6 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTypes(Types object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Primitive</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Primitive</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePrimitive(Primitive object)
   {
     return null;
   }

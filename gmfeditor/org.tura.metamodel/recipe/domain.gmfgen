@@ -696,6 +696,10 @@
             genNodes="//@diagram/@childNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ModelQuery"
+            description="Create new ModelQuery"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Property"
             description="Create new Property"
             genNodes="//@diagram/@childNodes.4"/>

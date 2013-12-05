@@ -131,13 +131,22 @@ public interface DomainFactory extends EFactory
   ConfigVariable createConfigVariable();
 
   /**
-   * Returns a new object of class '<em>Variable</em>'.
+   * Returns a new object of class '<em>Model Query</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable</em>'.
+   * @return a new object of class '<em>Model Query</em>'.
    * @generated
    */
-  Variable createVariable();
+  ModelQuery createModelQuery();
+
+  /**
+   * Returns a new object of class '<em>Query Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Query Parameter</em>'.
+   * @generated
+   */
+  QueryParameter createQueryParameter();
 
   /**
    * Returns a new object of class '<em>Specifier</em>'.
@@ -329,24 +338,6 @@ public interface DomainFactory extends EFactory
   UsingMappers createUsingMappers();
 
   /**
-   * Returns a new object of class '<em>Ingredient</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ingredient</em>'.
-   * @generated
-   */
-  Ingredient createIngredient();
-
-  /**
-   * Returns a new object of class '<em>Infrastructure</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Infrastructure</em>'.
-   * @generated
-   */
-  Infrastructure createInfrastructure();
-
-  /**
    * Returns a new object of class '<em>Recipe</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -354,6 +345,15 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   Recipe createRecipe();
+
+  /**
+   * Returns a new object of class '<em>Ingredient</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ingredient</em>'.
+   * @generated
+   */
+  Ingredient createIngredient();
 
   /**
    * Returns a new object of class '<em>Component</em>'.
@@ -374,13 +374,13 @@ public interface DomainFactory extends EFactory
   JavaComponent createJavaComponent();
 
   /**
-   * Returns a new object of class '<em>Model Mapper</em>'.
+   * Returns a new object of class '<em>Infrastructure</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model Mapper</em>'.
+   * @return a new object of class '<em>Infrastructure</em>'.
    * @generated
    */
-  ModelMapper createModelMapper();
+  Infrastructure createInfrastructure();
 
   /**
    * Returns a new object of class '<em>Configuration</em>'.
@@ -390,6 +390,15 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   Configuration createConfiguration();
+
+  /**
+   * Returns a new object of class '<em>Model Mapper</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Model Mapper</em>'.
+   * @generated
+   */
+  ModelMapper createModelMapper();
 
   /**
    * Returns a new object of class '<em>Property</em>'.
@@ -410,13 +419,13 @@ public interface DomainFactory extends EFactory
   MappingSpecifier createMappingSpecifier();
 
   /**
-   * Returns a new object of class '<em>Mapping Variable</em>'.
+   * Returns a new object of class '<em>Query Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mapping Variable</em>'.
+   * @return a new object of class '<em>Query Variable</em>'.
    * @generated
    */
-  MappingVariable createMappingVariable();
+  QueryVariable createQueryVariable();
 
   /**
    * Returns a new object of class '<em>Artifact Ref</em>'.
@@ -426,6 +435,15 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   ArtifactRef createArtifactRef();
+
+  /**
+   * Returns a new object of class '<em>Type Pointer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Pointer</em>'.
+   * @generated
+   */
+  TypePointer createTypePointer();
 
   /**
    * Returns a new object of class '<em>Type Definition</em>'.
@@ -444,6 +462,15 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   TypeElement createTypeElement();
+
+  /**
+   * Returns a new object of class '<em>Primitive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Primitive</em>'.
+   * @generated
+   */
+  Primitive createPrimitive();
 
   /**
    * Returns a new object of class '<em>Type</em>'.
@@ -527,15 +554,6 @@ public interface DomainFactory extends EFactory
   EnumAttribute createEnumAttribute();
 
   /**
-   * Returns a new object of class '<em>Type Pointer</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type Pointer</em>'.
-   * @generated
-   */
-  TypePointer createTypePointer();
-
-  /**
    * Returns a new object of class '<em>Types Repository</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -552,15 +570,6 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   Types createTypes();
-
-  /**
-   * Returns a new object of class '<em>Primitive</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primitive</em>'.
-   * @generated
-   */
-  Primitive createPrimitive();
 
   /**
    * Returns a new object of class '<em>Package</em>'.

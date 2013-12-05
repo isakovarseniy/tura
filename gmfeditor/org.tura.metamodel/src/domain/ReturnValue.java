@@ -21,7 +21,6 @@ package domain;
  */
 public interface ReturnValue extends TypePointer
 {
-
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -47,4 +46,5 @@ public interface ReturnValue extends TypePointer
    * @generated
    */
   void setUid(String value);
+
 } // ReturnValue

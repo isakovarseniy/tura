@@ -116,7 +116,7 @@
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelQuery" upperBound="-1"
-        eType="#//Variable" containment="true" eOpposite="#//Variable/parent">
+        eType="#//ModelQuery" containment="true" eOpposite="#//ModelQuery/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specifiers" upperBound="-1"
@@ -135,15 +135,25 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Artifact"
         eOpposite="#//Artifact/configVariables"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Variable">
+  <eClassifiers xsi:type="ecore:EClass" name="ModelQuery">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Artifact"
         eOpposite="#//Artifact/modelQuery"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//QueryParameter" containment="true" eOpposite="#//QueryParameter/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QueryParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ModelQuery"
+        eOpposite="#//ModelQuery/parameters"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Specifier">
     <eAnnotations source="gmf.node">
@@ -485,7 +495,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="specifiers" upperBound="-1"
         eType="#//MappingSpecifier" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-        eType="#//MappingVariable" containment="true"/>
+        eType="#//QueryVariable" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eAnnotations source="gmf.node">
@@ -503,10 +513,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="specifierRef" eType="#//Specifier"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueRef" eType="#//Option"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MappingVariable">
+  <eClassifiers xsi:type="ecore:EClass" name="QueryVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variableRef" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="queryParamRef" eType="#//QueryParameter"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArtifactRef">

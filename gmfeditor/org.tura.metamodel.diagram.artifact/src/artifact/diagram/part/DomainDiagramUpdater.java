@@ -17,14 +17,14 @@ import artifact.diagram.edit.parts.ArtifactArtifactSpecifiersCompartmentEditPart
 import artifact.diagram.edit.parts.ArtifactEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
+import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.edit.parts.TypeExtensionEditPart;
-import artifact.diagram.edit.parts.VariableEditPart;
 import domain.Artifact;
 import domain.Artifacts;
 import domain.ConfigVariable;
+import domain.ModelQuery;
 import domain.Specifier;
-import domain.Variable;
 
 /**
  * @generated
@@ -122,10 +122,10 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getModelQuery().iterator(); it
 				.hasNext();) {
-			Variable childElement = (Variable) it.next();
+			ModelQuery childElement = (ModelQuery) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == VariableEditPart.VISUAL_ID) {
+			if (visualID == ModelQueryEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -171,8 +171,8 @@ public class DomainDiagramUpdater {
 			return getArtifact_702001ContainedLinks(view);
 		case ConfigVariableEditPart.VISUAL_ID:
 			return getConfigVariable_703004ContainedLinks(view);
-		case VariableEditPart.VISUAL_ID:
-			return getVariable_703002ContainedLinks(view);
+		case ModelQueryEditPart.VISUAL_ID:
+			return getModelQuery_703005ContainedLinks(view);
 		case SpecifierEditPart.VISUAL_ID:
 			return getSpecifier_703003ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -190,8 +190,8 @@ public class DomainDiagramUpdater {
 			return getArtifact_702001IncomingLinks(view);
 		case ConfigVariableEditPart.VISUAL_ID:
 			return getConfigVariable_703004IncomingLinks(view);
-		case VariableEditPart.VISUAL_ID:
-			return getVariable_703002IncomingLinks(view);
+		case ModelQueryEditPart.VISUAL_ID:
+			return getModelQuery_703005IncomingLinks(view);
 		case SpecifierEditPart.VISUAL_ID:
 			return getSpecifier_703003IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -209,8 +209,8 @@ public class DomainDiagramUpdater {
 			return getArtifact_702001OutgoingLinks(view);
 		case ConfigVariableEditPart.VISUAL_ID:
 			return getConfigVariable_703004OutgoingLinks(view);
-		case VariableEditPart.VISUAL_ID:
-			return getVariable_703002OutgoingLinks(view);
+		case ModelQueryEditPart.VISUAL_ID:
+			return getModelQuery_703005OutgoingLinks(view);
 		case SpecifierEditPart.VISUAL_ID:
 			return getSpecifier_703003OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -246,7 +246,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getVariable_703002ContainedLinks(
+	public static List<DomainLinkDescriptor> getModelQuery_703005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -286,7 +286,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getVariable_703002IncomingLinks(
+	public static List<DomainLinkDescriptor> getModelQuery_703005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -326,7 +326,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getVariable_703002OutgoingLinks(
+	public static List<DomainLinkDescriptor> getModelQuery_703005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

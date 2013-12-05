@@ -39,7 +39,7 @@
 }
 
 
- context Variable {
+ context ModelQuery {
 
   constraint HasName {
 
@@ -52,12 +52,34 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.modelQuery.select(r|r.isKindOf(Variable) and r.name=self.name).size() = 1
-      message : 'Variable name  ' + self.name + ' is not unique'
+      check : self.parent.modelQuery.select(r|r.isKindOf(ModelQuery) and r.name=self.name).size() = 1
+      message : 'ModelQuery name  ' + self.name + ' is not unique'
    
    } 
 
 }
+
+
+ context QueryParameter {
+
+  constraint HasName {
+
+      check :  self.value.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.parameters.select(r|r.isKindOf(QueryParameter) and r.value=self.value).size() = 1
+      message : 'QueryParameter name  ' + self.value + ' is not unique'
+   
+   } 
+
+}
+
 
 
  context Specifier {

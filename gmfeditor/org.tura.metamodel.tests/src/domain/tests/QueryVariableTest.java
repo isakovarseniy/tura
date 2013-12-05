@@ -3,7 +3,7 @@
 package domain.tests;
 
 import domain.DomainFactory;
-import domain.Variable;
+import domain.QueryVariable;
 
 import junit.framework.TestCase;
 
@@ -11,20 +11,20 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Variable</b></em>'.
+ * A test case for the model object '<em><b>Query Variable</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableTest extends TestCase
+public class QueryVariableTest extends TestCase
 {
 
   /**
-   * The fixture for this Variable test case.
+   * The fixture for this Query Variable test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected Variable fixture = null;
+  protected QueryVariable fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -33,38 +33,38 @@ public class VariableTest extends TestCase
    */
   public static void main(String[] args)
   {
-    TestRunner.run(VariableTest.class);
+    TestRunner.run(QueryVariableTest.class);
   }
 
   /**
-   * Constructs a new Variable test case with the given name.
+   * Constructs a new Query Variable test case with the given name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableTest(String name)
+  public QueryVariableTest(String name)
   {
     super(name);
   }
 
   /**
-   * Sets the fixture for this Variable test case.
+   * Sets the fixture for this Query Variable test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void setFixture(Variable fixture)
+  protected void setFixture(QueryVariable fixture)
   {
     this.fixture = fixture;
   }
 
   /**
-   * Returns the fixture for this Variable test case.
+   * Returns the fixture for this Query Variable test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected Variable getFixture()
+  protected QueryVariable getFixture()
   {
     return fixture;
   }
@@ -78,7 +78,7 @@ public class VariableTest extends TestCase
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createVariable());
+    setFixture(DomainFactory.eINSTANCE.createQueryVariable());
   }
 
   /**
@@ -93,4 +93,4 @@ public class VariableTest extends TestCase
     setFixture(null);
   }
 
-} //VariableTest
+} //QueryVariableTest

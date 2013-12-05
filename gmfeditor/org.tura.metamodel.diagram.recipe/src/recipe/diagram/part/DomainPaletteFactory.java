@@ -44,8 +44,9 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createIngredient3CreationTool());
 		paletteContainer.add(createJavaComponent4CreationTool());
 		paletteContainer.add(createModelMapper5CreationTool());
-		paletteContainer.add(createProperty6CreationTool());
-		paletteContainer.add(createRecipe7CreationTool());
+		paletteContainer.add(createModelQuery6CreationTool());
+		paletteContainer.add(createProperty7CreationTool());
+		paletteContainer.add(createRecipe8CreationTool());
 		return paletteContainer;
 	}
 
@@ -147,12 +148,23 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createProperty6CreationTool() {
+	private ToolEntry createModelQuery6CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.ModelQuery6CreationTool_title,
+				Messages.ModelQuery6CreationTool_desc, null, null) {
+		};
+		entry.setId("createModelQuery6CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createProperty7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Property6CreationTool_title,
-				Messages.Property6CreationTool_desc,
+				Messages.Property7CreationTool_title,
+				Messages.Property7CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Property_303004));
-		entry.setId("createProperty6CreationTool"); //$NON-NLS-1$
+		entry.setId("createProperty7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Property_303004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -162,12 +174,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRecipe7CreationTool() {
+	private ToolEntry createRecipe8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Recipe7CreationTool_title,
-				Messages.Recipe7CreationTool_desc,
+				Messages.Recipe8CreationTool_title,
+				Messages.Recipe8CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Recipe_302001));
-		entry.setId("createRecipe7CreationTool"); //$NON-NLS-1$
+		entry.setId("createRecipe8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Recipe_302001));
 		entry.setLargeIcon(entry.getSmallIcon());

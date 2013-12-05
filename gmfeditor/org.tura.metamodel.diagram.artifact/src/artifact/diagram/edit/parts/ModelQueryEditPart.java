@@ -26,18 +26,18 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import artifact.diagram.edit.policies.VariableItemSemanticEditPolicy;
+import artifact.diagram.edit.policies.ModelQueryItemSemanticEditPolicy;
 import artifact.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
  */
-public class VariableEditPart extends ShapeNodeEditPart {
+public class ModelQueryEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 703002;
+	public static final int VISUAL_ID = 703005;
 
 	/**
 	 * @generated
@@ -52,7 +52,7 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public VariableEditPart(View view) {
+	public ModelQueryEditPart(View view) {
 		super(view);
 	}
 
@@ -62,7 +62,7 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new VariableItemSemanticEditPolicy());
+				new ModelQueryItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -98,23 +98,23 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new VariableFigure();
+		return primaryShape = new ModelQueryFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public VariableFigure getPrimaryShape() {
-		return (VariableFigure) primaryShape;
+	public ModelQueryFigure getPrimaryShape() {
+		return (ModelQueryFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof VariableNameEditPart) {
-			((VariableNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureVariableLabelFigure());
+		if (childEditPart instanceof ModelQueryNameEditPart) {
+			((ModelQueryNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureModelQueryLabelFigure());
 			return true;
 		}
 		return false;
@@ -124,7 +124,7 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof VariableNameEditPart) {
+		if (childEditPart instanceof ModelQueryNameEditPart) {
 			return true;
 		}
 		return false;
@@ -248,23 +248,23 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(VariableNameEditPart.VISUAL_ID));
+				.getType(ModelQueryNameEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class VariableFigure extends RoundedRectangle {
+	public class ModelQueryFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureVariableLabelFigure;
+		private WrappingLabel fFigureModelQueryLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public VariableFigure() {
+		public ModelQueryFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
@@ -278,19 +278,19 @@ public class VariableEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureVariableLabelFigure = new WrappingLabel();
+			fFigureModelQueryLabelFigure = new WrappingLabel();
 
-			fFigureVariableLabelFigure.setText("Variable");
+			fFigureModelQueryLabelFigure.setText("ModelQuery");
 
-			this.add(fFigureVariableLabelFigure);
+			this.add(fFigureModelQueryLabelFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureVariableLabelFigure() {
-			return fFigureVariableLabelFigure;
+		public WrappingLabel getFigureModelQueryLabelFigure() {
+			return fFigureModelQueryLabelFigure;
 		}
 
 	}

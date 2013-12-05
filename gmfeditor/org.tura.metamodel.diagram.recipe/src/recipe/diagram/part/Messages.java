@@ -306,22 +306,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Property6CreationTool_title;
+	public static String ModelQuery6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Property6CreationTool_desc;
+	public static String ModelQuery6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Recipe7CreationTool_title;
+	public static String Property7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Recipe7CreationTool_desc;
+	public static String Property7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Recipe8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Recipe8CreationTool_desc;
 
 	/**
 	 * @generated
@@ -406,6 +416,41 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Infrastructure_302003_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_source;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Recipes_301000_links;
 
 	/**
@@ -427,41 +472,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_RecipeInfrastructures_304005_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Infrastructure_302003_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
 
 	/**
 	 * @generated

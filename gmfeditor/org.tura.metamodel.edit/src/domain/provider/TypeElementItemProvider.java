@@ -5,6 +5,7 @@ package domain.provider;
 
 import domain.DomainPackage;
 import domain.TypeElement;
+
 import java.util.Collection;
 import java.util.List;
 

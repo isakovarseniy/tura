@@ -6,5 +6,5 @@ package artifact.diagram.edit.helpers;
 /**
  * @generated
  */
-public class VariableEditHelper extends DomainBaseEditHelper {
+public class ModelQueryEditHelper extends DomainBaseEditHelper {
 }

@@ -6,7 +6,6 @@ import domain.DomainPackage;
 import domain.Mapper;
 import domain.Mappers;
 
-import domain.PlatformLayers;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -44,6 +43,7 @@ public class MapperImpl extends TypePointerImpl implements Mapper
    * @ordered
    */
   protected static final String UID_EDEFAULT = null;
+
   /**
    * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -63,6 +63,7 @@ public class MapperImpl extends TypePointerImpl implements Mapper
    * @ordered
    */
   protected static final boolean SERVICE_LAYER_EDEFAULT = false;
+
   /**
    * The cached value of the '{@link #isServiceLayer() <em>Service Layer</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -72,6 +73,7 @@ public class MapperImpl extends TypePointerImpl implements Mapper
    * @ordered
    */
   protected boolean serviceLayer = SERVICE_LAYER_EDEFAULT;
+
   /**
    * The default value of the '{@link #isUiLayer() <em>Ui Layer</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -81,6 +83,7 @@ public class MapperImpl extends TypePointerImpl implements Mapper
    * @ordered
    */
   protected static final boolean UI_LAYER_EDEFAULT = false;
+
   /**
    * The cached value of the '{@link #isUiLayer() <em>Ui Layer</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -90,6 +93,7 @@ public class MapperImpl extends TypePointerImpl implements Mapper
    * @ordered
    */
   protected boolean uiLayer = UI_LAYER_EDEFAULT;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

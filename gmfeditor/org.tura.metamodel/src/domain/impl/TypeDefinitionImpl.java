@@ -3,7 +3,6 @@
 package domain.impl;
 
 import domain.DomainPackage;
-import domain.Enumarator;
 import domain.TypeDefinition;
 import domain.TypeElement;
 

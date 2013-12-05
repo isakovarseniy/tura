@@ -86,7 +86,7 @@ class Artifact{
    
    // Variables to query model ( for example FormName or service name)
    @gmf.compartment
-   val   Variable[*]#parent modelQuery;
+   val   ModelQuery[*]#parent modelQuery;
    
    //For navigation in the template (for example choosing specific technologies EclipseLink vs Hibernate)
    @gmf.compartment
@@ -104,12 +104,20 @@ class ConfigVariable{
 }
 
 @gmf.node(label="name")
-class Variable{
+class ModelQuery{
     id attr EString uid;
    attr EString name;
+   attr EString query;
    ref Artifact#modelQuery parent;
+   val  QueryParameter[*]#parent parameters;  
+
 }
 
+class QueryParameter{
+    id attr EString uid;
+   ref ModelQuery#parameters parent;
+   attr EString value;
+}
 
 @gmf.node(label="name")
 class Specifier{
@@ -345,7 +353,7 @@ class ModelMapper extends ArtifactRef{
    attr EString name;
    ref Component#mappers parent;
    val MappingSpecifier[*] specifiers;
-   val MappingVariable[*] variables;
+   val QueryVariable[*] variables;
 }
 
 @gmf.node(label="fakeName")
@@ -361,9 +369,10 @@ class MappingSpecifier{
    ref  Specifier specifierRef;
    ref Option valueRef;
 }
-class MappingVariable{
+
+class QueryVariable{
     id attr EString uid;
-   ref Variable variableRef;
+   ref QueryParameter queryParamRef;
    attr EString value;
 }
 

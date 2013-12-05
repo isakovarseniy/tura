@@ -24,7 +24,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import artifact.diagram.edit.parts.VariableEditPart;
+import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.part.DomainDiagramUpdater;
 import artifact.diagram.part.DomainNodeDescriptor;
 import artifact.diagram.part.DomainVisualIDRegistry;
@@ -83,7 +83,7 @@ public class ArtifactArtifactModelQueryCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return VariableEditPart.VISUAL_ID == DomainVisualIDRegistry
+		return ModelQueryEditPart.VISUAL_ID == DomainVisualIDRegistry
 				.getVisualID(view);
 	}
 

@@ -20,12 +20,12 @@ import artifact.diagram.edit.parts.ConfigVariableEditPart;
 import artifact.diagram.edit.parts.ConfigVariableNameEditPart;
 import artifact.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import artifact.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import artifact.diagram.edit.parts.ModelQueryEditPart;
+import artifact.diagram.edit.parts.ModelQueryNameEditPart;
 import artifact.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.edit.parts.SpecifierNameEditPart;
 import artifact.diagram.edit.parts.TypeExtensionEditPart;
-import artifact.diagram.edit.parts.VariableEditPart;
-import artifact.diagram.edit.parts.VariableNameEditPart;
 import artifact.diagram.edit.parts.WrappingLabel2EditPart;
 import artifact.diagram.edit.parts.WrappingLabel3EditPart;
 import artifact.diagram.edit.parts.WrappingLabelEditPart;
@@ -153,9 +153,9 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getVariable().isSuperTypeOf(
+			if (DomainPackage.eINSTANCE.getModelQuery().isSuperTypeOf(
 					domainElement.eClass())) {
-				return VariableEditPart.VISUAL_ID;
+				return ModelQueryEditPart.VISUAL_ID;
 			}
 			break;
 		case ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID:
@@ -214,8 +214,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case VariableEditPart.VISUAL_ID:
-			if (VariableNameEditPart.VISUAL_ID == nodeVisualID) {
+		case ModelQueryEditPart.VISUAL_ID:
+			if (ModelQueryNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -230,7 +230,7 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID:
-			if (VariableEditPart.VISUAL_ID == nodeVisualID) {
+			if (ModelQueryEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -317,9 +317,9 @@ public class DomainVisualIDRegistry {
 		switch (visualID) {
 		case ArtifactsEditPart.VISUAL_ID:
 			return false;
-		case VariableEditPart.VISUAL_ID:
 		case SpecifierEditPart.VISUAL_ID:
 		case ConfigVariableEditPart.VISUAL_ID:
+		case ModelQueryEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

@@ -706,6 +706,10 @@
             genNodes="//@diagram/@topLevelNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ModelQuery"
+            description="Create new ModelQuery"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Operation"
             description="Create new Operation"
             genNodes="//@diagram/@childNodes.1"/>

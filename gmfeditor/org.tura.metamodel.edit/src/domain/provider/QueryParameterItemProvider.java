@@ -4,7 +4,7 @@ package domain.provider;
 
 
 import domain.DomainPackage;
-import domain.Variable;
+import domain.QueryParameter;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link domain.Variable} object.
+ * This is the item provider adapter for a {@link domain.QueryParameter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableItemProvider
+public class QueryParameterItemProvider
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class VariableItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableItemProvider(AdapterFactory adapterFactory)
+  public QueryParameterItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -65,7 +65,7 @@ public class VariableItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
+      addValuePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -82,9 +82,9 @@ public class VariableItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Variable_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Variable_uid_feature", "_UI_Variable_type"),
-         DomainPackage.Literals.VARIABLE__UID,
+         getString("_UI_QueryParameter_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_QueryParameter_uid_feature", "_UI_QueryParameter_type"),
+         DomainPackage.Literals.QUERY_PARAMETER__UID,
          true,
          false,
          false,
@@ -94,20 +94,20 @@ public class VariableItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Name feature.
+   * This adds a property descriptor for the Value feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addNamePropertyDescriptor(Object object)
+  protected void addValuePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Variable_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Variable_name_feature", "_UI_Variable_type"),
-         DomainPackage.Literals.VARIABLE__NAME,
+         getString("_UI_QueryParameter_value_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_QueryParameter_value_feature", "_UI_QueryParameter_type"),
+         DomainPackage.Literals.QUERY_PARAMETER__VALUE,
          true,
          false,
          false,
@@ -117,7 +117,7 @@ public class VariableItemProvider
   }
 
   /**
-   * This returns Variable.gif.
+   * This returns QueryParameter.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -125,7 +125,7 @@ public class VariableItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Variable"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/QueryParameter"));
   }
 
   /**
@@ -137,10 +137,10 @@ public class VariableItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Variable)object).getName();
+    String label = ((QueryParameter)object).getUid();
     return label == null || label.length() == 0 ?
-      getString("_UI_Variable_type") :
-      getString("_UI_Variable_type") + " " + label;
+      getString("_UI_QueryParameter_type") :
+      getString("_UI_QueryParameter_type") + " " + label;
   }
 
   /**
@@ -155,10 +155,10 @@ public class VariableItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(Variable.class))
+    switch (notification.getFeatureID(QueryParameter.class))
     {
-      case DomainPackage.VARIABLE__UID:
-      case DomainPackage.VARIABLE__NAME:
+      case DomainPackage.QUERY_PARAMETER__UID:
+      case DomainPackage.QUERY_PARAMETER__VALUE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }
