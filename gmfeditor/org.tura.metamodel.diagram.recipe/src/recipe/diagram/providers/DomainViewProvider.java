@@ -56,18 +56,16 @@ import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import recipe.diagram.edit.parts.IngredientEditPart;
 import recipe.diagram.edit.parts.IngredientIngredientComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.IngredientNameEditPart;
-import recipe.diagram.edit.parts.JavaComponent2EditPart;
 import recipe.diagram.edit.parts.JavaComponentEditPart;
-import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartment2EditPart;
-import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartmentEditPart;
-import recipe.diagram.edit.parts.JavaComponentJavaComponentMappersCompartment2EditPart;
 import recipe.diagram.edit.parts.JavaComponentJavaComponentMappersCompartmentEditPart;
-import recipe.diagram.edit.parts.JavaComponentName2EditPart;
 import recipe.diagram.edit.parts.JavaComponentNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
+import recipe.diagram.edit.parts.ModelMapperModelMapperQueriesCompartmentEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
+import recipe.diagram.edit.parts.QueryEditPart;
+import recipe.diagram.edit.parts.QueryFakeNameEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
@@ -175,8 +173,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				case IngredientEditPart.VISUAL_ID:
 				case JavaComponentEditPart.VISUAL_ID:
 				case ModelMapperEditPart.VISUAL_ID:
+				case QueryEditPart.VISUAL_ID:
 				case PropertyEditPart.VISUAL_ID:
-				case JavaComponent2EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -194,8 +192,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| InfrastructureEditPart.VISUAL_ID == visualID
 				|| IngredientEditPart.VISUAL_ID == visualID
 				|| JavaComponentEditPart.VISUAL_ID == visualID
-				|| JavaComponent2EditPart.VISUAL_ID == visualID
 				|| ModelMapperEditPart.VISUAL_ID == visualID
+				|| QueryEditPart.VISUAL_ID == visualID
 				|| PropertyEditPart.VISUAL_ID == visualID;
 	}
 
@@ -268,12 +266,12 @@ public class DomainViewProvider extends AbstractProvider implements
 		case JavaComponentEditPart.VISUAL_ID:
 			return createJavaComponent_303007(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case JavaComponent2EditPart.VISUAL_ID:
-			return createJavaComponent_303008(domainElement, containerView,
-					index, persisted, preferencesHint);
 		case ModelMapperEditPart.VISUAL_ID:
 			return createModelMapper_303003(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case QueryEditPart.VISUAL_ID:
+			return createQuery_303009(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case PropertyEditPart.VISUAL_ID:
 			return createProperty_303004(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -562,71 +560,8 @@ public class DomainViewProvider extends AbstractProvider implements
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
-						.getType(JavaComponentJavaComponentComponentsCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
-		createCompartment(
-				node,
-				DomainVisualIDRegistry
 						.getType(JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
-		return node;
-	}
-
-	/**
-	 * @generated
-	 */
-	public Node createJavaComponent_303008(EObject domainElement,
-			View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.getStyles().add(
-				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(DomainVisualIDRegistry
-				.getType(JavaComponent2EditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
-				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node
-				.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore,
-					IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
-					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
-					.intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label305010 = createLabel(node,
-				DomainVisualIDRegistry
-						.getType(JavaComponentName2EditPart.VISUAL_ID));
-		createCompartment(
-				node,
-				DomainVisualIDRegistry
-						.getType(JavaComponentJavaComponentComponentsCompartment2EditPart.VISUAL_ID),
 				true, false, false, false);
-		createCompartment(
-				node,
-				DomainVisualIDRegistry
-						.getType(JavaComponentJavaComponentMappersCompartment2EditPart.VISUAL_ID),
-				true, false, true, true);
 		return node;
 	}
 
@@ -637,6 +572,8 @@ public class DomainViewProvider extends AbstractProvider implements
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.getStyles().add(
+				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry
 				.getType(ModelMapperEditPart.VISUAL_ID));
@@ -673,6 +610,54 @@ public class DomainViewProvider extends AbstractProvider implements
 		Node label305001 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(ModelMapperNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createQuery_303009(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry.getType(QueryEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label305013 = createLabel(node,
+				DomainVisualIDRegistry.getType(QueryFakeNameEditPart.VISUAL_ID));
 		return node;
 	}
 

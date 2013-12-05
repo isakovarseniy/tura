@@ -49,6 +49,7 @@ import domain.Parameter;
 import domain.PlatformLayers;
 import domain.Primitive;
 import domain.Property;
+import domain.Query;
 import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
@@ -173,6 +174,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.MODEL_MAPPER: return createModelMapper();
       case DomainPackage.PROPERTY: return createProperty();
       case DomainPackage.MAPPING_SPECIFIER: return createMappingSpecifier();
+      case DomainPackage.QUERY: return createQuery();
       case DomainPackage.QUERY_VARIABLE: return createQueryVariable();
       case DomainPackage.ARTIFACT_REF: return createArtifactRef();
       case DomainPackage.TYPE_POINTER: return createTypePointer();
@@ -713,6 +715,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     MappingSpecifierImpl mappingSpecifier = new MappingSpecifierImpl();
     return mappingSpecifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Query createQuery()
+  {
+    QueryImpl query = new QueryImpl();
+    return query;
   }
 
   /**

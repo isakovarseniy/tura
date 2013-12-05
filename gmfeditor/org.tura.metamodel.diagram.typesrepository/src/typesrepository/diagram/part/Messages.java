@@ -296,12 +296,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Types5CreationTool_title;
+	public static String Query5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Types5CreationTool_desc;
+	public static String Query5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Types6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Types6CreationTool_desc;
 
 	/**
 	 * @generated

@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
       <diagramNode
           href="domain.gmfgraph#Recipe"/>
       <children
@@ -66,16 +66,11 @@
               <diagramNode
                   href="domain.gmfgraph#JavaComponent"/>
               <children
-                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0"
-                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
-                <containmentFeature
-                    href="domain.ecore#//Component/components"/>
-              </children>
-              <children
-                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.1">
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                 <containmentFeature
                     href="domain.ecore#//Component/mappers"/>
-                <ownedChild>
+                <ownedChild
+                    relatedDiagrams="//@diagram">
                   <domainMetaElement
                       href="domain.ecore#//ModelMapper"/>
                   <labelMappings
@@ -90,15 +85,36 @@
                       href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
                   <diagramNode
                       href="domain.gmfgraph#ModelMapper"/>
+                  <children
+                      compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                    <containmentFeature
+                        href="domain.ecore#//ModelMapper/queries"/>
+                    <ownedChild>
+                      <domainMetaElement
+                          href="domain.ecore#//Query"/>
+                      <labelMappings
+                          xsi:type="gmfmap:FeatureLabelMapping">
+                        <diagramLabel
+                            href="domain.gmfgraph#QueryLabel"/>
+                        <features
+                            href="domain.ecore#//Query/fakeName"/>
+                      </labelMappings>
+                      <tool
+                          xsi:type="gmftool:CreationTool"
+                          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+                      <diagramNode
+                          href="domain.gmfgraph#Query"/>
+                    </ownedChild>
+                  </children>
+                  <compartments
+                      children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0">
+                    <compartment
+                        href="domain.gmfgraph#ModelMapperQueriesCompartment"/>
+                  </compartments>
                 </ownedChild>
               </children>
               <compartments
                   children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0">
-                <compartment
-                    href="domain.gmfgraph#JavaComponentComponentsCompartment"/>
-              </compartments>
-              <compartments
-                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1">
                 <compartment
                     href="domain.gmfgraph#JavaComponentMappersCompartment"/>
               </compartments>

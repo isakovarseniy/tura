@@ -43,6 +43,7 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createApplicationRecipe3CreationTool());
 		paletteContainer.add(createApplicationRecipes4CreationTool());
 		paletteContainer.add(createModelQuery5CreationTool());
+		paletteContainer.add(createQuery6CreationTool());
 		return paletteContainer;
 	}
 
@@ -133,6 +134,17 @@ public class DomainPaletteFactory {
 				Messages.ModelQuery5CreationTool_desc, null, null) {
 		};
 		entry.setId("createModelQuery5CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createQuery6CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Query6CreationTool_title,
+				Messages.Query6CreationTool_desc, null, null) {
+		};
+		entry.setId("createQuery6CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

@@ -419,6 +419,15 @@ public interface DomainFactory extends EFactory
   MappingSpecifier createMappingSpecifier();
 
   /**
+   * Returns a new object of class '<em>Query</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Query</em>'.
+   * @generated
+   */
+  Query createQuery();
+
+  /**
    * Returns a new object of class '<em>Query Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

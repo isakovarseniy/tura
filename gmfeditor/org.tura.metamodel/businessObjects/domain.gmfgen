@@ -647,6 +647,10 @@
             genNodes="//@diagram/@childNodes.5"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="Query"
+            description="Create new Query"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="RemoveMethod"
             description="Create new RemoveMethod"
             genNodes="//@diagram/@childNodes.3"/>

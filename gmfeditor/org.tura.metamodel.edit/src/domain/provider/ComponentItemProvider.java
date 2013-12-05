@@ -181,7 +181,6 @@ public class ComponentItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.COMPONENT__COMPONENTS);
       childrenFeatures.add(DomainPackage.Literals.COMPONENT__MAPPERS);
     }
     return childrenFeatures;
@@ -248,7 +247,6 @@ public class ComponentItemProvider
       case DomainPackage.COMPONENT__DEPLOY_SCRIPT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.COMPONENT__COMPONENTS:
       case DomainPackage.COMPONENT__MAPPERS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -267,16 +265,6 @@ public class ComponentItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.COMPONENT__COMPONENTS,
-         DomainFactory.eINSTANCE.createComponent()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.COMPONENT__COMPONENTS,
-         DomainFactory.eINSTANCE.createJavaComponent()));
 
     newChildDescriptors.add
       (createChildParameter

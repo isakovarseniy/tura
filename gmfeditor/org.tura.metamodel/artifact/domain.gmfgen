@@ -425,6 +425,10 @@
             genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="Query"
+            description="Create new Query"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Specifier"
             description="Create new Specifier"
             genNodes="//@diagram/@childNodes.2"/>

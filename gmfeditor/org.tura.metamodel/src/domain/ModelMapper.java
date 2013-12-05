@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.ModelMapper#getName <em>Name</em>}</li>
  *   <li>{@link domain.ModelMapper#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.ModelMapper#getSpecifiers <em>Specifiers</em>}</li>
- *   <li>{@link domain.ModelMapper#getVariables <em>Variables</em>}</li>
+ *   <li>{@link domain.ModelMapper#getQueries <em>Queries</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,19 +96,20 @@ public interface ModelMapper extends ArtifactRef
   EList<MappingSpecifier> getSpecifiers();
 
   /**
-   * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
-   * The list contents are of type {@link domain.QueryVariable}.
+   * Returns the value of the '<em><b>Queries</b></em>' containment reference list.
+   * The list contents are of type {@link domain.Query}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Queries</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Variables</em>' containment reference list.
-   * @see domain.DomainPackage#getModelMapper_Variables()
+   * @return the value of the '<em>Queries</em>' containment reference list.
+   * @see domain.DomainPackage#getModelMapper_Queries()
    * @model containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
-  EList<QueryVariable> getVariables();
+  EList<Query> getQueries();
 
 } // ModelMapper

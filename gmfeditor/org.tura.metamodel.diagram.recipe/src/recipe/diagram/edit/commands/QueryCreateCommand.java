@@ -15,19 +15,19 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import domain.Component;
 import domain.DomainFactory;
-import domain.JavaComponent;
+import domain.ModelMapper;
+import domain.Query;
 
 /**
  * @generated
  */
-public class JavaComponent2CreateCommand extends EditElementCommand {
+public class QueryCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public JavaComponent2CreateCommand(CreateElementRequest req) {
+	public QueryCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -57,11 +57,10 @@ public class JavaComponent2CreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		JavaComponent newElement = DomainFactory.eINSTANCE
-				.createJavaComponent();
+		Query newElement = DomainFactory.eINSTANCE.createQuery();
 
-		Component owner = (Component) getElementToEdit();
-		owner.getComponents().add(newElement);
+		ModelMapper owner = (ModelMapper) getElementToEdit();
+		owner.getQueries().add(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 
@@ -74,9 +73,8 @@ public class JavaComponent2CreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(JavaComponent newElement,
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
+	protected void doConfigure(Query newElement, IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(

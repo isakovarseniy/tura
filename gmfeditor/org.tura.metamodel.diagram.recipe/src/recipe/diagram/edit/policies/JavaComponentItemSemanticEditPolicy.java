@@ -15,8 +15,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import recipe.diagram.edit.parts.JavaComponent2EditPart;
-import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.JavaComponentJavaComponentMappersCompartmentEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.part.DomainVisualIDRegistry;
@@ -64,21 +62,6 @@ public class JavaComponentItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (DomainVisualIDRegistry.getVisualID(node)) {
-			case JavaComponentJavaComponentComponentsCompartmentEditPart.VISUAL_ID:
-				for (Iterator<?> cit = node.getChildren().iterator(); cit
-						.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
-					case JavaComponent2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					}
-				}
-				break;
 			case JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {

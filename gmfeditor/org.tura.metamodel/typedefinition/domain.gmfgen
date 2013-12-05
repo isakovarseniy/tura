@@ -725,6 +725,10 @@
             genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="Query"
+            description="Create new Query"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="ReturnValue"
             description="Create new ReturnValue"
             genNodes="//@diagram/@childNodes.3"/>

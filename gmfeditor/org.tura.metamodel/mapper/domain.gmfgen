@@ -237,6 +237,10 @@
             xsi:type="gmfgen:ToolEntry"
             title="ModelQuery"
             description="Create new ModelQuery"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Query"
+            description="Create new Query"/>
       </groups>
       <groups
           title="Connections"

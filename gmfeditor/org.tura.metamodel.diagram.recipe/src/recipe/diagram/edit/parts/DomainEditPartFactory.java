@@ -58,17 +58,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case JavaComponentNameEditPart.VISUAL_ID:
 				return new JavaComponentNameEditPart(view);
 
-			case JavaComponent2EditPart.VISUAL_ID:
-				return new JavaComponent2EditPart(view);
-
-			case JavaComponentName2EditPart.VISUAL_ID:
-				return new JavaComponentName2EditPart(view);
-
 			case ModelMapperEditPart.VISUAL_ID:
 				return new ModelMapperEditPart(view);
 
 			case ModelMapperNameEditPart.VISUAL_ID:
 				return new ModelMapperNameEditPart(view);
+
+			case QueryEditPart.VISUAL_ID:
+				return new QueryEditPart(view);
+
+			case QueryFakeNameEditPart.VISUAL_ID:
+				return new QueryFakeNameEditPart(view);
 
 			case PropertyEditPart.VISUAL_ID:
 				return new PropertyEditPart(view);
@@ -83,20 +83,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new IngredientIngredientComponentsCompartmentEditPart(
 						view);
 
-			case JavaComponentJavaComponentComponentsCompartmentEditPart.VISUAL_ID:
-				return new JavaComponentJavaComponentComponentsCompartmentEditPart(
-						view);
-
 			case JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID:
 				return new JavaComponentJavaComponentMappersCompartmentEditPart(
 						view);
 
-			case JavaComponentJavaComponentComponentsCompartment2EditPart.VISUAL_ID:
-				return new JavaComponentJavaComponentComponentsCompartment2EditPart(
-						view);
-
-			case JavaComponentJavaComponentMappersCompartment2EditPart.VISUAL_ID:
-				return new JavaComponentJavaComponentMappersCompartment2EditPart(
+			case ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID:
+				return new ModelMapperModelMapperQueriesCompartmentEditPart(
 						view);
 
 			case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:

@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.ComponentImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.ComponentImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getMappers <em>Mappers</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getBuildScript <em>Build Script</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getDeployScript <em>Deploy Script</em>}</li>
@@ -82,16 +80,6 @@ public class ComponentImpl extends EObjectImpl implements Component
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getComponents()
-   * @generated
-   * @ordered
-   */
-  protected EList<Component> components;
 
   /**
    * The cached value of the '{@link #getMappers() <em>Mappers</em>}' containment reference list.
@@ -215,20 +203,6 @@ public class ComponentImpl extends EObjectImpl implements Component
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Component> getComponents()
-  {
-    if (components == null)
-    {
-      components = new EObjectContainmentEList<Component>(Component.class, this, DomainPackage.COMPONENT__COMPONENTS);
-    }
-    return components;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<ModelMapper> getMappers()
   {
     if (mappers == null)
@@ -311,8 +285,6 @@ public class ComponentImpl extends EObjectImpl implements Component
   {
     switch (featureID)
     {
-      case DomainPackage.COMPONENT__COMPONENTS:
-        return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
       case DomainPackage.COMPONENT__MAPPERS:
         return ((InternalEList<?>)getMappers()).basicRemove(otherEnd, msgs);
     }
@@ -333,8 +305,6 @@ public class ComponentImpl extends EObjectImpl implements Component
         return getUid();
       case DomainPackage.COMPONENT__NAME:
         return getName();
-      case DomainPackage.COMPONENT__COMPONENTS:
-        return getComponents();
       case DomainPackage.COMPONENT__MAPPERS:
         return getMappers();
       case DomainPackage.COMPONENT__BUILD_SCRIPT:
@@ -361,10 +331,6 @@ public class ComponentImpl extends EObjectImpl implements Component
         return;
       case DomainPackage.COMPONENT__NAME:
         setName((String)newValue);
-        return;
-      case DomainPackage.COMPONENT__COMPONENTS:
-        getComponents().clear();
-        getComponents().addAll((Collection<? extends Component>)newValue);
         return;
       case DomainPackage.COMPONENT__MAPPERS:
         getMappers().clear();
@@ -396,9 +362,6 @@ public class ComponentImpl extends EObjectImpl implements Component
       case DomainPackage.COMPONENT__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DomainPackage.COMPONENT__COMPONENTS:
-        getComponents().clear();
-        return;
       case DomainPackage.COMPONENT__MAPPERS:
         getMappers().clear();
         return;
@@ -426,8 +389,6 @@ public class ComponentImpl extends EObjectImpl implements Component
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.COMPONENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.COMPONENT__COMPONENTS:
-        return components != null && !components.isEmpty();
       case DomainPackage.COMPONENT__MAPPERS:
         return mappers != null && !mappers.isEmpty();
       case DomainPackage.COMPONENT__BUILD_SCRIPT:

@@ -6,6 +6,7 @@ import domain.Component;
 import domain.DomainPackage;
 import domain.MappingSpecifier;
 import domain.ModelMapper;
+import domain.Query;
 import domain.QueryVariable;
 
 import java.util.Collection;
@@ -34,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ModelMapperImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getSpecifiers <em>Specifiers</em>}</li>
- *   <li>{@link domain.impl.ModelMapperImpl#getVariables <em>Variables</em>}</li>
+ *   <li>{@link domain.impl.ModelMapperImpl#getQueries <em>Queries</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,14 +74,14 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
   protected EList<MappingSpecifier> specifiers;
 
   /**
-   * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
+   * The cached value of the '{@link #getQueries() <em>Queries</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVariables()
+   * @see #getQueries()
    * @generated
    * @ordered
    */
-  protected EList<QueryVariable> variables;
+  protected EList<Query> queries;
 
   /**
    * <!-- begin-user-doc -->
@@ -190,13 +191,13 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<QueryVariable> getVariables()
+  public EList<Query> getQueries()
   {
-    if (variables == null)
+    if (queries == null)
     {
-      variables = new EObjectContainmentEList<QueryVariable>(QueryVariable.class, this, DomainPackage.MODEL_MAPPER__VARIABLES);
+      queries = new EObjectContainmentEList<Query>(Query.class, this, DomainPackage.MODEL_MAPPER__QUERIES);
     }
-    return variables;
+    return queries;
   }
 
   /**
@@ -231,8 +232,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
         return basicSetParent(null, msgs);
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
         return ((InternalEList<?>)getSpecifiers()).basicRemove(otherEnd, msgs);
-      case DomainPackage.MODEL_MAPPER__VARIABLES:
-        return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+      case DomainPackage.MODEL_MAPPER__QUERIES:
+        return ((InternalEList<?>)getQueries()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -269,8 +270,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
         return getParent();
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
         return getSpecifiers();
-      case DomainPackage.MODEL_MAPPER__VARIABLES:
-        return getVariables();
+      case DomainPackage.MODEL_MAPPER__QUERIES:
+        return getQueries();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -296,9 +297,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
         getSpecifiers().clear();
         getSpecifiers().addAll((Collection<? extends MappingSpecifier>)newValue);
         return;
-      case DomainPackage.MODEL_MAPPER__VARIABLES:
-        getVariables().clear();
-        getVariables().addAll((Collection<? extends QueryVariable>)newValue);
+      case DomainPackage.MODEL_MAPPER__QUERIES:
+        getQueries().clear();
+        getQueries().addAll((Collection<? extends Query>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -323,8 +324,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
         getSpecifiers().clear();
         return;
-      case DomainPackage.MODEL_MAPPER__VARIABLES:
-        getVariables().clear();
+      case DomainPackage.MODEL_MAPPER__QUERIES:
+        getQueries().clear();
         return;
     }
     super.eUnset(featureID);
@@ -346,8 +347,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
         return getParent() != null;
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
         return specifiers != null && !specifiers.isEmpty();
-      case DomainPackage.MODEL_MAPPER__VARIABLES:
-        return variables != null && !variables.isEmpty();
+      case DomainPackage.MODEL_MAPPER__QUERIES:
+        return queries != null && !queries.isEmpty();
     }
     return super.eIsSet(featureID);
   }

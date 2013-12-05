@@ -47,6 +47,7 @@ import domain.OtherMethod;
 import domain.Parameter;
 import domain.Primitive;
 import domain.Property;
+import domain.Query;
 import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
@@ -355,6 +356,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMappingSpecifier(MappingSpecifier object)
       {
         return createMappingSpecifierAdapter();
+      }
+      @Override
+      public Adapter caseQuery(Query object)
+      {
+        return createQueryAdapter();
       }
       @Override
       public Adapter caseQueryVariable(QueryVariable object)
@@ -1129,6 +1135,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMappingSpecifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Query <em>Query</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Query
+   * @generated
+   */
+  public Adapter createQueryAdapter()
   {
     return null;
   }

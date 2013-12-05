@@ -310,9 +310,7 @@ class Ingredient extends UsingMappers{
 class Component{
     id attr EString uid;
    attr EString name;
-     @gmf.compartment
-  val Component[*]#parent components;
-  @gmf.compartment(layout="list")
+  @gmf.compartment
    val ModelMapper[*]#parent mappers;
    attr EString buildScript;
    attr EString deployScript;
@@ -353,7 +351,8 @@ class ModelMapper extends ArtifactRef{
    attr EString name;
    ref Component#mappers parent;
    val MappingSpecifier[*] specifiers;
-   val QueryVariable[*] variables;
+   @gmf.compartment(layout="list")
+    val Query[*] queries;
 }
 
 @gmf.node(label="fakeName")
@@ -368,6 +367,14 @@ class MappingSpecifier{
     id attr EString uid;
    ref  Specifier specifierRef;
    ref Option valueRef;
+}
+
+@gmf.node(label="fakeName")
+class Query{
+    id attr EString uid;
+   ref ModelQuery modelQuery;
+   attr EString fakeName;
+  val QueryVariable[*] variables;
 }
 
 class QueryVariable{

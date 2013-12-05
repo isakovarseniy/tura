@@ -47,6 +47,7 @@ import domain.OtherMethod;
 import domain.Parameter;
 import domain.Primitive;
 import domain.Property;
+import domain.Query;
 import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
@@ -462,6 +463,13 @@ public class DomainSwitch<T> extends Switch<T>
       {
         MappingSpecifier mappingSpecifier = (MappingSpecifier)theEObject;
         T result = caseMappingSpecifier(mappingSpecifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.QUERY:
+      {
+        Query query = (Query)theEObject;
+        T result = caseQuery(query);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1310,6 +1318,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMappingSpecifier(MappingSpecifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Query</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Query</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseQuery(Query object)
   {
     return null;
   }

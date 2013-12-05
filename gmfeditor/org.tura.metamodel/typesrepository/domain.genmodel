@@ -206,7 +206,6 @@
     <genClasses ecoreClass="domain.ecore#//Component">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Component/components"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Component/mappers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/buildScript"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/deployScript"/>
@@ -235,7 +234,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ModelMapper/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/specifiers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/queries"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Property/uid"/>
@@ -247,6 +246,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MappingSpecifier/uid"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//MappingSpecifier/specifierRef"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//MappingSpecifier/valueRef"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Query">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Query/uid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Query/modelQuery"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Query/fakeName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Query/variables"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//QueryVariable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//QueryVariable/uid"/>

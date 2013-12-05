@@ -4,8 +4,9 @@
 package recipe.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
@@ -14,34 +15,41 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 
-import recipe.diagram.edit.policies.JavaComponentJavaComponentComponentsCompartment2CanonicalEditPolicy;
-import recipe.diagram.edit.policies.JavaComponentJavaComponentComponentsCompartment2ItemSemanticEditPolicy;
+import recipe.diagram.edit.policies.ModelMapperModelMapperQueriesCompartmentCanonicalEditPolicy;
+import recipe.diagram.edit.policies.ModelMapperModelMapperQueriesCompartmentItemSemanticEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class JavaComponentJavaComponentComponentsCompartment2EditPart extends
-		ShapeCompartmentEditPart {
+public class ModelMapperModelMapperQueriesCompartmentEditPart extends
+		ListCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 307012;
+	public static final int VISUAL_ID = 307011;
 
 	/**
 	 * @generated
 	 */
-	public JavaComponentJavaComponentComponentsCompartment2EditPart(View view) {
+	public ModelMapperModelMapperQueriesCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
 	 * @generated
 	 */
+	protected boolean hasModelChildrenChanged(Notification evt) {
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
 	public String getCompartmentName() {
-		return Messages.JavaComponentJavaComponentComponentsCompartment2EditPart_title;
+		return Messages.ModelMapperModelMapperQueriesCompartmentEditPart_title;
 	}
 
 	/**
@@ -64,7 +72,7 @@ public class JavaComponentJavaComponentComponentsCompartment2EditPart extends
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new JavaComponentJavaComponentComponentsCompartment2ItemSemanticEditPolicy());
+				new ModelMapperModelMapperQueriesCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
@@ -72,7 +80,7 @@ public class JavaComponentJavaComponentComponentsCompartment2EditPart extends
 				new DragDropEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.CANONICAL_ROLE,
-				new JavaComponentJavaComponentComponentsCompartment2CanonicalEditPolicy());
+				new ModelMapperModelMapperQueriesCompartmentCanonicalEditPolicy());
 	}
 
 	/**

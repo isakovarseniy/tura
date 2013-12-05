@@ -3,7 +3,6 @@
  */
 package recipe.diagram.part;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -46,7 +45,8 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createModelMapper5CreationTool());
 		paletteContainer.add(createModelQuery6CreationTool());
 		paletteContainer.add(createProperty7CreationTool());
-		paletteContainer.add(createRecipe8CreationTool());
+		paletteContainer.add(createQuery8CreationTool());
+		paletteContainer.add(createRecipe9CreationTool());
 		return paletteContainer;
 	}
 
@@ -116,12 +116,11 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createJavaComponent4CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(DomainElementTypes.JavaComponent_303007);
-		types.add(DomainElementTypes.JavaComponent_303008);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.JavaComponent4CreationTool_title,
-				Messages.JavaComponent4CreationTool_desc, types);
+				Messages.JavaComponent4CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.JavaComponent_303007));
 		entry.setId("createJavaComponent4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.JavaComponent_303007));
@@ -174,12 +173,27 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRecipe8CreationTool() {
+	private ToolEntry createQuery8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Recipe8CreationTool_title,
-				Messages.Recipe8CreationTool_desc,
+				Messages.Query8CreationTool_title,
+				Messages.Query8CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Query_303009));
+		entry.setId("createQuery8CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Query_303009));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRecipe9CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Recipe9CreationTool_title,
+				Messages.Recipe9CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Recipe_302001));
-		entry.setId("createRecipe8CreationTool"); //$NON-NLS-1$
+		entry.setId("createRecipe9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Recipe_302001));
 		entry.setLargeIcon(entry.getSmallIcon());

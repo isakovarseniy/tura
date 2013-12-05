@@ -24,10 +24,10 @@ import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import recipe.diagram.edit.parts.IngredientEditPart;
-import recipe.diagram.edit.parts.JavaComponent2EditPart;
 import recipe.diagram.edit.parts.JavaComponentEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
+import recipe.diagram.edit.parts.QueryEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
@@ -88,11 +88,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType JavaComponent_303008 = getElementType("org.tura.metamodel.diagram.recipe.JavaComponent_303008"); //$NON-NLS-1$
+	public static final IElementType ModelMapper_303003 = getElementType("org.tura.metamodel.diagram.recipe.ModelMapper_303003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ModelMapper_303003 = getElementType("org.tura.metamodel.diagram.recipe.ModelMapper_303003"); //$NON-NLS-1$
+	public static final IElementType Query_303009 = getElementType("org.tura.metamodel.diagram.recipe.Query_303009"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -241,11 +241,10 @@ public class DomainElementTypes {
 			elements.put(JavaComponent_303007,
 					DomainPackage.eINSTANCE.getJavaComponent());
 
-			elements.put(JavaComponent_303008,
-					DomainPackage.eINSTANCE.getJavaComponent());
-
 			elements.put(ModelMapper_303003,
 					DomainPackage.eINSTANCE.getModelMapper());
+
+			elements.put(Query_303009, DomainPackage.eINSTANCE.getQuery());
 
 			elements.put(Property_303004, DomainPackage.eINSTANCE.getProperty());
 
@@ -283,8 +282,8 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Infrastructure_302003);
 			KNOWN_ELEMENT_TYPES.add(Ingredient_303005);
 			KNOWN_ELEMENT_TYPES.add(JavaComponent_303007);
-			KNOWN_ELEMENT_TYPES.add(JavaComponent_303008);
 			KNOWN_ELEMENT_TYPES.add(ModelMapper_303003);
+			KNOWN_ELEMENT_TYPES.add(Query_303009);
 			KNOWN_ELEMENT_TYPES.add(Property_303004);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_304001);
 			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_304005);
@@ -311,10 +310,10 @@ public class DomainElementTypes {
 			return Ingredient_303005;
 		case JavaComponentEditPart.VISUAL_ID:
 			return JavaComponent_303007;
-		case JavaComponent2EditPart.VISUAL_ID:
-			return JavaComponent_303008;
 		case ModelMapperEditPart.VISUAL_ID:
 			return ModelMapper_303003;
+		case QueryEditPart.VISUAL_ID:
+			return Query_303009;
 		case PropertyEditPart.VISUAL_ID:
 			return Property_303004;
 		case TypeExtensionEditPart.VISUAL_ID:

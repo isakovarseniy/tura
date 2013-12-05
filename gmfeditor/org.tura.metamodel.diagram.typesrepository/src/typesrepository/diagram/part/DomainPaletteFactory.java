@@ -42,7 +42,8 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createModelQuery2CreationTool());
 		paletteContainer.add(createPackage3CreationTool());
 		paletteContainer.add(createPrimitive4CreationTool());
-		paletteContainer.add(createTypes5CreationTool());
+		paletteContainer.add(createQuery5CreationTool());
+		paletteContainer.add(createTypes6CreationTool());
 		return paletteContainer;
 	}
 
@@ -117,12 +118,23 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypes5CreationTool() {
+	private ToolEntry createQuery5CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Query5CreationTool_title,
+				Messages.Query5CreationTool_desc, null, null) {
+		};
+		entry.setId("createQuery5CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createTypes6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Types5CreationTool_title,
-				Messages.Types5CreationTool_desc,
+				Messages.Types6CreationTool_title,
+				Messages.Types6CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Types_202001));
-		entry.setId("createTypes5CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypes6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Types_202001));
 		entry.setLargeIcon(entry.getSmallIcon());

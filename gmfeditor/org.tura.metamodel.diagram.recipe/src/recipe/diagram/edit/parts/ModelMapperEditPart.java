@@ -4,6 +4,7 @@
 package recipe.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -15,18 +16,24 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
 
 import recipe.diagram.edit.policies.ModelMapperItemSemanticEditPolicy;
+import recipe.diagram.edit.policies.OpenDiagramEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
+import recipe.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
@@ -59,10 +66,15 @@ public class ModelMapperEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ModelMapperItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -117,6 +129,14 @@ public class ModelMapperEditPart extends ShapeNodeEditPart {
 							.getFigureModelMapperLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof ModelMapperModelMapperQueriesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getModelMapperQueriesCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((ModelMapperModelMapperQueriesCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -125,6 +145,13 @@ public class ModelMapperEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ModelMapperNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ModelMapperModelMapperQueriesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getModelMapperQueriesCompartmentFigure();
+			pane.remove(((ModelMapperModelMapperQueriesCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -154,6 +181,9 @@ public class ModelMapperEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof ModelMapperModelMapperQueriesCompartmentEditPart) {
+			return getPrimaryShape().getModelMapperQueriesCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -254,12 +284,34 @@ public class ModelMapperEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	public EditPart getTargetEditPart(Request request) {
+		if (request instanceof CreateViewAndElementRequest) {
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+					.getViewAndElementDescriptor()
+					.getCreateElementRequestAdapter();
+			IElementType type = (IElementType) adapter
+					.getAdapter(IElementType.class);
+			if (type == DomainElementTypes.Query_303009) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID));
+			}
+		}
+		return super.getTargetEditPart(request);
+	}
+
+	/**
+	 * @generated
+	 */
 	public class ModelMapperFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureModelMapperLabelFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fModelMapperQueriesCompartmentFigure;
 
 		/**
 		 * @generated
@@ -281,8 +333,16 @@ public class ModelMapperEditPart extends ShapeNodeEditPart {
 			fFigureModelMapperLabelFigure = new WrappingLabel();
 
 			fFigureModelMapperLabelFigure.setText("ModelMapper");
+			fFigureModelMapperLabelFigure.setMaximumSize(new Dimension(
+					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureModelMapperLabelFigure);
+
+			fModelMapperQueriesCompartmentFigure = new RectangleFigure();
+
+			fModelMapperQueriesCompartmentFigure.setOutline(false);
+
+			this.add(fModelMapperQueriesCompartmentFigure);
 
 		}
 
@@ -291,6 +351,13 @@ public class ModelMapperEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureModelMapperLabelFigure() {
 			return fFigureModelMapperLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getModelMapperQueriesCompartmentFigure() {
+			return fModelMapperQueriesCompartmentFigure;
 		}
 
 	}

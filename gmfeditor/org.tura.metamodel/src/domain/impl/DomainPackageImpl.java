@@ -49,6 +49,7 @@ import domain.Parameter;
 import domain.PlatformLayers;
 import domain.Primitive;
 import domain.Property;
+import domain.Query;
 import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
@@ -391,6 +392,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass mappingSpecifierEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass queryEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2230,7 +2238,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_Components()
+  public EReference getComponent_Mappers()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(2);
   }
@@ -2240,19 +2248,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_Mappers()
-  {
-    return (EReference)componentEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getComponent_BuildScript()
   {
-    return (EAttribute)componentEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)componentEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2262,7 +2260,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   public EAttribute getComponent_DeployScript()
   {
-    return (EAttribute)componentEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)componentEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2480,7 +2478,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModelMapper_Variables()
+  public EReference getModelMapper_Queries()
   {
     return (EReference)modelMapperEClass.getEStructuralFeatures().get(3);
   }
@@ -2573,6 +2571,56 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getMappingSpecifier_ValueRef()
   {
     return (EReference)mappingSpecifierEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getQuery()
+  {
+    return queryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getQuery_Uid()
+  {
+    return (EAttribute)queryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQuery_ModelQuery()
+  {
+    return (EReference)queryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getQuery_FakeName()
+  {
+    return (EAttribute)queryEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQuery_Variables()
+  {
+    return (EReference)queryEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3565,7 +3613,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     componentEClass = createEClass(COMPONENT);
     createEAttribute(componentEClass, COMPONENT__UID);
     createEAttribute(componentEClass, COMPONENT__NAME);
-    createEReference(componentEClass, COMPONENT__COMPONENTS);
     createEReference(componentEClass, COMPONENT__MAPPERS);
     createEAttribute(componentEClass, COMPONENT__BUILD_SCRIPT);
     createEAttribute(componentEClass, COMPONENT__DEPLOY_SCRIPT);
@@ -3594,7 +3641,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(modelMapperEClass, MODEL_MAPPER__NAME);
     createEReference(modelMapperEClass, MODEL_MAPPER__PARENT);
     createEReference(modelMapperEClass, MODEL_MAPPER__SPECIFIERS);
-    createEReference(modelMapperEClass, MODEL_MAPPER__VARIABLES);
+    createEReference(modelMapperEClass, MODEL_MAPPER__QUERIES);
 
     propertyEClass = createEClass(PROPERTY);
     createEAttribute(propertyEClass, PROPERTY__UID);
@@ -3606,6 +3653,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(mappingSpecifierEClass, MAPPING_SPECIFIER__UID);
     createEReference(mappingSpecifierEClass, MAPPING_SPECIFIER__SPECIFIER_REF);
     createEReference(mappingSpecifierEClass, MAPPING_SPECIFIER__VALUE_REF);
+
+    queryEClass = createEClass(QUERY);
+    createEAttribute(queryEClass, QUERY__UID);
+    createEReference(queryEClass, QUERY__MODEL_QUERY);
+    createEAttribute(queryEClass, QUERY__FAKE_NAME);
+    createEReference(queryEClass, QUERY__VARIABLES);
 
     queryVariableEClass = createEClass(QUERY_VARIABLE);
     createEAttribute(queryVariableEClass, QUERY_VARIABLE__UID);
@@ -3960,7 +4013,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponent_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponent_Components(), this.getComponent(), null, "components", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_Mappers(), this.getModelMapper(), this.getModelMapper_Parent(), "mappers", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getComponent_BuildScript(), ecorePackage.getEString(), "buildScript", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getComponent_DeployScript(), ecorePackage.getEString(), "deployScript", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3989,7 +4041,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getModelMapper_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelMapper_Parent(), this.getComponent(), this.getComponent_Mappers(), "parent", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelMapper_Specifiers(), this.getMappingSpecifier(), null, "specifiers", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModelMapper_Variables(), this.getQueryVariable(), null, "variables", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModelMapper_Queries(), this.getQuery(), null, "queries", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProperty_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4001,6 +4053,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getMappingSpecifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMappingSpecifier_SpecifierRef(), this.getSpecifier(), null, "specifierRef", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMappingSpecifier_ValueRef(), this.getOption(), null, "valueRef", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(queryEClass, Query.class, "Query", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getQuery_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuery_ModelQuery(), this.getModelQuery(), null, "modelQuery", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getQuery_FakeName(), ecorePackage.getEString(), "fakeName", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuery_Variables(), this.getQueryVariable(), null, "variables", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(queryVariableEClass, QueryVariable.class, "QueryVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getQueryVariable_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, QueryVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4145,7 +4203,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																	
+       });																																																																																		
   }
 
   /**
@@ -4162,7 +4220,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																
+       });																																																																																	
   }
 
   /**
@@ -4362,7 +4420,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "label", "name"
-       });					
+       });				
     addAnnotation
       (javaComponentEClass, 
        source, 
@@ -4390,9 +4448,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "label", "name"
-       });		
+       });			
     addAnnotation
       (propertyEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "fakeName"
+       });		
+    addAnnotation
+      (queryEClass, 
        source, 
        new String[] 
        {
@@ -4584,17 +4649,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        });		
     addAnnotation
-      (getComponent_Components(), 
-       source, 
-       new String[] 
-       {
-       });		
-    addAnnotation
       (getComponent_Mappers(), 
        source, 
        new String[] 
        {
-       "layout", "list"
        });						
     addAnnotation
       (getConfiguration_Properties(), 
@@ -4602,7 +4660,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });								
+       });				
+    addAnnotation
+      (getModelMapper_Queries(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });							
     addAnnotation
       (getType_Attributes(), 
        source, 
@@ -4661,7 +4726,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																					
+       });																																																																						
   }
 
   /**
@@ -4678,7 +4743,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																												
+       });																																																													
   }
 
   /**
@@ -4695,7 +4760,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																					
+       });																																																						
   }
 
   /**
@@ -4712,7 +4777,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																							
+       });																																								
   }
 
   /**
@@ -4729,7 +4794,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																					
+       });																																						
   }
 
   /**
@@ -4748,7 +4813,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "target.decoration", "arrow",
        "style", "dash"
-       });								
+       });							
     addAnnotation
       (getInfrastructure_RecipeConfig(), 
        source, 
@@ -4765,7 +4830,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "style", "dot",
        "width", "2",
        "target.decoration", "closedarrow"
-       });										
+       });												
     addAnnotation
       (typeExtensionEClass, 
        source, 
@@ -4787,7 +4852,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_10Annotations()
   {
-    String source = "gmf.diagram.typedefinition";																																																														
+    String source = "gmf.diagram.typedefinition";																																																															
     addAnnotation
       (typeDefinitionEClass, 
        source, 
@@ -4804,7 +4869,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_11Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																														
+    String source = "gmf.diagram.typesrepository";																																																																															
     addAnnotation
       (typesRepositoryEClass, 
        source, 

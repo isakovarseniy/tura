@@ -19,10 +19,10 @@ import org.eclipse.gmf.runtime.notation.View;
 import recipe.diagram.edit.parts.ConfigurationNameEditPart;
 import recipe.diagram.edit.parts.InfrastructureNameEditPart;
 import recipe.diagram.edit.parts.IngredientNameEditPart;
-import recipe.diagram.edit.parts.JavaComponentName2EditPart;
 import recipe.diagram.edit.parts.JavaComponentNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
 import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
+import recipe.diagram.edit.parts.QueryFakeNameEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
 import recipe.diagram.parsers.MessageFormatParser;
 import recipe.diagram.part.DomainVisualIDRegistry;
@@ -127,24 +127,6 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser javaComponentName_305010Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getJavaComponentName_305010Parser() {
-		if (javaComponentName_305010Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getComponent_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			javaComponentName_305010Parser = parser;
-		}
-		return javaComponentName_305010Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser modelMapperName_305001Parser;
 
 	/**
@@ -158,6 +140,24 @@ public class DomainParserProvider extends AbstractProvider implements
 			modelMapperName_305001Parser = parser;
 		}
 		return modelMapperName_305001Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser queryFakeName_305013Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getQueryFakeName_305013Parser() {
+		if (queryFakeName_305013Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getQuery_FakeName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			queryFakeName_305013Parser = parser;
+		}
+		return queryFakeName_305013Parser;
 	}
 
 	/**
@@ -193,10 +193,10 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getIngredientName_305009Parser();
 		case JavaComponentNameEditPart.VISUAL_ID:
 			return getJavaComponentName_305011Parser();
-		case JavaComponentName2EditPart.VISUAL_ID:
-			return getJavaComponentName_305010Parser();
 		case ModelMapperNameEditPart.VISUAL_ID:
 			return getModelMapperName_305001Parser();
+		case QueryFakeNameEditPart.VISUAL_ID:
+			return getQueryFakeName_305013Parser();
 		case PropertyFakeNameEditPart.VISUAL_ID:
 			return getPropertyFakeName_305005Parser();
 		}

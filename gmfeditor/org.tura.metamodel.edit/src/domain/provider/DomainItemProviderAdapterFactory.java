@@ -1174,6 +1174,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.Query} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected QueryItemProvider queryItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Query}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createQueryAdapter()
+  {
+    if (queryItemProvider == null)
+    {
+      queryItemProvider = new QueryItemProvider(this);
+    }
+
+    return queryItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.QueryVariable} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1803,6 +1828,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (modelMapperItemProvider != null) modelMapperItemProvider.dispose();
     if (propertyItemProvider != null) propertyItemProvider.dispose();
     if (mappingSpecifierItemProvider != null) mappingSpecifierItemProvider.dispose();
+    if (queryItemProvider != null) queryItemProvider.dispose();
     if (queryVariableItemProvider != null) queryVariableItemProvider.dispose();
     if (artifactRefItemProvider != null) artifactRefItemProvider.dispose();
     if (typePointerItemProvider != null) typePointerItemProvider.dispose();

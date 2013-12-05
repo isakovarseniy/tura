@@ -55,13 +55,13 @@ import recipe.diagram.providers.DomainParserProvider;
 /**
  * @generated
  */
-public class JavaComponentName2EditPart extends CompartmentEditPart implements
+public class QueryFakeNameEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 305010;
+	public static final int VISUAL_ID = 305013;
 
 	/**
 	 * @generated
@@ -91,7 +91,7 @@ public class JavaComponentName2EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public JavaComponentName2EditPart(View view) {
+	public QueryFakeNameEditPart(View view) {
 		super(view);
 	}
 
@@ -313,10 +313,10 @@ public class JavaComponentName2EditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.JavaComponent_303008,
+							DomainElementTypes.Query_303009,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(recipe.diagram.edit.parts.JavaComponentName2EditPart.VISUAL_ID));
+									.getType(recipe.diagram.edit.parts.QueryFakeNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

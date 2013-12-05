@@ -326,12 +326,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Recipe8CreationTool_title;
+	public static String Query8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Recipe8CreationTool_desc;
+	public static String Query8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Recipe9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Recipe9CreationTool_desc;
 
 	/**
 	 * @generated
@@ -386,22 +396,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String JavaComponentJavaComponentComponentsCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String JavaComponentJavaComponentMappersCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaComponentJavaComponentComponentsCompartment2EditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String JavaComponentJavaComponentMappersCompartment2EditPart_title;
+	public static String ModelMapperModelMapperQueriesCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -416,42 +416,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_source;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Infrastructure_302003_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Recipes_301000_links;
 
 	/**
 	 * @generated
@@ -472,6 +442,36 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_RecipeInfrastructures_304005_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304003_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304004_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Recipes_301000_links;
 
 	/**
 	 * @generated

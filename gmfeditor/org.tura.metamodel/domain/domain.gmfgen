@@ -639,6 +639,10 @@
             title="ORMEntity"
             description="Create new ORMEntity"
             genNodes="//@diagram/@childNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Query"
+            description="Create new Query"/>
       </groups>
       <groups
           title="Connections"

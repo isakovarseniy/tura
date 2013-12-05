@@ -107,7 +107,7 @@ public class ModelMapperItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.MODEL_MAPPER__SPECIFIERS);
-      childrenFeatures.add(DomainPackage.Literals.MODEL_MAPPER__VARIABLES);
+      childrenFeatures.add(DomainPackage.Literals.MODEL_MAPPER__QUERIES);
     }
     return childrenFeatures;
   }
@@ -171,7 +171,7 @@ public class ModelMapperItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:
-      case DomainPackage.MODEL_MAPPER__VARIABLES:
+      case DomainPackage.MODEL_MAPPER__QUERIES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -197,8 +197,8 @@ public class ModelMapperItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.MODEL_MAPPER__VARIABLES,
-         DomainFactory.eINSTANCE.createQueryVariable()));
+        (DomainPackage.Literals.MODEL_MAPPER__QUERIES,
+         DomainFactory.eINSTANCE.createQuery()));
   }
 
 }

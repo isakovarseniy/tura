@@ -20,18 +20,16 @@ import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import recipe.diagram.edit.parts.IngredientEditPart;
 import recipe.diagram.edit.parts.IngredientIngredientComponentsCompartmentEditPart;
 import recipe.diagram.edit.parts.IngredientNameEditPart;
-import recipe.diagram.edit.parts.JavaComponent2EditPart;
 import recipe.diagram.edit.parts.JavaComponentEditPart;
-import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartment2EditPart;
-import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartmentEditPart;
-import recipe.diagram.edit.parts.JavaComponentJavaComponentMappersCompartment2EditPart;
 import recipe.diagram.edit.parts.JavaComponentJavaComponentMappersCompartmentEditPart;
-import recipe.diagram.edit.parts.JavaComponentName2EditPart;
 import recipe.diagram.edit.parts.JavaComponentNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
+import recipe.diagram.edit.parts.ModelMapperModelMapperQueriesCompartmentEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
+import recipe.diagram.edit.parts.QueryEditPart;
+import recipe.diagram.edit.parts.QueryFakeNameEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
@@ -178,28 +176,16 @@ public class DomainVisualIDRegistry {
 				return JavaComponentEditPart.VISUAL_ID;
 			}
 			break;
-		case JavaComponentJavaComponentComponentsCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getJavaComponent().isSuperTypeOf(
-					domainElement.eClass())) {
-				return JavaComponent2EditPart.VISUAL_ID;
-			}
-			break;
 		case JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getModelMapper().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ModelMapperEditPart.VISUAL_ID;
 			}
 			break;
-		case JavaComponentJavaComponentComponentsCompartment2EditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getJavaComponent().isSuperTypeOf(
+		case ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getQuery().isSuperTypeOf(
 					domainElement.eClass())) {
-				return JavaComponent2EditPart.VISUAL_ID;
-			}
-			break;
-		case JavaComponentJavaComponentMappersCompartment2EditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getModelMapper().isSuperTypeOf(
-					domainElement.eClass())) {
-				return ModelMapperEditPart.VISUAL_ID;
+				return QueryEditPart.VISUAL_ID;
 			}
 			break;
 		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
@@ -278,26 +264,20 @@ public class DomainVisualIDRegistry {
 			if (JavaComponentNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (JavaComponentJavaComponentComponentsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case JavaComponent2EditPart.VISUAL_ID:
-			if (JavaComponentName2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (JavaComponentJavaComponentComponentsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (JavaComponentJavaComponentMappersCompartment2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case ModelMapperEditPart.VISUAL_ID:
 			if (ModelMapperNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case QueryEditPart.VISUAL_ID:
+			if (QueryFakeNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -316,23 +296,13 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case JavaComponentJavaComponentComponentsCompartmentEditPart.VISUAL_ID:
-			if (JavaComponent2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID:
 			if (ModelMapperEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case JavaComponentJavaComponentComponentsCompartment2EditPart.VISUAL_ID:
-			if (JavaComponent2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case JavaComponentJavaComponentMappersCompartment2EditPart.VISUAL_ID:
-			if (ModelMapperEditPart.VISUAL_ID == nodeVisualID) {
+		case ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID:
+			if (QueryEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -404,10 +374,8 @@ public class DomainVisualIDRegistry {
 		switch (visualID) {
 		case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
 		case IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID:
-		case JavaComponentJavaComponentComponentsCompartmentEditPart.VISUAL_ID:
 		case JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID:
-		case JavaComponentJavaComponentComponentsCompartment2EditPart.VISUAL_ID:
-		case JavaComponentJavaComponentMappersCompartment2EditPart.VISUAL_ID:
+		case ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID:
 		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
@@ -424,8 +392,8 @@ public class DomainVisualIDRegistry {
 		case RecipesEditPart.VISUAL_ID:
 			return false;
 		case InfrastructureEditPart.VISUAL_ID:
-		case ModelMapperEditPart.VISUAL_ID:
 		case PropertyEditPart.VISUAL_ID:
+		case QueryEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

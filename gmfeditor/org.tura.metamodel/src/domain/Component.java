@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.Component#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Component#getName <em>Name</em>}</li>
- *   <li>{@link domain.Component#getComponents <em>Components</em>}</li>
  *   <li>{@link domain.Component#getMappers <em>Mappers</em>}</li>
  *   <li>{@link domain.Component#getBuildScript <em>Build Script</em>}</li>
  *   <li>{@link domain.Component#getDeployScript <em>Deploy Script</em>}</li>
@@ -82,22 +81,6 @@ public interface Component extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Components</b></em>' containment reference list.
-   * The list contents are of type {@link domain.Component}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Components</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Components</em>' containment reference list.
-   * @see domain.DomainPackage#getComponent_Components()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Component> getComponents();
-
-  /**
    * Returns the value of the '<em><b>Mappers</b></em>' containment reference list.
    * The list contents are of type {@link domain.ModelMapper}.
    * It is bidirectional and its opposite is '{@link domain.ModelMapper#getParent <em>Parent</em>}'.
@@ -111,7 +94,6 @@ public interface Component extends EObject
    * @see domain.DomainPackage#getComponent_Mappers()
    * @see domain.ModelMapper#getParent
    * @model opposite="parent" containment="true"
-   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
   EList<ModelMapper> getMappers();

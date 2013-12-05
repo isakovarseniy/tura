@@ -27,10 +27,8 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.IngredientIngredientComponentsCompartmentEditPart;
-import recipe.diagram.edit.parts.JavaComponent2EditPart;
-import recipe.diagram.edit.parts.JavaComponentEditPart;
-import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartment2EditPart;
-import recipe.diagram.edit.parts.JavaComponentJavaComponentComponentsCompartmentEditPart;
+import recipe.diagram.edit.parts.JavaComponentJavaComponentMappersCompartmentEditPart;
+import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
@@ -60,14 +58,9 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.Property_303004);
 			return types;
 		}
-		if (editPart instanceof JavaComponentEditPart) {
+		if (editPart instanceof ModelMapperEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.ModelMapper_303003);
-			return types;
-		}
-		if (editPart instanceof JavaComponent2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.ModelMapper_303003);
+			types.add(DomainElementTypes.Query_303009);
 			return types;
 		}
 		if (editPart instanceof RecipeRecipeIngredientsCompartmentEditPart) {
@@ -80,14 +73,9 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.JavaComponent_303007);
 			return types;
 		}
-		if (editPart instanceof JavaComponentJavaComponentComponentsCompartmentEditPart) {
+		if (editPart instanceof JavaComponentJavaComponentMappersCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.JavaComponent_303008);
-			return types;
-		}
-		if (editPart instanceof JavaComponentJavaComponentComponentsCompartment2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.JavaComponent_303008);
+			types.add(DomainElementTypes.ModelMapper_303003);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
