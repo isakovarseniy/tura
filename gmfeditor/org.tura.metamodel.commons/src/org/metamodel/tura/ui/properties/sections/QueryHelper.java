@@ -84,60 +84,75 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Object[] findMappingVariable(domain.ModelMapper eObject,
-			EObject types) throws Exception {
+	public Object[] findMappingVariable(domain.Query eObject, EObject types)
+			throws Exception {
 
-		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
-		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+		ArrayList<domain.QueryParameter> addVariables = new ArrayList<domain.QueryParameter>();
+		ArrayList<domain.QueryVariable> removeVariables = new ArrayList<domain.QueryVariable>();
+		if ((eObject.getQueryRef() != null)
+				&& ((domain.ModelMapper) (((domain.Query) eObject).eContainer()))
+						.getDomainArtifactRef() != null
+				&& ((domain.ModelMapper) (((domain.Query) eObject).eContainer()))
+						.getArtifactRef() != null) {
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+					.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-		Collection<domain.MappingVariable> map = ((domain.ModelMapper) eObject)
-				.getVariables();
+			Collection<domain.QueryVariable> map = ((domain.Query) eObject)
+					.getVariables();
 
-		OCLExpression<EClassifier> query = helper
-				.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
-						+ eObject.getDomainArtifactRef().getUid()
-						+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).uid ='"
-						+ eObject.getArtifactRef().getUid()
-						+ "').oclAsType(domain::Artifact).modelQuery");
+			OCLExpression<EClassifier> query = helper
+					.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
+							+ ((domain.ModelMapper) (((domain.Query) eObject)
+									.eContainer())).getDomainArtifactRef()
+									.getUid()
+							+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).uid ='"
+							+ ((domain.ModelMapper) (((domain.Query) eObject)
+									.eContainer())).getArtifactRef().getUid()
+							+ "').oclAsType(domain::Artifact).modelQuery->select(r|r.oclAsType(domain::ModelQuery).uid= '"
+							+ eObject.getQueryRef().getUid() + "').parameters");
 
-		Collection<domain.Variable> map1 = (Collection<domain.Variable>) ocl
-				.evaluate(types, query);
+			Collection<domain.QueryParameter> map1 = (Collection<domain.QueryParameter>) ocl
+					.evaluate(types, query);
 
-		ArrayList<domain.MappingVariable> removeVariables = new ArrayList<domain.MappingVariable>();
-		for (Iterator<domain.MappingVariable> itr1 = map.iterator(); itr1
-				.hasNext();) {
-			domain.MappingVariable ms = itr1.next();
-			boolean isRemove = true;
-			for (Iterator<domain.Variable> itr2 = map1.iterator(); itr2
+			for (Iterator<domain.QueryVariable> itr1 = map.iterator(); itr1
 					.hasNext();) {
-				domain.Variable sp = itr2.next();
-				if ((ms.getVariableRef() != null)&&(sp.getUid().equals(ms.getVariableRef().getUid())))
-					isRemove = false;
-			}
-			if (isRemove)
-				removeVariables.add(ms);
-		}
-
-		ArrayList<domain.Variable> addVariables = new ArrayList<domain.Variable>();
-		for (Iterator<domain.Variable> itr1 = map1.iterator(); itr1.hasNext();) {
-			domain.Variable ms = itr1.next();
-			boolean isAdd = false;
-			if (map.size() == 0)
-				isAdd = true;
-			else {
-				isAdd = true;
-				for (Iterator<domain.MappingVariable> itr2 = map.iterator(); itr2
+				domain.QueryVariable ms = itr1.next();
+				boolean isRemove = true;
+				for (Iterator<domain.QueryParameter> itr2 = map1.iterator(); itr2
 						.hasNext();) {
-					domain.MappingVariable sp = itr2.next();
-					if ((sp.getVariableRef() != null) &&(sp.getVariableRef().getUid().equals(ms.getUid())))
-						isAdd = false;
+					domain.QueryParameter sp = itr2.next();
+					if ((ms.getQueryParamRef() != null)
+							&& (sp.getUid().equals(ms.getQueryParamRef()
+									.getUid())))
+						isRemove = false;
 				}
+				if (isRemove)
+					removeVariables.add(ms);
 			}
-			if (isAdd)
-				addVariables.add(ms);
-		}
 
+			for (Iterator<domain.QueryParameter> itr1 = map1.iterator(); itr1
+					.hasNext();) {
+				domain.QueryParameter ms = itr1.next();
+				boolean isAdd = false;
+				if (map.size() == 0)
+					isAdd = true;
+				else {
+					isAdd = true;
+					for (Iterator<domain.QueryVariable> itr2 = map.iterator(); itr2
+							.hasNext();) {
+						domain.QueryVariable sp = itr2.next();
+						if ((sp.getQueryParamRef() != null)
+								&& (sp.getQueryParamRef().getUid().equals(ms
+										.getUid())))
+							isAdd = false;
+					}
+				}
+				if (isAdd)
+					addVariables.add(ms);
+			}
+		}
 		Object[] result = new Object[2];
 		result[0] = addVariables;
 		result[1] = removeVariables;
@@ -177,7 +192,8 @@ public class QueryHelper {
 					.getParent().getParent().getParent().getParent()
 					.getApplicationMappers().getMappers();
 
-			List<domain.ApplicationMapper> recipeLs = ingr.getParent().getMappers();
+			List<domain.ApplicationMapper> recipeLs = ingr.getParent()
+					.getMappers();
 
 			for (Iterator<domain.ApplicationMapper> itr = appMapperLst
 					.iterator(); itr.hasNext();) {
@@ -193,9 +209,10 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<domain.ApplicationMapper> removeMappersForRecipe(domain.Recipe eObject) {
+	public List<domain.ApplicationMapper> removeMappersForRecipe(
+			domain.Recipe eObject) {
 		ArrayList<domain.ApplicationMapper> removeMappers = new ArrayList<domain.ApplicationMapper>();
-		if  (eObject.getMappers()  ==  null || eObject.getMappers() .size() == 0)
+		if (eObject.getMappers() == null || eObject.getMappers().size() == 0)
 			return removeMappers;
 
 		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -207,7 +224,8 @@ public class QueryHelper {
 		List<domain.ApplicationMapper> map1 = eObject.getParent().getParent()
 				.getParent().getParent().getApplicationMappers().getMappers();
 
-		for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1.hasNext();) {
+		for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1
+				.hasNext();) {
 			domain.ApplicationMapper ms = itr1.next();
 			boolean isRemove = true;
 			for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2
@@ -238,9 +256,11 @@ public class QueryHelper {
 				.getParent().getParent().getParent().getApplicationMappers()
 				.getMappers();
 
-		List<domain.ApplicationMapper> recipeLs = eObject.getParent().getMappers();
+		List<domain.ApplicationMapper> recipeLs = eObject.getParent()
+				.getMappers();
 
-		for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1.hasNext();) {
+		for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1
+				.hasNext();) {
 			domain.ApplicationMapper ms = itr1.next();
 			boolean isRemove = true;
 			for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2

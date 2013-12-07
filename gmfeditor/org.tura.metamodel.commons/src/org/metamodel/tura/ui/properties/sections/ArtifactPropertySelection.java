@@ -26,8 +26,8 @@ public class ArtifactPropertySelection extends
 	private CommandStackListener commandStackListener;
 
 	protected EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE
-				.getArtifactRef_ArtifactRef() };
+		return new EStructuralFeature[] { 
+				DomainPackage.eINSTANCE.getArtifactRef_ArtifactRef() };
 	}
 
 	protected String getFeatureAsText() {

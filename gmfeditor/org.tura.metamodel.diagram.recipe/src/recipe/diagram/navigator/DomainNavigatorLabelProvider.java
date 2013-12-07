@@ -37,6 +37,7 @@ import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.QueryEditPart;
 import recipe.diagram.edit.parts.QueryFakeNameEditPart;
+import recipe.diagram.edit.parts.QueryNameEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
@@ -119,42 +120,42 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case InfrastructureEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Infrastructure", DomainElementTypes.Infrastructure_302003); //$NON-NLS-1$
-		case PropertyEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Property", DomainElementTypes.Property_303004); //$NON-NLS-1$
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_304001); //$NON-NLS-1$
-		case QueryEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?Query", DomainElementTypes.Query_303009); //$NON-NLS-1$
-		case ModelMapperEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?ModelMapper", DomainElementTypes.ModelMapper_303003); //$NON-NLS-1$
-		case ConfigurationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Configuration", DomainElementTypes.Configuration_302002); //$NON-NLS-1$
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_304005); //$NON-NLS-1$
-		case RecipeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Recipe", DomainElementTypes.Recipe_302001); //$NON-NLS-1$
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_304003); //$NON-NLS-1$
+		case PropertyEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Property", DomainElementTypes.Property_303004); //$NON-NLS-1$
+		case RecipeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Recipe", DomainElementTypes.Recipe_302001); //$NON-NLS-1$
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_304005); //$NON-NLS-1$
+		case QueryEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Query", DomainElementTypes.Query_303009); //$NON-NLS-1$
+		case JavaComponentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?JavaComponent", DomainElementTypes.JavaComponent_303007); //$NON-NLS-1$
+		case ConfigurationEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Configuration", DomainElementTypes.Configuration_302002); //$NON-NLS-1$
+		case RecipesEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?Recipes", DomainElementTypes.Recipes_301000); //$NON-NLS-1$
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_304004); //$NON-NLS-1$
 		case IngredientEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Ingredient", DomainElementTypes.Ingredient_303005); //$NON-NLS-1$
-		case RecipesEditPart.VISUAL_ID:
+		case ModelMapperEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?Recipes", DomainElementTypes.Recipes_301000); //$NON-NLS-1$
-		case JavaComponentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?JavaComponent", DomainElementTypes.JavaComponent_303007); //$NON-NLS-1$
+					"Navigator?Node?http://tura.org/2013/v1/domain?ModelMapper", DomainElementTypes.ModelMapper_303003); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -217,30 +218,30 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case InfrastructureEditPart.VISUAL_ID:
 			return getInfrastructure_302003Text(view);
-		case PropertyEditPart.VISUAL_ID:
-			return getProperty_303004Text(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_304001Text(view);
-		case QueryEditPart.VISUAL_ID:
-			return getQuery_303009Text(view);
-		case ModelMapperEditPart.VISUAL_ID:
-			return getModelMapper_303003Text(view);
-		case ConfigurationEditPart.VISUAL_ID:
-			return getConfiguration_302002Text(view);
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getRecipeInfrastructures_304005Text(view);
-		case RecipeEditPart.VISUAL_ID:
-			return getRecipe_302001Text(view);
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return getConfigurationConfigExtension_304003Text(view);
+		case PropertyEditPart.VISUAL_ID:
+			return getProperty_303004Text(view);
+		case RecipeEditPart.VISUAL_ID:
+			return getRecipe_302001Text(view);
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getRecipeInfrastructures_304005Text(view);
+		case QueryEditPart.VISUAL_ID:
+			return getQuery_303009Text(view);
+		case JavaComponentEditPart.VISUAL_ID:
+			return getJavaComponent_303007Text(view);
+		case ConfigurationEditPart.VISUAL_ID:
+			return getConfiguration_302002Text(view);
+		case RecipesEditPart.VISUAL_ID:
+			return getRecipes_301000Text(view);
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return getInfrastructureRecipeConfig_304004Text(view);
 		case IngredientEditPart.VISUAL_ID:
 			return getIngredient_303005Text(view);
-		case RecipesEditPart.VISUAL_ID:
-			return getRecipes_301000Text(view);
-		case JavaComponentEditPart.VISUAL_ID:
-			return getJavaComponent_303007Text(view);
+		case ModelMapperEditPart.VISUAL_ID:
+			return getModelMapper_303003Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -303,11 +304,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getQuery_303009Text(View view) {
-		IParser parser = DomainParserProvider
-				.getParser(DomainElementTypes.Query_303009,
-						view.getElement() != null ? view.getElement() : view,
-						DomainVisualIDRegistry
-								.getType(QueryFakeNameEditPart.VISUAL_ID));
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Query_303009,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(QueryNameEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),

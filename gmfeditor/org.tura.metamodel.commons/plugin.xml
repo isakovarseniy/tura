@@ -155,8 +155,6 @@
               <input type="artifact.diagram.edit.parts.SpecifierEditPart"/>
            </propertySection>        
 
-
-
     </propertySections>
   </extension>  
 
@@ -213,6 +211,11 @@
 
           <propertyTab
              category="domain"
+             id="property.tab.domain.query"
+             label="Model query"/>
+
+          <propertyTab
+             category="domain"
              id="property.tab.domain.mappingVariable"
              label="Model query parameters"/>
       </propertyTabs>
@@ -260,10 +263,18 @@
          </propertySection>        
 
          <propertySection
+               tab="property.tab.domain.query"
+               class="org.metamodel.tura.ui.properties.sections.QueryPropertySelection"
+               id="org.tura.metamodel.mapper.query">
+              <input type="recipe.diagram.edit.parts.QueryEditPart"/>
+         </propertySection>        
+
+
+         <propertySection
                tab="property.tab.domain.mappingVariable"
-               class="org.metamodel.tura.ui.properties.sections.MappingVariablePropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.QueryVariablePropertySelection"
                id="org.tura.metamodel.mapper.mappingVariable">
-              <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
+              <input type="recipe.diagram.edit.parts.QueryEditPart"/>
          </propertySection>        
 
 

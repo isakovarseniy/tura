@@ -1198,7 +1198,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getQueryParameter_Value()
+  public EAttribute getQueryParameter_Name()
   {
     return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(2);
   }
@@ -2608,7 +2608,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getQuery_FakeName()
+  public EAttribute getQuery_Name()
   {
     return (EAttribute)queryEClass.getEStructuralFeatures().get(2);
   }
@@ -2618,9 +2618,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getQuery_Variables()
+  public EReference getQuery_QueryRef()
   {
     return (EReference)queryEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQuery_Variables()
+  {
+    return (EReference)queryEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -3485,7 +3495,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     queryParameterEClass = createEClass(QUERY_PARAMETER);
     createEAttribute(queryParameterEClass, QUERY_PARAMETER__UID);
     createEReference(queryParameterEClass, QUERY_PARAMETER__PARENT);
-    createEAttribute(queryParameterEClass, QUERY_PARAMETER__VALUE);
+    createEAttribute(queryParameterEClass, QUERY_PARAMETER__NAME);
 
     specifierEClass = createEClass(SPECIFIER);
     createEAttribute(specifierEClass, SPECIFIER__UID);
@@ -3657,7 +3667,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     queryEClass = createEClass(QUERY);
     createEAttribute(queryEClass, QUERY__UID);
     createEReference(queryEClass, QUERY__MODEL_QUERY);
-    createEAttribute(queryEClass, QUERY__FAKE_NAME);
+    createEAttribute(queryEClass, QUERY__NAME);
+    createEReference(queryEClass, QUERY__QUERY_REF);
     createEReference(queryEClass, QUERY__VARIABLES);
 
     queryVariableEClass = createEClass(QUERY_VARIABLE);
@@ -3885,7 +3896,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(queryParameterEClass, QueryParameter.class, "QueryParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getQueryParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getQueryParameter_Parent(), this.getModelQuery(), this.getModelQuery_Parameters(), "parent", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getQueryParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getQueryParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(specifierEClass, Specifier.class, "Specifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSpecifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Specifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4057,7 +4068,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(queryEClass, Query.class, "Query", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getQuery_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getQuery_ModelQuery(), this.getModelQuery(), null, "modelQuery", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getQuery_FakeName(), ecorePackage.getEString(), "fakeName", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getQuery_Name(), ecorePackage.getEString(), "name", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuery_QueryRef(), this.getModelQuery(), null, "queryRef", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getQuery_Variables(), this.getQueryVariable(), null, "variables", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(queryVariableEClass, QueryVariable.class, "QueryVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4461,7 +4473,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "fakeName"
+       "label", "name"
        });			
     addAnnotation
       (primitiveEClass, 

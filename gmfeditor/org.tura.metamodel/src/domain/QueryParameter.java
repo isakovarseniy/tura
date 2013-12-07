@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.QueryParameter#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.QueryParameter#getParent <em>Parent</em>}</li>
- *   <li>{@link domain.QueryParameter#getValue <em>Value</em>}</li>
+ *   <li>{@link domain.QueryParameter#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,29 +79,29 @@ public interface QueryParameter extends EObject
   void setParent(ModelQuery value);
 
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
-   * @see domain.DomainPackage#getQueryParameter_Value()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see domain.DomainPackage#getQueryParameter_Name()
    * @model
    * @generated
    */
-  String getValue();
+  String getName();
 
   /**
-   * Sets the value of the '{@link domain.QueryParameter#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link domain.QueryParameter#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
-   * @see #getValue()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setValue(String value);
+  void setName(String value);
 
 } // QueryParameter

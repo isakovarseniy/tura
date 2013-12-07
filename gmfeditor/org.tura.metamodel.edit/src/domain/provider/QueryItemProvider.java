@@ -69,7 +69,8 @@ public class QueryItemProvider
 
       addUidPropertyDescriptor(object);
       addModelQueryPropertyDescriptor(object);
-      addFakeNamePropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
+      addQueryRefPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -121,24 +122,47 @@ public class QueryItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Fake Name feature.
+   * This adds a property descriptor for the Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addFakeNamePropertyDescriptor(Object object)
+  protected void addNamePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Query_fakeName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Query_fakeName_feature", "_UI_Query_type"),
-         DomainPackage.Literals.QUERY__FAKE_NAME,
+         getString("_UI_Query_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Query_name_feature", "_UI_Query_type"),
+         DomainPackage.Literals.QUERY__NAME,
          true,
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Query Ref feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addQueryRefPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Query_queryRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Query_queryRef_feature", "_UI_Query_type"),
+         DomainPackage.Literals.QUERY__QUERY_REF,
+         true,
+         false,
+         true,
+         null,
          null,
          null));
   }
@@ -197,7 +221,7 @@ public class QueryItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Query)object).getFakeName();
+    String label = ((Query)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_Query_type") :
       getString("_UI_Query_type") + " " + label;
@@ -218,7 +242,7 @@ public class QueryItemProvider
     switch (notification.getFeatureID(Query.class))
     {
       case DomainPackage.QUERY__UID:
-      case DomainPackage.QUERY__FAKE_NAME:
+      case DomainPackage.QUERY__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.QUERY__VARIABLES:

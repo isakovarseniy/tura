@@ -124,7 +124,7 @@ context Configuration{
   constraint HasRefArtifact{
       guard : self.satisfies("HasRefDomainArtifact")
       check : self.artifactRef.isDefined()
-      message : 'ModelMapper name  ' + self.name + ' in ' + ' Artifacr  is not define  '
+      message : 'ModelMapper name  ' + self.name + ' in ' + ' Artifacr  is not define '
    } 
 
   constraint checkMappingSpecifiers{
@@ -136,13 +136,15 @@ context Configuration{
 	       return true;
 	   return false;    
       }
-      
       message : 'MappingSpecifiers   for ' + self.name +  '  is not define  properly'
-
   }
 
-  constraint checkMappingVariables{
-      guard : self.satisfies("HasRefArtifact")
+}
+
+
+ context Query {
+ 
+  constraint checkQueryParameters{
       check{
  	   var helper := new Native('org.metamodel.tura.ui.properties.sections.QueryHelper');
 	   var result = helper.findMappingVariable(self, self);
@@ -154,6 +156,7 @@ context Configuration{
       message : 'MappingVariables   for ' + self.name +  '  is not define  properly'
 
   }
+ 
 }
 
  context MappingSpecifier {
@@ -196,13 +199,13 @@ context Property {
 }
  
 
- context MappingVariable {
+ context QueryVariable {
 
   constraint HasName {
 
-      check :  self.variableRef.isDefined()
+      check :  self.queryParamRef.isDefined()
 
-      message : 'No reference for  Variable ' + self.eClass().name + ' not allowed'
+      message : 'No reference for  Query parameter ' + self.eClass().name + ' not allowed'
 
   }
 
@@ -210,7 +213,7 @@ context Property {
 
       check :  self.value.isDefined()
 
-      message : 'No value ' + self.variableRef.name + ' not allowed'
+      message : 'No value ' + self.queryParamRef.name + ' not allowed'
 
   }
 

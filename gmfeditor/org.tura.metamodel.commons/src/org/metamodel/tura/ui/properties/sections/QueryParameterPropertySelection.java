@@ -271,7 +271,7 @@ public class QueryParameterPropertySelection extends AbstractGridPropertySelecti
 			domain.QueryParameter task = (domain.QueryParameter) element;
 			switch (columnIndex) {
 			case 0:
-				result = task.getValue();
+				result = task.getName();
 				break;
 			default:
 				break;
@@ -343,7 +343,8 @@ public class QueryParameterPropertySelection extends AbstractGridPropertySelecti
 		 */
 		@SuppressWarnings("deprecation")
 		protected int compareValues(domain.QueryParameter opt1, domain.QueryParameter opt2) {
-			return collator.compare(opt1.getValue(), opt2.getValue());
+			
+			return collator.compare(opt1.getName(), opt2.getName());
 		}
 
 		/**
@@ -419,7 +420,7 @@ public class QueryParameterPropertySelection extends AbstractGridPropertySelecti
 		 */
 		public void addTask() {
 			domain.QueryParameter option = DomainFactory.eINSTANCE.createQueryParameter();
-			option.setValue("New option");
+			option.setName("New option");
 			 ArrayList <domain.QueryParameter> ls = new ArrayList <domain.QueryParameter>();
 			 ls.add(option);
 
@@ -549,7 +550,7 @@ public class QueryParameterPropertySelection extends AbstractGridPropertySelecti
 
 			switch (columnIndex) {
 			case 0: // VALUE_COLUMN
-				result = opt.getValue();
+				result = opt.getName();
 				break;
 			default:
 				result = "";
@@ -578,7 +579,7 @@ public class QueryParameterPropertySelection extends AbstractGridPropertySelecti
 				/* apply the property change to single selected object */
 				editingDomain.getCommandStack().execute(
 						SetCommand.create(editingDomain, opt,
-								DomainPackage.eINSTANCE.getQueryParameter_Value(),
+								DomainPackage.eINSTANCE.getQueryParameter_Name(),
 								valueString));
 				break;
 			default:

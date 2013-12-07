@@ -205,8 +205,8 @@
       </modelFacet>
       <labels
           visualID="305013"
-          editPartClassName="QueryFakeNameEditPart"
-          itemSemanticEditPolicyClassName="QueryFakeNameItemSemanticEditPolicy"
+          editPartClassName="QueryNameEditPart"
+          itemSemanticEditPolicyClassName="QueryNameItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -218,7 +218,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="domain.genmodel#//domain/Query/fakeName"/>
+              href="domain.genmodel#//domain/Query/name"/>
         </modelFacet>
       </labels>
     </childNodes>

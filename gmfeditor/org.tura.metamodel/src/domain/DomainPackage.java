@@ -828,13 +828,13 @@ public interface DomainPackage extends EPackage
   int QUERY_PARAMETER__PARENT = 1;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QUERY_PARAMETER__VALUE = 2;
+  int QUERY_PARAMETER__NAME = 2;
 
   /**
    * The number of structural features of the '<em>Query Parameter</em>' class.
@@ -3120,13 +3120,22 @@ public interface DomainPackage extends EPackage
   int QUERY__MODEL_QUERY = 1;
 
   /**
-   * The feature id for the '<em><b>Fake Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QUERY__FAKE_NAME = 2;
+  int QUERY__NAME = 2;
+
+  /**
+   * The feature id for the '<em><b>Query Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUERY__QUERY_REF = 3;
 
   /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -3135,7 +3144,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int QUERY__VARIABLES = 3;
+  int QUERY__VARIABLES = 4;
 
   /**
    * The number of structural features of the '<em>Query</em>' class.
@@ -3144,7 +3153,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int QUERY_FEATURE_COUNT = 4;
+  int QUERY_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link domain.impl.QueryVariableImpl <em>Query Variable</em>}' class.
@@ -4809,15 +4818,15 @@ public interface DomainPackage extends EPackage
   EReference getQueryParameter_Parent();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.QueryParameter#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link domain.QueryParameter#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see domain.QueryParameter#getValue()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.QueryParameter#getName()
    * @see #getQueryParameter()
    * @generated
    */
-  EAttribute getQueryParameter_Value();
+  EAttribute getQueryParameter_Name();
 
   /**
    * Returns the meta object for class '{@link domain.Specifier <em>Specifier</em>}'.
@@ -6329,15 +6338,26 @@ public interface DomainPackage extends EPackage
   EReference getQuery_ModelQuery();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Query#getFakeName <em>Fake Name</em>}'.
+   * Returns the meta object for the attribute '{@link domain.Query#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fake Name</em>'.
-   * @see domain.Query#getFakeName()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Query#getName()
    * @see #getQuery()
    * @generated
    */
-  EAttribute getQuery_FakeName();
+  EAttribute getQuery_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Query#getQueryRef <em>Query Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Query Ref</em>'.
+   * @see domain.Query#getQueryRef()
+   * @see #getQuery()
+   * @generated
+   */
+  EReference getQuery_QueryRef();
 
   /**
    * Returns the meta object for the containment reference list '{@link domain.Query#getVariables <em>Variables</em>}'.
@@ -7690,12 +7710,12 @@ public interface DomainPackage extends EPackage
     EReference QUERY_PARAMETER__PARENT = eINSTANCE.getQueryParameter_Parent();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute QUERY_PARAMETER__VALUE = eINSTANCE.getQueryParameter_Value();
+    EAttribute QUERY_PARAMETER__NAME = eINSTANCE.getQueryParameter_Name();
 
     /**
      * The meta object literal for the '{@link domain.impl.SpecifierImpl <em>Specifier</em>}' class.
@@ -8880,12 +8900,20 @@ public interface DomainPackage extends EPackage
     EReference QUERY__MODEL_QUERY = eINSTANCE.getQuery_ModelQuery();
 
     /**
-     * The meta object literal for the '<em><b>Fake Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute QUERY__FAKE_NAME = eINSTANCE.getQuery_FakeName();
+    EAttribute QUERY__NAME = eINSTANCE.getQuery_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Query Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUERY__QUERY_REF = eINSTANCE.getQuery_QueryRef();
 
     /**
      * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.

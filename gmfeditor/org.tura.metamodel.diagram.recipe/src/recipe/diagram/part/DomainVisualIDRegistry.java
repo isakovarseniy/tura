@@ -30,6 +30,7 @@ import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.QueryEditPart;
 import recipe.diagram.edit.parts.QueryFakeNameEditPart;
+import recipe.diagram.edit.parts.QueryNameEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
@@ -277,7 +278,7 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case QueryEditPart.VISUAL_ID:
-			if (QueryFakeNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (QueryNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

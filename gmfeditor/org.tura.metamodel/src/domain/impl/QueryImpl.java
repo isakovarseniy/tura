@@ -32,7 +32,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.QueryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.QueryImpl#getModelQuery <em>Model Query</em>}</li>
- *   <li>{@link domain.impl.QueryImpl#getFakeName <em>Fake Name</em>}</li>
+ *   <li>{@link domain.impl.QueryImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.QueryImpl#getQueryRef <em>Query Ref</em>}</li>
  *   <li>{@link domain.impl.QueryImpl#getVariables <em>Variables</em>}</li>
  * </ul>
  * </p>
@@ -72,24 +73,34 @@ public class QueryImpl extends EObjectImpl implements Query
   protected ModelQuery modelQuery;
 
   /**
-   * The default value of the '{@link #getFakeName() <em>Fake Name</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFakeName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String FAKE_NAME_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getFakeName() <em>Fake Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFakeName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String fakeName = FAKE_NAME_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getQueryRef() <em>Query Ref</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQueryRef()
+   * @generated
+   * @ordered
+   */
+  protected ModelQuery queryRef;
 
   /**
    * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
@@ -193,9 +204,9 @@ public class QueryImpl extends EObjectImpl implements Query
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getFakeName()
+  public String getName()
   {
-    return fakeName;
+    return name;
   }
 
   /**
@@ -203,12 +214,55 @@ public class QueryImpl extends EObjectImpl implements Query
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFakeName(String newFakeName)
+  public void setName(String newName)
   {
-    String oldFakeName = fakeName;
-    fakeName = newFakeName;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__FAKE_NAME, oldFakeName, fakeName));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ModelQuery getQueryRef()
+  {
+    if (queryRef != null && queryRef.eIsProxy())
+    {
+      InternalEObject oldQueryRef = (InternalEObject)queryRef;
+      queryRef = (ModelQuery)eResolveProxy(oldQueryRef);
+      if (queryRef != oldQueryRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.QUERY__QUERY_REF, oldQueryRef, queryRef));
+      }
+    }
+    return queryRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ModelQuery basicGetQueryRef()
+  {
+    return queryRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setQueryRef(ModelQuery newQueryRef)
+  {
+    ModelQuery oldQueryRef = queryRef;
+    queryRef = newQueryRef;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__QUERY_REF, oldQueryRef, queryRef));
   }
 
   /**
@@ -256,8 +310,11 @@ public class QueryImpl extends EObjectImpl implements Query
       case DomainPackage.QUERY__MODEL_QUERY:
         if (resolve) return getModelQuery();
         return basicGetModelQuery();
-      case DomainPackage.QUERY__FAKE_NAME:
-        return getFakeName();
+      case DomainPackage.QUERY__NAME:
+        return getName();
+      case DomainPackage.QUERY__QUERY_REF:
+        if (resolve) return getQueryRef();
+        return basicGetQueryRef();
       case DomainPackage.QUERY__VARIABLES:
         return getVariables();
     }
@@ -281,8 +338,11 @@ public class QueryImpl extends EObjectImpl implements Query
       case DomainPackage.QUERY__MODEL_QUERY:
         setModelQuery((ModelQuery)newValue);
         return;
-      case DomainPackage.QUERY__FAKE_NAME:
-        setFakeName((String)newValue);
+      case DomainPackage.QUERY__NAME:
+        setName((String)newValue);
+        return;
+      case DomainPackage.QUERY__QUERY_REF:
+        setQueryRef((ModelQuery)newValue);
         return;
       case DomainPackage.QUERY__VARIABLES:
         getVariables().clear();
@@ -308,8 +368,11 @@ public class QueryImpl extends EObjectImpl implements Query
       case DomainPackage.QUERY__MODEL_QUERY:
         setModelQuery((ModelQuery)null);
         return;
-      case DomainPackage.QUERY__FAKE_NAME:
-        setFakeName(FAKE_NAME_EDEFAULT);
+      case DomainPackage.QUERY__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case DomainPackage.QUERY__QUERY_REF:
+        setQueryRef((ModelQuery)null);
         return;
       case DomainPackage.QUERY__VARIABLES:
         getVariables().clear();
@@ -332,8 +395,10 @@ public class QueryImpl extends EObjectImpl implements Query
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.QUERY__MODEL_QUERY:
         return modelQuery != null;
-      case DomainPackage.QUERY__FAKE_NAME:
-        return FAKE_NAME_EDEFAULT == null ? fakeName != null : !FAKE_NAME_EDEFAULT.equals(fakeName);
+      case DomainPackage.QUERY__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.QUERY__QUERY_REF:
+        return queryRef != null;
       case DomainPackage.QUERY__VARIABLES:
         return variables != null && !variables.isEmpty();
     }
@@ -353,8 +418,8 @@ public class QueryImpl extends EObjectImpl implements Query
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
-    result.append(", fakeName: ");
-    result.append(fakeName);
+    result.append(", name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

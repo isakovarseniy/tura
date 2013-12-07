@@ -37,10 +37,10 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.MappingVariable;
-import domain.Variable;
+import domain.QueryVariable;
+import domain.QueryParameter;
 
-public class MappingVariablePropertySelection extends
+public class QueryVariablePropertySelection extends
 		AbstractGridPropertySelection {
 
 	// Set the table column property names
@@ -184,7 +184,7 @@ public class MappingVariablePropertySelection extends
 
 	@Override
 	protected void removeRow(Object o) {
-		optionList.removeTask((domain.MappingVariable) o);
+		optionList.removeTask((domain.QueryVariable) o);
 	}
 
 	/**
@@ -215,7 +215,7 @@ public class MappingVariablePropertySelection extends
 		 * 
 		 * @see ITaskListViewer#addTask(ExampleTask)
 		 */
-		public void addOption(domain.MappingVariable task) {
+		public void addOption(domain.QueryVariable task) {
 			tableViewer.add(task);
 		}
 
@@ -224,7 +224,7 @@ public class MappingVariablePropertySelection extends
 		 * 
 		 * @see ITaskListViewer#removeTask(ExampleTask)
 		 */
-		public void removeOption(domain.MappingVariable task) {
+		public void removeOption(domain.QueryVariable task) {
 			tableViewer.remove(task);
 		}
 
@@ -233,7 +233,7 @@ public class MappingVariablePropertySelection extends
 		 * 
 		 * @see ITaskListViewer#updateTask(ExampleTask)
 		 */
-		public void updateOption(domain.MappingVariable task) {
+		public void updateOption(domain.QueryVariable task) {
 			tableViewer.update(task, null);
 		}
 	}
@@ -252,13 +252,13 @@ public class MappingVariablePropertySelection extends
 		 */
 		public String getColumnText(Object element, int columnIndex) {
 			String result = "";
-			domain.MappingVariable task = (domain.MappingVariable) element;
+			domain.QueryVariable task = (domain.QueryVariable) element;
 			switch (columnIndex) {
 			case 0:
-				if (task.getVariableRef() == null)
+				if (task.getQueryParamRef() == null)
 					result = "";
 				else
-					result = task.getVariableRef().getName();
+					result = task.getQueryParamRef().getName();
 				break;
 			case 1:
 				result = task.getValue();
@@ -309,8 +309,8 @@ public class MappingVariablePropertySelection extends
 		 */
 		public int compare(Viewer viewer, Object o1, Object o2) {
 
-			domain.MappingVariable op1 = (domain.MappingVariable) o1;
-			domain.MappingVariable op2 = (domain.MappingVariable) o2;
+			domain.QueryVariable op1 = (domain.QueryVariable) o1;
+			domain.QueryVariable op2 = (domain.QueryVariable) o2;
 
 			switch (criteria) {
 			case OPTION:
@@ -336,19 +336,19 @@ public class MappingVariablePropertySelection extends
 		 *         first element is greater than the second element
 		 */
 		@SuppressWarnings("deprecation")
-		protected int compareOptions(domain.MappingVariable opt1,
-				domain.MappingVariable opt2) {
-			if ((opt1.getVariableRef() == null)
-					|| (opt2.getVariableRef() == null))
+		protected int compareOptions(domain.QueryVariable opt1,
+				domain.QueryVariable opt2) {
+			if ((opt1.getQueryParamRef() == null)
+					|| (opt2.getQueryParamRef() == null))
 				return -1;
 
-			return collator.compare(opt1.getVariableRef().getName(), opt2
-					.getVariableRef().getName());
+			return collator.compare(opt1.getQueryParamRef().getName(), opt2
+					.getQueryParamRef().getName());
 		}
 
 		@SuppressWarnings("deprecation")
-		protected int compareValues(domain.MappingVariable opt1,
-				domain.MappingVariable opt2) {
+		protected int compareValues(domain.QueryVariable opt1,
+				domain.QueryVariable opt2) {
 			if ((opt1.getValue() == null) || (opt2.getValue() == null))
 				return -1;
 			return collator.compare(opt1.getValue(), opt2.getValue());
@@ -366,7 +366,7 @@ public class MappingVariablePropertySelection extends
 
 	public class VariableList {
 
-		private ArrayList<domain.MappingVariable> options = new ArrayList<domain.MappingVariable>();
+		private ArrayList<domain.QueryVariable> options = new ArrayList<domain.QueryVariable>();
 		@SuppressWarnings("rawtypes")
 		private Set changeListeners = new HashSet();
 		private String[] spOptions;
@@ -394,39 +394,39 @@ public class MappingVariablePropertySelection extends
 
 				EObject types = (EObject) diagram.getElement();
 				Object[] result = (new QueryHelper()).findMappingVariable(
-						(domain.ModelMapper) eObject, types);
+						(domain.Query) eObject, types);
 
-				List<domain.Variable> addVariables = (List<Variable>) result[0];
-				List<domain.MappingVariable> removeVariables = (List<MappingVariable>) result[1];
+				List<domain.QueryParameter> addVariables = (List<QueryParameter>) result[0];
+				List<domain.QueryVariable> removeVariables = (List<QueryVariable>) result[1];
 
 				// Add new
-				for (Iterator<domain.Variable> itr = addVariables.iterator(); itr
+				for (Iterator<domain.QueryParameter> itr = addVariables.iterator(); itr
 						.hasNext();) {
-					domain.Variable Variable = itr.next();
-					domain.MappingVariable ms = DomainFactory.eINSTANCE
-							.createMappingVariable();
-					ms.setVariableRef(Variable);
+					domain.QueryParameter Variable = itr.next();
+					domain.QueryVariable ms = DomainFactory.eINSTANCE
+							.createQueryVariable();
+					ms.setQueryParamRef(Variable);
 					editingDomain.getCommandStack().execute(
 							AddCommand.create(editingDomain,
-									((domain.ModelMapper) eObject),
+									((domain.Query) eObject),
 									DomainPackage.eINSTANCE
-											.getModelMapper_Variables(), ms));
+											.getQuery_Variables(), ms));
 				}
 
 				// Remove
-				for (Iterator<domain.MappingVariable> itr = removeVariables
+				for (Iterator<domain.QueryVariable> itr = removeVariables
 						.iterator(); itr.hasNext();) {
-					domain.MappingVariable ms = itr.next();
+					domain.QueryVariable ms = itr.next();
 					editingDomain.getCommandStack().execute(
 							RemoveCommand.create(editingDomain,
-									((domain.ModelMapper) eObject),
+									((domain.Query) eObject),
 									DomainPackage.eINSTANCE
-											.getModelMapper_Variables(), ms));
+											.getQuery_Variables(), ms));
 				}
 
-				for (Iterator<domain.MappingVariable> i = ((domain.ModelMapper) eObject)
+				for (Iterator<domain.QueryVariable> i = ((domain.Query) eObject)
 						.getVariables().iterator(); i.hasNext();) {
-					domain.MappingVariable p = i.next();
+					domain.QueryVariable p = i.next();
 					options.add(p);
 				}
 
@@ -446,10 +446,10 @@ public class MappingVariablePropertySelection extends
 		 * Add a new task to the collection of tasks
 		 */
 		public void addTask() {
-			domain.MappingVariable option = DomainFactory.eINSTANCE
-					.createMappingVariable();
+			domain.QueryVariable option = DomainFactory.eINSTANCE
+					.createQueryVariable();
 			option.setValue("New option");
-			ArrayList<domain.MappingVariable> ls = new ArrayList<domain.MappingVariable>();
+			ArrayList<domain.QueryVariable> ls = new ArrayList<domain.QueryVariable>();
 			ls.add(option);
 
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -457,8 +457,8 @@ public class MappingVariablePropertySelection extends
 
 			editingDomain.getCommandStack().execute(
 					AddCommand.create(editingDomain,
-							((domain.Variable) eObject),
-							DomainPackage.eINSTANCE.getModelMapper_Variables(),
+							((domain.QueryParameter) eObject),
+							DomainPackage.eINSTANCE.getQuery_Variables(),
 							ls));
 
 			options.add(options.size(), option);
@@ -470,9 +470,9 @@ public class MappingVariablePropertySelection extends
 		/**
 		 * @param task
 		 */
-		public void removeTask(domain.MappingVariable option) {
+		public void removeTask(domain.QueryVariable option) {
 
-			ArrayList<domain.MappingVariable> ls = new ArrayList<domain.MappingVariable>();
+			ArrayList<domain.QueryVariable> ls = new ArrayList<domain.QueryVariable>();
 			ls.add(option);
 
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -480,8 +480,8 @@ public class MappingVariablePropertySelection extends
 
 			editingDomain.getCommandStack().execute(
 					RemoveCommand.create(editingDomain,
-							((domain.Variable) eObject),
-							DomainPackage.eINSTANCE.getModelMapper_Variables(),
+							((domain.QueryParameter) eObject),
+							DomainPackage.eINSTANCE.getQuery_Variables(),
 							ls));
 
 			options.remove(option);
@@ -493,7 +493,7 @@ public class MappingVariablePropertySelection extends
 		/**
 		 * @param task
 		 */
-		public void taskChanged(domain.MappingVariable task) {
+		public void taskChanged(domain.QueryVariable task) {
 			Iterator<?> iterator = changeListeners.iterator();
 			while (iterator.hasNext())
 				((ITaskListViewer) iterator.next()).updateOption(task);
@@ -524,7 +524,7 @@ public class MappingVariablePropertySelection extends
 		 * 
 		 * @param task
 		 */
-		public void addOption(domain.MappingVariable task);
+		public void addOption(domain.QueryVariable task);
 
 		/**
 		 * Update the view to reflect the fact that a task was removed from the
@@ -532,7 +532,7 @@ public class MappingVariablePropertySelection extends
 		 * 
 		 * @param task
 		 */
-		public void removeOption(domain.MappingVariable task);
+		public void removeOption(domain.QueryVariable task);
 
 		/**
 		 * Update the view to reflect the fact that one of the tasks was
@@ -540,11 +540,11 @@ public class MappingVariablePropertySelection extends
 		 * 
 		 * @param task
 		 */
-		public void updateOption(domain.MappingVariable task);
+		public void updateOption(domain.QueryVariable task);
 	}
 
 	public class VariableCellModifier implements ICellModifier {
-		private MappingVariablePropertySelection tableViewerExample;
+		private QueryVariablePropertySelection tableViewerExample;
 
 		/**
 		 * Constructor
@@ -553,7 +553,7 @@ public class MappingVariablePropertySelection extends
 		 *            an instance of a TableViewerExample
 		 */
 		public VariableCellModifier(
-				MappingVariablePropertySelection tableViewerExample) {
+				QueryVariablePropertySelection tableViewerExample) {
 			super();
 			this.tableViewerExample = tableViewerExample;
 		}
@@ -581,14 +581,14 @@ public class MappingVariablePropertySelection extends
 					property);
 
 			Object result = null;
-			domain.MappingVariable opt = (domain.MappingVariable) element;
+			domain.QueryVariable opt = (domain.QueryVariable) element;
 
 			switch (columnIndex) {
 			case 0: // VALUE_COLUMN
-				if (opt.getVariableRef() == null)
+				if (opt.getQueryParamRef() == null)
 					result = "";
 				else
-					result = opt.getVariableRef().getName();
+					result = opt.getQueryParamRef().getName();
 				break;
 			case 1: // VALUE_COLUMN
 				result = opt.getValue();
@@ -611,7 +611,7 @@ public class MappingVariablePropertySelection extends
 					property);
 
 			TableItem item = (TableItem) element;
-			domain.MappingVariable opt = (domain.MappingVariable) item
+			domain.QueryVariable opt = (domain.QueryVariable) item
 					.getData();
 
 			switch (columnIndex) {
@@ -623,7 +623,7 @@ public class MappingVariablePropertySelection extends
 				editingDomain.getCommandStack().execute(
 						SetCommand.create(editingDomain, opt,
 								DomainPackage.eINSTANCE
-										.getMappingVariable_Value(),
+										.getQueryVariable_Value(),
 								valueString));
 				break;
 			default:

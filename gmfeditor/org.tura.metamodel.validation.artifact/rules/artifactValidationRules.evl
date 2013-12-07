@@ -64,7 +64,7 @@
 
   constraint HasName {
 
-      check :  self.value.isDefined()
+      check :  self.name.isDefined()
 
       message : 'Unnamed ' + self.eClass().name + ' not allowed'
 
@@ -73,8 +73,8 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.parameters.select(r|r.isKindOf(QueryParameter) and r.value=self.value).size() = 1
-      message : 'QueryParameter name  ' + self.value + ' is not unique'
+      check : self.parent.parameters.select(r|r.isKindOf(QueryParameter) and r.name=self.name).size() = 1
+      message : 'QueryParameter name  ' + self.name + ' is not unique'
    
    } 
 

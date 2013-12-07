@@ -97,7 +97,7 @@
                         <diagramLabel
                             href="domain.gmfgraph#QueryLabel"/>
                         <features
-                            href="domain.ecore#//Query/fakeName"/>
+                            href="domain.ecore#//Query/name"/>
                       </labelMappings>
                       <tool
                           xsi:type="gmftool:CreationTool"

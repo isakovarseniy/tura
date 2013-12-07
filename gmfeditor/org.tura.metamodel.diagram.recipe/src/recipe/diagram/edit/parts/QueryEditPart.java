@@ -112,8 +112,8 @@ public class QueryEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof QueryFakeNameEditPart) {
-			((QueryFakeNameEditPart) childEditPart).setLabel(getPrimaryShape()
+		if (childEditPart instanceof QueryNameEditPart) {
+			((QueryNameEditPart) childEditPart).setLabel(getPrimaryShape()
 					.getFigureQueryLabelFigure());
 			return true;
 		}
@@ -124,7 +124,7 @@ public class QueryEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof QueryFakeNameEditPart) {
+		if (childEditPart instanceof QueryNameEditPart) {
 			return true;
 		}
 		return false;
@@ -248,7 +248,7 @@ public class QueryEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(QueryFakeNameEditPart.VISUAL_ID));
+				.getType(QueryNameEditPart.VISUAL_ID));
 	}
 
 	/**

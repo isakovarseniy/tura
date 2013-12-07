@@ -65,7 +65,7 @@ public class QueryParameterItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addValuePropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -94,20 +94,20 @@ public class QueryParameterItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Value feature.
+   * This adds a property descriptor for the Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addValuePropertyDescriptor(Object object)
+  protected void addNamePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_QueryParameter_value_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_QueryParameter_value_feature", "_UI_QueryParameter_type"),
-         DomainPackage.Literals.QUERY_PARAMETER__VALUE,
+         getString("_UI_QueryParameter_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_QueryParameter_name_feature", "_UI_QueryParameter_type"),
+         DomainPackage.Literals.QUERY_PARAMETER__NAME,
          true,
          false,
          false,
@@ -137,7 +137,7 @@ public class QueryParameterItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((QueryParameter)object).getUid();
+    String label = ((QueryParameter)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_QueryParameter_type") :
       getString("_UI_QueryParameter_type") + " " + label;
@@ -158,7 +158,7 @@ public class QueryParameterItemProvider
     switch (notification.getFeatureID(QueryParameter.class))
     {
       case DomainPackage.QUERY_PARAMETER__UID:
-      case DomainPackage.QUERY_PARAMETER__VALUE:
+      case DomainPackage.QUERY_PARAMETER__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

@@ -161,12 +161,12 @@ public class InitDiagram {
 		
 		domain.QueryParameter param = domain.DomainFactory.eINSTANCE.createQueryParameter();
 		param.setUid(UUID.randomUUID().toString());
-		param.setValue(VAR_TYPE_NAME);
+		param.setName(VAR_TYPE_NAME);
 		query.getParameters().add(param);
 
 		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
 		param.setUid(UUID.randomUUID().toString());
-		param.setValue(VAR_PACKAGE_NAME);
+		param.setName(VAR_PACKAGE_NAME);
 		query.getParameters().add(param);
 		
 		
@@ -312,12 +312,12 @@ public class InitDiagram {
 		
 		domain.QueryParameter param = domain.DomainFactory.eINSTANCE.createQueryParameter();
 		param.setUid(UUID.randomUUID().toString());
-		param.setValue(VAR_TYPE_NAME);
+		param.setName(VAR_TYPE_NAME);
 		query.getParameters().add(param);
 
 		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
 		param.setUid(UUID.randomUUID().toString());
-		param.setValue(VAR_PACKAGE_NAME);
+		param.setName(VAR_PACKAGE_NAME);
 		query.getParameters().add(param);
 
 		model.getArtifacts().add(artifact);

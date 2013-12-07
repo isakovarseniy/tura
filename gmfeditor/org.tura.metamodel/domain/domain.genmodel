@@ -78,7 +78,7 @@
     <genClasses ecoreClass="domain.ecore#//QueryParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//QueryParameter/uid"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//QueryParameter/parent"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//QueryParameter/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//QueryParameter/name"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Specifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Specifier/uid"/>
@@ -250,7 +250,8 @@
     <genClasses ecoreClass="domain.ecore#//Query">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Query/uid"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Query/modelQuery"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Query/fakeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Query/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Query/queryRef"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Query/variables"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//QueryVariable">

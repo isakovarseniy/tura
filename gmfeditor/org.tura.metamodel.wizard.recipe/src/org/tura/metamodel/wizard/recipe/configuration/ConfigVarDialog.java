@@ -87,7 +87,6 @@ public class ConfigVarDialog {
 		for (Iterator<domain.Component> itr = components.iterator(); itr
 				.hasNext();) {
 			domain.Component component = itr.next();
-			searchConfigParameters(component.getComponents());
 
 			for (Iterator<domain.ModelMapper> itrMp = component.getMappers()
 					.iterator(); itrMp.hasNext();) {

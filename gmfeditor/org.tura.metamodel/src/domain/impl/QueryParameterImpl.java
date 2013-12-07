@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link domain.impl.QueryParameterImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.QueryParameterImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link domain.impl.QueryParameterImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link domain.impl.QueryParameterImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,24 +55,24 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter
   protected String uid = UID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String value = VALUE_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -168,9 +168,9 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public String getName()
   {
-    return value;
+    return name;
   }
 
   /**
@@ -178,12 +178,12 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public void setName(String newName)
   {
-    String oldValue = value;
-    value = newValue;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY_PARAMETER__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY_PARAMETER__NAME, oldName, name));
   }
 
   /**
@@ -250,8 +250,8 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter
         return getUid();
       case DomainPackage.QUERY_PARAMETER__PARENT:
         return getParent();
-      case DomainPackage.QUERY_PARAMETER__VALUE:
-        return getValue();
+      case DomainPackage.QUERY_PARAMETER__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -272,8 +272,8 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter
       case DomainPackage.QUERY_PARAMETER__PARENT:
         setParent((ModelQuery)newValue);
         return;
-      case DomainPackage.QUERY_PARAMETER__VALUE:
-        setValue((String)newValue);
+      case DomainPackage.QUERY_PARAMETER__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -295,8 +295,8 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter
       case DomainPackage.QUERY_PARAMETER__PARENT:
         setParent((ModelQuery)null);
         return;
-      case DomainPackage.QUERY_PARAMETER__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case DomainPackage.QUERY_PARAMETER__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -316,8 +316,8 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.QUERY_PARAMETER__PARENT:
         return getParent() != null;
-      case DomainPackage.QUERY_PARAMETER__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case DomainPackage.QUERY_PARAMETER__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -335,8 +335,8 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
-    result.append(", value: ");
-    result.append(value);
+    result.append(", name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

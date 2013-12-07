@@ -16,13 +16,14 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.Query#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Query#getModelQuery <em>Model Query</em>}</li>
- *   <li>{@link domain.Query#getFakeName <em>Fake Name</em>}</li>
+ *   <li>{@link domain.Query#getName <em>Name</em>}</li>
+ *   <li>{@link domain.Query#getQueryRef <em>Query Ref</em>}</li>
  *   <li>{@link domain.Query#getVariables <em>Variables</em>}</li>
  * </ul>
  * </p>
  *
  * @see domain.DomainPackage#getQuery()
- * @model annotation="gmf.node label='fakeName'"
+ * @model annotation="gmf.node label='name'"
  * @generated
  */
 public interface Query extends EObject
@@ -80,30 +81,56 @@ public interface Query extends EObject
   void setModelQuery(ModelQuery value);
 
   /**
-   * Returns the value of the '<em><b>Fake Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Fake Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fake Name</em>' attribute.
-   * @see #setFakeName(String)
-   * @see domain.DomainPackage#getQuery_FakeName()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see domain.DomainPackage#getQuery_Name()
    * @model
    * @generated
    */
-  String getFakeName();
+  String getName();
 
   /**
-   * Sets the value of the '{@link domain.Query#getFakeName <em>Fake Name</em>}' attribute.
+   * Sets the value of the '{@link domain.Query#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fake Name</em>' attribute.
-   * @see #getFakeName()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setFakeName(String value);
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Query Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Query Ref</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Query Ref</em>' reference.
+   * @see #setQueryRef(ModelQuery)
+   * @see domain.DomainPackage#getQuery_QueryRef()
+   * @model
+   * @generated
+   */
+  ModelQuery getQueryRef();
+
+  /**
+   * Sets the value of the '{@link domain.Query#getQueryRef <em>Query Ref</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Query Ref</em>' reference.
+   * @see #getQueryRef()
+   * @generated
+   */
+  void setQueryRef(ModelQuery value);
 
   /**
    * Returns the value of the '<em><b>Variables</b></em>' containment reference list.

@@ -116,7 +116,7 @@ class ModelQuery{
 class QueryParameter{
     id attr EString uid;
    ref ModelQuery#parameters parent;
-   attr EString value;
+   attr EString name;
 }
 
 @gmf.node(label="name")
@@ -369,12 +369,13 @@ class MappingSpecifier{
    ref Option valueRef;
 }
 
-@gmf.node(label="fakeName")
+@gmf.node(label="name")
 class Query{
     id attr EString uid;
    ref ModelQuery modelQuery;
-   attr EString fakeName;
-  val QueryVariable[*] variables;
+   attr EString name;
+   ref ModelQuery queryRef;
+   val QueryVariable[*] variables;
 }
 
 class QueryVariable{

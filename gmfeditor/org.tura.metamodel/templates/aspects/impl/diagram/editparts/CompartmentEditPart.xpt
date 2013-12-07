@@ -53,7 +53,7 @@
 			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
 			result.setTitleVisibility(false);
 		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    layout.setColumns(1);
+		    layout.setColumns(3);
 		    result.getContentPane().setLayoutManager(layout);
 			return result;
 		}
