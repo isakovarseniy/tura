@@ -4,28 +4,25 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
-import org.eclipse.ui.IWorkbenchPart;
 
 import domain.DomainPackage;
 
 public class QueryPropertySelection extends AbstractEnumerationPropertySection {
 
 	protected HashMap<String, domain.ModelQuery> values;
-	private boolean isFirstTime = true;
-	private CommandStackListener commandStackListener;
 
 	protected EStructuralFeature[] getFeature() {
 		return new EStructuralFeature[] { DomainPackage.eINSTANCE
@@ -37,20 +34,6 @@ public class QueryPropertySelection extends AbstractEnumerationPropertySection {
 			return ((domain.Query) eObject).getQueryRef().getName();
 		else
 			return "";
-	}
-
-	public void setInput(IWorkbenchPart part, ISelection selection) {
-		super.setInput(part, selection);
-		values = null;
-		if (isFirstTime) {
-			isFirstTime = false;
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
-
-			editingDomain.getCommandStack().addCommandStackListener(
-					commandStackListener);
-		}
-
 	}
 
 	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
@@ -115,39 +98,52 @@ public class QueryPropertySelection extends AbstractEnumerationPropertySection {
 				}
 
 				// Validate current query set
-//				EditingDomain editingDomain = ((DiagramEditor) getPart())
-//						.getEditingDomain();
-//
-//				for (Iterator<domain.Query> itr = ((domain.ModelMapper) (((domain.Query) eObject)
-//						.eContainer())).getQueries().iterator(); itr.hasNext();) {
-//					domain.Query q = itr.next();
-//					if (q.getQueryRef() != null) {
-//						query = helper
-//								.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
-//										+ ((domain.ModelMapper) (((domain.Query) eObject)
-//												.eContainer()))
-//												.getDomainArtifactRef()
-//												.getUid()
-//										+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).uid = '"
-//										+ ((domain.ModelMapper) (((domain.Query) eObject)
-//												.eContainer()))
-//												.getArtifactRef().getUid()
-//										+ "').oclAsType(domain::Artifact).modelQuery->select(r|r.oclAsType(domain::ModelQuery).uid= '"
-//										+ q.getQueryRef().getUid() + "')");
-//
-//						map = (Collection<domain.ModelQuery>) ocl.evaluate(
-//								types, query);
-//						if (map.size() == 0) {
-//							editingDomain.getCommandStack().execute(
-//									SetCommand.create(editingDomain,
-//											((domain.Query) eObject),
-//											DomainPackage.eINSTANCE
-//													.getQuery_QueryRef(),
-//											null));
-//
-//						}
-//					}
-//				}
+				EditingDomain editingDomain = ((DiagramEditor) getPart())
+						.getEditingDomain();
+
+				for (Iterator<domain.Query> itr = ((domain.ModelMapper) (((domain.Query) eObject)
+						.eContainer())).getQueries().iterator(); itr.hasNext();) {
+					domain.Query q = itr.next();
+					if (q.getQueryRef() != null) {
+						query = helper
+								.createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
+										+ ((domain.ModelMapper) (((domain.Query) eObject)
+												.eContainer()))
+												.getDomainArtifactRef()
+												.getUid()
+										+ "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact) and  r.oclAsType(domain::Artifact).uid = '"
+										+ ((domain.ModelMapper) (((domain.Query) eObject)
+												.eContainer()))
+												.getArtifactRef().getUid()
+										+ "').oclAsType(domain::Artifact).modelQuery->select(r|r.oclAsType(domain::ModelQuery).uid= '"
+										+ q.getQueryRef().getUid() + "')");
+
+						map = (Collection<domain.ModelQuery>) ocl.evaluate(
+								types, query);
+						if (map.size() == 0) {
+							editingDomain
+									.getCommandStack()
+									.execute(
+											SetCommand
+													.create(editingDomain,
+															((domain.Query) eObject),
+															DomainPackage.eINSTANCE
+																	.getQuery_QueryRef(),
+															null));
+
+							for (Iterator<domain.QueryVariable> itr1 = ((domain.Query) eObject)
+									.getVariables().iterator(); itr1.hasNext();) {
+								editingDomain.getCommandStack().execute(
+										RemoveCommand.create(editingDomain,
+												((domain.Query) eObject),
+												DomainPackage.eINSTANCE
+														.getQuery_Variables(),
+												itr1.next()));
+							}
+
+						}
+					}
+				}
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -155,19 +151,6 @@ public class QueryPropertySelection extends AbstractEnumerationPropertySection {
 		}
 
 		return values;
-	}
-
-	public void dispose() {
-		super.dispose();
-		if (getPart() != null) {
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
-
-			if (commandStackListener != null) {
-				editingDomain.getCommandStack().removeCommandStackListener(
-						commandStackListener);
-			}
-		}
 	}
 
 }

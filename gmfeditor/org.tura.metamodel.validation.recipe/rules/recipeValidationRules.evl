@@ -139,6 +139,24 @@ context Configuration{
       message : 'MappingSpecifiers   for ' + self.name +  '  is not define  properly'
   }
 
+  constraint checkMappingSpecifiers{
+      guard : self.satisfies("HasRefArtifact")
+      check{
+ 	   var hash := new Native('java.util.HashMap');
+       for( query in self.queries ){
+            if ( query.queryRef <> null ){
+              hash.put(query.queryRef.uid , query);
+         }
+       }      
+      if (self.artifactRef.modelQuery.size() = hash.size())
+        return true;
+      return false;
+      }
+      message : 'Query defined for ' +self.domainArtifactRef.name+'.'+self.artifactRef.name+ ' is exists in ModelMapper '+self.name
+  }
+
+
+
 }
 
 
