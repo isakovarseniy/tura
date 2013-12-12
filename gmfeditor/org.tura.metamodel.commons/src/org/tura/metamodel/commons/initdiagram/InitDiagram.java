@@ -334,6 +334,21 @@ public class InitDiagram {
 		artifact.setTemplate("j2ee/ejb");
 		model.getArtifacts().add(artifact);
 
+		query = domain.DomainFactory.eINSTANCE.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE);
+		artifact.getModelQuery().add(query);
+		
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_TYPE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+		
 		domain.Specifier specifier = domain.DomainFactory.eINSTANCE
 				.createSpecifier();
 		specifier.setUid(UUID.randomUUID().toString());
@@ -636,10 +651,10 @@ public class InitDiagram {
 		return map;
 	}
 
-	public static HashMap<String, domain.Artifact> getArtifactElements(
+	public static HashMap<String, Object> getArtifactElements(
 			Resource resource) {
 		
-		HashMap<String, domain.Artifact> map = new HashMap<String, domain.Artifact>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		
 		for (Iterator<EObject> itr = resource.getContents().iterator(); itr
 				.hasNext();) {
@@ -648,6 +663,15 @@ public class InitDiagram {
 				for (Iterator<domain.Artifact> artitr = ((domain.Artifacts)obj).getArtifacts().iterator();artitr.hasNext(); ){
 					domain.Artifact artifact = artitr.next();
 					map.put(artifact.getParent().getParent().getName()+"_"+ artifact.getName()  ,artifact );
+					for (Iterator<domain.ModelQuery> mqItr = artifact.getModelQuery().iterator();mqItr.hasNext(); ){
+						domain.ModelQuery mq = mqItr.next();
+						map.put(artifact.getParent().getParent().getName()+"_"+ artifact.getName() +"_"+mq.getName() ,mq );
+						for (Iterator<domain.QueryParameter> paramItr = mq.getParameters().iterator();paramItr.hasNext(); ){
+							domain.QueryParameter param = paramItr.next();
+							map.put(artifact.getParent().getParent().getName()+"_"+ artifact.getName() +"_"+mq.getName() +"_"+param.getName(),param );
+						}
+					
+					}
 				}
 			}
 		}
