@@ -1,6 +1,7 @@
 package org.tura.metamodel.populate.hr;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.UUID;
 
 import org.eclipse.emf.ecore.resource.Resource;
@@ -35,6 +36,19 @@ public class PopulateRecipe {
 		recipe.setUid(UUID.randomUUID().toString());
 		recipes.setRecipe(recipe);
 		  
+		domain.Infrastructure infrastructure = DomainFactory.eINSTANCE.createInfrastructure();
+		infrastructure.setUid(UUID.randomUUID().toString());
+		infrastructure.setName("Development");
+		recipes.getInfrastructures().add(infrastructure);
+		recipe.getInfrastructures().add(infrastructure);
+		
+		domain.Configuration conf = DomainFactory.eINSTANCE.createConfiguration();
+		conf.setUid(UUID.randomUUID().toString());
+		infrastructure.setRecipeConfig(conf);
+		recipes.getConfigurations().add(conf);
+		infrastructure.getRecipeConfig().setConfigExtension(conf);
+		
+		
 		domain.Ingredient ingredient = DomainFactory.eINSTANCE.createIngredient();
 		ingredient.setName(Constants.HR_SERVICE_INGREDIENT);
 		ingredient.setUid(UUID.randomUUID().toString());
@@ -147,6 +161,37 @@ public class PopulateRecipe {
 		modelMapper.setArtifactRef((Artifact) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.PERSISTENS_XML));
 		modelMapper.setDomainArtifactRef(modelMapper.getArtifactRef().getParent().getParent());
 
+        for (Iterator<domain.ConfigVariable>  itr =modelMapper.getArtifactRef().getConfigVariables().iterator();itr.hasNext(); ){
+        	domain.ConfigVariable confvar = itr.next();
+            domain.Property prop = 	DomainFactory.eINSTANCE.createProperty();
+            prop.setConfVarRef(confvar);
+            prop.setUid(UUID.randomUUID().toString());
+            String v=null;
+            if (confvar.getName().equals(InitDiagram.DATABASE_SOCKET))
+            	v="1521";
+            if (confvar.getName().equals(InitDiagram.DATABASE_USER))
+            	v="HR";
+            if (confvar.getName().equals(InitDiagram.DATABASE_IP))
+            	v="localhost";
+            if (confvar.getName().equals(InitDiagram.DATABASE_PASSWORD))
+            	v="HR";
+            if (confvar.getName().equals(InitDiagram.DATABASE_SCHEMA))
+            	v="HR";
+            if (confvar.getName().equals(InitDiagram.JNDI_ACCESS_STRING))
+            	v="jdbc/hrDS";
+            prop.setValue(v);
+            conf.getProperties().add(prop);
+        }
+        
+        for (Iterator<domain.Specifier>  itr =modelMapper.getArtifactRef().getSpecifiers().iterator();itr.hasNext(); ){
+        	domain.Specifier sp = itr.next();
+            domain.MappingSpecifier ms = 	DomainFactory.eINSTANCE.createMappingSpecifier();
+            ms.setSpecifierRef(sp);       
+            ms.setValueRef(sp.getOptions().get(0));
+        	ms.setUid(UUID.randomUUID().toString());
+        	modelMapper.getSpecifiers().add(ms);
+        }        
+        
 		query = DomainFactory.eINSTANCE.createQuery();
 		query.setName("Get "+Constants.TYPE_EMPLOYEE);
 		modelMapper.getQueries().add(query);
@@ -162,7 +207,6 @@ public class PopulateRecipe {
 		var.setValue(Constants.TYPE_EMPLOYEE);
 		query.getVariables().add(var);
 		
-
 		query = DomainFactory.eINSTANCE.createQuery();
 		modelMapper.getQueries().add(query);
 		query.setName("Get "+Constants.TYPE_DEPARTMENT);
@@ -177,8 +221,6 @@ public class PopulateRecipe {
 		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.PERSISTENS_XML+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME));
 		var.setValue(Constants.TYPE_DEPARTMENT);
 		query.getVariables().add(var);
-		
-		
 		
 		
 		modelMapper = DomainFactory.eINSTANCE.createModelMapper();
@@ -204,7 +246,7 @@ public class PopulateRecipe {
 		var.setValue("BaseType");
 		query.getVariables().add(var);
 	
-	
+		
 	
 	}
 
