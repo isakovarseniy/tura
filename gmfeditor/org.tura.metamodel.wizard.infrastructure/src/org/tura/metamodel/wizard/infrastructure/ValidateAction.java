@@ -182,7 +182,6 @@ public class ValidateAction extends Action {
 									strQuery = strQuery.replaceAll("\\$\\{"+var.getQueryParamRef().getName()+"\\}", var.getValue());
 								}
 								try {
-									System.out.println(strQuery);
 									Object result = executeQuery(strQuery, mapper);
 									if (result == null)
 										continue;

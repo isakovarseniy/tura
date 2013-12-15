@@ -157,6 +157,7 @@ public class InitDiagram {
 		domain.ModelQuery query = domain.DomainFactory.eINSTANCE.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
 		query.setName(QUERY_TYPE);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
 		artifact.getModelQuery().add(query);
 		
 		domain.QueryParameter param = domain.DomainFactory.eINSTANCE.createQueryParameter();
@@ -308,6 +309,7 @@ public class InitDiagram {
 		domain.ModelQuery query = domain.DomainFactory.eINSTANCE.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
 		query.setName(QUERY_TYPE);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
 		artifact.getModelQuery().add(query);
 		
 		domain.QueryParameter param = domain.DomainFactory.eINSTANCE.createQueryParameter();
@@ -336,6 +338,7 @@ public class InitDiagram {
 
 		query = domain.DomainFactory.eINSTANCE.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
 		query.setName(QUERY_TYPE);
 		artifact.getModelQuery().add(query);
 		
