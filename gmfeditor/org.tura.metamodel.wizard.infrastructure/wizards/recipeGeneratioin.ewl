@@ -1,0 +1,11 @@
+wizard RecipeGeneration {
+	
+	guard : self.isKindOf(domain::Infrastructure) 
+		
+	title : 'Recipe generation'
+	do {
+	   var generator := new Native('org.tura.metamodel.wizard.infrastructure.RecipeGeneration');
+       var properties = generator.generation(self);
+     }
+	
+}
