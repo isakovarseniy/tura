@@ -153,7 +153,8 @@ public class ValidateAction extends Action {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	private static Diagnostic runEMFValidator(View target) {
+	private static Diagnostic[] runEMFValidator(View target) {
+		
 		if (target.isSetElement() && target.getElement() != null) {
 
 			Diagnostician diagnostician = new Diagnostician() {
@@ -162,10 +163,11 @@ public class ValidateAction extends Action {
 					return EMFCoreUtil.getQualifiedName(eObject, true);
 				}
 			};
+			ArrayList<Diagnostic> diag = new ArrayList<Diagnostic>();
 
 			// Validate recipe
 			domain.Recipes recipes = (Recipes) target.getElement();
-			Diagnostic diag = diagnostician.validate(recipes);
+			diag.add(diagnostician.validate(recipes));
 
 			for (Iterator<Ingredient> itr = recipes.getRecipe().getIngredients().iterator(); itr.hasNext();) {
 				Ingredient ingredient = itr.next();
@@ -187,11 +189,11 @@ public class ValidateAction extends Action {
 										continue;
 									if (result instanceof Collection){
 										for (Iterator<EObject> itrRes =  ((Collection<EObject>)result).iterator();itrRes.hasNext() ; ){
-											diag = diagnostician.validate(itrRes.next());
+											diag.add(diagnostician.validate(itrRes.next()));
 										}
 									}
 									if (result instanceof EObject){
-										diag = diagnostician.validate((EObject) result);
+										diag.add( diagnostician.validate((EObject) result));
 									}
 									
 								} catch (Exception e) {
@@ -203,10 +205,10 @@ public class ValidateAction extends Action {
 					}
 				}
 			}
-			return diag;
+			return   diag.toArray(new Diagnostic[diag.size()]);
 
 		}
-		return Diagnostic.OK_INSTANCE;
+		return  new Diagnostic[] {Diagnostic.OK_INSTANCE};
 	}
 
 	
@@ -236,8 +238,11 @@ public class ValidateAction extends Action {
 		if (target != null) {
 			DomainMarkerNavigationProvider.deleteMarkers(target);
 		}
-		Diagnostic diagnostic = runEMFValidator(view);
-		createMarkers(target, diagnostic, diagramEditPart);
+		Diagnostic[] diagnostic = runEMFValidator(view);
+		for (int i = 0 ; i < diagnostic.length; i++){
+			createMarkers(target, diagnostic[i], diagramEditPart);
+			
+		}
 		IBatchValidator validator = (IBatchValidator) ModelValidationService
 				.getInstance().newValidator(EvaluationMode.BATCH);
 		validator.setIncludeLiveConstraints(true);

@@ -447,10 +447,10 @@ public class PopulateTypes {
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("className");
-		attr.setPackageRef(typesHash
+		param.setPackageRef(typesHash
 				.get(InitDiagram.PRIVATE_PACKAGE + "_String").getParent()
 				.getParent());
-		attr.setTypeRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE + "_String"));
+		param.setTypeRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE + "_String"));
 
 		opr = domain.DomainFactory.eINSTANCE.createOperation();
 		employeesService.getOperations().add(opr);
