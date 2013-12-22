@@ -27,7 +27,7 @@ public enum PlatformLayers implements Enumerator
    * @generated
    * @ordered
    */
-  SERVICE_LAYER(0, "ServiceLayer", "ServiceLayer"),
+  SERVICE_LAYER(1, "ServiceLayer", "ServiceLayer"),
 
   /**
    * The '<em><b>UI Layer</b></em>' literal object.
@@ -37,7 +37,7 @@ public enum PlatformLayers implements Enumerator
    * @generated
    * @ordered
    */
-  UI_LAYER(1, "UILayer", "UILayer");
+  UI_LAYER(2, "UILayer", "UILayer");
 
   /**
    * The '<em><b>Service Layer</b></em>' literal value.
@@ -52,7 +52,7 @@ public enum PlatformLayers implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int SERVICE_LAYER_VALUE = 0;
+  public static final int SERVICE_LAYER_VALUE = 1;
 
   /**
    * The '<em><b>UI Layer</b></em>' literal value.
@@ -67,7 +67,7 @@ public enum PlatformLayers implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int UI_LAYER_VALUE = 1;
+  public static final int UI_LAYER_VALUE = 2;
 
   /**
    * An array of all the '<em><b>Platform Layers</b></em>' enumerators.

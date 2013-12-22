@@ -281,9 +281,10 @@ class UsingMappers{
   ref ApplicationMapper[*] mappers;
 }
 
+//Value of laers must be 2^n
 enum PlatformLayers{
-   ServiceLayer = 0;
-   UILayer = 1;
+   ServiceLayer = 1;
+   UILayer = 2;
 }
 
 @gmf.node(label="name")

@@ -281,5 +281,15 @@
     </propertySections>
   </extension>  
 
+    <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+      <tool
+            class="org.tura.metamodel.commons.Util"
+            defaultName="Util"> 
+      
+      </tool>
+   </extension>
+
+
 
 </plugin>

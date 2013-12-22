@@ -444,6 +444,8 @@ public class InitDiagram {
 		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_String"));
 		 mapper.setMappedToPackageName("java.lang");
 		 mapper.setMappedToClassName("String");
+		 mapper.setUiLayer(true);
+		 mapper.setServiceLayer(true);
 		 mappers.getMappers().add(mapper);
 		
 		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
@@ -452,6 +454,8 @@ public class InitDiagram {
 		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Boolean"));
 		 mapper.setMappedToPackageName("java.lang");
 		 mapper.setMappedToClassName("Boolean");
+		 mapper.setUiLayer(true);
+		 mapper.setServiceLayer(true);
 		 mappers.getMappers().add(mapper);
 		
 		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
@@ -460,6 +464,8 @@ public class InitDiagram {
 		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Decimal"));
 		 mapper.setMappedToPackageName("java.lang");
 		 mapper.setMappedToClassName("BigDecimal");
+		 mapper.setUiLayer(true);
+		 mapper.setServiceLayer(true);
 		 mappers.getMappers().add(mapper);
 		
 		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
@@ -468,6 +474,8 @@ public class InitDiagram {
 		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Float"));
 		 mapper.setMappedToPackageName("java.lang");
 		 mapper.setMappedToClassName("Float");
+		 mapper.setUiLayer(true);
+		 mapper.setServiceLayer(true);
 		 mappers.getMappers().add(mapper);
 		
 		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
@@ -476,6 +484,8 @@ public class InitDiagram {
 		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Double"));
 		 mapper.setMappedToPackageName("java.lang");
 		 mapper.setMappedToClassName("Double");
+		 mapper.setUiLayer(true);
+		 mapper.setServiceLayer(true);
 		 mappers.getMappers().add(mapper);
 		
 		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
@@ -484,6 +494,8 @@ public class InitDiagram {
 		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_DateTime"));
 		 mapper.setMappedToPackageName("java.util");
 		 mapper.setMappedToClassName("Date");
+		 mapper.setUiLayer(true);
+		 mapper.setServiceLayer(true);
 		 mappers.getMappers().add(mapper);
 		
 		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
@@ -492,6 +504,8 @@ public class InitDiagram {
 		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Date"));
 		 mapper.setMappedToPackageName("java.util");
 		 mapper.setMappedToClassName("Date");
+		 mapper.setUiLayer(true);
+		 mapper.setServiceLayer(true);
 		 mappers.getMappers().add(mapper);
 		
 		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
@@ -500,6 +514,8 @@ public class InitDiagram {
 		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Integer"));
 		 mapper.setMappedToPackageName("java.lang");
 		 mapper.setMappedToClassName("Integer");
+		 mapper.setUiLayer(true);
+		 mapper.setServiceLayer(true);
 		 mappers.getMappers().add(mapper);
 		
 		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
@@ -508,6 +524,8 @@ public class InitDiagram {
 		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Long"));
 		 mapper.setMappedToPackageName("java.lang");
 		 mapper.setMappedToClassName("Long");
+		 mapper.setUiLayer(true);
+		 mapper.setServiceLayer(true);
 		 mappers.getMappers().add(mapper);
 		
 		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
@@ -516,6 +534,8 @@ public class InitDiagram {
 		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_HexBinary"));
 		 mapper.setMappedToPackageName("");
 		 mapper.setMappedToClassName("byte[]");
+		 mapper.setUiLayer(true);
+		 mapper.setServiceLayer(true);
 		 mappers.getMappers().add(mapper);
 
 		return model;

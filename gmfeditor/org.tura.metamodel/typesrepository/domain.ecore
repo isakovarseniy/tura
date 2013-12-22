@@ -377,8 +377,8 @@
         eType="#//ApplicationMapper"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PlatformLayers">
-    <eLiterals name="ServiceLayer"/>
-    <eLiterals name="UILayer" value="1"/>
+    <eLiterals name="ServiceLayer" value="1"/>
+    <eLiterals name="UILayer" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Recipe" eSuperTypes="#//UsingMappers">
     <eAnnotations source="gmf.node">

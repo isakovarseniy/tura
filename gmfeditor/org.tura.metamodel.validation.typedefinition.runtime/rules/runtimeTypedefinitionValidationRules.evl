@@ -27,14 +27,17 @@
 operation TypePointer getAllRecipeMappers() : Boolean { 
 
     var indicator = new Native('org.tura.metamodel.wizard.infrastructure.Indicator');
-    var mappers =   new Native('java.util.ArrayList');  
+    var appmappers =   new Native('java.util.ArrayList');  
+    var util = new Native('org.tura.metamodel.commons.Util');
     
-    mappers.addAll(indicator.currentRecipe.mappers);
-    mappers.addAll(indicator.currentIngredient.mappers);
+    appmappers.addAll(indicator.currentRecipe.mappers);
+    appmappers.addAll(indicator.currentIngredient.mappers);
     
-    for( mapper in mappers ){
-          if (  mapper.mapper.mappers.select(r|r.typeRef.uid=self.typeRef.uid).size() > 0 ){
-              return true;
+    for( appmapper in appmappers ){
+          var set = appmapper.mapper.mappers.select(r|r.typeRef.uid=self.typeRef.uid);
+          if (  set.size() > 0 ){
+              if (util.mapperRecognizer(set,indicator.currentIngredient) )
+                  return true;
           }    
        }
     
