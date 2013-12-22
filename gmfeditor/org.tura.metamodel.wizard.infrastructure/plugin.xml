@@ -17,6 +17,16 @@
       </tool>
    </extension>
 
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+     <tool
+            class="org.tura.metamodel.wizard.infrastructure.Indicator"
+            defaultName="Indicator">
+      </tool>
+   </extension>
+
+
+
 </plugin>
 
 

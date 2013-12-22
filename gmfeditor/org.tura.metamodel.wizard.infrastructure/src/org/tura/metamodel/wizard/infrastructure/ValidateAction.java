@@ -169,41 +169,57 @@ public class ValidateAction extends Action {
 			domain.Recipes recipes = (Recipes) target.getElement();
 			diag.add(diagnostician.validate(recipes));
 
-			for (Iterator<Ingredient> itr = recipes.getRecipe().getIngredients().iterator(); itr.hasNext();) {
-				Ingredient ingredient = itr.next();
-				for (Iterator<domain.Component> itrComp = ingredient.getComponents().iterator(); itrComp.hasNext();) {
-					domain.Component comp = itrComp.next();
-					for (Iterator<domain.ModelMapper> itrMap = comp.getMappers().iterator(); itrMap.hasNext();) {
-						domain.ModelMapper mapper = itrMap.next();
-						for (Iterator<domain.Query> itrQuery = mapper.getQueries().iterator(); itrQuery.hasNext();) {
-							domain.Query query = itrQuery.next();
-							if ( query.getQueryRef()!=null && query.getQueryRef().getQuery() != null && query.getQueryRef().getQuery() != null ){
-								String strQuery = query.getQueryRef().getQuery();
-								for (Iterator<domain.QueryVariable> itrVar = query.getVariables().iterator(); itrVar.hasNext();) {
-									domain.QueryVariable var = itrVar.next();
-									strQuery = strQuery.replaceAll("\\$\\{"+var.getQueryParamRef().getName()+"\\}", var.getValue());
-								}
-								try {
-									Object result = executeQuery(strQuery, mapper);
-									if (result == null)
-										continue;
-									if (result instanceof Collection){
-										for (Iterator<EObject> itrRes =  ((Collection<EObject>)result).iterator();itrRes.hasNext() ; ){
-											diag.add(diagnostician.validate(itrRes.next()));
-										}
-									}
-									if (result instanceof EObject){
-										diag.add( diagnostician.validate((EObject) result));
-									}
-									
-								} catch (Exception e) {
-									DomainDiagramEditorPlugin.getInstance().logError("Validation action failed", e); 
-								}
-							}
-							
-						}
-					}
-				}
+System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");			
+			
+			
+			try {
+				  Indicator.clean();
+				  Indicator.runTime = 1;
+            
+				  Indicator.currentRecipe=recipes.getRecipe();
+				  for (Iterator<Ingredient> itr = recipes.getRecipe().getIngredients().iterator(); itr.hasNext();) {
+					  Ingredient ingredient = itr.next();
+					  Indicator.currentIngredient=ingredient;
+					  for (Iterator<domain.Component> itrComp = ingredient.getComponents().iterator(); itrComp.hasNext();) {
+						  domain.Component comp = itrComp.next();
+						  Indicator.currentComponent=comp;
+						  for (Iterator<domain.ModelMapper> itrMap = comp.getMappers().iterator(); itrMap.hasNext();) {
+							  domain.ModelMapper mapper = itrMap.next();
+							  Indicator.currentModelMapper=mapper;
+							  for (Iterator<domain.Query> itrQuery = mapper.getQueries().iterator(); itrQuery.hasNext();) {
+								  domain.Query query = itrQuery.next();
+								  Indicator.currentQuery=query;
+								  if ( query.getQueryRef()!=null && query.getQueryRef().getQuery() != null && query.getQueryRef().getQuery() != null ){
+									  String strQuery = query.getQueryRef().getQuery();
+									  for (Iterator<domain.QueryVariable> itrVar = query.getVariables().iterator(); itrVar.hasNext();) {
+									  	  domain.QueryVariable var = itrVar.next();
+										  strQuery = strQuery.replaceAll("\\$\\{"+var.getQueryParamRef().getName()+"\\}", var.getValue());
+									  }
+									  try {
+										  Object result = executeQuery(strQuery, mapper);
+										  if (result == null)
+											  continue;
+										  if (result instanceof Collection){
+											  for (Iterator<EObject> itrRes =  ((Collection<EObject>)result).iterator();itrRes.hasNext() ; ){
+												  EObject obj= itrRes.next();
+												  diag.add(diagnostician.validate(obj));
+											  }
+										  }
+										  if (result instanceof EObject){
+											  diag.add( diagnostician.validate((EObject) result));
+										  }
+										
+									  } catch (Exception e) {
+										  DomainDiagramEditorPlugin.getInstance().logError("Validation action failed", e); 
+									  }
+								  } 
+								
+							  }
+						  }
+					  }
+				  }
+			}finally{
+				Indicator.runTime = 0;
 			}
 			return   diag.toArray(new Diagnostic[diag.size()]);
 

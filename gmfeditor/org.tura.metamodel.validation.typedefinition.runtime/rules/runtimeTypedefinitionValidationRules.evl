@@ -1,0 +1,43 @@
+ context TypePointer {
+
+  constraint PackageRef {
+
+      check :  self.packageRef.isDefined()
+
+      message : 'Undefined  package name ' + self.eClass().name + ' not allowed'
+
+  }
+  
+  constraint TypeRef {
+
+      check :  self.typeRef.isDefined()
+
+      message : 'Undefined  type name ' + self.eClass().name + ' not allowed'
+
+  }
+  
+   constraint qqqqqq{
+      guard : (new Native('org.tura.metamodel.wizard.infrastructure.Indicator')).runTime <> 0
+      check : self.getAllRecipeMappers()
+      message : 'Runtime constraint ' + self.typeRef.name+" -->"
+  } 
+
+}
+
+operation TypePointer getAllRecipeMappers() : Boolean { 
+
+    var indicator = new Native('org.tura.metamodel.wizard.infrastructure.Indicator');
+    var mappers =   new Native('java.util.ArrayList');  
+    indicator.runTime.println();
+    
+    mappers.addAll(indicator.currentRecipe.mappers);
+    mappers.addAll(indicator.currentIngredient.mappers);
+    
+ //    for( mapper in mappers ){
+           
+//          if (  Mapper.all.select(r|r.parent.uid=mapper.uid).select(q|q.typeRef.uid=self.typeRef.uid) > 0 )
+//              return true;
+ //      }
+    
+   return false;
+}

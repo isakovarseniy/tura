@@ -3,7 +3,7 @@
 <plugin>
 
   <extension
-         point="org.eclipse.epsilon.evl.emf.validation">
+         point="org.tura.metamodel.validatioin">
       <constraintsBinding
             constraints="rules/typedefinitionValidationRules.evl"
             namespaceURI="http://tura.org/2013/v1/domain">

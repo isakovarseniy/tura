@@ -1,12 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Validation
-Bundle-SymbolicName: org.tura.metamodel.validation.typesrepository;singleton:=true
+Bundle-Name: Typedefinition
+Bundle-SymbolicName: org.tura.metamodel.validation.typedefinition.runtime;singleton:=true
 Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.tura.metamodel.runtime.validation.typedefinition.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.ui.ide;bundle-version="3.8.1",
  org.tura.metamodel.validatioin;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Bundle-Activator: org.tura.metamodel.commons.validation.Activator
