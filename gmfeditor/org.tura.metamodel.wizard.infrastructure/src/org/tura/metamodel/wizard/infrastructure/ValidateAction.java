@@ -169,9 +169,6 @@ public class ValidateAction extends Action {
 			domain.Recipes recipes = (Recipes) target.getElement();
 			diag.add(diagnostician.validate(recipes));
 
-System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");			
-			
-			
 			try {
 				  Indicator.clean();
 				  Indicator.runTime = 1;

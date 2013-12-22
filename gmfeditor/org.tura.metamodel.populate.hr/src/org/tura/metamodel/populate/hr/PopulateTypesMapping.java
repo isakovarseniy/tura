@@ -25,20 +25,25 @@ public class PopulateTypesMapping {
 		mapping.setName(Constants.HR_TYPE_MAPPER);
 		resource.getContents().add(mapping);
 		
-		appl.getApplicationMappers().getMappers().add(populateDepartmentsTypeMapping(mapping,resource));
-		appl.getApplicationMappers().getMappers().add(populateEmployeesTypeMapping(mapping,resource));
+		appl.getApplicationMappers().getMappers().add(mapping);
 		
-	}
-	
-	private domain.ApplicationMapper populateDepartmentsTypeMapping(domain.ApplicationMapper mapping,Resource resource){
-
-		HashMap<String, domain.TypeElement> typesHash = InitDiagram
-				.getTypeElements(resource);
-
 		domain.Mappers mps =  domain.DomainFactory.eINSTANCE.createMappers();
 		mps.setUid(UUID.randomUUID().toString());
 		mapping.setMapper(mps);
         resource.getContents().add(mps); 
+        mapping.setMapper(mps);
+
+        
+		populateDepartmentsTypeMapping(mps,resource);
+		populateEmployeesTypeMapping(mps,resource);
+		
+	}
+	
+	private void populateDepartmentsTypeMapping(domain.Mappers mps,Resource resource){
+
+		HashMap<String, domain.TypeElement> typesHash = InitDiagram
+				.getTypeElements(resource);
+
 		
 		domain.JavaMapper jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
@@ -119,16 +124,10 @@ public class PopulateTypesMapping {
         jm.setServiceLayer(true);
         
 
-        return mapping;
 	}
 	
-	private domain.ApplicationMapper populateEmployeesTypeMapping(domain.ApplicationMapper mapping,Resource resource){
+	private void populateEmployeesTypeMapping(domain.Mappers mps,Resource resource){
 
-		domain.Mappers mps =  domain.DomainFactory.eINSTANCE.createMappers();
-		mps.setUid(UUID.randomUUID().toString());
-		mapping.setMapper(mps);
-        resource.getContents().add(mps); 
-		
 		HashMap<String, domain.TypeElement> typesHash = InitDiagram
 				.getTypeElements(resource);
 		
@@ -223,8 +222,6 @@ public class PopulateTypesMapping {
         jm.setUiLayer(true);
         jm.setServiceLayer(true);
         
-
-        return mapping;
 	}
 	
 }
