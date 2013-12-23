@@ -322,7 +322,7 @@ class JavaComponent extends Component{
    attr EString artifactId;
    attr EString groupId;
    attr EString version;
-   attr EString basePackage;   
+   attr EString sourceCodeDirectory;   
 }
 
 

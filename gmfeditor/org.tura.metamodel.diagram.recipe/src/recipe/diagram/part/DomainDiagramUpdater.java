@@ -72,7 +72,7 @@ public class DomainDiagramUpdater {
 		case IngredientIngredientComponentsCompartmentEditPart.VISUAL_ID:
 			return getIngredientIngredientComponentsCompartment_307007SemanticChildren(view);
 		case JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID:
-			return getJavaComponentJavaComponentMappersCompartment_307010SemanticChildren(view);
+			return getJavaComponentJavaComponentMappersCompartment_307013SemanticChildren(view);
 		case ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID:
 			return getModelMapperModelMapperQueriesCompartment_307011SemanticChildren(view);
 		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
@@ -179,7 +179,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getJavaComponentJavaComponentMappersCompartment_307010SemanticChildren(
+	public static List<DomainNodeDescriptor> getJavaComponentJavaComponentMappersCompartment_307013SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -273,7 +273,7 @@ public class DomainDiagramUpdater {
 		case IngredientEditPart.VISUAL_ID:
 			return getIngredient_303005ContainedLinks(view);
 		case JavaComponentEditPart.VISUAL_ID:
-			return getJavaComponent_303007ContainedLinks(view);
+			return getJavaComponent_303011ContainedLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003ContainedLinks(view);
 		case QueryEditPart.VISUAL_ID:
@@ -300,7 +300,7 @@ public class DomainDiagramUpdater {
 		case IngredientEditPart.VISUAL_ID:
 			return getIngredient_303005IncomingLinks(view);
 		case JavaComponentEditPart.VISUAL_ID:
-			return getJavaComponent_303007IncomingLinks(view);
+			return getJavaComponent_303011IncomingLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003IncomingLinks(view);
 		case QueryEditPart.VISUAL_ID:
@@ -327,7 +327,7 @@ public class DomainDiagramUpdater {
 		case IngredientEditPart.VISUAL_ID:
 			return getIngredient_303005OutgoingLinks(view);
 		case JavaComponentEditPart.VISUAL_ID:
-			return getJavaComponent_303007OutgoingLinks(view);
+			return getJavaComponent_303011OutgoingLinks(view);
 		case ModelMapperEditPart.VISUAL_ID:
 			return getModelMapper_303003OutgoingLinks(view);
 		case QueryEditPart.VISUAL_ID:
@@ -392,7 +392,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaComponent_303007ContainedLinks(
+	public static List<DomainLinkDescriptor> getJavaComponent_303011ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -478,7 +478,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaComponent_303007IncomingLinks(
+	public static List<DomainLinkDescriptor> getJavaComponent_303011IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -559,7 +559,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getJavaComponent_303007OutgoingLinks(
+	public static List<DomainLinkDescriptor> getJavaComponent_303011OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

@@ -326,7 +326,7 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 		case JavaComponentEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getJavaComponent_303007ContainedLinks(view));
+						.getJavaComponent_303011ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

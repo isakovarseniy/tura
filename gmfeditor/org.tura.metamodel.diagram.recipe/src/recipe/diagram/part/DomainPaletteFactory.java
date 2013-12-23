@@ -120,10 +120,10 @@ public class DomainPaletteFactory {
 				Messages.JavaComponent4CreationTool_title,
 				Messages.JavaComponent4CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.JavaComponent_303007));
+						.singletonList(DomainElementTypes.JavaComponent_303011));
 		entry.setId("createJavaComponent4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.JavaComponent_303007));
+				.getImageDescriptor(DomainElementTypes.JavaComponent_303011));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

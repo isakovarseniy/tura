@@ -22,7 +22,6 @@ import recipe.diagram.edit.parts.IngredientNameEditPart;
 import recipe.diagram.edit.parts.JavaComponentNameEditPart;
 import recipe.diagram.edit.parts.ModelMapperNameEditPart;
 import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
-import recipe.diagram.edit.parts.QueryFakeNameEditPart;
 import recipe.diagram.edit.parts.QueryNameEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
 import recipe.diagram.parsers.MessageFormatParser;
@@ -110,19 +109,19 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser javaComponentName_305011Parser;
+	private IParser javaComponentName_305015Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getJavaComponentName_305011Parser() {
-		if (javaComponentName_305011Parser == null) {
+	private IParser getJavaComponentName_305015Parser() {
+		if (javaComponentName_305015Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			javaComponentName_305011Parser = parser;
+			javaComponentName_305015Parser = parser;
 		}
-		return javaComponentName_305011Parser;
+		return javaComponentName_305015Parser;
 	}
 
 	/**
@@ -193,7 +192,7 @@ public class DomainParserProvider extends AbstractProvider implements
 		case IngredientNameEditPart.VISUAL_ID:
 			return getIngredientName_305009Parser();
 		case JavaComponentNameEditPart.VISUAL_ID:
-			return getJavaComponentName_305011Parser();
+			return getJavaComponentName_305015Parser();
 		case ModelMapperNameEditPart.VISUAL_ID:
 			return getModelMapperName_305001Parser();
 		case QueryNameEditPart.VISUAL_ID:

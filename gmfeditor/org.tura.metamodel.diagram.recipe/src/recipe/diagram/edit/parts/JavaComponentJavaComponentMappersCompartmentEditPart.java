@@ -29,7 +29,7 @@ public class JavaComponentJavaComponentMappersCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 307010;
+	public static final int VISUAL_ID = 307013;
 
 	/**
 	 * @generated

@@ -84,7 +84,7 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType JavaComponent_303007 = getElementType("org.tura.metamodel.diagram.recipe.JavaComponent_303007"); //$NON-NLS-1$
+	public static final IElementType JavaComponent_303011 = getElementType("org.tura.metamodel.diagram.recipe.JavaComponent_303011"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -238,7 +238,7 @@ public class DomainElementTypes {
 			elements.put(Ingredient_303005,
 					DomainPackage.eINSTANCE.getIngredient());
 
-			elements.put(JavaComponent_303007,
+			elements.put(JavaComponent_303011,
 					DomainPackage.eINSTANCE.getJavaComponent());
 
 			elements.put(ModelMapper_303003,
@@ -281,7 +281,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Configuration_302002);
 			KNOWN_ELEMENT_TYPES.add(Infrastructure_302003);
 			KNOWN_ELEMENT_TYPES.add(Ingredient_303005);
-			KNOWN_ELEMENT_TYPES.add(JavaComponent_303007);
+			KNOWN_ELEMENT_TYPES.add(JavaComponent_303011);
 			KNOWN_ELEMENT_TYPES.add(ModelMapper_303003);
 			KNOWN_ELEMENT_TYPES.add(Query_303009);
 			KNOWN_ELEMENT_TYPES.add(Property_303004);
@@ -309,7 +309,7 @@ public class DomainElementTypes {
 		case IngredientEditPart.VISUAL_ID:
 			return Ingredient_303005;
 		case JavaComponentEditPart.VISUAL_ID:
-			return JavaComponent_303007;
+			return JavaComponent_303011;
 		case ModelMapperEditPart.VISUAL_ID:
 			return ModelMapper_303003;
 		case QueryEditPart.VISUAL_ID:

@@ -39,6 +39,7 @@ import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.MavenComponent;
 import domain.ModelMapper;
 import domain.ModelQuery;
 import domain.ORMEntity;
@@ -2308,7 +2309,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getJavaComponent_BasePackage()
+  public EAttribute getJavaComponent_SourceCodeDirectory()
   {
     return (EAttribute)javaComponentEClass.getEStructuralFeatures().get(3);
   }
@@ -3631,7 +3632,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(javaComponentEClass, JAVA_COMPONENT__ARTIFACT_ID);
     createEAttribute(javaComponentEClass, JAVA_COMPONENT__GROUP_ID);
     createEAttribute(javaComponentEClass, JAVA_COMPONENT__VERSION);
-    createEAttribute(javaComponentEClass, JAVA_COMPONENT__BASE_PACKAGE);
+    createEAttribute(javaComponentEClass, JAVA_COMPONENT__SOURCE_CODE_DIRECTORY);
 
     infrastructureEClass = createEClass(INFRASTRUCTURE);
     createEAttribute(infrastructureEClass, INFRASTRUCTURE__UID);
@@ -4032,7 +4033,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getJavaComponent_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, JavaComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJavaComponent_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, JavaComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJavaComponent_Version(), ecorePackage.getEString(), "version", null, 0, 1, JavaComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getJavaComponent_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, JavaComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getJavaComponent_SourceCodeDirectory(), ecorePackage.getEString(), "sourceCodeDirectory", null, 0, 1, JavaComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(infrastructureEClass, Infrastructure.class, "Infrastructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInfrastructure_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

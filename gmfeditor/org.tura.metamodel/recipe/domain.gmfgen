@@ -80,7 +80,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="303007"
+        visualID="303011"
         editPartClassName="JavaComponentEditPart"
         itemSemanticEditPolicyClassName="JavaComponentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="JavaComponentCanonicalEditPolicy"
@@ -108,7 +108,7 @@
             href="domain.genmodel#//domain/Ingredient/components"/>
       </modelFacet>
       <labels
-          visualID="305011"
+          visualID="305015"
           editPartClassName="JavaComponentNameEditPart"
           itemSemanticEditPolicyClassName="JavaComponentNameItemSemanticEditPolicy"
           elementIcon="true">
@@ -584,7 +584,7 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="307010"
+        visualID="307013"
         editPartClassName="JavaComponentJavaComponentMappersCompartmentEditPart"
         itemSemanticEditPolicyClassName="JavaComponentJavaComponentMappersCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="JavaComponentJavaComponentMappersCompartmentCanonicalEditPolicy"

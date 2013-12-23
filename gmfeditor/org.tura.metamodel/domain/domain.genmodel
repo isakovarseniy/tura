@@ -214,7 +214,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaComponent/artifactId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaComponent/groupId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaComponent/version"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaComponent/basePackage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaComponent/sourceCodeDirectory"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Infrastructure">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Infrastructure/uid"/>

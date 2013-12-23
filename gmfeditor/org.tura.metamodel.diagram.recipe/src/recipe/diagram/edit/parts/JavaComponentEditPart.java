@@ -39,7 +39,7 @@ public class JavaComponentEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 303007;
+	public static final int VISUAL_ID = 303011;
 
 	/**
 	 * @generated

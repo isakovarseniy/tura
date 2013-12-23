@@ -26,7 +26,7 @@ public class IngredientIngredientComponentsCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.JavaComponent_303007 == req.getElementType()) {
+		if (DomainElementTypes.JavaComponent_303011 == req.getElementType()) {
 			return getGEFWrapper(new JavaComponentCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

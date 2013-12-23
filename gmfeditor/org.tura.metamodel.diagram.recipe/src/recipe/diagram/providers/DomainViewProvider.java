@@ -65,7 +65,6 @@ import recipe.diagram.edit.parts.ModelMapperNameEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.QueryEditPart;
-import recipe.diagram.edit.parts.QueryFakeNameEditPart;
 import recipe.diagram.edit.parts.QueryNameEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
@@ -265,7 +264,7 @@ public class DomainViewProvider extends AbstractProvider implements
 			return createIngredient_303005(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case JavaComponentEditPart.VISUAL_ID:
-			return createJavaComponent_303007(domainElement, containerView,
+			return createJavaComponent_303011(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case ModelMapperEditPart.VISUAL_ID:
 			return createModelMapper_303003(domainElement, containerView,
@@ -516,7 +515,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createJavaComponent_303007(EObject domainElement,
+	public Node createJavaComponent_303011(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -555,7 +554,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label305011 = createLabel(node,
+		Node label305015 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(JavaComponentNameEditPart.VISUAL_ID));
 		createCompartment(

@@ -63,7 +63,7 @@ public class JavaComponentJavaComponentMappersCompartmentCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getJavaComponentJavaComponentMappersCompartment_307010SemanticChildren(viewObject);
+				.getJavaComponentJavaComponentMappersCompartment_307013SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -96,7 +96,7 @@ public class JavaComponentJavaComponentMappersCompartmentCanonicalEditPolicy
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getJavaComponentJavaComponentMappersCompartment_307010SemanticChildren((View) getHost()
+				.getJavaComponentJavaComponentMappersCompartment_307013SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

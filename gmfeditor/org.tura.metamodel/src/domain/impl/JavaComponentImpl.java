@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link domain.impl.JavaComponentImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link domain.impl.JavaComponentImpl#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link domain.impl.JavaComponentImpl#getVersion <em>Version</em>}</li>
- *   <li>{@link domain.impl.JavaComponentImpl#getBasePackage <em>Base Package</em>}</li>
+ *   <li>{@link domain.impl.JavaComponentImpl#getSourceCodeDirectory <em>Source Code Directory</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,24 +90,24 @@ public class JavaComponentImpl extends ComponentImpl implements JavaComponent
   protected String version = VERSION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
+   * The default value of the '{@link #getSourceCodeDirectory() <em>Source Code Directory</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBasePackage()
+   * @see #getSourceCodeDirectory()
    * @generated
    * @ordered
    */
-  protected static final String BASE_PACKAGE_EDEFAULT = null;
+  protected static final String SOURCE_CODE_DIRECTORY_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
+   * The cached value of the '{@link #getSourceCodeDirectory() <em>Source Code Directory</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBasePackage()
+   * @see #getSourceCodeDirectory()
    * @generated
    * @ordered
    */
-  protected String basePackage = BASE_PACKAGE_EDEFAULT;
+  protected String sourceCodeDirectory = SOURCE_CODE_DIRECTORY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -204,9 +204,9 @@ public class JavaComponentImpl extends ComponentImpl implements JavaComponent
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBasePackage()
+  public String getSourceCodeDirectory()
   {
-    return basePackage;
+    return sourceCodeDirectory;
   }
 
   /**
@@ -214,12 +214,12 @@ public class JavaComponentImpl extends ComponentImpl implements JavaComponent
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBasePackage(String newBasePackage)
+  public void setSourceCodeDirectory(String newSourceCodeDirectory)
   {
-    String oldBasePackage = basePackage;
-    basePackage = newBasePackage;
+    String oldSourceCodeDirectory = sourceCodeDirectory;
+    sourceCodeDirectory = newSourceCodeDirectory;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.JAVA_COMPONENT__BASE_PACKAGE, oldBasePackage, basePackage));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.JAVA_COMPONENT__SOURCE_CODE_DIRECTORY, oldSourceCodeDirectory, sourceCodeDirectory));
   }
 
   /**
@@ -238,8 +238,8 @@ public class JavaComponentImpl extends ComponentImpl implements JavaComponent
         return getGroupId();
       case DomainPackage.JAVA_COMPONENT__VERSION:
         return getVersion();
-      case DomainPackage.JAVA_COMPONENT__BASE_PACKAGE:
-        return getBasePackage();
+      case DomainPackage.JAVA_COMPONENT__SOURCE_CODE_DIRECTORY:
+        return getSourceCodeDirectory();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -263,8 +263,8 @@ public class JavaComponentImpl extends ComponentImpl implements JavaComponent
       case DomainPackage.JAVA_COMPONENT__VERSION:
         setVersion((String)newValue);
         return;
-      case DomainPackage.JAVA_COMPONENT__BASE_PACKAGE:
-        setBasePackage((String)newValue);
+      case DomainPackage.JAVA_COMPONENT__SOURCE_CODE_DIRECTORY:
+        setSourceCodeDirectory((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -289,8 +289,8 @@ public class JavaComponentImpl extends ComponentImpl implements JavaComponent
       case DomainPackage.JAVA_COMPONENT__VERSION:
         setVersion(VERSION_EDEFAULT);
         return;
-      case DomainPackage.JAVA_COMPONENT__BASE_PACKAGE:
-        setBasePackage(BASE_PACKAGE_EDEFAULT);
+      case DomainPackage.JAVA_COMPONENT__SOURCE_CODE_DIRECTORY:
+        setSourceCodeDirectory(SOURCE_CODE_DIRECTORY_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -312,8 +312,8 @@ public class JavaComponentImpl extends ComponentImpl implements JavaComponent
         return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
       case DomainPackage.JAVA_COMPONENT__VERSION:
         return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-      case DomainPackage.JAVA_COMPONENT__BASE_PACKAGE:
-        return BASE_PACKAGE_EDEFAULT == null ? basePackage != null : !BASE_PACKAGE_EDEFAULT.equals(basePackage);
+      case DomainPackage.JAVA_COMPONENT__SOURCE_CODE_DIRECTORY:
+        return SOURCE_CODE_DIRECTORY_EDEFAULT == null ? sourceCodeDirectory != null : !SOURCE_CODE_DIRECTORY_EDEFAULT.equals(sourceCodeDirectory);
     }
     return super.eIsSet(featureID);
   }
@@ -335,8 +335,8 @@ public class JavaComponentImpl extends ComponentImpl implements JavaComponent
     result.append(groupId);
     result.append(", version: ");
     result.append(version);
-    result.append(", basePackage: ");
-    result.append(basePackage);
+    result.append(", sourceCodeDirectory: ");
+    result.append(sourceCodeDirectory);
     result.append(')');
     return result.toString();
   }

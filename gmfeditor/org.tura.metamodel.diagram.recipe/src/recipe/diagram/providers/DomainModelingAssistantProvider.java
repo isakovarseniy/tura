@@ -70,7 +70,7 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (editPart instanceof IngredientIngredientComponentsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.JavaComponent_303007);
+			types.add(DomainElementTypes.JavaComponent_303011);
 			return types;
 		}
 		if (editPart instanceof JavaComponentJavaComponentMappersCompartmentEditPart) {

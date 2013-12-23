@@ -38,6 +38,7 @@ import domain.JavaMapper;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.MavenComponent;
 import domain.ModelMapper;
 import domain.ModelQuery;
 import domain.ORMEntity;
