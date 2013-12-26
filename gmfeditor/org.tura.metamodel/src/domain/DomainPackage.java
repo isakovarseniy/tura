@@ -2717,13 +2717,13 @@ public interface DomainPackage extends EPackage
   int JAVA_COMPONENT__VERSION = COMPONENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Source Code Directory</b></em>' attribute.
+   * The feature id for the '<em><b>Base Package</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JAVA_COMPONENT__SOURCE_CODE_DIRECTORY = COMPONENT_FEATURE_COUNT + 3;
+  int JAVA_COMPONENT__BASE_PACKAGE = COMPONENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Java Component</em>' class.
@@ -6014,15 +6014,15 @@ public interface DomainPackage extends EPackage
   EAttribute getJavaComponent_Version();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.JavaComponent#getSourceCodeDirectory <em>Source Code Directory</em>}'.
+   * Returns the meta object for the attribute '{@link domain.JavaComponent#getBasePackage <em>Base Package</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Source Code Directory</em>'.
-   * @see domain.JavaComponent#getSourceCodeDirectory()
+   * @return the meta object for the attribute '<em>Base Package</em>'.
+   * @see domain.JavaComponent#getBasePackage()
    * @see #getJavaComponent()
    * @generated
    */
-  EAttribute getJavaComponent_SourceCodeDirectory();
+  EAttribute getJavaComponent_BasePackage();
 
   /**
    * Returns the meta object for class '{@link domain.Infrastructure <em>Infrastructure</em>}'.
@@ -8648,12 +8648,12 @@ public interface DomainPackage extends EPackage
     EAttribute JAVA_COMPONENT__VERSION = eINSTANCE.getJavaComponent_Version();
 
     /**
-     * The meta object literal for the '<em><b>Source Code Directory</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Base Package</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute JAVA_COMPONENT__SOURCE_CODE_DIRECTORY = eINSTANCE.getJavaComponent_SourceCodeDirectory();
+    EAttribute JAVA_COMPONENT__BASE_PACKAGE = eINSTANCE.getJavaComponent_BasePackage();
 
     /**
      * The meta object literal for the '{@link domain.impl.InfrastructureImpl <em>Infrastructure</em>}' class.

@@ -14,7 +14,7 @@ package domain;
  *   <li>{@link domain.JavaComponent#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link domain.JavaComponent#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link domain.JavaComponent#getVersion <em>Version</em>}</li>
- *   <li>{@link domain.JavaComponent#getSourceCodeDirectory <em>Source Code Directory</em>}</li>
+ *   <li>{@link domain.JavaComponent#getBasePackage <em>Base Package</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,29 +103,29 @@ public interface JavaComponent extends Component
   void setVersion(String value);
 
   /**
-   * Returns the value of the '<em><b>Source Code Directory</b></em>' attribute.
+   * Returns the value of the '<em><b>Base Package</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Source Code Directory</em>' attribute isn't clear,
+   * If the meaning of the '<em>Base Package</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Source Code Directory</em>' attribute.
-   * @see #setSourceCodeDirectory(String)
-   * @see domain.DomainPackage#getJavaComponent_SourceCodeDirectory()
+   * @return the value of the '<em>Base Package</em>' attribute.
+   * @see #setBasePackage(String)
+   * @see domain.DomainPackage#getJavaComponent_BasePackage()
    * @model
    * @generated
    */
-  String getSourceCodeDirectory();
+  String getBasePackage();
 
   /**
-   * Sets the value of the '{@link domain.JavaComponent#getSourceCodeDirectory <em>Source Code Directory</em>}' attribute.
+   * Sets the value of the '{@link domain.JavaComponent#getBasePackage <em>Base Package</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Source Code Directory</em>' attribute.
-   * @see #getSourceCodeDirectory()
+   * @param value the new value of the '<em>Base Package</em>' attribute.
+   * @see #getBasePackage()
    * @generated
    */
-  void setSourceCodeDirectory(String value);
+  void setBasePackage(String value);
 
 } // JavaComponent

@@ -64,7 +64,7 @@ public class JavaComponentItemProvider
       addArtifactIdPropertyDescriptor(object);
       addGroupIdPropertyDescriptor(object);
       addVersionPropertyDescriptor(object);
-      addSourceCodeDirectoryPropertyDescriptor(object);
+      addBasePackagePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -139,20 +139,20 @@ public class JavaComponentItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Source Code Directory feature.
+   * This adds a property descriptor for the Base Package feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addSourceCodeDirectoryPropertyDescriptor(Object object)
+  protected void addBasePackagePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_JavaComponent_sourceCodeDirectory_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_sourceCodeDirectory_feature", "_UI_JavaComponent_type"),
-         DomainPackage.Literals.JAVA_COMPONENT__SOURCE_CODE_DIRECTORY,
+         getString("_UI_JavaComponent_basePackage_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_JavaComponent_basePackage_feature", "_UI_JavaComponent_type"),
+         DomainPackage.Literals.JAVA_COMPONENT__BASE_PACKAGE,
          true,
          false,
          false,
@@ -205,7 +205,7 @@ public class JavaComponentItemProvider
       case DomainPackage.JAVA_COMPONENT__ARTIFACT_ID:
       case DomainPackage.JAVA_COMPONENT__GROUP_ID:
       case DomainPackage.JAVA_COMPONENT__VERSION:
-      case DomainPackage.JAVA_COMPONENT__SOURCE_CODE_DIRECTORY:
+      case DomainPackage.JAVA_COMPONENT__BASE_PACKAGE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

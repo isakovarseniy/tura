@@ -1,6 +1,5 @@
 package org.tura.metamodel.wizard.infrastructure;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -12,7 +11,6 @@ import java.util.Set;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -25,33 +23,23 @@ import org.eclipse.emf.validation.service.IBatchValidator;
 import org.eclipse.emf.validation.service.ModelValidationService;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gef.EditPartViewer;
-import org.eclipse.gmf.runtime.diagram.ui.OffscreenEditPartFactory;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.action.Action;
-import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation;
-
-import domain.DomainPackage;
-import domain.Ingredient;
-import domain.Recipes;
 
 import recipe.diagram.part.DomainDiagramEditorPlugin;
 import recipe.diagram.part.DomainDiagramEditorUtil;
 import recipe.diagram.providers.DomainMarkerNavigationProvider;
 import recipe.diagram.providers.DomainValidationProvider;
-import recipe.diagram.part.Messages;
+import domain.DomainPackage;
+import domain.Ingredient;
+import domain.Recipes;
 
 /**
  * @generated
@@ -61,99 +49,78 @@ public class ValidateAction extends Action {
 	/**
 	 * @generated
 	 */
-	private IWorkbenchPage page;
+	
+	private IProgressMonitor monitor;	
+	
+	private boolean validationError = false;
+	
+	private boolean generationError = false;
+	
 
-	/**
-	 * @generated
-	 */
-	public ValidateAction(IWorkbenchPage page) {
-		setText(Messages.ValidateActionMessage);
-		this.page = page;
+	public ValidateAction( IProgressMonitor monitor) {
+		this.monitor = monitor;
+	}	
+	
+	
+	public boolean isValidationError() {
+		return validationError;
 	}
 
-	/**
-	 * @generated
-	 */
-	public void run() {
-		IWorkbenchPart workbenchPart = page.getActivePart();
-		if (workbenchPart instanceof IDiagramWorkbenchPart) {
-			final IDiagramWorkbenchPart part = (IDiagramWorkbenchPart) workbenchPart;
-			try {
-				new WorkspaceModifyDelegatingOperation(
-						new IRunnableWithProgress() {
-
-							public void run(IProgressMonitor monitor)
-									throws InterruptedException,
-									InvocationTargetException {
-								runValidation(part.getDiagramEditPart(),
-										part.getDiagram());
-							}
-						}).run(new NullProgressMonitor());
-			} catch (Exception e) {
-				DomainDiagramEditorPlugin.getInstance().logError(
-						"Validation action failed", e); //$NON-NLS-1$
-			}
-		}
+	public void setValidationError(boolean validationError) {
+		this.validationError = validationError;
 	}
 
-	/**
-	 * @generated
-	 */
-	public static void runValidation(View view) {
-		try {
-			// if
-			// (recipe.diagram.part.DomainDiagramEditorUtil.openDiagram(view.eResource()))
-			// {
-			IEditorPart editorPart = PlatformUI.getWorkbench()
-					.getActiveWorkbenchWindow().getActivePage()
-					.getActiveEditor();
-			if (editorPart instanceof IDiagramWorkbenchPart) {
-				runValidation(
-						((IDiagramWorkbenchPart) editorPart)
-								.getDiagramEditPart(),
-						view);
-			} else {
-				runNonUIValidation(view);
-			}
-			// }
-		} catch (Exception e) {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Validation action failed", e); //$NON-NLS-1$
-		}
+	public boolean isGenerationError() {
+		return generationError;
 	}
 
-	/**
-	 * @generated
-	 */
-	@SuppressWarnings("deprecation")
-	public static void runNonUIValidation(View view) {
-		DiagramEditPart diagramEditPart = OffscreenEditPartFactory
-				.getInstance().createDiagramEditPart(view.getDiagram());
-		runValidation(diagramEditPart, view);
+	public void setGenerationError(boolean generationError) {
+		this.generationError = generationError;
 	}
 
+	public IProgressMonitor getMonitor() {
+		return monitor;
+	}
+
+	public void setMonitor(IProgressMonitor monitor) {
+		this.monitor = monitor;
+	}
+	
+	
 	/**
 	 * @generated
 	 */
-	public static void runValidation(DiagramEditPart diagramEditPart, View view) {
+	public  void runValidation(DiagramEditPart diagramEditPart, View view) {
+	
 		final DiagramEditPart fpart = diagramEditPart;
 		final View fview = view;
+		
+		class Validate implements Runnable{
+			ValidateAction action;
+            			
+			Validate(ValidateAction action){
+				this.action=action;
+			}
+			public void run() {
+				action.validate(fpart, fview);
+			}
+			
+		}
+		
 		TransactionalEditingDomain txDomain = TransactionUtil
 				.getEditingDomain(view);
-		DomainValidationProvider.runWithConstraints(txDomain, new Runnable() {
-
-			public void run() {
-				validate(fpart, fview);
-			}
-		});
-
+		
+		Validate v =new Validate(this);
+		
+		DomainValidationProvider.runWithConstraints(txDomain, v);
+	
 	}
 
 	/**
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	private static Diagnostic[] runEMFValidator(View target) {
+	private  Diagnostic[] runEMFValidator(View target) {
 		
 		if (target.isSetElement() && target.getElement() != null) {
 
@@ -166,9 +133,20 @@ public class ValidateAction extends Action {
 			ArrayList<Diagnostic> diag = new ArrayList<Diagnostic>();
 
 			// Validate recipe
+		    monitor.beginTask("Recipe validation", 1);
 			domain.Recipes recipes = (Recipes) target.getElement();
 			diag.add(diagnostician.validate(recipes));
+			monitor.worked(1);
+			monitor.done();
 
+			for (Iterator<Diagnostic> diagItr=diag.iterator(); diagItr.hasNext();){
+				Diagnostic d = diagItr.next();
+				if ( d.getSeverity()==Diagnostic.ERROR){
+					validationError = true;
+				    return   diag.toArray(new Diagnostic[diag.size()]);
+				}
+			}
+			
 			try {
 				  Indicator.clean();
 				  Indicator.runTime = 1;
@@ -180,9 +158,11 @@ public class ValidateAction extends Action {
 					  for (Iterator<domain.Component> itrComp = ingredient.getComponents().iterator(); itrComp.hasNext();) {
 						  domain.Component comp = itrComp.next();
 						  Indicator.currentComponent=comp;
+						  monitor.beginTask("Component validation:"+comp.getName(), comp.getMappers().size());
 						  for (Iterator<domain.ModelMapper> itrMap = comp.getMappers().iterator(); itrMap.hasNext();) {
 							  domain.ModelMapper mapper = itrMap.next();
 							  Indicator.currentModelMapper=mapper;
+							  monitor.subTask("Mapper validetion :" + mapper.getName() );
 							  for (Iterator<domain.Query> itrQuery = mapper.getQueries().iterator(); itrQuery.hasNext();) {
 								  domain.Query query = itrQuery.next();
 								  Indicator.currentQuery=query;
@@ -208,15 +188,23 @@ public class ValidateAction extends Action {
 										
 									  } catch (Exception e) {
 										  DomainDiagramEditorPlugin.getInstance().logError("Validation action failed", e); 
+											validationError = true;
 									  }
 								  } 
 								
 							  }
+							  monitor.worked(1);
 						  }
 					  }
 				  }
 			}finally{
 				Indicator.runTime = 0;
+			}
+			
+			for (Iterator<Diagnostic> diagItr=diag.iterator(); diagItr.hasNext();){
+				Diagnostic d = diagItr.next();
+				if ( d.getSeverity()==Diagnostic.ERROR)
+					validationError = true;
 			}
 			return   diag.toArray(new Diagnostic[diag.size()]);
 
@@ -245,7 +233,7 @@ public class ValidateAction extends Action {
 	/**
 	 * @generated
 	 */
-	private static void validate(DiagramEditPart diagramEditPart, View view) {
+	private  void validate(DiagramEditPart diagramEditPart, View view) {
 		IFile target = view.eResource() != null ? WorkspaceSynchronizer
 				.getFile(view.eResource()) : null;
 		if (target != null) {
@@ -410,4 +398,5 @@ public class ValidateAction extends Action {
 		}
 		return targetElementCollector;
 	}
+
 }
