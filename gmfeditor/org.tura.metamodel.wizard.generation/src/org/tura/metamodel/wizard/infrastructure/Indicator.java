@@ -1,5 +1,6 @@
 package org.tura.metamodel.wizard.infrastructure;
 
+
 public class Indicator {
 
 	public static int runTime = 0;

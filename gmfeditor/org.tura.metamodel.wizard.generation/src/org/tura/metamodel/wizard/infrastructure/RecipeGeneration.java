@@ -66,7 +66,16 @@ public class RecipeGeneration {
 				});
 
 			}else{
-				
+				action.runGeneration(
+						((IDiagramWorkbenchPart) editorPart).getDiagramEditPart(),
+						(View) document.getContent());
+				if (action.isGenerationError()){
+					MessageDialog dialog = new MessageDialog(Display
+							.getDefault().getActiveShell(), "Tura", null,
+							"Generation  error", MessageDialog.ERROR,
+							new String[] { "Ok" }, 0);
+					dialog.open();
+				}
 			}
 			return Status.OK_STATUS;
 		}

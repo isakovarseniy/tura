@@ -1,5 +1,6 @@
 package org.tura.metamodel.wizard.infrastructure;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -12,7 +13,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -22,22 +22,21 @@ import org.eclipse.emf.validation.model.IConstraintStatus;
 import org.eclipse.emf.validation.service.IBatchValidator;
 import org.eclipse.emf.validation.service.ModelValidationService;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
+import org.eclipse.epsilon.egl.EglTemplate;
+import org.eclipse.epsilon.egl.EglTemplateFactory;
+import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
+import org.eclipse.epsilon.eol.models.ModelRepository;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.action.Action;
-import org.eclipse.ocl.OCL;
-import org.eclipse.ocl.ecore.Constraint;
-import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
-import org.eclipse.ocl.expressions.OCLExpression;
-import org.eclipse.ocl.helper.OCLHelper;
+import org.tura.metamodel.commons.Util;
 
 import recipe.diagram.part.DomainDiagramEditorPlugin;
 import recipe.diagram.part.DomainDiagramEditorUtil;
 import recipe.diagram.providers.DomainMarkerNavigationProvider;
 import recipe.diagram.providers.DomainValidationProvider;
-import domain.DomainPackage;
 import domain.Ingredient;
 import domain.Recipes;
 
@@ -49,6 +48,10 @@ public class ValidateAction extends Action {
 	/**
 	 * @generated
 	 */
+	
+	public static String TURA_ROOT_TEMPLATE_PATH="TURA_ROOT_TEMPLATE_PATH";
+
+	public static String TURA_ROOT_GENERATED_CODE_PATH="TURA_ROOT_GENERATED_CODE_PATH";
 	
 	private IProgressMonitor monitor;	
 	
@@ -116,6 +119,32 @@ public class ValidateAction extends Action {
 	
 	}
 
+	
+	public  void runGeneration(DiagramEditPart diagramEditPart, View view) {
+		final DiagramEditPart fpart = diagramEditPart;
+		final View fview = view;
+		
+		class Validate implements Runnable{
+			ValidateAction action;
+            			
+			Validate(ValidateAction action){
+				this.action=action;
+			}
+			public void run() {
+				action.generate(fpart, fview);
+			}
+			
+		}
+		
+		TransactionalEditingDomain txDomain = TransactionUtil
+				.getEditingDomain(view);
+		
+		Validate v =new Validate(this);
+		
+		DomainValidationProvider.runWithConstraints(txDomain, v);
+		
+	}	
+	
 	/**
 	 * @generated
 	 */
@@ -167,13 +196,8 @@ public class ValidateAction extends Action {
 								  domain.Query query = itrQuery.next();
 								  Indicator.currentQuery=query;
 								  if ( query.getQueryRef()!=null && query.getQueryRef().getQuery() != null && query.getQueryRef().getQuery() != null ){
-									  String strQuery = query.getQueryRef().getQuery();
-									  for (Iterator<domain.QueryVariable> itrVar = query.getVariables().iterator(); itrVar.hasNext();) {
-									  	  domain.QueryVariable var = itrVar.next();
-										  strQuery = strQuery.replaceAll("\\$\\{"+var.getQueryParamRef().getName()+"\\}", var.getValue());
-									  }
 									  try {
-										  Object result = executeQuery(strQuery, mapper);
+										  Object result = Util.runQuery(query,mapper);
 										  if (result == null)
 											  continue;
 										  if (result instanceof Collection){
@@ -212,23 +236,60 @@ public class ValidateAction extends Action {
 		return  new Diagnostic[] {Diagnostic.OK_INSTANCE};
 	}
 
+
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private static Object executeQuery(String strQuery, EObject eobj) throws Exception{
+	/**
+	 * @generated
+	 */
+	private  void runGMFGeneration(View target) {
 		
-			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
-			helper.setContext(DomainPackage.eINSTANCE
-					.getEClassifier("Domain"));
+		if (target.isSetElement() && target.getElement() != null) {
 
-			OCLExpression<EClassifier> query = helper.createQuery(strQuery);
+			// Validate recipe
+			domain.Recipes recipes = (Recipes) target.getElement();
+			InMemoryEmfModel model = new InMemoryEmfModel(recipes.eResource());
+			
+			try {
+				  Indicator.currentRecipe=recipes.getRecipe();
+				  for (Iterator<Ingredient> itr = recipes.getRecipe().getIngredients().iterator(); itr.hasNext();) {
+					  Ingredient ingredient = itr.next();
+					  for (Iterator<domain.Component> itrComp = ingredient.getComponents().iterator(); itrComp.hasNext();) {
+						  domain.Component comp = itrComp.next();
+						  monitor.beginTask("Component generation:"+comp.getName(), comp.getMappers().size());
+						  for (Iterator<domain.ModelMapper> itrMap = comp.getMappers().iterator(); itrMap.hasNext();) {
+							  domain.ModelMapper mapper = itrMap.next();
+							  monitor.subTask("Mapper generation :" + mapper.getName() );
+							  if (mapper.getArtifactRef().getTemplate() != null){
+ 							    try{
+							          URI templatePath =  ValidateAction.class.getResource ("/"+mapper.getArtifactRef().getTemplate()).toURI();
 
-			Object obj = (Collection<EObject>) ocl.evaluate(eobj, query);
-
-			return obj;
+							          EglTemplateFactory factory = new EglTemplateFactory();
+							          ModelRepository modelRepo = factory.getContext().getModelRepository();
+									  modelRepo.addModel(model);
+									  EglTemplate template = factory.load(templatePath);
+									 
+									   if (template != null && template.getParseProblems().isEmpty() ){
+										   template.populate("ingredient", ingredient);
+										   template.populate("component", comp);
+										   template.populate("mapper", mapper);
+										   template.process();
+									  }else{
+										generationError=true;
+									  }
+							     }catch(Exception e){
+								     DomainDiagramEditorPlugin.getInstance().logError("Generation action failed. Ingredient -> {"+ingredient.getName()+ "} Component -> {" + comp.getName()+"} Mapper -> {"+mapper.getName()+"}", e); 
+									 generationError = true;
+							     }
+							  }
+						      monitor.worked(1);
+						  }
+					  }
+				  }
+			}finally{
+				Indicator.runTime = 0;
+			}
+		}
 	}
-	
 	
 	/**
 	 * @generated
@@ -252,6 +313,20 @@ public class ValidateAction extends Action {
 			createMarkers(target, status, diagramEditPart);
 		}
 	}
+	
+	private  void generate(DiagramEditPart diagramEditPart, View view) {
+		IFile target = view.eResource() != null ? WorkspaceSynchronizer
+				.getFile(view.eResource()) : null;
+		if (target != null) {
+			DomainMarkerNavigationProvider.deleteMarkers(target);
+		}
+		//Diagnostic[] diagnostic = 
+				runGMFGeneration(view);
+//		for (int i = 0 ; i < diagnostic.length; i++){
+//			createMarkers(target, diagnostic[i], diagramEditPart);
+//		}
+	}
+	
 
 	/**
 	 * @generated

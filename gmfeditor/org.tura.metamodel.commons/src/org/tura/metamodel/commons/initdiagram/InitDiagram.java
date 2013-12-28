@@ -152,7 +152,7 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(ENTITYOBJECT);
-		artifact.setTemplate("j2ee/entity/entityObject");
+		artifact.setTemplate("jee/ORMMapper/entity.egl");
 		
 		domain.ModelQuery query = domain.DomainFactory.eINSTANCE.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
@@ -193,7 +193,7 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(SERVICE_BEAN);
-		artifact.setTemplate("j2ee/jpa/serviceBean");
+		artifact.setTemplate("jee/ejb-ws/sessioinBean.egl");
 		model.getArtifacts().add(artifact);
 
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
@@ -333,7 +333,7 @@ public class InitDiagram {
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(PERSISTENS_XML);
-		artifact.setTemplate("j2ee/ejb");
+		artifact.setTemplate("jee/ejb-ws/persistens-xml.egl");
 		model.getArtifacts().add(artifact);
 
 		query = domain.DomainFactory.eINSTANCE.createModelQuery();
