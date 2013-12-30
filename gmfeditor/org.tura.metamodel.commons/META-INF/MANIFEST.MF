@@ -4,6 +4,15 @@ Bundle-Name: Commons
 Bundle-SymbolicName: org.tura.metamodel.commons; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Export-Package: 
+ org.apache.commons.lang,
+ org.apache.commons.lang.builder,
+ org.apache.commons.lang.enums,
+ org.apache.commons.lang.exception,
+ org.apache.commons.lang.math,
+ org.apache.commons.lang.mutable,
+ org.apache.commons.lang.reflect,
+ org.apache.commons.lang.text,
+ org.apache.commons.lang.time,
  org.metamodel.tura.ui.properties.sections,
  org.tura.metamodel.commons,
  org.tura.metamodel.commons.editparts,

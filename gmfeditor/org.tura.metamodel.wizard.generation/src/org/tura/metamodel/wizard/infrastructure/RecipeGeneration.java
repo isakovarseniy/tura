@@ -70,12 +70,17 @@ public class RecipeGeneration {
 						((IDiagramWorkbenchPart) editorPart).getDiagramEditPart(),
 						(View) document.getContent());
 				if (action.isGenerationError()){
-					MessageDialog dialog = new MessageDialog(Display
-							.getDefault().getActiveShell(), "Tura", null,
-							"Generation  error", MessageDialog.ERROR,
-							new String[] { "Ok" }, 0);
-					dialog.open();
-				}
+					Display.getDefault().asyncExec(new Runnable() {
+						public void run() {
+							MessageDialog dialog = new MessageDialog(Display
+									.getDefault().getActiveShell(), "Tura", null,
+									"Generation error", MessageDialog.ERROR,
+									new String[] { "Ok" }, 0);
+							dialog.open();
+						}
+					});
+
+			}
 			}
 			return Status.OK_STATUS;
 		}

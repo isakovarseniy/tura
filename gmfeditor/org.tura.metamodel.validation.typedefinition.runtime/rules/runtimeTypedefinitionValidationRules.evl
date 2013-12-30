@@ -16,7 +16,7 @@
 
   }
   
-   constraint qqqqqq{
+   constraint RecipeMappers{
       guard : (new Native('org.tura.metamodel.wizard.infrastructure.Indicator')).runTime <> 0
       check : self.getAllRecipeMappers()
       message : 'Runtime constraint ' + self.typeRef.name+" -->"

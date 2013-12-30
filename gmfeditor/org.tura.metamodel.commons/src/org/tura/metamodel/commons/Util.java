@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.ocl.OCL;
@@ -59,5 +60,12 @@ public class Util {
 			return obj;
 	}
 	
+	public static String mergeAndCapitalize(String name){
+		String[] ls =  StringUtils.split(name, " ");
+		for(int i=0; i < ls.length ;i++ ){
+			 ls[i] = StringUtils.capitalize(ls[i]);
+		}
+		return StringUtils.join(ls);
+	}
 	
 }

@@ -25,6 +25,7 @@ import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.epsilon.egl.EglTemplate;
 import org.eclipse.epsilon.egl.EglTemplateFactory;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
+import org.eclipse.epsilon.eol.dt.ExtensionPointToolNativeTypeDelegate;
 import org.eclipse.epsilon.eol.models.ModelRepository;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
@@ -48,10 +49,6 @@ public class ValidateAction extends Action {
 	/**
 	 * @generated
 	 */
-	
-	public static String TURA_ROOT_TEMPLATE_PATH="TURA_ROOT_TEMPLATE_PATH";
-
-	public static String TURA_ROOT_GENERATED_CODE_PATH="TURA_ROOT_GENERATED_CODE_PATH";
 	
 	private IProgressMonitor monitor;	
 	
@@ -265,6 +262,7 @@ public class ValidateAction extends Action {
 
 							          EglTemplateFactory factory = new EglTemplateFactory();
 							          ModelRepository modelRepo = factory.getContext().getModelRepository();
+							          factory.getContext().getNativeTypeDelegates().add(new ExtensionPointToolNativeTypeDelegate());
 									  modelRepo.addModel(model);
 									  EglTemplate template = factory.load(templatePath);
 									 
