@@ -134,6 +134,12 @@
              id="property.tab.domain.queryParameters"
              label="Query parameters"/>
 
+       <propertyTab
+             category="domain"
+             id="property.tab.domain.etl"
+             label="ETL"/>
+
+
       </propertyTabs>
    </extension>
    
@@ -154,6 +160,15 @@
                id="org.tura.metamodel.artifact.option">
               <input type="artifact.diagram.edit.parts.SpecifierEditPart"/>
            </propertySection>        
+
+          <propertySection
+               tab="property.tab.domain.etl"
+               class="org.metamodel.tura.ui.properties.sections.ETLPropertySelection"
+               id="org.tura.metamodel.artifact.ETL">
+              <input type="artifact.diagram.edit.parts.ArtifactEditPart"/>
+           </propertySection>        
+
+
 
     </propertySections>
   </extension>  

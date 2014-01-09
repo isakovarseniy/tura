@@ -7,7 +7,6 @@ import domain.DomainPackage;
 import domain.MappingSpecifier;
 import domain.ModelMapper;
 import domain.Query;
-import domain.QueryVariable;
 
 import java.util.Collection;
 

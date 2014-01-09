@@ -247,7 +247,6 @@ public class ValidateAction extends Action {
 			InMemoryEmfModel model = new InMemoryEmfModel(recipes.eResource());
 			
 			try {
-				  Indicator.currentRecipe=recipes.getRecipe();
 				  for (Iterator<Ingredient> itr = recipes.getRecipe().getIngredients().iterator(); itr.hasNext();) {
 					  Ingredient ingredient = itr.next();
 					  for (Iterator<domain.Component> itrComp = ingredient.getComponents().iterator(); itrComp.hasNext();) {
@@ -257,22 +256,27 @@ public class ValidateAction extends Action {
 							  domain.ModelMapper mapper = itrMap.next();
 							  monitor.subTask("Mapper generation :" + mapper.getName() );
 							  if (mapper.getArtifactRef().getTemplate() != null){
- 							    try{
+								  EglTemplate template=null;							  
+ 							      try{
 							          URI templatePath =  ValidateAction.class.getResource ("/"+mapper.getArtifactRef().getTemplate()).toURI();
 
 							          EglTemplateFactory factory = new EglTemplateFactory();
-							          ModelRepository modelRepo = factory.getContext().getModelRepository();
+
+									  ModelRepository modelRepo = factory.getContext().getModelRepository();
 							          factory.getContext().getNativeTypeDelegates().add(new ExtensionPointToolNativeTypeDelegate());
 									  modelRepo.addModel(model);
-									  EglTemplate template = factory.load(templatePath);
-									 
+
+									 template = factory.load(templatePath);
+
 									   if (template != null && template.getParseProblems().isEmpty() ){
+										   template.populate("recipe", recipes.getRecipe());
 										   template.populate("ingredient", ingredient);
 										   template.populate("component", comp);
-										   template.populate("mapper", mapper);
+										   template.populate("model_mapper", mapper);
 										   template.process();
 									  }else{
-										generationError=true;
+										  DomainDiagramEditorPlugin.getInstance().logError("Generation action failed. Template parsing problem :" +templatePath); 
+										  generationError=true;
 									  }
 							     }catch(Exception e){
 								     DomainDiagramEditorPlugin.getInstance().logError("Generation action failed. Ingredient -> {"+ingredient.getName()+ "} Component -> {" + comp.getName()+"} Mapper -> {"+mapper.getName()+"}", e); 

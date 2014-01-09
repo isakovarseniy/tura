@@ -1,0 +1,6 @@
+[%
+ import "commons/typeElementUtil.eol";
+%]
+
+public interface [%type.getMappedJavaType();%] {
+}

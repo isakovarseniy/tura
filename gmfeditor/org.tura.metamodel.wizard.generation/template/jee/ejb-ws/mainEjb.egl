@@ -1,0 +1,16 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+  
+     var util = new Native('org.tura.metamodel.commons.Util');
+  
+  if (model_mapper.getQueries().size()<> 0) {
+    var query = model_mapper.getQueries().get(0);
+    var types = util.runQuery(query,model_mapper);
+    
+    var sessionBean : Template = TemplateFactory.load("sessionBean.egl");
+    for( type in types ){
+         sessionBean.generate(type.getMappedJavaType(recipe,ingredient).getMappedToClassName() + ".java");   
+      }
+ }
+%]
+
