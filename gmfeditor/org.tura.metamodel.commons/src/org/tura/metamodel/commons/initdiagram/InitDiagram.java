@@ -193,7 +193,7 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(SERVICE_BEAN);
-		artifact.setTemplate("template/jee/ejb-ws/mainEjb.egl");
+		artifact.setTemplate("template/jee/jpa/mainJPA.egl");
 		model.getArtifacts().add(artifact);
 
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
@@ -304,7 +304,7 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setName(SERVICE_BEAN);
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setTemplate("j2ee/ejb/serviceBean");
+		artifact.setTemplate("template/jee/ejb-ws/mainEjb.egl");
 		
 		domain.ModelQuery query = domain.DomainFactory.eINSTANCE.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());

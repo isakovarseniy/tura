@@ -315,6 +315,7 @@ class Component{
    val ModelMapper[*]#parent mappers;
    attr EString buildScript;
    attr EString deployScript;
+   attr EString componentRoot;
 }
 
 @gmf.node(label="name")

@@ -2626,13 +2626,22 @@ public interface DomainPackage extends EPackage
   int COMPONENT__DEPLOY_SCRIPT = 4;
 
   /**
+   * The feature id for the '<em><b>Component Root</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__COMPONENT_ROOT = 5;
+
+  /**
    * The number of structural features of the '<em>Component</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT_FEATURE_COUNT = 5;
+  int COMPONENT_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link domain.impl.JavaComponentImpl <em>Java Component</em>}' class.
@@ -2688,6 +2697,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int JAVA_COMPONENT__DEPLOY_SCRIPT = COMPONENT__DEPLOY_SCRIPT;
+
+  /**
+   * The feature id for the '<em><b>Component Root</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_COMPONENT__COMPONENT_ROOT = COMPONENT__COMPONENT_ROOT;
 
   /**
    * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
@@ -5971,6 +5989,17 @@ public interface DomainPackage extends EPackage
   EAttribute getComponent_DeployScript();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Component#getComponentRoot <em>Component Root</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Component Root</em>'.
+   * @see domain.Component#getComponentRoot()
+   * @see #getComponent()
+   * @generated
+   */
+  EAttribute getComponent_ComponentRoot();
+
+  /**
    * Returns the meta object for class '{@link domain.JavaComponent <em>Java Component</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8612,6 +8641,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute COMPONENT__DEPLOY_SCRIPT = eINSTANCE.getComponent_DeployScript();
+
+    /**
+     * The meta object literal for the '<em><b>Component Root</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPONENT__COMPONENT_ROOT = eINSTANCE.getComponent_ComponentRoot();
 
     /**
      * The meta object literal for the '{@link domain.impl.JavaComponentImpl <em>Java Component</em>}' class.

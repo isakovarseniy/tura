@@ -2268,6 +2268,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getComponent_ComponentRoot()
+  {
+    return (EAttribute)componentEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getJavaComponent()
   {
     return javaComponentEClass;
@@ -3626,6 +3636,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(componentEClass, COMPONENT__MAPPERS);
     createEAttribute(componentEClass, COMPONENT__BUILD_SCRIPT);
     createEAttribute(componentEClass, COMPONENT__DEPLOY_SCRIPT);
+    createEAttribute(componentEClass, COMPONENT__COMPONENT_ROOT);
 
     javaComponentEClass = createEClass(JAVA_COMPONENT);
     createEAttribute(javaComponentEClass, JAVA_COMPONENT__ARTIFACT_ID);
@@ -4027,6 +4038,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getComponent_Mappers(), this.getModelMapper(), this.getModelMapper_Parent(), "mappers", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getComponent_BuildScript(), ecorePackage.getEString(), "buildScript", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getComponent_DeployScript(), ecorePackage.getEString(), "deployScript", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getComponent_ComponentRoot(), ecorePackage.getEString(), "componentRoot", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(javaComponentEClass, JavaComponent.class, "JavaComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getJavaComponent_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, JavaComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

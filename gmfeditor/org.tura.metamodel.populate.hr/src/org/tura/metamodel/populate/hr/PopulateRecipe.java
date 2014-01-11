@@ -58,6 +58,11 @@ public class PopulateRecipe {
 		domain.JavaComponent component = DomainFactory.eINSTANCE.createJavaComponent();
 		component.setName(Constants.HR_SERVICE);
 		component.setUid(UUID.randomUUID().toString());
+		component.setComponentRoot("generatedCode/serviceLayer");
+		component.setArtifactId("hrservice");
+		component.setGroupId("org.tura.example.service");
+		component.setVersion("1.0");
+		component.setBasePackage("org.tura.example.service");
 		ingredient.getComponents().add(component);
 		
 		

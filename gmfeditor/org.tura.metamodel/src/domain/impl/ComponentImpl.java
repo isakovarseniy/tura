@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ComponentImpl#getMappers <em>Mappers</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getBuildScript <em>Build Script</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getDeployScript <em>Deploy Script</em>}</li>
+ *   <li>{@link domain.impl.ComponentImpl#getComponentRoot <em>Component Root</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,6 +131,26 @@ public class ComponentImpl extends EObjectImpl implements Component
    * @ordered
    */
   protected String deployScript = DEPLOY_SCRIPT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getComponentRoot() <em>Component Root</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getComponentRoot()
+   * @generated
+   * @ordered
+   */
+  protected static final String COMPONENT_ROOT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getComponentRoot() <em>Component Root</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getComponentRoot()
+   * @generated
+   * @ordered
+   */
+  protected String componentRoot = COMPONENT_ROOT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -263,6 +284,29 @@ public class ComponentImpl extends EObjectImpl implements Component
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getComponentRoot()
+  {
+    return componentRoot;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setComponentRoot(String newComponentRoot)
+  {
+    String oldComponentRoot = componentRoot;
+    componentRoot = newComponentRoot;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.COMPONENT__COMPONENT_ROOT, oldComponentRoot, componentRoot));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
@@ -311,6 +355,8 @@ public class ComponentImpl extends EObjectImpl implements Component
         return getBuildScript();
       case DomainPackage.COMPONENT__DEPLOY_SCRIPT:
         return getDeployScript();
+      case DomainPackage.COMPONENT__COMPONENT_ROOT:
+        return getComponentRoot();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -342,6 +388,9 @@ public class ComponentImpl extends EObjectImpl implements Component
       case DomainPackage.COMPONENT__DEPLOY_SCRIPT:
         setDeployScript((String)newValue);
         return;
+      case DomainPackage.COMPONENT__COMPONENT_ROOT:
+        setComponentRoot((String)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -371,6 +420,9 @@ public class ComponentImpl extends EObjectImpl implements Component
       case DomainPackage.COMPONENT__DEPLOY_SCRIPT:
         setDeployScript(DEPLOY_SCRIPT_EDEFAULT);
         return;
+      case DomainPackage.COMPONENT__COMPONENT_ROOT:
+        setComponentRoot(COMPONENT_ROOT_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -395,6 +447,8 @@ public class ComponentImpl extends EObjectImpl implements Component
         return BUILD_SCRIPT_EDEFAULT == null ? buildScript != null : !BUILD_SCRIPT_EDEFAULT.equals(buildScript);
       case DomainPackage.COMPONENT__DEPLOY_SCRIPT:
         return DEPLOY_SCRIPT_EDEFAULT == null ? deployScript != null : !DEPLOY_SCRIPT_EDEFAULT.equals(deployScript);
+      case DomainPackage.COMPONENT__COMPONENT_ROOT:
+        return COMPONENT_ROOT_EDEFAULT == null ? componentRoot != null : !COMPONENT_ROOT_EDEFAULT.equals(componentRoot);
     }
     return super.eIsSet(featureID);
   }
@@ -418,6 +472,8 @@ public class ComponentImpl extends EObjectImpl implements Component
     result.append(buildScript);
     result.append(", deployScript: ");
     result.append(deployScript);
+    result.append(", componentRoot: ");
+    result.append(componentRoot);
     result.append(')');
     return result.toString();
   }

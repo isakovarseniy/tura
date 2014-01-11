@@ -1,5 +1,8 @@
 package org.tura.metamodel.commons;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
@@ -26,66 +29,77 @@ public class Util {
 			int ui = mapper.isUiLayer() ? 1 : 0;
 			int s = mapper.isServiceLayer() ? 1 : 0;
 			int ingr = ingredient.getLayer().getValue();
-			
+
 			if ((((ui << 2) + s) & ingr) != 0)
 				return true;
 		}
 		return false;
 	}
-	
+
 	public static domain.Mapper mapType(Set<domain.Mapper> mappers,
-			domain.Ingredient ingredient, domain.TypeElement typeElement) throws Exception {
-		
+			domain.Ingredient ingredient, domain.TypeElement typeElement)
+			throws Exception {
+
 		for (Iterator<domain.Mapper> itr = mappers.iterator(); itr.hasNext();) {
 			domain.Mapper mapper = itr.next();
-			
+
 			int ui = mapper.isUiLayer() ? 1 : 0;
 			int s = mapper.isServiceLayer() ? 1 : 0;
 			int ingr = ingredient.getLayer().getValue();
-			
-			if (((((ui << 2) + s) & ingr) != 0) &&(mapper.getTypeRef().getUid() == typeElement.getUid()) ) {
+
+			if (((((ui << 2) + s) & ingr) != 0)
+					&& (mapper.getTypeRef().getUid() == typeElement.getUid())) {
 				return mapper;
 			}
 		}
-		throw new Exception ("Cannot  find mapper for element " +typeElement.toString()+" for layer: "+ ingredient.getLayer().toString());
-	}	
-	
-
-	public static Object runQuery(domain.Query query, EObject eobj) throws Exception{
-		  String strQuery = query.getQueryRef().getQuery();
-		  for (Iterator<domain.QueryVariable> itrVar = query.getVariables().iterator(); itrVar.hasNext();) {
-		  	  domain.QueryVariable var = itrVar.next();
-			  strQuery = strQuery.replaceAll("\\$\\{"+var.getQueryParamRef().getName()+"\\}", var.getValue());
-		  }
-		  
-		  return  executeQuery(strQuery, eobj);
+		return null;
 	}
-	
-	
+
+	public static Object runQuery(domain.Query query, EObject eobj)
+			throws Exception {
+		String strQuery = query.getQueryRef().getQuery();
+		for (Iterator<domain.QueryVariable> itrVar = query.getVariables()
+				.iterator(); itrVar.hasNext();) {
+			domain.QueryVariable var = itrVar.next();
+			strQuery = strQuery.replaceAll("\\$\\{"
+					+ var.getQueryParamRef().getName() + "\\}", var.getValue());
+		}
+
+		return executeQuery(strQuery, eobj);
+	}
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private static Object executeQuery(String strQuery, EObject eobj) throws Exception{
-		
-			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-					.createOCLHelper();
-			helper.setContext(DomainPackage.eINSTANCE
-					.getEClassifier("Domain"));
+	private static Object executeQuery(String strQuery, EObject eobj)
+			throws Exception {
 
-			OCLExpression<EClassifier> query = helper.createQuery(strQuery);
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
-			Object obj = (Collection<EObject>) ocl.evaluate(eobj, query);
+		OCLExpression<EClassifier> query = helper.createQuery(strQuery);
 
-			return obj;
+		Object obj = (Collection<EObject>) ocl.evaluate(eobj, query);
+
+		return obj;
 	}
-	
-	public static String mergeAndCapitalize(String name){
-		String[] ls =  StringUtils.split(name, " ");
-		for(int i=0; i < ls.length ;i++ ){
-			 ls[i] = StringUtils.capitalize(ls[i]);
+
+	public static String mergeAndCapitalize(String name) {
+		String[] ls = StringUtils.split(name, " ");
+		for (int i = 0; i < ls.length; i++) {
+			ls[i] = StringUtils.capitalize(ls[i]);
 		}
 		return StringUtils.join(ls);
 	}
-	
-	
-	
+
+	public static void saveFile(String path, String fileName, String in)
+			throws IOException {
+
+		File f = new File(System.getProperty("user.home")+"/"+path);
+		f.mkdirs();
+		
+		FileOutputStream out = new FileOutputStream(new File(f,fileName));
+		out.write(in.getBytes());
+		out.close();
+	}
+
 }

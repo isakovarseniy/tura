@@ -1,14 +1,25 @@
 operation TypeElement getMappedJavaType( recipe:Recipe, ingredient :Ingredient) :  Mapper { 
 
+    if (self.~mappedType.isDefined()){
+       return self.~mappedType;
+       }
+
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');
     
     appmappers.addAll(recipe.mappers);
     appmappers.addAll(ingredient.mappers);
-    
+
+
     for( appmapper in appmappers ){
           var set = appmapper.mapper.mappers.select(r|r.typeRef.uid=self.uid);
-          return util.mapType(set,ingredient,self) ;
+          if ( set.size() <> 0 ){
+              var type =  util.mapType(set,ingredient,self) ;
+              if ( type <> null){
+                 self.~mappedType=type;
+                 return type;
+               }  
+          }    
      }
-    
+      return null;     
 } 

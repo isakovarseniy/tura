@@ -8,8 +8,15 @@
     var types = util.runQuery(query,model_mapper);
     
     var sessionBean : Template = TemplateFactory.load("sessionBean.egl");
+    
     for( type in types ){
-         sessionBean.generate(type.getMappedJavaType(recipe,ingredient).getMappedToClassName() + ".java");   
+    
+        var path = component.getComponentRoot+"/"+component.getGroupId+"."+component.getArtifactId+"/src/"+type.getMappedJavaType(recipe,ingredient).getMappedToPackageName().replaceAll("\\.","\\/")+"/";  
+        sessionBean.populate("type",type);
+        sessionBean.populate("recipe",recipe);
+        sessionBean.populate("ingredient",ingredient);
+        var buffer = sessionBean.process();
+         util.saveFile( path, type.getMappedJavaType(recipe,ingredient).getMappedToClassName() + ".java",buffer);   
       }
  }
 %]

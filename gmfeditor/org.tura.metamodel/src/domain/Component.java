@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Component#getMappers <em>Mappers</em>}</li>
  *   <li>{@link domain.Component#getBuildScript <em>Build Script</em>}</li>
  *   <li>{@link domain.Component#getDeployScript <em>Deploy Script</em>}</li>
+ *   <li>{@link domain.Component#getComponentRoot <em>Component Root</em>}</li>
  * </ul>
  * </p>
  *
@@ -149,5 +150,31 @@ public interface Component extends EObject
    * @generated
    */
   void setDeployScript(String value);
+
+  /**
+   * Returns the value of the '<em><b>Component Root</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Component Root</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Component Root</em>' attribute.
+   * @see #setComponentRoot(String)
+   * @see domain.DomainPackage#getComponent_ComponentRoot()
+   * @model
+   * @generated
+   */
+  String getComponentRoot();
+
+  /**
+   * Sets the value of the '{@link domain.Component#getComponentRoot <em>Component Root</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Component Root</em>' attribute.
+   * @see #getComponentRoot()
+   * @generated
+   */
+  void setComponentRoot(String value);
 
 } // Component

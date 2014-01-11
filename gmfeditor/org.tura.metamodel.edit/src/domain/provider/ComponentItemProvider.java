@@ -71,6 +71,7 @@ public class ComponentItemProvider
       addNamePropertyDescriptor(object);
       addBuildScriptPropertyDescriptor(object);
       addDeployScriptPropertyDescriptor(object);
+      addComponentRootPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -168,6 +169,29 @@ public class ComponentItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Component Root feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addComponentRootPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Component_componentRoot_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Component_componentRoot_feature", "_UI_Component_type"),
+         DomainPackage.Literals.COMPONENT__COMPONENT_ROOT,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -245,6 +269,7 @@ public class ComponentItemProvider
       case DomainPackage.COMPONENT__NAME:
       case DomainPackage.COMPONENT__BUILD_SCRIPT:
       case DomainPackage.COMPONENT__DEPLOY_SCRIPT:
+      case DomainPackage.COMPONENT__COMPONENT_ROOT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.COMPONENT__MAPPERS:
