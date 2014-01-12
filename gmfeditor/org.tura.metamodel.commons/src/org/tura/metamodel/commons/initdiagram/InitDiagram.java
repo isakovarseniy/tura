@@ -40,6 +40,8 @@ public class InitDiagram {
 	
 
 	public static String QUERY_TYPE= "Query type";
+	public static String QUERY_TYPE_LOCAL= "Query local interface";
+	public static String QUERY_TYPE_REMOTE= "Query remote interface";
 	public static String VAR_PACKAGE_NAME = "Package name";
 	public static String VAR_TYPE_NAME = "Type name";
 	
@@ -311,8 +313,40 @@ public class InitDiagram {
 		query.setName(QUERY_TYPE);
 		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
 		artifact.getModelQuery().add(query);
-		
+
 		domain.QueryParameter param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_TYPE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+		
+		query = domain.DomainFactory.eINSTANCE.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE_LOCAL);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
+		artifact.getModelQuery().add(query);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_TYPE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+
+		query = domain.DomainFactory.eINSTANCE.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE_REMOTE);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
+		artifact.getModelQuery().add(query);
+		
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
 		param.setUid(UUID.randomUUID().toString());
 		param.setName(VAR_TYPE_NAME);
 		query.getParameters().add(param);
@@ -653,6 +687,18 @@ public class InitDiagram {
 		 attr.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Date"));
 		 attr.setUid(UUID.randomUUID().toString());
 
+		 domain.Type ejbEntityService = domain.DomainFactory.eINSTANCE.createType();
+		 resource.getContents().add(ejbEntityService);
+		 td.getTypes().add(ejbEntityService);
+		 ejbEntityService.setName("EJB Entity Service");
+		 ejbEntityService.setUid(UUID.randomUUID().toString());
+		 
+		 domain.Type jpaEntityService = domain.DomainFactory.eINSTANCE.createType();
+		 resource.getContents().add(jpaEntityService);
+		 td.getTypes().add(jpaEntityService);
+		 jpaEntityService.setName("JPA Entity Service");
+		 jpaEntityService.setUid(UUID.randomUUID().toString());
+		 
 		return pkg;
 	}
 

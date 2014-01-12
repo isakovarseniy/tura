@@ -87,12 +87,33 @@ public class PopulateTypesMapping {
         jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENTS_QUERY_SERVICE)
 				.getParent().getParent());
         jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENTS_QUERY_SERVICE));
-        jm.setMappedToPackageName("org.elsoft.platform.hr.departments");
+        jm.setMappedToPackageName("org.elsoft.platform.hr.services.impl");
         jm.setMappedToClassName("DepartmentsService");
         jm.setUiLayer(false);
         jm.setServiceLayer(true);
 
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
+		mps.getMappers().add(jm);
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_REMOTE)
+				.getParent().getParent());
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_REMOTE));
+        jm.setMappedToPackageName("org.elsoft.platform.hr.services");
+        jm.setMappedToClassName("DepartmentsServiceRemote");
+        jm.setUiLayer(false);
+        jm.setServiceLayer(true);
+
+		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
+		mps.getMappers().add(jm);
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_LOCAL)
+				.getParent().getParent());
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_LOCAL));
+        jm.setMappedToPackageName("org.elsoft.platform.hr.services");
+        jm.setMappedToClassName("DepartmentsServiceLocal");
+        jm.setUiLayer(false);
+        jm.setServiceLayer(true);
+        
+        
+        jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
         jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_LIST_OF_DEPARTMENTS)
 				.getParent().getParent());
@@ -186,11 +207,32 @@ public class PopulateTypesMapping {
         jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEES_QUERY_SERVICE)
 				.getParent().getParent());
         jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEES_QUERY_SERVICE));
-        jm.setMappedToPackageName("org.elsoft.platform.hr.employees");
+        jm.setMappedToPackageName("org.elsoft.platform.hr.services.impl");
         jm.setMappedToClassName("EmployeesService");
         jm.setUiLayer(false);
         jm.setServiceLayer(true);
 
+		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
+		mps.getMappers().add(jm);
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEES_QUERY_SERVICE_REMOTE)
+				.getParent().getParent());
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEES_QUERY_SERVICE_REMOTE));
+        jm.setMappedToPackageName("org.elsoft.platform.hr.services");
+        jm.setMappedToClassName("EmployeesServiceRemote");
+        jm.setUiLayer(false);
+        jm.setServiceLayer(true);
+        
+		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
+		mps.getMappers().add(jm);
+        jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEES_QUERY_SERVICE_LOCAL)
+				.getParent().getParent());
+        jm.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEES_QUERY_SERVICE_LOCAL));
+        jm.setMappedToPackageName("org.elsoft.platform.hr.services");
+        jm.setMappedToClassName("EmployeesServiceLocal");
+        jm.setUiLayer(false);
+        jm.setServiceLayer(true);
+        
+        
 		jm =  domain.DomainFactory.eINSTANCE.createJavaMapper();
 		mps.getMappers().add(jm);
         jm.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_LIST_OF_EMPLOYEES)

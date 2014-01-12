@@ -3,5 +3,12 @@
 %]
 package [%=type.getMappedJavaType(recipe,ingredient).getMappedToPackageName()%];  
 
-public class  [%=type.getMappedJavaType(recipe,ingredient).getMappedToClassName()%]  {
+public class  [%=type.getMappedJavaType(recipe,ingredient).getMappedToClassName()%]  [%if (typeRemote <> null or typeLocal <> null) {%]  implements  [%}%] 
+[%if (typeRemote <> null ){%]  [%=typeRemote.fullName(recipe,ingredient)%] [%} if (typeLocal <> null ){ if (typeRemote <> null ){%],[%}%] [%=typeLocal.fullName(recipe,ingredient)%] 
+[%}%]{
 }
+
+[% @template
+operation TypeElement fullName( recipe:Recipe, ingredient :Ingredient) {%] 
+[%=self.getMappedJavaType(recipe,ingredient).getMappedToPackageName()%].[%=self.getMappedJavaType(recipe,ingredient).getMappedToClassName()%]
+ [%} %]

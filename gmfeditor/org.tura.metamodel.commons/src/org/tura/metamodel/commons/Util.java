@@ -3,6 +3,7 @@ package org.tura.metamodel.commons;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
@@ -68,6 +69,23 @@ public class Util {
 		return executeQuery(strQuery, eobj);
 	}
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public static ArrayList<?> runQuery( domain.ModelMapper mapper, String queryName,EObject eobj) throws Exception{
+    	ArrayList result = new ArrayList<>();
+    	for (Iterator<domain.Query> itr = mapper.getQueries().iterator();itr.hasNext();){
+    		domain.Query query = itr.next();
+    		if (query.getQueryRef().getName() .equals(queryName)){
+    			 Collection<?> ls = (Collection<?>) runQuery(query, eobj);
+    			 result.addAll(ls);
+    		}
+    	}
+    	
+    	return result;
+    	
+    }
+	
+	
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static Object executeQuery(String strQuery, EObject eobj)
 			throws Exception {

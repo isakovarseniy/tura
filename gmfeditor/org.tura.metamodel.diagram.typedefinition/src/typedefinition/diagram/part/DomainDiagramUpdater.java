@@ -629,16 +629,23 @@ public class DomainDiagramUpdater {
 	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_TypeExtension_104001(
 			Type container) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		TypeExtension link = container.getExtension();
-		if (TypeExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry
-				.getLinkWithClassVisualID(link)) {
-			return result;
+		for (Iterator<?> links = container.getExtension().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof TypeExtension) {
+				continue;
+			}
+			TypeExtension link = (TypeExtension) linkObject;
+			if (TypeExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement dst = link.getTarget();
+			TypeElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.TypeExtension_104001,
+					TypeExtensionEditPart.VISUAL_ID));
 		}
-		TypeElement dst = link.getTarget();
-		TypeElement src = link.getSource();
-		result.add(new DomainLinkDescriptor(src, dst, link,
-				DomainElementTypes.TypeExtension_104001,
-				TypeExtensionEditPart.VISUAL_ID));
 		return result;
 	}
 
@@ -689,19 +696,26 @@ public class DomainDiagramUpdater {
 			return Collections.emptyList();
 		}
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		TypeExtension link = container.getExtension();
-		if (TypeExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry
-				.getLinkWithClassVisualID(link)) {
-			return result;
+		for (Iterator<?> links = container.getExtension().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof TypeExtension) {
+				continue;
+			}
+			TypeExtension link = (TypeExtension) linkObject;
+			if (TypeExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement dst = link.getTarget();
+			TypeElement src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.TypeExtension_104001,
+					TypeExtensionEditPart.VISUAL_ID));
 		}
-		TypeElement dst = link.getTarget();
-		TypeElement src = link.getSource();
-		if (src != source) {
-			return result;
-		}
-		result.add(new DomainLinkDescriptor(src, dst, link,
-				DomainElementTypes.TypeExtension_104001,
-				TypeExtensionEditPart.VISUAL_ID));
 		return result;
 	}
 

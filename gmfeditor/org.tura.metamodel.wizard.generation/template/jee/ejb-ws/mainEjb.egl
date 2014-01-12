@@ -2,22 +2,35 @@
  import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
   
      var util = new Native('org.tura.metamodel.commons.Util');
-  
-  if (model_mapper.getQueries().size()<> 0) {
-    var query = model_mapper.getQueries().get(0);
-    var types = util.runQuery(query,model_mapper);
+     var type;
+     var typeRemote;
+     var typeLocal;
+     
+    var types = util.runQuery(model_mapper,"Query type",model_mapper);
+    if (types.size() <> 0 ){
+       type = types.get(0);
+    }
+    var typesLocal = util.runQuery(model_mapper,"Query local interface",model_mapper);
+    if (typesLocal.size() <> 0 ){
+       typeLocal = typesLocal.get(0);
+    }
     
+    var typesRemote = util.runQuery(model_mapper,"Query remote interface",model_mapper);
+    if (typesRemote.size() <> 0 ){
+      typeRemote = typesRemote.get(0);
+    }
+            
     var sessionBean : Template = TemplateFactory.load("sessionBean.egl");
     
-    for( type in types ){
-    
-        var path = component.getComponentRoot+"/"+component.getGroupId+"."+component.getArtifactId+"/src/"+type.getMappedJavaType(recipe,ingredient).getMappedToPackageName().replaceAll("\\.","\\/")+"/";  
-        sessionBean.populate("type",type);
-        sessionBean.populate("recipe",recipe);
-        sessionBean.populate("ingredient",ingredient);
-        var buffer = sessionBean.process();
-         util.saveFile( path, type.getMappedJavaType(recipe,ingredient).getMappedToClassName() + ".java",buffer);   
-      }
- }
-%]
+    var path = component.getComponentRoot+"/"+component.getGroupId+"."+component.getArtifactId+"/src/"+type.getMappedJavaType(recipe,ingredient).getMappedToPackageName().replaceAll("\\.","\\/")+"/";  
+    sessionBean.populate("type",type);
+    sessionBean.populate("typeLocal",typeLocal);
+    sessionBean.populate("typeRemote",typeRemote);
+    sessionBean.populate("recipe",recipe);
+    sessionBean.populate("ingredient",ingredient);
+    sessionBean.populate("model_mapper",model_mapper);
+     
+    var buffer = sessionBean.process();
+    util.saveFile( path, type.getMappedJavaType(recipe,ingredient).getMappedToClassName() + ".java",buffer);   
+ %]
 

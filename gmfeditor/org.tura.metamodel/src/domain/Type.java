@@ -61,29 +61,19 @@ public interface Type extends TypeElement
   EList<Operation> getOperations();
 
   /**
-   * Returns the value of the '<em><b>Extension</b></em>' containment reference.
+   * Returns the value of the '<em><b>Extension</b></em>' containment reference list.
+   * The list contents are of type {@link domain.TypeExtension}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Extension</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Extension</em>' containment reference.
-   * @see #setExtension(TypeExtension)
+   * @return the value of the '<em>Extension</em>' containment reference list.
    * @see domain.DomainPackage#getType_Extension()
    * @model containment="true"
    * @generated
    */
-  TypeExtension getExtension();
-
-  /**
-   * Sets the value of the '{@link domain.Type#getExtension <em>Extension</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Extension</em>' containment reference.
-   * @see #getExtension()
-   * @generated
-   */
-  void setExtension(TypeExtension value);
+  EList<TypeExtension> getExtension();
 
 } // Type

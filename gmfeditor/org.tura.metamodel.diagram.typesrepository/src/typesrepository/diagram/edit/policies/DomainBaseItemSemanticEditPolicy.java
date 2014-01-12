@@ -333,11 +333,6 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		 */
 		public boolean canCreateTypeExtension_204001(Type container,
 				TypeElement source, TypeElement target) {
-			if (container != null) {
-				if (container.getExtension() != null) {
-					return false;
-				}
-			}
 			return canExistTypeExtension_204001(container, null, source, target);
 		}
 

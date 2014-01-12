@@ -3413,7 +3413,7 @@ public interface DomainPackage extends EPackage
   int TYPE__OPERATIONS = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Extension</b></em>' containment reference.
+   * The feature id for the '<em><b>Extension</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -6668,10 +6668,10 @@ public interface DomainPackage extends EPackage
   EReference getType_Operations();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.Type#getExtension <em>Extension</em>}'.
+   * Returns the meta object for the containment reference list '{@link domain.Type#getExtension <em>Extension</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Extension</em>'.
+   * @return the meta object for the containment reference list '<em>Extension</em>'.
    * @see domain.Type#getExtension()
    * @see #getType()
    * @generated
@@ -9175,7 +9175,7 @@ public interface DomainPackage extends EPackage
     EReference TYPE__OPERATIONS = eINSTANCE.getType_Operations();
 
     /**
-     * The meta object literal for the '<em><b>Extension</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Extension</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

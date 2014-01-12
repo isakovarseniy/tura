@@ -268,6 +268,7 @@ class JavaMapper extends Mapper{
 }
 
 
+
 @gmf.diagram
 class Recipes{
     id attr EString uid;
@@ -426,7 +427,7 @@ class Type extends TypeElement {
    val Attribute[*]#parent attributes;
    @gmf.compartment
    val Operation[*]#parent operations;
-   val TypeExtension[0..1] extension;
+   val TypeExtension[*] extension;
 }
 
 @gmf.node(label="fakePackageName,fakeTypeName")

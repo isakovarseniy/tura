@@ -90,7 +90,7 @@ public class TypeExtensionCreateCommand extends EditElementCommand {
 
 		TypeExtension newElement = DomainFactory.eINSTANCE
 				.createTypeExtension();
-		getContainer().setExtension(newElement);
+		getContainer().getExtension().add(newElement);
 		newElement.setSource(getSource());
 		newElement.setTarget(getTarget());
 		doConfigure(newElement, monitor, info);

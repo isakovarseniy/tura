@@ -575,8 +575,8 @@
         eType="#//Operation" containment="true" eOpposite="#//Operation/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extension" eType="#//TypeExtension"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extension" upperBound="-1"
+        eType="#//TypeExtension" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeReference" eSuperTypes="#//TypeElement #//TypePointer">
     <eAnnotations source="gmf.node">

@@ -135,6 +135,44 @@ public class PopulateRecipe {
 		var.setValue(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE);
 		query.getVariables().add(var);
 		
+
+//------------
+		
+		query = DomainFactory.eINSTANCE.createQuery();
+		query.setName("Get "+Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_REMOTE);
+		modelMapper.getQueries().add(query);
+		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_REMOTE));
+
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_REMOTE+"_"+InitDiagram.VAR_PACKAGE_NAME));
+		var.setValue(Constants.PACKAGE_HR);
+		query.getVariables().add(var);
+		
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_REMOTE+"_"+InitDiagram.VAR_TYPE_NAME));
+		var.setValue(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_REMOTE);
+		query.getVariables().add(var);
+
+		//------------
+		
+				query = DomainFactory.eINSTANCE.createQuery();
+				query.setName("Get "+Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_LOCAL);
+				modelMapper.getQueries().add(query);
+				query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_LOCAL));
+
+				var = DomainFactory.eINSTANCE.createQueryVariable();
+				var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_LOCAL+"_"+InitDiagram.VAR_PACKAGE_NAME));
+				var.setValue(Constants.PACKAGE_HR);
+				query.getVariables().add(var);
+				
+				var = DomainFactory.eINSTANCE.createQueryVariable();
+				var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_LOCAL+"_"+InitDiagram.VAR_TYPE_NAME));
+				var.setValue(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_LOCAL);
+				query.getVariables().add(var);
+		
+		
+		
+		
 		
 		modelMapper = DomainFactory.eINSTANCE.createModelMapper();
 		component.getMappers().add(modelMapper);
@@ -157,6 +195,40 @@ public class PopulateRecipe {
 		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME));
 		var.setValue(Constants.TYPE_EMPLOYEES_QUERY_SERVICE);
 		query.getVariables().add(var);
+		
+
+//------------
+		query = DomainFactory.eINSTANCE.createQuery();
+		query.setName("Get "+Constants.TYPE_EMPLOYEES_QUERY_SERVICE_REMOTE);
+		modelMapper.getQueries().add(query);
+		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_REMOTE));
+
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_REMOTE+"_"+InitDiagram.VAR_PACKAGE_NAME));
+		var.setValue(Constants.PACKAGE_HR);
+		query.getVariables().add(var);
+		
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_REMOTE+"_"+InitDiagram.VAR_TYPE_NAME));
+		var.setValue(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_REMOTE);
+		query.getVariables().add(var);
+		
+		//------------
+				query = DomainFactory.eINSTANCE.createQuery();
+				query.setName("Get "+Constants.TYPE_EMPLOYEES_QUERY_SERVICE_LOCAL);
+				modelMapper.getQueries().add(query);
+				query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_LOCAL));
+
+				var = DomainFactory.eINSTANCE.createQueryVariable();
+				var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_LOCAL+"_"+InitDiagram.VAR_PACKAGE_NAME));
+				var.setValue(Constants.PACKAGE_HR);
+				query.getVariables().add(var);
+				
+				var = DomainFactory.eINSTANCE.createQueryVariable();
+				var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_LOCAL+"_"+InitDiagram.VAR_TYPE_NAME));
+				var.setValue(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_LOCAL);
+				query.getVariables().add(var);
+		
 		
 		
 		modelMapper = DomainFactory.eINSTANCE.createModelMapper();
@@ -228,28 +300,28 @@ public class PopulateRecipe {
 		query.getVariables().add(var);
 		
 		
-		modelMapper = DomainFactory.eINSTANCE.createModelMapper();
-		component.getMappers().add(modelMapper);
-		modelMapper.setName("BaseType");
-		modelMapper.setUid(UUID.randomUUID().toString());
-		modelMapper.setArtifactRef((Artifact) artifactMap.get(InitDiagram.ORMENTITY+"_"+InitDiagram.ENTITYOBJECT));
-		modelMapper.setDomainArtifactRef(modelMapper.getArtifactRef().getParent().getParent());
-	
-		query = DomainFactory.eINSTANCE.createQuery();
-		query.setName("Get BaseType");
-		modelMapper.getQueries().add(query);
-		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.ORMENTITY+"_"+InitDiagram.ENTITYOBJECT+"_"+InitDiagram.QUERY_TYPE));
-
-	
-		var = DomainFactory.eINSTANCE.createQueryVariable();
-		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.ORMENTITY+"_"+InitDiagram.ENTITYOBJECT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_PACKAGE_NAME));
-		var.setValue(InitDiagram.BASE_PACKAGE);
-		query.getVariables().add(var);
-		
-		var = DomainFactory.eINSTANCE.createQueryVariable();
-		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.ORMENTITY+"_"+InitDiagram.ENTITYOBJECT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME));
-		var.setValue("BaseType");
-		query.getVariables().add(var);
+//		modelMapper = DomainFactory.eINSTANCE.createModelMapper();
+//		component.getMappers().add(modelMapper);
+//		modelMapper.setName("BaseType");
+//		modelMapper.setUid(UUID.randomUUID().toString());
+//		modelMapper.setArtifactRef((Artifact) artifactMap.get(InitDiagram.ORMENTITY+"_"+InitDiagram.ENTITYOBJECT));
+//		modelMapper.setDomainArtifactRef(modelMapper.getArtifactRef().getParent().getParent());
+//	
+//		query = DomainFactory.eINSTANCE.createQuery();
+//		query.setName("Get BaseType");
+//		modelMapper.getQueries().add(query);
+//		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.ORMENTITY+"_"+InitDiagram.ENTITYOBJECT+"_"+InitDiagram.QUERY_TYPE));
+//
+//	
+//		var = DomainFactory.eINSTANCE.createQueryVariable();
+//		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.ORMENTITY+"_"+InitDiagram.ENTITYOBJECT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_PACKAGE_NAME));
+//		var.setValue(InitDiagram.BASE_PACKAGE);
+//		query.getVariables().add(var);
+//		
+//		var = DomainFactory.eINSTANCE.createQueryVariable();
+//		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.ORMENTITY+"_"+InitDiagram.ENTITYOBJECT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME));
+//		var.setValue("BaseType");
+//		query.getVariables().add(var);
 	
 		
 	

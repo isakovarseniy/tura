@@ -52,7 +52,7 @@ public class PopulateTypes {
 
 		domain.TypeExtension ext = domain.DomainFactory.eINSTANCE
 				.createTypeExtension();
-		department.setExtension(ext);
+		department.getExtension().add(ext);
 
 		domain.TypeReference typeRef = domain.DomainFactory.eINSTANCE
 				.createTypeReference();
@@ -138,9 +138,61 @@ public class PopulateTypes {
 		departmentsService.setName(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE);
 		departmentsService.setUid(UUID.randomUUID().toString());
 		InitDiagram.addType(typesHash, departmentsService);
+		departmentserviceStructure(departmentsService,typesHash);
+
+
+		domain.Type departmentsServiceRemoteInterface = domain.DomainFactory.eINSTANCE
+				.createType();
+		resource.getContents().add(departmentsServiceRemoteInterface);
+		td.getTypes().add(departmentsServiceRemoteInterface);
+		departmentsServiceRemoteInterface.setName(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_REMOTE);
+		departmentsServiceRemoteInterface.setUid(UUID.randomUUID().toString());
+		InitDiagram.addType(typesHash, departmentsServiceRemoteInterface);
+		departmentserviceStructure(departmentsServiceRemoteInterface,typesHash);
+		
+		domain.Type departmentsServiceLocalInterface = domain.DomainFactory.eINSTANCE
+				.createType();
+		resource.getContents().add(departmentsServiceLocalInterface);
+		td.getTypes().add(departmentsServiceLocalInterface);
+		departmentsServiceLocalInterface.setName(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_LOCAL);
+		departmentsServiceLocalInterface.setUid(UUID.randomUUID().toString());
+		InitDiagram.addType(typesHash, departmentsServiceLocalInterface);
+		departmentserviceStructure(departmentsServiceLocalInterface,typesHash);
+		
+		ext = domain.DomainFactory.eINSTANCE
+				.createTypeExtension();
+		departmentsService.getExtension().add(ext);
+		ext.setTarget(departmentsServiceRemoteInterface);
+		ext.setSource(departmentsService);
+		
+		ext = domain.DomainFactory.eINSTANCE
+				.createTypeExtension();
+		departmentsService.getExtension().add(ext);
+		ext.setTarget(departmentsServiceLocalInterface);
+		ext.setSource(departmentsService);
+
+		ext = domain.DomainFactory.eINSTANCE
+				.createTypeExtension();
+		departmentsService.getExtension().add(ext);
+		typeRef = domain.DomainFactory.eINSTANCE
+				.createTypeReference();
+		td.getTypes().add(typeRef);
+		typeRef.setPackageRef(typesHash
+				.get(InitDiagram.BASE_PACKAGE + "_BaseType").getParent()
+				.getParent());
+		typeRef.setTypeRef(typesHash.get(InitDiagram.BASE_PACKAGE + "_EJB Entity Service"));
+		
+		ext.setTarget(typeRef);
+		ext.setSource(departmentsService);
+		
+		
+	}
+
+	
+	private void departmentserviceStructure(domain.Type employeesService,HashMap<String, domain.TypeElement> typesHash ){
 
 		domain.Operation opr = domain.DomainFactory.eINSTANCE.createOperation();
-		departmentsService.getOperations().add(opr);
+		employeesService.getOperations().add(opr);
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("create");
 
@@ -153,7 +205,7 @@ public class PopulateTypes {
 		ret.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" +Constants. TYPE_DEPARTMENT));
 
 		opr = domain.DomainFactory.eINSTANCE.createOperation();
-		departmentsService.getOperations().add(opr);
+		employeesService.getOperations().add(opr);
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("find");
 
@@ -194,7 +246,7 @@ public class PopulateTypes {
 		param.setTypeRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE + "_String"));
 
 		opr = domain.DomainFactory.eINSTANCE.createOperation();
-		departmentsService.getOperations().add(opr);
+		employeesService.getOperations().add(opr);
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("insert");
 
@@ -206,7 +258,7 @@ public class PopulateTypes {
 		param.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT));
 
 		opr = domain.DomainFactory.eINSTANCE.createOperation();
-		departmentsService.getOperations().add(opr);
+		employeesService.getOperations().add(opr);
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("update");
 
@@ -218,7 +270,7 @@ public class PopulateTypes {
 		param.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT));
 
 		opr = domain.DomainFactory.eINSTANCE.createOperation();
-		departmentsService.getOperations().add(opr);
+		employeesService.getOperations().add(opr);
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("remove");
 
@@ -230,7 +282,7 @@ public class PopulateTypes {
 		param.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_DEPARTMENT));
 
 	}
-
+	
 	private void populateEmployeeTypes(domain.TypeDefinition td,
 			Resource resource) {
 
@@ -247,7 +299,7 @@ public class PopulateTypes {
 		
 		domain.TypeExtension ext = domain.DomainFactory.eINSTANCE
 				.createTypeExtension();
-		employee.setExtension(ext);
+		employee.getExtension().add(ext);
 
 		domain.TypeReference typeRef = domain.DomainFactory.eINSTANCE
 				.createTypeReference();
@@ -394,6 +446,57 @@ public class PopulateTypes {
 		employeesService.setUid(UUID.randomUUID().toString());
 		InitDiagram.addType(typesHash, employeesService);
 
+		employeeserviceStructure(employeesService,typesHash);
+		
+		
+		domain.Type employeesServiceLocalInterface = domain.DomainFactory.eINSTANCE
+				.createType();
+		resource.getContents().add(employeesServiceLocalInterface);
+		td.getTypes().add(employeesServiceLocalInterface);
+		employeesServiceLocalInterface.setName(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_LOCAL);
+		employeesServiceLocalInterface.setUid(UUID.randomUUID().toString());
+		InitDiagram.addType(typesHash, employeesServiceLocalInterface);
+		employeeserviceStructure(employeesServiceLocalInterface,typesHash);
+		
+		domain.Type employeesServiceRemotInterface = domain.DomainFactory.eINSTANCE
+				.createType();
+		resource.getContents().add(employeesServiceRemotInterface);
+		td.getTypes().add(employeesServiceRemotInterface);
+		employeesServiceRemotInterface.setName(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_REMOTE);
+		employeesServiceRemotInterface.setUid(UUID.randomUUID().toString());
+		InitDiagram.addType(typesHash, employeesServiceRemotInterface);
+		employeeserviceStructure(employeesServiceRemotInterface,typesHash);
+
+		ext = domain.DomainFactory.eINSTANCE
+				.createTypeExtension();
+		employeesService.getExtension().add(ext);
+		ext.setTarget(employeesServiceRemotInterface);
+		ext.setSource(employeesService);
+		
+		ext = domain.DomainFactory.eINSTANCE
+				.createTypeExtension();
+		employeesService.getExtension().add(ext);
+		ext.setTarget(employeesServiceLocalInterface);
+		ext.setSource(employeesService);
+		
+		ext = domain.DomainFactory.eINSTANCE
+				.createTypeExtension();
+		employeesService.getExtension().add(ext);
+		typeRef = domain.DomainFactory.eINSTANCE
+				.createTypeReference();
+		td.getTypes().add(typeRef);
+		typeRef.setPackageRef(typesHash
+				.get(InitDiagram.BASE_PACKAGE + "_BaseType").getParent()
+				.getParent());
+		typeRef.setTypeRef(typesHash.get(InitDiagram.BASE_PACKAGE + "_EJB Entity Service"));
+		
+		ext.setTarget(typeRef);
+		ext.setSource(employeesService);
+		
+	}
+	
+	public void employeeserviceStructure( domain.Type employeesService, HashMap<String, domain.TypeElement> typesHash){
+
 		domain.Operation opr = domain.DomainFactory.eINSTANCE.createOperation();
 		employeesService.getOperations().add(opr);
 		opr.setUid(UUID.randomUUID().toString());
@@ -487,7 +590,7 @@ public class PopulateTypes {
 		param.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" +Constants. TYPE_EMPLOYEE)
 				.getParent().getParent());
 		param.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_EMPLOYEE));
-
+		
 	}
 
 }

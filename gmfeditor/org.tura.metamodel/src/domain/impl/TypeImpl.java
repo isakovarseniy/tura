@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -61,14 +62,14 @@ public class TypeImpl extends TypeElementImpl implements Type
   protected EList<Operation> operations;
 
   /**
-   * The cached value of the '{@link #getExtension() <em>Extension</em>}' containment reference.
+   * The cached value of the '{@link #getExtension() <em>Extension</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExtension()
    * @generated
    * @ordered
    */
-  protected TypeExtension extension;
+  protected EList<TypeExtension> extension;
 
   /**
    * <!-- begin-user-doc -->
@@ -124,47 +125,13 @@ public class TypeImpl extends TypeElementImpl implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypeExtension getExtension()
+  public EList<TypeExtension> getExtension()
   {
+    if (extension == null)
+    {
+      extension = new EObjectContainmentEList<TypeExtension>(TypeExtension.class, this, DomainPackage.TYPE__EXTENSION);
+    }
     return extension;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExtension(TypeExtension newExtension, NotificationChain msgs)
-  {
-    TypeExtension oldExtension = extension;
-    extension = newExtension;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE__EXTENSION, oldExtension, newExtension);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExtension(TypeExtension newExtension)
-  {
-    if (newExtension != extension)
-    {
-      NotificationChain msgs = null;
-      if (extension != null)
-        msgs = ((InternalEObject)extension).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.TYPE__EXTENSION, null, msgs);
-      if (newExtension != null)
-        msgs = ((InternalEObject)newExtension).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.TYPE__EXTENSION, null, msgs);
-      msgs = basicSetExtension(newExtension, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TYPE__EXTENSION, newExtension, newExtension));
   }
 
   /**
@@ -201,7 +168,7 @@ public class TypeImpl extends TypeElementImpl implements Type
       case DomainPackage.TYPE__OPERATIONS:
         return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
       case DomainPackage.TYPE__EXTENSION:
-        return basicSetExtension(null, msgs);
+        return ((InternalEList<?>)getExtension()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -246,7 +213,8 @@ public class TypeImpl extends TypeElementImpl implements Type
         getOperations().addAll((Collection<? extends Operation>)newValue);
         return;
       case DomainPackage.TYPE__EXTENSION:
-        setExtension((TypeExtension)newValue);
+        getExtension().clear();
+        getExtension().addAll((Collection<? extends TypeExtension>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -269,7 +237,7 @@ public class TypeImpl extends TypeElementImpl implements Type
         getOperations().clear();
         return;
       case DomainPackage.TYPE__EXTENSION:
-        setExtension((TypeExtension)null);
+        getExtension().clear();
         return;
     }
     super.eUnset(featureID);
@@ -290,7 +258,7 @@ public class TypeImpl extends TypeElementImpl implements Type
       case DomainPackage.TYPE__OPERATIONS:
         return operations != null && !operations.isEmpty();
       case DomainPackage.TYPE__EXTENSION:
-        return extension != null;
+        return extension != null && !extension.isEmpty();
     }
     return super.eIsSet(featureID);
   }
