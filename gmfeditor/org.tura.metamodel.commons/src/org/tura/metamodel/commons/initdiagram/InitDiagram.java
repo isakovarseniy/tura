@@ -43,6 +43,7 @@ public class InitDiagram {
 	public static String QUERY_TYPE_LOCAL= "Query local interface";
 	public static String QUERY_TYPE_REMOTE= "Query remote interface";
 	public static String VAR_PACKAGE_NAME = "Package name";
+	public static String QUERY_TYPE_GENERIC ="Query generic type";
 	public static String VAR_TYPE_NAME = "Type name";
 	
 	
@@ -356,6 +357,25 @@ public class InitDiagram {
 		param.setName(VAR_PACKAGE_NAME);
 		query.getParameters().add(param);
 
+
+		query = domain.DomainFactory.eINSTANCE.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE_GENERIC);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
+		artifact.getModelQuery().add(query);
+		
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_TYPE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+		
+		
+		
 		model.getArtifacts().add(artifact);
 
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();

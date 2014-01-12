@@ -1,14 +1,98 @@
 [%
  import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+ var util = new Native('org.tura.metamodel.commons.Util');
 %]
-package [%=type.getMappedJavaType(recipe,ingredient).getMappedToPackageName()%];  
+package [%=type.~package%];  
+import javax.ejb.Stateless;
+import java.rmi.RemoteException;
+import javax.jws.WebService;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-public class  [%=type.getMappedJavaType(recipe,ingredient).getMappedToClassName()%]  [%if (typeRemote <> null or typeLocal <> null) {%]  implements  [%}%] 
-[%if (typeRemote <> null ){%]  [%=typeRemote.fullName(recipe,ingredient)%] [%} if (typeLocal <> null ){ if (typeRemote <> null ){%],[%}%] [%=typeLocal.fullName(recipe,ingredient)%] 
-[%}%]{
+@Stateless
+[%if (typeRemote <> null){%]
+@WebService(endpointInterface = "[%=typeRemote.~fullName%]",serviceName="[%=typeRemote.~class%]")
+[%}%]
+public class  [%=type.~class%]  extends org.elsoft.platform.persistence.ELsoftEntityService [%if (typeRemote <> null or typeLocal <> null) {%]  implements  [%} if (typeRemote <> null ){%]  [%=typeRemote.~fullName%] [%} if (typeLocal <> null ){ if (typeRemote <> null ){%],[%}%] [%=typeLocal.~fullName%] [%}%]{
+
+    @PersistenceContext(unitName="[%=util.mergeAndCapitalize(component.name)%]")
+    private EntityManager em;
+
+[%for ( method in type.operations){ %]    
+ [%=method.generate(recipe,ingredient,typeGeneric)%]
+[%}%]
 }
 
 [% @template
-operation TypeElement fullName( recipe:Recipe, ingredient :Ingredient) {%] 
-[%=self.getMappedJavaType(recipe,ingredient).getMappedToPackageName()%].[%=self.getMappedJavaType(recipe,ingredient).getMappedToClassName()%]
- [%} %]
+operation Operation generate(recipe:Recipe, ingredient :Ingredient ,generic:Type) {
+    var returnValue = "void";
+    if (self.returnValue <> null){
+       self.returnValue.typeRef.mappingType2Java(recipe,ingredient);
+       returnValue=self.returnValue.typeRef.~fullName;
+    }
+   var paramString="";
+   for ( param in self.parameters){
+     param.typeRef.mappingType2Java(recipe,ingredient);
+     if (paramString <> "")
+       paramString=paramString+",";
+     paramString=paramString+param.typeRef.~fullName +" "+ param.name;
+   } 
+    
+%] public  [%=returnValue%]  [%=self.name%]( [%=paramString%])  throws Exception
+[%    switch(self.name){
+          case "create" : %]  [%=self.create()%] [% 
+          case "insert" : %]  [%=self.insert()%]    [% 
+          case "remove" : %]  [%=self.remove()%]    [% 
+          case "update" : %]  [%=self.update()%]    [% 
+          case "find" : %]  [%=self.find(generic)%]    [% 
+        }
+ } %]
+
+[% @template
+operation Operation create() { %]
+    {
+    	try{
+    		[%=self.returnValue.typeRef.~fullName%]  obj = new [%=self.returnValue.typeRef.~fullName%]();
+        	obj.setObjId(this.getObjsectID(em));
+        	return obj;
+    		
+    	}catch (RuntimeException t )
+    	{
+    		return null;
+    	}
+    }	
+[% } %]
+
+[% @template
+operation Operation insert() { %]
+    {
+		this.persistObject(obj, em);
+	}	
+[% } %]
+
+[% @template
+operation Operation update() { %]
+   {
+		this.mergeObject(obj, em);
+	}	
+[% } %]
+
+[% @template
+operation Operation remove() { %]
+  {
+		this.removeObject(obj, em);
+   }	
+[% } %]
+
+[% @template
+operation Operation find(generic:Type) { %]
+  {
+	 try{
+        return ([%=self.returnValue.typeRef.~fullName%] )this.getObjects([%=generic.~fullName%].class, search, order, em, startIndex,endIndex); 
+
+		}catch(Exception e){
+			throw new RemoteException(e.getMessage());
+		}
+	}	
+[% } %]
+

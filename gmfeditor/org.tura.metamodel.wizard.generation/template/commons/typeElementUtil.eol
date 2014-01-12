@@ -1,8 +1,4 @@
-operation TypeElement getMappedJavaType( recipe:Recipe, ingredient :Ingredient) :  Mapper { 
-
-    if (self.~mappedType.isDefined()){
-       return self.~mappedType;
-       }
+operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) { 
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');
@@ -16,10 +12,13 @@ operation TypeElement getMappedJavaType( recipe:Recipe, ingredient :Ingredient) 
           if ( set.size() <> 0 ){
               var type =  util.mapType(set,ingredient,self) ;
               if ( type <> null){
-                 self.~mappedType=type;
-                 return type;
-               }  
+                 self.~class=type.mappedToClassName;
+                 self.~package= type.mappedToPackageName;
+                 self.~fullName=type.mappedToPackageName+"."+type.mappedToClassName;
+                 self.~artifactId=type.artifactId;
+                 self.~groupId=type.groupId;
+                 self.~version= type.version;
+              }  
           }    
      }
-      return null;     
 } 

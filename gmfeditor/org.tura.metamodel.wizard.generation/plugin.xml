@@ -25,6 +25,13 @@
       </tool>
    </extension>
 
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+     <tool
+            class="org.eclipse.epsilon.egl.formatter.language.JavaFormatter"
+            defaultName="JavaFormatter">
+      </tool>
+   </extension>
 
 </plugin>
 

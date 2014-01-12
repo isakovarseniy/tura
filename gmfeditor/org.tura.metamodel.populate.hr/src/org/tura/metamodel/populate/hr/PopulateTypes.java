@@ -111,6 +111,7 @@ public class PopulateTypes {
 		td.getTypes().add(departmentsList);
 		departmentsList.setName(Constants.TYPE_LIST_OF_DEPARTMENTS);
 		departmentsList.setUid(UUID.randomUUID().toString());
+		InitDiagram.addType(typesHash, departmentsList);
 
 		domain.Type departmentsSearchCriteria = domain.DomainFactory.eINSTANCE
 				.createType();
@@ -209,6 +210,14 @@ public class PopulateTypes {
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("find");
 
+		ret = domain.DomainFactory.eINSTANCE
+				.createReturnValue();
+		opr.setReturnValue(ret);
+		ret.setUid(UUID.randomUUID().toString());
+		ret.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_LIST_OF_DEPARTMENTS)
+				.getParent().getParent());
+		ret.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_LIST_OF_DEPARTMENTS));
+		
 		domain.Parameter param = domain.DomainFactory.eINSTANCE
 				.createParameter();
 		opr.getParameters().add(param);
@@ -516,6 +525,16 @@ public class PopulateTypes {
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("find");
 
+		ret = domain.DomainFactory.eINSTANCE
+				.createReturnValue();
+		opr.setReturnValue(ret);
+		ret.setUid(UUID.randomUUID().toString());
+		ret.setPackageRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_LIST_OF_EMPLOYEES)
+				.getParent().getParent());
+		ret.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_LIST_OF_EMPLOYEES));
+		
+		
+		
 		domain.Parameter param = domain.DomainFactory.eINSTANCE
 				.createParameter();
 		opr.getParameters().add(param);

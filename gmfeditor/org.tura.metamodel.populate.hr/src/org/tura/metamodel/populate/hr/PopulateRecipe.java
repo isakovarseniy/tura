@@ -170,6 +170,22 @@ public class PopulateRecipe {
 				var.setValue(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_LOCAL);
 				query.getVariables().add(var);
 		
+				//------------
+				
+				query = DomainFactory.eINSTANCE.createQuery();
+				query.setName("Get "+Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_GENERIC_TYPE);
+				modelMapper.getQueries().add(query);
+				query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_GENERIC));
+
+				var = DomainFactory.eINSTANCE.createQueryVariable();
+				var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_GENERIC+"_"+InitDiagram.VAR_PACKAGE_NAME));
+				var.setValue(Constants.PACKAGE_HR);
+				query.getVariables().add(var);
+				
+				var = DomainFactory.eINSTANCE.createQueryVariable();
+				var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_GENERIC+"_"+InitDiagram.VAR_TYPE_NAME));
+				var.setValue(Constants.TYPE_DEPARTMENT);
+				query.getVariables().add(var);
 		
 		
 		
@@ -228,7 +244,24 @@ public class PopulateRecipe {
 				var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_LOCAL+"_"+InitDiagram.VAR_TYPE_NAME));
 				var.setValue(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_LOCAL);
 				query.getVariables().add(var);
-		
+
+				//------------
+				
+				query = DomainFactory.eINSTANCE.createQuery();
+				query.setName("Get "+Constants.TYPE_EMPLOYEES_QUERY_SERVICE_GENERIC_TYPE);
+				modelMapper.getQueries().add(query);
+				query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_GENERIC));
+
+				var = DomainFactory.eINSTANCE.createQueryVariable();
+				var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_GENERIC+"_"+InitDiagram.VAR_PACKAGE_NAME));
+				var.setValue(Constants.PACKAGE_HR);
+				query.getVariables().add(var);
+				
+				var = DomainFactory.eINSTANCE.createQueryVariable();
+				var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.SERVICE_BEAN+"_"+InitDiagram.QUERY_TYPE_GENERIC+"_"+InitDiagram.VAR_TYPE_NAME));
+				var.setValue(Constants.TYPE_EMPLOYEE);
+				query.getVariables().add(var);
+				
 		
 		
 		modelMapper = DomainFactory.eINSTANCE.createModelMapper();

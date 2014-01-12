@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
 <notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" type="Domain" measurementUnit="Pixel">
   <styles xsi:type="notation:DiagramStyle"/>
-  <element href="hr.domain#f8a69f2a-c38d-4cc8-ab85-fb1f8b1b7048"/>
+  <element href="hr.domain#1ba3d402-e9e1-47a9-8f00-3648cba8d5f3"/>
 </notation:Diagram>

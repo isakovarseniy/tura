@@ -5,32 +5,48 @@
      var type;
      var typeRemote;
      var typeLocal;
+     var typeGeneric;
      
     var types = util.runQuery(model_mapper,"Query type",model_mapper);
     if (types.size() <> 0 ){
        type = types.get(0);
+       type.mappingType2Java(recipe,ingredient);
     }
     var typesLocal = util.runQuery(model_mapper,"Query local interface",model_mapper);
     if (typesLocal.size() <> 0 ){
        typeLocal = typesLocal.get(0);
+       typeLocal.mappingType2Java(recipe,ingredient);
     }
     
     var typesRemote = util.runQuery(model_mapper,"Query remote interface",model_mapper);
     if (typesRemote.size() <> 0 ){
-      typeRemote = typesRemote.get(0);
+       typeRemote = typesRemote.get(0);
+       typeRemote.mappingType2Java(recipe,ingredient);
     }
             
+    var typesGeneric = util.runQuery(model_mapper,"Query generic type",model_mapper);
+    if (typesGeneric.size() <> 0 ){
+       typeGeneric = typesGeneric.get(0);
+       typeGeneric.mappingType2Java(recipe,ingredient);
+    }
+   
+   
+   
+    var f = new Native("org.eclipse.epsilon.egl.formatter.language.JavaFormatter"); 
     var sessionBean : Template = TemplateFactory.load("sessionBean.egl");
+    sessionBean.setFormatter(f);
     
-    var path = component.getComponentRoot+"/"+component.getGroupId+"."+component.getArtifactId+"/src/"+type.getMappedJavaType(recipe,ingredient).getMappedToPackageName().replaceAll("\\.","\\/")+"/";  
+    var path = component.getComponentRoot+"/"+component.getGroupId+"."+component.getArtifactId+"/src/"+type.~package.replaceAll("\\.","\\/")+"/";  
     sessionBean.populate("type",type);
     sessionBean.populate("typeLocal",typeLocal);
     sessionBean.populate("typeRemote",typeRemote);
     sessionBean.populate("recipe",recipe);
     sessionBean.populate("ingredient",ingredient);
+    sessionBean.populate("component",component);
     sessionBean.populate("model_mapper",model_mapper);
+    sessionBean.populate("typeGeneric",typeGeneric);
      
     var buffer = sessionBean.process();
-    util.saveFile( path, type.getMappedJavaType(recipe,ingredient).getMappedToClassName() + ".java",buffer);   
+    util.saveFile( path, type.~class + ".java",buffer);   
  %]
 
