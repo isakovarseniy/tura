@@ -22,6 +22,8 @@ public class InitDiagram {
 	public static String APPLICATION_MAPPER="Application mapper";
 	public static String ENTITYOBJECT="entityObject";
 	public static String SERVICE_BEAN="Service Bean";
+	public static String REMOTE_INTERFACE="Remote Interface";
+	public static String LOCAL_INTERFACE="Local Interface";
 	public static String CONFIGURATION_JPA="Configuration JPA";
 	public static String JPA_IMPLEMENTATION = "JPA implementation";
 	public static String DATABASE_TYPE="Database type";
@@ -378,6 +380,59 @@ public class InitDiagram {
 		
 		model.getArtifacts().add(artifact);
 
+//-------		
+		
+		artifact = domain.DomainFactory.eINSTANCE
+				.createArtifact();
+		artifact.setName(REMOTE_INTERFACE);
+		artifact.setUid(UUID.randomUUID().toString());
+		artifact.setTemplate("template/jee/ejb-ws/mainEjbRemoteInterface.egl");
+		
+		query = domain.DomainFactory.eINSTANCE.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
+		artifact.getModelQuery().add(query);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_TYPE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+		
+		model.getArtifacts().add(artifact);
+
+//---------		
+		artifact = domain.DomainFactory.eINSTANCE
+				.createArtifact();
+		artifact.setName(LOCAL_INTERFACE);
+		artifact.setUid(UUID.randomUUID().toString());
+		artifact.setTemplate("template/jee/ejb-ws/mainEjbLocalInterface.egl");
+		
+		query = domain.DomainFactory.eINSTANCE.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') )");
+		artifact.getModelQuery().add(query);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_TYPE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+		
+		model.getArtifacts().add(artifact);
+//-----------------		
+		
+		
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
 		artifact.setName(MAVEN_POM_EJB_SERVICE_JAR);
 		artifact.setUid(UUID.randomUUID().toString());

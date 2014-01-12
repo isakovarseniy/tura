@@ -356,8 +356,99 @@ public class PopulateRecipe {
 //		var.setValue("BaseType");
 //		query.getVariables().add(var);
 	
+		modelMapper = DomainFactory.eINSTANCE.createModelMapper();
+		component.getMappers().add(modelMapper);
+		modelMapper.setName(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_REMOTE);
+		modelMapper.setUid(UUID.randomUUID().toString());
+		modelMapper.setArtifactRef((Artifact) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.REMOTE_INTERFACE));
+		modelMapper.setDomainArtifactRef(modelMapper.getArtifactRef().getParent().getParent());
 		
-	
+		query = DomainFactory.eINSTANCE.createQuery();
+		query.setName("Get "+Constants.TYPE_EMPLOYEES_QUERY_SERVICE_REMOTE);
+		modelMapper.getQueries().add(query);
+		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.REMOTE_INTERFACE+"_"+InitDiagram.QUERY_TYPE));
+
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.REMOTE_INTERFACE+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_PACKAGE_NAME));
+		var.setValue(Constants.PACKAGE_HR);
+		query.getVariables().add(var);
+		
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.REMOTE_INTERFACE+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME));
+		var.setValue(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_REMOTE);
+		query.getVariables().add(var);
+		
+
+		modelMapper = DomainFactory.eINSTANCE.createModelMapper();
+		component.getMappers().add(modelMapper);
+		modelMapper.setName(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_LOCAL);
+		modelMapper.setUid(UUID.randomUUID().toString());
+		modelMapper.setArtifactRef((Artifact) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.LOCAL_INTERFACE));
+		modelMapper.setDomainArtifactRef(modelMapper.getArtifactRef().getParent().getParent());
+		
+		query = DomainFactory.eINSTANCE.createQuery();
+		query.setName("Get "+Constants.TYPE_EMPLOYEES_QUERY_SERVICE_LOCAL);
+		modelMapper.getQueries().add(query);
+		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.LOCAL_INTERFACE+"_"+InitDiagram.QUERY_TYPE));
+
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.LOCAL_INTERFACE+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_PACKAGE_NAME));
+		var.setValue(Constants.PACKAGE_HR);
+		query.getVariables().add(var);
+		
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.LOCAL_INTERFACE+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME));
+		var.setValue(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_LOCAL);
+		query.getVariables().add(var);
+		
+
+		
+		modelMapper = DomainFactory.eINSTANCE.createModelMapper();
+		component.getMappers().add(modelMapper);
+		modelMapper.setName(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_REMOTE);
+		modelMapper.setUid(UUID.randomUUID().toString());
+		modelMapper.setArtifactRef((Artifact) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.REMOTE_INTERFACE));
+		modelMapper.setDomainArtifactRef(modelMapper.getArtifactRef().getParent().getParent());
+		
+		query = DomainFactory.eINSTANCE.createQuery();
+		query.setName("Get "+Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_REMOTE);
+		modelMapper.getQueries().add(query);
+		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.REMOTE_INTERFACE+"_"+InitDiagram.QUERY_TYPE));
+
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.REMOTE_INTERFACE+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_PACKAGE_NAME));
+		var.setValue(Constants.PACKAGE_HR);
+		query.getVariables().add(var);
+		
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.REMOTE_INTERFACE+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME));
+		var.setValue(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_REMOTE);
+		query.getVariables().add(var);
+		
+
+		modelMapper = DomainFactory.eINSTANCE.createModelMapper();
+		component.getMappers().add(modelMapper);
+		modelMapper.setName(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_LOCAL);
+		modelMapper.setUid(UUID.randomUUID().toString());
+		modelMapper.setArtifactRef((Artifact) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.LOCAL_INTERFACE));
+		modelMapper.setDomainArtifactRef(modelMapper.getArtifactRef().getParent().getParent());
+		
+		query = DomainFactory.eINSTANCE.createQuery();
+		query.setName("Get "+Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_LOCAL);
+		modelMapper.getQueries().add(query);
+		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.LOCAL_INTERFACE+"_"+InitDiagram.QUERY_TYPE));
+
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.LOCAL_INTERFACE+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_PACKAGE_NAME));
+		var.setValue(Constants.PACKAGE_HR);
+		query.getVariables().add(var);
+		
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.LOCAL_INTERFACE+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME));
+		var.setValue(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_LOCAL);
+		query.getVariables().add(var);
+		
+		
 	}
 
 }

@@ -1,0 +1,44 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+ import "ejbMethods.egl";
+ var util = new Native('org.tura.metamodel.commons.Util');
+ var typeGeneric;
+%]
+package [%=type.~package%];  
+
+
+@Remote
+public interface  [%=type.~class%]  {
+
+[%for ( method in type.operations){ %]    
+ [%=method.generate(recipe,ingredient,typeGeneric)%]
+[%}%]
+
+}
+
+
+[% @template
+operation Operation create() { %]
+throws RemoteException;
+[% } %]
+
+[% @template
+operation Operation insert() { %]
+throws RemoteException;
+[% } %]
+
+[% @template
+operation Operation update() { %]
+throws RemoteException;
+[% } %]
+
+[% @template
+operation Operation remove() { %]
+throws RemoteException;
+[% } %]
+
+[% @template
+operation Operation find(generic:Type) { %]
+throws RemoteException;
+[% } %]
+

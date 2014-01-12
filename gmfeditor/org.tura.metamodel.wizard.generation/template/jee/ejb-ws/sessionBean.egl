@@ -1,5 +1,6 @@
 [%
  import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+ import "ejbMethods.egl";
  var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package [%=type.~package%];  
@@ -23,33 +24,10 @@ public class  [%=type.~class%]  extends org.elsoft.platform.persistence.ELsoftEn
 [%}%]
 }
 
-[% @template
-operation Operation generate(recipe:Recipe, ingredient :Ingredient ,generic:Type) {
-    var returnValue = "void";
-    if (self.returnValue <> null){
-       self.returnValue.typeRef.mappingType2Java(recipe,ingredient);
-       returnValue=self.returnValue.typeRef.~fullName;
-    }
-   var paramString="";
-   for ( param in self.parameters){
-     param.typeRef.mappingType2Java(recipe,ingredient);
-     if (paramString <> "")
-       paramString=paramString+",";
-     paramString=paramString+param.typeRef.~fullName +" "+ param.name;
-   } 
-    
-%] public  [%=returnValue%]  [%=self.name%]( [%=paramString%])  throws Exception
-[%    switch(self.name){
-          case "create" : %]  [%=self.create()%] [% 
-          case "insert" : %]  [%=self.insert()%]    [% 
-          case "remove" : %]  [%=self.remove()%]    [% 
-          case "update" : %]  [%=self.update()%]    [% 
-          case "find" : %]  [%=self.find(generic)%]    [% 
-        }
- } %]
 
 [% @template
 operation Operation create() { %]
+throws Exception
     {
     	try{
     		[%=self.returnValue.typeRef.~fullName%]  obj = new [%=self.returnValue.typeRef.~fullName%]();
@@ -65,6 +43,7 @@ operation Operation create() { %]
 
 [% @template
 operation Operation insert() { %]
+throws Exception
     {
 		this.persistObject(obj, em);
 	}	
@@ -72,6 +51,7 @@ operation Operation insert() { %]
 
 [% @template
 operation Operation update() { %]
+throws Exception
    {
 		this.mergeObject(obj, em);
 	}	
@@ -79,6 +59,7 @@ operation Operation update() { %]
 
 [% @template
 operation Operation remove() { %]
+throws Exception
   {
 		this.removeObject(obj, em);
    }	
@@ -86,6 +67,7 @@ operation Operation remove() { %]
 
 [% @template
 operation Operation find(generic:Type) { %]
+throws Exception
   {
 	 try{
         return ([%=self.returnValue.typeRef.~fullName%] )this.getObjects([%=generic.~fullName%].class, search, order, em, startIndex,endIndex); 
