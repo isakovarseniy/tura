@@ -15,10 +15,10 @@ operation Operation generate(recipe:Recipe, ingredient :Ingredient ,generic:Type
     
 %] public  [%=returnValue%]  [%=self.name%]( [%=paramString%])  
 [%    switch(self.name){
-          case "create" : %]  [%=self.create()%] [% 
-          case "insert" : %]  [%=self.insert()%]    [% 
-          case "remove" : %]  [%=self.remove()%]    [% 
-          case "update" : %]  [%=self.update()%]    [% 
-          case "find" : %]  [%=self.find(generic)%]    [% 
+          case "create" : %]    [%=self.create()%]        [% 
+          case "insert" : %]     [%=self.insert()%]          [% 
+          case "remove" : %]  [%=self.remove()%]       [% 
+          case "update" : %]   [%=self.update()%]        [% 
+          case "find" : %]        [%=self.find(generic)%]  [% 
         }
  } %]

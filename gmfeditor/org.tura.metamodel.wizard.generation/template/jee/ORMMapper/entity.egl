@@ -1,0 +1,35 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+ var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package [%=type.~package%];  
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.elsoft.platform.metamodel.objects.ELsoftObject;
+
+
+@Entity(name = "[%=type.~class%]")
+@Table(name = "[%=type.~class.toUpperCase()%]")
+public class [%=type.~class%] extends ELsoftObject{
+[%for ( field in type.attributes){     
+    field.typeRef.mappingType2Java(recipe,ingredient);
+
+    if (field.typeRef.~fullName = "java.util.Date"  or field.typeRef.~fullName = "java.sql.Timestamp")%]
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "[%=util.mergeAndCapitalize(field.name).toUpperCase()%]")
+	private [%= field.typeRef.~fullName%]  [%=field.name%];
+	
+	public void set[%=util.mergeAndCapitalize(field.name)%](  [%= field.typeRef.~fullName%]  [%=field.name%]){
+		this.[%=field.name%] = [%=field.name%];
+	}
+	public [%= field.typeRef.~fullName%] get[%=util.mergeAndCapitalize(field.name)%](){
+		return [%=field.name%];
+	}
+[%}%]
+
+}

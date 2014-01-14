@@ -157,7 +157,7 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(ENTITYOBJECT);
-		artifact.setTemplate("template/jee/ORMMapper/entity.egl");
+		artifact.setTemplate("template/jee/ORMMapper/mainEntity.egl");
 		
 		domain.ModelQuery query = domain.DomainFactory.eINSTANCE.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
