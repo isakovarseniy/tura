@@ -1,0 +1,15 @@
+[% @template
+operation  persistence_jpaproperties(configuration) {
+%]
+		<properties>
+			<!-- property name="eclipselink.target-server" value="SunAS9" /-->
+			<property name="eclipselink.target-database"
+				value="org.eclipse.persistence.platform.database.[%=persistence_databasename()%]Platform" />
+			<property name="eclipselink.logging.level" value="FINEST" />
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+			<property name="eclipselink.ddl-generation.output-mode" value="database" />
+		</properties>
+
+[%
+}
+%]

@@ -10,8 +10,8 @@
     hash.put("configuration",configuration);
   
     var persistence : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/persistence-xml.egl",hash,TemplateFactory);
-  //  var f = new Native("org.eclipse.epsilon.egl.formatter.language.XMLFormatter"); 
-   // persistence.setFormatter(f);
+    var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+    persistence.setFormatter(f);
     
     var path = component.getComponentRoot+"/"+component.getGroupId+"."+component.getArtifactId+"/main/resources/META-INF/";  
  

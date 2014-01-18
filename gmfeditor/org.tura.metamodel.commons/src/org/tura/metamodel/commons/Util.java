@@ -144,8 +144,6 @@ public class Util {
         Template t = ve.getTemplate(templateFile);
         StringWriter writer = new StringWriter();
         t.merge( context, writer );		
-		
- System.out.println(   writer.toString());     
         
 		 EglTemplate egltemplate = factory.prepare(writer.toString());
 	        for (Iterator<String> itr = parameters.keySet().iterator();itr.hasNext(); ){

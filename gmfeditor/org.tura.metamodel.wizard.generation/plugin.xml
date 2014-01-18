@@ -36,8 +36,8 @@
    <extension
          point="org.eclipse.epsilon.common.dt.tool">
      <tool
-            class="org.eclipse.epsilon.egl.formatter.language.XMLFormatter"
-            defaultName="XMLFormatter">
+            class="org.eclipse.epsilon.egl.formatter.language.XmlFormatter"
+            defaultName="XmlFormatter">
       </tool>
    </extension>
 

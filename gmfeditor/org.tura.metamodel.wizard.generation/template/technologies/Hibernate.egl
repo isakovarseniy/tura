@@ -1,0 +1,11 @@
+[% @template
+operation  persistence_jpaproperties(configuration) {
+%]
+		<properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.[%=persistence_databasename()%]Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.default_schema" value="[%=configuration.get("DataBase schema")%]"/>
+		</properties>
+[%
+}
+%]
