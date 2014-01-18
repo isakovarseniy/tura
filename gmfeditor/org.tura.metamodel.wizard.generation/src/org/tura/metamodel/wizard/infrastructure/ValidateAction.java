@@ -1,6 +1,5 @@
 package org.tura.metamodel.wizard.infrastructure;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -117,18 +116,20 @@ public class ValidateAction extends Action {
 	}
 
 	
-	public  void runGeneration(DiagramEditPart diagramEditPart, View view) {
+	public  void runGeneration(DiagramEditPart diagramEditPart, View view,domain.Infrastructure infrastructure) {
 		final DiagramEditPart fpart = diagramEditPart;
 		final View fview = view;
 		
 		class Validate implements Runnable{
 			ValidateAction action;
+			domain.Infrastructure infrastructure;
             			
-			Validate(ValidateAction action){
+			Validate(ValidateAction action,domain.Infrastructure infrastructure){
 				this.action=action;
+				this.infrastructure=infrastructure;
 			}
 			public void run() {
-				action.generate(fpart, fview);
+				action.generate(fpart, fview,infrastructure);
 			}
 			
 		}
@@ -136,7 +137,7 @@ public class ValidateAction extends Action {
 		TransactionalEditingDomain txDomain = TransactionUtil
 				.getEditingDomain(view);
 		
-		Validate v =new Validate(this);
+		Validate v =new Validate(this,infrastructure);
 		
 		DomainValidationProvider.runWithConstraints(txDomain, v);
 		
@@ -234,14 +235,25 @@ public class ValidateAction extends Action {
 	}
 
 
+	private void getConfiguratioin(domain.Configuration conf ,HashMap<String,String> configuration){
+		
+		for (Iterator<domain.Property> itr = conf.getProperties().iterator(); itr.hasNext();){
+			domain.Property prop = itr.next();
+			configuration.put(prop.getConfVarRef().getName(), prop.getValue());
+		}
+		if (conf.getConfigExtension() != null)
+			getConfiguratioin(conf.getConfigExtension(),configuration);
+	}
 	
 	/**
 	 * @generated
 	 */
-	private  void runGMFGeneration(View target) {
+	private  void runGMFGeneration(View target,domain.Infrastructure infrastructure) {
 		
 		if (target.isSetElement() && target.getElement() != null) {
 
+			HashMap<String,String> configuration = new HashMap<>();
+			getConfiguratioin(infrastructure.getRecipeConfig(),configuration);
 			// Validate recipe
 			domain.Recipes recipes = (Recipes) target.getElement();
 			InMemoryEmfModel model = new InMemoryEmfModel(recipes.eResource());
@@ -258,21 +270,24 @@ public class ValidateAction extends Action {
 							  if (mapper.getArtifactRef().getTemplate() != null){
 								  EglTemplate template=null;							  
  							      try{
-							          URI templatePath =  ValidateAction.class.getResource ("/"+mapper.getArtifactRef().getTemplate()).toURI();
+							         String templatePath = mapper.getArtifactRef().getTemplate();
 
 							          EglTemplateFactory factory = new EglTemplateFactory();
 
 									  ModelRepository modelRepo = factory.getContext().getModelRepository();
 							          factory.getContext().getNativeTypeDelegates().add(new ExtensionPointToolNativeTypeDelegate());
 									  modelRepo.addModel(model);
-
-									 template = factory.load(templatePath);
-
+									  
+									  HashMap<String, Object> parameters = new HashMap<>();
+									  parameters.put("recipe", recipes.getRecipe());
+									  parameters.put("ingredient", ingredient);
+									  parameters.put("component", comp);
+									  parameters.put("model_mapper", mapper);
+									  parameters.put("configuration",configuration);
+									  
+									  template=Util.loadTemplate(templatePath, parameters, factory);
+									  
 									   if (template != null && template.getParseProblems().isEmpty() ){
-										   template.populate("recipe", recipes.getRecipe());
-										   template.populate("ingredient", ingredient);
-										   template.populate("component", comp);
-										   template.populate("model_mapper", mapper);
 										   template.process();
 									  }else{
 										  DomainDiagramEditorPlugin.getInstance().logError("Generation action failed. Template parsing problem :" +templatePath); 
@@ -316,14 +331,14 @@ public class ValidateAction extends Action {
 		}
 	}
 	
-	private  void generate(DiagramEditPart diagramEditPart, View view) {
+	private  void generate(DiagramEditPart diagramEditPart, View view, domain.Infrastructure infrastructure) {
 		IFile target = view.eResource() != null ? WorkspaceSynchronizer
 				.getFile(view.eResource()) : null;
 		if (target != null) {
 			DomainMarkerNavigationProvider.deleteMarkers(target);
 		}
 		//Diagnostic[] diagnostic = 
-				runGMFGeneration(view);
+				runGMFGeneration(view,infrastructure);
 //		for (int i = 0 ; i < diagnostic.length; i++){
 //			createMarkers(target, diagnostic[i], diagramEditPart);
 //		}

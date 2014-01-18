@@ -22,6 +22,7 @@ public class RecipeGeneration {
 
 		GenerationJob job = new GenerationJob("Generation");
 		job.setEditorPart(editorPart);
+		job.setInfrastructure(infrastructure);
 
 		job.schedule();
 
@@ -33,6 +34,15 @@ public class RecipeGeneration {
 		}
 
 		private IEditorPart editorPart;
+		private domain.Infrastructure infrastructure;
+
+		public domain.Infrastructure getInfrastructure() {
+			return infrastructure;
+		}
+
+		public void setInfrastructure(domain.Infrastructure infrastructure) {
+			this.infrastructure = infrastructure;
+		}
 
 		public IEditorPart getEditorPart() {
 			return editorPart;
@@ -68,7 +78,7 @@ public class RecipeGeneration {
 			}else{
 				action.runGeneration(
 						((IDiagramWorkbenchPart) editorPart).getDiagramEditPart(),
-						(View) document.getContent());
+						(View) document.getContent(),infrastructure);
 				if (action.isGenerationError()){
 					Display.getDefault().asyncExec(new Runnable() {
 						public void run() {

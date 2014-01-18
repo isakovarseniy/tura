@@ -157,7 +157,7 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(ENTITYOBJECT);
-		artifact.setTemplate("template/jee/ORMMapper/mainEntity.egl");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ORMMapper/mainEntity.egl");
 		
 		domain.ModelQuery query = domain.DomainFactory.eINSTANCE.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
@@ -198,7 +198,7 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(SERVICE_BEAN);
-		artifact.setTemplate("template/jee/jpa/mainJPA.egl");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/jpa/mainJPA.egl");
 		model.getArtifacts().add(artifact);
 
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
@@ -309,7 +309,7 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setName(SERVICE_BEAN);
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setTemplate("template/jee/ejb-ws/mainEjb.egl");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainEjb.egl");
 		
 		domain.ModelQuery query = domain.DomainFactory.eINSTANCE.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
@@ -386,7 +386,7 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setName(REMOTE_INTERFACE);
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setTemplate("template/jee/ejb-ws/mainEjbRemoteInterface.egl");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainEjbRemoteInterface.egl");
 		
 		query = domain.DomainFactory.eINSTANCE.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
@@ -411,7 +411,7 @@ public class InitDiagram {
 				.createArtifact();
 		artifact.setName(LOCAL_INTERFACE);
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setTemplate("template/jee/ejb-ws/mainEjbLocalInterface.egl");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainEjbLocalInterface.egl");
 		
 		query = domain.DomainFactory.eINSTANCE.createModelQuery();
 		query.setUid(UUID.randomUUID().toString());
@@ -442,7 +442,7 @@ public class InitDiagram {
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(PERSISTENS_XML);
-		artifact.setTemplate("template/jee/ejb-ws/persistens-xml.egl");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainPersistence-xml.egl");
 		model.getArtifacts().add(artifact);
 
 		query = domain.DomainFactory.eINSTANCE.createModelQuery();

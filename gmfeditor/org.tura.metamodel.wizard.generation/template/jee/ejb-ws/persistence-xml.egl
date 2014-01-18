@@ -1,0 +1,28 @@
+#set( $percent = "%" )
+#set( $start = "[" )
+#set( $end = "]" )
+$start$percent 
+#foreach( $tech in $model_mapper.getSpecifiers() )
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/$tech.getValueRef().getValue()";
+#end
+$percent$end
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+
+	<persistence-unit name="${domain}-${functionalDomain}">
+
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<jta-data-source>jdbc/${domain}/${functionalDomain}DS</jta-data-source>
+        <jar-file>commons-platform-ejb-1.0.jar</jar-file>
+        <class>org.elsoft.platform.persistence.ObjectsID</class>
+		
+		<properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.default_schema" value="${DB_dbServer.databaseSchema}"/>
+		</properties>
+
+	</persistence-unit>
+</persistence>

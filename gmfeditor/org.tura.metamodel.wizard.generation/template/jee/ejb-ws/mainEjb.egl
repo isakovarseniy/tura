@@ -33,7 +33,7 @@
    
    
     var f = new Native("org.eclipse.epsilon.egl.formatter.language.JavaFormatter"); 
-    var sessionBean : Template = TemplateFactory.load("sessionBean.egl");
+    var sessionBean : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/sessionBean.egl");
     sessionBean.setFormatter(f);
     
     var path = component.getComponentRoot+"/"+component.getGroupId+"."+component.getArtifactId+"/src/"+type.~package.replaceAll("\\.","\\/")+"/";  

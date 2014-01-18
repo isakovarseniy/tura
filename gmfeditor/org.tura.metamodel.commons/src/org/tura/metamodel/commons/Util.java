@@ -3,14 +3,22 @@ package org.tura.metamodel.commons;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.velocity.Template;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.runtime.RuntimeConstants;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.epsilon.egl.EglTemplate;
+import org.eclipse.epsilon.egl.EglTemplateFactory;
 import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
@@ -120,4 +128,31 @@ public class Util {
 		out.close();
 	}
 
+	public static EglTemplate  loadTemplate(String templateFile, HashMap<String, Object> parameters, EglTemplateFactory factory ) throws Exception{
+
+		VelocityContext context = new VelocityContext();
+        for (Iterator<String> itr = parameters.keySet().iterator();itr.hasNext(); ){
+        	String key = itr.next();
+            context.put(key, parameters.get(key));
+        }
+ 
+        VelocityEngine ve = new VelocityEngine();
+        ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "class");
+        ve.setProperty("class.resource.loader.class", "org.tura.metamodel.commons.VelocityResourceLoader"); 
+        ve.init();
+  
+        Template t = ve.getTemplate(templateFile);
+        StringWriter writer = new StringWriter();
+        t.merge( context, writer );		
+		
+ System.out.println(   writer.toString());     
+        
+		 EglTemplate egltemplate = factory.prepare(writer.toString());
+	        for (Iterator<String> itr = parameters.keySet().iterator();itr.hasNext(); ){
+	        	String key = itr.next();
+	        	egltemplate.populate(key, parameters.get(key));
+	        }
+		return egltemplate;
+	}
+	
 }
