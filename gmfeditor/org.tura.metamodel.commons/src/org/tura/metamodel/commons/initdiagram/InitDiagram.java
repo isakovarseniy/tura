@@ -38,7 +38,7 @@ public class InitDiagram {
 
 	public static String MAVEN_POM_ENTITY_JAR = "Maven pom (entity jar)";
 	public static String MAVEN_POM_JPA_SERVICE = "Maven pom JPA Service";
-	public static String MAVEN_POM_EJB_SERVICE_JAR = "Maven pom EJB Service jar";
+	public static String MAVEN_POM_EJB_SERVICE = "Maven pom EJB Service";
 	
 
 	public static String QUERY_TYPE= "Query type";
@@ -434,11 +434,12 @@ public class InitDiagram {
 		
 		
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
-		artifact.setName(MAVEN_POM_EJB_SERVICE_JAR);
+		artifact.setName(MAVEN_POM_EJB_SERVICE);
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setTemplate("j2ee/ejb/mavenPom_EJBService_jar");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainMavenPom_EJBService.egl");
 		model.getArtifacts().add(artifact);
-
+		
+		
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setName(PERSISTENS_XML);

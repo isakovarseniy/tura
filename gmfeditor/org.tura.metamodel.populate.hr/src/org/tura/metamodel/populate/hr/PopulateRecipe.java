@@ -448,6 +448,12 @@ public class PopulateRecipe {
 		var.setValue(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_LOCAL);
 		query.getVariables().add(var);
 		
+		modelMapper = DomainFactory.eINSTANCE.createModelMapper();
+		component.getMappers().add(modelMapper);
+		modelMapper.setName(InitDiagram.MAVEN_POM_EJB_SERVICE);
+		modelMapper.setUid(UUID.randomUUID().toString());
+		modelMapper.setArtifactRef((Artifact) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE));
+		modelMapper.setDomainArtifactRef(modelMapper.getArtifactRef().getParent().getParent());
 		
 	}
 

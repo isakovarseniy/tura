@@ -1,0 +1,46 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+  
+     var util = new Native('org.tura.metamodel.commons.Util');
+   
+    var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+    
+    
+    var mavenjar : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mavenPom_EJBService_jar.egl");
+    mavenjar.setFormatter(f);
+    
+    var path = component.getComponentRoot+"/"+component.getArtifactId+"/model-ejb/";  
+    mavenjar.populate("recipe",recipe);
+    mavenjar.populate("ingredient",ingredient);
+    mavenjar.populate("component",component);
+    mavenjar.populate("model_mapper",model_mapper);
+     
+    var buffer = mavenjar.process();
+    util.saveFile( path, "pom.xml",buffer);   
+ 
+    var mavenear : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mavenPom_EJBService_ear.egl");
+    mavenear.setFormatter(f);
+    
+    path = component.getComponentRoot+"/"+component.getArtifactId+"/model-ear/";  
+    mavenear.populate("recipe",recipe);
+    mavenear.populate("ingredient",ingredient);
+    mavenear.populate("component",component);
+    mavenear.populate("model_mapper",model_mapper);
+     
+    buffer = mavenear.process();
+    util.saveFile( path, "pom.xml",buffer);   
+    
+    
+    var mavenear : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mavenPom_EJBService.egl");
+    mavenear.setFormatter(f);
+    
+    path = component.getComponentRoot+"/"+component.getArtifactId+"/";  
+    mavenear.populate("recipe",recipe);
+    mavenear.populate("ingredient",ingredient);
+    mavenear.populate("component",component);
+    mavenear.populate("model_mapper",model_mapper);
+     
+    buffer = mavenear.process();
+    util.saveFile( path, "pom.xml",buffer);   
+ %]
+

@@ -14,8 +14,8 @@
     var localInterface : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/localInterface.egl");
     localInterface.setFormatter(f);
     
-    var path = component.getComponentRoot+"/"+component.getGroupId+"."+component.getArtifactId+"/src/"+type.~package.replaceAll("\\.","\\/")+"/";  
-    localInterface.populate("type",type);
+   var path = component.getComponentRoot+"/"+component.getArtifactId+"/model-ejb/main/java/src/"+type.~package.replaceAll("\\.","\\/")+"/";  
+     localInterface.populate("type",type);
     localInterface.populate("recipe",recipe);
     localInterface.populate("ingredient",ingredient);
     localInterface.populate("component",component);
