@@ -10,7 +10,7 @@
        type.mappingType2Java(recipe,ingredient);
     }
    
-    var f = new Native("org.eclipse.epsilon.egl.formatter.language.JavaFormatter"); 
+    var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
     var localInterface : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/localInterface.egl");
     localInterface.setFormatter(f);
     
