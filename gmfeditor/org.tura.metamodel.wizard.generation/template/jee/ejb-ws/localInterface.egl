@@ -7,7 +7,7 @@
 package [%=type.~package%];  
 
 
-@Local
+@javax.ejb.Local
 public interface  [%=type.~class%]  {
 
 [%for ( method in type.operations){ %]    
@@ -19,26 +19,26 @@ public interface  [%=type.~class%]  {
 
 [% @template
 operation Operation create() { %]
-throws Exception;
+throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
 operation Operation insert() { %]
-throws Exception;
+throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
 operation Operation update() { %]
-throws Exception;
+throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
 operation Operation remove() { %]
-throws Exception;
+throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
 operation Operation find(generic:Type) { %]
-throws Exception;
+throws javax.ejb.EJBException;
 [% } %]
 

@@ -7,7 +7,7 @@
 package [%=type.~package%];  
 
 
-@Remote
+@javax.ejb.Remote
 public interface  [%=type.~class%]  {
 
 [%for ( method in type.operations){ %]    
@@ -19,26 +19,26 @@ public interface  [%=type.~class%]  {
 
 [% @template
 operation Operation create() { %]
-throws RemoteException;
+throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
 operation Operation insert() { %]
-throws RemoteException;
+throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
 operation Operation update() { %]
-throws RemoteException;
+throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
 operation Operation remove() { %]
-throws RemoteException;
+throws javax.ejb.EJBException;
 [% } %]
 
 [% @template
 operation Operation find(generic:Type) { %]
-throws RemoteException;
+throws javax.ejb.EJBException;
 [% } %]
 

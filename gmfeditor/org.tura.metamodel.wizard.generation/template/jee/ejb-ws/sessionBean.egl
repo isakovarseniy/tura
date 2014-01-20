@@ -4,20 +4,15 @@
  var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package [%=type.~package%];  
-import javax.ejb.Stateless;
-import java.rmi.RemoteException;
-import javax.jws.WebService;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
-@Stateless
+@javax.ejb.Stateless
 [%if (typeRemote <> null){%]
-@WebService(endpointInterface = "[%=typeRemote.~fullName%]",serviceName="[%=typeRemote.~class%]")
+@javax.jws.WebService(endpointInterface = "[%=typeRemote.~fullName%]",serviceName="[%=typeRemote.~class%]")
 [%}%]
 public class  [%=type.~class%]  extends org.elsoft.platform.persistence.ELsoftEntityService [%if (typeRemote <> null or typeLocal <> null) {%]  implements  [%} if (typeRemote <> null ){%]  [%=typeRemote.~fullName%] [%} if (typeLocal <> null ){ if (typeRemote <> null ){%],[%}%] [%=typeLocal.~fullName%] [%}%]{
 
-    @PersistenceContext(unitName="[%=util.mergeAndCapitalize(component.name)%]")
-    private EntityManager em;
+    @javax.persistence.PersistenceContext(unitName="[%=util.mergeAndCapitalize(component.name)%]")
+    private javax.persistence.EntityManager em;
 
 [%for ( method in type.operations){ %]    
  [%=method.generate(recipe,ingredient,typeGeneric)%]
@@ -27,53 +22,69 @@ public class  [%=type.~class%]  extends org.elsoft.platform.persistence.ELsoftEn
 
 [% @template
 operation Operation create() { %]
-throws Exception
+throws javax.ejb.EJBException
     {
     	try{
     		[%=self.returnValue.typeRef.~fullName%]  obj = new [%=self.returnValue.typeRef.~fullName%]();
         	obj.setObjId(this.getObjsectID(em));
         	return obj;
     		
-    	}catch (RuntimeException t )
+    	}catch (RuntimeException e )
     	{
-    		return null;
+			throw new javax.ejb.EJBException(e);
     	}
     }	
 [% } %]
 
 [% @template
 operation Operation insert() { %]
-throws Exception
+throws javax.ejb.EJBException
     {
-		this.persistObject(obj, em);
+    	try{
+  		    this.persistObject(obj, em);
+    	}catch (RuntimeException e )
+    	{
+			throw new javax.ejb.EJBException(e);
+    	}
 	}	
 [% } %]
 
 [% @template
 operation Operation update() { %]
-throws Exception
+throws javax.ejb.EJBException
    {
-		this.mergeObject(obj, em);
+    	try{
+		       this.mergeObject(obj, em);
+    	}catch (RuntimeException e )
+    	{
+			throw new javax.ejb.EJBException(e);
+    	}
 	}	
 [% } %]
 
 [% @template
 operation Operation remove() { %]
-throws Exception
+throws javax.ejb.EJBException
   {
-		this.removeObject(obj, em);
+    	try{
+		     this.removeObject(obj, em);
+    	}catch (RuntimeException e )
+    	{
+			throw new javax.ejb.EJBException(e);
+    	}
    }	
 [% } %]
 
 [% @template
 operation Operation find(generic:Type) { %]
-throws Exception
+throws javax.ejb.EJBException
   {
 	 try{
-        return ([%=self.returnValue.typeRef.~fullName%] )this.getObjects([%=generic.~fullName%].class, search, order, em, startIndex,endIndex); 
-
+	      @SuppressWarnings("unchecked")
+	      [%=self.returnValue.typeRef.~fullName%]  ls =  ([%=self.returnValue.typeRef.~fullName%] )this.getObjects([%=generic.~fullName%].class, search, order, em, startIndex,endIndex); 
+         return ls; 
 		}catch(Exception e){
-			throw new RemoteException(e.getMessage());
+			throw new javax.ejb.EJBException(e);
 		}
 	}	
 [% } %]
