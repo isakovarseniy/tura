@@ -24,8 +24,11 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
 import recipe.diagram.edit.policies.QueryItemSemanticEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
 
@@ -267,6 +270,7 @@ public class QueryEditPart extends ShapeNodeEditPart {
 		public QueryFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
+			this.setBackgroundColor(THIS_BACK);
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
@@ -282,6 +286,8 @@ public class QueryEditPart extends ShapeNodeEditPart {
 
 			fFigureQueryLabelFigure.setText("Query");
 
+			fFigureQueryLabelFigure.setFont(FFIGUREQUERYLABELFIGURE_FONT);
+
 			this.add(fFigureQueryLabelFigure);
 
 		}
@@ -294,5 +300,16 @@ public class QueryEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 241, 238, 203);
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREQUERYLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

@@ -288,7 +288,7 @@ enum PlatformLayers{
    UILayer = 2;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class Recipe extends UsingMappers{
     id attr EString uid;
   ref Recipes#recipe parent;
@@ -299,7 +299,7 @@ class Recipe extends UsingMappers{
   ref Infrastructure[*]#recipe infrastructures;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="255,222,32")
 class Ingredient extends UsingMappers{
   id attr EString uid;
   attr EString name;
@@ -319,7 +319,7 @@ class Component{
    attr EString componentRoot;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="128,128,128")
 class JavaComponent extends Component{
    attr EString artifactId;
    attr EString groupId;
@@ -328,7 +328,7 @@ class JavaComponent extends Component{
 }
 
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class Infrastructure{
   id attr EString uid;
   ref Recipe#infrastructures recipe;
@@ -337,7 +337,7 @@ class Infrastructure{
   ref Configuration#infrastructure recipeConfig;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class Configuration{
     id attr EString uid;
    attr EString name;
@@ -349,7 +349,7 @@ class Configuration{
    ref Configuration#configExtension parent;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
 class ModelMapper extends ArtifactRef{
    attr EString name;
    ref Component#mappers parent;
@@ -358,7 +358,7 @@ class ModelMapper extends ArtifactRef{
     val Query[*] queries;
 }
 
-@gmf.node(label="fakeName")
+@gmf.node(label="fakeName",color="255,239,222")
 class Property{
     id attr EString uid;
     ref ConfigVariable confVarRef;
@@ -372,7 +372,7 @@ class MappingSpecifier{
    ref Option valueRef;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",color="241,238,203")
 class Query{
     id attr EString uid;
    ref ModelQuery modelQuery;

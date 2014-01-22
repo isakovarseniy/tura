@@ -31,8 +31,11 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
 import recipe.diagram.edit.policies.InfrastructureItemSemanticEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.providers.DomainElementTypes;
@@ -341,6 +344,8 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 		public InfrastructureFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
+			this.setForegroundColor(THIS_FORE);
+			this.setBackgroundColor(THIS_BACK);
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
@@ -356,6 +361,9 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 
 			fFigureInfrastructureLabelFigure.setText("Infrastructure");
 
+			fFigureInfrastructureLabelFigure
+					.setFont(FFIGUREINFRASTRUCTURELABELFIGURE_FONT);
+
 			this.add(fFigureInfrastructureLabelFigure);
 
 		}
@@ -368,5 +376,21 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_FORE = new Color(null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 255, 239, 222);
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREINFRASTRUCTURELABELFIGURE_FONT = new Font(
+			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }
