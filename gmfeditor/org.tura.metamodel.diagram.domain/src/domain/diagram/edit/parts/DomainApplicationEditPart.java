@@ -3,11 +3,12 @@
  */
 package domain.diagram.edit.parts;
 
-import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -19,11 +20,14 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
+import org.tura.metamodel.commons.editparts.SizeLimitedLabel;
 
 import domain.diagram.edit.policies.DomainApplicationItemSemanticEditPolicy;
 import domain.diagram.edit.policies.OpenDiagramDomainApplicationEditPolicy;
@@ -254,30 +258,69 @@ public class DomainApplicationEditPart extends ShapeNodeEditPart {
 				.getType(DomainApplicationNameEditPart.VISUAL_ID));
 	}
 
+	/**
+	 * @generated
+	 */
 	public class DomainApplicationFigure extends RoundedRectangle {
-		private WrappingLabel fFigureDomainApplicationLabelFigure;
 
+		/**
+		 * @generated
+		 */
+		private SizeLimitedLabel fFigureDomainApplicationLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public DomainApplicationFigure() {
-			FlowLayout layoutThis = new FlowLayout();
-			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorSpacing(5);
-			layoutThis.setMinorSpacing(5);
-			layoutThis.setHorizontal(true);
-			this.setLayoutManager(layoutThis);
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
+					getMapMode().DPtoLP(8)));
+			this.setForegroundColor(THIS_FORE);
+			this.setBackgroundColor(THIS_BACK);
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			createContents();
 		}
 
+		/**
+		 * @generated
+		 */
 		private void createContents() {
-			fFigureDomainApplicationLabelFigure = new WrappingLabel();
-			fFigureDomainApplicationLabelFigure.setText("Application");
+
+			fFigureDomainApplicationLabelFigure = new SizeLimitedLabel();
+
+			fFigureDomainApplicationLabelFigure.setText("DomainApplication");
+
+			fFigureDomainApplicationLabelFigure
+					.setFont(FFIGUREDOMAINAPPLICATIONLABELFIGURE_FONT);
+
 			this.add(fFigureDomainApplicationLabelFigure);
+
 		}
 
-		public WrappingLabel getFigureDomainApplicationLabelFigure() {
+		/**
+		 * @generated
+		 */
+		public SizeLimitedLabel getFigureDomainApplicationLabelFigure() {
 			return fFigureDomainApplicationLabelFigure;
 		}
+
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_FORE = new Color(null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 241, 238, 203);
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREDOMAINAPPLICATIONLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

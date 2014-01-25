@@ -10,7 +10,7 @@ package domain;
  *
  *
  * @see domain.DomainPackage#getORMEntity()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"
  * @generated
  */
 public interface ORMEntity extends DomainArtifact

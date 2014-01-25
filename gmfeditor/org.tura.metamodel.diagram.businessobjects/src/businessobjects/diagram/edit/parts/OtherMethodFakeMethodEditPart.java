@@ -536,7 +536,7 @@ public class OtherMethodFakeMethodEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
-		return getPrimaryView();
+		return (View) getModel();
 	}
 
 	/**

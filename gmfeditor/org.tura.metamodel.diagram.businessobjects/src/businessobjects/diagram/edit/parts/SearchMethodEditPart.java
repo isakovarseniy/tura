@@ -23,8 +23,11 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
 import businessobjects.diagram.edit.policies.SearchMethodItemSemanticEditPolicy;
 import businessobjects.diagram.part.DomainVisualIDRegistry;
 
@@ -282,6 +285,9 @@ public class SearchMethodEditPart extends ShapeNodeEditPart {
 
 			fFigureSearchMethodLabelFigure.setText("SearchMethod");
 
+			fFigureSearchMethodLabelFigure
+					.setFont(FFIGURESEARCHMETHODLABELFIGURE_FONT);
+
 			this.add(fFigureSearchMethodLabelFigure);
 
 		}
@@ -294,5 +300,11 @@ public class SearchMethodEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGURESEARCHMETHODLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

@@ -3,11 +3,12 @@
  */
 package application.diagram.edit.parts;
 
-import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -19,11 +20,14 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
+import org.tura.metamodel.commons.editparts.SizeLimitedLabel;
 
 import application.diagram.edit.policies.ApplicationMapperItemSemanticEditPolicy;
 import application.diagram.edit.policies.OpenDiagramApplicationMapperEditPolicy;
@@ -254,30 +258,69 @@ public class ApplicationMapperEditPart extends ShapeNodeEditPart {
 				.getType(ApplicationMapperNameEditPart.VISUAL_ID));
 	}
 
+	/**
+	 * @generated
+	 */
 	public class ApplicationMapperFigure extends RoundedRectangle {
-		private WrappingLabel fFigureApplicationMapperLabelFigure;
 
+		/**
+		 * @generated
+		 */
+		private SizeLimitedLabel fFigureApplicationMapperLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public ApplicationMapperFigure() {
-			FlowLayout layoutThis = new FlowLayout();
-			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorSpacing(5);
-			layoutThis.setMinorSpacing(5);
-			layoutThis.setHorizontal(true);
-			this.setLayoutManager(layoutThis);
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
+					getMapMode().DPtoLP(8)));
+			this.setForegroundColor(THIS_FORE);
+			this.setBackgroundColor(THIS_BACK);
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			createContents();
 		}
 
+		/**
+		 * @generated
+		 */
 		private void createContents() {
-			fFigureApplicationMapperLabelFigure = new WrappingLabel();
+
+			fFigureApplicationMapperLabelFigure = new SizeLimitedLabel();
+
 			fFigureApplicationMapperLabelFigure.setText("ApplicationMapper");
+
+			fFigureApplicationMapperLabelFigure
+					.setFont(FFIGUREAPPLICATIONMAPPERLABELFIGURE_FONT);
+
 			this.add(fFigureApplicationMapperLabelFigure);
+
 		}
 
-		public WrappingLabel getFigureApplicationMapperLabelFigure() {
+		/**
+		 * @generated
+		 */
+		public SizeLimitedLabel getFigureApplicationMapperLabelFigure() {
 			return fFigureApplicationMapperLabelFigure;
 		}
+
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_FORE = new Color(null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 255, 237, 85);
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREAPPLICATIONMAPPERLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

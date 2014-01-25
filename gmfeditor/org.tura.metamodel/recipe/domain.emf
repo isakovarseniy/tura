@@ -10,7 +10,7 @@ class Domain{
   val DomainApplications[1]#parent domainApplications;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class DomainArtifacts{
     id attr EString uid;
     attr EString name;  
@@ -19,7 +19,7 @@ class DomainArtifacts{
    val DomainArtifact[*]#parent domainArtifact;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class DomainTypes{
     id attr EString uid;
    attr EString name;  
@@ -27,7 +27,7 @@ class DomainTypes{
    ref Domain#domainTypes parent;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class DomainApplications{
     id attr EString uid;
    attr EString name;  
@@ -36,7 +36,7 @@ class DomainApplications{
    ref Domain#domainApplications parent;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
 class DomainApplication{
    id attr EString uid;
    attr EString name;  
@@ -54,15 +54,15 @@ class DomainArtifact{
 }
 
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
 class ORMEntity extends DomainArtifact{
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
 class JPAService extends DomainArtifact{
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
 class EJBService extends DomainArtifact{
 }
 
@@ -73,7 +73,7 @@ class Artifacts{
    ref DomainArtifact#artifact parent;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
 class Artifact{
     id attr EString uid;
    attr EString name;
@@ -96,14 +96,14 @@ class Artifact{
 }
 
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="255,225,76")
 class ConfigVariable{
    id attr EString uid;
   attr EString name;
    ref Artifact#configVariables parent;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="244,255,33")
 class ModelQuery{
     id attr EString uid;
    attr EString name;
@@ -119,7 +119,7 @@ class QueryParameter{
    attr EString name;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="128,220,40")
 class Specifier{
     id attr EString uid;
    attr EString name;
@@ -142,7 +142,7 @@ class Application{
    ref DomainApplication#application parent;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
 class ApplicationRecipes{
     id attr EString uid;
    attr EString name;
@@ -151,7 +151,7 @@ class ApplicationRecipes{
    val ApplicationRecipe[*]#parent recipes;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="255,196,176")
 class ApplicationRecipe{
     id attr EString uid;
    attr EString name;
@@ -159,7 +159,7 @@ class ApplicationRecipe{
    ref ApplicationRecipes#recipes parent;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="164,230,255")
 class ApplicationMappers{
     id attr EString uid;
    attr EString name;
@@ -168,7 +168,7 @@ class ApplicationMappers{
    val ApplicationMapper[*]#parent mappers;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="255,237,85")
 class ApplicationMapper{
     id attr EString uid;
    attr EString name;
@@ -358,7 +358,7 @@ class ModelMapper extends ArtifactRef{
     val Query[*] queries;
 }
 
-@gmf.node(label="fakeName",color="255,239,222")
+@gmf.node(label="fakeName",border.color="0,0,0",color="255,239,222")
 class Property{
     id attr EString uid;
     ref ConfigVariable confVarRef;
@@ -372,7 +372,7 @@ class MappingSpecifier{
    ref Option valueRef;
 }
 
-@gmf.node(label="name",color="241,238,203")
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
 class Query{
     id attr EString uid;
    ref ModelQuery modelQuery;
@@ -496,7 +496,7 @@ class TypesRepository{
   ref DomainTypes#typesrepository parent;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class Types {
     id attr EString uid;
    ref TypesRepository#typeDefinition parent;
@@ -508,7 +508,7 @@ class Types {
    
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
 class Package{
     id attr EString uid;
    attr EString name;

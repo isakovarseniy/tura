@@ -16,6 +16,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="DomainArtifacts">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,239,222"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -30,6 +32,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="DomainTypes">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,239,222"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -42,6 +46,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="DomainApplications">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,239,222"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -56,6 +62,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="DomainApplication">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -80,16 +88,22 @@
   <eClassifiers xsi:type="ecore:EClass" name="ORMEntity" eSuperTypes="#//DomainArtifact">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JPAService" eSuperTypes="#//DomainArtifact">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EJBService" eSuperTypes="#//DomainArtifact">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifacts">
@@ -104,6 +118,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Artifact">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -128,6 +144,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ConfigVariable">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,225,76"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -138,6 +156,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ModelQuery">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="244,255,33"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -158,6 +178,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Specifier">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="128,220,40"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -191,6 +213,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationRecipes">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -205,6 +229,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationRecipe">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,196,176"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -217,6 +243,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationMappers">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="164,230,255"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -231,6 +259,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationMapper">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,237,85"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -511,6 +541,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakeName"/>
+      <details key="border.color" value="0,0,0"/>
       <details key="color" value="255,239,222"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -528,6 +559,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Query">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
       <details key="color" value="241,238,203"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -688,6 +720,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Types">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,239,222"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -706,6 +740,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>

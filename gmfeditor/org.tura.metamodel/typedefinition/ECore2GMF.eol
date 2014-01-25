@@ -1,3 +1,11 @@
+-- set italic font for labels
+for (  label in GmfGraph!Label.all ){
+  label.font = new GmfGraph!BasicFont;
+  label.font.style = GmfGraph!FontStyle#ITALIC;
+  label.font.faceName="Palatino";  
+  label.font.height	 = 12;
+}
+
 -- Find the attribute figure
 var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'AttributeFigure');
 
@@ -65,6 +73,10 @@ attributeFigure.setPreferredSize ( preferredSize);
 
 
 -- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ModelQuery');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Query');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='BusinessObject');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='BusinessMethod');

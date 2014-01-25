@@ -20,14 +20,17 @@ import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
 import businessobjects.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import businessobjects.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import businessobjects.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import businessobjects.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
 import businessobjects.diagram.edit.parts.RemoveMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.SearchMethodEditPart;
@@ -306,17 +309,17 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
+			if (ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

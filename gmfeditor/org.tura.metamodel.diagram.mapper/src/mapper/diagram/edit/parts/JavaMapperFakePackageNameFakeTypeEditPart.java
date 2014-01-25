@@ -543,7 +543,7 @@ public class JavaMapperFakePackageNameFakeTypeEditPart extends
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
-		return getPrimaryView();
+		return (View) getModel();
 	}
 
 	/**

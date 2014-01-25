@@ -46,6 +46,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="DomainArtifactsFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -61,6 +68,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -79,6 +91,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="DomainTypesFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -90,7 +109,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="DomainTypesLabelFigure"
-            text="DomainTypes"/>
+            text="DomainTypes">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureDomainTypesLabelFigure"
@@ -101,6 +126,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="DomainApplicationsFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -116,6 +148,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -134,6 +171,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="DomainApplicationFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -145,7 +189,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="DomainApplicationLabelFigure"
-            text="DomainApplication"/>
+            text="DomainApplication">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureDomainApplicationLabelFigure"
@@ -167,7 +217,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="DomainArtifactLabelFigure"
-            text="DomainArtifact"/>
+            text="DomainArtifact">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureDomainArtifactLabelFigure"
@@ -178,6 +234,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ORMEntityFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -189,7 +252,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ORMEntityLabelFigure"
-            text="ORMEntity"/>
+            text="ORMEntity">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureORMEntityLabelFigure"
@@ -200,6 +269,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="JPAServiceFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -211,7 +287,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="JPAServiceLabelFigure"
-            text="JPAService"/>
+            text="JPAService">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureJPAServiceLabelFigure"
@@ -222,6 +304,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="EJBServiceFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -233,7 +322,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="EJBServiceLabelFigure"
-            text="EJBService"/>
+            text="EJBService">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureEJBServiceLabelFigure"
@@ -244,6 +339,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ArtifactFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="192"
+            green="192"
+            blue="192"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -259,6 +361,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -291,6 +398,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ConfigVariableFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="225"
+            blue="76"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -302,7 +416,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ConfigVariableLabelFigure"
-            text="ConfigVariable"/>
+            text="ConfigVariable">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureConfigVariableLabelFigure"
@@ -313,6 +433,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ModelQueryFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="244"
+            green="255"
+            blue="33"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -324,7 +451,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ModelQueryLabelFigure"
-            text="ModelQuery"/>
+            text="ModelQuery">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureModelQueryLabelFigure"
@@ -335,6 +468,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="SpecifierFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="128"
+            green="220"
+            blue="40"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -346,7 +486,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="SpecifierLabelFigure"
-            text="Specifier"/>
+            text="Specifier">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureSpecifierLabelFigure"
@@ -368,7 +514,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="OptionLabelFigure"
-            text="Option"/>
+            text="Option">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureOptionLabelFigure"
@@ -379,6 +531,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ApplicationRecipesFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="192"
+            green="192"
+            blue="192"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -394,6 +553,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -412,6 +576,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ApplicationRecipeFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="196"
+            blue="176"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -423,7 +594,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ApplicationRecipeLabelFigure"
-            text="ApplicationRecipe"/>
+            text="ApplicationRecipe">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureApplicationRecipeLabelFigure"
@@ -434,6 +611,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ApplicationMappersFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="164"
+            green="230"
+            blue="255"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -449,6 +633,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -467,6 +656,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ApplicationMapperFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="237"
+            blue="85"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -478,7 +674,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ApplicationMapperLabelFigure"
-            text="ApplicationMapper"/>
+            text="ApplicationMapper">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureApplicationMapperLabelFigure"
@@ -504,6 +706,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -564,7 +771,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="CreateMethodLabelFigure"
-            text="CreateMethod"/>
+            text="CreateMethod">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureCreateMethodLabelFigure"
@@ -582,7 +795,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="InsertMethodLabelFigure"
-            text="InsertMethod"/>
+            text="InsertMethod">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureInsertMethodLabelFigure"
@@ -600,7 +819,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="UpdateMethodLabelFigure"
-            text="UpdateMethod"/>
+            text="UpdateMethod">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureUpdateMethodLabelFigure"
@@ -618,7 +843,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="RemoveMethodLabelFigure"
-            text="RemoveMethod"/>
+            text="RemoveMethod">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureRemoveMethodLabelFigure"
@@ -636,7 +867,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="SearchMethodLabelFigure"
-            text="SearchMethod"/>
+            text="SearchMethod">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureSearchMethodLabelFigure"
@@ -654,7 +891,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="OtherMethodLabelFigure"
-            text="OtherMethod"/>
+            text="OtherMethod">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureOtherMethodLabelFigure"
@@ -676,7 +919,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="JavaMapperLabelFigure"
-            text="JavaMapper"/>
+            text="JavaMapper">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureJavaMapperLabelFigure"
@@ -687,6 +936,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="RecipeFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -702,6 +958,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -720,6 +981,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="IngredientFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="222"
+            blue="32"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -735,6 +1003,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -753,6 +1026,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="JavaComponentFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="128"
+            green="128"
+            blue="128"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -768,6 +1048,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -786,6 +1071,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="InfrastructureFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -797,7 +1089,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="InfrastructureLabelFigure"
-            text="Infrastructure"/>
+            text="Infrastructure">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureInfrastructureLabelFigure"
@@ -808,6 +1106,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ConfigurationFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -823,6 +1128,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -841,6 +1151,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ModelMapperFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="192"
+            green="192"
+            blue="192"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -856,6 +1173,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -874,6 +1196,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="PropertyFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -885,7 +1214,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="PropertyLabelFigure"
-            text="Property"/>
+            text="Property">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigurePropertyLabelFigure"
@@ -896,6 +1231,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="QueryFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -907,7 +1249,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="QueryLabelFigure"
-            text="Query"/>
+            text="Query">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureQueryLabelFigure"
@@ -929,7 +1277,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="PrimitiveLabelFigure"
-            text="Primitive"/>
+            text="Primitive">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigurePrimitiveLabelFigure"
@@ -955,6 +1309,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -991,7 +1350,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="TypeReferenceLabelFigure"
-            text="TypeReference"/>
+            text="TypeReference">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureTypeReferenceLabelFigure"
@@ -1013,7 +1378,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="AttributeLabelFigure"
-            text="Attribute"/>
+            text="Attribute">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureAttributeLabelFigure"
@@ -1039,6 +1410,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -1075,7 +1451,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ParameterLabelFigure"
-            text="Parameter"/>
+            text="Parameter">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureParameterLabelFigure"
@@ -1097,7 +1479,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ReturnValueLabelFigure"
-            text="ReturnValue"/>
+            text="ReturnValue">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureReturnValueLabelFigure"
@@ -1123,6 +1511,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -1152,7 +1545,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="EnumAttributeLabelFigure"
-            text="EnumAttribute"/>
+            text="EnumAttribute">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureEnumAttributeLabelFigure"
@@ -1163,6 +1562,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="TypesFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -1178,6 +1584,11 @@
           <maximumSize
               dx="10000"
               dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -1203,6 +1614,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="PackageFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -1214,7 +1632,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="PackageLabelFigure"
-            text="Package"/>
+            text="Package">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigurePackageLabelFigure"
@@ -1236,7 +1660,13 @@
         <children
             xsi:type="gmfgraph:Label"
             name="BusinessPackageLabelFigure"
-            text="BusinessPackage"/>
+            text="BusinessPackage">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureBusinessPackageLabelFigure"
@@ -1263,7 +1693,13 @@
         name="RecipeInfrastructuresExternalLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="RecipeInfrastructuresExternalLabel"/>
+          name="RecipeInfrastructuresExternalLabel">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName="Palatino"
+            height="12"
+            style="ITALIC"/>
+      </actualFigure>
     </descriptors>
     <descriptors
         name="InfrastructureRecipeConfigFigure">
@@ -1277,7 +1713,13 @@
         name="InfrastructureRecipeConfigExternalLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="InfrastructureRecipeConfigExternalLabel"/>
+          name="InfrastructureRecipeConfigExternalLabel">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName="Palatino"
+            height="12"
+            style="ITALIC"/>
+      </actualFigure>
     </descriptors>
     <descriptors
         name="ConfigurationConfigExtensionFigure">
@@ -1292,7 +1734,13 @@
         name="ConfigurationConfigExtensionExternalLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="ConfigurationConfigExtensionExternalLabel"/>
+          name="ConfigurationConfigExtensionExternalLabel">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName="Palatino"
+            height="12"
+            style="ITALIC"/>
+      </actualFigure>
     </descriptors>
   </figures>
   <nodes

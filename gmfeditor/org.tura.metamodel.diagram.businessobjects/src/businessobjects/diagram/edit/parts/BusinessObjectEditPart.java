@@ -27,8 +27,11 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
 import businessobjects.diagram.edit.policies.BusinessObjectItemSemanticEditPolicy;
 import businessobjects.diagram.edit.policies.OpenDiagramEditPolicy;
 import businessobjects.diagram.part.DomainVisualIDRegistry;
@@ -439,6 +442,10 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 			fFigureBusinessObjectLabelFigure = new WrappingLabel();
 
 			fFigureBusinessObjectLabelFigure.setText("BusinessObject");
+
+			fFigureBusinessObjectLabelFigure
+					.setFont(FFIGUREBUSINESSOBJECTLABELFIGURE_FONT);
+
 			fFigureBusinessObjectLabelFigure.setMaximumSize(new Dimension(
 					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
@@ -532,5 +539,11 @@ public class BusinessObjectEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREBUSINESSOBJECTLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

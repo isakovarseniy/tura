@@ -13,19 +13,19 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.BusinessPackageNameEditPart;
 import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.edit.parts.PackageNameEditPart;
 import typesrepository.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import typesrepository.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesNameEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesBusinessPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
-import typesrepository.diagram.edit.parts.WrappingLabel2EditPart;
-import typesrepository.diagram.edit.parts.WrappingLabel3EditPart;
-import typesrepository.diagram.edit.parts.WrappingLabelEditPart;
 import domain.DomainPackage;
 import domain.TypesRepository;
 
@@ -218,17 +218,17 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
+			if (ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

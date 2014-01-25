@@ -17,7 +17,7 @@ genTopLevelNode.behaviour.add(behaviour);
 
 // Change figure for DomainArtifact element 
 var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'DomainArtifactFigure').first;
-innerClass.classBody='public class DomainArtifactFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDomainArtifactLabelFigure; public DomainArtifactFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureDomainArtifactLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureDomainArtifactLabelFigure.setText("Package"); this.add(fFigureDomainArtifactLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDomainArtifactLabelFigure() {return fFigureDomainArtifactLabelFigure;}}';
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
 
 
 //Enable diagram partition for DomainTypes element
@@ -31,7 +31,7 @@ genTopLevelNode.behaviour.add(behaviour);
 
 // Change figure for DomainTypes element 
 var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'DomainTypesFigure').first;
-innerClass.classBody='public class DomainTypesFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDomainTypesLabelFigure; public DomainTypesFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureDomainTypesLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureDomainTypesLabelFigure.setText("Package"); this.add(fFigureDomainTypesLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDomainTypesLabelFigure() {return fFigureDomainTypesLabelFigure;}}';
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
 
 
 //Enable diagram partition for DomainApplication element
@@ -45,7 +45,7 @@ genTopLevelNode.behaviour.add(behaviour);
 
 // Change figure for DomainTypes element 
 var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'DomainApplicationFigure').first;
-innerClass.classBody='public class DomainApplicationFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDomainApplicationLabelFigure; public DomainApplicationFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureDomainApplicationLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureDomainApplicationLabelFigure.setText("Application"); this.add(fFigureDomainApplicationLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDomainApplicationLabelFigure() {return fFigureDomainApplicationLabelFigure;}}';
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
 
 
 //Enable diagram partition for ORMEntity element
@@ -59,7 +59,7 @@ genTopLevelNode.behaviour.add(behaviour);
 
 // Change figure for ORMEntity element 
 var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'ORMEntityFigure').first;
-innerClass.classBody='public class ORMEntityFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureORMEntityLabelFigure; public ORMEntityFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureORMEntityLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureORMEntityLabelFigure.setText("Application"); this.add(fFigureORMEntityLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureORMEntityLabelFigure() {return fFigureORMEntityLabelFigure;}}';
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
 
 
 //Enable diagram partition for JPAService element
@@ -73,7 +73,7 @@ genTopLevelNode.behaviour.add(behaviour);
 
 // Change figure for JPAService element 
 var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'JPAServiceFigure').first;
-innerClass.classBody='public class JPAServiceFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureJPAServiceLabelFigure; public JPAServiceFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureJPAServiceLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureJPAServiceLabelFigure.setText("Application"); this.add(fFigureJPAServiceLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureJPAServiceLabelFigure() {return fFigureJPAServiceLabelFigure;}}';
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
 
 
 
@@ -88,7 +88,7 @@ genTopLevelNode.behaviour.add(behaviour);
 
 // Change figure for EJBService element 
 var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'EJBServiceFigure').first;
-innerClass.classBody='public class EJBServiceFigure extends org.eclipse.draw2d.RoundedRectangle {private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEJBServiceLabelFigure; public EJBServiceFigure() {org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();  layoutThis.setStretchMinorAxis(false); layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP); layoutThis.setMajorSpacing(5); layoutThis.setMinorSpacing(5); layoutThis.setHorizontal(true); this.setLayoutManager(layoutThis); createContents();} private void createContents(){ fFigureEJBServiceLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel(); fFigureEJBServiceLabelFigure.setText("Application"); this.add(fFigureEJBServiceLabelFigure);}public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEJBServiceLabelFigure() {return fFigureEJBServiceLabelFigure;}}';
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
 
 
 

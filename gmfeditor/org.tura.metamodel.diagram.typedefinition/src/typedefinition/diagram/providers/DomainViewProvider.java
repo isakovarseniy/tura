@@ -49,12 +49,14 @@ import org.eclipse.swt.graphics.FontData;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import typedefinition.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
 import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
@@ -64,6 +66,7 @@ import typedefinition.diagram.edit.parts.ParameterNameEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import typedefinition.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueFakePackageNameFakeTypeEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
@@ -74,9 +77,6 @@ import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceFakePackageNameFakeTypeEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
-import typedefinition.diagram.edit.parts.WrappingLabel2EditPart;
-import typedefinition.diagram.edit.parts.WrappingLabel3EditPart;
-import typedefinition.diagram.edit.parts.WrappingLabelEditPart;
 import typedefinition.diagram.part.DomainVisualIDRegistry;
 
 /**
@@ -861,8 +861,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label106004 = createLabel(edge,
-				DomainVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
+		Node label106004 = createLabel(
+				edge,
+				DomainVisualIDRegistry
+						.getType(RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID));
 		label106004.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label106004.setLayoutConstraint(NotationFactory.eINSTANCE
@@ -922,9 +924,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label106003 = createLabel(edge,
+		Node label106003 = createLabel(
+				edge,
 				DomainVisualIDRegistry
-						.getType(WrappingLabel2EditPart.VISUAL_ID));
+						.getType(InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID));
 		label106003.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label106003.setLayoutConstraint(NotationFactory.eINSTANCE
@@ -984,9 +987,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label106002 = createLabel(edge,
+		Node label106002 = createLabel(
+				edge,
 				DomainVisualIDRegistry
-						.getType(WrappingLabel3EditPart.VISUAL_ID));
+						.getType(ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID));
 		label106002.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label106002.setLayoutConstraint(NotationFactory.eINSTANCE

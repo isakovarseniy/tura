@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see domain.DomainPackage#getModelMapper()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"
  * @generated
  */
 public interface ModelMapper extends ArtifactRef

@@ -1,4 +1,15 @@
+-- set italic font for labels
+for (  label in GmfGraph!Label.all ){
+  label.font = new GmfGraph!BasicFont;
+  label.font.style = GmfGraph!FontStyle#ITALIC;
+  label.font.faceName="Palatino";  
+  label.font.height	 = 12;
+}
 -- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ModelQuery');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Query');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationMapper');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationMappers');

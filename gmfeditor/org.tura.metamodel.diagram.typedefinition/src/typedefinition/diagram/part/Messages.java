@@ -286,82 +286,62 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ModelQuery4CreationTool_title;
+	public static String Operation4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelQuery4CreationTool_desc;
+	public static String Operation4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation5CreationTool_title;
+	public static String Parameter5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation5CreationTool_desc;
+	public static String Parameter5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Parameter6CreationTool_title;
+	public static String Primitive6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Parameter6CreationTool_desc;
+	public static String Primitive6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive7CreationTool_title;
+	public static String ReturnValue7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive7CreationTool_desc;
+	public static String ReturnValue7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Query8CreationTool_title;
+	public static String Type8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Query8CreationTool_desc;
+	public static String Type8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ReturnValue9CreationTool_title;
+	public static String TypeReference9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ReturnValue9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Type10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Type10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference11CreationTool_desc;
+	public static String TypeReference9CreationTool_desc;
 
 	/**
 	 * @generated
@@ -436,16 +416,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Primitive_102004_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Primitive_102004_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_TypeReference_102001_incominglinks;
 
 	/**
@@ -466,7 +436,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TypeDefinition_101000_links;
+	public static String NavigatorGroupName_Type_102002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Type_102002_outgoinglinks;
 
 	/**
 	 * @generated
@@ -481,12 +456,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Type_102002_incominglinks;
+	public static String NavigatorGroupName_Primitive_102004_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Type_102002_outgoinglinks;
+	public static String NavigatorGroupName_Primitive_102004_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TypeDefinition_101000_links;
 
 	/**
 	 * @generated

@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see domain.DomainPackage#getIngredient()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,222,32'"
  * @generated
  */
 public interface Ingredient extends UsingMappers

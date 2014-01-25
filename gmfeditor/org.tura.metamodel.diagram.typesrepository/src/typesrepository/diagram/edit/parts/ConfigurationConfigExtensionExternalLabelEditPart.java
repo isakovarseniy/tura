@@ -46,8 +46,10 @@ import org.eclipse.jface.viewers.ICellEditorValidator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 
 import typesrepository.diagram.edit.policies.DomainTextSelectionEditPolicy;
 import typesrepository.diagram.part.DomainVisualIDRegistry;
@@ -57,13 +59,13 @@ import typesrepository.diagram.providers.DomainParserProvider;
 /**
  * @generated
  */
-public class WrappingLabelEditPart extends LabelEditPart implements
-		ITextAwareEditPart {
+public class ConfigurationConfigExtensionExternalLabelEditPart extends
+		LabelEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 206004;
+	public static final int VISUAL_ID = 206002;
 
 	/**
 	 * @generated
@@ -96,14 +98,14 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	static {
 		registerSnapBackPosition(
 				DomainVisualIDRegistry
-						.getType(typesrepository.diagram.edit.parts.WrappingLabelEditPart.VISUAL_ID),
+						.getType(typesrepository.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID),
 				new Point(0, 40));
 	}
 
 	/**
 	 * @generated
 	 */
-	public WrappingLabelEditPart(View view) {
+	public ConfigurationConfigExtensionExternalLabelEditPart(View view) {
 		super(view);
 	}
 
@@ -327,7 +329,7 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	public IParser getParser() {
 		if (parser == null) {
 			parser = DomainParserProvider.getParser(
-					DomainElementTypes.RecipeInfrastructures_204005,
+					DomainElementTypes.ConfigurationConfigExtension_204003,
 					getParserElement(), CommonParserHint.DESCRIPTION);
 		}
 		return parser;
@@ -548,7 +550,7 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
-		return getPrimaryView();
+		return (View) getModel();
 	}
 
 	/**
@@ -633,7 +635,31 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigurePrim() {
-		return new WrappingLabel();
+		return new ConfigurationConfigExtensionExternalLabelFigure();
 	}
+
+	/**
+	 * @generated
+	 */
+	public class ConfigurationConfigExtensionExternalLabelFigure extends
+			WrappingLabel {
+
+		/**
+		 * @generated
+		 */
+		public ConfigurationConfigExtensionExternalLabelFigure() {
+			this.setText("");
+
+			this.setFont(THIS_FONT);
+
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	static final Font THIS_FONT = new Font(Display.getCurrent(), "Palatino",
+			12, SWT.ITALIC);
 
 }

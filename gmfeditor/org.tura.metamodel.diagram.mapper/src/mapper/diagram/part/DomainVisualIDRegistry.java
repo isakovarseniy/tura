@@ -4,11 +4,14 @@
 package mapper.diagram.part;
 
 import mapper.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import mapper.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import mapper.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import mapper.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 import mapper.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import mapper.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import mapper.diagram.edit.parts.TypeExtensionEditPart;
 import mapper.diagram.edit.parts.WrappingLabel2EditPart;
 import mapper.diagram.edit.parts.WrappingLabel3EditPart;
@@ -175,17 +178,17 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
+			if (ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

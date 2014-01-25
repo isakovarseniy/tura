@@ -25,7 +25,10 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
 
 import typedefinition.diagram.edit.policies.OpenDiagramEditPolicy;
 import typedefinition.diagram.edit.policies.OperationItemSemanticEditPolicy;
@@ -329,6 +332,10 @@ public class OperationEditPart extends ShapeNodeEditPart {
 			fFigureOperationLabelFigure = new WrappingLabel();
 
 			fFigureOperationLabelFigure.setText("Operation");
+
+			fFigureOperationLabelFigure
+					.setFont(FFIGUREOPERATIONLABELFIGURE_FONT);
+
 			fFigureOperationLabelFigure.setMaximumSize(new Dimension(
 					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
@@ -370,5 +377,11 @@ public class OperationEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREOPERATIONLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

@@ -50,19 +50,19 @@ import org.eclipse.swt.graphics.FontData;
 import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.BusinessPackageNameEditPart;
 import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.edit.parts.PackageNameEditPart;
 import typesrepository.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import typesrepository.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesNameEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesBusinessPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
-import typesrepository.diagram.edit.parts.WrappingLabel2EditPart;
-import typesrepository.diagram.edit.parts.WrappingLabel3EditPart;
-import typesrepository.diagram.edit.parts.WrappingLabelEditPart;
 import typesrepository.diagram.part.DomainVisualIDRegistry;
 
 /**
@@ -276,7 +276,10 @@ public class DomainViewProvider extends AbstractProvider implements
 	 */
 	public Node createTypes_202001(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		node.getStyles().add(
 				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -287,12 +290,6 @@ public class DomainViewProvider extends AbstractProvider implements
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
@@ -307,11 +304,6 @@ public class DomainViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
 		Node label205004 = createLabel(node,
 				DomainVisualIDRegistry.getType(TypesNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -332,7 +324,10 @@ public class DomainViewProvider extends AbstractProvider implements
 	 */
 	public Node createPackage_203002(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		{
 			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
 					.createHintedDiagramLinkStyle();
@@ -346,12 +341,6 @@ public class DomainViewProvider extends AbstractProvider implements
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
@@ -366,11 +355,6 @@ public class DomainViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
 		Node label205002 = createLabel(node,
 				DomainVisualIDRegistry.getType(PackageNameEditPart.VISUAL_ID));
 		return node;
@@ -530,8 +514,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label206004 = createLabel(edge,
-				DomainVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
+		Node label206004 = createLabel(
+				edge,
+				DomainVisualIDRegistry
+						.getType(RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID));
 		label206004.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label206004.setLayoutConstraint(NotationFactory.eINSTANCE
@@ -591,9 +577,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label206003 = createLabel(edge,
+		Node label206003 = createLabel(
+				edge,
 				DomainVisualIDRegistry
-						.getType(WrappingLabel2EditPart.VISUAL_ID));
+						.getType(InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID));
 		label206003.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label206003.setLayoutConstraint(NotationFactory.eINSTANCE
@@ -653,9 +640,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label206002 = createLabel(edge,
+		Node label206002 = createLabel(
+				edge,
 				DomainVisualIDRegistry
-						.getType(WrappingLabel3EditPart.VISUAL_ID));
+						.getType(ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID));
 		label206002.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label206002.setLayoutConstraint(NotationFactory.eINSTANCE

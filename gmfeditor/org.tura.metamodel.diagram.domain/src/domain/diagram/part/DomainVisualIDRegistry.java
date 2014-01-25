@@ -13,6 +13,7 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import domain.Domain;
 import domain.DomainPackage;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import domain.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
 import domain.diagram.edit.parts.DomainApplicationNameEditPart;
 import domain.diagram.edit.parts.DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart;
@@ -29,15 +30,14 @@ import domain.diagram.edit.parts.DomainTypesNameEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
 import domain.diagram.edit.parts.EJBServiceNameEditPart;
 import domain.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import domain.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.JPAServiceNameEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
 import domain.diagram.edit.parts.ORMEntityNameEditPart;
 import domain.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import domain.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
-import domain.diagram.edit.parts.WrappingLabel2EditPart;
-import domain.diagram.edit.parts.WrappingLabel3EditPart;
-import domain.diagram.edit.parts.WrappingLabelEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -288,17 +288,17 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
+			if (ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

@@ -542,7 +542,7 @@ public class ReturnValueFakePackageNameFakeTypeEditPart extends
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
-		return getPrimaryView();
+		return (View) getModel();
 	}
 
 	/**

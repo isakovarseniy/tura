@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -86,7 +87,10 @@ public abstract class AbstractTuraPropertySection extends
 		}
 		eObjectList = ((IStructuredSelection) selection).toList();
 		editPart =  (IGraphicalEditPart) ((IStructuredSelection) selection).getFirstElement();
-		eObject  = ((ShapeImpl) editPart.getModel()).basicGetElement();
+		if (editPart.getModel() instanceof ShapeImpl )
+		     eObject  = ((ShapeImpl) editPart.getModel()).basicGetElement();
+		if (editPart.getModel() instanceof NodeImpl )
+		     eObject  = ((NodeImpl) editPart.getModel()).basicGetElement();
 
 	}
 }

@@ -1,7 +1,7 @@
 /*
  * 
  */
-package typesrepository.diagram.edit.parts;
+package application.diagram.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
@@ -46,24 +46,26 @@ import org.eclipse.jface.viewers.ICellEditorValidator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 
-import typesrepository.diagram.edit.policies.DomainTextSelectionEditPolicy;
-import typesrepository.diagram.part.DomainVisualIDRegistry;
-import typesrepository.diagram.providers.DomainElementTypes;
-import typesrepository.diagram.providers.DomainParserProvider;
+import application.diagram.edit.policies.DomainTextSelectionEditPolicy;
+import application.diagram.part.DomainVisualIDRegistry;
+import application.diagram.providers.DomainElementTypes;
+import application.diagram.providers.DomainParserProvider;
 
 /**
  * @generated
  */
-public class WrappingLabel2EditPart extends LabelEditPart implements
-		ITextAwareEditPart {
+public class RecipeInfrastructuresExternalLabelEditPart extends LabelEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 206003;
+	public static final int VISUAL_ID = 806004;
 
 	/**
 	 * @generated
@@ -96,14 +98,14 @@ public class WrappingLabel2EditPart extends LabelEditPart implements
 	static {
 		registerSnapBackPosition(
 				DomainVisualIDRegistry
-						.getType(typesrepository.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID),
+						.getType(application.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID),
 				new Point(0, 40));
 	}
 
 	/**
 	 * @generated
 	 */
-	public WrappingLabel2EditPart(View view) {
+	public RecipeInfrastructuresExternalLabelEditPart(View view) {
 		super(view);
 	}
 
@@ -117,7 +119,7 @@ public class WrappingLabel2EditPart extends LabelEditPart implements
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
 				new DomainTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new TypesRepositoryEditPart.LinkLabelDragPolicy());
+				new ApplicationEditPart.LinkLabelDragPolicy());
 	}
 
 	/**
@@ -327,7 +329,7 @@ public class WrappingLabel2EditPart extends LabelEditPart implements
 	public IParser getParser() {
 		if (parser == null) {
 			parser = DomainParserProvider.getParser(
-					DomainElementTypes.InfrastructureRecipeConfig_204004,
+					DomainElementTypes.RecipeInfrastructures_804005,
 					getParserElement(), CommonParserHint.DESCRIPTION);
 		}
 		return parser;
@@ -548,7 +550,7 @@ public class WrappingLabel2EditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
-		return getPrimaryView();
+		return (View) getModel();
 	}
 
 	/**
@@ -633,7 +635,30 @@ public class WrappingLabel2EditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigurePrim() {
-		return new WrappingLabel();
+		return new RecipeInfrastructuresExternalLabelFigure();
 	}
+
+	/**
+	 * @generated
+	 */
+	public class RecipeInfrastructuresExternalLabelFigure extends WrappingLabel {
+
+		/**
+		 * @generated
+		 */
+		public RecipeInfrastructuresExternalLabelFigure() {
+			this.setText("");
+
+			this.setFont(THIS_FONT);
+
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	static final Font THIS_FONT = new Font(Display.getCurrent(), "Palatino",
+			12, SWT.ITALIC);
 
 }

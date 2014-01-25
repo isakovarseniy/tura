@@ -13,7 +13,7 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
-import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
+import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.ICellModifier;
@@ -432,7 +432,7 @@ public class MappingSpecifierPropertySelection extends
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 
-			ShapeImpl diagram = (ShapeImpl) editPart.getModel();
+			NodeImpl diagram = (NodeImpl) editPart.getModel();
 			try {
 
 				EObject types = (EObject) diagram.getElement();

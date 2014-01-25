@@ -4261,28 +4261,36 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });			
     addAnnotation
       (domainTypesEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });		
     addAnnotation
       (domainApplicationsEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });			
     addAnnotation
       (domainApplicationEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
        });		
     addAnnotation
       (domainArtifactEClass, 
@@ -4296,49 +4304,63 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
        });		
     addAnnotation
       (jpaServiceEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
        });		
     addAnnotation
       (ejbServiceEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
        });			
     addAnnotation
       (artifactEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
        });					
     addAnnotation
       (configVariableEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,225,76"
        });		
     addAnnotation
       (modelQueryEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "244,255,33"
        });		
     addAnnotation
       (specifierEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "128,220,40"
        });		
     addAnnotation
       (optionEClass, 
@@ -4352,28 +4374,36 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
        });			
     addAnnotation
       (applicationRecipeEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,196,176"
        });		
     addAnnotation
       (applicationMappersEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "164,230,255"
        });			
     addAnnotation
       (applicationMapperEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,237,85"
        });			
     addAnnotation
       (businessObjectEClass, 
@@ -4436,56 +4466,72 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });				
     addAnnotation
       (ingredientEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,222,32"
        });				
     addAnnotation
       (javaComponentEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "128,128,128"
        });		
     addAnnotation
       (infrastructureEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });			
     addAnnotation
       (configurationEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });				
     addAnnotation
       (modelMapperEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
        });			
     addAnnotation
       (propertyEClass, 
        source, 
        new String[] 
        {
-       "label", "fakeName"
+       "label", "fakeName",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });		
     addAnnotation
       (queryEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
        });			
     addAnnotation
       (primitiveEClass, 
@@ -4555,14 +4601,18 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });				
     addAnnotation
       (packageEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
        });		
     addAnnotation
       (businessPackageEClass, 

@@ -19,7 +19,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getJavaComponent()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='name' border.color='0,0,0' color='128,128,128'"
  * @generated
  */
 public interface JavaComponent extends Component

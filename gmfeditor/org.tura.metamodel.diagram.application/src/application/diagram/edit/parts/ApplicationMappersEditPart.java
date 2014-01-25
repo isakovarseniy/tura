@@ -27,7 +27,10 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
 
 import application.diagram.edit.policies.ApplicationMappersItemSemanticEditPolicy;
 import application.diagram.edit.policies.OpenDiagramEditPolicy;
@@ -310,6 +313,8 @@ public class ApplicationMappersEditPart extends ShapeNodeEditPart {
 		public ApplicationMappersFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
+			this.setForegroundColor(THIS_FORE);
+			this.setBackgroundColor(THIS_BACK);
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
@@ -324,6 +329,10 @@ public class ApplicationMappersEditPart extends ShapeNodeEditPart {
 			fFigureApplicationMappersLabelFigure = new WrappingLabel();
 
 			fFigureApplicationMappersLabelFigure.setText("ApplicationMappers");
+
+			fFigureApplicationMappersLabelFigure
+					.setFont(FFIGUREAPPLICATIONMAPPERSLABELFIGURE_FONT);
+
 			fFigureApplicationMappersLabelFigure.setMaximumSize(new Dimension(
 					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
@@ -352,5 +361,21 @@ public class ApplicationMappersEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_FORE = new Color(null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 164, 230, 255);
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREAPPLICATIONMAPPERSLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

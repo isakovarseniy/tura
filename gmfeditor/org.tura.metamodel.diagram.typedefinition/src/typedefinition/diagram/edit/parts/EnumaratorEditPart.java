@@ -32,7 +32,10 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
 
 import typedefinition.diagram.edit.policies.EnumaratorItemSemanticEditPolicy;
 import typedefinition.diagram.edit.policies.OpenDiagramEditPolicy;
@@ -395,6 +398,10 @@ public class EnumaratorEditPart extends ShapeNodeEditPart {
 			fFigureEnumaratorLabelFigure = new WrappingLabel();
 
 			fFigureEnumaratorLabelFigure.setText("Enumarator");
+
+			fFigureEnumaratorLabelFigure
+					.setFont(FFIGUREENUMARATORLABELFIGURE_FONT);
+
 			fFigureEnumaratorLabelFigure.setMaximumSize(new Dimension(
 					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
@@ -423,5 +430,11 @@ public class EnumaratorEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREENUMARATORLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

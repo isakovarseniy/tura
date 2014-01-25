@@ -6,11 +6,14 @@ package mapper.diagram.providers;
 import java.util.ArrayList;
 
 import mapper.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import mapper.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import mapper.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import mapper.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 import mapper.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import mapper.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import mapper.diagram.edit.parts.TypeExtensionEditPart;
 import mapper.diagram.edit.parts.WrappingLabel2EditPart;
 import mapper.diagram.edit.parts.WrappingLabel3EditPart;
@@ -402,8 +405,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label406004 = createLabel(edge,
-				DomainVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
+		Node label406004 = createLabel(
+				edge,
+				DomainVisualIDRegistry
+						.getType(RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID));
 		label406004.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label406004.setLayoutConstraint(NotationFactory.eINSTANCE
@@ -463,9 +468,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label406003 = createLabel(edge,
+		Node label406003 = createLabel(
+				edge,
 				DomainVisualIDRegistry
-						.getType(WrappingLabel2EditPart.VISUAL_ID));
+						.getType(InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID));
 		label406003.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label406003.setLayoutConstraint(NotationFactory.eINSTANCE
@@ -525,9 +531,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label406002 = createLabel(edge,
+		Node label406002 = createLabel(
+				edge,
 				DomainVisualIDRegistry
-						.getType(WrappingLabel3EditPart.VISUAL_ID));
+						.getType(ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID));
 		label406002.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label406002.setLayoutConstraint(NotationFactory.eINSTANCE

@@ -1,3 +1,11 @@
+-- set italic font for labels
+for (  label in GmfGraph!Label.all ){
+  label.font = new GmfGraph!BasicFont;
+  label.font.style = GmfGraph!FontStyle#ITALIC;
+  label.font.faceName="Palatino";  
+  label.font.height	 = 12;
+}
+
 -- Find the attribute figure
 var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'CreateMethodFigure');
 

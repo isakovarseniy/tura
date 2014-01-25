@@ -13,12 +13,14 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import typedefinition.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
 import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
@@ -28,6 +30,7 @@ import typedefinition.diagram.edit.parts.ParameterNameEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import typedefinition.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.ReturnValueFakePackageNameFakeTypeEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
@@ -38,9 +41,6 @@ import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceFakePackageNameFakeTypeEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
-import typedefinition.diagram.edit.parts.WrappingLabel2EditPart;
-import typedefinition.diagram.edit.parts.WrappingLabel3EditPart;
-import typedefinition.diagram.edit.parts.WrappingLabelEditPart;
 import domain.DomainPackage;
 import domain.TypeDefinition;
 
@@ -326,17 +326,17 @@ public class DomainVisualIDRegistry {
 			}
 			break;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
+			if (ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

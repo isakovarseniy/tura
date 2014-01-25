@@ -56,14 +56,17 @@ import businessobjects.diagram.edit.parts.BusinessObjectEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectNameEditPart;
 import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
 import businessobjects.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import businessobjects.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import businessobjects.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import businessobjects.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
 import businessobjects.diagram.edit.parts.RemoveMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.SearchMethodEditPart;
@@ -759,8 +762,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label606004 = createLabel(edge,
-				DomainVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
+		Node label606004 = createLabel(
+				edge,
+				DomainVisualIDRegistry
+						.getType(RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID));
 		label606004.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label606004.setLayoutConstraint(NotationFactory.eINSTANCE
@@ -820,9 +825,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label606003 = createLabel(edge,
+		Node label606003 = createLabel(
+				edge,
 				DomainVisualIDRegistry
-						.getType(WrappingLabel2EditPart.VISUAL_ID));
+						.getType(InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID));
 		label606003.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label606003.setLayoutConstraint(NotationFactory.eINSTANCE
@@ -882,9 +888,10 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label606002 = createLabel(edge,
+		Node label606002 = createLabel(
+				edge,
 				DomainVisualIDRegistry
-						.getType(WrappingLabel3EditPart.VISUAL_ID));
+						.getType(ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID));
 		label606002.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label606002.setLayoutConstraint(NotationFactory.eINSTANCE

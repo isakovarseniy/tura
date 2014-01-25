@@ -36,7 +36,7 @@ import org.eclipse.gmf.runtime.notation.HintedDiagramLinkStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.Style;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
+import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
@@ -137,7 +137,7 @@ public class OpenDiagramBusinessPackageEditPolicy extends OpenEditPolicy {
 
 			sourceObject = (BusinessPackage
 
-			) ((ShapeImpl) (diagramFacet.eContainer())).basicGetElement();
+			) ((NodeImpl) (diagramFacet.eContainer())).basicGetElement();
 			if (sourceObject.getName() == null) {
 
 				MessageDialog dialog = new MessageDialog(Display.getCurrent()

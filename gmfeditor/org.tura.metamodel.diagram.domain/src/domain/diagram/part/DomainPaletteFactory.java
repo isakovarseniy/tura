@@ -45,9 +45,7 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createDomainTypes5CreationTool());
 		paletteContainer.add(createEJBService6CreationTool());
 		paletteContainer.add(createJPAService7CreationTool());
-		paletteContainer.add(createModelQuery8CreationTool());
-		paletteContainer.add(createORMEntity9CreationTool());
-		paletteContainer.add(createQuery10CreationTool());
+		paletteContainer.add(createORMEntity8CreationTool());
 		return paletteContainer;
 	}
 
@@ -179,37 +177,15 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createModelQuery8CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.ModelQuery8CreationTool_title,
-				Messages.ModelQuery8CreationTool_desc, null, null) {
-		};
-		entry.setId("createModelQuery8CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createORMEntity9CreationTool() {
+	private ToolEntry createORMEntity8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ORMEntity9CreationTool_title,
-				Messages.ORMEntity9CreationTool_desc,
+				Messages.ORMEntity8CreationTool_title,
+				Messages.ORMEntity8CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ORMEntity_503003));
-		entry.setId("createORMEntity9CreationTool"); //$NON-NLS-1$
+		entry.setId("createORMEntity8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ORMEntity_503003));
 		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createQuery10CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Query10CreationTool_title,
-				Messages.Query10CreationTool_desc, null, null) {
-		};
-		entry.setId("createQuery10CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 
