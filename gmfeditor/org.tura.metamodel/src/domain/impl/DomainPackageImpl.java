@@ -4333,7 +4333,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "label", "name",
        "border.color", "0,0,0",
-       "color", "192,192,192"
+       "color", "255,239,222"
        });					
     addAnnotation
       (configVariableEClass, 
@@ -4342,7 +4342,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "label", "name",
        "border.color", "0,0,0",
-       "color", "255,225,76"
+       "color", "255,239,222"
        });		
     addAnnotation
       (modelQueryEClass, 
@@ -4351,7 +4351,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "label", "name",
        "border.color", "0,0,0",
-       "color", "244,255,33"
+       "color", "255,239,222"
        });		
     addAnnotation
       (specifierEClass, 
@@ -4360,7 +4360,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "label", "name",
        "border.color", "0,0,0",
-       "color", "128,220,40"
+       "color", "255,239,222"
        });		
     addAnnotation
       (optionEClass, 
@@ -4649,18 +4649,21 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
+       "layout", "list"
        });		
     addAnnotation
       (getArtifact_ModelQuery(), 
        source, 
        new String[] 
        {
+       "layout", "list"
        });		
     addAnnotation
       (getArtifact_Specifiers(), 
        source, 
        new String[] 
        {
+       "layout", "list"
        });								
     addAnnotation
       (getApplicationRecipes_Recipes(), 

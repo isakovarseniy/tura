@@ -73,7 +73,7 @@ class Artifacts{
    ref DomainArtifact#artifact parent;
 }
 
-@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class Artifact{
     id attr EString uid;
    attr EString name;
@@ -81,29 +81,29 @@ class Artifact{
    ref Artifacts#artifacts parent;
    
    // Variables resolved by configuration of recipe (for example server IP)  
-   @gmf.compartment
+   @gmf.compartment(layout="list")
    val   ConfigVariable[*]#parent configVariables;
    
    // Variables to query model ( for example FormName or service name)
-   @gmf.compartment
+   @gmf.compartment(layout="list")
    val   ModelQuery[*]#parent modelQuery;
    
    //For navigation in the template (for example choosing specific technologies EclipseLink vs Hibernate)
-   @gmf.compartment
+   @gmf.compartment(layout="list")
    val   Specifier[*]#parent specifiers;
 
    attr EString template;
 }
 
 
-@gmf.node(label="name",border.color="0,0,0",color="255,225,76")
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class ConfigVariable{
    id attr EString uid;
   attr EString name;
    ref Artifact#configVariables parent;
 }
 
-@gmf.node(label="name",border.color="0,0,0",color="244,255,33")
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class ModelQuery{
     id attr EString uid;
    attr EString name;
@@ -119,7 +119,7 @@ class QueryParameter{
    attr EString name;
 }
 
-@gmf.node(label="name",border.color="0,0,0",color="128,220,40")
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class Specifier{
     id attr EString uid;
    attr EString name;

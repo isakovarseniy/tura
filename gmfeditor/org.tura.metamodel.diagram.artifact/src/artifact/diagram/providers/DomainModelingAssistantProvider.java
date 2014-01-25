@@ -27,6 +27,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import artifact.diagram.edit.parts.ArtifactArtifactConfigVariablesCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactModelQueryCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactSpecifiersCompartmentEditPart;
+import artifact.diagram.edit.parts.ArtifactEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.part.DomainDiagramEditorPlugin;
 import artifact.diagram.part.Messages;
@@ -47,18 +48,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.Artifact_702001);
 			return types;
 		}
-		if (editPart instanceof ArtifactArtifactConfigVariablesCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+		if (editPart instanceof ArtifactEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 			types.add(DomainElementTypes.ConfigVariable_703004);
-			return types;
-		}
-		if (editPart instanceof ArtifactArtifactModelQueryCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.ModelQuery_703005);
-			return types;
-		}
-		if (editPart instanceof ArtifactArtifactSpecifiersCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.Specifier_703003);
 			return types;
 		}

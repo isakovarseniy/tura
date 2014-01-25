@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see domain.DomainPackage#getArtifact()
- * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"
+ * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
 public interface Artifact extends EObject
@@ -151,6 +151,7 @@ public interface Artifact extends EObject
    * @see domain.DomainPackage#getArtifact_ConfigVariables()
    * @see domain.ConfigVariable#getParent
    * @model opposite="parent" containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
   EList<ConfigVariable> getConfigVariables();
@@ -169,6 +170,7 @@ public interface Artifact extends EObject
    * @see domain.DomainPackage#getArtifact_ModelQuery()
    * @see domain.ModelQuery#getParent
    * @model opposite="parent" containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
   EList<ModelQuery> getModelQuery();
@@ -187,6 +189,7 @@ public interface Artifact extends EObject
    * @see domain.DomainPackage#getArtifact_Specifiers()
    * @see domain.Specifier#getParent
    * @model opposite="parent" containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
   EList<Specifier> getSpecifiers();

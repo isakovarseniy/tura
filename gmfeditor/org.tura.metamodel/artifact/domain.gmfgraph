@@ -343,9 +343,9 @@
             xsi:type="gmfgraph:RGBColor"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            red="192"
-            green="192"
-            blue="192"/>
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -397,22 +397,18 @@
         name="ConfigVariableFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
-          name="ConfigVariableFigure">
+          name="ConfigVariableFigure"
+          outline="false">
         <foregroundColor
             xsi:type="gmfgraph:RGBColor"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="255"
-            green="225"
-            blue="76"/>
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
+            green="239"
+            blue="222"/>
+        <preferredSize
+            dx="200"
+            dy="16"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ConfigVariableLabelFigure"
@@ -432,22 +428,18 @@
         name="ModelQueryFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
-          name="ModelQueryFigure">
+          name="ModelQueryFigure"
+          outline="false">
         <foregroundColor
             xsi:type="gmfgraph:RGBColor"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            red="244"
-            green="255"
-            blue="33"/>
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
+            red="255"
+            green="239"
+            blue="222"/>
+        <preferredSize
+            dx="200"
+            dy="16"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ModelQueryLabelFigure"
@@ -467,22 +459,18 @@
         name="SpecifierFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
-          name="SpecifierFigure">
+          name="SpecifierFigure"
+          outline="false">
         <foregroundColor
             xsi:type="gmfgraph:RGBColor"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            red="128"
-            green="220"
-            blue="40"/>
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
+            red="255"
+            green="239"
+            blue="222"/>
+        <preferredSize
+            dx="200"
+            dy="16"/>
         <children
             xsi:type="gmfgraph:Label"
             name="SpecifierLabelFigure"

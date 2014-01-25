@@ -163,7 +163,7 @@ public class PropertyEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100, 16);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(200, 16);
 		return result;
 	}
 
@@ -272,7 +272,7 @@ public class PropertyEditPart extends ShapeNodeEditPart {
 			this.setOutline(false);
 			this.setForegroundColor(THIS_FORE);
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(100),
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200),
 					getMapMode().DPtoLP(16)));
 			createContents();
 		}

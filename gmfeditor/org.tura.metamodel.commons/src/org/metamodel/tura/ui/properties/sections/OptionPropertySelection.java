@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
-import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
+import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -372,7 +372,7 @@ public class OptionPropertySelection extends AbstractGridPropertySelection {
 
 		@SuppressWarnings({ "unchecked", "rawtypes" })
 		private void initData() {
-			ShapeImpl diagram = (ShapeImpl) editPart.getModel();
+			NodeImpl diagram = (NodeImpl) editPart.getModel();
 			try {
 				OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
 				OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl

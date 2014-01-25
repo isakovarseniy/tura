@@ -316,17 +316,17 @@ public class DomainViewProvider extends AbstractProvider implements
 				node,
 				DomainVisualIDRegistry
 						.getType(ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+				true, false, true, true);
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
 						.getType(ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+				true, false, true, true);
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
 						.getType(ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+				true, false, true, true);
 		return node;
 	}
 

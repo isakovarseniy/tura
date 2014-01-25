@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see domain.DomainPackage#getConfigVariable()
- * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,225,76'"
+ * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
 public interface ConfigVariable extends EObject

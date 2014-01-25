@@ -19,14 +19,18 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
@@ -35,6 +39,7 @@ import org.eclipse.swt.widgets.Display;
 import artifact.diagram.edit.policies.ArtifactItemSemanticEditPolicy;
 import artifact.diagram.edit.policies.OpenDiagramEditPolicy;
 import artifact.diagram.part.DomainVisualIDRegistry;
+import artifact.diagram.providers.DomainElementTypes;
 
 /**
  * @generated
@@ -67,6 +72,9 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(
+						DomainVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ArtifactItemSemanticEditPolicy());
@@ -318,6 +326,32 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	public EditPart getTargetEditPart(Request request) {
+		if (request instanceof CreateViewAndElementRequest) {
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+					.getViewAndElementDescriptor()
+					.getCreateElementRequestAdapter();
+			IElementType type = (IElementType) adapter
+					.getAdapter(IElementType.class);
+			if (type == DomainElementTypes.ConfigVariable_703004) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID));
+			}
+			if (type == DomainElementTypes.ModelQuery_703005) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID));
+			}
+			if (type == DomainElementTypes.Specifier_703003) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(ArtifactArtifactSpecifiersCompartmentEditPart.VISUAL_ID));
+			}
+		}
+		return super.getTargetEditPart(request);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected void handleNotificationEvent(Notification event) {
 		if (event.getNotifier() == getModel()
 				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
@@ -438,7 +472,7 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 192, 192, 192);
+	static final Color THIS_BACK = new Color(null, 255, 239, 222);
 
 	/**
 	 * @generated

@@ -4,7 +4,9 @@
 package artifact.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -24,7 +26,7 @@ import artifact.diagram.part.Messages;
  * @generated
  */
 public class ArtifactArtifactConfigVariablesCompartmentEditPart extends
-		ShapeCompartmentEditPart {
+		ListCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -36,6 +38,13 @@ public class ArtifactArtifactConfigVariablesCompartmentEditPart extends
 	 */
 	public ArtifactArtifactConfigVariablesCompartmentEditPart(View view) {
 		super(view);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean hasModelChildrenChanged(Notification evt) {
+		return false;
 	}
 
 	/**
@@ -53,9 +62,6 @@ public class ArtifactArtifactConfigVariablesCompartmentEditPart extends
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(false);
-		HTMLLikeLayout layout = new HTMLLikeLayout();
-		layout.setColumns(5);
-		result.getContentPane().setLayoutManager(layout);
 		return result;
 	}
 

@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see domain.DomainPackage#getSpecifier()
- * @model annotation="gmf.node label='name' border.color='0,0,0' color='128,220,40'"
+ * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
 public interface Specifier extends EObject

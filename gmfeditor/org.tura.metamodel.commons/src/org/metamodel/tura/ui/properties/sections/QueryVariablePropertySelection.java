@@ -13,7 +13,7 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
-import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
+import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -37,8 +37,8 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.QueryVariable;
 import domain.QueryParameter;
+import domain.QueryVariable;
 
 public class QueryVariablePropertySelection extends
 		AbstractGridPropertySelection {
@@ -389,7 +389,7 @@ public class QueryVariablePropertySelection extends
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 
-			ShapeImpl diagram = (ShapeImpl) editPart.getModel();
+			NodeImpl diagram = (NodeImpl) editPart.getModel();
 			try {
 
 				EObject types = (EObject) diagram.getElement();
