@@ -4459,7 +4459,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "fakePackageName,fakeTypeName"
+       "label", "fakePackageName,fakeTypeName",
+       "border.color", "0,0,0",
+       "color", "255,237,85"
        });			
     addAnnotation
       (recipeEClass, 

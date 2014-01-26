@@ -21,7 +21,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getJavaMapper()
- * @model annotation="gmf.node label='fakePackageName,fakeTypeName'"
+ * @model annotation="gmf.node label='fakePackageName,fakeTypeName' border.color='0,0,0' color='255,237,85'"
  * @generated
  */
 public interface JavaMapper extends Mapper

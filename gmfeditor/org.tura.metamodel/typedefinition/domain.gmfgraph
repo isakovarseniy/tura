@@ -932,6 +932,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="JavaMapperFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="237"
+            blue="85"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets

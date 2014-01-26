@@ -387,6 +387,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="JavaMapper" eSuperTypes="#//Mapper">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakePackageName,fakeTypeName"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,237,85"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedToPackageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedToClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
