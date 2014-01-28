@@ -1400,7 +1400,7 @@
           name="AttributeFigure"
           outline="false">
         <preferredSize
-            dx="100"
+            dx="200"
             dy="16"/>
         <children
             xsi:type="gmfgraph:Label"
@@ -1469,7 +1469,7 @@
           name="ParameterFigure"
           outline="false">
         <preferredSize
-            dx="100"
+            dx="200"
             dy="16"/>
         <children
             xsi:type="gmfgraph:Label"
@@ -1493,7 +1493,7 @@
           name="ReturnValueFigure"
           outline="false">
         <preferredSize
-            dx="100"
+            dx="200"
             dy="16"/>
         <children
             xsi:type="gmfgraph:Label"
@@ -1555,7 +1555,7 @@
           name="EnumAttributeFigure"
           outline="false">
         <preferredSize
-            dx="100"
+            dx="200"
             dy="16"/>
         <children
             xsi:type="gmfgraph:Label"

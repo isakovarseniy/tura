@@ -1299,7 +1299,7 @@
           name="PrimitiveFigure"
           outline="false">
         <preferredSize
-            dx="100"
+            dx="200"
             dy="16"/>
         <children
             xsi:type="gmfgraph:Label"

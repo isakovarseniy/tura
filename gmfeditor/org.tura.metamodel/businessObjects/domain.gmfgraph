@@ -766,7 +766,7 @@
           name="CreateMethodFigure"
           outline="false">
         <preferredSize
-            dx="100"
+            dx="200"
             dy="16"/>
         <children
             xsi:type="gmfgraph:Label"
@@ -790,7 +790,7 @@
           name="InsertMethodFigure"
           outline="false">
         <preferredSize
-            dx="100"
+            dx="200"
             dy="16"/>
         <children
             xsi:type="gmfgraph:Label"
@@ -814,7 +814,7 @@
           name="UpdateMethodFigure"
           outline="false">
         <preferredSize
-            dx="100"
+            dx="200"
             dy="16"/>
         <children
             xsi:type="gmfgraph:Label"
@@ -838,7 +838,7 @@
           name="RemoveMethodFigure"
           outline="false">
         <preferredSize
-            dx="100"
+            dx="200"
             dy="16"/>
         <children
             xsi:type="gmfgraph:Label"
@@ -862,7 +862,7 @@
           name="SearchMethodFigure"
           outline="false">
         <preferredSize
-            dx="100"
+            dx="200"
             dy="16"/>
         <children
             xsi:type="gmfgraph:Label"
@@ -886,7 +886,7 @@
           name="OtherMethodFigure"
           outline="false">
         <preferredSize
-            dx="100"
+            dx="200"
             dy="16"/>
         <children
             xsi:type="gmfgraph:Label"

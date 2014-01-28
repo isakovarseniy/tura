@@ -163,7 +163,7 @@ public class AttributeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100, 16);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(200, 16);
 		return result;
 	}
 
@@ -270,7 +270,7 @@ public class AttributeEditPart extends ShapeNodeEditPart {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setOutline(false);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(100),
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200),
 					getMapMode().DPtoLP(16)));
 			createContents();
 		}

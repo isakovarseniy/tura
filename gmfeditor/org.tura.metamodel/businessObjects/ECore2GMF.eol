@@ -17,7 +17,7 @@ attributeFigure.setOutline ( false);
 
 -- ... and add a preferred size to it
 var preferredSize = new GmfGraph!Dimension;
-preferredSize.dx = 100;
+preferredSize.dx = 200;
 preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
 
@@ -33,7 +33,7 @@ attributeFigure.setOutline ( false);
 
 -- ... and add a preferred size to it
 var preferredSize = new GmfGraph!Dimension;
-preferredSize.dx = 100;
+preferredSize.dx = 200;
 preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
 
@@ -48,7 +48,7 @@ attributeFigure.setOutline ( false);
 
 -- ... and add a preferred size to it
 var preferredSize = new GmfGraph!Dimension;
-preferredSize.dx = 100;
+preferredSize.dx = 200;
 preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
 
@@ -63,7 +63,7 @@ attributeFigure.setOutline ( false);
 
 -- ... and add a preferred size to it
 var preferredSize = new GmfGraph!Dimension;
-preferredSize.dx = 100;
+preferredSize.dx = 200;
 preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
 
@@ -78,7 +78,7 @@ attributeFigure.setOutline ( false);
 
 -- ... and add a preferred size to it
 var preferredSize = new GmfGraph!Dimension;
-preferredSize.dx = 100;
+preferredSize.dx = 200;
 preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
 
@@ -94,7 +94,7 @@ attributeFigure.setOutline ( false);
 
 -- ... and add a preferred size to it
 var preferredSize = new GmfGraph!Dimension;
-preferredSize.dx = 100;
+preferredSize.dx = 200;
 preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
 
