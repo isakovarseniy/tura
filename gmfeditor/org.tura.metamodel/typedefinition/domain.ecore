@@ -671,18 +671,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Type"
         eOpposite="#//Type/operations"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter" containment="true" eOpposite="#//Parameter/parent">
-      <eAnnotations source="gmf.compartment"/>
-    </eStructuralFeatures>
+        eType="#//Parameter" containment="true" eOpposite="#//Parameter/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//ReturnValue"
-        containment="true">
-      <eAnnotations source="gmf.compartment"/>
-    </eStructuralFeatures>
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//TypePointer">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="name"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -690,9 +683,6 @@
         eOpposite="#//Operation/parameters"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" eSuperTypes="#//TypePointer">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakePackageName,fakeTypeName"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>

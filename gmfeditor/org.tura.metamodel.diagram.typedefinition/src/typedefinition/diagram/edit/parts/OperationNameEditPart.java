@@ -216,7 +216,8 @@ public class OperationNameEditPart extends CompartmentEditPart implements
 		if (parserElement != null && getParser() != null) {
 			text = getParser().getPrintString(
 					new EObjectAdapter(parserElement),
-					getParserOptions().intValue());
+					getParserOptions().intValue())
+					+ "()";
 
 		}
 		if (text == null || text.length() == 0) {

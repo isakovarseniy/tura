@@ -4227,7 +4227,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																		
+       });																																																																														
   }
 
   /**
@@ -4244,7 +4244,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																	
+       });																																																																													
   }
 
   /**
@@ -4569,20 +4569,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "label", "name"
-       });				
-    addAnnotation
-      (parameterEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "name"
-       });		
-    addAnnotation
-      (returnValueEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "fakePackageName,fakeTypeName"
        });		
     addAnnotation
       (enumaratorEClass, 
@@ -4758,19 +4744,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });						
-    addAnnotation
-      (getOperation_Parameters(), 
-       source, 
-       new String[] 
-       {
-       });		
-    addAnnotation
-      (getOperation_ReturnValue(), 
-       source, 
-       new String[] 
-       {
-       });					
+       });							
     addAnnotation
       (getEnumarator_Values(), 
        source, 
@@ -4805,7 +4779,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																						
+       });																																																																		
   }
 
   /**
@@ -4822,7 +4796,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																													
+       });																																																									
   }
 
   /**
@@ -4839,7 +4813,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																						
+       });																																																		
   }
 
   /**
@@ -4856,7 +4830,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																								
+       });																																				
   }
 
   /**
@@ -4873,7 +4847,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																						
+       });																																		
   }
 
   /**
@@ -4920,7 +4894,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "style", "dot",
        "width", "2",
        "target.decoration", "closedarrow"
-       });															
+       });											
   }
 
   /**
@@ -4937,7 +4911,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																					
+       });																	
   }
 
   /**
@@ -4948,7 +4922,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_11Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																															
+    String source = "gmf.diagram.typesrepository";																																																																											
     addAnnotation
       (typesRepositoryEClass, 
        source, 

@@ -48,26 +48,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Parameter"
-          description="Create new Parameter">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="Primitive"
           description="Create new Primitive">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ReturnValue"
-          description="Create new ReturnValue">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

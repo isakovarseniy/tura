@@ -117,36 +117,36 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_604001); //$NON-NLS-1$
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_604004); //$NON-NLS-1$
-		case OtherMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?OtherMethod", DomainElementTypes.OtherMethod_603006); //$NON-NLS-1$
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_604005); //$NON-NLS-1$
-		case CreateMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?CreateMethod", DomainElementTypes.CreateMethod_603001); //$NON-NLS-1$
-		case UpdateMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?UpdateMethod", DomainElementTypes.UpdateMethod_603007); //$NON-NLS-1$
-		case InsertMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?InsertMethod", DomainElementTypes.InsertMethod_603002); //$NON-NLS-1$
-		case RemoveMethodEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?RemoveMethod", DomainElementTypes.RemoveMethod_603008); //$NON-NLS-1$
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_604003); //$NON-NLS-1$
-		case BusinessObjectsEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?BusinessObjects", DomainElementTypes.BusinessObjects_601000); //$NON-NLS-1$
 		case SearchMethodEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?SearchMethod", DomainElementTypes.SearchMethod_603009); //$NON-NLS-1$
+		case CreateMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?CreateMethod", DomainElementTypes.CreateMethod_603001); //$NON-NLS-1$
+		case BusinessObjectsEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?BusinessObjects", DomainElementTypes.BusinessObjects_601000); //$NON-NLS-1$
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_604005); //$NON-NLS-1$
+		case UpdateMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?UpdateMethod", DomainElementTypes.UpdateMethod_603007); //$NON-NLS-1$
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_604003); //$NON-NLS-1$
+		case OtherMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?OtherMethod", DomainElementTypes.OtherMethod_603006); //$NON-NLS-1$
+		case RemoveMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?RemoveMethod", DomainElementTypes.RemoveMethod_603008); //$NON-NLS-1$
+		case InsertMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?InsertMethod", DomainElementTypes.InsertMethod_603002); //$NON-NLS-1$
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_604004); //$NON-NLS-1$
 		case BusinessObjectEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?BusinessObject", DomainElementTypes.BusinessObject_602001); //$NON-NLS-1$
@@ -212,26 +212,26 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_604001Text(view);
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getInfrastructureRecipeConfig_604004Text(view);
-		case OtherMethodEditPart.VISUAL_ID:
-			return getOtherMethod_603006Text(view);
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getRecipeInfrastructures_604005Text(view);
-		case CreateMethodEditPart.VISUAL_ID:
-			return getCreateMethod_603001Text(view);
-		case UpdateMethodEditPart.VISUAL_ID:
-			return getUpdateMethod_603007Text(view);
-		case InsertMethodEditPart.VISUAL_ID:
-			return getInsertMethod_603002Text(view);
-		case RemoveMethodEditPart.VISUAL_ID:
-			return getRemoveMethod_603008Text(view);
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_604003Text(view);
-		case BusinessObjectsEditPart.VISUAL_ID:
-			return getBusinessObjects_601000Text(view);
 		case SearchMethodEditPart.VISUAL_ID:
 			return getSearchMethod_603009Text(view);
+		case CreateMethodEditPart.VISUAL_ID:
+			return getCreateMethod_603001Text(view);
+		case BusinessObjectsEditPart.VISUAL_ID:
+			return getBusinessObjects_601000Text(view);
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getRecipeInfrastructures_604005Text(view);
+		case UpdateMethodEditPart.VISUAL_ID:
+			return getUpdateMethod_603007Text(view);
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getConfigurationConfigExtension_604003Text(view);
+		case OtherMethodEditPart.VISUAL_ID:
+			return getOtherMethod_603006Text(view);
+		case RemoveMethodEditPart.VISUAL_ID:
+			return getRemoveMethod_603008Text(view);
+		case InsertMethodEditPart.VISUAL_ID:
+			return getInsertMethod_603002Text(view);
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return getInfrastructureRecipeConfig_604004Text(view);
 		case BusinessObjectEditPart.VISUAL_ID:
 			return getBusinessObject_602001Text(view);
 		}

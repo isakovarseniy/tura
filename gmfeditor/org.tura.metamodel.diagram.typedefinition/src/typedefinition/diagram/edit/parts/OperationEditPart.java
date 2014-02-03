@@ -4,8 +4,6 @@
 package typedefinition.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -30,7 +28,6 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
-import typedefinition.diagram.edit.policies.OpenDiagramEditPolicy;
 import typedefinition.diagram.edit.policies.OperationItemSemanticEditPolicy;
 import typedefinition.diagram.part.DomainVisualIDRegistry;
 
@@ -69,8 +66,6 @@ public class OperationEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new OperationItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -124,22 +119,6 @@ public class OperationEditPart extends ShapeNodeEditPart {
 					.getFigureOperationLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof OperationOperationParametersCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getOperationParametersCompartmentFigure();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((OperationOperationParametersCompartmentEditPart) childEditPart)
-					.getFigure());
-			return true;
-		}
-		if (childEditPart instanceof OperationOperationReturnValueCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getOperationReturnValueCompartmentFigure();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((OperationOperationReturnValueCompartmentEditPart) childEditPart)
-					.getFigure());
-			return true;
-		}
 		return false;
 	}
 
@@ -148,20 +127,6 @@ public class OperationEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof OperationNameEditPart) {
-			return true;
-		}
-		if (childEditPart instanceof OperationOperationParametersCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getOperationParametersCompartmentFigure();
-			pane.remove(((OperationOperationParametersCompartmentEditPart) childEditPart)
-					.getFigure());
-			return true;
-		}
-		if (childEditPart instanceof OperationOperationReturnValueCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getOperationReturnValueCompartmentFigure();
-			pane.remove(((OperationOperationReturnValueCompartmentEditPart) childEditPart)
-					.getFigure());
 			return true;
 		}
 		return false;
@@ -191,12 +156,6 @@ public class OperationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof OperationOperationParametersCompartmentEditPart) {
-			return getPrimaryShape().getOperationParametersCompartmentFigure();
-		}
-		if (editPart instanceof OperationOperationReturnValueCompartmentEditPart) {
-			return getPrimaryShape().getOperationReturnValueCompartmentFigure();
-		}
 		return getContentPane();
 	}
 
@@ -204,7 +163,7 @@ public class OperationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(200, 16);
 		return result;
 	}
 
@@ -303,14 +262,6 @@ public class OperationEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureOperationLabelFigure;
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fOperationParametersCompartmentFigure;
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fOperationReturnValueCompartmentFigure;
 
 		/**
 		 * @generated
@@ -318,9 +269,9 @@ public class OperationEditPart extends ShapeNodeEditPart {
 		public OperationFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5)));
+			this.setOutline(false);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200),
+					getMapMode().DPtoLP(16)));
 			createContents();
 		}
 
@@ -336,22 +287,7 @@ public class OperationEditPart extends ShapeNodeEditPart {
 			fFigureOperationLabelFigure
 					.setFont(FFIGUREOPERATIONLABELFIGURE_FONT);
 
-			fFigureOperationLabelFigure.setMaximumSize(new Dimension(
-					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
-
 			this.add(fFigureOperationLabelFigure);
-
-			fOperationParametersCompartmentFigure = new RectangleFigure();
-
-			fOperationParametersCompartmentFigure.setOutline(false);
-
-			this.add(fOperationParametersCompartmentFigure);
-
-			fOperationReturnValueCompartmentFigure = new RectangleFigure();
-
-			fOperationReturnValueCompartmentFigure.setOutline(false);
-
-			this.add(fOperationReturnValueCompartmentFigure);
 
 		}
 
@@ -360,20 +296,6 @@ public class OperationEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureOperationLabelFigure() {
 			return fFigureOperationLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getOperationParametersCompartmentFigure() {
-			return fOperationParametersCompartmentFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getOperationReturnValueCompartmentFigure() {
-			return fOperationReturnValueCompartmentFigure;
 		}
 
 	}

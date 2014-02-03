@@ -455,13 +455,10 @@ class Operation{
     id attr EString uid;
    attr EString name;
    ref Type#operations parent;
-   @gmf.compartment
    val Parameter[*]#parent parameters;
-   @gmf.compartment
-   val ReturnValue[0..1] returnValue;
+   val ReturnValue returnValue;
 }
 
-@gmf.node(label="name")
 class Parameter extends  TypePointer{
     id attr EString uid;
    attr EString name;
@@ -469,7 +466,6 @@ class Parameter extends  TypePointer{
 }
 
 
-@gmf.node(label="fakePackageName,fakeTypeName")
 class ReturnValue extends TypePointer{
     id attr EString uid;
 }

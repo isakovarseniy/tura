@@ -23,16 +23,10 @@ import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
-import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
-import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
-import typedefinition.diagram.edit.parts.ParameterEditPart;
-import typedefinition.diagram.edit.parts.ParameterNameEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
-import typedefinition.diagram.edit.parts.ReturnValueEditPart;
-import typedefinition.diagram.edit.parts.ReturnValueFakePackageNameFakeTypeEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
@@ -182,18 +176,6 @@ public class DomainVisualIDRegistry {
 				return OperationEditPart.VISUAL_ID;
 			}
 			break;
-		case OperationOperationParametersCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getParameter().isSuperTypeOf(
-					domainElement.eClass())) {
-				return ParameterEditPart.VISUAL_ID;
-			}
-			break;
-		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getReturnValue().isSuperTypeOf(
-					domainElement.eClass())) {
-				return ReturnValueEditPart.VISUAL_ID;
-			}
-			break;
 		case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getEnumAttribute().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -278,22 +260,6 @@ public class DomainVisualIDRegistry {
 			if (OperationNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (OperationOperationParametersCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (OperationOperationReturnValueCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ParameterEditPart.VISUAL_ID:
-			if (ParameterNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ReturnValueEditPart.VISUAL_ID:
-			if (ReturnValueFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			break;
 		case EnumAttributeEditPart.VISUAL_ID:
 			if (EnumAttributeNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -307,16 +273,6 @@ public class DomainVisualIDRegistry {
 			break;
 		case TypeTypeOperationsCompartmentEditPart.VISUAL_ID:
 			if (OperationEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case OperationOperationParametersCompartmentEditPart.VISUAL_ID:
-			if (ParameterEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
-			if (ReturnValueEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -388,8 +344,6 @@ public class DomainVisualIDRegistry {
 		switch (visualID) {
 		case TypeTypeAttributesCompartmentEditPart.VISUAL_ID:
 		case TypeTypeOperationsCompartmentEditPart.VISUAL_ID:
-		case OperationOperationParametersCompartmentEditPart.VISUAL_ID:
-		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
 		case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
@@ -408,9 +362,8 @@ public class DomainVisualIDRegistry {
 		case TypeReferenceEditPart.VISUAL_ID:
 		case PrimitiveEditPart.VISUAL_ID:
 		case AttributeEditPart.VISUAL_ID:
-		case ReturnValueEditPart.VISUAL_ID:
+		case OperationEditPart.VISUAL_ID:
 		case EnumAttributeEditPart.VISUAL_ID:
-		case ParameterEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

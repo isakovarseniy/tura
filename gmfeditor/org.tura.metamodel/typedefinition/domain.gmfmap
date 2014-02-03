@@ -23,7 +23,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="domain.gmfgraph#TypeReference"/>
     </ownedChild>
@@ -43,7 +43,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
           href="domain.gmfgraph#Primitive"/>
     </ownedChild>
@@ -64,7 +64,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
       <diagramNode
           href="domain.gmfgraph#Type"/>
       <children
@@ -92,8 +92,7 @@
           compartment="//@nodes.2/@ownedChild/@compartments.1">
         <containmentFeature
             href="domain.ecore#//Type/operations"/>
-        <ownedChild
-            relatedDiagrams="//@diagram">
+        <ownedChild>
           <domainMetaElement
               href="domain.ecore#//Operation"/>
           <labelMappings
@@ -108,60 +107,6 @@
               href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="domain.gmfgraph#Operation"/>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.1/@ownedChild/@compartments.0">
-            <containmentFeature
-                href="domain.ecore#//Operation/parameters"/>
-            <ownedChild>
-              <domainMetaElement
-                  href="domain.ecore#//Parameter"/>
-              <labelMappings
-                  xsi:type="gmfmap:FeatureLabelMapping">
-                <diagramLabel
-                    href="domain.gmfgraph#ParameterLabel"/>
-                <features
-                    href="domain.ecore#//Parameter/name"/>
-              </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
-              <diagramNode
-                  href="domain.gmfgraph#Parameter"/>
-            </ownedChild>
-          </children>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.1/@ownedChild/@compartments.1">
-            <containmentFeature
-                href="domain.ecore#//Operation/returnValue"/>
-            <ownedChild>
-              <domainMetaElement
-                  href="domain.ecore#//ReturnValue"/>
-              <labelMappings
-                  xsi:type="gmfmap:FeatureLabelMapping">
-                <diagramLabel
-                    href="domain.gmfgraph#ReturnValueLabel"/>
-                <features
-                    href="domain.ecore#//TypePointer/fakePackageName"/>
-                <features
-                    href="domain.ecore#//TypePointer/fakeTypeName"/>
-              </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
-              <diagramNode
-                  href="domain.gmfgraph#ReturnValue"/>
-            </ownedChild>
-          </children>
-          <compartments
-              children="//@nodes.2/@ownedChild/@children.1/@ownedChild/@children.0">
-            <compartment
-                href="domain.gmfgraph#OperationParametersCompartment"/>
-          </compartments>
-          <compartments
-              children="//@nodes.2/@ownedChild/@children.1/@ownedChild/@children.1">
-            <compartment
-                href="domain.gmfgraph#OperationReturnValueCompartment"/>
-          </compartments>
         </ownedChild>
       </children>
       <compartments

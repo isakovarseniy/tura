@@ -54,7 +54,7 @@ public class TypeTypeOperationsCompartmentEditPart extends
 				.createFigure();
 		result.setTitleVisibility(false);
 		HTMLLikeLayout layout = new HTMLLikeLayout();
-		layout.setColumns(4);
+		layout.setColumns(1);
 		result.getContentPane().setLayoutManager(layout);
 		return result;
 	}

@@ -21,11 +21,7 @@ import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
-import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
-import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
-import typedefinition.diagram.edit.parts.ParameterEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
-import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
@@ -38,9 +34,7 @@ import domain.DomainPackage;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.Operation;
-import domain.Parameter;
 import domain.Primitive;
-import domain.ReturnValue;
 import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
@@ -71,10 +65,6 @@ public class DomainDiagramUpdater {
 			return getTypeTypeAttributesCompartment_107001SemanticChildren(view);
 		case TypeTypeOperationsCompartmentEditPart.VISUAL_ID:
 			return getTypeTypeOperationsCompartment_107002SemanticChildren(view);
-		case OperationOperationParametersCompartmentEditPart.VISUAL_ID:
-			return getOperationOperationParametersCompartment_107003SemanticChildren(view);
-		case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
-			return getOperationOperationReturnValueCompartment_107004SemanticChildren(view);
 		case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
 			return getEnumaratorEnumaratorValuesCompartment_107006SemanticChildren(view);
 		}
@@ -172,58 +162,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getOperationOperationParametersCompartment_107003SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		Operation modelElement = (Operation) containerView.getElement();
-		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getParameters().iterator(); it
-				.hasNext();) {
-			Parameter childElement = (Parameter) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == ParameterEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainNodeDescriptor> getOperationOperationReturnValueCompartment_107004SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		Operation modelElement = (Operation) containerView.getElement();
-		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		{
-			ReturnValue childElement = modelElement.getReturnValue();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == ReturnValueEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainNodeDescriptor> getEnumaratorEnumaratorValuesCompartment_107006SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -266,10 +204,6 @@ public class DomainDiagramUpdater {
 			return getAttribute_103001ContainedLinks(view);
 		case OperationEditPart.VISUAL_ID:
 			return getOperation_103002ContainedLinks(view);
-		case ParameterEditPart.VISUAL_ID:
-			return getParameter_103006ContainedLinks(view);
-		case ReturnValueEditPart.VISUAL_ID:
-			return getReturnValue_103004ContainedLinks(view);
 		case EnumAttributeEditPart.VISUAL_ID:
 			return getEnumAttribute_103005ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -295,10 +229,6 @@ public class DomainDiagramUpdater {
 			return getAttribute_103001IncomingLinks(view);
 		case OperationEditPart.VISUAL_ID:
 			return getOperation_103002IncomingLinks(view);
-		case ParameterEditPart.VISUAL_ID:
-			return getParameter_103006IncomingLinks(view);
-		case ReturnValueEditPart.VISUAL_ID:
-			return getReturnValue_103004IncomingLinks(view);
 		case EnumAttributeEditPart.VISUAL_ID:
 			return getEnumAttribute_103005IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -324,10 +254,6 @@ public class DomainDiagramUpdater {
 			return getAttribute_103001OutgoingLinks(view);
 		case OperationEditPart.VISUAL_ID:
 			return getOperation_103002OutgoingLinks(view);
-		case ParameterEditPart.VISUAL_ID:
-			return getParameter_103006OutgoingLinks(view);
-		case ReturnValueEditPart.VISUAL_ID:
-			return getReturnValue_103004OutgoingLinks(view);
 		case EnumAttributeEditPart.VISUAL_ID:
 			return getEnumAttribute_103005OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -391,22 +317,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getOperation_103002ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getParameter_103006ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getReturnValue_103004ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -502,22 +412,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getParameter_103006IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getReturnValue_103004IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getEnumAttribute_103005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -587,22 +481,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getOperation_103002OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getParameter_103006OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getReturnValue_103004OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

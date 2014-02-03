@@ -25,10 +25,8 @@ import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
-import typedefinition.diagram.edit.parts.ParameterEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
-import typedefinition.diagram.edit.parts.ReturnValueEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
@@ -90,14 +88,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Operation_103002 = getElementType("org.tura.metamodel.diagram.typedefinition.Operation_103002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Parameter_103006 = getElementType("org.tura.metamodel.diagram.typedefinition.Parameter_103006"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType ReturnValue_103004 = getElementType("org.tura.metamodel.diagram.typedefinition.ReturnValue_103004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -250,12 +240,6 @@ public class DomainElementTypes {
 			elements.put(Operation_103002,
 					DomainPackage.eINSTANCE.getOperation());
 
-			elements.put(Parameter_103006,
-					DomainPackage.eINSTANCE.getParameter());
-
-			elements.put(ReturnValue_103004,
-					DomainPackage.eINSTANCE.getReturnValue());
-
 			elements.put(EnumAttribute_103005,
 					DomainPackage.eINSTANCE.getEnumAttribute());
 
@@ -294,8 +278,6 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Enumarator_102005);
 			KNOWN_ELEMENT_TYPES.add(Attribute_103001);
 			KNOWN_ELEMENT_TYPES.add(Operation_103002);
-			KNOWN_ELEMENT_TYPES.add(Parameter_103006);
-			KNOWN_ELEMENT_TYPES.add(ReturnValue_103004);
 			KNOWN_ELEMENT_TYPES.add(EnumAttribute_103005);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_104001);
 			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_104005);
@@ -324,10 +306,6 @@ public class DomainElementTypes {
 			return Attribute_103001;
 		case OperationEditPart.VISUAL_ID:
 			return Operation_103002;
-		case ParameterEditPart.VISUAL_ID:
-			return Parameter_103006;
-		case ReturnValueEditPart.VISUAL_ID:
-			return ReturnValue_103004;
 		case EnumAttributeEditPart.VISUAL_ID:
 			return EnumAttribute_103005;
 		case TypeExtensionEditPart.VISUAL_ID:

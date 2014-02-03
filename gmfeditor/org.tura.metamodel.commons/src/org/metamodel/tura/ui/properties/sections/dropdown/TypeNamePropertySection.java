@@ -1,4 +1,5 @@
-package org.metamodel.tura.ui.properties.sections;
+package org.metamodel.tura.ui.properties.sections.dropdown;
+
 
 public class TypeNamePropertySection extends AbstractTypeNamePropertySection{
 

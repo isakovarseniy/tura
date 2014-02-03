@@ -26,8 +26,6 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
-import typedefinition.diagram.edit.parts.OperationOperationParametersCompartmentEditPart;
-import typedefinition.diagram.edit.parts.OperationOperationReturnValueCompartmentEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
@@ -64,16 +62,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof TypeTypeOperationsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.Operation_103002);
-			return types;
-		}
-		if (editPart instanceof OperationOperationParametersCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Parameter_103006);
-			return types;
-		}
-		if (editPart instanceof OperationOperationReturnValueCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.ReturnValue_103004);
 			return types;
 		}
 		if (editPart instanceof EnumaratorEnumaratorValuesCompartmentEditPart) {

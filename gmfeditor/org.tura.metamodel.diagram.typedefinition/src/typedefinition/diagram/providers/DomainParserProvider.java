@@ -20,9 +20,7 @@ import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
-import typedefinition.diagram.edit.parts.ParameterNameEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
-import typedefinition.diagram.edit.parts.ReturnValueFakePackageNameFakeTypeEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceFakePackageNameFakeTypeEditPart;
 import typedefinition.diagram.parsers.MessageFormatParser;
@@ -147,43 +145,6 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser parameterName_105009Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getParameterName_105009Parser() {
-		if (parameterName_105009Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getParameter_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			parameterName_105009Parser = parser;
-		}
-		return parameterName_105009Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser returnValueFakePackageNameFakeTypeName_105004Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getReturnValueFakePackageNameFakeTypeName_105004Parser() {
-		if (returnValueFakePackageNameFakeTypeName_105004Parser == null) {
-			EAttribute[] features = new EAttribute[] {
-					DomainPackage.eINSTANCE.getTypePointer_FakePackageName(),
-					DomainPackage.eINSTANCE.getTypePointer_FakeTypeName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			returnValueFakePackageNameFakeTypeName_105004Parser = parser;
-		}
-		return returnValueFakePackageNameFakeTypeName_105004Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser enumAttributeName_105007Parser;
 
 	/**
@@ -216,10 +177,6 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getAttributeName_105002Parser();
 		case OperationNameEditPart.VISUAL_ID:
 			return getOperationName_105005Parser();
-		case ParameterNameEditPart.VISUAL_ID:
-			return getParameterName_105009Parser();
-		case ReturnValueFakePackageNameFakeTypeEditPart.VISUAL_ID:
-			return getReturnValueFakePackageNameFakeTypeName_105004Parser();
 		case EnumAttributeNameEditPart.VISUAL_ID:
 			return getEnumAttributeName_105007Parser();
 		}

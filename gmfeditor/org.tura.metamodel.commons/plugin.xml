@@ -23,41 +23,61 @@
              id="property.tab.domain.typeref"
              label="Type ref"/>
       </propertyTabs>
+
+      <propertyTabs contributorId="org.tura.metamodel.diagram.typedefinition">
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.operation"
+             label="Operation"/>
+      </propertyTabs>
+
       
    </extension>
    
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="org.tura.metamodel.diagram.typedefinition">
+
+          <propertySection
+               tab="property.tab.domain.operation"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
+               id="org.tura.metamodel.typedefinition.package.reference.returntype">
+              <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
+           </propertySection>        
+
+          <propertySection
+               tab="property.tab.domain.operation"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeNamePropertySection"
+               id="org.tura.metamodel.typedefinition.type.reference.returntype">
+              <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
+           </propertySection>        
+
+
           <propertySection
                tab="property.tab.domain.type"
-               class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.typedefinition.package.reference">
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
-              <input type="typedefinition.diagram.edit.parts.ParameterEditPart"/>
-              <input type="typedefinition.diagram.edit.parts.ReturnValueEditPart"/>
            </propertySection>        
  
           <propertySection
                tab="property.tab.domain.type"
-               class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeNamePropertySection"
                id="org.tura.metamodel.typedefinition.type.reference">
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
-              <input type="typedefinition.diagram.edit.parts.ParameterEditPart"/>
-              <input type="typedefinition.diagram.edit.parts.ReturnValueEditPart"/>
          </propertySection>        
   
 
           <propertySection
                tab="property.tab.domain.typeref"
-               class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.typedefinition.typereference.package.reference">
              <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
            </propertySection>        
 
           <propertySection
                tab="property.tab.domain.typeref"
-               class="org.metamodel.tura.ui.properties.sections.TypeRefTypeNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeRefTypeNamePropertySection"
                id="org.tura.metamodel.typedefinition.typereference.type.typereference">
               <input type="typedefinition.diagram.edit.parts.TypeReferenceEditPart"/>
          </propertySection>        
@@ -83,7 +103,7 @@
       
           <propertySection
                tab="property.tab.domain.custom"
-               class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.businessobjects.create">
               <input type="businessobjects.diagram.edit.parts.CreateMethodEditPart"/>
               <input type="businessobjects.diagram.edit.parts.InsertMethodEditPart"/>
@@ -95,7 +115,7 @@
  
           <propertySection
                tab="property.tab.domain.custom"
-               class="org.metamodel.tura.ui.properties.sections.TypeRefTypeNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeRefTypeNamePropertySection"
                id="org.tura.metamodel.businessobjects.insert">
               <input type="businessobjects.diagram.edit.parts.CreateMethodEditPart"/>
               <input type="businessobjects.diagram.edit.parts.InsertMethodEditPart"/>
@@ -175,14 +195,14 @@
       
           <propertySection
                tab="property.tab.domain.typeReference"
-               class="org.metamodel.tura.ui.properties.sections.TypeNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeNamePropertySection"
                id="org.tura.metamodel.mapper.typeName">
               <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
          </propertySection>        
  
           <propertySection
                tab="property.tab.domain.typeReference"
-               class="org.metamodel.tura.ui.properties.sections.PackageNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
                id="org.tura.metamodel.mapper.packageName">
               <input type="mapper.diagram.edit.parts.JavaMapperEditPart"/>
          </propertySection>        

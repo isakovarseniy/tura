@@ -296,52 +296,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Parameter5CreationTool_title;
+	public static String Primitive5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Parameter5CreationTool_desc;
+	public static String Primitive5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive6CreationTool_title;
+	public static String Type6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive6CreationTool_desc;
+	public static String Type6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ReturnValue7CreationTool_title;
+	public static String TypeReference7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ReturnValue7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Type8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Type8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference9CreationTool_desc;
+	public static String TypeReference7CreationTool_desc;
 
 	/**
 	 * @generated
@@ -396,16 +376,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String OperationOperationParametersCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String OperationOperationReturnValueCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String EnumaratorEnumaratorValuesCompartmentEditPart_title;
 
 	/**
@@ -416,12 +386,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TypeReference_102001_incominglinks;
+	public static String NavigatorGroupName_Primitive_102004_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TypeReference_102001_outgoinglinks;
+	public static String NavigatorGroupName_Primitive_102004_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Enumarator_102005_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Enumarator_102005_outgoinglinks;
 
 	/**
 	 * @generated
@@ -446,22 +426,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Enumarator_102005_incominglinks;
+	public static String NavigatorGroupName_TypeReference_102001_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Enumarator_102005_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Primitive_102004_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Primitive_102004_outgoinglinks;
+	public static String NavigatorGroupName_TypeReference_102001_outgoinglinks;
 
 	/**
 	 * @generated

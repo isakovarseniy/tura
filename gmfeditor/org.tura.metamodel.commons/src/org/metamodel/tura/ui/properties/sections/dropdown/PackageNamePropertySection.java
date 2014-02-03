@@ -1,9 +1,8 @@
-package org.metamodel.tura.ui.properties.sections;
+package org.metamodel.tura.ui.properties.sections.dropdown;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -14,35 +13,35 @@ import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
+import org.metamodel.tura.ui.properties.sections.AbstractEnumerationPropertySection;
+import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainOperationPackageRef;
+import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainTypePointerPackageRef;
 
 import domain.DomainPackage;
 
 public class PackageNamePropertySection extends
 		AbstractEnumerationPropertySection {
 
-	private LinkedHashMap<String,domain.Package> values;
+	private HashMap<String,Object> values;
+	private DropDownDataSupplier packageNameProperty;
+	
 
 	protected EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[]{
-				DomainPackage.eINSTANCE.getTypePointer_PackageRef(),
-				DomainPackage.eINSTANCE.getTypePointer_FakePackageName()};
+		if (packageNameProperty == null)
+			init();
+		return packageNameProperty.getFeature();
 	}
 
 	protected String getFeatureAsText() {
-		if (((domain.TypePointer) eObject).getPackageRef() != null)
-		    return ((domain.TypePointer) eObject).getPackageRef().getName();
-		else
-			return "";
+		if (packageNameProperty == null)
+			init();
+		return packageNameProperty.getFeatureAsText(eObject);
 	}
 
 	protected Object getFeatureValue(EStructuralFeature feature,Object... obj) {
-		if (feature.equals(DomainPackage.eINSTANCE.getTypePointer_PackageRef()) )
-		    return values.get(obj[0]);
-
-		if (feature.equals(DomainPackage.eINSTANCE.getTypePointer_FakePackageName()) )
-		    return values.get(obj[0]).getName();
-		
-		return null;
+		if (packageNameProperty == null)
+			init();
+		return packageNameProperty.getFeatureValue(eObject,values,feature,obj);
 	}
 
 	protected String getLabelText() {
@@ -50,19 +49,23 @@ public class PackageNamePropertySection extends
 	}
 
 	protected boolean isEqual(Object key) {
-		if (((domain.TypePointer) eObject).getPackageRef() == null)
-			return false;
-		if (((domain.TypePointer) eObject).getPackageRef().getName() == null)
-			return false;
-		return values.get(key).equals(
-				((domain.TypePointer) eObject).getPackageRef().getName());
+		if (packageNameProperty == null)
+			init();
+		return packageNameProperty.isEqual(values,key,eObject);
 	}
 
+	private void init(){
+		if (eObject instanceof domain.TypePointer)
+			packageNameProperty= new DomainTypePointerPackageRef();
+		if (eObject instanceof domain.Operation)
+			packageNameProperty= new DomainOperationPackageRef();
+	}
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected HashMap<String,?> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new LinkedHashMap<String,domain.Package>();
+			values = new HashMap<String,Object>();
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
 			try {

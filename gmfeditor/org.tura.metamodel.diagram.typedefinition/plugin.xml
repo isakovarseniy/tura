@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Typedefinition"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="102001,102004,102002,102005,103001,103002,103006,103004,103005"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="102001,102004,102002,102005,103001,103002,103005"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="104001,104005,104004,104003"/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="Typedefinition"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="102001,102004,102002,102005,103001,103002,103006,103004,103005"/>
+            <method name="getType()" value="102001,102004,102002,102005,103001,103002,103005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="104001,104005,104004,104003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="105001,105010,105006,105011,105002,105005,105009,105004,105007"/>
+            <method name="getType()" value="105001,105010,105006,105011,105002,105005,105007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="107001,107002,107003,107004,107006"/>
+            <method name="getType()" value="107001,107002,107006"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -398,26 +398,6 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.diagram.typedefinition.Parameter_103006"
-               name="%metatype.name.Parameter_103006"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Parameter"
-               edithelper="typedefinition.diagram.edit.helpers.ParameterEditHelper">
-            <param name="semanticHint" value="103006"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <metamodelType
-               id="org.tura.metamodel.diagram.typedefinition.ReturnValue_103004"
-               name="%metatype.name.ReturnValue_103004"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ReturnValue"
-               edithelper="typedefinition.diagram.edit.helpers.ReturnValueEditHelper">
-            <param name="semanticHint" value="103004"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <metamodelType
                id="org.tura.metamodel.diagram.typedefinition.EnumAttribute_103005"
                name="%metatype.name.EnumAttribute_103005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -486,8 +466,6 @@
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Enumarator_102005"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Attribute_103001"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Operation_103002"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.Parameter_103006"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.ReturnValue_103004"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.EnumAttribute_103005"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.TypeExtension_104001"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.RecipeInfrastructures_104005"/>

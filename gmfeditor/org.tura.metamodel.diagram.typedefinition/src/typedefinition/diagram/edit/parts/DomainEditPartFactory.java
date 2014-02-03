@@ -64,18 +64,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case OperationNameEditPart.VISUAL_ID:
 				return new OperationNameEditPart(view);
 
-			case ParameterEditPart.VISUAL_ID:
-				return new ParameterEditPart(view);
-
-			case ParameterNameEditPart.VISUAL_ID:
-				return new ParameterNameEditPart(view);
-
-			case ReturnValueEditPart.VISUAL_ID:
-				return new ReturnValueEditPart(view);
-
-			case ReturnValueFakePackageNameFakeTypeEditPart.VISUAL_ID:
-				return new ReturnValueFakePackageNameFakeTypeEditPart(view);
-
 			case EnumAttributeEditPart.VISUAL_ID:
 				return new EnumAttributeEditPart(view);
 
@@ -87,13 +75,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case TypeTypeOperationsCompartmentEditPart.VISUAL_ID:
 				return new TypeTypeOperationsCompartmentEditPart(view);
-
-			case OperationOperationParametersCompartmentEditPart.VISUAL_ID:
-				return new OperationOperationParametersCompartmentEditPart(view);
-
-			case OperationOperationReturnValueCompartmentEditPart.VISUAL_ID:
-				return new OperationOperationReturnValueCompartmentEditPart(
-						view);
 
 			case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
 				return new EnumaratorEnumaratorValuesCompartmentEditPart(view);

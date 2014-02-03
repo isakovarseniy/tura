@@ -14,15 +14,11 @@
                  typePart = ((domain.TypeReference)parserElement).getTypeRef().getName();
            text =packPart +"."+ typePart;
 
-	«ELSEIF  self.editPartClassName.indexOf('ReturnValueFakePackageNameFakeTypeEditPart') > 0-»
-		if (parserElement != null && getParser() != null   ) {
-		   String packPart="NA";
-		   String typePart = "NA";
-		   if (((domain.ReturnValue)parserElement).getPackageRef() != null)
-		          packPart = ((domain.ReturnValue)parserElement).getPackageRef().getName();
-           if ( ((domain.ReturnValue)parserElement).getTypeRef() != null)  
-                 typePart = ((domain.ReturnValue)parserElement).getTypeRef().getName();
-           text =packPart +"."+ typePart;
+	«ELSEIF  self.editPartClassName.indexOf('OperationNameEditPart') > 0-»
+	   if (parserElement != null && getParser() != null ){
+			text = getParser().getPrintString(
+				new org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter(parserElement),
+				getParserOptions().intValue())+"()";
 
 	«ELSEIF  self.editPartClassName.indexOf('JavaMapperFakePackageNameFakeTypeEditPart') > 0-»
 		if (parserElement != null && getParser() != null   ) {

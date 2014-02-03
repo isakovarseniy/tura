@@ -18,7 +18,7 @@ package domain;
  * </p>
  *
  * @see domain.DomainPackage#getParameter()
- * @model annotation="gmf.node label='name'"
+ * @model
  * @generated
  */
 public interface Parameter extends TypePointer
