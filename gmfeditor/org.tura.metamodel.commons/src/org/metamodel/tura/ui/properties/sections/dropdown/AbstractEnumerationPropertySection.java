@@ -1,4 +1,4 @@
-package org.metamodel.tura.ui.properties.sections;
+package org.metamodel.tura.ui.properties.sections.dropdown;
 
 import java.util.HashMap;
 import java.util.Set;
@@ -18,6 +18,7 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertyConstants;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.metamodel.tura.ui.properties.sections.AbstractTuraPropertySection;
 
 /**
  * An abstract implementation of a section with a enumeration field using a

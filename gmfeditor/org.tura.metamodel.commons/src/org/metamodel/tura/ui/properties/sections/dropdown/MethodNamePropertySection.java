@@ -21,63 +21,56 @@ import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.ui.IWorkbenchPart;
-import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainOperationTypeRef;
-import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainTypePointerTypeRef;
+import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainBusinessMethodMethodRef;
 
 import domain.DomainPackage;
 
-public abstract class AbstractTypeNamePropertySection extends
+public class MethodNamePropertySection extends
 		AbstractEnumerationPropertySection {
 
-	private HashMap<String, Object> values;
+	protected HashMap<String, Object> values;
 	private boolean isFirstTime = true;
-	private DropDownDataSupplier typeNameProperty;
+	private DropDownDataSupplier methodNameProperty;
 	private AdapterImpl adapter;
 
 	protected EStructuralFeature[] getFeature() {
-		if (typeNameProperty == null)
+		if (methodNameProperty == null)
 			init();
-		return typeNameProperty.getFeature();
+		return methodNameProperty.getFeature();
 	}
 
 	protected String getFeatureAsText() {
-		if (typeNameProperty == null)
+		if (methodNameProperty == null)
 			init();
-		return typeNameProperty.getFeatureAsText(eObject);
+		return methodNameProperty.getFeatureAsText(eObject);
 	}
 
 	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
-		if (typeNameProperty == null)
+		if (methodNameProperty == null)
 			init();
-		return typeNameProperty.getFeatureValue(eObject, values, feature, obj);
+		return methodNameProperty
+				.getFeatureValue(eObject, values, feature, obj);
 	}
 
 	protected String getLabelText() {
-		return "Type name";//$NON-NLS-1$
+		return "Method name";//$NON-NLS-1$
 	}
 
 	protected boolean isEqual(Object key) {
-		if (typeNameProperty == null)
+		if (methodNameProperty == null)
 			init();
-		return typeNameProperty.isEqual(values, key, eObject);
-	}
-
-	private void init() {
-		if (eObject instanceof domain.TypePointer)
-			typeNameProperty = new DomainTypePointerTypeRef();
-		if (eObject instanceof domain.Operation)
-			typeNameProperty = new DomainOperationTypeRef();
+		return methodNameProperty.isEqual(values, key, eObject);
 	}
 
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
-
+		values = null;
 		if (isFirstTime) {
 
-			AdapterImpl adapter = new AdapterImpl() {
+			adapter = new AdapterImpl() {
 				public void notifyChanged(Notification notification) {
-					if (notification.getFeatureID(typeNameProperty
-							.getExpectedClass()) == typeNameProperty
+					if (notification.getFeatureID(methodNameProperty
+							.getExpectedClass()) == methodNameProperty
 							.getWatchPointFeature().getFeatureID()) {
 						values = null;
 
@@ -86,7 +79,7 @@ public abstract class AbstractTypeNamePropertySection extends
 						CompoundCommand compoundCommand = new CompoundCommand();
 						EStructuralFeature[] features = getFeature();
 						for (int i = 0; i < features.length; i++) {
-							if (features[i].getFeatureID() != typeNameProperty
+							if (features[i].getFeatureID() != methodNameProperty
 									.getWatchPointFeature().getFeatureID())
 								compoundCommand.append(SetCommand.create(
 										editingDomain, eObject, features[i],
@@ -104,10 +97,12 @@ public abstract class AbstractTypeNamePropertySection extends
 
 	}
 
+	private void init() {
+		methodNameProperty = new DomainBusinessMethodMethodRef();
+	}
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected HashMap<String, Object> getEnumerationFeatureValues() {
-		if (typeNameProperty == null)
-			init();
 
 		if (values == null) {
 			values = new HashMap<String, Object>();
@@ -116,7 +111,8 @@ public abstract class AbstractTypeNamePropertySection extends
 					.getModel();
 			EObject types = (EObject) diagram.getElement();
 
-			if (typeNameProperty.getWatchPointObject(eObject) == null)
+			if ((((domain.BusinessMethod) eObject).getTypeRef() == null)
+					|| ((domain.BusinessMethod) eObject).getPackageRef() == null)
 				return values;
 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -125,19 +121,21 @@ public abstract class AbstractTypeNamePropertySection extends
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Types"));
 
 			try {
+				OCLExpression<EClassifier> query = helper
+						.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).uid='"
+								+ ((domain.TypePointer) eObject)
+										.getPackageRef().getUid()
+								+ "').oclAsType(domain::Package).typedefinition.types->select(r|r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).uid = '"
+								+ ((domain.BusinessMethod) eObject)
+										.getTypeRef().getUid()
+								+ "').oclAsType(domain::Type).operations");
 
-				String strQuery = getQuery().replaceAll("\\$1",
-						((domain.Package)typeNameProperty.getWatchPointObject(eObject)).getUid());
-
-				OCLExpression<EClassifier> query = helper.createQuery(strQuery);
-
-				Collection<domain.TypeElement> map = (Collection<domain.TypeElement>) ocl
+				Collection<domain.Operation> map = (Collection<domain.Operation>) ocl
 						.evaluate(types, query);
 
-				for (Iterator<domain.TypeElement> i = map.iterator(); i
-						.hasNext();) {
-					domain.TypeElement p = i.next();
-					values.put((p.getName()), p);
+				for (Iterator<domain.Operation> i = map.iterator(); i.hasNext();) {
+					domain.Operation p = i.next();
+					values.put(p.getName(), p);
 				}
 
 			} catch (Exception e) {
@@ -148,11 +146,8 @@ public abstract class AbstractTypeNamePropertySection extends
 		return values;
 	}
 
-	protected abstract String getQuery();
-
 	public void dispose() {
 		super.dispose();
 		eObject.eAdapters().remove(adapter);
 	}
-
 }

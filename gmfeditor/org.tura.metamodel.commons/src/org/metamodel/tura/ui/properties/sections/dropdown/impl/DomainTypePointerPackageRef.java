@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.metamodel.tura.ui.properties.sections.dropdown.DropDownDataSupplier;
 
 import domain.DomainPackage;
-import domain.TypeElement;
 
 public class DomainTypePointerPackageRef implements DropDownDataSupplier{
 
@@ -28,7 +27,7 @@ public class DomainTypePointerPackageRef implements DropDownDataSupplier{
 		    return values.get(obj[0]);
 
 		if (feature.equals(DomainPackage.eINSTANCE.getTypePointer_FakePackageName()) )
-		    return ((TypeElement)values.get(obj[0])).getName();
+		    return ((domain.Package)values.get(obj[0])).getName();
 		
 		return null;
 	}

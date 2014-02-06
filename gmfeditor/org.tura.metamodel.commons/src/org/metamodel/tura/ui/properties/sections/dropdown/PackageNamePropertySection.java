@@ -13,7 +13,6 @@ import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
-import org.metamodel.tura.ui.properties.sections.AbstractEnumerationPropertySection;
 import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainOperationPackageRef;
 import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainTypePointerPackageRef;
 

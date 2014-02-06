@@ -128,7 +128,7 @@
 
           <propertySection
                tab="property.tab.domain.custom"
-               class="org.metamodel.tura.ui.properties.sections.MethodNamePropertySection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.MethodNamePropertySection"
                id="org.tura.metamodel.businessobjects.update">
               <input type="businessobjects.diagram.edit.parts.CreateMethodEditPart"/>
               <input type="businessobjects.diagram.edit.parts.InsertMethodEditPart"/>
@@ -263,14 +263,14 @@
          
          <propertySection
                tab="property.tab.domain.selectArtifact"
-               class="org.metamodel.tura.ui.properties.sections.DomainArtifactPropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.DomainArtifactPropertySelection"
                id="org.tura.metamodel.mapper.domainArtifact">
               <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
          </propertySection>        
          
          <propertySection
                tab="property.tab.domain.selectArtifact"
-               class="org.metamodel.tura.ui.properties.sections.ArtifactPropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.ArtifactPropertySelection"
                id="org.tura.metamodel.mapper.artifact">
               <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
          </propertySection>        

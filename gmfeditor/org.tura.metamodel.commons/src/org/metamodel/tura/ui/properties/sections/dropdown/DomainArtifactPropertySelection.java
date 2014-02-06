@@ -1,4 +1,4 @@
-package org.metamodel.tura.ui.properties.sections;
+package org.metamodel.tura.ui.properties.sections.dropdown;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -13,31 +13,32 @@ import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
+import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainDomainArtifactArtifactRef;
 
 import domain.DomainPackage;
 
 public class DomainArtifactPropertySelection extends
 		AbstractEnumerationPropertySection {
 
-	private HashMap<String, domain.DomainArtifact> values;
+	private HashMap<String,Object> values;
+	private DropDownDataSupplier domainArtifactProperty;
 
 	protected EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE
-				.getArtifactRef_DomainArtifactRef() };
+		if (domainArtifactProperty == null)
+			init();
+		return domainArtifactProperty.getFeature();
 	}
 
 	protected String getFeatureAsText() {
-		if (((domain.ArtifactRef) eObject).getDomainArtifactRef() != null)
-		    return ((domain.ArtifactRef) eObject).getDomainArtifactRef().getName();
-		else
-			return "";
+		if (domainArtifactProperty == null)
+			init();
+		return domainArtifactProperty.getFeatureAsText(eObject);
 	}
 
 	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
-		if (feature.equals(DomainPackage.eINSTANCE.getArtifactRef_DomainArtifactRef()) )
-		    return values.get(obj[0]);
-
-		return null;
+		if (domainArtifactProperty == null)
+			init();
+		return domainArtifactProperty.getFeatureValue(eObject,values,feature,obj);
 	}
 
 	protected String getLabelText() {
@@ -45,19 +46,22 @@ public class DomainArtifactPropertySelection extends
 	}
 
 	protected boolean isEqual(Object key) {
-		if (((domain.ArtifactRef) eObject).getDomainArtifactRef() == null)
-			return false;
-		if (((domain.ArtifactRef) eObject).getDomainArtifactRef().getName() == null)
-			return false;
-		return values.get(key).equals(
-				((domain.ArtifactRef) eObject).getDomainArtifactRef().getName());
+		if (domainArtifactProperty == null)
+			init();
+		return domainArtifactProperty.isEqual(values,key,eObject);
 	}
 
+	private void init(){
+		domainArtifactProperty = new DomainDomainArtifactArtifactRef();
+	}
+	
+	
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	protected HashMap<String, domain.DomainArtifact> getEnumerationFeatureValues() {
+	protected HashMap<String, Object> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new HashMap<String, domain.DomainArtifact>();
+			values = new HashMap<String, Object>();
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
 			try {

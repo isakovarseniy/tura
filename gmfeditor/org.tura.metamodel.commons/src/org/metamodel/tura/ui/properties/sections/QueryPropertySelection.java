@@ -17,6 +17,7 @@ import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
+import org.metamodel.tura.ui.properties.sections.dropdown.AbstractEnumerationPropertySection;
 
 import domain.DomainPackage;
 
