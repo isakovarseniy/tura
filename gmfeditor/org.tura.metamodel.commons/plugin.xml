@@ -284,7 +284,7 @@
 
          <propertySection
                tab="property.tab.domain.query"
-               class="org.metamodel.tura.ui.properties.sections.QueryPropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.QueryPropertySelection"
                id="org.tura.metamodel.mapper.query">
               <input type="recipe.diagram.edit.parts.QueryEditPart"/>
          </propertySection>        

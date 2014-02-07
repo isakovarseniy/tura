@@ -6,7 +6,6 @@ import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.ocl.OCL;
@@ -21,50 +20,22 @@ import domain.DomainPackage;
 public class PackageNamePropertySection extends
 		AbstractEnumerationPropertySection {
 
-	private HashMap<String,Object> values;
-	private DropDownDataSupplier packageNameProperty;
-	
-
-	protected EStructuralFeature[] getFeature() {
-		if (packageNameProperty == null)
-			init();
-		return packageNameProperty.getFeature();
-	}
-
-	protected String getFeatureAsText() {
-		if (packageNameProperty == null)
-			init();
-		return packageNameProperty.getFeatureAsText(eObject);
-	}
-
-	protected Object getFeatureValue(EStructuralFeature feature,Object... obj) {
-		if (packageNameProperty == null)
-			init();
-		return packageNameProperty.getFeatureValue(eObject,values,feature,obj);
-	}
-
 	protected String getLabelText() {
 		return "Package name";//$NON-NLS-1$
 	}
 
-	protected boolean isEqual(Object key) {
-		if (packageNameProperty == null)
-			init();
-		return packageNameProperty.isEqual(values,key,eObject);
+	protected void init() {
+		if (eObject instanceof domain.TypePointer)
+			dropDownDataSupplier = new DomainTypePointerPackageRef();
+		if (eObject instanceof domain.Operation)
+			dropDownDataSupplier = new DomainOperationPackageRef();
 	}
 
-	private void init(){
-		if (eObject instanceof domain.TypePointer)
-			packageNameProperty= new DomainTypePointerPackageRef();
-		if (eObject instanceof domain.Operation)
-			packageNameProperty= new DomainOperationPackageRef();
-	}
-	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	protected HashMap<String,?> getEnumerationFeatureValues() {
+	protected HashMap<String, ?> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new HashMap<String,Object>();
+			values = new HashMap<String, Object>();
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();
 			try {
@@ -84,7 +55,7 @@ public class PackageNamePropertySection extends
 
 				for (Iterator<domain.Package> i = map.iterator(); i.hasNext();) {
 					domain.Package p = i.next();
-					values.put(p.getName(),p);
+					values.put(p.getName(), p);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

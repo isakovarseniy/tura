@@ -1,4 +1,4 @@
-package org.metamodel.tura.ui.properties.sections;
+package org.metamodel.tura.ui.properties.sections.dropdown;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -6,7 +6,6 @@ import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -17,50 +16,27 @@ import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
-import org.metamodel.tura.ui.properties.sections.dropdown.AbstractEnumerationPropertySection;
+import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainMapperQueryRef;
 
 import domain.DomainPackage;
 
 public class QueryPropertySelection extends AbstractEnumerationPropertySection {
 
-	protected HashMap<String, domain.ModelQuery> values;
-
-	protected EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] { DomainPackage.eINSTANCE
-				.getQuery_QueryRef() };
-	}
-
-	protected String getFeatureAsText() {
-		if (((domain.Query) eObject).getQueryRef() != null)
-			return ((domain.Query) eObject).getQueryRef().getName();
-		else
-			return "";
-	}
-
-	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
-		return values.get(obj[0]);
-	}
 
 	protected String getLabelText() {
 		return "Query name";//$NON-NLS-1$
 	}
 
-	protected boolean isEqual(Object key) {
-		if (((domain.Query) eObject).getQueryRef() == null)
-			return false;
-
-		if (((domain.Query) eObject).getQueryRef().getName() == null)
-			return false;
-
-		return values.get(key).equals(
-				((domain.Query) eObject).getQueryRef().getName());
+	protected void init(){
+		dropDownDataSupplier = new DomainMapperQueryRef();
 	}
-
+	
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	protected HashMap<String, domain.ModelQuery> getEnumerationFeatureValues() {
+	protected HashMap<String, Object> getEnumerationFeatureValues() {
 
 		if (values == null) {
-			values = new HashMap<String, domain.ModelQuery>();
+			values = new HashMap<String, Object>();
 
 			Diagram diagram = (Diagram) editPart.getRoot().getContents()
 					.getModel();

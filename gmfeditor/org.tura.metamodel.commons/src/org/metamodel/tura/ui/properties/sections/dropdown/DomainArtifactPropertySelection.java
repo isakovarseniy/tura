@@ -6,7 +6,6 @@ import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.ocl.OCL;
@@ -20,43 +19,14 @@ import domain.DomainPackage;
 public class DomainArtifactPropertySelection extends
 		AbstractEnumerationPropertySection {
 
-	private HashMap<String,Object> values;
-	private DropDownDataSupplier domainArtifactProperty;
-
-	protected EStructuralFeature[] getFeature() {
-		if (domainArtifactProperty == null)
-			init();
-		return domainArtifactProperty.getFeature();
-	}
-
-	protected String getFeatureAsText() {
-		if (domainArtifactProperty == null)
-			init();
-		return domainArtifactProperty.getFeatureAsText(eObject);
-	}
-
-	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
-		if (domainArtifactProperty == null)
-			init();
-		return domainArtifactProperty.getFeatureValue(eObject,values,feature,obj);
-	}
-
 	protected String getLabelText() {
 		return "Domain artifact name";//$NON-NLS-1$
 	}
 
-	protected boolean isEqual(Object key) {
-		if (domainArtifactProperty == null)
-			init();
-		return domainArtifactProperty.isEqual(values,key,eObject);
+	protected void init() {
+		dropDownDataSupplier = new DomainDomainArtifactArtifactRef();
 	}
 
-	private void init(){
-		domainArtifactProperty = new DomainDomainArtifactArtifactRef();
-	}
-	
-	
-	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected HashMap<String, Object> getEnumerationFeatureValues() {
 

@@ -29,12 +29,42 @@ import org.metamodel.tura.ui.properties.sections.AbstractTuraPropertySection;
 public abstract class AbstractEnumerationPropertySection extends
 		AbstractTuraPropertySection {
 
+	
 	/**
 	 * the combo box control for the section.
 	 */
 	protected CCombo combo;
 	protected boolean updated = false;
 
+	protected HashMap<String,Object> values;
+	protected DropDownDataSupplier dropDownDataSupplier;
+
+	protected EStructuralFeature[] getFeature() {
+		if (dropDownDataSupplier == null)
+			init();
+		return dropDownDataSupplier.getFeature();
+	}
+
+	protected String getFeatureAsText() {
+		if (dropDownDataSupplier == null)
+			init();
+		return dropDownDataSupplier.getFeatureAsText(eObject);
+	}
+
+	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
+		if (dropDownDataSupplier == null)
+			init();
+		return dropDownDataSupplier.getFeatureValue(eObject,values,feature,obj);
+	}
+
+
+	protected boolean isEqual(Object key) {
+		if (dropDownDataSupplier == null)
+			init();
+		return dropDownDataSupplier.isEqual(values,key,eObject);
+	}
+	
+	
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite,
 	 *      org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
@@ -104,23 +134,6 @@ public abstract class AbstractEnumerationPropertySection extends
 		}
 	}
 
-	/**
-	 * Determine if the provided index of the enumeration is equal to the
-	 * current setting of the enumeration property.
-	 * 
-	 * @param index
-	 *            the new index in the enumeration.
-	 * @return <code>true</code> if the new index value is equal to the current
-	 *         property setting.
-	 */
-	protected abstract boolean isEqual(Object key);
-
-	/**
-	 * Get the feature for the combo field for the section.
-	 * 
-	 * @return the feature for the text.
-	 */
-	protected abstract EStructuralFeature[] getFeature();
 
 	/**
 	 * Get the enumeration values of the feature for the combo field for the
@@ -131,26 +144,12 @@ public abstract class AbstractEnumerationPropertySection extends
 	protected abstract HashMap<String, ?> getEnumerationFeatureValues();
 
 	/**
-	 * Get the value of the feature as text for the combo field for the section.
-	 * 
-	 * @return the value of the feature as text.
-	 */
-	protected abstract String getFeatureAsText();
-
-	/**
-	 * Get the new value of the feature for the text field for the section.
-	 * 
-	 * @param index
-	 *            the new index in the enumeration.
-	 * @return the new value of the feature.
-	 */
-	protected abstract Object getFeatureValue(EStructuralFeature feature,
-			Object... obj);
-
-	/**
 	 * Get the label for the combo field for the section.
 	 * 
 	 * @return the label for the text field.
 	 */
 	protected abstract String getLabelText();
+	
+	protected abstract void init();
+	
 }
