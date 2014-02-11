@@ -292,7 +292,7 @@
 
          <propertySection
                tab="property.tab.domain.mappingVariable"
-               class="org.metamodel.tura.ui.properties.sections.QueryVariablePropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.grid.queryvariable.QueryVariablePropertySelection"
                id="org.tura.metamodel.mapper.mappingVariable">
               <input type="recipe.diagram.edit.parts.QueryEditPart"/>
          </propertySection>        

@@ -10,12 +10,12 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
 
-public abstract class AbstractDependentEnumerationPropertySection extends AbstractEnumerationPropertySection{
+public abstract class AbstractDependentEnumerationPropertySection extends
+		AbstractEnumerationPropertySection {
 
 	private AdapterImpl adapter;
 	private boolean isFirstTime = true;
 
-	
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
 
@@ -50,11 +50,11 @@ public abstract class AbstractDependentEnumerationPropertySection extends Abstra
 		}
 
 	}
-	
+
 	public void dispose() {
 		super.dispose();
-		eObject.eAdapters().remove(adapter);
+		if (eObject != null)
+			eObject.eAdapters().remove(adapter);
 	}
-
 
 }
