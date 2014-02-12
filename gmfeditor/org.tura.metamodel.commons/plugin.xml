@@ -163,7 +163,7 @@
       
           <propertySection
                tab="property.tab.domain.queryParameters"
-               class="org.metamodel.tura.ui.properties.sections.grid.queryparameter.QueryParameterPropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.QueryParameterPropertySelection"
                id="org.tura.metamodel.artifact.queryParams">
               <input type="artifact.diagram.edit.parts.ModelQueryEditPart"/>
            </propertySection>        
@@ -292,7 +292,7 @@
 
          <propertySection
                tab="property.tab.domain.mappingVariable"
-               class="org.metamodel.tura.ui.properties.sections.grid.queryvariable.QueryVariablePropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.QueryVariablePropertySelection"
                id="org.tura.metamodel.mapper.mappingVariable">
               <input type="recipe.diagram.edit.parts.QueryEditPart"/>
          </propertySection>        

@@ -1,4 +1,4 @@
-package org.metamodel.tura.ui.properties.sections.grid.queryvariable;
+package org.metamodel.tura.ui.properties.sections.grid.impl;
 
 import java.util.ArrayList;
 import java.util.Iterator;
