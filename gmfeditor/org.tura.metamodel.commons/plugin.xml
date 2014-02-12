@@ -170,7 +170,7 @@
  
           <propertySection
                tab="property.tab.domain.specifierOptions"
-               class="org.metamodel.tura.ui.properties.sections.OptionPropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.OptionPropertySelection"
                id="org.tura.metamodel.artifact.option">
               <input type="artifact.diagram.edit.parts.SpecifierEditPart"/>
            </propertySection>        
