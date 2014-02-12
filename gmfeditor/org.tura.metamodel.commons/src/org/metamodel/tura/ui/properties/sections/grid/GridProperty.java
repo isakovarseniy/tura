@@ -4,12 +4,14 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.metamodel.tura.ui.properties.sections.AbstractTuraPropertySection;
 
@@ -92,6 +94,11 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 
 	}
 
+	
+	public void setInput(IWorkbenchPart part, ISelection selection) {
+		super.setInput(part, selection);
+		ds.cleanList();
+	}	
 	public void addRow() {
 		ds.addRow();
 	}
@@ -109,7 +116,6 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		super.refresh();
 		tableViewer.setInput(ds);
 	}
-	
 	
 	public abstract List<GridColumn> getColumns();
 

@@ -163,7 +163,7 @@
       
           <propertySection
                tab="property.tab.domain.queryParameters"
-               class="org.metamodel.tura.ui.properties.sections.QueryParameterPropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.grid.queryparameter.QueryParameterPropertySelection"
                id="org.tura.metamodel.artifact.queryParams">
               <input type="artifact.diagram.edit.parts.ModelQueryEditPart"/>
            </propertySection>        

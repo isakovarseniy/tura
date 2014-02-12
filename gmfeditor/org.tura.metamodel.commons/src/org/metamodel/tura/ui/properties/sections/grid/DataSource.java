@@ -50,5 +50,9 @@ public abstract class DataSource {
 	public abstract void removeRow(Object row);
 	public abstract List<Object> queryRows();
 	public abstract int getSorterID();
+
+	public void cleanList() {
+		rowList=null;
+	}
 	
 }
