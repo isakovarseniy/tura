@@ -277,7 +277,7 @@
          
          <propertySection
                tab="property.tab.domain.mappingSpecifier"
-               class="org.metamodel.tura.ui.properties.sections.MappingSpecifierPropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.MappingSpecifierPropertySelection"
                id="org.tura.metamodel.mapper.mappingSpecifier">
               <input type="recipe.diagram.edit.parts.ModelMapperEditPart"/>
          </propertySection>        

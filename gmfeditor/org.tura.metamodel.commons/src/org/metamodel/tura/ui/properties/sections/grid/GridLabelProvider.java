@@ -16,7 +16,7 @@ public class GridLabelProvider extends LabelProvider implements ITableLabelProvi
 	}
 
 	public String getColumnText(Object element, int columnIndex) {
-		return columnsList.get(columnIndex).getValue(element).toString();
+		return columnsList.get(columnIndex).getText(element).toString();
 	}
 
 	public Image getColumnImage(Object element, int columnIndex) {

@@ -110,6 +110,10 @@ public class QueryVariablePropertySelection extends GridProperty{
 		public boolean isModify() {
 			return false;
 		}
+		@Override
+		public Object getText(Object element) {
+			return getValue(element);
+		}
 
 	}
 	
@@ -189,6 +193,12 @@ public class QueryVariablePropertySelection extends GridProperty{
 		public boolean isModify() {
 			return true;
 		}
+
+		@Override
+		public Object getText(Object element) {
+			return getValue(element);
+		}
+		
 
 	}
 }

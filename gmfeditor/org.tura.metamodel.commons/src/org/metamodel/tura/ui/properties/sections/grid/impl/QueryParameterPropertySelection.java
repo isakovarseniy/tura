@@ -176,6 +176,12 @@ public class QueryParameterPropertySelection extends GridProperty {
 		public boolean isModify() {
 			return true;
 		}
+		
+		@Override
+		public Object getText(Object element) {
+			return getValue(element);
+		}
+		
 	}
 
 }

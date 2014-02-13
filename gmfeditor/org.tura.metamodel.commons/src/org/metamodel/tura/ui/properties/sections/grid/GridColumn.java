@@ -15,6 +15,8 @@ public interface GridColumn {
 
 	public abstract Object getValue(Object element);
 
+	public abstract Object getText(Object element);
+
 	public abstract void modify(Object element, Object value);
 	
 	public abstract boolean isModify();
