@@ -249,14 +249,14 @@
       
           <propertySection
                tab="property.tab.domain.availableMappers"
-               class="org.metamodel.tura.ui.properties.sections.RecipeMappersListPropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.RecipeMappersListPropertySelection"
                id="org.tura.metamodel.mapper.recipe">
               <input type="recipe.diagram.edit.parts.RecipeEditPart"/>
          </propertySection>        
 
           <propertySection
                tab="property.tab.domain.availableMappers"
-               class="org.metamodel.tura.ui.properties.sections.IngredientMappersListPropertySelection"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.IngredientMappersListPropertySelection"
                id="org.tura.metamodel.mapper.ingredient">
               <input type="recipe.diagram.edit.parts.IngredientEditPart"/>
          </propertySection>        

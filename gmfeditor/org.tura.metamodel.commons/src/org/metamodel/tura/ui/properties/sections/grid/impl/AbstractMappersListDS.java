@@ -88,8 +88,14 @@ public abstract class AbstractMappersListDS extends DataSource {
 			rowList.removeAll(removeMappers);
 			rowList.addAll(addMappers);
 
-			notifyAddRow(addMappers);
-			notifyRemoveRow(removeMappers);
+			for (Iterator<domain.ApplicationMapper>itra =  addMappers.iterator();itra.hasNext();){
+				notifyAddRow(itra.next());
+			}
+
+			for (Iterator<domain.ApplicationMapper>itrr =  removeMappers.iterator();itrr.hasNext();){
+				notifyRemoveRow(itrr.next());
+			}
+			
 		}
 
 	}
@@ -126,6 +132,7 @@ public abstract class AbstractMappersListDS extends DataSource {
 				domain.ApplicationMapper p = i.next();
 				rows.add(p);
 			}
+			return rows;
 
 		} catch (Exception e) {
 			e.printStackTrace();
