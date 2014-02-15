@@ -181,7 +181,7 @@ public class PopulateTypes {
 		typeRef.setPackageRef(typesHash
 				.get(InitDiagram.BASE_PACKAGE + "_BaseType").getParent()
 				.getParent());
-		typeRef.setTypeRef(typesHash.get(InitDiagram.BASE_PACKAGE + "_EJB Entity Service"));
+		typeRef.setTypeRef(typesHash.get(InitDiagram.BASE_PACKAGE +"_"+ InitDiagram.EJB_ENTITY_CRAD_SERVICE));
 		
 		ext.setTarget(typeRef);
 		ext.setSource(departmentsService);
@@ -259,6 +259,15 @@ public class PopulateTypes {
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("insert");
 
+		ret = domain.DomainFactory.eINSTANCE
+				.createReturnValue();
+		opr.setReturnValue(ret);
+		ret.setUid(UUID.randomUUID().toString());
+		ret.setPackageRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void")
+				.getParent().getParent());
+		ret.setTypeRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void"));
+		
+		
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");
@@ -271,6 +280,15 @@ public class PopulateTypes {
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("update");
 
+		ret = domain.DomainFactory.eINSTANCE
+				.createReturnValue();
+		opr.setReturnValue(ret);
+		ret.setUid(UUID.randomUUID().toString());
+		ret.setPackageRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void")
+				.getParent().getParent());
+		ret.setTypeRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void"));
+
+		
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");
@@ -283,6 +301,15 @@ public class PopulateTypes {
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("remove");
 
+		ret = domain.DomainFactory.eINSTANCE
+				.createReturnValue();
+		opr.setReturnValue(ret);
+		ret.setUid(UUID.randomUUID().toString());
+		ret.setPackageRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void")
+				.getParent().getParent());
+		ret.setTypeRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void"));
+		
+		
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");
@@ -497,7 +524,7 @@ public class PopulateTypes {
 		typeRef.setPackageRef(typesHash
 				.get(InitDiagram.BASE_PACKAGE + "_BaseType").getParent()
 				.getParent());
-		typeRef.setTypeRef(typesHash.get(InitDiagram.BASE_PACKAGE + "_EJB Entity Service"));
+		typeRef.setTypeRef(typesHash.get(InitDiagram.BASE_PACKAGE + "_"+InitDiagram.EJB_ENTITY_CRAD_SERVICE));
 		
 		ext.setTarget(typeRef);
 		ext.setSource(employeesService);
@@ -579,6 +606,14 @@ public class PopulateTypes {
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("insert");
 
+		ret = domain.DomainFactory.eINSTANCE
+				.createReturnValue();
+		opr.setReturnValue(ret);
+		ret.setUid(UUID.randomUUID().toString());
+		ret.setPackageRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void")
+				.getParent().getParent());
+		ret.setTypeRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void"));
+		
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");
@@ -591,6 +626,14 @@ public class PopulateTypes {
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("update");
 
+		ret = domain.DomainFactory.eINSTANCE
+				.createReturnValue();
+		opr.setReturnValue(ret);
+		ret.setUid(UUID.randomUUID().toString());
+		ret.setPackageRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void")
+				.getParent().getParent());
+		ret.setTypeRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void"));
+		
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");
@@ -603,6 +646,15 @@ public class PopulateTypes {
 		opr.setUid(UUID.randomUUID().toString());
 		opr.setName("remove");
 
+		ret = domain.DomainFactory.eINSTANCE
+				.createReturnValue();
+		opr.setReturnValue(ret);
+		ret.setUid(UUID.randomUUID().toString());
+		ret.setPackageRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void")
+				.getParent().getParent());
+		ret.setTypeRef(typesHash.get(InitDiagram.PRIVATE_PACKAGE  + "_Void"));
+		
+		
 		param = domain.DomainFactory.eINSTANCE.createParameter();
 		opr.getParameters().add(param);
 		param.setName("obj");

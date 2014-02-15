@@ -36,6 +36,9 @@ public class InitDiagram {
 	public static String JNDI_ACCESS_STRING = "jndi access string";
 	public static String PERSISTENS_XML="persistens.xml";
 
+	public static String EJB_ENTITY_CRAD_SERVICE="EJB Entity CRAD Service";
+	public static String JPA_ENTITY_CRAD_SERVICE="JPA Entity CRAD Service";
+	
 	public static String MAVEN_POM_ENTITY_JAR = "Maven pom (entity jar)";
 	public static String MAVEN_POM_JPA_SERVICE = "Maven pom JPA Service";
 	public static String MAVEN_POM_EJB_SERVICE = "Maven pom EJB Service";
@@ -648,7 +651,20 @@ public class InitDiagram {
 		 mapper.setServiceLayer(true);
 		 mappers.getMappers().add(mapper);
 
-		return model;
+
+		 mapper = domain.DomainFactory.eINSTANCE.createJavaMapper();
+		 mapper.setUid(UUID.randomUUID().toString());
+		 mapper.setPackageRef(typesHash.get(  PRIVATE_PACKAGE+"_Void").getParent().getParent());
+		 mapper.setTypeRef( typesHash.get(  PRIVATE_PACKAGE+"_Void"));
+		 mapper.setMappedToPackageName("");
+		 mapper.setMappedToClassName("void");
+		 mapper.setUiLayer(true);
+		 mapper.setServiceLayer(true);
+		 mappers.getMappers().add(mapper);
+	 
+		 
+		 
+		 return model;
 	}
 
 	public static domain.Package initPrimitivesPackage(Resource resource) {
@@ -766,13 +782,13 @@ public class InitDiagram {
 		 domain.Type ejbEntityService = domain.DomainFactory.eINSTANCE.createType();
 		 resource.getContents().add(ejbEntityService);
 		 td.getTypes().add(ejbEntityService);
-		 ejbEntityService.setName("EJB Entity Service");
+		 ejbEntityService.setName(EJB_ENTITY_CRAD_SERVICE);
 		 ejbEntityService.setUid(UUID.randomUUID().toString());
 		 
 		 domain.Type jpaEntityService = domain.DomainFactory.eINSTANCE.createType();
 		 resource.getContents().add(jpaEntityService);
 		 td.getTypes().add(jpaEntityService);
-		 jpaEntityService.setName("JPA Entity Service");
+		 jpaEntityService.setName(JPA_ENTITY_CRAD_SERVICE);
 		 jpaEntityService.setUid(UUID.randomUUID().toString());
 		 
 		return pkg;

@@ -33,5 +33,6 @@ public enum PlatformPrimetiveTypes {
 	HexBinary,
 	Base64Binary,
 	Integer,
-	Long
+	Long,
+	Void
 }

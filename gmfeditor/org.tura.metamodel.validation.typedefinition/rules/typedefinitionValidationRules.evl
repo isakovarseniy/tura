@@ -99,6 +99,18 @@
    
    } 
 
+  constraint ReturnType {
+
+      guard : self.satisfies("UniqueName")
+      check :  self.returnValue.isDefined()
+
+      message : 'Undefine return type ' + self.name + ' not allowed'
+
+  }
+
+
+
+
 }
 
  context Enumarator {
