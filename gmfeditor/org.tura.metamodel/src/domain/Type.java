@@ -65,7 +65,7 @@ public interface Type extends TypeElement
    * The list contents are of type {@link domain.TypeExtension}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Extension</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Extension</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->

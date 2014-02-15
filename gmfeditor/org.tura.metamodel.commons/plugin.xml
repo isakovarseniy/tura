@@ -31,12 +31,28 @@
              label="Operation"/>
       </propertyTabs>
 
+      <propertyTabs contributorId="org.tura.metamodel.diagram.typedefinition">
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.operation.parameters"
+             label="Operation parameters"/>
+      </propertyTabs>
+
       
    </extension>
    
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="org.tura.metamodel.diagram.typedefinition">
+
+
+          <propertySection
+               tab="property.tab.domain.operation.parameters"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.ParameterPropertySelection"
+               id="org.tura.metamodel.typedefinition.operation.parameters">
+              <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
+           </propertySection>        
+
 
           <propertySection
                tab="property.tab.domain.operation"

@@ -24,9 +24,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import artifact.diagram.edit.parts.ArtifactArtifactConfigVariablesCompartmentEditPart;
-import artifact.diagram.edit.parts.ArtifactArtifactModelQueryCompartmentEditPart;
-import artifact.diagram.edit.parts.ArtifactArtifactSpecifiersCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.part.DomainDiagramEditorPlugin;

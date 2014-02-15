@@ -72,7 +72,7 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		tableViewer = new TableViewer(table);
 		tableViewer.setUseHashlookup(true);
 
-		gridContentProvider = new GridContentProvider(tableViewer,ds);
+		gridContentProvider = new GridContentProvider(tableViewer, ds);
 
 		String[] columnNames = new String[getColumns().size()];
 		CellEditor[] editors = new CellEditor[getColumns().size()];
@@ -88,17 +88,18 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		// Assign the cell editors to the viewer
 		tableViewer.setCellEditors(editors);
 		// Set the cell modifier for the viewer
-		tableViewer.setCellModifier(new CellModifier(getColumns(),ds));
+		tableViewer.setCellModifier(new CellModifier(getColumns(), ds));
 		// Set the default sorter for the viewer
-		tableViewer.setSorter(new Sorter(getColumns().get(getSorterID())));
+		if (getSorterID() != -1)
+			tableViewer.setSorter(new Sorter(getColumns().get(getSorterID())));
 
 	}
 
-	
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
 		ds.cleanList();
-	}	
+	}
+
 	public void addRow() {
 		ds.addRow();
 	}
@@ -111,12 +112,11 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		return ds.getSorterID();
 	}
 
-	
 	public void refresh() {
 		super.refresh();
 		tableViewer.setInput(ds);
 	}
-	
+
 	public abstract List<GridColumn> getColumns();
 
 }
