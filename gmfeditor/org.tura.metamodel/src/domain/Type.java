@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see domain.DomainPackage#getType()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
 public interface Type extends TypeElement

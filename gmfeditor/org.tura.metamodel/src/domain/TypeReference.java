@@ -10,7 +10,7 @@ package domain;
  *
  *
  * @see domain.DomainPackage#getTypeReference()
- * @model annotation="gmf.node label='fakePackageName,fakeTypeName'"
+ * @model annotation="gmf.node label='fakePackageName,fakeTypeName' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
 public interface TypeReference extends TypeElement, TypePointer

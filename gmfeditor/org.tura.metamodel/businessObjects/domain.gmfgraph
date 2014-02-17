@@ -691,6 +691,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="BusinessObjectFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -765,6 +772,13 @@
           xsi:type="gmfgraph:RoundedRectangle"
           name="CreateMethodFigure"
           outline="false">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <preferredSize
             dx="200"
             dy="16"/>
@@ -789,6 +803,13 @@
           xsi:type="gmfgraph:RoundedRectangle"
           name="InsertMethodFigure"
           outline="false">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <preferredSize
             dx="200"
             dy="16"/>
@@ -813,6 +834,13 @@
           xsi:type="gmfgraph:RoundedRectangle"
           name="UpdateMethodFigure"
           outline="false">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <preferredSize
             dx="200"
             dy="16"/>
@@ -837,6 +865,13 @@
           xsi:type="gmfgraph:RoundedRectangle"
           name="RemoveMethodFigure"
           outline="false">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <preferredSize
             dx="200"
             dy="16"/>
@@ -861,6 +896,13 @@
           xsi:type="gmfgraph:RoundedRectangle"
           name="SearchMethodFigure"
           outline="false">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <preferredSize
             dx="200"
             dy="16"/>
@@ -885,6 +927,13 @@
           xsi:type="gmfgraph:RoundedRectangle"
           name="OtherMethodFigure"
           outline="false">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <preferredSize
             dx="200"
             dy="16"/>
@@ -1273,6 +1322,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="PrimitiveFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -1301,6 +1357,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="TypeFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -1346,6 +1409,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="TypeReferenceFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -1374,6 +1444,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="AttributeFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -1402,6 +1479,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="OperationFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -1430,6 +1514,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="EnumaratorFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -1468,6 +1559,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="EnumAttributeFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="239"
+            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -1583,6 +1681,13 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="BusinessPackageFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets

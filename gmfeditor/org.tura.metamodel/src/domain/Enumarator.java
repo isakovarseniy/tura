@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see domain.DomainPackage#getEnumarator()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
 public interface Enumarator extends TypeElement

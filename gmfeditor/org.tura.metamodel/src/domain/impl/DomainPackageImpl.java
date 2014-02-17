@@ -4410,49 +4410,63 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });								
     addAnnotation
       (createMethodEClass, 
        source, 
        new String[] 
        {
-       "label", "fakeMethod"
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });		
     addAnnotation
       (insertMethodEClass, 
        source, 
        new String[] 
        {
-       "label", "fakeMethod"
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });		
     addAnnotation
       (updateMethodEClass, 
        source, 
        new String[] 
        {
-       "label", "fakeMethod"
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });		
     addAnnotation
       (removeMethodEClass, 
        source, 
        new String[] 
        {
-       "label", "fakeMethod"
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });		
     addAnnotation
       (searchMethodEClass, 
        source, 
        new String[] 
        {
-       "label", "fakeMethod"
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });		
     addAnnotation
       (otherMethodEClass, 
        source, 
        new String[] 
        {
-       "label", "fakeMethod"
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });			
     addAnnotation
       (javaMapperEClass, 
@@ -4540,49 +4554,63 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });		
     addAnnotation
       (typeEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });				
     addAnnotation
       (typeReferenceEClass, 
        source, 
        new String[] 
        {
-       "label", "fakePackageName,fakeTypeName"
+       "label", "fakePackageName,fakeTypeName",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });			
     addAnnotation
       (attributeEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });		
     addAnnotation
       (operationEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });		
     addAnnotation
       (enumaratorEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });			
     addAnnotation
       (enumAttributeEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });			
     addAnnotation
       (typesEClass, 
@@ -4607,7 +4635,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
        });
   }
 

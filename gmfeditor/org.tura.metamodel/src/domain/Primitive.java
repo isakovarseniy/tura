@@ -10,7 +10,7 @@ package domain;
  *
  *
  * @see domain.DomainPackage#getPrimitive()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
 public interface Primitive extends TypeElement

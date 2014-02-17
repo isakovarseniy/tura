@@ -271,6 +271,8 @@ public class OtherMethodEditPart extends ShapeNodeEditPart {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setOutline(false);
+			this.setForegroundColor(THIS_FORE);
+			this.setBackgroundColor(THIS_BACK);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200),
 					getMapMode().DPtoLP(16)));
 			createContents();
@@ -300,6 +302,16 @@ public class OtherMethodEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_FORE = new Color(null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 255, 239, 222);
 
 	/**
 	 * @generated

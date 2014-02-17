@@ -14,7 +14,10 @@ operation TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) {
               if ( type <> null){
                  self.~class=type.mappedToClassName;
                  self.~package= type.mappedToPackageName;
-                 self.~fullName=type.mappedToPackageName+"."+type.mappedToClassName;
+                 if (type.mappedToPackageName <>'')
+                     self.~fullName=type.mappedToPackageName+"."+type.mappedToClassName;
+                  else
+                     self.~fullName=type.mappedToClassName;
                  self.~artifactId=type.artifactId;
                  self.~groupId=type.groupId;
                  self.~version= type.version;

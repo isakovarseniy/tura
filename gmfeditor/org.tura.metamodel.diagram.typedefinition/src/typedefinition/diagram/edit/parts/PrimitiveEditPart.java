@@ -358,6 +358,8 @@ public class PrimitiveEditPart extends ShapeNodeEditPart {
 		public PrimitiveFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
+			this.setForegroundColor(THIS_FORE);
+			this.setBackgroundColor(THIS_BACK);
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
@@ -388,6 +390,16 @@ public class PrimitiveEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_FORE = new Color(null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 255, 239, 222);
 
 	/**
 	 * @generated
