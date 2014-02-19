@@ -1,0 +1,29 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+  
+     var util = new Native('org.tura.metamodel.commons.Util');
+   
+    var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+    
+    var types = util.runQuery(model_mapper,"Query type",model_mapper);
+    if (types.size() <> 0 ){
+       for( type in types ){
+            type.mappingType2Java(recipe,ingredient);
+       }
+    }
+    
+    var mavenjar : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mavenPom_EJBService_ProxyClient.egl");
+    mavenjar.setFormatter(f);
+    
+    var path = component.getComponentRoot+"/"+component.getArtifactId;  
+    mavenjar.populate("recipe",recipe);
+    mavenjar.populate("ingredient",ingredient);
+    mavenjar.populate("component",component);
+    mavenjar.populate("model_mapper",model_mapper);
+    mavenjar.populate("types",types);
+    mavenjar.populate("configuration",configuration);
+     
+    var buffer = mavenjar.process();
+    util.saveFile( path, "pom.xml",buffer);   
+  %]
+

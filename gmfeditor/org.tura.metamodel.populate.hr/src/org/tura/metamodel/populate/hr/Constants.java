@@ -21,8 +21,10 @@ public class Constants {
 	public static String TYPE_EMPLOYEES_QUERY_SERVICE_LOCAL = "Employees query service local";
 	public static String TYPE_EMPLOYEES_QUERY_SERVICE_GENERIC_TYPE="Employees query service generic type";
 	public static String HR_RECIPE="Hr recipe";
-	public static String HR_SERVICE_INGREDIENT =  "Java Service layer ingredient";
+	public static String HR_SERVICE_INGREDIENT =  "Java Service ingredient";
+	public static String HR_SERVICE_PROXY_CLIENT_INGREDIENT =  "Java Service proxy client ingredient";
 	public static String HR_SERVICE =  "HR Services";
+	public static String HR_SERVICE_PROXY_CLIENT =  "HR Services proxy client";
 
 	
 }

@@ -35,13 +35,16 @@ public class InitDiagram {
 	public static String DATABASE_SCHEMA = "DataBase schema";
 	public static String JNDI_ACCESS_STRING = "jndi access string";
 	public static String PERSISTENS_XML="persistens.xml";
-
+	public static String APPLICATION_SERVER_IP = "Application server IP";
+	public static String APPLICATION_SERVER_PORT = "Application server port";
+	
+	
 	public static String EJB_ENTITY_CRAD_SERVICE="EJB Entity CRAD Service";
 	public static String JPA_ENTITY_CRAD_SERVICE="JPA Entity CRAD Service";
 	
-	public static String MAVEN_POM_ENTITY_JAR = "Maven pom (entity jar)";
 	public static String MAVEN_POM_JPA_SERVICE = "Maven pom JPA Service";
 	public static String MAVEN_POM_EJB_SERVICE = "Maven pom EJB Service";
+	public static String MAVEN_POM_EJB_SERVICE_PROXY_CLIENT = "Maven pom EJB Service proxy client";
 	
 
 	public static String QUERY_TYPE= "Query type";
@@ -50,8 +53,8 @@ public class InitDiagram {
 	public static String VAR_PACKAGE_NAME = "Package name";
 	public static String QUERY_TYPE_GENERIC ="Query generic type";
 	public static String VAR_TYPE_NAME = "Type name";
-	
-	
+	public static String VAR_PACKAGE_NAME_SERVICE_IMPL="Package name service impl";
+	public static String VAR_TYPE_NAME_SERVICE_IMPL="Type name service impl";
 	
 	public static domain.Domain initDomainDiagram(Resource resource) {
 
@@ -179,12 +182,6 @@ public class InitDiagram {
 		query.getParameters().add(param);
 		
 		
-		model.getArtifacts().add(artifact);
-
-		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
-		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setName(MAVEN_POM_ENTITY_JAR);
-		artifact.setTemplate("j2ee/entity/mavenPom_Entity_jar");
 		model.getArtifacts().add(artifact);
 
 		return model;
@@ -383,6 +380,57 @@ public class InitDiagram {
 		
 		model.getArtifacts().add(artifact);
 
+//************		
+		
+		artifact = domain.DomainFactory.eINSTANCE
+				.createArtifact();
+		artifact.setName(MAVEN_POM_EJB_SERVICE_PROXY_CLIENT);
+		artifact.setUid(UUID.randomUUID().toString());
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainMavenPom_EJBService_ProxyClient.egl");
+		
+		query = domain.DomainFactory.eINSTANCE.createModelQuery();
+		query.setUid(UUID.randomUUID().toString());
+		query.setName(QUERY_TYPE);
+		query.setQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name}') ).includingAll(domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name service impl}').oclAsType(domain::Package).typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).name = '${Type name service impl}')  or (r.oclIsKindOf(domain::Primitive) and  r.oclAsType(domain::Primitive).name = '${Type name service impl}') or (r.oclIsKindOf(domain::Enumarator) and  r.oclAsType(domain::Enumarator).name = '${Type name service impl}')))");
+		artifact.getModelQuery().add(query);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_TYPE_NAME);
+		query.getParameters().add(param);
+
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME);
+		query.getParameters().add(param);
+		
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_PACKAGE_NAME_SERVICE_IMPL);
+		query.getParameters().add(param);
+		
+		param = domain.DomainFactory.eINSTANCE.createQueryParameter();
+		param.setUid(UUID.randomUUID().toString());
+		param.setName(VAR_TYPE_NAME_SERVICE_IMPL);
+		query.getParameters().add(param);
+
+		
+		domain.ConfigVariable confVar = domain.DomainFactory.eINSTANCE
+				.createConfigVariable();
+		confVar.setUid(UUID.randomUUID().toString());
+		confVar.setName(APPLICATION_SERVER_IP);
+		artifact.getConfigVariables().add(confVar);
+		
+		confVar = domain.DomainFactory.eINSTANCE
+				.createConfigVariable();
+		confVar.setUid(UUID.randomUUID().toString());
+		confVar.setName(APPLICATION_SERVER_PORT);
+		artifact.getConfigVariables().add(confVar);
+
+		
+		model.getArtifacts().add(artifact);
+		
+		
 //-------		
 		
 		artifact = domain.DomainFactory.eINSTANCE
@@ -501,7 +549,7 @@ public class InitDiagram {
 		option.setUid(UUID.randomUUID().toString());
 		option.setValue("MySQL");
 
-		domain.ConfigVariable confVar = domain.DomainFactory.eINSTANCE
+		confVar = domain.DomainFactory.eINSTANCE
 				.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
 		confVar.setName(DATABASE_IP);

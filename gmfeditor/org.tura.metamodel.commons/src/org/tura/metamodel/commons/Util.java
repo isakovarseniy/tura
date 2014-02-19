@@ -39,7 +39,7 @@ public class Util {
 			int s = mapper.isServiceLayer() ? 1 : 0;
 			int ingr = ingredient.getLayer().getValue();
 
-			if ((((ui << 2) + s) & ingr) != 0)
+			if ((((ui << 1) + s) & ingr) != 0)
 				return true;
 		}
 		return false;
