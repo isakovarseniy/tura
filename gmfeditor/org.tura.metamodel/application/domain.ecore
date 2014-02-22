@@ -591,6 +591,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="queryRef" eType="#//ModelQuery"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//QueryVariable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QueryVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

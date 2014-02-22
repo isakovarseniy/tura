@@ -379,6 +379,7 @@ class Query{
    attr EString name;
    ref ModelQuery queryRef;
    val QueryVariable[*] variables;
+   attr EString groupCode;
 }
 
 class QueryVariable{

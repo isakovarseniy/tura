@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.QueryImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.QueryImpl#getQueryRef <em>Query Ref</em>}</li>
  *   <li>{@link domain.impl.QueryImpl#getVariables <em>Variables</em>}</li>
+ *   <li>{@link domain.impl.QueryImpl#getGroupCode <em>Group Code</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,6 +112,26 @@ public class QueryImpl extends EObjectImpl implements Query
    * @ordered
    */
   protected EList<QueryVariable> variables;
+
+  /**
+   * The default value of the '{@link #getGroupCode() <em>Group Code</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGroupCode()
+   * @generated
+   * @ordered
+   */
+  protected static final String GROUP_CODE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getGroupCode() <em>Group Code</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGroupCode()
+   * @generated
+   * @ordered
+   */
+  protected String groupCode = GROUP_CODE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -284,6 +305,29 @@ public class QueryImpl extends EObjectImpl implements Query
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getGroupCode()
+  {
+    return groupCode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGroupCode(String newGroupCode)
+  {
+    String oldGroupCode = groupCode;
+    groupCode = newGroupCode;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.QUERY__GROUP_CODE, oldGroupCode, groupCode));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -317,6 +361,8 @@ public class QueryImpl extends EObjectImpl implements Query
         return basicGetQueryRef();
       case DomainPackage.QUERY__VARIABLES:
         return getVariables();
+      case DomainPackage.QUERY__GROUP_CODE:
+        return getGroupCode();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -348,6 +394,9 @@ public class QueryImpl extends EObjectImpl implements Query
         getVariables().clear();
         getVariables().addAll((Collection<? extends QueryVariable>)newValue);
         return;
+      case DomainPackage.QUERY__GROUP_CODE:
+        setGroupCode((String)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -377,6 +426,9 @@ public class QueryImpl extends EObjectImpl implements Query
       case DomainPackage.QUERY__VARIABLES:
         getVariables().clear();
         return;
+      case DomainPackage.QUERY__GROUP_CODE:
+        setGroupCode(GROUP_CODE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -401,6 +453,8 @@ public class QueryImpl extends EObjectImpl implements Query
         return queryRef != null;
       case DomainPackage.QUERY__VARIABLES:
         return variables != null && !variables.isEmpty();
+      case DomainPackage.QUERY__GROUP_CODE:
+        return GROUP_CODE_EDEFAULT == null ? groupCode != null : !GROUP_CODE_EDEFAULT.equals(groupCode);
     }
     return super.eIsSet(featureID);
   }
@@ -420,6 +474,8 @@ public class QueryImpl extends EObjectImpl implements Query
     result.append(uid);
     result.append(", name: ");
     result.append(name);
+    result.append(", groupCode: ");
+    result.append(groupCode);
     result.append(')');
     return result.toString();
   }

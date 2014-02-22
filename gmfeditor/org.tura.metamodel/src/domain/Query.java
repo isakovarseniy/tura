@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Query#getName <em>Name</em>}</li>
  *   <li>{@link domain.Query#getQueryRef <em>Query Ref</em>}</li>
  *   <li>{@link domain.Query#getVariables <em>Variables</em>}</li>
+ *   <li>{@link domain.Query#getGroupCode <em>Group Code</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,5 +148,31 @@ public interface Query extends EObject
    * @generated
    */
   EList<QueryVariable> getVariables();
+
+  /**
+   * Returns the value of the '<em><b>Group Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Group Code</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Group Code</em>' attribute.
+   * @see #setGroupCode(String)
+   * @see domain.DomainPackage#getQuery_GroupCode()
+   * @model
+   * @generated
+   */
+  String getGroupCode();
+
+  /**
+   * Sets the value of the '{@link domain.Query#getGroupCode <em>Group Code</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Group Code</em>' attribute.
+   * @see #getGroupCode()
+   * @generated
+   */
+  void setGroupCode(String value);
 
 } // Query

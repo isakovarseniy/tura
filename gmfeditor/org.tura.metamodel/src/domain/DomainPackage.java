@@ -3165,13 +3165,22 @@ public interface DomainPackage extends EPackage
   int QUERY__VARIABLES = 4;
 
   /**
+   * The feature id for the '<em><b>Group Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUERY__GROUP_CODE = 5;
+
+  /**
    * The number of structural features of the '<em>Query</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QUERY_FEATURE_COUNT = 5;
+  int QUERY_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link domain.impl.QueryVariableImpl <em>Query Variable</em>}' class.
@@ -6400,6 +6409,17 @@ public interface DomainPackage extends EPackage
   EReference getQuery_Variables();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.Query#getGroupCode <em>Group Code</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Group Code</em>'.
+   * @see domain.Query#getGroupCode()
+   * @see #getQuery()
+   * @generated
+   */
+  EAttribute getQuery_GroupCode();
+
+  /**
    * Returns the meta object for class '{@link domain.QueryVariable <em>Query Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8959,6 +8979,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference QUERY__VARIABLES = eINSTANCE.getQuery_Variables();
+
+    /**
+     * The meta object literal for the '<em><b>Group Code</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute QUERY__GROUP_CODE = eINSTANCE.getQuery_GroupCode();
 
     /**
      * The meta object literal for the '{@link domain.impl.QueryVariableImpl <em>Query Variable</em>}' class.

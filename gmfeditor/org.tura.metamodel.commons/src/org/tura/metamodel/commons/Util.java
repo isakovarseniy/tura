@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
@@ -78,7 +79,7 @@ public class Util {
 	}
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
-	public static ArrayList<?> runQuery( domain.ModelMapper mapper, String queryName,EObject eobj) throws Exception{
+	public static List<?> runQuery( domain.ModelMapper mapper, String queryName,EObject eobj) throws Exception{
     	ArrayList result = new ArrayList<>();
     	for (Iterator<domain.Query> itr = mapper.getQueries().iterator();itr.hasNext();){
     		domain.Query query = itr.next();
@@ -92,7 +93,19 @@ public class Util {
     	
     }
 	
-	
+	public static GroupBy runQueryWithGrouping( domain.ModelMapper mapper, String queryName,EObject eobj) throws Exception{
+    	GroupBy result = new GroupBy();
+    	for (Iterator<domain.Query> itr = mapper.getQueries().iterator();itr.hasNext();){
+    		domain.Query query = itr.next();
+    		if (query.getQueryRef().getName() .equals(queryName)){
+    			 Collection<?> ls = (Collection<?>) runQuery(query, eobj);
+    			 result.add(query.getGroupCode(), ls);
+    		}
+    	}
+    	return result;
+    }
+   
+    
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static Object executeQuery(String strQuery, EObject eobj)

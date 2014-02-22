@@ -530,17 +530,21 @@ public class PopulateRecipe {
 		var.setValue(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_REMOTE);
 		query.getVariables().add(var);
 
+		query = DomainFactory.eINSTANCE.createQuery();
+		query.setName("Get "+Constants.TYPE_DEPARTMENTS_QUERY_SERVICE);
+		modelMapper.getQueries().add(query);
+		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE));
 		
 		var = DomainFactory.eINSTANCE.createQueryVariable();
 		var.setUid(UUID.randomUUID().toString());
-		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_PACKAGE_NAME_SERVICE_IMPL));
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_PACKAGE_NAME));
 		var.setValue(Constants.PACKAGE_HR);
 		query.getVariables().add(var);
 
 		
 		var = DomainFactory.eINSTANCE.createQueryVariable();
 		var.setUid(UUID.randomUUID().toString());
-		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME_SERVICE_IMPL));
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME));
 		var.setValue(Constants.TYPE_DEPARTMENTS_QUERY_SERVICE);
 		query.getVariables().add(var);
 		
@@ -562,21 +566,25 @@ public class PopulateRecipe {
 		var.setValue(Constants.TYPE_EMPLOYEES_QUERY_SERVICE_REMOTE);
 		query.getVariables().add(var);
 
+		
+		query = DomainFactory.eINSTANCE.createQuery();
+		query.setName("Get "+Constants.TYPE_EMPLOYEES_QUERY_SERVICE);
+		modelMapper.getQueries().add(query);
+		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE));
+
 		var = DomainFactory.eINSTANCE.createQueryVariable();
 		var.setUid(UUID.randomUUID().toString());
-		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_PACKAGE_NAME_SERVICE_IMPL));
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME));
+		var.setValue(Constants.TYPE_EMPLOYEES_QUERY_SERVICE);
+		query.getVariables().add(var);
+
+
+		var = DomainFactory.eINSTANCE.createQueryVariable();
+		var.setUid(UUID.randomUUID().toString());
+		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_PACKAGE_NAME));
 		var.setValue(Constants.PACKAGE_HR);
 		query.getVariables().add(var);
 
-		
-		var = DomainFactory.eINSTANCE.createQueryVariable();
-		var.setUid(UUID.randomUUID().toString());
-		var.setQueryParamRef((QueryParameter) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE+"_"+InitDiagram.VAR_TYPE_NAME_SERVICE_IMPL));
-		var.setValue(Constants.TYPE_EMPLOYEES_QUERY_SERVICE);
-		query.getVariables().add(var);
-		
-		
-		
 		
 		for (Iterator<domain.ConfigVariable>  itr =modelMapper.getArtifactRef().getConfigVariables().iterator();itr.hasNext(); ){
         	domain.ConfigVariable confvar = itr.next();
