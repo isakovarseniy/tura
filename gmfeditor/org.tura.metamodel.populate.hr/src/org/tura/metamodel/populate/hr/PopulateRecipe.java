@@ -515,6 +515,7 @@ public class PopulateRecipe {
 		
 		query = DomainFactory.eINSTANCE.createQuery();
 		query.setName("Get "+Constants.TYPE_DEPARTMENTS_QUERY_SERVICE_REMOTE);
+		query.setGroupCode("a.remote");
 		modelMapper.getQueries().add(query);
 		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE));
 
@@ -531,6 +532,7 @@ public class PopulateRecipe {
 		query.getVariables().add(var);
 
 		query = DomainFactory.eINSTANCE.createQuery();
+		query.setGroupCode("a.impl");
 		query.setName("Get "+Constants.TYPE_DEPARTMENTS_QUERY_SERVICE);
 		modelMapper.getQueries().add(query);
 		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE));
@@ -551,6 +553,7 @@ public class PopulateRecipe {
 		
 		query = DomainFactory.eINSTANCE.createQuery();
 		query.setName("Get "+Constants.TYPE_EMPLOYEES_QUERY_SERVICE_REMOTE);
+		query.setGroupCode("b.remote");
 		modelMapper.getQueries().add(query);
 		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE));
 
@@ -570,6 +573,7 @@ public class PopulateRecipe {
 		query = DomainFactory.eINSTANCE.createQuery();
 		query.setName("Get "+Constants.TYPE_EMPLOYEES_QUERY_SERVICE);
 		modelMapper.getQueries().add(query);
+		query.setGroupCode("b.impl");
 		query.setQueryRef((ModelQuery) artifactMap.get(InitDiagram.EJBSERVICE+"_"+InitDiagram.MAVEN_POM_EJB_SERVICE_PROXY_CLIENT+"_"+InitDiagram.QUERY_TYPE));
 
 		var = DomainFactory.eINSTANCE.createQueryVariable();

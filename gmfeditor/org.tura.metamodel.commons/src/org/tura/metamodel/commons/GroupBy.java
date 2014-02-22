@@ -37,23 +37,29 @@ public class GroupBy {
 		return groupBy.keySet();
 	}
 
-	public Object getValue(String path) {
+	public Object getValue(String path) throws Exception {
 
 		if (path == null)
 			return value;
 
 		String[] pathElements = StringUtils.split(path, ".");
+		
+		if ( groupBy.get(pathElements[0].trim()) == null )
+			throw new Exception("Path "+path+" does not exists");
 
 		return groupBy.get(pathElements[0].trim()).getValue(leftPath(path));
 
 	}
 
-	public GroupBy getGroup(String path) {
+	public GroupBy getGroup(String path) throws Exception {
 
 		if (path == null)
 			return this;
 
 		String[] pathElements = StringUtils.split(path, ".");
+
+		if ( groupBy.get(pathElements[0].trim()) == null )
+			throw new Exception("Path "+path+" does not exists");
 
 		return groupBy.get(pathElements[0].trim()).getGroup(leftPath(path));
 
