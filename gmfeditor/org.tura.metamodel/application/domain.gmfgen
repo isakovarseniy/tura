@@ -471,10 +471,6 @@
             title="ApplicationRecipes"
             description="Create new ApplicationRecipes"
             genNodes="//@diagram/@topLevelNodes.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ContinuousIintegration"
-            description="Create new ContinuousIintegration"/>
       </groups>
       <groups
           title="Connections"

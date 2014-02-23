@@ -21,15 +21,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ContinuousIintegration"
-          description="Create new ContinuousIintegration">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="CreateMethod"
           description="Create new CreateMethod">
         <smallIcon

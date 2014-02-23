@@ -100,6 +100,8 @@ attributeFigure.setPreferredSize ( preferredSize);
 
 
 -- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ContinuousIintegration');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='BusinessMethod');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ModelQuery');

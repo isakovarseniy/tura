@@ -477,10 +477,6 @@
             genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="ContinuousIintegration"
-            description="Create new ContinuousIintegration"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="ModelQuery"
             description="Create new ModelQuery"
             genNodes="//@diagram/@childNodes.1"/>

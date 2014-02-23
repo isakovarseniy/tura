@@ -721,10 +721,6 @@
             genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="ContinuousIintegration"
-            description="Create new ContinuousIintegration"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Infrastructure"
             description="Create new Infrastructure"
             genNodes="//@diagram/@topLevelNodes.2"/>
