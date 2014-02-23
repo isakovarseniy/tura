@@ -74,12 +74,6 @@ public class Util {
 			strQuery = strQuery.replaceAll("\\$\\{"
 					+ var.getQueryParamRef().getName() + "\\}", var.getValue());
 		}
-
-		String component_uuid =   ((domain.ModelMapper)query.eContainer()).getParent().getUid();
-		String modelmapper_uuid =   ((domain.ModelMapper)query.eContainer()).getUid();
-		strQuery = strQuery.replaceAll("\\$\\{COMPONENT_UUID\\}", component_uuid);
-		strQuery = strQuery.replaceAll("\\$\\{MODEL_MAPPER_UUID\\}", modelmapper_uuid);
-		
 		return executeQuery(strQuery, eobj);
 	}
 
@@ -138,7 +132,7 @@ public class Util {
 	public static void saveFile(String path, String fileName, String in)
 			throws IOException {
 
-		File f = new File(System.getProperty("user.home")+"/"+path);
+		File f = new File(path);
 		f.mkdirs();
 		
 		FileOutputStream out = new FileOutputStream(new File(f,fileName));

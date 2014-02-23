@@ -155,7 +155,7 @@ public class OpenDiagramContinuousIintegrationEditPolicy extends OpenEditPolicy 
 
 			();
 			if (obj == null)
-				obj = InitDiagram.initContinuousIintegration(sourceObject
+				obj = InitDiagram.initContinuousIntegration(sourceObject
 						.eResource())
 
 				;

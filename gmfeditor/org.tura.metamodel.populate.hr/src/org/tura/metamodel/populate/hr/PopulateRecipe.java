@@ -64,7 +64,7 @@ public class PopulateRecipe {
 				.createJavaComponent();
 		component.setName(Constants.HR_SERVICE);
 		component.setUid(UUID.randomUUID().toString());
-		component.setComponentRoot("generatedCode/serviceLayer");
+		component.setComponentRoot("/Users/arseniy/generatedCode/serviceLayer");
 		component.setArtifactId("hrservice");
 		component.setGroupId("org.tura.example.service");
 		component.setVersion("1.0");
@@ -632,6 +632,7 @@ public class PopulateRecipe {
 		modelMapper.setDomainArtifactRef(modelMapper.getArtifactRef()
 				.getParent().getParent());
 
+		
 		for (Iterator<domain.Specifier> itr = modelMapper.getArtifactRef()
 				.getSpecifiers().iterator(); itr.hasNext();) {
 			domain.Specifier sp = itr.next();
@@ -667,6 +668,7 @@ public class PopulateRecipe {
 		modelMapper.setDomainArtifactRef(modelMapper.getArtifactRef()
 				.getParent().getParent());
 
+		
 		for (Iterator<domain.Specifier> itr = modelMapper.getArtifactRef()
 				.getSpecifiers().iterator(); itr.hasNext();) {
 			domain.Specifier sp = itr.next();
@@ -707,7 +709,7 @@ public class PopulateRecipe {
 		component = DomainFactory.eINSTANCE.createJavaComponent();
 		component.setName(Constants.HR_SERVICE_PROXY_CLIENT);
 		component.setUid(UUID.randomUUID().toString());
-		component.setComponentRoot("generatedCode/serviceLayer");
+		component.setComponentRoot("/Users/arseniy/generatedCode/serviceLayer");
 		component.setArtifactId("hrservice-proxy-client");
 		component.setGroupId("org.tura.example.service");
 		component.setVersion("1.0");

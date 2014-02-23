@@ -1,0 +1,27 @@
+#set( $percent = "%" )
+#set( $start = "[" )
+#set( $end = "]" )
+$start$percent 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${OS.getValueRef().getValue()}.egl";
+$percent$end
+[%
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var hash = new Native("java.util.HashMap"); 
+    hash.put("recipe",recipe);
+    hash.put("ingredient",ingredient);
+    hash.put("component",component);
+    hash.put("model_mapper",model_mapper);
+    hash.put("configuration",configuration);
+    
+    for ( specifier in model_mapper.getSpecifiers()){ 
+       hash.put(specifier.getSpecifierRef().getName().replaceAll(" ","_"),specifier);
+   } 
+  
+    var builder : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/continuousIntegration/glassfishDeployer.egl",hash,TemplateFactory);
+    
+    var path = component.getComponentRoot+"/"+component.getArtifactId;  
+ 
+    var buffer = builder.process();
+    util.saveFile( path, "deployer."+os_batch_extension(),buffer);   
+ %]
+

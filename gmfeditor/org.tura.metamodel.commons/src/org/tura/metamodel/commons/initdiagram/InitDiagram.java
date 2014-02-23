@@ -115,7 +115,7 @@ public class InitDiagram {
 		cnInteg.setName(CONTINUOUS_INTEGRATION);
 		cnInteg.setUid(UUID.randomUUID().toString());
 		domainArtifacts.getDomainArtifact().add(cnInteg);
-		cnInteg.setArtifact(initContinuousIintegration(resource));
+		cnInteg.setArtifact(initContinuousIntegration(resource));
 		
 		
 		return model;
@@ -583,7 +583,7 @@ public class InitDiagram {
 	}
 
 	
-	public static domain.Artifacts initContinuousIintegration( Resource resource) {
+	public static domain.Artifacts initContinuousIntegration( Resource resource) {
 
 		domain.Artifacts model = domain.DomainFactory.eINSTANCE
 				.createArtifacts();
@@ -593,15 +593,9 @@ public class InitDiagram {
 		domain.Artifact artifact = domain.DomainFactory.eINSTANCE.createArtifact();
 		artifact.setName(MAVEN_BUILDER);
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/builder/mainMavenBuilder.egl");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/continuousIntegration/mainMavenBuilder.egl");
 		model.getArtifacts().add(artifact);
 		
-		domain.ModelQuery query = domain.DomainFactory.eINSTANCE.createModelQuery();
-		query.setUid(UUID.randomUUID().toString());
-		query.setQuery("domain::Component.allInstances()->select(r|r.uid='${COMPONENT_UUID}' )");
-		query.setName(QUERY_COMPONENT);
-		artifact.getModelQuery().add(query);
-
 		domain.ConfigVariable confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
 		confVar.setName(MAVEN_LOCATION);
@@ -627,7 +621,7 @@ public class InitDiagram {
 		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
 		artifact.setName(GLASSFISH_DEPLOYER);
 		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/builder/mainGlassfishDeployer.egl");
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/continuousIntegration/mainGlassfishDeployer.egl");
 		model.getArtifacts().add(artifact);
 
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
@@ -645,13 +639,6 @@ public class InitDiagram {
 		confVar.setName(GLASSFISH_DOMAIN);
 		artifact.getConfigVariables().add(confVar);
 
-		
-		query = domain.DomainFactory.eINSTANCE.createModelQuery();
-		query.setUid(UUID.randomUUID().toString());
-		query.setQuery("domain::Component.allInstances()->select(r|r.uid='${COMPONENT_UUID}' )");
-		query.setName(QUERY_COMPONENT);
-		artifact.getModelQuery().add(query);
-		
 		
 		specifier = domain.DomainFactory.eINSTANCE
 				.createSpecifier();

@@ -312,7 +312,7 @@
             «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
           org.tura.metamodel.commons.initdiagram.InitDiagram.initEJBServiceDiagram(sourceObject.eResource())
             «ELSEIF editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'-»
-          org.tura.metamodel.commons.initdiagram.InitDiagram.initContinuousIintegration(sourceObject.eResource())
+          org.tura.metamodel.commons.initdiagram.InitDiagram.initContinuousIntegration(sourceObject.eResource())
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
            org.tura.metamodel.commons.initdiagram.InitDiagram.initTypesRepositoryDiagram(sourceObject.eResource())
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»

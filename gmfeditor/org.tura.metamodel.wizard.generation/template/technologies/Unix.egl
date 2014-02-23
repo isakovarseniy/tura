@@ -1,0 +1,26 @@
+[% @template
+operation  mavenBuilder_mavenCleanInstall(configuration,path) {
+%]
+#!/bin/sh
+  
+  cd "[%=path%]"
+  "[%=configuration.get('Maven location')%]"/mvn clean install
+[%
+}
+
+operation  os_batch_extension():String{
+             return "sh";
+}
+
+@template
+operation  glassfishdeploy_glassfishdeployear(configuration,path,component) {
+%]
+#!/bin/sh
+  
+  cd "[%=path%]"
+  "[%=configuration.get('GlassFish home')%]"/bin/asadmin deploy ./target/[%=component.getArtifactId()%].ear
+
+[%
+}
+%]
+

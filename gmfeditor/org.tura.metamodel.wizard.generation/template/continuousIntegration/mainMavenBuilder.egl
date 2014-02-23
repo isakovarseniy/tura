@@ -1,0 +1,18 @@
+[%
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var hash = new Native("java.util.HashMap"); 
+    hash.put("recipe",recipe);
+    hash.put("ingredient",ingredient);
+    hash.put("component",component);
+    hash.put("model_mapper",model_mapper);
+    hash.put("configuration",configuration);
+    
+    for ( specifier in model_mapper.getSpecifiers()){ 
+       hash.put(specifier.getSpecifierRef().getName().replaceAll(" ","_"),specifier);
+   } 
+  
+    var builder : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/continuousIntegration/primeMavenBuilder.egl",hash,TemplateFactory);
+    var buffer = builder.process();
+ %]
+
