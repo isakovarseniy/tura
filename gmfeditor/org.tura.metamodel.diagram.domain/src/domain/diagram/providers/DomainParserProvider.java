@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import domain.DomainPackage;
+import domain.diagram.edit.parts.ContinuousIintegrationNameEditPart;
 import domain.diagram.edit.parts.DomainApplicationNameEditPart;
 import domain.diagram.edit.parts.DomainApplicationsNameEditPart;
 import domain.diagram.edit.parts.DomainArtifactNameEditPart;
@@ -145,6 +146,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser continuousIintegrationName_505009Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getContinuousIintegrationName_505009Parser() {
+		if (continuousIintegrationName_505009Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getDomainArtifact_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			continuousIintegrationName_505009Parser = parser;
+		}
+		return continuousIintegrationName_505009Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser domainArtifactName_505005Parser;
 
 	/**
@@ -195,6 +214,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getJPAServiceName_505007Parser();
 		case EJBServiceNameEditPart.VISUAL_ID:
 			return getEJBServiceName_505008Parser();
+		case ContinuousIintegrationNameEditPart.VISUAL_ID:
+			return getContinuousIintegrationName_505009Parser();
 		case DomainArtifactNameEditPart.VISUAL_ID:
 			return getDomainArtifactName_505005Parser();
 		case DomainApplicationNameEditPart.VISUAL_ID:

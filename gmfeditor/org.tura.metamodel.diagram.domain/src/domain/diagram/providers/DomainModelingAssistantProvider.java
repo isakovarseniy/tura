@@ -49,10 +49,11 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 			types.add(DomainElementTypes.ORMEntity_503003);
 			types.add(DomainElementTypes.JPAService_503004);
 			types.add(DomainElementTypes.EJBService_503005);
+			types.add(DomainElementTypes.ContinuousIintegration_503006);
 			types.add(DomainElementTypes.DomainArtifact_503002);
 			return types;
 		}

@@ -636,6 +636,10 @@
             genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ContinuousIintegration"
+            description="Create new ContinuousIintegration"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="EnumAttribute"
             description="Create new EnumAttribute"
             genNodes="//@diagram/@childNodes.2"/>

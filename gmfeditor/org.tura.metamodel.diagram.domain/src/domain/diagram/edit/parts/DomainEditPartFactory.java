@@ -64,6 +64,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case EJBServiceNameEditPart.VISUAL_ID:
 				return new EJBServiceNameEditPart(view);
 
+			case ContinuousIintegrationEditPart.VISUAL_ID:
+				return new ContinuousIintegrationEditPart(view);
+
+			case ContinuousIintegrationNameEditPart.VISUAL_ID:
+				return new ContinuousIintegrationNameEditPart(view);
+
 			case DomainArtifactEditPart.VISUAL_ID:
 				return new DomainArtifactEditPart(view);
 

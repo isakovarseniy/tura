@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Domain"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="502001,502002,502003,503003,503004,503005,503002,503001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="502001,502002,502003,503003,503004,503005,503006,503002,503001"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="504001,504005,504004,504003"/>
       </viewProvider>
    </extension>
@@ -271,13 +271,13 @@
             <method name="getType()" value="Domain"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="502001,502002,502003,503003,503004,503005,503002,503001"/>
+            <method name="getType()" value="502001,502002,502003,503003,503004,503005,503006,503002,503001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="504001,504005,504004,504003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="505001,505002,505004,505006,505007,505008,505005,505003"/>
+            <method name="getType()" value="505001,505002,505004,505006,505007,505008,505009,505005,505003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="507002,507001"/>
@@ -397,6 +397,16 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
+               id="org.tura.metamodel.diagram.domain.ContinuousIintegration_503006"
+               name="%metatype.name.ContinuousIintegration_503006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ContinuousIintegration"
+               edithelper="domain.diagram.edit.helpers.ContinuousIintegrationEditHelper">
+            <param name="semanticHint" value="503006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
                id="org.tura.metamodel.diagram.domain.DomainArtifact_503002"
                name="%metatype.name.DomainArtifact_503002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -475,6 +485,7 @@
          <elementType ref="org.tura.metamodel.diagram.domain.ORMEntity_503003"/>
          <elementType ref="org.tura.metamodel.diagram.domain.JPAService_503004"/>
          <elementType ref="org.tura.metamodel.diagram.domain.EJBService_503005"/>
+         <elementType ref="org.tura.metamodel.diagram.domain.ContinuousIintegration_503006"/>
          <elementType ref="org.tura.metamodel.diagram.domain.DomainArtifact_503002"/>
          <elementType ref="org.tura.metamodel.diagram.domain.DomainApplication_503001"/>
          <elementType ref="org.tura.metamodel.diagram.domain.TypeExtension_504001"/>

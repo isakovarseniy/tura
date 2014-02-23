@@ -18,6 +18,7 @@ import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
+import domain.ContinuousIintegration;
 import domain.CreateMethod;
 import domain.Domain;
 import domain.DomainApplication;
@@ -139,6 +140,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.ORM_ENTITY: return createORMEntity();
       case DomainPackage.JPA_SERVICE: return createJPAService();
       case DomainPackage.EJB_SERVICE: return createEJBService();
+      case DomainPackage.CONTINUOUS_IINTEGRATION: return createContinuousIintegration();
       case DomainPackage.ARTIFACTS: return createArtifacts();
       case DomainPackage.ARTIFACT: return createArtifact();
       case DomainPackage.CONFIG_VARIABLE: return createConfigVariable();
@@ -330,6 +332,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     EJBServiceImpl ejbService = new EJBServiceImpl();
     return ejbService;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContinuousIintegration createContinuousIintegration()
+  {
+    ContinuousIintegrationImpl continuousIintegration = new ContinuousIintegrationImpl();
+    return continuousIintegration;
   }
 
   /**

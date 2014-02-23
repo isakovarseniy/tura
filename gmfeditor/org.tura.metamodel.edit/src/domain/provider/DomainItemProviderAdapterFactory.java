@@ -299,6 +299,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.ContinuousIintegration} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ContinuousIintegrationItemProvider continuousIintegrationItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ContinuousIintegration}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createContinuousIintegrationAdapter()
+  {
+    if (continuousIintegrationItemProvider == null)
+    {
+      continuousIintegrationItemProvider = new ContinuousIintegrationItemProvider(this);
+    }
+
+    return continuousIintegrationItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Artifacts} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1793,6 +1818,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (ormEntityItemProvider != null) ormEntityItemProvider.dispose();
     if (jpaServiceItemProvider != null) jpaServiceItemProvider.dispose();
     if (ejbServiceItemProvider != null) ejbServiceItemProvider.dispose();
+    if (continuousIintegrationItemProvider != null) continuousIintegrationItemProvider.dispose();
     if (artifactsItemProvider != null) artifactsItemProvider.dispose();
     if (artifactItemProvider != null) artifactItemProvider.dispose();
     if (configVariableItemProvider != null) configVariableItemProvider.dispose();

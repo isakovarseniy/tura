@@ -40,7 +40,7 @@
 
 		«EXPAND xpt::Common::generatedMemberComment»
 		protected org.eclipse.gmf.runtime.notation.Diagram intializeNewDiagram() throws org.eclipse.core.commands.ExecutionException {
-        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'   or editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'  or editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy' or editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'  or editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'  or editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy' or editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
+        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'   or editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'  or editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy' or editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'  or editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'  or editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy' or editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy' or editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'-»
  			«EXPAND sourceObject» sourceObject = («EXPAND sourceObject») ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (diagramFacet
 					.eContainer())).basicGetElement();
 			if (sourceObject.getName() == null) {
@@ -197,6 +197,8 @@
            domain.DomainArtifact
            «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-» 
            domain.DomainArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'-» 
+           domain.DomainArtifact
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-» 
            domain.DomainTypes
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-» 
@@ -222,6 +224,8 @@
            «ELSEIF editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy'-»
            setArtifact
            «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
+           setArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'-»
            setArtifact
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
            setTypesrepository
@@ -250,6 +254,8 @@
            getArtifact
            «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
            getArtifact
+           «ELSEIF editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'-»
+           getArtifact
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
            getTypesrepository
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»
@@ -277,6 +283,8 @@
            domain.Artifacts
            «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
            domain.Artifacts
+           «ELSEIF editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'-»
+           domain.Artifacts
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
            domain.TypesRepository
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»
@@ -303,6 +311,8 @@
           org.tura.metamodel.commons.initdiagram.InitDiagram.initJPAServiceDiagram(sourceObject.eResource())
             «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
           org.tura.metamodel.commons.initdiagram.InitDiagram.initEJBServiceDiagram(sourceObject.eResource())
+            «ELSEIF editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'-»
+          org.tura.metamodel.commons.initdiagram.InitDiagram.initContinuousIintegration(sourceObject.eResource())
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
            org.tura.metamodel.commons.initdiagram.InitDiagram.initTypesRepositoryDiagram(sourceObject.eResource())
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'-»
@@ -328,6 +338,8 @@
            «ELSEIF editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy'-»
            "artifact"
            «ELSEIF editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy'-»
+           "artifact"
+           «ELSEIF editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'-»
            "artifact"
            «ELSEIF editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy'-»
            "typesrepository"

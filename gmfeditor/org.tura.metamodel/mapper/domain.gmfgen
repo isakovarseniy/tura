@@ -247,6 +247,10 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ContinuousIintegration"
+            description="Create new ContinuousIintegration"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Ingredient"
             description="Create new Ingredient"/>
         <entries

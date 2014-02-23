@@ -25,6 +25,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import domain.DomainPackage;
+import domain.diagram.edit.parts.ContinuousIintegrationEditPart;
 import domain.diagram.edit.parts.DomainArtifactEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
@@ -91,6 +92,7 @@ public class DomainArtifactsDomainArtifactsDomainArtifactCompartmentCanonicalEdi
 		case ORMEntityEditPart.VISUAL_ID:
 		case JPAServiceEditPart.VISUAL_ID:
 		case EJBServiceEditPart.VISUAL_ID:
+		case ContinuousIintegrationEditPart.VISUAL_ID:
 		case DomainArtifactEditPart.VISUAL_ID:
 			return true;
 		}

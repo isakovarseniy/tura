@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
           href="domain.gmfgraph#DomainArtifacts"/>
       <children
@@ -41,7 +41,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
           <diagramNode
               href="domain.gmfgraph#ORMEntity"/>
         </ownedChild>
@@ -62,7 +62,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
           <diagramNode
               href="domain.gmfgraph#JPAService"/>
         </ownedChild>
@@ -83,9 +83,30 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
               href="domain.gmfgraph#EJBService"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//DomainArtifacts/domainArtifact"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//ContinuousIintegration"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#ContinuousIintegrationLabel"/>
+            <features
+                href="domain.ecore#//DomainArtifact/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+          <diagramNode
+              href="domain.gmfgraph#ContinuousIintegration"/>
         </ownedChild>
       </children>
       <children
@@ -104,13 +125,13 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="domain.gmfgraph#DomainArtifact"/>
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.3">
+          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.4">
         <compartment
             href="domain.gmfgraph#DomainArtifactsDomainArtifactCompartment"/>
       </compartments>
@@ -131,7 +152,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
       <diagramNode
           href="domain.gmfgraph#DomainTypes"/>
     </ownedChild>
@@ -152,7 +173,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
           href="domain.gmfgraph#DomainApplications"/>
       <children
@@ -171,7 +192,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="domain.gmfgraph#DomainApplication"/>
         </ownedChild>

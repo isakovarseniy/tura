@@ -18,6 +18,7 @@ import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
+import domain.ContinuousIintegration;
 import domain.CreateMethod;
 import domain.Domain;
 import domain.DomainApplication;
@@ -181,6 +182,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseEJBService(EJBService object)
       {
         return createEJBServiceAdapter();
+      }
+      @Override
+      public Adapter caseContinuousIintegration(ContinuousIintegration object)
+      {
+        return createContinuousIintegrationAdapter();
       }
       @Override
       public Adapter caseArtifacts(Artifacts object)
@@ -610,6 +616,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEJBServiceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ContinuousIintegration <em>Continuous Iintegration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ContinuousIintegration
+   * @generated
+   */
+  public Adapter createContinuousIintegrationAdapter()
   {
     return null;
   }

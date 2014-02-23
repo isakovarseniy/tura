@@ -39,8 +39,9 @@ public class DomainPaletteFactory {
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createBusinessPackage1CreationTool());
-		paletteContainer.add(createPackage2CreationTool());
-		paletteContainer.add(createTypes3CreationTool());
+		paletteContainer.add(createContinuousIintegration2CreationTool());
+		paletteContainer.add(createPackage3CreationTool());
+		paletteContainer.add(createTypes4CreationTool());
 		return paletteContainer;
 	}
 
@@ -78,12 +79,24 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPackage2CreationTool() {
+	private ToolEntry createContinuousIintegration2CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.ContinuousIintegration2CreationTool_title,
+				Messages.ContinuousIintegration2CreationTool_desc, null, null) {
+		};
+		entry.setId("createContinuousIintegration2CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createPackage3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Package2CreationTool_title,
-				Messages.Package2CreationTool_desc,
+				Messages.Package3CreationTool_title,
+				Messages.Package3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Package_203002));
-		entry.setId("createPackage2CreationTool"); //$NON-NLS-1$
+		entry.setId("createPackage3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Package_203002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -93,12 +106,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypes3CreationTool() {
+	private ToolEntry createTypes4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Types3CreationTool_title,
-				Messages.Types3CreationTool_desc,
+				Messages.Types4CreationTool_title,
+				Messages.Types4CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Types_202001));
-		entry.setId("createTypes3CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypes4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Types_202001));
 		entry.setLargeIcon(entry.getSmallIcon());

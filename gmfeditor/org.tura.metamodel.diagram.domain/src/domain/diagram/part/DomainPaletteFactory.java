@@ -38,14 +38,15 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createDomainApplication1CreationTool());
-		paletteContainer.add(createDomainApplications2CreationTool());
-		paletteContainer.add(createDomainArtifact3CreationTool());
-		paletteContainer.add(createDomainArtifacts4CreationTool());
-		paletteContainer.add(createDomainTypes5CreationTool());
-		paletteContainer.add(createEJBService6CreationTool());
-		paletteContainer.add(createJPAService7CreationTool());
-		paletteContainer.add(createORMEntity8CreationTool());
+		paletteContainer.add(createContinuousIintegration1CreationTool());
+		paletteContainer.add(createDomainApplication2CreationTool());
+		paletteContainer.add(createDomainApplications3CreationTool());
+		paletteContainer.add(createDomainArtifact4CreationTool());
+		paletteContainer.add(createDomainArtifacts5CreationTool());
+		paletteContainer.add(createDomainTypes6CreationTool());
+		paletteContainer.add(createEJBService7CreationTool());
+		paletteContainer.add(createJPAService8CreationTool());
+		paletteContainer.add(createORMEntity9CreationTool());
 		return paletteContainer;
 	}
 
@@ -67,13 +68,29 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainApplication1CreationTool() {
+	private ToolEntry createContinuousIintegration1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DomainApplication1CreationTool_title,
-				Messages.DomainApplication1CreationTool_desc,
+				Messages.ContinuousIintegration1CreationTool_title,
+				Messages.ContinuousIintegration1CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.ContinuousIintegration_503006));
+		entry.setId("createContinuousIintegration1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.ContinuousIintegration_503006));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createDomainApplication2CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.DomainApplication2CreationTool_title,
+				Messages.DomainApplication2CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DomainApplication_503001));
-		entry.setId("createDomainApplication1CreationTool"); //$NON-NLS-1$
+		entry.setId("createDomainApplication2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DomainApplication_503001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -83,13 +100,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainApplications2CreationTool() {
+	private ToolEntry createDomainApplications3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DomainApplications2CreationTool_title,
-				Messages.DomainApplications2CreationTool_desc,
+				Messages.DomainApplications3CreationTool_title,
+				Messages.DomainApplications3CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DomainApplications_502003));
-		entry.setId("createDomainApplications2CreationTool"); //$NON-NLS-1$
+		entry.setId("createDomainApplications3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DomainApplications_502003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -99,13 +116,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainArtifact3CreationTool() {
+	private ToolEntry createDomainArtifact4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DomainArtifact3CreationTool_title,
-				Messages.DomainArtifact3CreationTool_desc,
+				Messages.DomainArtifact4CreationTool_title,
+				Messages.DomainArtifact4CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DomainArtifact_503002));
-		entry.setId("createDomainArtifact3CreationTool"); //$NON-NLS-1$
+		entry.setId("createDomainArtifact4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DomainArtifact_503002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -115,13 +132,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainArtifacts4CreationTool() {
+	private ToolEntry createDomainArtifacts5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DomainArtifacts4CreationTool_title,
-				Messages.DomainArtifacts4CreationTool_desc,
+				Messages.DomainArtifacts5CreationTool_title,
+				Messages.DomainArtifacts5CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DomainArtifacts_502001));
-		entry.setId("createDomainArtifacts4CreationTool"); //$NON-NLS-1$
+		entry.setId("createDomainArtifacts5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DomainArtifacts_502001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -131,13 +148,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainTypes5CreationTool() {
+	private ToolEntry createDomainTypes6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DomainTypes5CreationTool_title,
-				Messages.DomainTypes5CreationTool_desc,
+				Messages.DomainTypes6CreationTool_title,
+				Messages.DomainTypes6CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DomainTypes_502002));
-		entry.setId("createDomainTypes5CreationTool"); //$NON-NLS-1$
+		entry.setId("createDomainTypes6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DomainTypes_502002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -147,12 +164,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createEJBService6CreationTool() {
+	private ToolEntry createEJBService7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.EJBService6CreationTool_title,
-				Messages.EJBService6CreationTool_desc,
+				Messages.EJBService7CreationTool_title,
+				Messages.EJBService7CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.EJBService_503005));
-		entry.setId("createEJBService6CreationTool"); //$NON-NLS-1$
+		entry.setId("createEJBService7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.EJBService_503005));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -162,12 +179,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createJPAService7CreationTool() {
+	private ToolEntry createJPAService8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.JPAService7CreationTool_title,
-				Messages.JPAService7CreationTool_desc,
+				Messages.JPAService8CreationTool_title,
+				Messages.JPAService8CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.JPAService_503004));
-		entry.setId("createJPAService7CreationTool"); //$NON-NLS-1$
+		entry.setId("createJPAService8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.JPAService_503004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -177,12 +194,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createORMEntity8CreationTool() {
+	private ToolEntry createORMEntity9CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ORMEntity8CreationTool_title,
-				Messages.ORMEntity8CreationTool_desc,
+				Messages.ORMEntity9CreationTool_title,
+				Messages.ORMEntity9CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ORMEntity_503003));
-		entry.setId("createORMEntity8CreationTool"); //$NON-NLS-1$
+		entry.setId("createORMEntity9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ORMEntity_503003));
 		entry.setLargeIcon(entry.getSmallIcon());

@@ -403,6 +403,10 @@
             genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ContinuousIintegration"
+            description="Create new ContinuousIintegration"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Package"
             description="Create new Package"
             genNodes="//@diagram/@childNodes.0"/>

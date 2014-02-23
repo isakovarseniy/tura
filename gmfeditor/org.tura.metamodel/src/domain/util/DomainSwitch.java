@@ -18,6 +18,7 @@ import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
+import domain.ContinuousIintegration;
 import domain.CreateMethod;
 import domain.Domain;
 import domain.DomainApplication;
@@ -198,6 +199,14 @@ public class DomainSwitch<T> extends Switch<T>
         EJBService ejbService = (EJBService)theEObject;
         T result = caseEJBService(ejbService);
         if (result == null) result = caseDomainArtifact(ejbService);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CONTINUOUS_IINTEGRATION:
+      {
+        ContinuousIintegration continuousIintegration = (ContinuousIintegration)theEObject;
+        T result = caseContinuousIintegration(continuousIintegration);
+        if (result == null) result = caseDomainArtifact(continuousIintegration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -758,6 +767,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEJBService(EJBService object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Continuous Iintegration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Continuous Iintegration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContinuousIintegration(ContinuousIintegration object)
   {
     return null;
   }

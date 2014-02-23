@@ -75,6 +75,11 @@ public class Util {
 					+ var.getQueryParamRef().getName() + "\\}", var.getValue());
 		}
 
+		String component_uuid =   ((domain.ModelMapper)query.eContainer()).getParent().getUid();
+		String modelmapper_uuid =   ((domain.ModelMapper)query.eContainer()).getUid();
+		strQuery = strQuery.replaceAll("\\$\\{COMPONENT_UUID\\}", component_uuid);
+		strQuery = strQuery.replaceAll("\\$\\{MODEL_MAPPER_UUID\\}", modelmapper_uuid);
+		
 		return executeQuery(strQuery, eobj);
 	}
 

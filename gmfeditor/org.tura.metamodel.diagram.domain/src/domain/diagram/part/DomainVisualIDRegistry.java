@@ -14,6 +14,8 @@ import domain.Domain;
 import domain.DomainPackage;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
+import domain.diagram.edit.parts.ContinuousIintegrationEditPart;
+import domain.diagram.edit.parts.ContinuousIintegrationNameEditPart;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
 import domain.diagram.edit.parts.DomainApplicationNameEditPart;
 import domain.diagram.edit.parts.DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart;
@@ -174,6 +176,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return EJBServiceEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getContinuousIintegration()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ContinuousIintegrationEditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getDomainArtifact().isSuperTypeOf(
 					domainElement.eClass())) {
 				return DomainArtifactEditPart.VISUAL_ID;
@@ -258,6 +264,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ContinuousIintegrationEditPart.VISUAL_ID:
+			if (ContinuousIintegrationNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case DomainArtifactEditPart.VISUAL_ID:
 			if (DomainArtifactNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -276,6 +287,9 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (EJBServiceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ContinuousIintegrationEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (DomainArtifactEditPart.VISUAL_ID == nodeVisualID) {
@@ -370,6 +384,7 @@ public class DomainVisualIDRegistry {
 		case ORMEntityEditPart.VISUAL_ID:
 		case JPAServiceEditPart.VISUAL_ID:
 		case EJBServiceEditPart.VISUAL_ID:
+		case ContinuousIintegrationEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

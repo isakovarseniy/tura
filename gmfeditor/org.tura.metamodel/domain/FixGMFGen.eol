@@ -92,6 +92,24 @@ innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2
 
 
 
+//********
+//Enable diagram partition for ContinuousIintegration element
+var genTopLevelNode = GmfGen!GenChildNode.all.select(n|n.createCommandClassName = 'ContinuousIintegrationCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'artifact.diagram.part.ArtifactDiagramEditorID';
+behaviour.diagramKind='Artifact';
+behaviour.editPolicyClassName= 'OpenDiagramContinuousIintegrationEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for ContinuousIintegration element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'ContinuousIintegrationFigure').first;
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
+
+
+//******
+
+
  -- distinct visual ID
 for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+500000);

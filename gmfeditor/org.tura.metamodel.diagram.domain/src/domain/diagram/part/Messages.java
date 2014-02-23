@@ -256,82 +256,92 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DomainApplication1CreationTool_title;
+	public static String ContinuousIintegration1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainApplication1CreationTool_desc;
+	public static String ContinuousIintegration1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainApplications2CreationTool_title;
+	public static String DomainApplication2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainApplications2CreationTool_desc;
+	public static String DomainApplication2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact3CreationTool_title;
+	public static String DomainApplications3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact3CreationTool_desc;
+	public static String DomainApplications3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifacts4CreationTool_title;
+	public static String DomainArtifact4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifacts4CreationTool_desc;
+	public static String DomainArtifact4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainTypes5CreationTool_title;
+	public static String DomainArtifacts5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainTypes5CreationTool_desc;
+	public static String DomainArtifacts5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EJBService6CreationTool_title;
+	public static String DomainTypes6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EJBService6CreationTool_desc;
+	public static String DomainTypes6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JPAService7CreationTool_title;
+	public static String EJBService7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JPAService7CreationTool_desc;
+	public static String EJBService7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ORMEntity8CreationTool_title;
+	public static String JPAService8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ORMEntity8CreationTool_desc;
+	public static String JPAService8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ORMEntity9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ORMEntity9CreationTool_desc;
 
 	/**
 	 * @generated

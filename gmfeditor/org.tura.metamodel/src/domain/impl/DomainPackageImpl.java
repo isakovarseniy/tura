@@ -18,6 +18,7 @@ import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
+import domain.ContinuousIintegration;
 import domain.CreateMethod;
 import domain.Domain;
 import domain.DomainApplication;
@@ -147,6 +148,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass ejbServiceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass continuousIintegrationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -931,6 +939,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EClass getEJBService()
   {
     return ejbServiceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getContinuousIintegration()
+  {
+    return continuousIintegrationEClass;
   }
 
   /**
@@ -3485,6 +3503,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     ejbServiceEClass = createEClass(EJB_SERVICE);
 
+    continuousIintegrationEClass = createEClass(CONTINUOUS_IINTEGRATION);
+
     artifactsEClass = createEClass(ARTIFACTS);
     createEAttribute(artifactsEClass, ARTIFACTS__UID);
     createEReference(artifactsEClass, ARTIFACTS__ARTIFACTS);
@@ -3823,6 +3843,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     ormEntityEClass.getESuperTypes().add(this.getDomainArtifact());
     jpaServiceEClass.getESuperTypes().add(this.getDomainArtifact());
     ejbServiceEClass.getESuperTypes().add(this.getDomainArtifact());
+    continuousIintegrationEClass.getESuperTypes().add(this.getDomainArtifact());
     businessMethodEClass.getESuperTypes().add(this.getTypePointer());
     createMethodEClass.getESuperTypes().add(this.getBusinessMethod());
     insertMethodEClass.getESuperTypes().add(this.getBusinessMethod());
@@ -3887,6 +3908,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(jpaServiceEClass, JPAService.class, "JPAService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(ejbServiceEClass, EJBService.class, "EJBService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(continuousIintegrationEClass, ContinuousIintegration.class, "ContinuousIintegration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(artifactsEClass, Artifacts.class, "Artifacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getArtifacts_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Artifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4239,7 +4262,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																														
+       });																																																																															
   }
 
   /**
@@ -4256,7 +4279,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																													
+       });																																																																														
   }
 
   /**
@@ -4331,6 +4354,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        });		
     addAnnotation
       (ejbServiceEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });		
+    addAnnotation
+      (continuousIintegrationEClass, 
        source, 
        new String[] 
        {
@@ -4673,7 +4705,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });									
+       });										
     addAnnotation
       (getArtifact_ConfigVariables(), 
        source, 
@@ -4815,7 +4847,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_4Annotations()
   {
-    String source = "gmf.diagram.artifact";														
+    String source = "gmf.diagram.artifact";															
     addAnnotation
       (artifactsEClass, 
        source, 
@@ -4832,7 +4864,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_5Annotations()
   {
-    String source = "gmf.diagram.application";																							
+    String source = "gmf.diagram.application";																								
     addAnnotation
       (applicationEClass, 
        source, 
@@ -4849,7 +4881,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_6Annotations()
   {
-    String source = "gmf.diagram.businessObjects";																														
+    String source = "gmf.diagram.businessObjects";																															
     addAnnotation
       (businessObjectsEClass, 
        source, 
@@ -4866,7 +4898,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_7Annotations()
   {
-    String source = "gmf.diagram.mapper";																																												
+    String source = "gmf.diagram.mapper";																																													
     addAnnotation
       (mappersEClass, 
        source, 
@@ -4883,7 +4915,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_8Annotations()
   {
-    String source = "gmf.diagram.recipe";																																														
+    String source = "gmf.diagram.recipe";																																															
     addAnnotation
       (recipesEClass, 
        source, 
@@ -4900,7 +4932,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_9Annotations()
   {
-    String source = "gmf.link";																																																	
+    String source = "gmf.link";																																																		
     addAnnotation
       (getRecipe_Infrastructures(), 
        source, 
@@ -4947,7 +4979,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_10Annotations()
   {
-    String source = "gmf.diagram.typedefinition";																																																															
+    String source = "gmf.diagram.typedefinition";																																																																
     addAnnotation
       (typeDefinitionEClass, 
        source, 
@@ -4964,7 +4996,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_11Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																											
+    String source = "gmf.diagram.typesrepository";																																																																												
     addAnnotation
       (typesRepositoryEClass, 
        source, 

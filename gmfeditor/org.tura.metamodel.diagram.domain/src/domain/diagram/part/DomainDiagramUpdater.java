@@ -17,6 +17,7 @@ import domain.DomainApplications;
 import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainTypes;
+import domain.diagram.edit.parts.ContinuousIintegrationEditPart;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
 import domain.diagram.edit.parts.DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart;
 import domain.diagram.edit.parts.DomainApplicationsEditPart;
@@ -128,6 +129,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ContinuousIintegrationEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DomainArtifactEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -183,6 +188,8 @@ public class DomainDiagramUpdater {
 			return getJPAService_503004ContainedLinks(view);
 		case EJBServiceEditPart.VISUAL_ID:
 			return getEJBService_503005ContainedLinks(view);
+		case ContinuousIintegrationEditPart.VISUAL_ID:
+			return getContinuousIintegration_503006ContainedLinks(view);
 		case DomainArtifactEditPart.VISUAL_ID:
 			return getDomainArtifact_503002ContainedLinks(view);
 		case DomainApplicationEditPart.VISUAL_ID:
@@ -210,6 +217,8 @@ public class DomainDiagramUpdater {
 			return getJPAService_503004IncomingLinks(view);
 		case EJBServiceEditPart.VISUAL_ID:
 			return getEJBService_503005IncomingLinks(view);
+		case ContinuousIintegrationEditPart.VISUAL_ID:
+			return getContinuousIintegration_503006IncomingLinks(view);
 		case DomainArtifactEditPart.VISUAL_ID:
 			return getDomainArtifact_503002IncomingLinks(view);
 		case DomainApplicationEditPart.VISUAL_ID:
@@ -237,6 +246,8 @@ public class DomainDiagramUpdater {
 			return getJPAService_503004OutgoingLinks(view);
 		case EJBServiceEditPart.VISUAL_ID:
 			return getEJBService_503005OutgoingLinks(view);
+		case ContinuousIintegrationEditPart.VISUAL_ID:
+			return getContinuousIintegration_503006OutgoingLinks(view);
 		case DomainArtifactEditPart.VISUAL_ID:
 			return getDomainArtifact_503002OutgoingLinks(view);
 		case DomainApplicationEditPart.VISUAL_ID:
@@ -299,6 +310,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getEJBService_503005ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getContinuousIintegration_503006ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -378,6 +397,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getContinuousIintegration_503006IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDomainArtifact_503002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -443,6 +470,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getEJBService_503005OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getContinuousIintegration_503006OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

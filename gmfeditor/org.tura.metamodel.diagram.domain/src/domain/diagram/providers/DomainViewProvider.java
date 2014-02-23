@@ -49,6 +49,8 @@ import org.eclipse.swt.graphics.FontData;
 
 import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
+import domain.diagram.edit.parts.ContinuousIintegrationEditPart;
+import domain.diagram.edit.parts.ContinuousIintegrationNameEditPart;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
 import domain.diagram.edit.parts.DomainApplicationNameEditPart;
 import domain.diagram.edit.parts.DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart;
@@ -171,6 +173,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				case ORMEntityEditPart.VISUAL_ID:
 				case JPAServiceEditPart.VISUAL_ID:
 				case EJBServiceEditPart.VISUAL_ID:
+				case ContinuousIintegrationEditPart.VISUAL_ID:
 				case DomainArtifactEditPart.VISUAL_ID:
 				case DomainApplicationEditPart.VISUAL_ID:
 					if (domainElement == null
@@ -191,6 +194,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| ORMEntityEditPart.VISUAL_ID == visualID
 				|| JPAServiceEditPart.VISUAL_ID == visualID
 				|| EJBServiceEditPart.VISUAL_ID == visualID
+				|| ContinuousIintegrationEditPart.VISUAL_ID == visualID
 				|| DomainArtifactEditPart.VISUAL_ID == visualID
 				|| DomainApplicationEditPart.VISUAL_ID == visualID;
 	}
@@ -267,6 +271,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		case EJBServiceEditPart.VISUAL_ID:
 			return createEJBService_503005(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case ContinuousIintegrationEditPart.VISUAL_ID:
+			return createContinuousIintegration_503006(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case DomainArtifactEditPart.VISUAL_ID:
 			return createDomainArtifact_503002(domainElement, containerView,
 					index, persisted, preferencesHint);
@@ -570,6 +577,50 @@ public class DomainViewProvider extends AbstractProvider implements
 		Node label505008 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(EJBServiceNameEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createContinuousIintegration_503006(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		{
+			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
+					.createHintedDiagramLinkStyle();
+			diagramFacet.setHint("Artifact"); //$NON-NLS-1$
+			node.getStyles().add(diagramFacet);
+		}
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(ContinuousIintegrationEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label505009 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(ContinuousIintegrationNameEditPart.VISUAL_ID));
 		return node;
 	}
 

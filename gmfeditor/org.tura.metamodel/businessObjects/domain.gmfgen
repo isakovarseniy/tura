@@ -697,6 +697,10 @@
             genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ContinuousIintegration"
+            description="Create new ContinuousIintegration"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="CreateMethod"
             description="Create new CreateMethod"
             genNodes="//@diagram/@childNodes.0"/>

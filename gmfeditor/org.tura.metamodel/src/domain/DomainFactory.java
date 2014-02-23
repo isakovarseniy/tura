@@ -104,6 +104,15 @@ public interface DomainFactory extends EFactory
   EJBService createEJBService();
 
   /**
+   * Returns a new object of class '<em>Continuous Iintegration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Continuous Iintegration</em>'.
+   * @generated
+   */
+  ContinuousIintegration createContinuousIintegration();
+
+  /**
    * Returns a new object of class '<em>Artifacts</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

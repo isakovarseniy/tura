@@ -235,6 +235,11 @@ public class DomainArtifactsItemProvider
       (createChildParameter
         (DomainPackage.Literals.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT,
          DomainFactory.eINSTANCE.createEJBService()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT,
+         DomainFactory.eINSTANCE.createContinuousIintegration()));
   }
 
   /**

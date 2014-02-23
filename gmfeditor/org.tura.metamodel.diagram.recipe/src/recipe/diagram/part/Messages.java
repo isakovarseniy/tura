@@ -266,72 +266,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure2CreationTool_title;
+	public static String ContinuousIintegration2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure2CreationTool_desc;
+	public static String ContinuousIintegration2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient3CreationTool_title;
+	public static String Infrastructure3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient3CreationTool_desc;
+	public static String Infrastructure3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaComponent4CreationTool_title;
+	public static String Ingredient4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaComponent4CreationTool_desc;
+	public static String Ingredient4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelMapper5CreationTool_title;
+	public static String JavaComponent5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelMapper5CreationTool_desc;
+	public static String JavaComponent5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Property6CreationTool_title;
+	public static String ModelMapper6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Property6CreationTool_desc;
+	public static String ModelMapper6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Query7CreationTool_title;
+	public static String Property7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Query7CreationTool_desc;
+	public static String Property7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Recipe8CreationTool_title;
+	public static String Query8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Recipe8CreationTool_desc;
+	public static String Query8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Recipe9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Recipe9CreationTool_desc;
 
 	/**
 	 * @generated

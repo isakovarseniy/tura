@@ -40,8 +40,9 @@ public class DomainPaletteFactory {
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createArtifact1CreationTool());
 		paletteContainer.add(createConfigVariable2CreationTool());
-		paletteContainer.add(createModelQuery3CreationTool());
-		paletteContainer.add(createSpecifier4CreationTool());
+		paletteContainer.add(createContinuousIintegration3CreationTool());
+		paletteContainer.add(createModelQuery4CreationTool());
+		paletteContainer.add(createSpecifier5CreationTool());
 		return paletteContainer;
 	}
 
@@ -94,12 +95,24 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createModelQuery3CreationTool() {
+	private ToolEntry createContinuousIintegration3CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.ContinuousIintegration3CreationTool_title,
+				Messages.ContinuousIintegration3CreationTool_desc, null, null) {
+		};
+		entry.setId("createContinuousIintegration3CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createModelQuery4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ModelQuery3CreationTool_title,
-				Messages.ModelQuery3CreationTool_desc,
+				Messages.ModelQuery4CreationTool_title,
+				Messages.ModelQuery4CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ModelQuery_703005));
-		entry.setId("createModelQuery3CreationTool"); //$NON-NLS-1$
+		entry.setId("createModelQuery4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ModelQuery_703005));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -109,12 +122,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSpecifier4CreationTool() {
+	private ToolEntry createSpecifier5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Specifier4CreationTool_title,
-				Messages.Specifier4CreationTool_desc,
+				Messages.Specifier5CreationTool_title,
+				Messages.Specifier5CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Specifier_703003));
-		entry.setId("createSpecifier4CreationTool"); //$NON-NLS-1$
+		entry.setId("createSpecifier5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Specifier_703003));
 		entry.setLargeIcon(entry.getSmallIcon());

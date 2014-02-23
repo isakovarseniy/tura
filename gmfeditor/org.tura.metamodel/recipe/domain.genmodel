@@ -48,6 +48,7 @@
     <genClasses ecoreClass="domain.ecore#//ORMEntity"/>
     <genClasses ecoreClass="domain.ecore#//JPAService"/>
     <genClasses ecoreClass="domain.ecore#//EJBService"/>
+    <genClasses ecoreClass="domain.ecore#//ContinuousIintegration"/>
     <genClasses ecoreClass="domain.ecore#//Artifacts">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Artifacts/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Artifacts/artifacts"/>

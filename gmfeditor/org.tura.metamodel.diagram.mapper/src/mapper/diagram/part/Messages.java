@@ -256,22 +256,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Ingredient1CreationTool_title;
+	public static String ContinuousIintegration1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient1CreationTool_desc;
+	public static String ContinuousIintegration1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaMapper2CreationTool_title;
+	public static String Ingredient2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaMapper2CreationTool_desc;
+	public static String Ingredient2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String JavaMapper3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String JavaMapper3CreationTool_desc;
 
 	/**
 	 * @generated

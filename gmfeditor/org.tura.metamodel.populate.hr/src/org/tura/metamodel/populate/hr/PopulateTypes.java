@@ -561,7 +561,6 @@ public class PopulateTypes {
 		ret.setTypeRef(typesHash.get(Constants.PACKAGE_HR + "_" + Constants.TYPE_LIST_OF_EMPLOYEES));
 		
 		
-		
 		domain.Parameter param = domain.DomainFactory.eINSTANCE
 				.createParameter();
 		opr.getParameters().add(param);

@@ -21,6 +21,7 @@ import org.eclipse.swt.graphics.Image;
 
 import domain.DomainPackage;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import domain.diagram.edit.parts.ContinuousIintegrationEditPart;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
 import domain.diagram.edit.parts.DomainApplicationsEditPart;
 import domain.diagram.edit.parts.DomainArtifactEditPart;
@@ -89,6 +90,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType EJBService_503005 = getElementType("org.tura.metamodel.diagram.domain.EJBService_503005"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType ContinuousIintegration_503006 = getElementType("org.tura.metamodel.diagram.domain.ContinuousIintegration_503006"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -245,6 +251,9 @@ public class DomainElementTypes {
 			elements.put(EJBService_503005,
 					DomainPackage.eINSTANCE.getEJBService());
 
+			elements.put(ContinuousIintegration_503006,
+					DomainPackage.eINSTANCE.getContinuousIintegration());
+
 			elements.put(DomainArtifact_503002,
 					DomainPackage.eINSTANCE.getDomainArtifact());
 
@@ -286,6 +295,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ORMEntity_503003);
 			KNOWN_ELEMENT_TYPES.add(JPAService_503004);
 			KNOWN_ELEMENT_TYPES.add(EJBService_503005);
+			KNOWN_ELEMENT_TYPES.add(ContinuousIintegration_503006);
 			KNOWN_ELEMENT_TYPES.add(DomainArtifact_503002);
 			KNOWN_ELEMENT_TYPES.add(DomainApplication_503001);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_504001);
@@ -315,6 +325,8 @@ public class DomainElementTypes {
 			return JPAService_503004;
 		case EJBServiceEditPart.VISUAL_ID:
 			return EJBService_503005;
+		case ContinuousIintegrationEditPart.VISUAL_ID:
+			return ContinuousIintegration_503006;
 		case DomainArtifactEditPart.VISUAL_ID:
 			return DomainArtifact_503002;
 		case DomainApplicationEditPart.VISUAL_ID:

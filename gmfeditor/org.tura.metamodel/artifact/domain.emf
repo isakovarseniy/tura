@@ -66,6 +66,12 @@ class JPAService extends DomainArtifact{
 class EJBService extends DomainArtifact{
 }
 
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class ContinuousIintegration extends DomainArtifact{
+}
+
+
+
 @gmf.diagram
 class Artifacts{
     id attr EString uid;
