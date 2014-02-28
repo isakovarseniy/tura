@@ -8,6 +8,7 @@ package [%=type.~package%];
 
 
 @javax.ejb.Remote
+@javax.jws.WebService
 public interface  [%=type.~class%]  {
 
 [%for ( method in type.operations){ %]    
