@@ -2516,6 +2516,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getModelMapper_GeneratedArtifactLocation()
+  {
+    return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getProperty()
   {
     return propertyEClass;
@@ -3693,6 +3703,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(modelMapperEClass, MODEL_MAPPER__PARENT);
     createEReference(modelMapperEClass, MODEL_MAPPER__SPECIFIERS);
     createEReference(modelMapperEClass, MODEL_MAPPER__QUERIES);
+    createEAttribute(modelMapperEClass, MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION);
 
     propertyEClass = createEClass(PROPERTY);
     createEAttribute(propertyEClass, PROPERTY__UID);
@@ -4099,6 +4110,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getModelMapper_Parent(), this.getComponent(), this.getComponent_Mappers(), "parent", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelMapper_Specifiers(), this.getMappingSpecifier(), null, "specifiers", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelMapper_Queries(), this.getQuery(), null, "queries", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModelMapper_GeneratedArtifactLocation(), ecorePackage.getEString(), "generatedArtifactLocation", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProperty_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -362,6 +362,7 @@ class ModelMapper extends ArtifactRef{
    val MappingSpecifier[*] specifiers;
    @gmf.compartment(layout="list")
     val Query[*] queries;
+    attr EString generatedArtifactLocation;
 }
 
 @gmf.node(label="fakeName",border.color="0,0,0",color="255,239,222")

@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ModelMapperImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getQueries <em>Queries</em>}</li>
+ *   <li>{@link domain.impl.ModelMapperImpl#getGeneratedArtifactLocation <em>Generated Artifact Location</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +82,26 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
    * @ordered
    */
   protected EList<Query> queries;
+
+  /**
+   * The default value of the '{@link #getGeneratedArtifactLocation() <em>Generated Artifact Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGeneratedArtifactLocation()
+   * @generated
+   * @ordered
+   */
+  protected static final String GENERATED_ARTIFACT_LOCATION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getGeneratedArtifactLocation() <em>Generated Artifact Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGeneratedArtifactLocation()
+   * @generated
+   * @ordered
+   */
+  protected String generatedArtifactLocation = GENERATED_ARTIFACT_LOCATION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -204,6 +225,29 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getGeneratedArtifactLocation()
+  {
+    return generatedArtifactLocation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGeneratedArtifactLocation(String newGeneratedArtifactLocation)
+  {
+    String oldGeneratedArtifactLocation = generatedArtifactLocation;
+    generatedArtifactLocation = newGeneratedArtifactLocation;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION, oldGeneratedArtifactLocation, generatedArtifactLocation));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -271,6 +315,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
         return getSpecifiers();
       case DomainPackage.MODEL_MAPPER__QUERIES:
         return getQueries();
+      case DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION:
+        return getGeneratedArtifactLocation();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -300,6 +346,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
         getQueries().clear();
         getQueries().addAll((Collection<? extends Query>)newValue);
         return;
+      case DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION:
+        setGeneratedArtifactLocation((String)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -326,6 +375,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
       case DomainPackage.MODEL_MAPPER__QUERIES:
         getQueries().clear();
         return;
+      case DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION:
+        setGeneratedArtifactLocation(GENERATED_ARTIFACT_LOCATION_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -348,6 +400,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
         return specifiers != null && !specifiers.isEmpty();
       case DomainPackage.MODEL_MAPPER__QUERIES:
         return queries != null && !queries.isEmpty();
+      case DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION:
+        return GENERATED_ARTIFACT_LOCATION_EDEFAULT == null ? generatedArtifactLocation != null : !GENERATED_ARTIFACT_LOCATION_EDEFAULT.equals(generatedArtifactLocation);
     }
     return super.eIsSet(featureID);
   }
@@ -365,6 +419,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", generatedArtifactLocation: ");
+    result.append(generatedArtifactLocation);
     result.append(')');
     return result.toString();
   }

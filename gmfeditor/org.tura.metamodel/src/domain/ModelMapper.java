@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.ModelMapper#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.ModelMapper#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link domain.ModelMapper#getQueries <em>Queries</em>}</li>
+ *   <li>{@link domain.ModelMapper#getGeneratedArtifactLocation <em>Generated Artifact Location</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,5 +112,31 @@ public interface ModelMapper extends ArtifactRef
    * @generated
    */
   EList<Query> getQueries();
+
+  /**
+   * Returns the value of the '<em><b>Generated Artifact Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Generated Artifact Location</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Generated Artifact Location</em>' attribute.
+   * @see #setGeneratedArtifactLocation(String)
+   * @see domain.DomainPackage#getModelMapper_GeneratedArtifactLocation()
+   * @model
+   * @generated
+   */
+  String getGeneratedArtifactLocation();
+
+  /**
+   * Sets the value of the '{@link domain.ModelMapper#getGeneratedArtifactLocation <em>Generated Artifact Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Generated Artifact Location</em>' attribute.
+   * @see #getGeneratedArtifactLocation()
+   * @generated
+   */
+  void setGeneratedArtifactLocation(String value);
 
 } // ModelMapper

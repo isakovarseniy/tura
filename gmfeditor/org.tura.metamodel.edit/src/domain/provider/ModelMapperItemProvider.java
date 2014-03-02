@@ -65,6 +65,7 @@ public class ModelMapperItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
+      addGeneratedArtifactLocationPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -84,6 +85,29 @@ public class ModelMapperItemProvider
          getString("_UI_ModelMapper_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_name_feature", "_UI_ModelMapper_type"),
          DomainPackage.Literals.MODEL_MAPPER__NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Generated Artifact Location feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addGeneratedArtifactLocationPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ModelMapper_generatedArtifactLocation_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_generatedArtifactLocation_feature", "_UI_ModelMapper_type"),
+         DomainPackage.Literals.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION,
          true,
          false,
          false,
@@ -168,6 +192,7 @@ public class ModelMapperItemProvider
     switch (notification.getFeatureID(ModelMapper.class))
     {
       case DomainPackage.MODEL_MAPPER__NAME:
+      case DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:

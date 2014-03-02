@@ -3055,13 +3055,22 @@ public interface DomainPackage extends EPackage
   int MODEL_MAPPER__QUERIES = ARTIFACT_REF_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Generated Artifact Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION = ARTIFACT_REF_FEATURE_COUNT + 4;
+
+  /**
    * The number of structural features of the '<em>Model Mapper</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 4;
+  int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.
@@ -6312,6 +6321,17 @@ public interface DomainPackage extends EPackage
   EReference getModelMapper_Queries();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.ModelMapper#getGeneratedArtifactLocation <em>Generated Artifact Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Generated Artifact Location</em>'.
+   * @see domain.ModelMapper#getGeneratedArtifactLocation()
+   * @see #getModelMapper()
+   * @generated
+   */
+  EAttribute getModelMapper_GeneratedArtifactLocation();
+
+  /**
    * Returns the meta object for class '{@link domain.Property <em>Property</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8928,6 +8948,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference MODEL_MAPPER__QUERIES = eINSTANCE.getModelMapper_Queries();
+
+    /**
+     * The meta object literal for the '<em><b>Generated Artifact Location</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION = eINSTANCE.getModelMapper_GeneratedArtifactLocation();
 
     /**
      * The meta object literal for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.

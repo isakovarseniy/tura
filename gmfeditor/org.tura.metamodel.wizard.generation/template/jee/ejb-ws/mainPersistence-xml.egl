@@ -17,6 +17,7 @@
  
      
     var buffer = persistence.process();
-    util.saveFile( path, "persistence.xml",buffer);   
+    util.saveFile( path, "persistence.xml",buffer); 
+    model_mapper.setGeneratedArtifactLocation(path);
  %]
 
