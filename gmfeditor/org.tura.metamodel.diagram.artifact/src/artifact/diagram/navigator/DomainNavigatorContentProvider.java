@@ -35,8 +35,11 @@ import artifact.diagram.edit.parts.ArtifactEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
 import artifact.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import artifact.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import artifact.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import artifact.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import artifact.diagram.edit.parts.ModelQueryEditPart;
+import artifact.diagram.edit.parts.RecipeDeloymentEditPart;
 import artifact.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.edit.parts.TypeExtensionEditPart;
@@ -261,9 +264,23 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry
 							.getType(TypeExtensionEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DeploymentComponentDeplymentComponentEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DeploymentStarStepFirstStepEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					DomainVisualIDRegistry
 							.getType(RecipeInfrastructuresEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(RecipeDeloymentEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),

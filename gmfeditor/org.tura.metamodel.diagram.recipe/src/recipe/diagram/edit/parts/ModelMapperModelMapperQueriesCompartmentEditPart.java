@@ -29,7 +29,7 @@ public class ModelMapperModelMapperQueriesCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 307011;
+	public static final int VISUAL_ID = 307004;
 
 	/**
 	 * @generated

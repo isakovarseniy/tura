@@ -33,9 +33,9 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
+
 import recipe.diagram.edit.policies.InfrastructureItemSemanticEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.providers.DomainElementTypes;
@@ -268,7 +268,7 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.InfrastructureRecipeConfig_304004);
+		types.add(DomainElementTypes.InfrastructureRecipeConfig_304006);
 		return types;
 	}
 
@@ -279,7 +279,7 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ConfigurationEditPart) {
-			types.add(DomainElementTypes.InfrastructureRecipeConfig_304004);
+			types.add(DomainElementTypes.InfrastructureRecipeConfig_304006);
 		}
 		return types;
 	}
@@ -289,7 +289,7 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.InfrastructureRecipeConfig_304004) {
+		if (relationshipType == DomainElementTypes.InfrastructureRecipeConfig_304006) {
 			types.add(DomainElementTypes.Configuration_302002);
 		}
 		return types;
@@ -300,7 +300,7 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.RecipeInfrastructures_304005);
+		types.add(DomainElementTypes.RecipeInfrastructures_304004);
 		return types;
 	}
 
@@ -309,7 +309,7 @@ public class InfrastructureEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.RecipeInfrastructures_304005) {
+		if (relationshipType == DomainElementTypes.RecipeInfrastructures_304004) {
 			types.add(DomainElementTypes.Recipe_302001);
 		}
 		return types;

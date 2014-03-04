@@ -186,6 +186,28 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/configurations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/infrastructures"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipes/deployment"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//DeploymentSequence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeploymentSequence/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeploymentSequence/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DeploymentSequence/deploymentComponents"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//DeploymentComponents">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeploymentComponents/uid"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DeploymentComponents/deplymentStep"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DeploymentComponents/startSeq"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//DeploymentComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeploymentComponent/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeploymentComponent/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//DeploymentComponent/mapper"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//DeploymentComponent/deplymentComponent"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//DeploymentStarStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeploymentStarStep/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DeploymentStarStep/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//DeploymentStarStep/firstStep"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//UsingMappers">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//UsingMappers/mappers"/>
@@ -196,6 +218,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Recipe/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Recipe/ingredients"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Recipe/infrastructures"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Recipe/deloyment"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Ingredient">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Ingredient/uid"/>

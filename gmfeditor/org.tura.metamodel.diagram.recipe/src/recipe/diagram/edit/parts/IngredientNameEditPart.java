@@ -61,7 +61,7 @@ public class IngredientNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 305009;
+	public static final int VISUAL_ID = 305004;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class IngredientNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.Ingredient_303005,
+							DomainElementTypes.Ingredient_303001,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(recipe.diagram.edit.parts.IngredientNameEditPart.VISUAL_ID));

@@ -137,11 +137,11 @@ public class ConfigurationItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (DomainElementTypes.InfrastructureRecipeConfig_304004 == req
+		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req
 				.getElementType()) {
 			return null;
 		}
-		if (DomainElementTypes.ConfigurationConfigExtension_304003 == req
+		if (DomainElementTypes.ConfigurationConfigExtension_304007 == req
 				.getElementType()) {
 			return getGEFWrapper(new ConfigurationConfigExtensionCreateCommand(
 					req, req.getSource(), req.getTarget()));
@@ -154,12 +154,12 @@ public class ConfigurationItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (DomainElementTypes.InfrastructureRecipeConfig_304004 == req
+		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req
 				.getElementType()) {
 			return getGEFWrapper(new InfrastructureRecipeConfigCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (DomainElementTypes.ConfigurationConfigExtension_304003 == req
+		if (DomainElementTypes.ConfigurationConfigExtension_304007 == req
 				.getElementType()) {
 			return getGEFWrapper(new ConfigurationConfigExtensionCreateCommand(
 					req, req.getSource(), req.getTarget()));

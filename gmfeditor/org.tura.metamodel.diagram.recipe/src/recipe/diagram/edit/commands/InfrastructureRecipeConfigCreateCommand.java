@@ -58,7 +58,7 @@ public class InfrastructureRecipeConfigCreateCommand extends EditElementCommand 
 		}
 		// target may be null here but it's possible to check constraint
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateInfrastructureRecipeConfig_304004(getSource(),
+				.canCreateInfrastructureRecipeConfig_304006(getSource(),
 						getTarget());
 	}
 

@@ -40,6 +40,9 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
 import domain.Configuration;
+import domain.DeploymentComponent;
+import domain.DeploymentSequence;
+import domain.DeploymentStarStep;
 import domain.Infrastructure;
 import domain.Recipe;
 import domain.Type;
@@ -340,6 +343,35 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
+		public boolean canCreateDeploymentComponentDeplymentComponent_404007(
+				DeploymentComponent source, DeploymentComponent target) {
+			if (source != null) {
+				if (source.getDeplymentComponent() != null) {
+					return false;
+				}
+			}
+
+			return canExistDeploymentComponentDeplymentComponent_404007(source,
+					target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateDeploymentStarStepFirstStep_404009(
+				DeploymentStarStep source, DeploymentComponent target) {
+			if (source != null) {
+				if (source.getFirstStep() != null) {
+					return false;
+				}
+			}
+
+			return canExistDeploymentStarStepFirstStep_404009(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public boolean canCreateRecipeInfrastructures_404005(Recipe source,
 				Infrastructure target) {
 			if (source != null) {
@@ -352,6 +384,20 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 			}
 
 			return canExistRecipeInfrastructures_404005(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateRecipeDeloyment_404006(Recipe source,
+				DeploymentSequence target) {
+			if (source != null) {
+				if (source.getDeloyment() != null) {
+					return false;
+				}
+			}
+
+			return canExistRecipeDeloyment_404006(source, target);
 		}
 
 		/**
@@ -400,8 +446,32 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
+		public boolean canExistDeploymentComponentDeplymentComponent_404007(
+				DeploymentComponent source, DeploymentComponent target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistDeploymentStarStepFirstStep_404009(
+				DeploymentStarStep source, DeploymentComponent target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
 		public boolean canExistRecipeInfrastructures_404005(Recipe source,
 				Infrastructure target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistRecipeDeloyment_404006(Recipe source,
+				DeploymentSequence target) {
 			return true;
 		}
 

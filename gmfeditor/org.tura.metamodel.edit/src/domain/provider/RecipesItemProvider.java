@@ -136,6 +136,7 @@ public class RecipesItemProvider
       childrenFeatures.add(DomainPackage.Literals.RECIPES__RECIPE);
       childrenFeatures.add(DomainPackage.Literals.RECIPES__CONFIGURATIONS);
       childrenFeatures.add(DomainPackage.Literals.RECIPES__INFRASTRUCTURES);
+      childrenFeatures.add(DomainPackage.Literals.RECIPES__DEPLOYMENT);
     }
     return childrenFeatures;
   }
@@ -201,6 +202,7 @@ public class RecipesItemProvider
       case DomainPackage.RECIPES__RECIPE:
       case DomainPackage.RECIPES__CONFIGURATIONS:
       case DomainPackage.RECIPES__INFRASTRUCTURES:
+      case DomainPackage.RECIPES__DEPLOYMENT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -233,6 +235,11 @@ public class RecipesItemProvider
       (createChildParameter
         (DomainPackage.Literals.RECIPES__INFRASTRUCTURES,
          DomainFactory.eINSTANCE.createInfrastructure()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.RECIPES__DEPLOYMENT,
+         DomainFactory.eINSTANCE.createDeploymentSequence()));
   }
 
   /**

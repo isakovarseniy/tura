@@ -6,8 +6,8 @@ package domain.diagram.edit.policies;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
-
 import java.util.List;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -43,8 +43,8 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
 import org.tura.metamodel.commons.initdiagram.InitDiagram;
+
 import domain.Artifacts;
 import domain.DomainArtifact;
 import domain.diagram.part.DomainDiagramEditorPlugin;

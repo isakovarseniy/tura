@@ -20,6 +20,10 @@ import domain.ConfigVariable;
 import domain.Configuration;
 import domain.ContinuousIintegration;
 import domain.CreateMethod;
+import domain.DeploymentComponent;
+import domain.DeploymentComponents;
+import domain.DeploymentSequence;
+import domain.DeploymentStarStep;
 import domain.Domain;
 import domain.DomainApplication;
 import domain.DomainApplications;
@@ -312,6 +316,26 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseRecipes(Recipes object)
       {
         return createRecipesAdapter();
+      }
+      @Override
+      public Adapter caseDeploymentSequence(DeploymentSequence object)
+      {
+        return createDeploymentSequenceAdapter();
+      }
+      @Override
+      public Adapter caseDeploymentComponents(DeploymentComponents object)
+      {
+        return createDeploymentComponentsAdapter();
+      }
+      @Override
+      public Adapter caseDeploymentComponent(DeploymentComponent object)
+      {
+        return createDeploymentComponentAdapter();
+      }
+      @Override
+      public Adapter caseDeploymentStarStep(DeploymentStarStep object)
+      {
+        return createDeploymentStarStepAdapter();
       }
       @Override
       public Adapter caseUsingMappers(UsingMappers object)
@@ -1006,6 +1030,66 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRecipesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.DeploymentSequence <em>Deployment Sequence</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.DeploymentSequence
+   * @generated
+   */
+  public Adapter createDeploymentSequenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.DeploymentComponents <em>Deployment Components</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.DeploymentComponents
+   * @generated
+   */
+  public Adapter createDeploymentComponentsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.DeploymentComponent <em>Deployment Component</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.DeploymentComponent
+   * @generated
+   */
+  public Adapter createDeploymentComponentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.DeploymentStarStep <em>Deployment Star Step</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.DeploymentStarStep
+   * @generated
+   */
+  public Adapter createDeploymentStarStepAdapter()
   {
     return null;
   }

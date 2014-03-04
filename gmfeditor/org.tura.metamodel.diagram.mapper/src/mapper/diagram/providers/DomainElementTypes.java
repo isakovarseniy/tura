@@ -9,9 +9,12 @@ import java.util.Map;
 import java.util.Set;
 
 import mapper.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import mapper.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import mapper.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import mapper.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
+import mapper.diagram.edit.parts.RecipeDeloymentEditPart;
 import mapper.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import mapper.diagram.edit.parts.TypeExtensionEditPart;
 import mapper.diagram.part.DomainDiagramEditorPlugin;
@@ -70,7 +73,19 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType DeploymentComponentDeplymentComponent_404007 = getElementType("org.tura.metamodel.diagram.mapper.DeploymentComponentDeplymentComponent_404007"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType DeploymentStarStepFirstStep_404009 = getElementType("org.tura.metamodel.diagram.mapper.DeploymentStarStepFirstStep_404009"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType RecipeInfrastructures_404005 = getElementType("org.tura.metamodel.diagram.mapper.RecipeInfrastructures_404005"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipeDeloyment_404006 = getElementType("org.tura.metamodel.diagram.mapper.RecipeDeloyment_404006"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -199,8 +214,18 @@ public class DomainElementTypes {
 			elements.put(TypeExtension_404001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
+			elements.put(DeploymentComponentDeplymentComponent_404007,
+					DomainPackage.eINSTANCE
+							.getDeploymentComponent_DeplymentComponent());
+
+			elements.put(DeploymentStarStepFirstStep_404009,
+					DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep());
+
 			elements.put(RecipeInfrastructures_404005,
 					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
+
+			elements.put(RecipeDeloyment_404006,
+					DomainPackage.eINSTANCE.getRecipe_Deloyment());
 
 			elements.put(InfrastructureRecipeConfig_404004,
 					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
@@ -227,7 +252,11 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Mappers_401000);
 			KNOWN_ELEMENT_TYPES.add(JavaMapper_402001);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_404001);
+			KNOWN_ELEMENT_TYPES
+					.add(DeploymentComponentDeplymentComponent_404007);
+			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_404009);
 			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_404005);
+			KNOWN_ELEMENT_TYPES.add(RecipeDeloyment_404006);
 			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_404004);
 			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_404003);
 		}
@@ -245,8 +274,14 @@ public class DomainElementTypes {
 			return JavaMapper_402001;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_404001;
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			return DeploymentComponentDeplymentComponent_404007;
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			return DeploymentStarStepFirstStep_404009;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return RecipeInfrastructures_404005;
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			return RecipeDeloyment_404006;
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return InfrastructureRecipeConfig_404004;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:

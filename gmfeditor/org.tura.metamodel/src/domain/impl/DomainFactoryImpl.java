@@ -20,6 +20,10 @@ import domain.ConfigVariable;
 import domain.Configuration;
 import domain.ContinuousIintegration;
 import domain.CreateMethod;
+import domain.DeploymentComponent;
+import domain.DeploymentComponents;
+import domain.DeploymentSequence;
+import domain.DeploymentStarStep;
 import domain.Domain;
 import domain.DomainApplication;
 import domain.DomainApplications;
@@ -166,6 +170,10 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.MAPPER: return createMapper();
       case DomainPackage.JAVA_MAPPER: return createJavaMapper();
       case DomainPackage.RECIPES: return createRecipes();
+      case DomainPackage.DEPLOYMENT_SEQUENCE: return createDeploymentSequence();
+      case DomainPackage.DEPLOYMENT_COMPONENTS: return createDeploymentComponents();
+      case DomainPackage.DEPLOYMENT_COMPONENT: return createDeploymentComponent();
+      case DomainPackage.DEPLOYMENT_STAR_STEP: return createDeploymentStarStep();
       case DomainPackage.USING_MAPPERS: return createUsingMappers();
       case DomainPackage.RECIPE: return createRecipe();
       case DomainPackage.INGREDIENT: return createIngredient();
@@ -618,6 +626,50 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     RecipesImpl recipes = new RecipesImpl();
     return recipes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeploymentSequence createDeploymentSequence()
+  {
+    DeploymentSequenceImpl deploymentSequence = new DeploymentSequenceImpl();
+    return deploymentSequence;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeploymentComponents createDeploymentComponents()
+  {
+    DeploymentComponentsImpl deploymentComponents = new DeploymentComponentsImpl();
+    return deploymentComponents;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeploymentComponent createDeploymentComponent()
+  {
+    DeploymentComponentImpl deploymentComponent = new DeploymentComponentImpl();
+    return deploymentComponent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeploymentStarStep createDeploymentStarStep()
+  {
+    DeploymentStarStepImpl deploymentStarStep = new DeploymentStarStepImpl();
+    return deploymentStarStep;
   }
 
   /**

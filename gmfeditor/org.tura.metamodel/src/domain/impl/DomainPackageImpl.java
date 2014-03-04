@@ -20,6 +20,10 @@ import domain.ConfigVariable;
 import domain.Configuration;
 import domain.ContinuousIintegration;
 import domain.CreateMethod;
+import domain.DeploymentComponent;
+import domain.DeploymentComponents;
+import domain.DeploymentSequence;
+import domain.DeploymentStarStep;
 import domain.Domain;
 import domain.DomainApplication;
 import domain.DomainApplications;
@@ -330,6 +334,34 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass recipesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass deploymentSequenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass deploymentComponentsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass deploymentComponentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass deploymentStarStepEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2086,6 +2118,186 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getRecipes_Deployment()
+  {
+    return (EReference)recipesEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDeploymentSequence()
+  {
+    return deploymentSequenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeploymentSequence_Uid()
+  {
+    return (EAttribute)deploymentSequenceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeploymentSequence_Name()
+  {
+    return (EAttribute)deploymentSequenceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeploymentSequence_DeploymentComponents()
+  {
+    return (EReference)deploymentSequenceEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDeploymentComponents()
+  {
+    return deploymentComponentsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeploymentComponents_Uid()
+  {
+    return (EAttribute)deploymentComponentsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeploymentComponents_DeplymentStep()
+  {
+    return (EReference)deploymentComponentsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeploymentComponents_StartSeq()
+  {
+    return (EReference)deploymentComponentsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDeploymentComponent()
+  {
+    return deploymentComponentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeploymentComponent_Uid()
+  {
+    return (EAttribute)deploymentComponentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeploymentComponent_Name()
+  {
+    return (EAttribute)deploymentComponentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeploymentComponent_Mapper()
+  {
+    return (EReference)deploymentComponentEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeploymentComponent_DeplymentComponent()
+  {
+    return (EReference)deploymentComponentEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDeploymentStarStep()
+  {
+    return deploymentStarStepEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeploymentStarStep_Uid()
+  {
+    return (EAttribute)deploymentStarStepEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeploymentStarStep_Name()
+  {
+    return (EAttribute)deploymentStarStepEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeploymentStarStep_FirstStep()
+  {
+    return (EReference)deploymentStarStepEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getUsingMappers()
   {
     return usingMappersEClass;
@@ -2159,6 +2371,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getRecipe_Infrastructures()
   {
     return (EReference)recipeEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRecipe_Deloyment()
+  {
+    return (EReference)recipeEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -3652,6 +3874,28 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(recipesEClass, RECIPES__CONFIGURATIONS);
     createEReference(recipesEClass, RECIPES__INFRASTRUCTURES);
     createEReference(recipesEClass, RECIPES__PARENT);
+    createEReference(recipesEClass, RECIPES__DEPLOYMENT);
+
+    deploymentSequenceEClass = createEClass(DEPLOYMENT_SEQUENCE);
+    createEAttribute(deploymentSequenceEClass, DEPLOYMENT_SEQUENCE__UID);
+    createEAttribute(deploymentSequenceEClass, DEPLOYMENT_SEQUENCE__NAME);
+    createEReference(deploymentSequenceEClass, DEPLOYMENT_SEQUENCE__DEPLOYMENT_COMPONENTS);
+
+    deploymentComponentsEClass = createEClass(DEPLOYMENT_COMPONENTS);
+    createEAttribute(deploymentComponentsEClass, DEPLOYMENT_COMPONENTS__UID);
+    createEReference(deploymentComponentsEClass, DEPLOYMENT_COMPONENTS__DEPLYMENT_STEP);
+    createEReference(deploymentComponentsEClass, DEPLOYMENT_COMPONENTS__START_SEQ);
+
+    deploymentComponentEClass = createEClass(DEPLOYMENT_COMPONENT);
+    createEAttribute(deploymentComponentEClass, DEPLOYMENT_COMPONENT__UID);
+    createEAttribute(deploymentComponentEClass, DEPLOYMENT_COMPONENT__NAME);
+    createEReference(deploymentComponentEClass, DEPLOYMENT_COMPONENT__MAPPER);
+    createEReference(deploymentComponentEClass, DEPLOYMENT_COMPONENT__DEPLYMENT_COMPONENT);
+
+    deploymentStarStepEClass = createEClass(DEPLOYMENT_STAR_STEP);
+    createEAttribute(deploymentStarStepEClass, DEPLOYMENT_STAR_STEP__UID);
+    createEAttribute(deploymentStarStepEClass, DEPLOYMENT_STAR_STEP__NAME);
+    createEReference(deploymentStarStepEClass, DEPLOYMENT_STAR_STEP__FIRST_STEP);
 
     usingMappersEClass = createEClass(USING_MAPPERS);
     createEReference(usingMappersEClass, USING_MAPPERS__MAPPERS);
@@ -3662,6 +3906,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(recipeEClass, RECIPE__NAME);
     createEReference(recipeEClass, RECIPE__INGREDIENTS);
     createEReference(recipeEClass, RECIPE__INFRASTRUCTURES);
+    createEReference(recipeEClass, RECIPE__DELOYMENT);
 
     ingredientEClass = createEClass(INGREDIENT);
     createEAttribute(ingredientEClass, INGREDIENT__UID);
@@ -4059,6 +4304,28 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getRecipes_Configurations(), this.getConfiguration(), null, "configurations", null, 0, -1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRecipes_Infrastructures(), this.getInfrastructure(), null, "infrastructures", null, 0, -1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRecipes_Parent(), this.getApplicationRecipe(), this.getApplicationRecipe_Recipes(), "parent", null, 0, 1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRecipes_Deployment(), this.getDeploymentSequence(), null, "deployment", null, 0, 1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(deploymentSequenceEClass, DeploymentSequence.class, "DeploymentSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDeploymentSequence_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DeploymentSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeploymentSequence_Name(), ecorePackage.getEString(), "name", null, 0, 1, DeploymentSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeploymentSequence_DeploymentComponents(), this.getDeploymentComponents(), null, "deploymentComponents", null, 0, 1, DeploymentSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(deploymentComponentsEClass, DeploymentComponents.class, "DeploymentComponents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDeploymentComponents_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DeploymentComponents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeploymentComponents_DeplymentStep(), this.getDeploymentComponent(), null, "deplymentStep", null, 0, -1, DeploymentComponents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeploymentComponents_StartSeq(), this.getDeploymentStarStep(), null, "startSeq", null, 0, 1, DeploymentComponents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(deploymentComponentEClass, DeploymentComponent.class, "DeploymentComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDeploymentComponent_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DeploymentComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeploymentComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, DeploymentComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeploymentComponent_Mapper(), this.getModelMapper(), null, "mapper", null, 0, 1, DeploymentComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeploymentComponent_DeplymentComponent(), this.getDeploymentComponent(), null, "deplymentComponent", null, 0, 1, DeploymentComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(deploymentStarStepEClass, DeploymentStarStep.class, "DeploymentStarStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDeploymentStarStep_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DeploymentStarStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeploymentStarStep_Name(), ecorePackage.getEString(), "name", null, 0, 1, DeploymentStarStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeploymentStarStep_FirstStep(), this.getDeploymentComponent(), null, "firstStep", null, 0, 1, DeploymentStarStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(usingMappersEClass, UsingMappers.class, "UsingMappers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getUsingMappers_Mappers(), this.getApplicationMapper(), null, "mappers", null, 0, -1, UsingMappers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4069,6 +4336,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getRecipe_Name(), ecorePackage.getEString(), "name", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRecipe_Ingredients(), this.getIngredient(), this.getIngredient_Parent(), "ingredients", null, 0, -1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRecipe_Infrastructures(), this.getInfrastructure(), this.getInfrastructure_Recipe(), "infrastructures", null, 0, -1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRecipe_Deloyment(), this.getDeploymentSequence(), null, "deloyment", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ingredientEClass, Ingredient.class, "Ingredient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIngredient_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4252,12 +4520,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createGmf_7Annotations();
     // gmf.diagram.recipe
     createGmf_8Annotations();
-    // gmf.link
+    // gmf.diagram.deployment
     createGmf_9Annotations();
-    // gmf.diagram.typedefinition
+    // gmf.link
     createGmf_10Annotations();
-    // gmf.diagram.typesrepository
+    // gmf.diagram.typedefinition
     createGmf_11Annotations();
+    // gmf.diagram.typesrepository
+    createGmf_12Annotations();
   }
 
   /**
@@ -4274,7 +4544,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																															
+       });																																																																																						
   }
 
   /**
@@ -4291,7 +4561,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																														
+       });																																																																																					
   }
 
   /**
@@ -4534,6 +4804,33 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "color", "255,237,85"
        });			
     addAnnotation
+      (deploymentSequenceEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "177,201,236"
+       });			
+    addAnnotation
+      (deploymentComponentEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "177,201,236"
+       });			
+    addAnnotation
+      (deploymentStarStepEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,69,0"
+       });			
+    addAnnotation
       (recipeEClass, 
        source, 
        new String[] 
@@ -4541,7 +4838,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "255,239,222"
-       });				
+       });					
     addAnnotation
       (ingredientEClass, 
        source, 
@@ -4786,13 +5083,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });												
+       });																		
     addAnnotation
       (getRecipe_Ingredients(), 
        source, 
        new String[] 
        {
-       });				
+       });					
     addAnnotation
       (getIngredient_Components(), 
        source, 
@@ -4865,7 +5162,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																		
+       });																																																																									
   }
 
   /**
@@ -4882,7 +5179,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																									
+       });																																																																
   }
 
   /**
@@ -4899,7 +5196,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																		
+       });																																																									
   }
 
   /**
@@ -4916,7 +5213,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																				
+       });																																											
   }
 
   /**
@@ -4933,7 +5230,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																		
+       });																																									
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.diagram.deployment</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_9Annotations()
+  {
+    String source = "gmf.diagram.deployment";																																																	
+    addAnnotation
+      (deploymentComponentsEClass, 
+       source, 
+       new String[] 
+       {
+       });																																							
   }
 
   /**
@@ -4942,11 +5256,35 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_9Annotations()
+  protected void createGmf_10Annotations()
   {
-    String source = "gmf.link";																																																		
+    String source = "gmf.link";																																																			
+    addAnnotation
+      (getDeploymentComponent_DeplymentComponent(), 
+       source, 
+       new String[] 
+       {
+       "target.decoration", "arrow",
+       "style", "dash"
+       });			
+    addAnnotation
+      (getDeploymentStarStep_FirstStep(), 
+       source, 
+       new String[] 
+       {
+       "target.decoration", "arrow",
+       "style", "dash"
+       });				
     addAnnotation
       (getRecipe_Infrastructures(), 
+       source, 
+       new String[] 
+       {
+       "target.decoration", "arrow",
+       "style", "dash"
+       });		
+    addAnnotation
+      (getRecipe_Deloyment(), 
        source, 
        new String[] 
        {
@@ -4989,9 +5327,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_10Annotations()
+  protected void createGmf_11Annotations()
   {
-    String source = "gmf.diagram.typedefinition";																																																																
+    String source = "gmf.diagram.typedefinition";																																																																							
     addAnnotation
       (typeDefinitionEClass, 
        source, 
@@ -5006,9 +5344,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_11Annotations()
+  protected void createGmf_12Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																												
+    String source = "gmf.diagram.typesrepository";																																																																																			
     addAnnotation
       (typesRepositoryEClass, 
        source, 

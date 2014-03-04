@@ -25,9 +25,9 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
+
 import recipe.diagram.edit.policies.PropertyItemSemanticEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
 
@@ -39,7 +39,7 @@ public class PropertyEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 303004;
+	public static final int VISUAL_ID = 303005;
 
 	/**
 	 * @generated

@@ -25,9 +25,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import recipe.diagram.edit.parts.ConfigurationEditPart;
+import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.IngredientIngredientComponentsCompartmentEditPart;
-import recipe.diagram.edit.parts.JavaComponentEditPart;
 import recipe.diagram.edit.parts.JavaComponentJavaComponentMappersCompartmentEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
@@ -48,30 +48,31 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof RecipesEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
 			types.add(DomainElementTypes.Recipe_302001);
 			types.add(DomainElementTypes.Configuration_302002);
 			types.add(DomainElementTypes.Infrastructure_302003);
+			types.add(DomainElementTypes.DeploymentSequence_302004);
 			return types;
 		}
 		if (editPart instanceof ConfigurationEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Property_303004);
+			types.add(DomainElementTypes.Property_303005);
 			return types;
 		}
 		if (editPart instanceof ModelMapperEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Query_303009);
+			types.add(DomainElementTypes.Query_303004);
 			return types;
 		}
 		if (editPart instanceof RecipeRecipeIngredientsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Ingredient_303005);
+			types.add(DomainElementTypes.Ingredient_303001);
 			return types;
 		}
 		if (editPart instanceof IngredientIngredientComponentsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.JavaComponent_303011);
+			types.add(DomainElementTypes.JavaComponent_303002);
 			return types;
 		}
 		if (editPart instanceof JavaComponentJavaComponentMappersCompartmentEditPart) {
@@ -116,6 +117,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((InfrastructureEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
+		if (targetEditPart instanceof DeploymentSequenceEditPart) {
+			return ((DeploymentSequenceEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -156,6 +161,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (targetEditPart instanceof InfrastructureEditPart) {
 			return ((InfrastructureEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof DeploymentSequenceEditPart) {
+			return ((DeploymentSequenceEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

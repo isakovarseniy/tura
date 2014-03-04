@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Recipes#getConfigurations <em>Configurations</em>}</li>
  *   <li>{@link domain.Recipes#getInfrastructures <em>Infrastructures</em>}</li>
  *   <li>{@link domain.Recipes#getParent <em>Parent</em>}</li>
+ *   <li>{@link domain.Recipes#getDeployment <em>Deployment</em>}</li>
  * </ul>
  * </p>
  *
@@ -141,5 +142,31 @@ public interface Recipes extends EObject
    * @generated
    */
   void setParent(ApplicationRecipe value);
+
+  /**
+   * Returns the value of the '<em><b>Deployment</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Deployment</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Deployment</em>' containment reference.
+   * @see #setDeployment(DeploymentSequence)
+   * @see domain.DomainPackage#getRecipes_Deployment()
+   * @model containment="true"
+   * @generated
+   */
+  DeploymentSequence getDeployment();
+
+  /**
+   * Sets the value of the '{@link domain.Recipes#getDeployment <em>Deployment</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Deployment</em>' containment reference.
+   * @see #getDeployment()
+   * @generated
+   */
+  void setDeployment(DeploymentSequence value);
 
 } // Recipes

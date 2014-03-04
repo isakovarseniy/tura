@@ -15,6 +15,12 @@ import recipe.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPa
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.ConfigurationNameEditPart;
+import recipe.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import recipe.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
+import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
+import recipe.diagram.edit.parts.DeploymentSequenceNameEditPart;
+import recipe.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import recipe.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.InfrastructureNameEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
@@ -32,6 +38,8 @@ import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.QueryEditPart;
 import recipe.diagram.edit.parts.QueryNameEditPart;
+import recipe.diagram.edit.parts.RecipeDeloymentEditPart;
+import recipe.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
@@ -39,9 +47,6 @@ import recipe.diagram.edit.parts.RecipeNameEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
 import recipe.diagram.edit.parts.TypeExtensionEditPart;
-import recipe.diagram.edit.parts.WrappingLabel2EditPart;
-import recipe.diagram.edit.parts.WrappingLabel3EditPart;
-import recipe.diagram.edit.parts.WrappingLabelEditPart;
 import domain.DomainPackage;
 import domain.Recipes;
 
@@ -166,6 +171,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return InfrastructureEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getDeploymentSequence().isSuperTypeOf(
+					domainElement.eClass())) {
+				return DeploymentSequenceEditPart.VISUAL_ID;
+			}
 			break;
 		case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getIngredient().isSuperTypeOf(
@@ -233,6 +242,9 @@ public class DomainVisualIDRegistry {
 			if (InfrastructureEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (DeploymentSequenceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case RecipeEditPart.VISUAL_ID:
 			if (RecipeNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -252,6 +264,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case InfrastructureEditPart.VISUAL_ID:
 			if (InfrastructureNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DeploymentSequenceEditPart.VISUAL_ID:
+			if (DeploymentSequenceNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -314,8 +331,23 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			if (DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -395,8 +427,9 @@ public class DomainVisualIDRegistry {
 		case RecipesEditPart.VISUAL_ID:
 			return false;
 		case InfrastructureEditPart.VISUAL_ID:
-		case PropertyEditPart.VISUAL_ID:
+		case DeploymentSequenceEditPart.VISUAL_ID:
 		case QueryEditPart.VISUAL_ID:
+		case PropertyEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

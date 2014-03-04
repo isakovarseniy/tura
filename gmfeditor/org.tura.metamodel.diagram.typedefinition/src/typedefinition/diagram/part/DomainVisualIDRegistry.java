@@ -14,6 +14,10 @@ import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import typedefinition.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
+import typedefinition.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import typedefinition.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
+import typedefinition.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import typedefinition.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
@@ -25,6 +29,8 @@ import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
+import typedefinition.diagram.edit.parts.RecipeDeloymentEditPart;
+import typedefinition.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
@@ -281,8 +287,23 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			if (DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

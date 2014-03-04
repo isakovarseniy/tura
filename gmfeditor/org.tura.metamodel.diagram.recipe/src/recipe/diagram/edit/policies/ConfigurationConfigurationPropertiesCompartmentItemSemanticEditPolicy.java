@@ -26,7 +26,7 @@ public class ConfigurationConfigurationPropertiesCompartmentItemSemanticEditPoli
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.Property_303004 == req.getElementType()) {
+		if (DomainElementTypes.Property_303005 == req.getElementType()) {
 			return getGEFWrapper(new PropertyCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

@@ -59,7 +59,7 @@ public class RecipeInfrastructuresCreateCommand extends EditElementCommand {
 		// target may be null here but it's possible to check constraint
 		return DomainBaseItemSemanticEditPolicy
 				.getLinkConstraints()
-				.canCreateRecipeInfrastructures_304005(getSource(), getTarget());
+				.canCreateRecipeInfrastructures_304004(getSource(), getTarget());
 	}
 
 	/**

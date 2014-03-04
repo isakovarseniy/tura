@@ -23,7 +23,7 @@ public class PropertyItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public PropertyItemSemanticEditPolicy() {
-		super(DomainElementTypes.Property_303004);
+		super(DomainElementTypes.Property_303005);
 	}
 
 	/**

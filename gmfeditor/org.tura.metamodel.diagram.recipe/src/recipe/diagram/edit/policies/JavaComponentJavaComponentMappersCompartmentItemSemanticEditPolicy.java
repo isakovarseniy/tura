@@ -19,7 +19,7 @@ public class JavaComponentJavaComponentMappersCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	public JavaComponentJavaComponentMappersCompartmentItemSemanticEditPolicy() {
-		super(DomainElementTypes.JavaComponent_303011);
+		super(DomainElementTypes.JavaComponent_303002);
 	}
 
 	/**

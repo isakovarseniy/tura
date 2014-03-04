@@ -61,7 +61,7 @@ public class ModelMapperNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 305001;
+	public static final int VISUAL_ID = 305002;
 
 	/**
 	 * @generated

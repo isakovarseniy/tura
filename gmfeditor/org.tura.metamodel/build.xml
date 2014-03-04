@@ -1,6 +1,6 @@
 <project default="main">
 	
-	<target name="main" depends="application,artifact,businessObjects,domain,mapper,recipe,typedefinition,typesrepository">
+	<target name="main" depends="application,artifact,businessObjects,domain,mapper,recipe,typedefinition,typesrepository,deployment">
 	</target>
 	
 	<target name="application">
@@ -61,5 +61,13 @@
 		<epsilon.eugenia   src="typesrepository/domain.emf" firststep="gmfcode"  />		
 	</target>	
 
+	<target name="deployment">
+		<copy file="basefolder/domain.emf" todir="deployment"/>
+		<replace file="deployment/domain.emf"    token="@gmf.diagram.deployment" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="deployment/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="deployment/domain.emf" firststep="gmfcode"  />		
+	</target>	
 
+	
+	
 </project>

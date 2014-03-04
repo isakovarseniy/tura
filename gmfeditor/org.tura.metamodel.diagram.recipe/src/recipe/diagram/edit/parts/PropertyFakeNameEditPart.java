@@ -62,7 +62,7 @@ public class PropertyFakeNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 305005;
+	public static final int VISUAL_ID = 305006;
 
 	/**
 	 * @generated
@@ -315,7 +315,7 @@ public class PropertyFakeNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.Property_303004,
+							DomainElementTypes.Property_303005,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(recipe.diagram.edit.parts.PropertyFakeNameEditPart.VISUAL_ID));

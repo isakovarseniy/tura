@@ -11,9 +11,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import mapper.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import mapper.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import mapper.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import mapper.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
+import mapper.diagram.edit.parts.RecipeDeloymentEditPart;
 import mapper.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import mapper.diagram.edit.parts.TypeExtensionEditPart;
 import mapper.diagram.part.DomainVisualIDRegistry;
@@ -255,9 +258,23 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry
 							.getType(TypeExtensionEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DeploymentComponentDeplymentComponentEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DeploymentStarStepFirstStepEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					DomainVisualIDRegistry
 							.getType(RecipeInfrastructuresEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(RecipeDeloymentEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),

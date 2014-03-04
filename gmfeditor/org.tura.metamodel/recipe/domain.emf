@@ -273,8 +273,6 @@ class JavaMapper extends Mapper{
    attr EString libraryName;
 }
 
-
-
 @gmf.diagram
 class Recipes{
     id attr EString uid;
@@ -282,7 +280,40 @@ class Recipes{
   val Configuration[*] configurations;
   val Infrastructure[*] infrastructures;
   ref ApplicationRecipe#recipes parent;
+  val DeploymentSequence deployment;
 }
+
+@gmf.node(label="name",border.color="0,0,0",color="177,201,236")
+class DeploymentSequence{
+    id attr EString uid;
+   attr EString name;
+   val DeploymentComponents deploymentComponents;
+}
+
+@gmf.diagram.deployment
+class DeploymentComponents{
+    id attr EString uid;
+    val DeploymentComponent[*] deplymentStep;   
+    val DeploymentStarStep startSeq;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="177,201,236")
+class DeploymentComponent{
+    id attr EString uid;
+    attr EString name;
+    ref ModelMapper mapper;
+  @gmf.link(target.decoration="arrow", style="dash")
+   ref DeploymentComponent deplymentComponent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,69,0")
+class DeploymentStarStep{
+    id attr EString uid;
+    attr EString name;
+  @gmf.link(target.decoration="arrow", style="dash")
+   ref DeploymentComponent firstStep;
+}
+
 
 class UsingMappers{
   ref ApplicationMapper[*] mappers;
@@ -303,6 +334,8 @@ class Recipe extends UsingMappers{
   val Ingredient[*]#parent ingredients;
   @gmf.link(target.decoration="arrow", style="dash")
   ref Infrastructure[*]#recipe infrastructures;
+  @gmf.link(target.decoration="arrow", style="dash")
+  ref DeploymentSequence#recipe deloyment;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,222,32")

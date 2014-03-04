@@ -4,6 +4,7 @@ package domain.impl;
 
 import domain.ApplicationRecipe;
 import domain.Configuration;
+import domain.DeploymentSequence;
 import domain.DomainPackage;
 import domain.Infrastructure;
 import domain.Recipe;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.RecipesImpl#getConfigurations <em>Configurations</em>}</li>
  *   <li>{@link domain.impl.RecipesImpl#getInfrastructures <em>Infrastructures</em>}</li>
  *   <li>{@link domain.impl.RecipesImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link domain.impl.RecipesImpl#getDeployment <em>Deployment</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +105,16 @@ public class RecipesImpl extends EObjectImpl implements Recipes
    * @ordered
    */
   protected ApplicationRecipe parent;
+
+  /**
+   * The cached value of the '{@link #getDeployment() <em>Deployment</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeployment()
+   * @generated
+   * @ordered
+   */
+  protected DeploymentSequence deployment;
 
   /**
    * <!-- begin-user-doc -->
@@ -297,6 +309,54 @@ public class RecipesImpl extends EObjectImpl implements Recipes
    * <!-- end-user-doc -->
    * @generated
    */
+  public DeploymentSequence getDeployment()
+  {
+    return deployment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDeployment(DeploymentSequence newDeployment, NotificationChain msgs)
+  {
+    DeploymentSequence oldDeployment = deployment;
+    deployment = newDeployment;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPES__DEPLOYMENT, oldDeployment, newDeployment);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDeployment(DeploymentSequence newDeployment)
+  {
+    if (newDeployment != deployment)
+    {
+      NotificationChain msgs = null;
+      if (deployment != null)
+        msgs = ((InternalEObject)deployment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.RECIPES__DEPLOYMENT, null, msgs);
+      if (newDeployment != null)
+        msgs = ((InternalEObject)newDeployment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.RECIPES__DEPLOYMENT, null, msgs);
+      msgs = basicSetDeployment(newDeployment, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPES__DEPLOYMENT, newDeployment, newDeployment));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -332,6 +392,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes
         return ((InternalEList<?>)getInfrastructures()).basicRemove(otherEnd, msgs);
       case DomainPackage.RECIPES__PARENT:
         return basicSetParent(null, msgs);
+      case DomainPackage.RECIPES__DEPLOYMENT:
+        return basicSetDeployment(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -357,6 +419,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes
       case DomainPackage.RECIPES__PARENT:
         if (resolve) return getParent();
         return basicGetParent();
+      case DomainPackage.RECIPES__DEPLOYMENT:
+        return getDeployment();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -389,6 +453,9 @@ public class RecipesImpl extends EObjectImpl implements Recipes
       case DomainPackage.RECIPES__PARENT:
         setParent((ApplicationRecipe)newValue);
         return;
+      case DomainPackage.RECIPES__DEPLOYMENT:
+        setDeployment((DeploymentSequence)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -418,6 +485,9 @@ public class RecipesImpl extends EObjectImpl implements Recipes
       case DomainPackage.RECIPES__PARENT:
         setParent((ApplicationRecipe)null);
         return;
+      case DomainPackage.RECIPES__DEPLOYMENT:
+        setDeployment((DeploymentSequence)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -442,6 +512,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes
         return infrastructures != null && !infrastructures.isEmpty();
       case DomainPackage.RECIPES__PARENT:
         return parent != null;
+      case DomainPackage.RECIPES__DEPLOYMENT:
+        return deployment != null;
     }
     return super.eIsSet(featureID);
   }

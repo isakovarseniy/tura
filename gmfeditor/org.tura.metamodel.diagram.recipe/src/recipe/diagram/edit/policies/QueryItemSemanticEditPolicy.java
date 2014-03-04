@@ -23,7 +23,7 @@ public class QueryItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public QueryItemSemanticEditPolicy() {
-		super(DomainElementTypes.Query_303009);
+		super(DomainElementTypes.Query_303004);
 	}
 
 	/**

@@ -14,10 +14,16 @@ import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.BusinessPackageNameEditPart;
 import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
+import typesrepository.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import typesrepository.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
+import typesrepository.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import typesrepository.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.edit.parts.PackageNameEditPart;
+import typesrepository.diagram.edit.parts.RecipeDeloymentEditPart;
+import typesrepository.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typesrepository.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
@@ -217,8 +223,23 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			if (DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

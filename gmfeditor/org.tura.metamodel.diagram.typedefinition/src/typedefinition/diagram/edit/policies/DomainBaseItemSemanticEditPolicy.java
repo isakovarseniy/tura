@@ -39,6 +39,9 @@ import typedefinition.diagram.part.DomainDiagramEditorPlugin;
 import typedefinition.diagram.part.DomainVisualIDRegistry;
 import typedefinition.diagram.providers.DomainElementTypes;
 import domain.Configuration;
+import domain.DeploymentComponent;
+import domain.DeploymentSequence;
+import domain.DeploymentStarStep;
 import domain.Infrastructure;
 import domain.Recipe;
 import domain.Type;
@@ -339,6 +342,35 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
+		public boolean canCreateDeploymentComponentDeplymentComponent_104007(
+				DeploymentComponent source, DeploymentComponent target) {
+			if (source != null) {
+				if (source.getDeplymentComponent() != null) {
+					return false;
+				}
+			}
+
+			return canExistDeploymentComponentDeplymentComponent_104007(source,
+					target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateDeploymentStarStepFirstStep_104009(
+				DeploymentStarStep source, DeploymentComponent target) {
+			if (source != null) {
+				if (source.getFirstStep() != null) {
+					return false;
+				}
+			}
+
+			return canExistDeploymentStarStepFirstStep_104009(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public boolean canCreateRecipeInfrastructures_104005(Recipe source,
 				Infrastructure target) {
 			if (source != null) {
@@ -351,6 +383,20 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 			}
 
 			return canExistRecipeInfrastructures_104005(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateRecipeDeloyment_104006(Recipe source,
+				DeploymentSequence target) {
+			if (source != null) {
+				if (source.getDeloyment() != null) {
+					return false;
+				}
+			}
+
+			return canExistRecipeDeloyment_104006(source, target);
 		}
 
 		/**
@@ -399,8 +445,32 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
+		public boolean canExistDeploymentComponentDeplymentComponent_104007(
+				DeploymentComponent source, DeploymentComponent target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistDeploymentStarStepFirstStep_104009(
+				DeploymentStarStep source, DeploymentComponent target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
 		public boolean canExistRecipeInfrastructures_104005(Recipe source,
 				Infrastructure target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistRecipeDeloyment_104006(Recipe source,
+				DeploymentSequence target) {
 			return true;
 		}
 

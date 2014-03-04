@@ -1430,7 +1430,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypePointer()
    * @generated
    */
-  int TYPE_POINTER = 48;
+  int TYPE_POINTER = 52;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -2443,13 +2443,215 @@ public interface DomainPackage extends EPackage
   int RECIPES__PARENT = 4;
 
   /**
+   * The feature id for the '<em><b>Deployment</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPES__DEPLOYMENT = 5;
+
+  /**
    * The number of structural features of the '<em>Recipes</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECIPES_FEATURE_COUNT = 5;
+  int RECIPES_FEATURE_COUNT = 6;
+
+  /**
+   * The meta object id for the '{@link domain.impl.DeploymentSequenceImpl <em>Deployment Sequence</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.DeploymentSequenceImpl
+   * @see domain.impl.DomainPackageImpl#getDeploymentSequence()
+   * @generated
+   */
+  int DEPLOYMENT_SEQUENCE = 35;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_SEQUENCE__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_SEQUENCE__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Deployment Components</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_SEQUENCE__DEPLOYMENT_COMPONENTS = 2;
+
+  /**
+   * The number of structural features of the '<em>Deployment Sequence</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_SEQUENCE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.DeploymentComponentsImpl <em>Deployment Components</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.DeploymentComponentsImpl
+   * @see domain.impl.DomainPackageImpl#getDeploymentComponents()
+   * @generated
+   */
+  int DEPLOYMENT_COMPONENTS = 36;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_COMPONENTS__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Deplyment Step</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_COMPONENTS__DEPLYMENT_STEP = 1;
+
+  /**
+   * The feature id for the '<em><b>Start Seq</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_COMPONENTS__START_SEQ = 2;
+
+  /**
+   * The number of structural features of the '<em>Deployment Components</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_COMPONENTS_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.DeploymentComponentImpl <em>Deployment Component</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.DeploymentComponentImpl
+   * @see domain.impl.DomainPackageImpl#getDeploymentComponent()
+   * @generated
+   */
+  int DEPLOYMENT_COMPONENT = 37;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_COMPONENT__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_COMPONENT__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Mapper</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_COMPONENT__MAPPER = 2;
+
+  /**
+   * The feature id for the '<em><b>Deplyment Component</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_COMPONENT__DEPLYMENT_COMPONENT = 3;
+
+  /**
+   * The number of structural features of the '<em>Deployment Component</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_COMPONENT_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.DeploymentStarStepImpl <em>Deployment Star Step</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.DeploymentStarStepImpl
+   * @see domain.impl.DomainPackageImpl#getDeploymentStarStep()
+   * @generated
+   */
+  int DEPLOYMENT_STAR_STEP = 38;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_STAR_STEP__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_STAR_STEP__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>First Step</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_STAR_STEP__FIRST_STEP = 2;
+
+  /**
+   * The number of structural features of the '<em>Deployment Star Step</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPLOYMENT_STAR_STEP_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.UsingMappersImpl <em>Using Mappers</em>}' class.
@@ -2459,7 +2661,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUsingMappers()
    * @generated
    */
-  int USING_MAPPERS = 35;
+  int USING_MAPPERS = 39;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' reference list.
@@ -2487,7 +2689,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRecipe()
    * @generated
    */
-  int RECIPE = 36;
+  int RECIPE = 40;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' reference list.
@@ -2544,13 +2746,22 @@ public interface DomainPackage extends EPackage
   int RECIPE__INFRASTRUCTURES = USING_MAPPERS_FEATURE_COUNT + 4;
 
   /**
+   * The feature id for the '<em><b>Deloyment</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECIPE__DELOYMENT = USING_MAPPERS_FEATURE_COUNT + 5;
+
+  /**
    * The number of structural features of the '<em>Recipe</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECIPE_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 5;
+  int RECIPE_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link domain.impl.IngredientImpl <em>Ingredient</em>}' class.
@@ -2560,7 +2771,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getIngredient()
    * @generated
    */
-  int INGREDIENT = 37;
+  int INGREDIENT = 41;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' reference list.
@@ -2633,7 +2844,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getComponent()
    * @generated
    */
-  int COMPONENT = 38;
+  int COMPONENT = 42;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2706,7 +2917,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getJavaComponent()
    * @generated
    */
-  int JAVA_COMPONENT = 39;
+  int JAVA_COMPONENT = 43;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2815,7 +3026,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructure()
    * @generated
    */
-  int INFRASTRUCTURE = 40;
+  int INFRASTRUCTURE = 44;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2870,7 +3081,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getConfiguration()
    * @generated
    */
-  int CONFIGURATION = 41;
+  int CONFIGURATION = 45;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2943,7 +3154,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtifactRef()
    * @generated
    */
-  int ARTIFACT_REF = 47;
+  int ARTIFACT_REF = 51;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2989,7 +3200,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getModelMapper()
    * @generated
    */
-  int MODEL_MAPPER = 42;
+  int MODEL_MAPPER = 46;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3080,7 +3291,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getProperty()
    * @generated
    */
-  int PROPERTY = 43;
+  int PROPERTY = 47;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3135,7 +3346,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMappingSpecifier()
    * @generated
    */
-  int MAPPING_SPECIFIER = 44;
+  int MAPPING_SPECIFIER = 48;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3181,7 +3392,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getQuery()
    * @generated
    */
-  int QUERY = 45;
+  int QUERY = 49;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3254,7 +3465,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getQueryVariable()
    * @generated
    */
-  int QUERY_VARIABLE = 46;
+  int QUERY_VARIABLE = 50;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3300,7 +3511,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeDefinition()
    * @generated
    */
-  int TYPE_DEFINITION = 49;
+  int TYPE_DEFINITION = 53;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3346,7 +3557,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeElement()
    * @generated
    */
-  int TYPE_ELEMENT = 50;
+  int TYPE_ELEMENT = 54;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3392,7 +3603,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPrimitive()
    * @generated
    */
-  int PRIMITIVE = 51;
+  int PRIMITIVE = 55;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3438,7 +3649,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getType()
    * @generated
    */
-  int TYPE = 52;
+  int TYPE = 56;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3511,7 +3722,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeReference()
    * @generated
    */
-  int TYPE_REFERENCE = 53;
+  int TYPE_REFERENCE = 57;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3593,7 +3804,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeExtension()
    * @generated
    */
-  int TYPE_EXTENSION = 54;
+  int TYPE_EXTENSION = 58;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3639,7 +3850,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 55;
+  int ATTRIBUTE = 59;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -3730,7 +3941,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOperation()
    * @generated
    */
-  int OPERATION = 56;
+  int OPERATION = 60;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3794,7 +4005,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 57;
+  int PARAMETER = 61;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -3876,7 +4087,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getReturnValue()
    * @generated
    */
-  int RETURN_VALUE = 58;
+  int RETURN_VALUE = 62;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -3940,7 +4151,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnumarator()
    * @generated
    */
-  int ENUMARATOR = 59;
+  int ENUMARATOR = 63;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3995,7 +4206,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnumAttribute()
    * @generated
    */
-  int ENUM_ATTRIBUTE = 60;
+  int ENUM_ATTRIBUTE = 64;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4050,7 +4261,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypesRepository()
    * @generated
    */
-  int TYPES_REPOSITORY = 61;
+  int TYPES_REPOSITORY = 65;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4096,7 +4307,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypes()
    * @generated
    */
-  int TYPES = 62;
+  int TYPES = 66;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4160,7 +4371,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPackage()
    * @generated
    */
-  int PACKAGE = 63;
+  int PACKAGE = 67;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4215,7 +4426,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getBusinessPackage()
    * @generated
    */
-  int BUSINESS_PACKAGE = 64;
+  int BUSINESS_PACKAGE = 68;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4270,7 +4481,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 65;
+  int PLATFORM_LAYERS = 69;
 
 
   /**
@@ -5856,6 +6067,200 @@ public interface DomainPackage extends EPackage
   EReference getRecipes_Parent();
 
   /**
+   * Returns the meta object for the containment reference '{@link domain.Recipes#getDeployment <em>Deployment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Deployment</em>'.
+   * @see domain.Recipes#getDeployment()
+   * @see #getRecipes()
+   * @generated
+   */
+  EReference getRecipes_Deployment();
+
+  /**
+   * Returns the meta object for class '{@link domain.DeploymentSequence <em>Deployment Sequence</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Deployment Sequence</em>'.
+   * @see domain.DeploymentSequence
+   * @generated
+   */
+  EClass getDeploymentSequence();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.DeploymentSequence#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.DeploymentSequence#getUid()
+   * @see #getDeploymentSequence()
+   * @generated
+   */
+  EAttribute getDeploymentSequence_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.DeploymentSequence#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.DeploymentSequence#getName()
+   * @see #getDeploymentSequence()
+   * @generated
+   */
+  EAttribute getDeploymentSequence_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.DeploymentSequence#getDeploymentComponents <em>Deployment Components</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Deployment Components</em>'.
+   * @see domain.DeploymentSequence#getDeploymentComponents()
+   * @see #getDeploymentSequence()
+   * @generated
+   */
+  EReference getDeploymentSequence_DeploymentComponents();
+
+  /**
+   * Returns the meta object for class '{@link domain.DeploymentComponents <em>Deployment Components</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Deployment Components</em>'.
+   * @see domain.DeploymentComponents
+   * @generated
+   */
+  EClass getDeploymentComponents();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.DeploymentComponents#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.DeploymentComponents#getUid()
+   * @see #getDeploymentComponents()
+   * @generated
+   */
+  EAttribute getDeploymentComponents_Uid();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.DeploymentComponents#getDeplymentStep <em>Deplyment Step</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Deplyment Step</em>'.
+   * @see domain.DeploymentComponents#getDeplymentStep()
+   * @see #getDeploymentComponents()
+   * @generated
+   */
+  EReference getDeploymentComponents_DeplymentStep();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.DeploymentComponents#getStartSeq <em>Start Seq</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Start Seq</em>'.
+   * @see domain.DeploymentComponents#getStartSeq()
+   * @see #getDeploymentComponents()
+   * @generated
+   */
+  EReference getDeploymentComponents_StartSeq();
+
+  /**
+   * Returns the meta object for class '{@link domain.DeploymentComponent <em>Deployment Component</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Deployment Component</em>'.
+   * @see domain.DeploymentComponent
+   * @generated
+   */
+  EClass getDeploymentComponent();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.DeploymentComponent#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.DeploymentComponent#getUid()
+   * @see #getDeploymentComponent()
+   * @generated
+   */
+  EAttribute getDeploymentComponent_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.DeploymentComponent#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.DeploymentComponent#getName()
+   * @see #getDeploymentComponent()
+   * @generated
+   */
+  EAttribute getDeploymentComponent_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.DeploymentComponent#getMapper <em>Mapper</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Mapper</em>'.
+   * @see domain.DeploymentComponent#getMapper()
+   * @see #getDeploymentComponent()
+   * @generated
+   */
+  EReference getDeploymentComponent_Mapper();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.DeploymentComponent#getDeplymentComponent <em>Deplyment Component</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Deplyment Component</em>'.
+   * @see domain.DeploymentComponent#getDeplymentComponent()
+   * @see #getDeploymentComponent()
+   * @generated
+   */
+  EReference getDeploymentComponent_DeplymentComponent();
+
+  /**
+   * Returns the meta object for class '{@link domain.DeploymentStarStep <em>Deployment Star Step</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Deployment Star Step</em>'.
+   * @see domain.DeploymentStarStep
+   * @generated
+   */
+  EClass getDeploymentStarStep();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.DeploymentStarStep#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.DeploymentStarStep#getUid()
+   * @see #getDeploymentStarStep()
+   * @generated
+   */
+  EAttribute getDeploymentStarStep_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.DeploymentStarStep#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.DeploymentStarStep#getName()
+   * @see #getDeploymentStarStep()
+   * @generated
+   */
+  EAttribute getDeploymentStarStep_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.DeploymentStarStep#getFirstStep <em>First Step</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>First Step</em>'.
+   * @see domain.DeploymentStarStep#getFirstStep()
+   * @see #getDeploymentStarStep()
+   * @generated
+   */
+  EReference getDeploymentStarStep_FirstStep();
+
+  /**
    * Returns the meta object for class '{@link domain.UsingMappers <em>Using Mappers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5940,6 +6345,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getRecipe_Infrastructures();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Recipe#getDeloyment <em>Deloyment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Deloyment</em>'.
+   * @see domain.Recipe#getDeloyment()
+   * @see #getRecipe()
+   * @generated
+   */
+  EReference getRecipe_Deloyment();
 
   /**
    * Returns the meta object for class '{@link domain.Ingredient <em>Ingredient</em>}'.
@@ -8590,6 +9006,158 @@ public interface DomainPackage extends EPackage
     EReference RECIPES__PARENT = eINSTANCE.getRecipes_Parent();
 
     /**
+     * The meta object literal for the '<em><b>Deployment</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECIPES__DEPLOYMENT = eINSTANCE.getRecipes_Deployment();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.DeploymentSequenceImpl <em>Deployment Sequence</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.DeploymentSequenceImpl
+     * @see domain.impl.DomainPackageImpl#getDeploymentSequence()
+     * @generated
+     */
+    EClass DEPLOYMENT_SEQUENCE = eINSTANCE.getDeploymentSequence();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPLOYMENT_SEQUENCE__UID = eINSTANCE.getDeploymentSequence_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPLOYMENT_SEQUENCE__NAME = eINSTANCE.getDeploymentSequence_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Deployment Components</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEPLOYMENT_SEQUENCE__DEPLOYMENT_COMPONENTS = eINSTANCE.getDeploymentSequence_DeploymentComponents();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.DeploymentComponentsImpl <em>Deployment Components</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.DeploymentComponentsImpl
+     * @see domain.impl.DomainPackageImpl#getDeploymentComponents()
+     * @generated
+     */
+    EClass DEPLOYMENT_COMPONENTS = eINSTANCE.getDeploymentComponents();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPLOYMENT_COMPONENTS__UID = eINSTANCE.getDeploymentComponents_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Deplyment Step</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEPLOYMENT_COMPONENTS__DEPLYMENT_STEP = eINSTANCE.getDeploymentComponents_DeplymentStep();
+
+    /**
+     * The meta object literal for the '<em><b>Start Seq</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEPLOYMENT_COMPONENTS__START_SEQ = eINSTANCE.getDeploymentComponents_StartSeq();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.DeploymentComponentImpl <em>Deployment Component</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.DeploymentComponentImpl
+     * @see domain.impl.DomainPackageImpl#getDeploymentComponent()
+     * @generated
+     */
+    EClass DEPLOYMENT_COMPONENT = eINSTANCE.getDeploymentComponent();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPLOYMENT_COMPONENT__UID = eINSTANCE.getDeploymentComponent_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPLOYMENT_COMPONENT__NAME = eINSTANCE.getDeploymentComponent_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Mapper</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEPLOYMENT_COMPONENT__MAPPER = eINSTANCE.getDeploymentComponent_Mapper();
+
+    /**
+     * The meta object literal for the '<em><b>Deplyment Component</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEPLOYMENT_COMPONENT__DEPLYMENT_COMPONENT = eINSTANCE.getDeploymentComponent_DeplymentComponent();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.DeploymentStarStepImpl <em>Deployment Star Step</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.DeploymentStarStepImpl
+     * @see domain.impl.DomainPackageImpl#getDeploymentStarStep()
+     * @generated
+     */
+    EClass DEPLOYMENT_STAR_STEP = eINSTANCE.getDeploymentStarStep();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPLOYMENT_STAR_STEP__UID = eINSTANCE.getDeploymentStarStep_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPLOYMENT_STAR_STEP__NAME = eINSTANCE.getDeploymentStarStep_Name();
+
+    /**
+     * The meta object literal for the '<em><b>First Step</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEPLOYMENT_STAR_STEP__FIRST_STEP = eINSTANCE.getDeploymentStarStep_FirstStep();
+
+    /**
      * The meta object literal for the '{@link domain.impl.UsingMappersImpl <em>Using Mappers</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8656,6 +9224,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference RECIPE__INFRASTRUCTURES = eINSTANCE.getRecipe_Infrastructures();
+
+    /**
+     * The meta object literal for the '<em><b>Deloyment</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECIPE__DELOYMENT = eINSTANCE.getRecipe_Deloyment();
 
     /**
      * The meta object literal for the '{@link domain.impl.IngredientImpl <em>Ingredient</em>}' class.

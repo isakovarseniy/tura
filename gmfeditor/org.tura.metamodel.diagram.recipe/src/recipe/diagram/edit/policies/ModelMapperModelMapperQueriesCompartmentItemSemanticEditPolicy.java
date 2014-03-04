@@ -26,7 +26,7 @@ public class ModelMapperModelMapperQueriesCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.Query_303009 == req.getElementType()) {
+		if (DomainElementTypes.Query_303004 == req.getElementType()) {
 			return getGEFWrapper(new QueryCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

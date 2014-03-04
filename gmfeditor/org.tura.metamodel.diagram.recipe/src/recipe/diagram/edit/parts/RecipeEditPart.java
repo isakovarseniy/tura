@@ -34,9 +34,9 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
+
 import recipe.diagram.edit.policies.OpenDiagramEditPolicy;
 import recipe.diagram.edit.policies.RecipeItemSemanticEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
@@ -288,8 +288,9 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.RecipeInfrastructures_304005);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(DomainElementTypes.RecipeInfrastructures_304004);
+		types.add(DomainElementTypes.RecipeDeloyment_304005);
 		return types;
 	}
 
@@ -300,7 +301,10 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof InfrastructureEditPart) {
-			types.add(DomainElementTypes.RecipeInfrastructures_304005);
+			types.add(DomainElementTypes.RecipeInfrastructures_304004);
+		}
+		if (targetEditPart instanceof DeploymentSequenceEditPart) {
+			types.add(DomainElementTypes.RecipeDeloyment_304005);
 		}
 		return types;
 	}
@@ -310,8 +314,10 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.RecipeInfrastructures_304005) {
+		if (relationshipType == DomainElementTypes.RecipeInfrastructures_304004) {
 			types.add(DomainElementTypes.Infrastructure_302003);
+		} else if (relationshipType == DomainElementTypes.RecipeDeloyment_304005) {
+			types.add(DomainElementTypes.DeploymentSequence_302004);
 		}
 		return types;
 	}

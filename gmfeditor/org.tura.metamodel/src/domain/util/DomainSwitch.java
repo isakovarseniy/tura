@@ -20,6 +20,10 @@ import domain.ConfigVariable;
 import domain.Configuration;
 import domain.ContinuousIintegration;
 import domain.CreateMethod;
+import domain.DeploymentComponent;
+import domain.DeploymentComponents;
+import domain.DeploymentSequence;
+import domain.DeploymentStarStep;
 import domain.Domain;
 import domain.DomainApplication;
 import domain.DomainApplications;
@@ -398,6 +402,34 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Recipes recipes = (Recipes)theEObject;
         T result = caseRecipes(recipes);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.DEPLOYMENT_SEQUENCE:
+      {
+        DeploymentSequence deploymentSequence = (DeploymentSequence)theEObject;
+        T result = caseDeploymentSequence(deploymentSequence);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.DEPLOYMENT_COMPONENTS:
+      {
+        DeploymentComponents deploymentComponents = (DeploymentComponents)theEObject;
+        T result = caseDeploymentComponents(deploymentComponents);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.DEPLOYMENT_COMPONENT:
+      {
+        DeploymentComponent deploymentComponent = (DeploymentComponent)theEObject;
+        T result = caseDeploymentComponent(deploymentComponent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.DEPLOYMENT_STAR_STEP:
+      {
+        DeploymentStarStep deploymentStarStep = (DeploymentStarStep)theEObject;
+        T result = caseDeploymentStarStep(deploymentStarStep);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1183,6 +1215,70 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRecipes(Recipes object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Deployment Sequence</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Deployment Sequence</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeploymentSequence(DeploymentSequence object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Deployment Components</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Deployment Components</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeploymentComponents(DeploymentComponents object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Deployment Component</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Deployment Component</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeploymentComponent(DeploymentComponent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Deployment Star Step</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Deployment Star Step</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeploymentStarStep(DeploymentStarStep object)
   {
     return null;
   }

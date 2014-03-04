@@ -65,7 +65,7 @@ public class ConfigurationConfigExtensionExternalLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 306002;
+	public static final int VISUAL_ID = 306006;
 
 	/**
 	 * @generated
@@ -329,7 +329,7 @@ public class ConfigurationConfigExtensionExternalLabelEditPart extends
 	public IParser getParser() {
 		if (parser == null) {
 			parser = DomainParserProvider.getParser(
-					DomainElementTypes.ConfigurationConfigExtension_304003,
+					DomainElementTypes.ConfigurationConfigExtension_304007,
 					getParserElement(), CommonParserHint.DESCRIPTION);
 		}
 		return parser;

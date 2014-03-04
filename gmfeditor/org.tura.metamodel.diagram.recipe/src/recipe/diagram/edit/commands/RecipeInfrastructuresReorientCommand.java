@@ -77,7 +77,7 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 			return false;
 		}
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistRecipeInfrastructures_304005(getNewSource(),
+				.canExistRecipeInfrastructures_304004(getNewSource(),
 						getOldTarget());
 	}
 
@@ -89,7 +89,7 @@ public class RecipeInfrastructuresReorientCommand extends EditElementCommand {
 			return false;
 		}
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistRecipeInfrastructures_304005(getOldSource(),
+				.canExistRecipeInfrastructures_304004(getOldSource(),
 						getNewTarget());
 	}
 

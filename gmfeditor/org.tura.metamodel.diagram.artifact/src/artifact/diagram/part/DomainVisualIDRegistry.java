@@ -20,10 +20,16 @@ import artifact.diagram.edit.parts.ConfigVariableEditPart;
 import artifact.diagram.edit.parts.ConfigVariableNameEditPart;
 import artifact.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import artifact.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
+import artifact.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import artifact.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
+import artifact.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import artifact.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import artifact.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import artifact.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.ModelQueryNameEditPart;
+import artifact.diagram.edit.parts.RecipeDeloymentEditPart;
+import artifact.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import artifact.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import artifact.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
@@ -239,8 +245,23 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			if (DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

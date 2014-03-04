@@ -40,7 +40,7 @@
 
 		«EXPAND xpt::Common::generatedMemberComment»
 		protected org.eclipse.gmf.runtime.notation.Diagram intializeNewDiagram() throws org.eclipse.core.commands.ExecutionException {
-        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'   or editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'  or editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy' or editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'  or editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'  or editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy' or editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy' or editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'-»
+        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'   or editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'  or editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy' or editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'  or editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'  or editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy' or editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy' or editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'  or editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
  			«EXPAND sourceObject» sourceObject = («EXPAND sourceObject») ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (diagramFacet
 					.eContainer())).basicGetElement();
 			if (sourceObject.getName() == null) {
@@ -207,6 +207,8 @@
           domain.ApplicationMapper
           «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-» 
           domain.ApplicationRecipe
+          «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-» 
+          domain.DeploymentSequence
            «ELSE»
            null
            «ENDIF»
@@ -235,6 +237,8 @@
           setMapper
           «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
           setRecipes
+          «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
+          setDeploymentComponents
            «ELSE»
            null
            «ENDIF»
@@ -264,6 +268,8 @@
           getMapper
           «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
           getRecipes
+           «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
+          getDeploymentComponents
            «ELSE»
            null
            «ENDIF»
@@ -293,6 +299,8 @@
           domain.Mappers
           «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
           domain.Recipes
+            «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
+          domain.DeploymentComponents
            «ELSE»
            null
            «ENDIF»
@@ -321,6 +329,8 @@
            domain.DomainFactory.eINSTANCE.createMappers()
           «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
            domain.DomainFactory.eINSTANCE.createRecipes()
+            «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
+           domain.DomainFactory.eINSTANCE.createDeploymentComponents()
            «ELSE»
            null
            «ENDIF»
@@ -349,6 +359,8 @@
           "mapper"
           «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'-»
           "recipe"
+            «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
+            "deployment"
            «ELSE»
            null
            «ENDIF»

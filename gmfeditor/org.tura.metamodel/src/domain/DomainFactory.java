@@ -338,6 +338,42 @@ public interface DomainFactory extends EFactory
   Recipes createRecipes();
 
   /**
+   * Returns a new object of class '<em>Deployment Sequence</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Deployment Sequence</em>'.
+   * @generated
+   */
+  DeploymentSequence createDeploymentSequence();
+
+  /**
+   * Returns a new object of class '<em>Deployment Components</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Deployment Components</em>'.
+   * @generated
+   */
+  DeploymentComponents createDeploymentComponents();
+
+  /**
+   * Returns a new object of class '<em>Deployment Component</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Deployment Component</em>'.
+   * @generated
+   */
+  DeploymentComponent createDeploymentComponent();
+
+  /**
+   * Returns a new object of class '<em>Deployment Star Step</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Deployment Star Step</em>'.
+   * @generated
+   */
+  DeploymentStarStep createDeploymentStarStep();
+
+  /**
    * Returns a new object of class '<em>Using Mappers</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -24,7 +24,7 @@ public class InfrastructureRecipeConfigEditPart extends ConnectionNodeEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 304004;
+	public static final int VISUAL_ID = 304006;
 
 	/**
 	 * @generated

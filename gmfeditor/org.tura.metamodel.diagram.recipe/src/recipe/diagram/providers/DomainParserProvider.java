@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import recipe.diagram.edit.parts.ConfigurationNameEditPart;
+import recipe.diagram.edit.parts.DeploymentSequenceNameEditPart;
 import recipe.diagram.edit.parts.InfrastructureNameEditPart;
 import recipe.diagram.edit.parts.IngredientNameEditPart;
 import recipe.diagram.edit.parts.JavaComponentNameEditPart;
@@ -37,145 +38,163 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser recipeName_305004Parser;
+	private IParser recipeName_305005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRecipeName_305004Parser() {
-		if (recipeName_305004Parser == null) {
+	private IParser getRecipeName_305005Parser() {
+		if (recipeName_305005Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getRecipe_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			recipeName_305004Parser = parser;
+			recipeName_305005Parser = parser;
 		}
-		return recipeName_305004Parser;
+		return recipeName_305005Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser configurationName_305006Parser;
+	private IParser configurationName_305007Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getConfigurationName_305006Parser() {
-		if (configurationName_305006Parser == null) {
+	private IParser getConfigurationName_305007Parser() {
+		if (configurationName_305007Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getConfiguration_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			configurationName_305006Parser = parser;
+			configurationName_305007Parser = parser;
 		}
-		return configurationName_305006Parser;
+		return configurationName_305007Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser infrastructureName_305007Parser;
+	private IParser infrastructureName_305008Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getInfrastructureName_305007Parser() {
-		if (infrastructureName_305007Parser == null) {
+	private IParser getInfrastructureName_305008Parser() {
+		if (infrastructureName_305008Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getInfrastructure_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			infrastructureName_305007Parser = parser;
+			infrastructureName_305008Parser = parser;
 		}
-		return infrastructureName_305007Parser;
+		return infrastructureName_305008Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser ingredientName_305009Parser;
+	private IParser deploymentSequenceName_305009Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getIngredientName_305009Parser() {
-		if (ingredientName_305009Parser == null) {
+	private IParser getDeploymentSequenceName_305009Parser() {
+		if (deploymentSequenceName_305009Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getDeploymentSequence_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			deploymentSequenceName_305009Parser = parser;
+		}
+		return deploymentSequenceName_305009Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser ingredientName_305004Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getIngredientName_305004Parser() {
+		if (ingredientName_305004Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getIngredient_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			ingredientName_305009Parser = parser;
+			ingredientName_305004Parser = parser;
 		}
-		return ingredientName_305009Parser;
+		return ingredientName_305004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser javaComponentName_305015Parser;
+	private IParser javaComponentName_305003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getJavaComponentName_305015Parser() {
-		if (javaComponentName_305015Parser == null) {
+	private IParser getJavaComponentName_305003Parser() {
+		if (javaComponentName_305003Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getComponent_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			javaComponentName_305015Parser = parser;
+			javaComponentName_305003Parser = parser;
 		}
-		return javaComponentName_305015Parser;
+		return javaComponentName_305003Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser modelMapperName_305001Parser;
+	private IParser modelMapperName_305002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getModelMapperName_305001Parser() {
-		if (modelMapperName_305001Parser == null) {
+	private IParser getModelMapperName_305002Parser() {
+		if (modelMapperName_305002Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getModelMapper_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			modelMapperName_305001Parser = parser;
+			modelMapperName_305002Parser = parser;
 		}
-		return modelMapperName_305001Parser;
+		return modelMapperName_305002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser queryName_305013Parser;
+	private IParser queryName_305001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getQueryName_305013Parser() {
-		if (queryName_305013Parser == null) {
+	private IParser getQueryName_305001Parser() {
+		if (queryName_305001Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getQuery_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			queryName_305013Parser = parser;
+			queryName_305001Parser = parser;
 		}
-		return queryName_305013Parser;
+		return queryName_305001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser propertyFakeName_305005Parser;
+	private IParser propertyFakeName_305006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPropertyFakeName_305005Parser() {
-		if (propertyFakeName_305005Parser == null) {
+	private IParser getPropertyFakeName_305006Parser() {
+		if (propertyFakeName_305006Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
 					.getProperty_FakeName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			propertyFakeName_305005Parser = parser;
+			propertyFakeName_305006Parser = parser;
 		}
-		return propertyFakeName_305005Parser;
+		return propertyFakeName_305006Parser;
 	}
 
 	/**
@@ -184,21 +203,23 @@ public class DomainParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case RecipeNameEditPart.VISUAL_ID:
-			return getRecipeName_305004Parser();
+			return getRecipeName_305005Parser();
 		case ConfigurationNameEditPart.VISUAL_ID:
-			return getConfigurationName_305006Parser();
+			return getConfigurationName_305007Parser();
 		case InfrastructureNameEditPart.VISUAL_ID:
-			return getInfrastructureName_305007Parser();
+			return getInfrastructureName_305008Parser();
+		case DeploymentSequenceNameEditPart.VISUAL_ID:
+			return getDeploymentSequenceName_305009Parser();
 		case IngredientNameEditPart.VISUAL_ID:
-			return getIngredientName_305009Parser();
+			return getIngredientName_305004Parser();
 		case JavaComponentNameEditPart.VISUAL_ID:
-			return getJavaComponentName_305015Parser();
+			return getJavaComponentName_305003Parser();
 		case ModelMapperNameEditPart.VISUAL_ID:
-			return getModelMapperName_305001Parser();
+			return getModelMapperName_305002Parser();
 		case QueryNameEditPart.VISUAL_ID:
-			return getQueryName_305013Parser();
+			return getQueryName_305001Parser();
 		case PropertyFakeNameEditPart.VISUAL_ID:
-			return getPropertyFakeName_305005Parser();
+			return getPropertyFakeName_305006Parser();
 		}
 		return null;
 	}

@@ -22,6 +22,8 @@ import org.eclipse.swt.graphics.Image;
 import domain.DomainPackage;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import domain.diagram.edit.parts.ContinuousIintegrationEditPart;
+import domain.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import domain.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
 import domain.diagram.edit.parts.DomainApplicationsEditPart;
 import domain.diagram.edit.parts.DomainArtifactEditPart;
@@ -32,6 +34,7 @@ import domain.diagram.edit.parts.EJBServiceEditPart;
 import domain.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
+import domain.diagram.edit.parts.RecipeDeloymentEditPart;
 import domain.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
 import domain.diagram.part.DomainDiagramEditorPlugin;
@@ -94,7 +97,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ContinuousIintegration_503006 = getElementType("org.tura.metamodel.diagram.domain.ContinuousIintegration_503006"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
@@ -110,7 +112,19 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType DeploymentComponentDeplymentComponent_504007 = getElementType("org.tura.metamodel.diagram.domain.DeploymentComponentDeplymentComponent_504007"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType DeploymentStarStepFirstStep_504009 = getElementType("org.tura.metamodel.diagram.domain.DeploymentStarStepFirstStep_504009"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType RecipeInfrastructures_504005 = getElementType("org.tura.metamodel.diagram.domain.RecipeInfrastructures_504005"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipeDeloyment_504006 = getElementType("org.tura.metamodel.diagram.domain.RecipeDeloyment_504006"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -263,8 +277,18 @@ public class DomainElementTypes {
 			elements.put(TypeExtension_504001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
+			elements.put(DeploymentComponentDeplymentComponent_504007,
+					DomainPackage.eINSTANCE
+							.getDeploymentComponent_DeplymentComponent());
+
+			elements.put(DeploymentStarStepFirstStep_504009,
+					DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep());
+
 			elements.put(RecipeInfrastructures_504005,
 					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
+
+			elements.put(RecipeDeloyment_504006,
+					DomainPackage.eINSTANCE.getRecipe_Deloyment());
 
 			elements.put(InfrastructureRecipeConfig_504004,
 					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
@@ -299,7 +323,11 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(DomainArtifact_503002);
 			KNOWN_ELEMENT_TYPES.add(DomainApplication_503001);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_504001);
+			KNOWN_ELEMENT_TYPES
+					.add(DeploymentComponentDeplymentComponent_504007);
+			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_504009);
 			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_504005);
+			KNOWN_ELEMENT_TYPES.add(RecipeDeloyment_504006);
 			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_504004);
 			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_504003);
 		}
@@ -333,8 +361,14 @@ public class DomainElementTypes {
 			return DomainApplication_503001;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_504001;
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			return DeploymentComponentDeplymentComponent_504007;
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			return DeploymentStarStepFirstStep_504009;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return RecipeInfrastructures_504005;
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			return RecipeDeloyment_504006;
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return InfrastructureRecipeConfig_504004;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:

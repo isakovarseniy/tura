@@ -35,7 +35,7 @@
         href="domain.ecore#//Type/extension"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.3"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.6"/>
     <diagramLink
         href="domain.gmfgraph#TypeExtension"/>
     <sourceMetaFeature
@@ -50,11 +50,43 @@
         xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
+          href="domain.gmfgraph#DeploymentComponentDeplymentComponentExternalLabel"/>
+    </labelMappings>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="domain.gmftool#//@palette/@tools.1/@tools.2"/>
+    <diagramLink
+        href="domain.gmfgraph#DeploymentComponentDeplymentComponent"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//DeploymentComponent/deplymentComponent"/>
+  </links>
+  <links>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="domain.gmfgraph#DeploymentStarStepFirstStepExternalLabel"/>
+    </labelMappings>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="domain.gmftool#//@palette/@tools.1/@tools.3"/>
+    <diagramLink
+        href="domain.gmfgraph#DeploymentStarStepFirstStep"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//DeploymentStarStep/firstStep"/>
+  </links>
+  <links>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
           href="domain.gmfgraph#RecipeInfrastructuresExternalLabel"/>
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.1"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.4"/>
     <diagramLink
         href="domain.gmfgraph#RecipeInfrastructures"/>
     <linkMetaFeature
@@ -66,11 +98,27 @@
         xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
+          href="domain.gmfgraph#RecipeDeloymentExternalLabel"/>
+    </labelMappings>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="domain.gmftool#//@palette/@tools.1/@tools.1"/>
+    <diagramLink
+        href="domain.gmfgraph#RecipeDeloyment"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//Recipe/deloyment"/>
+  </links>
+  <links>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
           href="domain.gmfgraph#InfrastructureRecipeConfigExternalLabel"/>
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.2"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.5"/>
     <diagramLink
         href="domain.gmfgraph#InfrastructureRecipeConfig"/>
     <linkMetaFeature

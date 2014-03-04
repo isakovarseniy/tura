@@ -35,6 +35,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import recipe.diagram.edit.parts.ConfigurationEditPart;
+import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.IngredientEditPart;
 import recipe.diagram.edit.parts.JavaComponentEditPart;
@@ -84,6 +85,8 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getRecipes_Configurations());
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getRecipes_Infrastructures());
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getRecipes_Deployment());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -120,9 +123,14 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
-		return visualID == RecipeEditPart.VISUAL_ID
-				|| visualID == ConfigurationEditPart.VISUAL_ID
-				|| visualID == InfrastructureEditPart.VISUAL_ID;
+		switch (visualID) {
+		case RecipeEditPart.VISUAL_ID:
+		case ConfigurationEditPart.VISUAL_ID:
+		case InfrastructureEditPart.VISUAL_ID:
+		case DeploymentSequenceEditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -315,10 +323,18 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
+		case DeploymentSequenceEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getDeploymentSequence_302004ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
 		case IngredientEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getIngredient_303005ContainedLinks(view));
+						.getIngredient_303001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -326,7 +342,7 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 		case JavaComponentEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getJavaComponent_303011ContainedLinks(view));
+						.getJavaComponent_303002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -342,7 +358,7 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 		case QueryEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getQuery_303009ContainedLinks(view));
+						.getQuery_303004ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -350,7 +366,7 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 		case PropertyEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getProperty_303004ContainedLinks(view));
+						.getProperty_303005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

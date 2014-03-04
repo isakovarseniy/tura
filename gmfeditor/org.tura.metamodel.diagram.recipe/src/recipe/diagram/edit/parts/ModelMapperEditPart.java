@@ -31,9 +31,9 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
+
 import recipe.diagram.edit.policies.ModelMapperItemSemanticEditPolicy;
 import recipe.diagram.edit.policies.OpenDiagramEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
@@ -295,7 +295,7 @@ public class ModelMapperEditPart extends ShapeNodeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
-			if (type == DomainElementTypes.Query_303009) {
+			if (type == DomainElementTypes.Query_303004) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID));
 			}

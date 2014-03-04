@@ -30,7 +30,7 @@ public class IngredientItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public IngredientItemSemanticEditPolicy() {
-		super(DomainElementTypes.Ingredient_303005);
+		super(DomainElementTypes.Ingredient_303001);
 	}
 
 	/**

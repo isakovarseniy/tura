@@ -39,6 +39,9 @@ import recipe.diagram.part.DomainDiagramEditorPlugin;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.providers.DomainElementTypes;
 import domain.Configuration;
+import domain.DeploymentComponent;
+import domain.DeploymentSequence;
+import domain.DeploymentStarStep;
 import domain.Infrastructure;
 import domain.Recipe;
 import domain.Type;
@@ -339,7 +342,36 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateRecipeInfrastructures_304005(Recipe source,
+		public boolean canCreateDeploymentComponentDeplymentComponent_304002(
+				DeploymentComponent source, DeploymentComponent target) {
+			if (source != null) {
+				if (source.getDeplymentComponent() != null) {
+					return false;
+				}
+			}
+
+			return canExistDeploymentComponentDeplymentComponent_304002(source,
+					target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateDeploymentStarStepFirstStep_304008(
+				DeploymentStarStep source, DeploymentComponent target) {
+			if (source != null) {
+				if (source.getFirstStep() != null) {
+					return false;
+				}
+			}
+
+			return canExistDeploymentStarStepFirstStep_304008(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateRecipeInfrastructures_304004(Recipe source,
 				Infrastructure target) {
 			if (source != null) {
 				if (source.getInfrastructures().contains(target)) {
@@ -350,13 +382,27 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistRecipeInfrastructures_304005(source, target);
+			return canExistRecipeInfrastructures_304004(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateInfrastructureRecipeConfig_304004(
+		public boolean canCreateRecipeDeloyment_304005(Recipe source,
+				DeploymentSequence target) {
+			if (source != null) {
+				if (source.getDeloyment() != null) {
+					return false;
+				}
+			}
+
+			return canExistRecipeDeloyment_304005(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateInfrastructureRecipeConfig_304006(
 				Infrastructure source, Configuration target) {
 			if (source != null) {
 				if (source.getRecipeConfig() != null) {
@@ -367,13 +413,13 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistInfrastructureRecipeConfig_304004(source, target);
+			return canExistInfrastructureRecipeConfig_304006(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateConfigurationConfigExtension_304003(
+		public boolean canCreateConfigurationConfigExtension_304007(
 				Configuration source, Configuration target) {
 			if (source != null) {
 				if (source.getConfigExtension() != null) {
@@ -384,7 +430,7 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistConfigurationConfigExtension_304003(source, target);
+			return canExistConfigurationConfigExtension_304007(source, target);
 		}
 
 		/**
@@ -399,7 +445,23 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistRecipeInfrastructures_304005(Recipe source,
+		public boolean canExistDeploymentComponentDeplymentComponent_304002(
+				DeploymentComponent source, DeploymentComponent target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistDeploymentStarStepFirstStep_304008(
+				DeploymentStarStep source, DeploymentComponent target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistRecipeInfrastructures_304004(Recipe source,
 				Infrastructure target) {
 			return true;
 		}
@@ -407,7 +469,15 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistInfrastructureRecipeConfig_304004(
+		public boolean canExistRecipeDeloyment_304005(Recipe source,
+				DeploymentSequence target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistInfrastructureRecipeConfig_304006(
 				Infrastructure source, Configuration target) {
 			return true;
 		}
@@ -415,7 +485,7 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistConfigurationConfigExtension_304003(
+		public boolean canExistConfigurationConfigExtension_304007(
 				Configuration source, Configuration target) {
 			return true;
 		}

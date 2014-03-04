@@ -21,6 +21,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="DeploymentSequence"
+          description="Create new DeploymentSequence">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Infrastructure"
           description="Create new Infrastructure">
         <smallIcon
@@ -91,6 +100,33 @@
           xsi:type="gmftool:CreationTool"
           title="ConfigExtension"
           description="Create new ConfigExtension">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Deloyment"
+          description="Create new Deloyment">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="DeplymentComponent"
+          description="Create new DeplymentComponent">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="FirstStep"
+          description="Create new FirstStep">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

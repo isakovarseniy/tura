@@ -2,6 +2,7 @@
  */
 package domain.impl;
 
+import domain.DeploymentSequence;
 import domain.DomainPackage;
 import domain.Infrastructure;
 import domain.Ingredient;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.RecipeImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getIngredients <em>Ingredients</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getInfrastructures <em>Infrastructures</em>}</li>
+ *   <li>{@link domain.impl.RecipeImpl#getDeloyment <em>Deloyment</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +105,16 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
    * @ordered
    */
   protected EList<Infrastructure> infrastructures;
+
+  /**
+   * The cached value of the '{@link #getDeloyment() <em>Deloyment</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeloyment()
+   * @generated
+   * @ordered
+   */
+  protected DeploymentSequence deloyment;
 
   /**
    * <!-- begin-user-doc -->
@@ -249,6 +261,49 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
    * <!-- end-user-doc -->
    * @generated
    */
+  public DeploymentSequence getDeloyment()
+  {
+    if (deloyment != null && deloyment.eIsProxy())
+    {
+      InternalEObject oldDeloyment = (InternalEObject)deloyment;
+      deloyment = (DeploymentSequence)eResolveProxy(oldDeloyment);
+      if (deloyment != oldDeloyment)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.RECIPE__DELOYMENT, oldDeloyment, deloyment));
+      }
+    }
+    return deloyment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeploymentSequence basicGetDeloyment()
+  {
+    return deloyment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDeloyment(DeploymentSequence newDeloyment)
+  {
+    DeploymentSequence oldDeloyment = deloyment;
+    deloyment = newDeloyment;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPE__DELOYMENT, oldDeloyment, deloyment));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
@@ -323,6 +378,9 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
         return getIngredients();
       case DomainPackage.RECIPE__INFRASTRUCTURES:
         return getInfrastructures();
+      case DomainPackage.RECIPE__DELOYMENT:
+        if (resolve) return getDeloyment();
+        return basicGetDeloyment();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -355,6 +413,9 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
         getInfrastructures().clear();
         getInfrastructures().addAll((Collection<? extends Infrastructure>)newValue);
         return;
+      case DomainPackage.RECIPE__DELOYMENT:
+        setDeloyment((DeploymentSequence)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -384,6 +445,9 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
       case DomainPackage.RECIPE__INFRASTRUCTURES:
         getInfrastructures().clear();
         return;
+      case DomainPackage.RECIPE__DELOYMENT:
+        setDeloyment((DeploymentSequence)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -408,6 +472,8 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
         return ingredients != null && !ingredients.isEmpty();
       case DomainPackage.RECIPE__INFRASTRUCTURES:
         return infrastructures != null && !infrastructures.isEmpty();
+      case DomainPackage.RECIPE__DELOYMENT:
+        return deloyment != null;
     }
     return super.eIsSet(featureID);
   }

@@ -25,7 +25,10 @@ import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
 import application.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
+import application.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import application.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import application.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import application.diagram.edit.parts.RecipeDeloymentEditPart;
 import application.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import application.diagram.edit.parts.TypeExtensionEditPart;
 import application.diagram.part.DomainDiagramEditorPlugin;
@@ -84,7 +87,19 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType DeploymentComponentDeplymentComponent_804007 = getElementType("org.tura.metamodel.diagram.application.DeploymentComponentDeplymentComponent_804007"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType DeploymentStarStepFirstStep_804009 = getElementType("org.tura.metamodel.diagram.application.DeploymentStarStepFirstStep_804009"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType RecipeInfrastructures_804005 = getElementType("org.tura.metamodel.diagram.application.RecipeInfrastructures_804005"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipeDeloyment_804006 = getElementType("org.tura.metamodel.diagram.application.RecipeDeloyment_804006"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -223,8 +238,18 @@ public class DomainElementTypes {
 			elements.put(TypeExtension_804001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
+			elements.put(DeploymentComponentDeplymentComponent_804007,
+					DomainPackage.eINSTANCE
+							.getDeploymentComponent_DeplymentComponent());
+
+			elements.put(DeploymentStarStepFirstStep_804009,
+					DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep());
+
 			elements.put(RecipeInfrastructures_804005,
 					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
+
+			elements.put(RecipeDeloyment_804006,
+					DomainPackage.eINSTANCE.getRecipe_Deloyment());
 
 			elements.put(InfrastructureRecipeConfig_804004,
 					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
@@ -254,7 +279,11 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ApplicationRecipe_803001);
 			KNOWN_ELEMENT_TYPES.add(ApplicationMapper_803002);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_804001);
+			KNOWN_ELEMENT_TYPES
+					.add(DeploymentComponentDeplymentComponent_804007);
+			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_804009);
 			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_804005);
+			KNOWN_ELEMENT_TYPES.add(RecipeDeloyment_804006);
 			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_804004);
 			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_804003);
 		}
@@ -278,8 +307,14 @@ public class DomainElementTypes {
 			return ApplicationMapper_803002;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_804001;
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			return DeploymentComponentDeplymentComponent_804007;
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			return DeploymentStarStepFirstStep_804009;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return RecipeInfrastructures_804005;
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			return RecipeDeloyment_804006;
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return InfrastructureRecipeConfig_804004;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:

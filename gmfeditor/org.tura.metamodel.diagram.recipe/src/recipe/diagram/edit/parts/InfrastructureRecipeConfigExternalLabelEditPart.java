@@ -65,7 +65,7 @@ public class InfrastructureRecipeConfigExternalLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 306003;
+	public static final int VISUAL_ID = 306005;
 
 	/**
 	 * @generated
@@ -329,7 +329,7 @@ public class InfrastructureRecipeConfigExternalLabelEditPart extends
 	public IParser getParser() {
 		if (parser == null) {
 			parser = DomainParserProvider.getParser(
-					DomainElementTypes.InfrastructureRecipeConfig_304004,
+					DomainElementTypes.InfrastructureRecipeConfig_304006,
 					getParserElement(), CommonParserHint.DESCRIPTION);
 		}
 		return parser;

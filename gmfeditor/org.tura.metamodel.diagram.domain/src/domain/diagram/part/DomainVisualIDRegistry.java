@@ -16,6 +16,10 @@ import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import domain.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import domain.diagram.edit.parts.ContinuousIintegrationEditPart;
 import domain.diagram.edit.parts.ContinuousIintegrationNameEditPart;
+import domain.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import domain.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
+import domain.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import domain.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
 import domain.diagram.edit.parts.DomainApplicationNameEditPart;
 import domain.diagram.edit.parts.DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart;
@@ -37,6 +41,8 @@ import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.JPAServiceNameEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
 import domain.diagram.edit.parts.ORMEntityNameEditPart;
+import domain.diagram.edit.parts.RecipeDeloymentEditPart;
+import domain.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import domain.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import domain.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
@@ -301,8 +307,23 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			if (DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.Recipe#getName <em>Name</em>}</li>
  *   <li>{@link domain.Recipe#getIngredients <em>Ingredients</em>}</li>
  *   <li>{@link domain.Recipe#getInfrastructures <em>Infrastructures</em>}</li>
+ *   <li>{@link domain.Recipe#getDeloyment <em>Deloyment</em>}</li>
  * </ul>
  * </p>
  *
@@ -142,5 +143,31 @@ public interface Recipe extends UsingMappers
    * @generated
    */
   EList<Infrastructure> getInfrastructures();
+
+  /**
+   * Returns the value of the '<em><b>Deloyment</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Deloyment</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Deloyment</em>' reference.
+   * @see #setDeloyment(DeploymentSequence)
+   * @see domain.DomainPackage#getRecipe_Deloyment()
+   * @model annotation="gmf.link target.decoration='arrow' style='dash'"
+   * @generated
+   */
+  DeploymentSequence getDeloyment();
+
+  /**
+   * Sets the value of the '{@link domain.Recipe#getDeloyment <em>Deloyment</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Deloyment</em>' reference.
+   * @see #getDeloyment()
+   * @generated
+   */
+  void setDeloyment(DeploymentSequence value);
 
 } // Recipe

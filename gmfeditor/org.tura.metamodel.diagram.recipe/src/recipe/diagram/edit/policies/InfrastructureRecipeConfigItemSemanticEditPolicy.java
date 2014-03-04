@@ -19,7 +19,7 @@ public class InfrastructureRecipeConfigItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public InfrastructureRecipeConfigItemSemanticEditPolicy() {
-		super(DomainElementTypes.InfrastructureRecipeConfig_304004);
+		super(DomainElementTypes.InfrastructureRecipeConfig_304006);
 	}
 
 	/**

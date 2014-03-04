@@ -23,12 +23,18 @@ import businessobjects.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import businessobjects.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodFakeMethodEditPart;
+import businessobjects.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import businessobjects.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
+import businessobjects.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import businessobjects.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import businessobjects.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import businessobjects.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodFakeMethodEditPart;
+import businessobjects.diagram.edit.parts.RecipeDeloymentEditPart;
+import businessobjects.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import businessobjects.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import businessobjects.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
@@ -38,9 +44,6 @@ import businessobjects.diagram.edit.parts.SearchMethodFakeMethodEditPart;
 import businessobjects.diagram.edit.parts.TypeExtensionEditPart;
 import businessobjects.diagram.edit.parts.UpdateMethodEditPart;
 import businessobjects.diagram.edit.parts.UpdateMethodFakeMethodEditPart;
-import businessobjects.diagram.edit.parts.WrappingLabel2EditPart;
-import businessobjects.diagram.edit.parts.WrappingLabel3EditPart;
-import businessobjects.diagram.edit.parts.WrappingLabelEditPart;
 import domain.BusinessObjects;
 import domain.DomainPackage;
 
@@ -308,8 +311,23 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			if (DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

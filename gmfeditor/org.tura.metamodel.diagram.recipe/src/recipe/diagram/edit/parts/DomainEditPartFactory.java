@@ -46,6 +46,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case InfrastructureNameEditPart.VISUAL_ID:
 				return new InfrastructureNameEditPart(view);
 
+			case DeploymentSequenceEditPart.VISUAL_ID:
+				return new DeploymentSequenceEditPart(view);
+
+			case DeploymentSequenceNameEditPart.VISUAL_ID:
+				return new DeploymentSequenceNameEditPart(view);
+
 			case IngredientEditPart.VISUAL_ID:
 				return new IngredientEditPart(view);
 
@@ -98,11 +104,31 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case TypeExtensionEditPart.VISUAL_ID:
 				return new TypeExtensionEditPart(view);
 
+			case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+				return new DeploymentComponentDeplymentComponentEditPart(view);
+
+			case DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID:
+				return new DeploymentComponentDeplymentComponentExternalLabelEditPart(
+						view);
+
+			case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+				return new DeploymentStarStepFirstStepEditPart(view);
+
+			case DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID:
+				return new DeploymentStarStepFirstStepExternalLabelEditPart(
+						view);
+
 			case RecipeInfrastructuresEditPart.VISUAL_ID:
 				return new RecipeInfrastructuresEditPart(view);
 
 			case RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID:
 				return new RecipeInfrastructuresExternalLabelEditPart(view);
+
+			case RecipeDeloymentEditPart.VISUAL_ID:
+				return new RecipeDeloymentEditPart(view);
+
+			case RecipeDeloymentExternalLabelEditPart.VISUAL_ID:
+				return new RecipeDeloymentExternalLabelEditPart(view);
 
 			case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 				return new InfrastructureRecipeConfigEditPart(view);

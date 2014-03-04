@@ -949,6 +949,106 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.DeploymentSequence} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DeploymentSequenceItemProvider deploymentSequenceItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.DeploymentSequence}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDeploymentSequenceAdapter()
+  {
+    if (deploymentSequenceItemProvider == null)
+    {
+      deploymentSequenceItemProvider = new DeploymentSequenceItemProvider(this);
+    }
+
+    return deploymentSequenceItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.DeploymentComponents} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DeploymentComponentsItemProvider deploymentComponentsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.DeploymentComponents}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDeploymentComponentsAdapter()
+  {
+    if (deploymentComponentsItemProvider == null)
+    {
+      deploymentComponentsItemProvider = new DeploymentComponentsItemProvider(this);
+    }
+
+    return deploymentComponentsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.DeploymentComponent} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DeploymentComponentItemProvider deploymentComponentItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.DeploymentComponent}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDeploymentComponentAdapter()
+  {
+    if (deploymentComponentItemProvider == null)
+    {
+      deploymentComponentItemProvider = new DeploymentComponentItemProvider(this);
+    }
+
+    return deploymentComponentItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.DeploymentStarStep} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DeploymentStarStepItemProvider deploymentStarStepItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.DeploymentStarStep}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDeploymentStarStepAdapter()
+  {
+    if (deploymentStarStepItemProvider == null)
+    {
+      deploymentStarStepItemProvider = new DeploymentStarStepItemProvider(this);
+    }
+
+    return deploymentStarStepItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.UsingMappers} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1844,6 +1944,10 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (mapperItemProvider != null) mapperItemProvider.dispose();
     if (javaMapperItemProvider != null) javaMapperItemProvider.dispose();
     if (recipesItemProvider != null) recipesItemProvider.dispose();
+    if (deploymentSequenceItemProvider != null) deploymentSequenceItemProvider.dispose();
+    if (deploymentComponentsItemProvider != null) deploymentComponentsItemProvider.dispose();
+    if (deploymentComponentItemProvider != null) deploymentComponentItemProvider.dispose();
+    if (deploymentStarStepItemProvider != null) deploymentStarStepItemProvider.dispose();
     if (usingMappersItemProvider != null) usingMappersItemProvider.dispose();
     if (recipeItemProvider != null) recipeItemProvider.dispose();
     if (ingredientItemProvider != null) ingredientItemProvider.dispose();

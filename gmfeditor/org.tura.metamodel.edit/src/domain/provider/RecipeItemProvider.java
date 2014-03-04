@@ -67,6 +67,7 @@ public class RecipeItemProvider
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addInfrastructuresPropertyDescriptor(object);
+      addDeloymentPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -132,6 +133,29 @@ public class RecipeItemProvider
          getString("_UI_Recipe_infrastructures_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Recipe_infrastructures_feature", "_UI_Recipe_type"),
          DomainPackage.Literals.RECIPE__INFRASTRUCTURES,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Deloyment feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addDeloymentPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Recipe_deloyment_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Recipe_deloyment_feature", "_UI_Recipe_type"),
+         DomainPackage.Literals.RECIPE__DELOYMENT,
          true,
          false,
          true,

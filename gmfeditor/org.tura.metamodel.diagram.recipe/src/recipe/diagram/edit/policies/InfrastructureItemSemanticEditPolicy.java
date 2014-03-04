@@ -97,11 +97,11 @@ public class InfrastructureItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (DomainElementTypes.RecipeInfrastructures_304005 == req
+		if (DomainElementTypes.RecipeInfrastructures_304004 == req
 				.getElementType()) {
 			return null;
 		}
-		if (DomainElementTypes.InfrastructureRecipeConfig_304004 == req
+		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req
 				.getElementType()) {
 			return getGEFWrapper(new InfrastructureRecipeConfigCreateCommand(
 					req, req.getSource(), req.getTarget()));
@@ -114,12 +114,12 @@ public class InfrastructureItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (DomainElementTypes.RecipeInfrastructures_304005 == req
+		if (DomainElementTypes.RecipeInfrastructures_304004 == req
 				.getElementType()) {
 			return getGEFWrapper(new RecipeInfrastructuresCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (DomainElementTypes.InfrastructureRecipeConfig_304004 == req
+		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req
 				.getElementType()) {
 			return null;
 		}

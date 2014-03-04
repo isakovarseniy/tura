@@ -24,7 +24,7 @@ public class RecipeInfrastructuresEditPart extends ConnectionNodeEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 304005;
+	public static final int VISUAL_ID = 304004;
 
 	/**
 	 * @generated

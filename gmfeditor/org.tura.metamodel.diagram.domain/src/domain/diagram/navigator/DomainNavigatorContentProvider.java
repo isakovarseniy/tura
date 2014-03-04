@@ -30,6 +30,8 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 
 import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import domain.diagram.edit.parts.ContinuousIintegrationEditPart;
+import domain.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import domain.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
 import domain.diagram.edit.parts.DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart;
 import domain.diagram.edit.parts.DomainApplicationsEditPart;
@@ -42,6 +44,7 @@ import domain.diagram.edit.parts.EJBServiceEditPart;
 import domain.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
+import domain.diagram.edit.parts.RecipeDeloymentEditPart;
 import domain.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
 import domain.diagram.part.DomainVisualIDRegistry;
@@ -276,9 +279,23 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry
 							.getType(TypeExtensionEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DeploymentComponentDeplymentComponentEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DeploymentStarStepFirstStepEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					DomainVisualIDRegistry
 							.getType(RecipeInfrastructuresEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(RecipeDeloymentEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),

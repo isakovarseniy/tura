@@ -61,7 +61,7 @@ public class RecipeNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 305004;
+	public static final int VISUAL_ID = 305005;
 
 	/**
 	 * @generated

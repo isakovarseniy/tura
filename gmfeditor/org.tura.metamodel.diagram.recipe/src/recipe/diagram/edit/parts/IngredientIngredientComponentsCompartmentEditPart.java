@@ -29,7 +29,7 @@ public class IngredientIngredientComponentsCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 307007;
+	public static final int VISUAL_ID = 307002;
 
 	/**
 	 * @generated

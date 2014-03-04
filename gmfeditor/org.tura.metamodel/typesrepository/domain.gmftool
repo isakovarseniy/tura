@@ -53,6 +53,33 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="Deloyment"
+          description="Create new Deloyment">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="DeplymentComponent"
+          description="Create new DeplymentComponent">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="FirstStep"
+          description="Create new FirstStep">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Infrastructures"
           description="Create new Infrastructures">
         <smallIcon

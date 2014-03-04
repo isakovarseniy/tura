@@ -61,7 +61,7 @@ public class InfrastructureNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 305007;
+	public static final int VISUAL_ID = 305008;
 
 	/**
 	 * @generated

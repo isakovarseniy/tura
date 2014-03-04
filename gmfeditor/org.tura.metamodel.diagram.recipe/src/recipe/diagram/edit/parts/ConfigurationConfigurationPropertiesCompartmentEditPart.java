@@ -29,7 +29,7 @@ public class ConfigurationConfigurationPropertiesCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 307006;
+	public static final int VISUAL_ID = 307005;
 
 	/**
 	 * @generated

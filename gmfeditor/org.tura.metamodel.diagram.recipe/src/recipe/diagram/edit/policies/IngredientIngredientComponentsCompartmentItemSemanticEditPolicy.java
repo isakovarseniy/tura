@@ -19,14 +19,14 @@ public class IngredientIngredientComponentsCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	public IngredientIngredientComponentsCompartmentItemSemanticEditPolicy() {
-		super(DomainElementTypes.Ingredient_303005);
+		super(DomainElementTypes.Ingredient_303001);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.JavaComponent_303011 == req.getElementType()) {
+		if (DomainElementTypes.JavaComponent_303002 == req.getElementType()) {
 			return getGEFWrapper(new JavaComponentCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

@@ -78,7 +78,7 @@ public class InfrastructureRecipeConfigReorientCommand extends
 			return false;
 		}
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistInfrastructureRecipeConfig_304004(getNewSource(),
+				.canExistInfrastructureRecipeConfig_304006(getNewSource(),
 						getOldTarget());
 	}
 
@@ -90,7 +90,7 @@ public class InfrastructureRecipeConfigReorientCommand extends
 			return false;
 		}
 		return DomainBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistInfrastructureRecipeConfig_304004(getOldSource(),
+				.canExistInfrastructureRecipeConfig_304006(getOldSource(),
 						getNewTarget());
 	}
 

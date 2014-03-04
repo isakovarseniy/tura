@@ -26,7 +26,7 @@ public class RecipeRecipeIngredientsCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.Ingredient_303005 == req.getElementType()) {
+		if (DomainElementTypes.Ingredient_303001 == req.getElementType()) {
 			return getGEFWrapper(new IngredientCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
