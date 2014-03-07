@@ -96,7 +96,9 @@ public class OpenDiagramApplicationRecipeEditPolicy extends OpenEditPolicy {
 			diagramFacet = linkStyle;
 		}
 
-		// FIXME canExecute if  !(readOnly && getDiagramToOpen == null), i.e. open works on ro diagrams only when there's associated diagram already
+		// FIXME canExecute if !(readOnly && getDiagramToOpen == null), i.e.
+		// open works on ro diagrams only when there's associated diagram
+		// already
 
 		/**
 		 * @generated
@@ -205,11 +207,14 @@ public class OpenDiagramApplicationRecipeEditPolicy extends OpenEditPolicy {
 				targetObject = (Recipes
 
 				) d.getElement();
-				sourceObject.setRecipes
+				if (sourceObject.getRecipes
 
-				(targetObject);
-				sourceObject.eResource().getContents().add(targetObject);
+				() == null) {
+					sourceObject.setRecipes
 
+					(targetObject);
+					sourceObject.eResource().getContents().add(targetObject);
+				}
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {
 					((View) container).persist();

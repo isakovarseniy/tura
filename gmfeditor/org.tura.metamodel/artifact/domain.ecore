@@ -536,7 +536,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Recipe"
         eOpposite="#//Recipe/ingredients"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//Component" containment="true">
+        eType="#//Component" containment="true" eOpposite="#//Component/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="layer" eType="#//PlatformLayers"/>
@@ -545,6 +545,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Ingredient"
+        eOpposite="#//Ingredient/components"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappers" upperBound="-1"
         eType="#//ModelMapper" containment="true" eOpposite="#//ModelMapper/parent">
       <eAnnotations source="gmf.compartment"/>

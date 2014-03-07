@@ -109,6 +109,7 @@ public interface Ingredient extends UsingMappers
   /**
    * Returns the value of the '<em><b>Components</b></em>' containment reference list.
    * The list contents are of type {@link domain.Component}.
+   * It is bidirectional and its opposite is '{@link domain.Component#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Components</em>' containment reference list isn't clear,
@@ -117,7 +118,8 @@ public interface Ingredient extends UsingMappers
    * <!-- end-user-doc -->
    * @return the value of the '<em>Components</em>' containment reference list.
    * @see domain.DomainPackage#getIngredient_Components()
-   * @model containment="true"
+   * @see domain.Component#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<Component> getComponents();

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.Component#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Component#getName <em>Name</em>}</li>
+ *   <li>{@link domain.Component#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Component#getMappers <em>Mappers</em>}</li>
  *   <li>{@link domain.Component#getBuildScript <em>Build Script</em>}</li>
  *   <li>{@link domain.Component#getDeployScript <em>Deploy Script</em>}</li>
@@ -80,6 +81,34 @@ public interface Component extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.Ingredient#getComponents <em>Components</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(Ingredient)
+   * @see domain.DomainPackage#getComponent_Parent()
+   * @see domain.Ingredient#getComponents
+   * @model opposite="components" transient="false"
+   * @generated
+   */
+  Ingredient getParent();
+
+  /**
+   * Sets the value of the '{@link domain.Component#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(Ingredient value);
 
   /**
    * Returns the value of the '<em><b>Mappers</b></em>' containment reference list.

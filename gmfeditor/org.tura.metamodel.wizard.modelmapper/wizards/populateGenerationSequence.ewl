@@ -1,0 +1,41 @@
+wizard PopulateGenerationSequence{
+	
+	guard : self.isKindOf(domain::ModelMapper) 
+		
+	title : 'Populate Generation Sequence'
+	
+	do {
+	   var uuid := Native('java.util.UUID');
+       var recipe = self.parent.parent.parent;
+
+       if (recipe.deloyment =null){
+          var ds = new DeploymentSequence;
+           ds.name="Deployment sequence";
+           ds.uid=uuid.randomUUID().toString();
+           recipe.deloyment = ds;
+           recipe.parent.deployment=ds;
+       }
+       
+       if (recipe.deloyment.deploymentComponents =null){
+           recipe.deloyment.deploymentComponents  = new DeploymentComponents;
+           recipe.deloyment.deploymentComponents.uid = uuid.randomUUID().toString();
+       }
+
+       if (recipe.deloyment.deploymentComponents.startSeq =null){
+            recipe.deloyment.deploymentComponents.startSeq  = new DeploymentStarStep;
+            recipe.deloyment.deploymentComponents.startSeq.uid = uuid.randomUUID().toString();
+       }
+	   
+	   var mapper=recipe.deloyment.deploymentComponents.deplymentStep.selectOne(r|r.deplymentComponent=self.uid);
+	   if (mapper=null){
+	       var deploymentComponent = new DeploymentComponent;
+           deploymentComponent.uid=uuid.randomUUID().toString();
+	       deploymentComponent.mapper=self;
+	       deploymentComponent.name=self.parent.parent.name+":"+self.parent.name+":"+self.name;
+	    
+	      recipe.deloyment.deploymentComponents.deplymentStep.add(deploymentComponent);
+	   }
+	
+	}
+	
+}

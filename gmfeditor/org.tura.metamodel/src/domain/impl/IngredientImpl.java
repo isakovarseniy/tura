@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -234,7 +235,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient
   {
     if (components == null)
     {
-      components = new EObjectContainmentEList<Component>(Component.class, this, DomainPackage.INGREDIENT__COMPONENTS);
+      components = new EObjectContainmentWithInverseEList<Component>(Component.class, this, DomainPackage.INGREDIENT__COMPONENTS, DomainPackage.COMPONENT__PARENT);
     }
     return components;
   }
@@ -267,6 +268,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -276,6 +278,8 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient
         if (eInternalContainer() != null)
           msgs = eBasicRemoveFromContainer(msgs);
         return basicSetParent((Recipe)otherEnd, msgs);
+      case DomainPackage.INGREDIENT__COMPONENTS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getComponents()).basicAdd(otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
   }

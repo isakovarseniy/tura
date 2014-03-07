@@ -97,9 +97,10 @@
 
 				«EXPAND targetObject» targetObject = («EXPAND targetObject») d
 						.getElement();
-				sourceObject.«EXPAND sourceObjectSetMethod»(targetObject);
-				sourceObject.eResource().getContents().add(targetObject);
-
+				if( sourceObject.«EXPAND sourceObjectGetMethod»() == null ){		
+				    sourceObject.«EXPAND sourceObjectSetMethod»(targetObject);
+				    sourceObject.eResource().getContents().add(targetObject);
+                }
 				org.eclipse.emf.ecore.EObject container = diagramFacet.eContainer();
 				while (container instanceof org.eclipse.gmf.runtime.notation.View) {
 					((org.eclipse.gmf.runtime.notation.View) container).persist();

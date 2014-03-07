@@ -207,11 +207,14 @@ public class OpenDiagramDomainApplicationEditPolicy extends OpenEditPolicy {
 				targetObject = (Application
 
 				) d.getElement();
-				sourceObject.setApplication
+				if (sourceObject.getApplication
 
-				(targetObject);
-				sourceObject.eResource().getContents().add(targetObject);
+				() == null) {
+					sourceObject.setApplication
 
+					(targetObject);
+					sourceObject.eResource().getContents().add(targetObject);
+				}
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {
 					((View) container).persist();

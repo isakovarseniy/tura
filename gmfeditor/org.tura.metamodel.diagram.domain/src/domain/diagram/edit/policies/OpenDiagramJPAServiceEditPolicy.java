@@ -206,11 +206,14 @@ public class OpenDiagramJPAServiceEditPolicy extends OpenEditPolicy {
 				targetObject = (Artifacts
 
 				) d.getElement();
-				sourceObject.setArtifact
+				if (sourceObject.getArtifact
 
-				(targetObject);
-				sourceObject.eResource().getContents().add(targetObject);
+				() == null) {
+					sourceObject.setArtifact
 
+					(targetObject);
+					sourceObject.eResource().getContents().add(targetObject);
+				}
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {
 					((View) container).persist();

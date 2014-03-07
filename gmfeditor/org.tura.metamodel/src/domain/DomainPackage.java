@@ -2865,13 +2865,22 @@ public interface DomainPackage extends EPackage
   int COMPONENT__NAME = 1;
 
   /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__PARENT = 2;
+
+  /**
    * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT__MAPPERS = 2;
+  int COMPONENT__MAPPERS = 3;
 
   /**
    * The feature id for the '<em><b>Build Script</b></em>' attribute.
@@ -2880,7 +2889,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__BUILD_SCRIPT = 3;
+  int COMPONENT__BUILD_SCRIPT = 4;
 
   /**
    * The feature id for the '<em><b>Deploy Script</b></em>' attribute.
@@ -2889,7 +2898,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__DEPLOY_SCRIPT = 4;
+  int COMPONENT__DEPLOY_SCRIPT = 5;
 
   /**
    * The feature id for the '<em><b>Component Root</b></em>' attribute.
@@ -2898,7 +2907,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__COMPONENT_ROOT = 5;
+  int COMPONENT__COMPONENT_ROOT = 6;
 
   /**
    * The number of structural features of the '<em>Component</em>' class.
@@ -2907,7 +2916,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT_FEATURE_COUNT = 6;
+  int COMPONENT_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link domain.impl.JavaComponentImpl <em>Java Component</em>}' class.
@@ -2936,6 +2945,15 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int JAVA_COMPONENT__NAME = COMPONENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_COMPONENT__PARENT = COMPONENT__PARENT;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
@@ -6455,6 +6473,17 @@ public interface DomainPackage extends EPackage
   EAttribute getComponent_Name();
 
   /**
+   * Returns the meta object for the container reference '{@link domain.Component#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.Component#getParent()
+   * @see #getComponent()
+   * @generated
+   */
+  EReference getComponent_Parent();
+
+  /**
    * Returns the meta object for the containment reference list '{@link domain.Component#getMappers <em>Mappers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9308,6 +9337,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute COMPONENT__NAME = eINSTANCE.getComponent_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPONENT__PARENT = eINSTANCE.getComponent_Parent();
 
     /**
      * The meta object literal for the '<em><b>Mappers</b></em>' containment reference list feature.

@@ -4,6 +4,7 @@ package domain.impl;
 
 import domain.Component;
 import domain.DomainPackage;
+import domain.Ingredient;
 import domain.ModelMapper;
 
 import java.util.Collection;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -31,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.ComponentImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.ComponentImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getMappers <em>Mappers</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getBuildScript <em>Build Script</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getDeployScript <em>Deploy Script</em>}</li>
@@ -224,6 +227,51 @@ public class ComponentImpl extends EObjectImpl implements Component
    * <!-- end-user-doc -->
    * @generated
    */
+  public Ingredient getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.COMPONENT__PARENT) return null;
+    return (Ingredient)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(Ingredient newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.COMPONENT__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(Ingredient newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.COMPONENT__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.INGREDIENT__COMPONENTS, Ingredient.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.COMPONENT__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<ModelMapper> getMappers()
   {
     if (mappers == null)
@@ -313,6 +361,10 @@ public class ComponentImpl extends EObjectImpl implements Component
   {
     switch (featureID)
     {
+      case DomainPackage.COMPONENT__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((Ingredient)otherEnd, msgs);
       case DomainPackage.COMPONENT__MAPPERS:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappers()).basicAdd(otherEnd, msgs);
     }
@@ -329,10 +381,28 @@ public class ComponentImpl extends EObjectImpl implements Component
   {
     switch (featureID)
     {
+      case DomainPackage.COMPONENT__PARENT:
+        return basicSetParent(null, msgs);
       case DomainPackage.COMPONENT__MAPPERS:
         return ((InternalEList<?>)getMappers()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.COMPONENT__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.INGREDIENT__COMPONENTS, Ingredient.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
   }
 
   /**
@@ -349,6 +419,8 @@ public class ComponentImpl extends EObjectImpl implements Component
         return getUid();
       case DomainPackage.COMPONENT__NAME:
         return getName();
+      case DomainPackage.COMPONENT__PARENT:
+        return getParent();
       case DomainPackage.COMPONENT__MAPPERS:
         return getMappers();
       case DomainPackage.COMPONENT__BUILD_SCRIPT:
@@ -377,6 +449,9 @@ public class ComponentImpl extends EObjectImpl implements Component
         return;
       case DomainPackage.COMPONENT__NAME:
         setName((String)newValue);
+        return;
+      case DomainPackage.COMPONENT__PARENT:
+        setParent((Ingredient)newValue);
         return;
       case DomainPackage.COMPONENT__MAPPERS:
         getMappers().clear();
@@ -411,6 +486,9 @@ public class ComponentImpl extends EObjectImpl implements Component
       case DomainPackage.COMPONENT__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DomainPackage.COMPONENT__PARENT:
+        setParent((Ingredient)null);
+        return;
       case DomainPackage.COMPONENT__MAPPERS:
         getMappers().clear();
         return;
@@ -441,6 +519,8 @@ public class ComponentImpl extends EObjectImpl implements Component
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.COMPONENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.COMPONENT__PARENT:
+        return getParent() != null;
       case DomainPackage.COMPONENT__MAPPERS:
         return mappers != null && !mappers.isEmpty();
       case DomainPackage.COMPONENT__BUILD_SCRIPT:

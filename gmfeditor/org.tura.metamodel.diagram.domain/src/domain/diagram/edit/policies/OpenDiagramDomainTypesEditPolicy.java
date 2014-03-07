@@ -207,11 +207,14 @@ public class OpenDiagramDomainTypesEditPolicy extends OpenEditPolicy {
 				targetObject = (TypesRepository
 
 				) d.getElement();
-				sourceObject.setTypesrepository
+				if (sourceObject.getTypesrepository
 
-				(targetObject);
-				sourceObject.eResource().getContents().add(targetObject);
+				() == null) {
+					sourceObject.setTypesrepository
 
+					(targetObject);
+					sourceObject.eResource().getContents().add(targetObject);
+				}
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {
 					((View) container).persist();

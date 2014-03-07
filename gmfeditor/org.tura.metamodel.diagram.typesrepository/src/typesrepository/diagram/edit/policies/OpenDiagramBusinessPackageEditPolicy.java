@@ -206,11 +206,14 @@ public class OpenDiagramBusinessPackageEditPolicy extends OpenEditPolicy {
 				targetObject = (BusinessObjects
 
 				) d.getElement();
-				sourceObject.setBusinessobjects
+				if (sourceObject.getBusinessobjects
 
-				(targetObject);
-				sourceObject.eResource().getContents().add(targetObject);
+				() == null) {
+					sourceObject.setBusinessobjects
 
+					(targetObject);
+					sourceObject.eResource().getContents().add(targetObject);
+				}
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {
 					((View) container).persist();

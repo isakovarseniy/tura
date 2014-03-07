@@ -96,7 +96,9 @@ public class OpenDiagramDeploymentSequenceEditPolicy extends OpenEditPolicy {
 			diagramFacet = linkStyle;
 		}
 
-		// FIXME canExecute if  !(readOnly && getDiagramToOpen == null), i.e. open works on ro diagrams only when there's associated diagram already
+		// FIXME canExecute if !(readOnly && getDiagramToOpen == null), i.e.
+		// open works on ro diagrams only when there's associated diagram
+		// already
 
 		/**
 		 * @generated
@@ -206,11 +208,14 @@ public class OpenDiagramDeploymentSequenceEditPolicy extends OpenEditPolicy {
 				targetObject = (DeploymentComponents
 
 				) d.getElement();
-				sourceObject.setDeploymentComponents
+				if (sourceObject.getDeploymentComponents
 
-				(targetObject);
-				sourceObject.eResource().getContents().add(targetObject);
+				() == null) {
+					sourceObject.setDeploymentComponents
 
+					(targetObject);
+					sourceObject.eResource().getContents().add(targetObject);
+				}
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {
 					((View) container).persist();

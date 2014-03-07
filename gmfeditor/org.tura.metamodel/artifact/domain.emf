@@ -344,13 +344,14 @@ class Ingredient extends UsingMappers{
   attr EString name;
   ref Recipe#ingredients parent;
   @gmf.compartment
-  val Component[*] components;
+  val Component[*]#parent components;
   attr PlatformLayers layer;
 }
 
 class Component{
     id attr EString uid;
    attr EString name;
+   ref Ingredient#components parent;
   @gmf.compartment
    val ModelMapper[*]#parent mappers;
    attr EString buildScript;

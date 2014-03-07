@@ -206,11 +206,14 @@ public class OpenDiagramPackageEditPolicy extends OpenEditPolicy {
 				targetObject = (TypeDefinition
 
 				) d.getElement();
-				sourceObject.setTypedefinition
+				if (sourceObject.getTypedefinition
 
-				(targetObject);
-				sourceObject.eResource().getContents().add(targetObject);
+				() == null) {
+					sourceObject.setTypedefinition
 
+					(targetObject);
+					sourceObject.eResource().getContents().add(targetObject);
+				}
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {
 					((View) container).persist();

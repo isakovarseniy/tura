@@ -205,11 +205,14 @@ public class OpenDiagramApplicationMapperEditPolicy extends OpenEditPolicy {
 				targetObject = (Mappers
 
 				) d.getElement();
-				sourceObject.setMapper
+				if (sourceObject.getMapper
 
-				(targetObject);
-				sourceObject.eResource().getContents().add(targetObject);
+				() == null) {
+					sourceObject.setMapper
 
+					(targetObject);
+					sourceObject.eResource().getContents().add(targetObject);
+				}
 				EObject container = diagramFacet.eContainer();
 				while (container instanceof View) {
 					((View) container).persist();
