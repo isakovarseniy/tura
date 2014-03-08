@@ -14,8 +14,8 @@
 
 
 			<modules>
-				<module>model-ejb</module>
-				<module>model-ear</module>
+				<module>[%=component.getArtifactId()%]-ejb</module>
+				<module>[%=component.getArtifactId()%]-ear</module>
 			</modules>
 
 
@@ -23,7 +23,7 @@
 				<dependencies>
 					<dependency>
 			          <groupId>[%=component.getGroupId()%].[%=component.getArtifactId()%]</groupId>
-			          <artifactId>model-ejb</artifactId>
+			          <artifactId>[%=component.getArtifactId()%]-ejb</artifactId>
 			           <version>[%=component.getVersion()%]</version>
 						<type>ejb</type>
 					</dependency>

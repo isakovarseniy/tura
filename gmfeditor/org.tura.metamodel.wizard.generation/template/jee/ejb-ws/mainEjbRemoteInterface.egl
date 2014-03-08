@@ -14,7 +14,7 @@
     var remoteInterface : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/remoteInterface.egl");
     remoteInterface.setFormatter(f);
     
-   var path = component.getComponentRoot+"/"+component.getArtifactId+"/model-ejb/src/main/java/"+type.~package.replaceAll("\\.","\\/")+"/";  
+   var path = component.getComponentRoot+"/"+component.getArtifactId+"/"+component.getArtifactId()+"-ejb/src/main/java/"+type.~package.replaceAll("\\.","\\/")+"/";  
    remoteInterface.populate("type",type);
     remoteInterface.populate("recipe",recipe);
     remoteInterface.populate("ingredient",ingredient);

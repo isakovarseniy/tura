@@ -11,7 +11,7 @@
 			</parent>
 
 			<groupId>[%=component.getGroupId()%].[%=component.getArtifactId()%]</groupId>
-			<artifactId>model-ejb</artifactId>
+			<artifactId>[%=component.getArtifactId()%]-ejb</artifactId>
 
 			<packaging>ejb</packaging>
 

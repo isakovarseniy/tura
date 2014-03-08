@@ -36,7 +36,7 @@
     var sessionBean : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/sessionBean.egl");
     sessionBean.setFormatter(f);
     
-    var path = component.getComponentRoot+"/"+component.getArtifactId+"/model-ejb/src/main/java/"+type.~package.replaceAll("\\.","\\/")+"/";  
+    var path = component.getComponentRoot+"/"+component.getArtifactId+"/"+component.getArtifactId()+"-ejb/src/main/java/"+type.~package.replaceAll("\\.","\\/")+"/";  
     sessionBean.populate("type",type);
     sessionBean.populate("typeLocal",typeLocal);
     sessionBean.populate("typeRemote",typeRemote);

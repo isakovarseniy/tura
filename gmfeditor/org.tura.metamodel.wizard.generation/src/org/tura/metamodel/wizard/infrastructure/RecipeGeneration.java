@@ -18,5 +18,18 @@ public class RecipeGeneration {
 
 	}
 
+	public void deployment(domain.Infrastructure infrastructure) {
+		IEditorPart editorPart = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+
+		MetamodelDeploymentJob job = new MetamodelDeploymentJob("Deplyment");
+		job.setEditorPart(editorPart);
+		job.setInfrastructure(infrastructure);
+
+		job.schedule();
+
+		
+	}	
+	
 
 }

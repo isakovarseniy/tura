@@ -4,7 +4,7 @@ operation  mavenBuilder_mavenCleanInstall(configuration,path) {
 #!/bin/sh
   
   cd "[%=path%]"
-  "[%=configuration.get('Maven location')%]"/mvn clean install
+  "[%=configuration.get('Maven location')%]"/bin/mvn clean install
 [%
 }
 
@@ -22,7 +22,7 @@ operation  glassfishdeploy_glassfishdeployear(configuration,path,component) {
 #!/bin/sh
   
   cd "[%=path%]"
-  "[%=configuration.get('GlassFish home')%]"/bin/asadmin deploy ./target/[%=component.getArtifactId()%].ear
+  "[%=configuration.get('GlassFish home')%]"/bin/asadmin deploy ./[%=component.getArtifactId()%]-ear/target/[%=component.getArtifactId()%]-ear-[%=component.getVersion()%].ear
 
 [%
 }

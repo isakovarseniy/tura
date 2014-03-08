@@ -13,7 +13,7 @@
 
 
 			<groupId>[%=component.getGroupId()%].[%=component.getArtifactId()%]</groupId>
-			<artifactId>model-ear</artifactId>
+			<artifactId>[%=component.getArtifactId()%]-ear</artifactId>
 
 			<packaging>ear</packaging>
 
@@ -22,7 +22,7 @@
 			<dependencies>
 				<dependency>
 			        <groupId>[%=component.getGroupId()%].[%=component.getArtifactId()%]</groupId>
-			        <artifactId>model-ejb</artifactId>
+			        <artifactId>[%=component.getArtifactId()%]-ejb</artifactId>
 					<type>ejb</type>
 				</dependency>
 			</dependencies>

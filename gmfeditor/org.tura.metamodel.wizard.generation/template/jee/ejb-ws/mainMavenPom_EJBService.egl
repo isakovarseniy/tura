@@ -9,7 +9,7 @@
     var mavenjar : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mavenPom_EJBService_jar.egl");
     mavenjar.setFormatter(f);
     
-    var path = component.getComponentRoot+"/"+component.getArtifactId+"/model-ejb/";  
+    var path = component.getComponentRoot+"/"+component.getArtifactId+"/"+component.getArtifactId()+"-ejb/";  
     mavenjar.populate("recipe",recipe);
     mavenjar.populate("ingredient",ingredient);
     mavenjar.populate("component",component);
@@ -21,7 +21,7 @@
     var mavenear : Template = TemplateFactory.load("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mavenPom_EJBService_ear.egl");
     mavenear.setFormatter(f);
     
-    path = component.getComponentRoot+"/"+component.getArtifactId+"/model-ear/";  
+    path = component.getComponentRoot+"/"+component.getArtifactId+"/"+component.getArtifactId()+"-ear";  
     mavenear.populate("recipe",recipe);
     mavenear.populate("ingredient",ingredient);
     mavenear.populate("component",component);

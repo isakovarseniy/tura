@@ -13,7 +13,7 @@
     var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
     persistence.setFormatter(f);
     
-    var path = component.getComponentRoot+"/"+component.getArtifactId+"/model-ejb/src/main/resources/META-INF/";  
+    var path = component.getComponentRoot+"/"+component.getArtifactId+"/"+component.getArtifactId()+"-ejb/src/main/resources/META-INF/";  
  
      
     var buffer = persistence.process();
