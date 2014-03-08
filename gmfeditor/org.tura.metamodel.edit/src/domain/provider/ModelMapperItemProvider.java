@@ -65,7 +65,7 @@ public class ModelMapperItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addGeneratedArtifactLocationPropertyDescriptor(object);
+      addArtifactExecutionStringPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -94,20 +94,20 @@ public class ModelMapperItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Generated Artifact Location feature.
+   * This adds a property descriptor for the Artifact Execution String feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addGeneratedArtifactLocationPropertyDescriptor(Object object)
+  protected void addArtifactExecutionStringPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_ModelMapper_generatedArtifactLocation_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_generatedArtifactLocation_feature", "_UI_ModelMapper_type"),
-         DomainPackage.Literals.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION,
+         getString("_UI_ModelMapper_artifactExecutionString_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_artifactExecutionString_feature", "_UI_ModelMapper_type"),
+         DomainPackage.Literals.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING,
          true,
          false,
          false,
@@ -192,7 +192,7 @@ public class ModelMapperItemProvider
     switch (notification.getFeatureID(ModelMapper.class))
     {
       case DomainPackage.MODEL_MAPPER__NAME:
-      case DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION:
+      case DomainPackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.MODEL_MAPPER__SPECIFIERS:

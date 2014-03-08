@@ -232,8 +232,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Component/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Component/mappers"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/buildScript"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/deployScript"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Component/componentRoot"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//JavaComponent">
@@ -261,7 +259,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/specifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ModelMapper/queries"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ModelMapper/generatedArtifactLocation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ModelMapper/artifactExecutionString"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Property/uid"/>

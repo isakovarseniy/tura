@@ -2498,29 +2498,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getComponent_BuildScript()
-  {
-    return (EAttribute)componentEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getComponent_DeployScript()
-  {
-    return (EAttribute)componentEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getComponent_ComponentRoot()
   {
-    return (EAttribute)componentEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)componentEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2748,7 +2728,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getModelMapper_GeneratedArtifactLocation()
+  public EAttribute getModelMapper_ArtifactExecutionString()
   {
     return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(4);
   }
@@ -3930,8 +3910,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(componentEClass, COMPONENT__NAME);
     createEReference(componentEClass, COMPONENT__PARENT);
     createEReference(componentEClass, COMPONENT__MAPPERS);
-    createEAttribute(componentEClass, COMPONENT__BUILD_SCRIPT);
-    createEAttribute(componentEClass, COMPONENT__DEPLOY_SCRIPT);
     createEAttribute(componentEClass, COMPONENT__COMPONENT_ROOT);
 
     javaComponentEClass = createEClass(JAVA_COMPONENT);
@@ -3959,7 +3937,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(modelMapperEClass, MODEL_MAPPER__PARENT);
     createEReference(modelMapperEClass, MODEL_MAPPER__SPECIFIERS);
     createEReference(modelMapperEClass, MODEL_MAPPER__QUERIES);
-    createEAttribute(modelMapperEClass, MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION);
+    createEAttribute(modelMapperEClass, MODEL_MAPPER__ARTIFACT_EXECUTION_STRING);
 
     propertyEClass = createEClass(PROPERTY);
     createEAttribute(propertyEClass, PROPERTY__UID);
@@ -4361,8 +4339,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_Parent(), this.getIngredient(), this.getIngredient_Components(), "parent", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_Mappers(), this.getModelMapper(), this.getModelMapper_Parent(), "mappers", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getComponent_BuildScript(), ecorePackage.getEString(), "buildScript", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getComponent_DeployScript(), ecorePackage.getEString(), "deployScript", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getComponent_ComponentRoot(), ecorePackage.getEString(), "componentRoot", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(javaComponentEClass, JavaComponent.class, "JavaComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4390,7 +4366,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getModelMapper_Parent(), this.getComponent(), this.getComponent_Mappers(), "parent", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelMapper_Specifiers(), this.getMappingSpecifier(), null, "specifiers", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelMapper_Queries(), this.getQuery(), null, "queries", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getModelMapper_GeneratedArtifactLocation(), ecorePackage.getEString(), "generatedArtifactLocation", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModelMapper_ArtifactExecutionString(), ecorePackage.getEString(), "artifactExecutionString", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProperty_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

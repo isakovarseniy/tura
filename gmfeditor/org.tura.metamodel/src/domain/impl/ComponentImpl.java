@@ -35,8 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getMappers <em>Mappers</em>}</li>
- *   <li>{@link domain.impl.ComponentImpl#getBuildScript <em>Build Script</em>}</li>
- *   <li>{@link domain.impl.ComponentImpl#getDeployScript <em>Deploy Script</em>}</li>
  *   <li>{@link domain.impl.ComponentImpl#getComponentRoot <em>Component Root</em>}</li>
  * </ul>
  * </p>
@@ -94,46 +92,6 @@ public class ComponentImpl extends EObjectImpl implements Component
    * @ordered
    */
   protected EList<ModelMapper> mappers;
-
-  /**
-   * The default value of the '{@link #getBuildScript() <em>Build Script</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBuildScript()
-   * @generated
-   * @ordered
-   */
-  protected static final String BUILD_SCRIPT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getBuildScript() <em>Build Script</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBuildScript()
-   * @generated
-   * @ordered
-   */
-  protected String buildScript = BUILD_SCRIPT_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDeployScript() <em>Deploy Script</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDeployScript()
-   * @generated
-   * @ordered
-   */
-  protected static final String DEPLOY_SCRIPT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDeployScript() <em>Deploy Script</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDeployScript()
-   * @generated
-   * @ordered
-   */
-  protected String deployScript = DEPLOY_SCRIPT_EDEFAULT;
 
   /**
    * The default value of the '{@link #getComponentRoot() <em>Component Root</em>}' attribute.
@@ -286,52 +244,6 @@ public class ComponentImpl extends EObjectImpl implements Component
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBuildScript()
-  {
-    return buildScript;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBuildScript(String newBuildScript)
-  {
-    String oldBuildScript = buildScript;
-    buildScript = newBuildScript;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.COMPONENT__BUILD_SCRIPT, oldBuildScript, buildScript));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getDeployScript()
-  {
-    return deployScript;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDeployScript(String newDeployScript)
-  {
-    String oldDeployScript = deployScript;
-    deployScript = newDeployScript;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.COMPONENT__DEPLOY_SCRIPT, oldDeployScript, deployScript));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getComponentRoot()
   {
     return componentRoot;
@@ -423,10 +335,6 @@ public class ComponentImpl extends EObjectImpl implements Component
         return getParent();
       case DomainPackage.COMPONENT__MAPPERS:
         return getMappers();
-      case DomainPackage.COMPONENT__BUILD_SCRIPT:
-        return getBuildScript();
-      case DomainPackage.COMPONENT__DEPLOY_SCRIPT:
-        return getDeployScript();
       case DomainPackage.COMPONENT__COMPONENT_ROOT:
         return getComponentRoot();
     }
@@ -457,12 +365,6 @@ public class ComponentImpl extends EObjectImpl implements Component
         getMappers().clear();
         getMappers().addAll((Collection<? extends ModelMapper>)newValue);
         return;
-      case DomainPackage.COMPONENT__BUILD_SCRIPT:
-        setBuildScript((String)newValue);
-        return;
-      case DomainPackage.COMPONENT__DEPLOY_SCRIPT:
-        setDeployScript((String)newValue);
-        return;
       case DomainPackage.COMPONENT__COMPONENT_ROOT:
         setComponentRoot((String)newValue);
         return;
@@ -492,12 +394,6 @@ public class ComponentImpl extends EObjectImpl implements Component
       case DomainPackage.COMPONENT__MAPPERS:
         getMappers().clear();
         return;
-      case DomainPackage.COMPONENT__BUILD_SCRIPT:
-        setBuildScript(BUILD_SCRIPT_EDEFAULT);
-        return;
-      case DomainPackage.COMPONENT__DEPLOY_SCRIPT:
-        setDeployScript(DEPLOY_SCRIPT_EDEFAULT);
-        return;
       case DomainPackage.COMPONENT__COMPONENT_ROOT:
         setComponentRoot(COMPONENT_ROOT_EDEFAULT);
         return;
@@ -523,10 +419,6 @@ public class ComponentImpl extends EObjectImpl implements Component
         return getParent() != null;
       case DomainPackage.COMPONENT__MAPPERS:
         return mappers != null && !mappers.isEmpty();
-      case DomainPackage.COMPONENT__BUILD_SCRIPT:
-        return BUILD_SCRIPT_EDEFAULT == null ? buildScript != null : !BUILD_SCRIPT_EDEFAULT.equals(buildScript);
-      case DomainPackage.COMPONENT__DEPLOY_SCRIPT:
-        return DEPLOY_SCRIPT_EDEFAULT == null ? deployScript != null : !DEPLOY_SCRIPT_EDEFAULT.equals(deployScript);
       case DomainPackage.COMPONENT__COMPONENT_ROOT:
         return COMPONENT_ROOT_EDEFAULT == null ? componentRoot != null : !COMPONENT_ROOT_EDEFAULT.equals(componentRoot);
     }
@@ -548,10 +440,6 @@ public class ComponentImpl extends EObjectImpl implements Component
     result.append(uid);
     result.append(", name: ");
     result.append(name);
-    result.append(", buildScript: ");
-    result.append(buildScript);
-    result.append(", deployScript: ");
-    result.append(deployScript);
     result.append(", componentRoot: ");
     result.append(componentRoot);
     result.append(')');

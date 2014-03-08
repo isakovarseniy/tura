@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.ModelMapper#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.ModelMapper#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link domain.ModelMapper#getQueries <em>Queries</em>}</li>
- *   <li>{@link domain.ModelMapper#getGeneratedArtifactLocation <em>Generated Artifact Location</em>}</li>
+ *   <li>{@link domain.ModelMapper#getArtifactExecutionString <em>Artifact Execution String</em>}</li>
  * </ul>
  * </p>
  *
@@ -114,29 +114,29 @@ public interface ModelMapper extends ArtifactRef
   EList<Query> getQueries();
 
   /**
-   * Returns the value of the '<em><b>Generated Artifact Location</b></em>' attribute.
+   * Returns the value of the '<em><b>Artifact Execution String</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Generated Artifact Location</em>' attribute isn't clear,
+   * If the meaning of the '<em>Artifact Execution String</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Generated Artifact Location</em>' attribute.
-   * @see #setGeneratedArtifactLocation(String)
-   * @see domain.DomainPackage#getModelMapper_GeneratedArtifactLocation()
+   * @return the value of the '<em>Artifact Execution String</em>' attribute.
+   * @see #setArtifactExecutionString(String)
+   * @see domain.DomainPackage#getModelMapper_ArtifactExecutionString()
    * @model
    * @generated
    */
-  String getGeneratedArtifactLocation();
+  String getArtifactExecutionString();
 
   /**
-   * Sets the value of the '{@link domain.ModelMapper#getGeneratedArtifactLocation <em>Generated Artifact Location</em>}' attribute.
+   * Sets the value of the '{@link domain.ModelMapper#getArtifactExecutionString <em>Artifact Execution String</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Generated Artifact Location</em>' attribute.
-   * @see #getGeneratedArtifactLocation()
+   * @param value the new value of the '<em>Artifact Execution String</em>' attribute.
+   * @see #getArtifactExecutionString()
    * @generated
    */
-  void setGeneratedArtifactLocation(String value);
+  void setArtifactExecutionString(String value);
 
 } // ModelMapper

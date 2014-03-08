@@ -2883,31 +2883,13 @@ public interface DomainPackage extends EPackage
   int COMPONENT__MAPPERS = 3;
 
   /**
-   * The feature id for the '<em><b>Build Script</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPONENT__BUILD_SCRIPT = 4;
-
-  /**
-   * The feature id for the '<em><b>Deploy Script</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPONENT__DEPLOY_SCRIPT = 5;
-
-  /**
    * The feature id for the '<em><b>Component Root</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT__COMPONENT_ROOT = 6;
+  int COMPONENT__COMPONENT_ROOT = 4;
 
   /**
    * The number of structural features of the '<em>Component</em>' class.
@@ -2916,7 +2898,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT_FEATURE_COUNT = 7;
+  int COMPONENT_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link domain.impl.JavaComponentImpl <em>Java Component</em>}' class.
@@ -2963,24 +2945,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int JAVA_COMPONENT__MAPPERS = COMPONENT__MAPPERS;
-
-  /**
-   * The feature id for the '<em><b>Build Script</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int JAVA_COMPONENT__BUILD_SCRIPT = COMPONENT__BUILD_SCRIPT;
-
-  /**
-   * The feature id for the '<em><b>Deploy Script</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int JAVA_COMPONENT__DEPLOY_SCRIPT = COMPONENT__DEPLOY_SCRIPT;
 
   /**
    * The feature id for the '<em><b>Component Root</b></em>' attribute.
@@ -3284,13 +3248,13 @@ public interface DomainPackage extends EPackage
   int MODEL_MAPPER__QUERIES = ARTIFACT_REF_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Generated Artifact Location</b></em>' attribute.
+   * The feature id for the '<em><b>Artifact Execution String</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION = ARTIFACT_REF_FEATURE_COUNT + 4;
+  int MODEL_MAPPER__ARTIFACT_EXECUTION_STRING = ARTIFACT_REF_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Model Mapper</em>' class.
@@ -6495,28 +6459,6 @@ public interface DomainPackage extends EPackage
   EReference getComponent_Mappers();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Component#getBuildScript <em>Build Script</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Build Script</em>'.
-   * @see domain.Component#getBuildScript()
-   * @see #getComponent()
-   * @generated
-   */
-  EAttribute getComponent_BuildScript();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.Component#getDeployScript <em>Deploy Script</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Deploy Script</em>'.
-   * @see domain.Component#getDeployScript()
-   * @see #getComponent()
-   * @generated
-   */
-  EAttribute getComponent_DeployScript();
-
-  /**
    * Returns the meta object for the attribute '{@link domain.Component#getComponentRoot <em>Component Root</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6766,15 +6708,15 @@ public interface DomainPackage extends EPackage
   EReference getModelMapper_Queries();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.ModelMapper#getGeneratedArtifactLocation <em>Generated Artifact Location</em>}'.
+   * Returns the meta object for the attribute '{@link domain.ModelMapper#getArtifactExecutionString <em>Artifact Execution String</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Generated Artifact Location</em>'.
-   * @see domain.ModelMapper#getGeneratedArtifactLocation()
+   * @return the meta object for the attribute '<em>Artifact Execution String</em>'.
+   * @see domain.ModelMapper#getArtifactExecutionString()
    * @see #getModelMapper()
    * @generated
    */
-  EAttribute getModelMapper_GeneratedArtifactLocation();
+  EAttribute getModelMapper_ArtifactExecutionString();
 
   /**
    * Returns the meta object for class '{@link domain.Property <em>Property</em>}'.
@@ -9355,22 +9297,6 @@ public interface DomainPackage extends EPackage
     EReference COMPONENT__MAPPERS = eINSTANCE.getComponent_Mappers();
 
     /**
-     * The meta object literal for the '<em><b>Build Script</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMPONENT__BUILD_SCRIPT = eINSTANCE.getComponent_BuildScript();
-
-    /**
-     * The meta object literal for the '<em><b>Deploy Script</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMPONENT__DEPLOY_SCRIPT = eINSTANCE.getComponent_DeployScript();
-
-    /**
      * The meta object literal for the '<em><b>Component Root</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9563,12 +9489,12 @@ public interface DomainPackage extends EPackage
     EReference MODEL_MAPPER__QUERIES = eINSTANCE.getModelMapper_Queries();
 
     /**
-     * The meta object literal for the '<em><b>Generated Artifact Location</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Artifact Execution String</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION = eINSTANCE.getModelMapper_GeneratedArtifactLocation();
+    EAttribute MODEL_MAPPER__ARTIFACT_EXECUTION_STRING = eINSTANCE.getModelMapper_ArtifactExecutionString();
 
     /**
      * The meta object literal for the '{@link domain.impl.PropertyImpl <em>Property</em>}' class.

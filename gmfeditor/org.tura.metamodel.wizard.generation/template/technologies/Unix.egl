@@ -12,6 +12,10 @@ operation  os_batch_extension():String{
              return "sh";
 }
 
+operation  os_shell_executor():String{
+             return "bash";
+}
+
 @template
 operation  glassfishdeploy_glassfishdeployear(configuration,path,component) {
 %]

@@ -20,6 +20,7 @@ $percent$end
     var builder : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/continuousIntegration/mavenBuilder.egl",hash,TemplateFactory);
     
     var path = component.getComponentRoot+"/"+component.getArtifactId;  
+    model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
  
     var buffer = builder.process();
     util.saveFile( path, "builder."+os_batch_extension(),buffer);   

@@ -18,8 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Component#getName <em>Name</em>}</li>
  *   <li>{@link domain.Component#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Component#getMappers <em>Mappers</em>}</li>
- *   <li>{@link domain.Component#getBuildScript <em>Build Script</em>}</li>
- *   <li>{@link domain.Component#getDeployScript <em>Deploy Script</em>}</li>
  *   <li>{@link domain.Component#getComponentRoot <em>Component Root</em>}</li>
  * </ul>
  * </p>
@@ -127,58 +125,6 @@ public interface Component extends EObject
    * @generated
    */
   EList<ModelMapper> getMappers();
-
-  /**
-   * Returns the value of the '<em><b>Build Script</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Build Script</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Build Script</em>' attribute.
-   * @see #setBuildScript(String)
-   * @see domain.DomainPackage#getComponent_BuildScript()
-   * @model
-   * @generated
-   */
-  String getBuildScript();
-
-  /**
-   * Sets the value of the '{@link domain.Component#getBuildScript <em>Build Script</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Build Script</em>' attribute.
-   * @see #getBuildScript()
-   * @generated
-   */
-  void setBuildScript(String value);
-
-  /**
-   * Returns the value of the '<em><b>Deploy Script</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Deploy Script</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Deploy Script</em>' attribute.
-   * @see #setDeployScript(String)
-   * @see domain.DomainPackage#getComponent_DeployScript()
-   * @model
-   * @generated
-   */
-  String getDeployScript();
-
-  /**
-   * Sets the value of the '{@link domain.Component#getDeployScript <em>Deploy Script</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Deploy Script</em>' attribute.
-   * @see #getDeployScript()
-   * @generated
-   */
-  void setDeployScript(String value);
 
   /**
    * Returns the value of the '<em><b>Component Root</b></em>' attribute.

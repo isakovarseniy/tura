@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ModelMapperImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link domain.impl.ModelMapperImpl#getQueries <em>Queries</em>}</li>
- *   <li>{@link domain.impl.ModelMapperImpl#getGeneratedArtifactLocation <em>Generated Artifact Location</em>}</li>
+ *   <li>{@link domain.impl.ModelMapperImpl#getArtifactExecutionString <em>Artifact Execution String</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,24 +84,24 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
   protected EList<Query> queries;
 
   /**
-   * The default value of the '{@link #getGeneratedArtifactLocation() <em>Generated Artifact Location</em>}' attribute.
+   * The default value of the '{@link #getArtifactExecutionString() <em>Artifact Execution String</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGeneratedArtifactLocation()
+   * @see #getArtifactExecutionString()
    * @generated
    * @ordered
    */
-  protected static final String GENERATED_ARTIFACT_LOCATION_EDEFAULT = null;
+  protected static final String ARTIFACT_EXECUTION_STRING_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getGeneratedArtifactLocation() <em>Generated Artifact Location</em>}' attribute.
+   * The cached value of the '{@link #getArtifactExecutionString() <em>Artifact Execution String</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGeneratedArtifactLocation()
+   * @see #getArtifactExecutionString()
    * @generated
    * @ordered
    */
-  protected String generatedArtifactLocation = GENERATED_ARTIFACT_LOCATION_EDEFAULT;
+  protected String artifactExecutionString = ARTIFACT_EXECUTION_STRING_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -225,9 +225,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getGeneratedArtifactLocation()
+  public String getArtifactExecutionString()
   {
-    return generatedArtifactLocation;
+    return artifactExecutionString;
   }
 
   /**
@@ -235,12 +235,12 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setGeneratedArtifactLocation(String newGeneratedArtifactLocation)
+  public void setArtifactExecutionString(String newArtifactExecutionString)
   {
-    String oldGeneratedArtifactLocation = generatedArtifactLocation;
-    generatedArtifactLocation = newGeneratedArtifactLocation;
+    String oldArtifactExecutionString = artifactExecutionString;
+    artifactExecutionString = newArtifactExecutionString;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION, oldGeneratedArtifactLocation, generatedArtifactLocation));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING, oldArtifactExecutionString, artifactExecutionString));
   }
 
   /**
@@ -315,8 +315,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
         return getSpecifiers();
       case DomainPackage.MODEL_MAPPER__QUERIES:
         return getQueries();
-      case DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION:
-        return getGeneratedArtifactLocation();
+      case DomainPackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
+        return getArtifactExecutionString();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -346,8 +346,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
         getQueries().clear();
         getQueries().addAll((Collection<? extends Query>)newValue);
         return;
-      case DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION:
-        setGeneratedArtifactLocation((String)newValue);
+      case DomainPackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
+        setArtifactExecutionString((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -375,8 +375,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
       case DomainPackage.MODEL_MAPPER__QUERIES:
         getQueries().clear();
         return;
-      case DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION:
-        setGeneratedArtifactLocation(GENERATED_ARTIFACT_LOCATION_EDEFAULT);
+      case DomainPackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
+        setArtifactExecutionString(ARTIFACT_EXECUTION_STRING_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -400,8 +400,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
         return specifiers != null && !specifiers.isEmpty();
       case DomainPackage.MODEL_MAPPER__QUERIES:
         return queries != null && !queries.isEmpty();
-      case DomainPackage.MODEL_MAPPER__GENERATED_ARTIFACT_LOCATION:
-        return GENERATED_ARTIFACT_LOCATION_EDEFAULT == null ? generatedArtifactLocation != null : !GENERATED_ARTIFACT_LOCATION_EDEFAULT.equals(generatedArtifactLocation);
+      case DomainPackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
+        return ARTIFACT_EXECUTION_STRING_EDEFAULT == null ? artifactExecutionString != null : !ARTIFACT_EXECUTION_STRING_EDEFAULT.equals(artifactExecutionString);
     }
     return super.eIsSet(featureID);
   }
@@ -419,8 +419,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", generatedArtifactLocation: ");
-    result.append(generatedArtifactLocation);
+    result.append(", artifactExecutionString: ");
+    result.append(artifactExecutionString);
     result.append(')');
     return result.toString();
   }

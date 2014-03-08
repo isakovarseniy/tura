@@ -69,8 +69,6 @@ public class ComponentItemProvider
 
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
-      addBuildScriptPropertyDescriptor(object);
-      addDeployScriptPropertyDescriptor(object);
       addComponentRootPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -114,52 +112,6 @@ public class ComponentItemProvider
          getString("_UI_Component_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Component_name_feature", "_UI_Component_type"),
          DomainPackage.Literals.COMPONENT__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Build Script feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addBuildScriptPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Component_buildScript_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Component_buildScript_feature", "_UI_Component_type"),
-         DomainPackage.Literals.COMPONENT__BUILD_SCRIPT,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Deploy Script feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addDeployScriptPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Component_deployScript_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Component_deployScript_feature", "_UI_Component_type"),
-         DomainPackage.Literals.COMPONENT__DEPLOY_SCRIPT,
          true,
          false,
          false,
@@ -267,8 +219,6 @@ public class ComponentItemProvider
     {
       case DomainPackage.COMPONENT__UID:
       case DomainPackage.COMPONENT__NAME:
-      case DomainPackage.COMPONENT__BUILD_SCRIPT:
-      case DomainPackage.COMPONENT__DEPLOY_SCRIPT:
       case DomainPackage.COMPONENT__COMPONENT_ROOT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
