@@ -1,6 +1,6 @@
 [%
  import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
- import "ejbMethods.egl";
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/serviceMethods.egl";
  var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package [%=type.~package%];  

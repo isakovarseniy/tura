@@ -1,0 +1,62 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/serviceMethods.egl";
+ var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package [%=type.~package%];  
+
+
+public class  [%=type.~class%]  extends org.elsoft.platform.persistence.ELsoftJPAEntityService {
+
+ 	public [%=type.~class%](TransactionManager tx) {
+		super(tx);
+	}
+
+[%for ( method in type.operations){ %]    
+ [%=method.generate(recipe,ingredient,typeGeneric)%]
+[%}%]
+}
+
+
+[% @template
+operation Operation create() { %]
+throws java.lang.Exception
+  {
+    	[%=self.returnValue.typeRef.~fullName%]  obj = new [%=self.returnValue.typeRef.~fullName%]();
+        obj.setObjId(this.getObjsectID());
+        return obj;
+  }
+[% } %]
+
+[% @template
+operation Operation insert() { %]
+throws java.lang.Exception
+    {
+		super.insert(obj);
+	}
+[% } %]
+
+[% @template
+operation Operation update() { %]
+throws java.lang.Exception
+    {
+		super.update(obj);
+	}
+[% } %]
+
+[% @template
+operation Operation remove() { %]
+throws java.lang.Exception
+    {
+		super.remove(obj);
+	}
+[% } %]
+
+[% @template
+operation Operation find(generic:Type) { %]
+throws java.lang.Exception
+   {
+        return ([%=self.returnValue.typeRef.~fullName%]}&gt;)super.find( search, order, startIndex,endIndex,[%=generic.~fullName%].class.getCanonicalName()); 
+	}
+[% } %]
+
