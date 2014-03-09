@@ -12,7 +12,7 @@
        hash.put(specifier.getSpecifierRef().getName().replaceAll(" ","_"),specifier);
    } 
   
-    var builder : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/continuousIntegration/primeGlassfishDeployer.egl",hash,TemplateFactory);
+    var builder : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/primeGlassfishDeployer.egl",hash,TemplateFactory);
     var buffer = builder.process();
  %]
 

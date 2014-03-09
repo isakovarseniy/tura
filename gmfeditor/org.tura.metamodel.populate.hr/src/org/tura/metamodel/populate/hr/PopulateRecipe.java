@@ -663,7 +663,7 @@ public class PopulateRecipe {
 		modelMapper.setName(InitDiagram.GLASSFISH_DEPLOYER);
 		modelMapper.setUid(UUID.randomUUID().toString());
 		modelMapper.setArtifactRef((Artifact) artifactMap
-				.get(InitDiagram.CONTINUOUS_INTEGRATION + "_"
+				.get(InitDiagram.EJBSERVICE + "_"
 						+ InitDiagram.GLASSFISH_DEPLOYER));
 		modelMapper.setDomainArtifactRef(modelMapper.getArtifactRef()
 				.getParent().getParent());

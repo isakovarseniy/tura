@@ -67,6 +67,7 @@ public class EGLCommand implements Command {
 			factory.getContext().getModelRepository().getTransactionSupport()
 					.rollbackTransaction();
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			changeDescription = recorder.endRecording();
 			// refresher.refresh();

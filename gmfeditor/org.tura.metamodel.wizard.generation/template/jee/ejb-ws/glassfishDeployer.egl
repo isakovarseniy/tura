@@ -4,4 +4,4 @@
 $start$percent 
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${OS.getValueRef().getValue()}.egl";
 $percent$end
-$start$percent=glassfishdeploy_glassfishdeploy${Artifact_type.getValueRef().getValue()}(configuration, component.getComponentRoot+"/"+component.getArtifactId,component)$percent$end
+$start$percent=glassfishdeploy_ejbwebservice(configuration, component.getComponentRoot+"/"+component.getArtifactId,component)$percent$end

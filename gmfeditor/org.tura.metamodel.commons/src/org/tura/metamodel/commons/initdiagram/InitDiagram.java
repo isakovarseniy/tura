@@ -54,7 +54,7 @@ public class InitDiagram {
 	public static String QUERY_COMPONENT="Query component";
 
 	public static String MAVEN_BUILDER = "Maven Builder";
-	public static String GLASSFISH_DEPLOYER = "GlassFish deployer";
+	public static String GLASSFISH_DEPLOYER = "GlassFish ejb webservice deployer";
 	public static String CONTINUOUS_INTEGRATION = "Continuous integration";
 	public static String ARTIFACT_TYPE="Artifact type";
 	
@@ -578,6 +578,43 @@ public class InitDiagram {
 		confVar.setName(JNDI_ACCESS_STRING);
 		artifact.getConfigVariables().add(confVar);
 
+		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
+		artifact.setName(GLASSFISH_DEPLOYER);
+		artifact.setUid(UUID.randomUUID().toString());
+		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/jee/ejb-ws/mainGlassfishDeployer.egl");
+		model.getArtifacts().add(artifact);
+
+		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
+		confVar.setUid(UUID.randomUUID().toString());
+		confVar.setName(GLASSFISH_HOME);
+		artifact.getConfigVariables().add(confVar);
+		
+		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
+		confVar.setUid(UUID.randomUUID().toString());
+		confVar.setName(GLASSFISH_ADMIN_PORT);
+		artifact.getConfigVariables().add(confVar);
+
+		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
+		confVar.setUid(UUID.randomUUID().toString());
+		confVar.setName(GLASSFISH_DOMAIN);
+		artifact.getConfigVariables().add(confVar);
+
+		specifier = domain.DomainFactory.eINSTANCE
+				.createSpecifier();
+		specifier.setUid(UUID.randomUUID().toString());
+		specifier.setName(OS);
+		artifact.getSpecifiers().add(specifier);
+
+		option = domain.DomainFactory.eINSTANCE.createOption();
+		option.setUid(UUID.randomUUID().toString());
+		specifier.getOptions().add(option);
+		option.setValue("Unix");
+
+		option = domain.DomainFactory.eINSTANCE.createOption();
+		option.setUid(UUID.randomUUID().toString());
+		specifier.getOptions().add(option);
+		option.setValue("Window");
+		
 
 		return model;
 	}
@@ -612,61 +649,6 @@ public class InitDiagram {
 		specifier.getOptions().add(option);
 		option.setValue("Unix");
  
-		option = domain.DomainFactory.eINSTANCE.createOption();
-		option.setUid(UUID.randomUUID().toString());
-		specifier.getOptions().add(option);
-		option.setValue("Window");
-
-		
-		artifact = domain.DomainFactory.eINSTANCE.createArtifact();
-		artifact.setName(GLASSFISH_DEPLOYER);
-		artifact.setUid(UUID.randomUUID().toString());
-		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/continuousIntegration/mainGlassfishDeployer.egl");
-		model.getArtifacts().add(artifact);
-
-		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
-		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName(GLASSFISH_HOME);
-		artifact.getConfigVariables().add(confVar);
-		
-		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
-		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName(GLASSFISH_ADMIN_PORT);
-		artifact.getConfigVariables().add(confVar);
-
-		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
-		confVar.setUid(UUID.randomUUID().toString());
-		confVar.setName(GLASSFISH_DOMAIN);
-		artifact.getConfigVariables().add(confVar);
-
-		
-		specifier = domain.DomainFactory.eINSTANCE
-				.createSpecifier();
-		specifier.setUid(UUID.randomUUID().toString());
-		specifier.setName(ARTIFACT_TYPE);
-		artifact.getSpecifiers().add(specifier);
-
-		option = domain.DomainFactory.eINSTANCE.createOption();
-		option.setUid(UUID.randomUUID().toString());
-		specifier.getOptions().add(option);
-		option.setValue("ear");
-
-		option = domain.DomainFactory.eINSTANCE.createOption();
-		option.setUid(UUID.randomUUID().toString());
-		specifier.getOptions().add(option);
-		option.setValue("war");
-
-		specifier = domain.DomainFactory.eINSTANCE
-				.createSpecifier();
-		specifier.setUid(UUID.randomUUID().toString());
-		specifier.setName(OS);
-		artifact.getSpecifiers().add(specifier);
-
-		option = domain.DomainFactory.eINSTANCE.createOption();
-		option.setUid(UUID.randomUUID().toString());
-		specifier.getOptions().add(option);
-		option.setValue("Unix");
-
 		option = domain.DomainFactory.eINSTANCE.createOption();
 		option.setUid(UUID.randomUUID().toString());
 		specifier.getOptions().add(option);

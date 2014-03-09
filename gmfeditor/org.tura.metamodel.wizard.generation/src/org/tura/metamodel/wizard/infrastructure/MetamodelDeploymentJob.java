@@ -122,11 +122,11 @@ public class MetamodelDeploymentJob extends Job {
 								+ component.getName());
 					}
 
-					component = component.getDeplymentComponent();
 				} else {
 					System.err.println(component.getName()
 							+ " has empty execution string");
 				}
+				component = component.getDeplymentComponent();
 				monitor.worked(1);
 			}
 		} catch (Exception e) {

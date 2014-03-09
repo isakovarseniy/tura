@@ -77,35 +77,37 @@ public class Util {
 		return executeQuery(strQuery, eobj);
 	}
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-	public static List<?> runQuery( domain.ModelMapper mapper, String queryName,EObject eobj) throws Exception{
-    	ArrayList result = new ArrayList<>();
-    	for (Iterator<domain.Query> itr = mapper.getQueries().iterator();itr.hasNext();){
-    		domain.Query query = itr.next();
-    		if (query.getQueryRef().getName() .equals(queryName)){
-    			 Collection<?> ls = (Collection<?>) runQuery(query, eobj);
-    			 result.addAll(ls);
-    		}
-    	}
-    	
-    	return result;
-    	
-    }
-	
-	public static GroupBy runQueryWithGrouping( domain.ModelMapper mapper, String queryName,EObject eobj) throws Exception{
-    	GroupBy result = new GroupBy();
-    	for (Iterator<domain.Query> itr = mapper.getQueries().iterator();itr.hasNext();){
-    		domain.Query query = itr.next();
-    		if (query.getQueryRef().getName() .equals(queryName)){
-    			 Collection<?> ls = (Collection<?>) runQuery(query, eobj);
-    			 result.add(query.getGroupCode(), ls);
-    		}
-    	}
-    	return result;
-    }
-   
-    
-	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static List<?> runQuery(domain.ModelMapper mapper, String queryName,
+			EObject eobj) throws Exception {
+		ArrayList result = new ArrayList<>();
+		for (Iterator<domain.Query> itr = mapper.getQueries().iterator(); itr
+				.hasNext();) {
+			domain.Query query = itr.next();
+			if (query.getQueryRef().getName().equals(queryName)) {
+				Collection<?> ls = (Collection<?>) runQuery(query, eobj);
+				result.addAll(ls);
+			}
+		}
+
+		return result;
+
+	}
+
+	public static GroupBy runQueryWithGrouping(domain.ModelMapper mapper,
+			String queryName, EObject eobj) throws Exception {
+		GroupBy result = new GroupBy();
+		for (Iterator<domain.Query> itr = mapper.getQueries().iterator(); itr
+				.hasNext();) {
+			domain.Query query = itr.next();
+			if (query.getQueryRef().getName().equals(queryName)) {
+				Collection<?> ls = (Collection<?>) runQuery(query, eobj);
+				result.add(query.getGroupCode(), ls);
+			}
+		}
+		return result;
+	}
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static Object executeQuery(String strQuery, EObject eobj)
 			throws Exception {
@@ -134,35 +136,45 @@ public class Util {
 
 		File f = new File(path);
 		f.mkdirs();
-		
-		FileOutputStream out = new FileOutputStream(new File(f,fileName));
+
+		FileOutputStream out = new FileOutputStream(new File(f, fileName));
 		out.write(in.getBytes());
 		out.close();
 	}
 
-	public static EglTemplate  loadTemplate(String templateFile, HashMap<String, Object> parameters, EglTemplateFactory factory ) throws Exception{
+	public static EglTemplate loadTemplate(String templateFile,
+			HashMap<String, Object> parameters, EglTemplateFactory factory)
+			throws Exception {
 
 		VelocityContext context = new VelocityContext();
-        for (Iterator<String> itr = parameters.keySet().iterator();itr.hasNext(); ){
-        	String key = itr.next();
-            context.put(key, parameters.get(key));
-        }
- 
-        VelocityEngine ve = new VelocityEngine();
-        ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "class");
-        ve.setProperty("class.resource.loader.class", "org.tura.metamodel.commons.VelocityResourceLoader"); 
-        ve.init();
-  
-        Template t = ve.getTemplate(templateFile);
-        StringWriter writer = new StringWriter();
-        t.merge( context, writer );		
-        
-		 EglTemplate egltemplate = factory.prepare(writer.toString());
-	        for (Iterator<String> itr = parameters.keySet().iterator();itr.hasNext(); ){
-	        	String key = itr.next();
-	        	egltemplate.populate(key, parameters.get(key));
-	        }
+		for (Iterator<String> itr = parameters.keySet().iterator(); itr
+				.hasNext();) {
+			String key = itr.next();
+			context.put(key, parameters.get(key));
+		}
+
+		VelocityEngine ve = new VelocityEngine();
+		ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "class");
+		ve.setProperty("class.resource.loader.class",
+				"org.tura.metamodel.commons.VelocityResourceLoader");
+		ve.init();
+
+		Template t = ve.getTemplate(templateFile);
+		StringWriter writer = new StringWriter();
+		t.merge(context, writer);
+
+		EglTemplate egltemplate = factory.prepare(writer.toString());
+
+		if (egltemplate == null || !egltemplate.getParseProblems().isEmpty()) {
+			throw new Exception( egltemplate.getParseProblems().toString()); 
+		}
+
+		for (Iterator<String> itr = parameters.keySet().iterator(); itr
+				.hasNext();) {
+			String key = itr.next();
+			egltemplate.populate(key, parameters.get(key));
+		}
 		return egltemplate;
 	}
-	
+
 }

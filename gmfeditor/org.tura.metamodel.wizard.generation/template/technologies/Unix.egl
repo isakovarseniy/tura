@@ -17,7 +17,7 @@ operation  os_shell_executor():String{
 }
 
 @template
-operation  glassfishdeploy_glassfishdeployear(configuration,path,component) {
+operation glassfishdeploy_ejbwebservice(configuration,path,component) {
 %]
 #!/bin/sh
   
