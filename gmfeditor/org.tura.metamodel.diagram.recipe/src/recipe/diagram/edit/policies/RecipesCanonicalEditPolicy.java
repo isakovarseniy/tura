@@ -44,6 +44,7 @@ import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.QueryEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
+import recipe.diagram.edit.parts.RelationEditPart;
 import recipe.diagram.edit.parts.TypeExtensionEditPart;
 import recipe.diagram.part.DomainDiagramUpdater;
 import recipe.diagram.part.DomainLinkDescriptor;
@@ -375,6 +376,14 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getTypeExtension_304001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case RelationEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getRelation_304010ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

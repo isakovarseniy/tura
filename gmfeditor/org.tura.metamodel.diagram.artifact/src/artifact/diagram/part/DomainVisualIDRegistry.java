@@ -32,6 +32,7 @@ import artifact.diagram.edit.parts.RecipeDeloymentEditPart;
 import artifact.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import artifact.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import artifact.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
+import artifact.diagram.edit.parts.RelationEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.edit.parts.SpecifierNameEditPart;
 import artifact.diagram.edit.parts.TypeExtensionEditPart;
@@ -289,6 +290,10 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
 				domainElement.eClass())) {
 			return TypeExtensionEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
+				domainElement.eClass())) {
+			return RelationEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

@@ -21,6 +21,11 @@ import application.diagram.edit.parts.ApplicationRecipeNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
 import application.diagram.edit.parts.ApplicationRecipesNameEditPart;
+import application.diagram.edit.parts.ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart;
+import application.diagram.edit.parts.ApplicationUILayerEditPart;
+import application.diagram.edit.parts.ApplicationUILayerNameEditPart;
+import application.diagram.edit.parts.ApplicationUIPackageEditPart;
+import application.diagram.edit.parts.ApplicationUIPackageNameEditPart;
 import application.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import application.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import application.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
@@ -33,6 +38,7 @@ import application.diagram.edit.parts.RecipeDeloymentEditPart;
 import application.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import application.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import application.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
+import application.diagram.edit.parts.RelationEditPart;
 import application.diagram.edit.parts.TypeExtensionEditPart;
 import domain.Application;
 import domain.DomainPackage;
@@ -154,6 +160,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return ApplicationMappersEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getApplicationUILayer().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ApplicationUILayerEditPart.VISUAL_ID;
+			}
 			break;
 		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getApplicationRecipe().isSuperTypeOf(
@@ -165,6 +175,12 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getApplicationMapper().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ApplicationMapperEditPart.VISUAL_ID;
+			}
+			break;
+		case ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getApplicationUIPackage()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ApplicationUIPackageEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -200,6 +216,9 @@ public class DomainVisualIDRegistry {
 			if (ApplicationMappersEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ApplicationUILayerEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case ApplicationRecipesEditPart.VISUAL_ID:
 			if (ApplicationRecipesNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -217,6 +236,14 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ApplicationUILayerEditPart.VISUAL_ID:
+			if (ApplicationUILayerNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			if (ApplicationRecipeNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -227,6 +254,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ApplicationUIPackageEditPart.VISUAL_ID:
+			if (ApplicationUIPackageNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
 			if (ApplicationRecipeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -234,6 +266,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID:
 			if (ApplicationMapperEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID:
+			if (ApplicationUIPackageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -282,6 +319,10 @@ public class DomainVisualIDRegistry {
 				domainElement.eClass())) {
 			return TypeExtensionEditPart.VISUAL_ID;
 		}
+		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
+				domainElement.eClass())) {
+			return RelationEditPart.VISUAL_ID;
+		}
 		return -1;
 	}
 
@@ -315,6 +356,7 @@ public class DomainVisualIDRegistry {
 		switch (visualID) {
 		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
 		case ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID:
+		case ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -331,6 +373,7 @@ public class DomainVisualIDRegistry {
 			return false;
 		case ApplicationRecipeEditPart.VISUAL_ID:
 		case ApplicationMapperEditPart.VISUAL_ID:
+		case ApplicationUIPackageEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

@@ -12,6 +12,15 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
+          title="ArtificialField"
+          description="Create new ArtificialField">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Attribute"
           description="Create new Attribute">
         <smallIcon
@@ -127,6 +136,15 @@
           xsi:type="gmftool:CreationTool"
           title="RecipeConfig"
           description="Create new RecipeConfig">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Relation"
+          description="Create new Relation">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

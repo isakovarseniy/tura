@@ -27,6 +27,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import application.diagram.edit.parts.ApplicationEditPart;
 import application.diagram.edit.parts.ApplicationMappersApplicationMappersMappersCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
+import application.diagram.edit.parts.ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart;
 import application.diagram.part.DomainDiagramEditorPlugin;
 import application.diagram.part.Messages;
 
@@ -42,9 +43,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof ApplicationEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 			types.add(DomainElementTypes.ApplicationRecipes_802001);
 			types.add(DomainElementTypes.ApplicationMappers_802002);
+			types.add(DomainElementTypes.ApplicationUILayer_802003);
 			return types;
 		}
 		if (editPart instanceof ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart) {
@@ -55,6 +57,11 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof ApplicationMappersApplicationMappersMappersCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.ApplicationMapper_803002);
+			return types;
+		}
+		if (editPart instanceof ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.ApplicationUIPackage_803003);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

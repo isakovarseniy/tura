@@ -39,11 +39,14 @@ import recipe.diagram.part.DomainDiagramEditorPlugin;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.providers.DomainElementTypes;
 import domain.Configuration;
+import domain.Controls;
+import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentSequence;
 import domain.DeploymentStarStep;
 import domain.Infrastructure;
 import domain.Recipe;
+import domain.Relation;
 import domain.Type;
 import domain.TypeElement;
 import domain.TypeExtension;
@@ -342,6 +345,14 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
+		public boolean canCreateRelation_304010(Controls container,
+				DataControl source, DataControl target) {
+			return canExistRelation_304010(container, null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public boolean canCreateDeploymentComponentDeplymentComponent_304002(
 				DeploymentComponent source, DeploymentComponent target) {
 			if (source != null) {
@@ -439,6 +450,14 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		public boolean canExistTypeExtension_304001(Type container,
 				TypeExtension linkInstance, TypeElement source,
 				TypeElement target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistRelation_304010(Controls container,
+				Relation linkInstance, DataControl source, DataControl target) {
 			return true;
 		}
 

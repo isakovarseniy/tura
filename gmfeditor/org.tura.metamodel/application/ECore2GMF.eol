@@ -114,5 +114,39 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeploymentStarStep');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeploymentSequence');
 delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DataControl');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Form');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='FormView');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='FormDataControls');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREFormTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREQueryTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREInsertTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREDeleteTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Root');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='POSTQueryTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PRECreateTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ArtificialField');
+delete tool;
+
+
+
+
+
+
+
+
+
+
 
 

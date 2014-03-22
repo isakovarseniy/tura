@@ -35,6 +35,7 @@ import recipe.diagram.edit.parts.RecipeDeloymentEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
+import recipe.diagram.edit.parts.RelationEditPart;
 import recipe.diagram.edit.parts.TypeExtensionEditPart;
 import recipe.diagram.part.DomainDiagramEditorPlugin;
 import domain.DomainPackage;
@@ -109,6 +110,10 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType TypeExtension_304001 = getElementType("org.tura.metamodel.diagram.recipe.TypeExtension_304001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Relation_304010 = getElementType("org.tura.metamodel.diagram.recipe.Relation_304010"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -274,6 +279,8 @@ public class DomainElementTypes {
 			elements.put(TypeExtension_304001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
+			elements.put(Relation_304010, DomainPackage.eINSTANCE.getRelation());
+
 			elements.put(DeploymentComponentDeplymentComponent_304002,
 					DomainPackage.eINSTANCE
 							.getDeploymentComponent_DeplymentComponent());
@@ -320,6 +327,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Query_303004);
 			KNOWN_ELEMENT_TYPES.add(Property_303005);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_304001);
+			KNOWN_ELEMENT_TYPES.add(Relation_304010);
 			KNOWN_ELEMENT_TYPES
 					.add(DeploymentComponentDeplymentComponent_304002);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_304008);
@@ -358,6 +366,8 @@ public class DomainElementTypes {
 			return Property_303005;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_304001;
+		case RelationEditPart.VISUAL_ID:
+			return Relation_304010;
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return DeploymentComponentDeplymentComponent_304002;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:

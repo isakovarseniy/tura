@@ -100,6 +100,53 @@
       </compartments>
     </ownedChild>
   </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Application/applicationUILayer"/>
+    <ownedChild
+        relatedDiagrams="//@diagram">
+      <domainMetaElement
+          href="domain.ecore#//ApplicationUILayer"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#ApplicationUILayerLabel"/>
+        <features
+            href="domain.ecore#//ApplicationUILayer/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+      <diagramNode
+          href="domain.gmfgraph#ApplicationUILayer"/>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//ApplicationUILayer/applicationUIPackages"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//ApplicationUIPackage"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#ApplicationUIPackageLabel"/>
+            <features
+                href="domain.ecore#//ApplicationUIPackage/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+          <diagramNode
+              href="domain.gmfgraph#ApplicationUIPackage"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.2/@ownedChild/@children.0">
+        <compartment
+            href="domain.gmfgraph#ApplicationUILayerApplicationUIPackagesCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
   <links>
     <domainMetaElement
         href="domain.ecore#//TypeExtension"/>
@@ -107,7 +154,7 @@
         href="domain.ecore#//Type/extension"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.6"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.7"/>
     <diagramLink
         href="domain.gmfgraph#TypeExtension"/>
     <sourceMetaFeature
@@ -116,6 +163,23 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="domain.ecore#//TypeExtension/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="domain.ecore#//Relation"/>
+    <containmentFeature
+        href="domain.ecore#//Controls/relations"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="domain.gmftool#//@palette/@tools.1/@tools.6"/>
+    <diagramLink
+        href="domain.gmfgraph#Relation"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//Relation/master"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//Relation/detail"/>
   </links>
   <links>
     <labelMappings

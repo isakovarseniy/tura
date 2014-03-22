@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Domain"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="502001,502002,502003,503003,503004,503005,503006,503002,503001"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="504001,504007,504009,504005,504006,504004,504003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="504001,504011,504007,504009,504005,504006,504004,504003"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="502001,502002,502003,503003,503004,503005,503006,503002,503001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="504001,504007,504009,504005,504006,504004,504003"/>
+            <method name="getType()" value="504001,504011,504007,504009,504005,504006,504004,504003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="505001,505002,505004,505006,505007,505008,505009,505005,505003"/>
@@ -436,6 +436,16 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.domain.Relation_504011"
+               name="%metatype.name.Relation_504011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Relation"
+               edithelper="domain.diagram.edit.helpers.RelationEditHelper">
+            <param name="semanticHint" value="504011"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.diagram.domain.DeploymentComponentDeplymentComponent_504007"
                name="%metatype.name.DeploymentComponentDeplymentComponent_504007"
@@ -516,6 +526,7 @@
          <elementType ref="org.tura.metamodel.diagram.domain.DomainArtifact_503002"/>
          <elementType ref="org.tura.metamodel.diagram.domain.DomainApplication_503001"/>
          <elementType ref="org.tura.metamodel.diagram.domain.TypeExtension_504001"/>
+         <elementType ref="org.tura.metamodel.diagram.domain.Relation_504011"/>
          <elementType ref="org.tura.metamodel.diagram.domain.DeploymentComponentDeplymentComponent_504007"/>
          <elementType ref="org.tura.metamodel.diagram.domain.DeploymentStarStepFirstStep_504009"/>
          <elementType ref="org.tura.metamodel.diagram.domain.RecipeInfrastructures_504005"/>

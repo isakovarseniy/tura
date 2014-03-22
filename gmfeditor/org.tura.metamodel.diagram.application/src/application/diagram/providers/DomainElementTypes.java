@@ -24,12 +24,15 @@ import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
+import application.diagram.edit.parts.ApplicationUILayerEditPart;
+import application.diagram.edit.parts.ApplicationUIPackageEditPart;
 import application.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import application.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
 import application.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import application.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import application.diagram.edit.parts.RecipeDeloymentEditPart;
 import application.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import application.diagram.edit.parts.RelationEditPart;
 import application.diagram.edit.parts.TypeExtensionEditPart;
 import application.diagram.part.DomainDiagramEditorPlugin;
 import domain.DomainPackage;
@@ -75,6 +78,10 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType ApplicationUILayer_802003 = getElementType("org.tura.metamodel.diagram.application.ApplicationUILayer_802003"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType ApplicationRecipe_803001 = getElementType("org.tura.metamodel.diagram.application.ApplicationRecipe_803001"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -83,7 +90,15 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType ApplicationUIPackage_803003 = getElementType("org.tura.metamodel.diagram.application.ApplicationUIPackage_803003"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType TypeExtension_804001 = getElementType("org.tura.metamodel.diagram.application.TypeExtension_804001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Relation_804011 = getElementType("org.tura.metamodel.diagram.application.Relation_804011"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -229,14 +244,22 @@ public class DomainElementTypes {
 			elements.put(ApplicationMappers_802002,
 					DomainPackage.eINSTANCE.getApplicationMappers());
 
+			elements.put(ApplicationUILayer_802003,
+					DomainPackage.eINSTANCE.getApplicationUILayer());
+
 			elements.put(ApplicationRecipe_803001,
 					DomainPackage.eINSTANCE.getApplicationRecipe());
 
 			elements.put(ApplicationMapper_803002,
 					DomainPackage.eINSTANCE.getApplicationMapper());
 
+			elements.put(ApplicationUIPackage_803003,
+					DomainPackage.eINSTANCE.getApplicationUIPackage());
+
 			elements.put(TypeExtension_804001,
 					DomainPackage.eINSTANCE.getTypeExtension());
+
+			elements.put(Relation_804011, DomainPackage.eINSTANCE.getRelation());
 
 			elements.put(DeploymentComponentDeplymentComponent_804007,
 					DomainPackage.eINSTANCE
@@ -276,9 +299,12 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Application_801000);
 			KNOWN_ELEMENT_TYPES.add(ApplicationRecipes_802001);
 			KNOWN_ELEMENT_TYPES.add(ApplicationMappers_802002);
+			KNOWN_ELEMENT_TYPES.add(ApplicationUILayer_802003);
 			KNOWN_ELEMENT_TYPES.add(ApplicationRecipe_803001);
 			KNOWN_ELEMENT_TYPES.add(ApplicationMapper_803002);
+			KNOWN_ELEMENT_TYPES.add(ApplicationUIPackage_803003);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_804001);
+			KNOWN_ELEMENT_TYPES.add(Relation_804011);
 			KNOWN_ELEMENT_TYPES
 					.add(DeploymentComponentDeplymentComponent_804007);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_804009);
@@ -301,12 +327,18 @@ public class DomainElementTypes {
 			return ApplicationRecipes_802001;
 		case ApplicationMappersEditPart.VISUAL_ID:
 			return ApplicationMappers_802002;
+		case ApplicationUILayerEditPart.VISUAL_ID:
+			return ApplicationUILayer_802003;
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return ApplicationRecipe_803001;
 		case ApplicationMapperEditPart.VISUAL_ID:
 			return ApplicationMapper_803002;
+		case ApplicationUIPackageEditPart.VISUAL_ID:
+			return ApplicationUIPackage_803003;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_804001;
+		case RelationEditPart.VISUAL_ID:
+			return Relation_804011;
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return DeploymentComponentDeplymentComponent_804007;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:

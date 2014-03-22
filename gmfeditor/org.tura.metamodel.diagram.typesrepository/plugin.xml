@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Typesrepository"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="202001,203002,203003"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="204001,204007,204009,204005,204006,204004,204003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="204001,204011,204007,204009,204005,204006,204004,204003"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="202001,203002,203003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="204001,204007,204009,204005,204006,204004,204003"/>
+            <method name="getType()" value="204001,204011,204007,204009,204005,204006,204004,204003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="205004,205002,205003"/>
@@ -374,6 +374,16 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.typesrepository.Relation_204011"
+               name="%metatype.name.Relation_204011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Relation"
+               edithelper="typesrepository.diagram.edit.helpers.RelationEditHelper">
+            <param name="semanticHint" value="204011"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.diagram.typesrepository.DeploymentComponentDeplymentComponent_204007"
                name="%metatype.name.DeploymentComponentDeplymentComponent_204007"
@@ -448,6 +458,7 @@
          <elementType ref="org.tura.metamodel.diagram.typesrepository.Package_203002"/>
          <elementType ref="org.tura.metamodel.diagram.typesrepository.BusinessPackage_203003"/>
          <elementType ref="org.tura.metamodel.diagram.typesrepository.TypeExtension_204001"/>
+         <elementType ref="org.tura.metamodel.diagram.typesrepository.Relation_204011"/>
          <elementType ref="org.tura.metamodel.diagram.typesrepository.DeploymentComponentDeplymentComponent_204007"/>
          <elementType ref="org.tura.metamodel.diagram.typesrepository.DeploymentStarStepFirstStep_204009"/>
          <elementType ref="org.tura.metamodel.diagram.typesrepository.RecipeInfrastructures_204005"/>

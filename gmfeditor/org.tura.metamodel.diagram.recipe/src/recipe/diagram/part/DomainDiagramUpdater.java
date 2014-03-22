@@ -35,6 +35,7 @@ import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
+import recipe.diagram.edit.parts.RelationEditPart;
 import recipe.diagram.edit.parts.TypeExtensionEditPart;
 import recipe.diagram.providers.DomainElementTypes;
 import domain.Component;
@@ -295,6 +296,8 @@ public class DomainDiagramUpdater {
 			return getProperty_303005ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_304001ContainedLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_304010ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -324,6 +327,8 @@ public class DomainDiagramUpdater {
 			return getProperty_303005IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_304001IncomingLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_304010IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -353,6 +358,8 @@ public class DomainDiagramUpdater {
 			return getProperty_303005OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_304001OutgoingLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_304010OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -451,6 +458,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_304001ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getRelation_304010ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -559,6 +574,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRelation_304010IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getRecipe_302001OutgoingLinks(
 			View view) {
 		Recipe modelElement = (Recipe) view.getElement();
@@ -642,6 +665,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_304001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getRelation_304010OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

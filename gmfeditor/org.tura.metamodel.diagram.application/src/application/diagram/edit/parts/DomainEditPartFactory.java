@@ -40,6 +40,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ApplicationMappersNameEditPart.VISUAL_ID:
 				return new ApplicationMappersNameEditPart(view);
 
+			case ApplicationUILayerEditPart.VISUAL_ID:
+				return new ApplicationUILayerEditPart(view);
+
+			case ApplicationUILayerNameEditPart.VISUAL_ID:
+				return new ApplicationUILayerNameEditPart(view);
+
 			case ApplicationRecipeEditPart.VISUAL_ID:
 				return new ApplicationRecipeEditPart(view);
 
@@ -52,6 +58,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ApplicationMapperNameEditPart.VISUAL_ID:
 				return new ApplicationMapperNameEditPart(view);
 
+			case ApplicationUIPackageEditPart.VISUAL_ID:
+				return new ApplicationUIPackageEditPart(view);
+
+			case ApplicationUIPackageNameEditPart.VISUAL_ID:
+				return new ApplicationUIPackageNameEditPart(view);
+
 			case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
 				return new ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart(
 						view);
@@ -60,8 +72,15 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new ApplicationMappersApplicationMappersMappersCompartmentEditPart(
 						view);
 
+			case ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID:
+				return new ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart(
+						view);
+
 			case TypeExtensionEditPart.VISUAL_ID:
 				return new TypeExtensionEditPart(view);
+
+			case RelationEditPart.VISUAL_ID:
+				return new RelationEditPart(view);
 
 			case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 				return new DeploymentComponentDeplymentComponentEditPart(view);

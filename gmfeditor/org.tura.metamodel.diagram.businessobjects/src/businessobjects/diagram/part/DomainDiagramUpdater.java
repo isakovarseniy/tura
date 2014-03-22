@@ -22,6 +22,7 @@ import businessobjects.diagram.edit.parts.BusinessObjectsEditPart;
 import businessobjects.diagram.edit.parts.CreateMethodEditPart;
 import businessobjects.diagram.edit.parts.InsertMethodEditPart;
 import businessobjects.diagram.edit.parts.OtherMethodEditPart;
+import businessobjects.diagram.edit.parts.RelationEditPart;
 import businessobjects.diagram.edit.parts.RemoveMethodEditPart;
 import businessobjects.diagram.edit.parts.SearchMethodEditPart;
 import businessobjects.diagram.edit.parts.TypeExtensionEditPart;
@@ -285,6 +286,8 @@ public class DomainDiagramUpdater {
 			return getOtherMethod_603006ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_604001ContainedLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_604011ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -310,6 +313,8 @@ public class DomainDiagramUpdater {
 			return getOtherMethod_603006IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_604001IncomingLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_604011IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -335,6 +340,8 @@ public class DomainDiagramUpdater {
 			return getOtherMethod_603006OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_604001OutgoingLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_604011OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -414,6 +421,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRelation_604011ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getBusinessObject_602001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -478,6 +493,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRelation_604011IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getBusinessObject_602001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -535,6 +558,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_604001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getRelation_604011OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

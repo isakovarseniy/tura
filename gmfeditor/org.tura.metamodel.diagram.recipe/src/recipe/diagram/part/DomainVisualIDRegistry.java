@@ -46,6 +46,7 @@ import recipe.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
+import recipe.diagram.edit.parts.RelationEditPart;
 import recipe.diagram.edit.parts.TypeExtensionEditPart;
 import domain.DomainPackage;
 import domain.Recipes;
@@ -375,6 +376,10 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
 				domainElement.eClass())) {
 			return TypeExtensionEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
+				domainElement.eClass())) {
+			return RelationEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

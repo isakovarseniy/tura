@@ -21,6 +21,7 @@ import deployment.diagram.edit.parts.DeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentsEditPart;
 import deployment.diagram.edit.parts.DeploymentStarStepEditPart;
 import deployment.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import deployment.diagram.edit.parts.RelationEditPart;
 import deployment.diagram.edit.parts.TypeExtensionEditPart;
 import deployment.diagram.providers.DomainElementTypes;
 import domain.DeploymentComponent;
@@ -97,6 +98,8 @@ public class DomainDiagramUpdater {
 			return getDeploymentStarStep_902002ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_904001ContainedLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_904010ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -112,6 +115,8 @@ public class DomainDiagramUpdater {
 			return getDeploymentStarStep_902002IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_904001IncomingLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_904010IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -127,6 +132,8 @@ public class DomainDiagramUpdater {
 			return getDeploymentStarStep_902002OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_904001OutgoingLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_904010OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -174,6 +181,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRelation_904010ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDeploymentComponent_902001IncomingLinks(
 			View view) {
 		DeploymentComponent modelElement = (DeploymentComponent) view
@@ -207,6 +222,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRelation_904010IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDeploymentComponent_902001OutgoingLinks(
 			View view) {
 		DeploymentComponent modelElement = (DeploymentComponent) view
@@ -232,6 +255,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_904001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getRelation_904010OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

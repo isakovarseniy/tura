@@ -5,6 +5,7 @@ package domain.impl;
 import domain.Application;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipes;
+import domain.ApplicationUILayer;
 import domain.DomainApplication;
 import domain.DomainPackage;
 
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.ApplicationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationRecipes <em>Application Recipes</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getApplicationMappers <em>Application Mappers</em>}</li>
+ *   <li>{@link domain.impl.ApplicationImpl#getApplicationUILayer <em>Application UI Layer</em>}</li>
  *   <li>{@link domain.impl.ApplicationImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -74,6 +76,16 @@ public class ApplicationImpl extends EObjectImpl implements Application
    * @ordered
    */
   protected ApplicationMappers applicationMappers;
+
+  /**
+   * The cached value of the '{@link #getApplicationUILayer() <em>Application UI Layer</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getApplicationUILayer()
+   * @generated
+   * @ordered
+   */
+  protected ApplicationUILayer applicationUILayer;
 
   /**
    * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
@@ -230,6 +242,54 @@ public class ApplicationImpl extends EObjectImpl implements Application
    * <!-- end-user-doc -->
    * @generated
    */
+  public ApplicationUILayer getApplicationUILayer()
+  {
+    return applicationUILayer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetApplicationUILayer(ApplicationUILayer newApplicationUILayer, NotificationChain msgs)
+  {
+    ApplicationUILayer oldApplicationUILayer = applicationUILayer;
+    applicationUILayer = newApplicationUILayer;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_UI_LAYER, oldApplicationUILayer, newApplicationUILayer);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setApplicationUILayer(ApplicationUILayer newApplicationUILayer)
+  {
+    if (newApplicationUILayer != applicationUILayer)
+    {
+      NotificationChain msgs = null;
+      if (applicationUILayer != null)
+        msgs = ((InternalEObject)applicationUILayer).eInverseRemove(this, DomainPackage.APPLICATION_UI_LAYER__PARENT, ApplicationUILayer.class, msgs);
+      if (newApplicationUILayer != null)
+        msgs = ((InternalEObject)newApplicationUILayer).eInverseAdd(this, DomainPackage.APPLICATION_UI_LAYER__PARENT, ApplicationUILayer.class, msgs);
+      msgs = basicSetApplicationUILayer(newApplicationUILayer, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.APPLICATION__APPLICATION_UI_LAYER, newApplicationUILayer, newApplicationUILayer));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DomainApplication getParent()
   {
     if (parent != null && parent.eIsProxy())
@@ -311,6 +371,10 @@ public class ApplicationImpl extends EObjectImpl implements Application
         if (applicationMappers != null)
           msgs = ((InternalEObject)applicationMappers).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_MAPPERS, null, msgs);
         return basicSetApplicationMappers((ApplicationMappers)otherEnd, msgs);
+      case DomainPackage.APPLICATION__APPLICATION_UI_LAYER:
+        if (applicationUILayer != null)
+          msgs = ((InternalEObject)applicationUILayer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.APPLICATION__APPLICATION_UI_LAYER, null, msgs);
+        return basicSetApplicationUILayer((ApplicationUILayer)otherEnd, msgs);
       case DomainPackage.APPLICATION__PARENT:
         if (parent != null)
           msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.DOMAIN_APPLICATION__APPLICATION, DomainApplication.class, msgs);
@@ -333,6 +397,8 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return basicSetApplicationRecipes(null, msgs);
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
         return basicSetApplicationMappers(null, msgs);
+      case DomainPackage.APPLICATION__APPLICATION_UI_LAYER:
+        return basicSetApplicationUILayer(null, msgs);
       case DomainPackage.APPLICATION__PARENT:
         return basicSetParent(null, msgs);
     }
@@ -355,6 +421,8 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return getApplicationRecipes();
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
         return getApplicationMappers();
+      case DomainPackage.APPLICATION__APPLICATION_UI_LAYER:
+        return getApplicationUILayer();
       case DomainPackage.APPLICATION__PARENT:
         if (resolve) return getParent();
         return basicGetParent();
@@ -380,6 +448,9 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return;
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
         setApplicationMappers((ApplicationMappers)newValue);
+        return;
+      case DomainPackage.APPLICATION__APPLICATION_UI_LAYER:
+        setApplicationUILayer((ApplicationUILayer)newValue);
         return;
       case DomainPackage.APPLICATION__PARENT:
         setParent((DomainApplication)newValue);
@@ -407,6 +478,9 @@ public class ApplicationImpl extends EObjectImpl implements Application
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
         setApplicationMappers((ApplicationMappers)null);
         return;
+      case DomainPackage.APPLICATION__APPLICATION_UI_LAYER:
+        setApplicationUILayer((ApplicationUILayer)null);
+        return;
       case DomainPackage.APPLICATION__PARENT:
         setParent((DomainApplication)null);
         return;
@@ -430,6 +504,8 @@ public class ApplicationImpl extends EObjectImpl implements Application
         return applicationRecipes != null;
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
         return applicationMappers != null;
+      case DomainPackage.APPLICATION__APPLICATION_UI_LAYER:
+        return applicationUILayer != null;
       case DomainPackage.APPLICATION__PARENT:
         return parent != null;
     }

@@ -29,6 +29,7 @@ import artifact.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.RecipeDeloymentEditPart;
 import artifact.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import artifact.diagram.edit.parts.RelationEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
 import artifact.diagram.edit.parts.TypeExtensionEditPart;
 import artifact.diagram.part.DomainDiagramEditorPlugin;
@@ -84,6 +85,10 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType TypeExtension_704001 = getElementType("org.tura.metamodel.diagram.artifact.TypeExtension_704001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Relation_704011 = getElementType("org.tura.metamodel.diagram.artifact.Relation_704011"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -237,6 +242,8 @@ public class DomainElementTypes {
 			elements.put(TypeExtension_704001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
+			elements.put(Relation_704011, DomainPackage.eINSTANCE.getRelation());
+
 			elements.put(DeploymentComponentDeplymentComponent_704007,
 					DomainPackage.eINSTANCE
 							.getDeploymentComponent_DeplymentComponent());
@@ -278,6 +285,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ModelQuery_703005);
 			KNOWN_ELEMENT_TYPES.add(Specifier_703003);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_704001);
+			KNOWN_ELEMENT_TYPES.add(Relation_704011);
 			KNOWN_ELEMENT_TYPES
 					.add(DeploymentComponentDeplymentComponent_704007);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_704009);
@@ -306,6 +314,8 @@ public class DomainElementTypes {
 			return Specifier_703003;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_704001;
+		case RelationEditPart.VISUAL_ID:
+			return Relation_704011;
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return DeploymentComponentDeplymentComponent_704007;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:

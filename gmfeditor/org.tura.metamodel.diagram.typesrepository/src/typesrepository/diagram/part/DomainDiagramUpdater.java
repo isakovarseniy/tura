@@ -13,6 +13,7 @@ import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
+import typesrepository.diagram.edit.parts.RelationEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
@@ -141,6 +142,8 @@ public class DomainDiagramUpdater {
 			return getBusinessPackage_203003ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_204001ContainedLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_204011ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -158,6 +161,8 @@ public class DomainDiagramUpdater {
 			return getBusinessPackage_203003IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_204001IncomingLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_204011IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -175,6 +180,8 @@ public class DomainDiagramUpdater {
 			return getBusinessPackage_203003OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_204001OutgoingLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_204011OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -222,6 +229,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRelation_204011ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypes_202001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -254,6 +269,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRelation_204011IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypes_202001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -279,6 +302,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_204001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getRelation_204011OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

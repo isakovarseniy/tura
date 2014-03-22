@@ -7,9 +7,12 @@ import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
+import domain.ApplicationUILayer;
+import domain.ApplicationUIPackage;
 import domain.Artifact;
 import domain.ArtifactRef;
 import domain.Artifacts;
+import domain.ArtificialField;
 import domain.Attribute;
 import domain.BusinessMethod;
 import domain.BusinessObject;
@@ -18,8 +21,11 @@ import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
+import domain.ContextValue;
 import domain.ContinuousIintegration;
+import domain.Controls;
 import domain.CreateMethod;
+import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
 import domain.DeploymentSequence;
@@ -35,12 +41,16 @@ import domain.DomainTypes;
 import domain.EJBService;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.Form;
+import domain.FormDataControls;
+import domain.FormView;
 import domain.Infrastructure;
 import domain.Ingredient;
 import domain.InsertMethod;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
@@ -50,6 +60,12 @@ import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
+import domain.POSTQueryTrigger;
+import domain.PRECreateTrigger;
+import domain.PREDeleteTrigger;
+import domain.PREFormTrigger;
+import domain.PREInsertTrigger;
+import domain.PREQueryTrigger;
 import domain.Parameter;
 import domain.PlatformLayers;
 import domain.Primitive;
@@ -59,10 +75,14 @@ import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
+import domain.Relation;
 import domain.RemoveMethod;
 import domain.ReturnValue;
+import domain.Root;
 import domain.SearchMethod;
 import domain.Specifier;
+import domain.Trigger;
+import domain.TriggerParameter;
 import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
@@ -71,6 +91,7 @@ import domain.TypePointer;
 import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
+import domain.UIPackage;
 import domain.UpdateMethod;
 import domain.UsingMappers;
 
@@ -215,6 +236,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass applicationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass applicationUILayerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass applicationUIPackageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -572,6 +607,139 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass businessPackageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass uiPackageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass formEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass formViewEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass formDataControlsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass controlsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass triggerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass triggerParameterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass contextValueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass preFormTriggerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass preQueryTriggerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass postQueryTriggerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass preInsertTriggerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass preDeleteTriggerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass preCreateTriggerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rootEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dataControlEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass relationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass artificialFieldEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass linkEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1388,9 +1556,119 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getApplication_Parent()
+  public EReference getApplication_ApplicationUILayer()
   {
     return (EReference)applicationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplication_Parent()
+  {
+    return (EReference)applicationEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getApplicationUILayer()
+  {
+    return applicationUILayerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationUILayer_Uid()
+  {
+    return (EAttribute)applicationUILayerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationUILayer_Name()
+  {
+    return (EAttribute)applicationUILayerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationUILayer_Parent()
+  {
+    return (EReference)applicationUILayerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationUILayer_ApplicationUIPackages()
+  {
+    return (EReference)applicationUILayerEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getApplicationUIPackage()
+  {
+    return applicationUIPackageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationUIPackage_Uid()
+  {
+    return (EAttribute)applicationUIPackageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationUIPackage_Name()
+  {
+    return (EAttribute)applicationUIPackageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationUIPackage_Parent()
+  {
+    return (EReference)applicationUIPackageEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationUIPackage_Uipackage()
+  {
+    return (EReference)applicationUIPackageEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3648,6 +3926,736 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getUIPackage()
+  {
+    return uiPackageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUIPackage_Uid()
+  {
+    return (EAttribute)uiPackageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUIPackage_Parent()
+  {
+    return (EReference)uiPackageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUIPackage_Forms()
+  {
+    return (EReference)uiPackageEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getForm()
+  {
+    return formEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getForm_Uid()
+  {
+    return (EAttribute)formEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getForm_Name()
+  {
+    return (EAttribute)formEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForm_View()
+  {
+    return (EReference)formEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForm_Datacontrols()
+  {
+    return (EReference)formEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFormView()
+  {
+    return formViewEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFormView_Uid()
+  {
+    return (EAttribute)formViewEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFormView_Name()
+  {
+    return (EAttribute)formViewEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFormDataControls()
+  {
+    return formDataControlsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFormDataControls_Uid()
+  {
+    return (EAttribute)formDataControlsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFormDataControls_Name()
+  {
+    return (EAttribute)formDataControlsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFormDataControls_Control()
+  {
+    return (EReference)formDataControlsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getControls()
+  {
+    return controlsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getControls_Uid()
+  {
+    return (EAttribute)controlsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControls_Root()
+  {
+    return (EReference)controlsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControls_Controls()
+  {
+    return (EReference)controlsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControls_Relations()
+  {
+    return (EReference)controlsEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTrigger()
+  {
+    return triggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTrigger_Uid()
+  {
+    return (EAttribute)triggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTrigger_Name()
+  {
+    return (EAttribute)triggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTrigger_MethodRef()
+  {
+    return (EReference)triggerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTrigger_Parameters()
+  {
+    return (EReference)triggerEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTrigger_FakeMethod()
+  {
+    return (EAttribute)triggerEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTriggerParameter()
+  {
+    return triggerParameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTriggerParameter_Uid()
+  {
+    return (EAttribute)triggerParameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTriggerParameter_Parameter()
+  {
+    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTriggerParameter_Value()
+  {
+    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getContextValue()
+  {
+    return contextValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getContextValue_Uid()
+  {
+    return (EAttribute)contextValueEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getContextValue_IsExpression()
+  {
+    return (EAttribute)contextValueEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getContextValue_Value()
+  {
+    return (EAttribute)contextValueEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPREFormTrigger()
+  {
+    return preFormTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPREQueryTrigger()
+  {
+    return preQueryTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPOSTQueryTrigger()
+  {
+    return postQueryTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPREInsertTrigger()
+  {
+    return preInsertTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPREDeleteTrigger()
+  {
+    return preDeleteTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPRECreateTrigger()
+  {
+    return preCreateTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRoot()
+  {
+    return rootEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRoot_Uid()
+  {
+    return (EAttribute)rootEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRoot_Name()
+  {
+    return (EAttribute)rootEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRoot_PreFormTrigger()
+  {
+    return (EReference)rootEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDataControl()
+  {
+    return dataControlEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataControl_Uid()
+  {
+    return (EAttribute)dataControlEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataControl_Name()
+  {
+    return (EAttribute)dataControlEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_PreQueryTrigger()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_PostQueryTrigger()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_PreInsertTrigger()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_PreDeleteTrigger()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_PreCreateTrigger()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_ArtificialField()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_Create()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_Insert()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_Update()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_Remove()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(11);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_Search()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(12);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRelation()
+  {
+    return relationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRelation_Uid()
+  {
+    return (EAttribute)relationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRelation_Name()
+  {
+    return (EAttribute)relationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRelation_Master()
+  {
+    return (EReference)relationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRelation_Detail()
+  {
+    return (EReference)relationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRelation_IsTree()
+  {
+    return (EAttribute)relationEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRelation_Links()
+  {
+    return (EReference)relationEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getArtificialField()
+  {
+    return artificialFieldEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getArtificialField_Uid()
+  {
+    return (EAttribute)artificialFieldEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getArtificialField_Name()
+  {
+    return (EAttribute)artificialFieldEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLink()
+  {
+    return linkEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLink_Uid()
+  {
+    return (EAttribute)linkEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLink_MasterField()
+  {
+    return (EAttribute)linkEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLink_DetailField()
+  {
+    return (EAttribute)linkEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getPlatformLayers()
   {
     return platformLayersEEnum;
@@ -3774,7 +4782,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(applicationEClass, APPLICATION__UID);
     createEReference(applicationEClass, APPLICATION__APPLICATION_RECIPES);
     createEReference(applicationEClass, APPLICATION__APPLICATION_MAPPERS);
+    createEReference(applicationEClass, APPLICATION__APPLICATION_UI_LAYER);
     createEReference(applicationEClass, APPLICATION__PARENT);
+
+    applicationUILayerEClass = createEClass(APPLICATION_UI_LAYER);
+    createEAttribute(applicationUILayerEClass, APPLICATION_UI_LAYER__UID);
+    createEAttribute(applicationUILayerEClass, APPLICATION_UI_LAYER__NAME);
+    createEReference(applicationUILayerEClass, APPLICATION_UI_LAYER__PARENT);
+    createEReference(applicationUILayerEClass, APPLICATION_UI_LAYER__APPLICATION_UI_PACKAGES);
+
+    applicationUIPackageEClass = createEClass(APPLICATION_UI_PACKAGE);
+    createEAttribute(applicationUIPackageEClass, APPLICATION_UI_PACKAGE__UID);
+    createEAttribute(applicationUIPackageEClass, APPLICATION_UI_PACKAGE__NAME);
+    createEReference(applicationUIPackageEClass, APPLICATION_UI_PACKAGE__PARENT);
+    createEReference(applicationUIPackageEClass, APPLICATION_UI_PACKAGE__UIPACKAGE);
 
     applicationRecipesEClass = createEClass(APPLICATION_RECIPES);
     createEAttribute(applicationRecipesEClass, APPLICATION_RECIPES__UID);
@@ -4052,6 +5073,98 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(businessPackageEClass, BUSINESS_PACKAGE__BUSINESSOBJECTS);
     createEReference(businessPackageEClass, BUSINESS_PACKAGE__PARENT);
 
+    uiPackageEClass = createEClass(UI_PACKAGE);
+    createEAttribute(uiPackageEClass, UI_PACKAGE__UID);
+    createEReference(uiPackageEClass, UI_PACKAGE__PARENT);
+    createEReference(uiPackageEClass, UI_PACKAGE__FORMS);
+
+    formEClass = createEClass(FORM);
+    createEAttribute(formEClass, FORM__UID);
+    createEAttribute(formEClass, FORM__NAME);
+    createEReference(formEClass, FORM__VIEW);
+    createEReference(formEClass, FORM__DATACONTROLS);
+
+    formViewEClass = createEClass(FORM_VIEW);
+    createEAttribute(formViewEClass, FORM_VIEW__UID);
+    createEAttribute(formViewEClass, FORM_VIEW__NAME);
+
+    formDataControlsEClass = createEClass(FORM_DATA_CONTROLS);
+    createEAttribute(formDataControlsEClass, FORM_DATA_CONTROLS__UID);
+    createEAttribute(formDataControlsEClass, FORM_DATA_CONTROLS__NAME);
+    createEReference(formDataControlsEClass, FORM_DATA_CONTROLS__CONTROL);
+
+    controlsEClass = createEClass(CONTROLS);
+    createEAttribute(controlsEClass, CONTROLS__UID);
+    createEReference(controlsEClass, CONTROLS__ROOT);
+    createEReference(controlsEClass, CONTROLS__CONTROLS);
+    createEReference(controlsEClass, CONTROLS__RELATIONS);
+
+    triggerEClass = createEClass(TRIGGER);
+    createEAttribute(triggerEClass, TRIGGER__UID);
+    createEAttribute(triggerEClass, TRIGGER__NAME);
+    createEReference(triggerEClass, TRIGGER__METHOD_REF);
+    createEReference(triggerEClass, TRIGGER__PARAMETERS);
+    createEAttribute(triggerEClass, TRIGGER__FAKE_METHOD);
+
+    triggerParameterEClass = createEClass(TRIGGER_PARAMETER);
+    createEAttribute(triggerParameterEClass, TRIGGER_PARAMETER__UID);
+    createEReference(triggerParameterEClass, TRIGGER_PARAMETER__PARAMETER);
+    createEReference(triggerParameterEClass, TRIGGER_PARAMETER__VALUE);
+
+    contextValueEClass = createEClass(CONTEXT_VALUE);
+    createEAttribute(contextValueEClass, CONTEXT_VALUE__UID);
+    createEAttribute(contextValueEClass, CONTEXT_VALUE__IS_EXPRESSION);
+    createEAttribute(contextValueEClass, CONTEXT_VALUE__VALUE);
+
+    preFormTriggerEClass = createEClass(PRE_FORM_TRIGGER);
+
+    preQueryTriggerEClass = createEClass(PRE_QUERY_TRIGGER);
+
+    postQueryTriggerEClass = createEClass(POST_QUERY_TRIGGER);
+
+    preInsertTriggerEClass = createEClass(PRE_INSERT_TRIGGER);
+
+    preDeleteTriggerEClass = createEClass(PRE_DELETE_TRIGGER);
+
+    preCreateTriggerEClass = createEClass(PRE_CREATE_TRIGGER);
+
+    rootEClass = createEClass(ROOT);
+    createEAttribute(rootEClass, ROOT__UID);
+    createEAttribute(rootEClass, ROOT__NAME);
+    createEReference(rootEClass, ROOT__PRE_FORM_TRIGGER);
+
+    dataControlEClass = createEClass(DATA_CONTROL);
+    createEAttribute(dataControlEClass, DATA_CONTROL__UID);
+    createEAttribute(dataControlEClass, DATA_CONTROL__NAME);
+    createEReference(dataControlEClass, DATA_CONTROL__PRE_QUERY_TRIGGER);
+    createEReference(dataControlEClass, DATA_CONTROL__POST_QUERY_TRIGGER);
+    createEReference(dataControlEClass, DATA_CONTROL__PRE_INSERT_TRIGGER);
+    createEReference(dataControlEClass, DATA_CONTROL__PRE_DELETE_TRIGGER);
+    createEReference(dataControlEClass, DATA_CONTROL__PRE_CREATE_TRIGGER);
+    createEReference(dataControlEClass, DATA_CONTROL__ARTIFICIAL_FIELD);
+    createEReference(dataControlEClass, DATA_CONTROL__CREATE);
+    createEReference(dataControlEClass, DATA_CONTROL__INSERT);
+    createEReference(dataControlEClass, DATA_CONTROL__UPDATE);
+    createEReference(dataControlEClass, DATA_CONTROL__REMOVE);
+    createEReference(dataControlEClass, DATA_CONTROL__SEARCH);
+
+    relationEClass = createEClass(RELATION);
+    createEAttribute(relationEClass, RELATION__UID);
+    createEAttribute(relationEClass, RELATION__NAME);
+    createEReference(relationEClass, RELATION__MASTER);
+    createEReference(relationEClass, RELATION__DETAIL);
+    createEAttribute(relationEClass, RELATION__IS_TREE);
+    createEReference(relationEClass, RELATION__LINKS);
+
+    artificialFieldEClass = createEClass(ARTIFICIAL_FIELD);
+    createEAttribute(artificialFieldEClass, ARTIFICIAL_FIELD__UID);
+    createEAttribute(artificialFieldEClass, ARTIFICIAL_FIELD__NAME);
+
+    linkEClass = createEClass(LINK);
+    createEAttribute(linkEClass, LINK__UID);
+    createEAttribute(linkEClass, LINK__MASTER_FIELD);
+    createEAttribute(linkEClass, LINK__DETAIL_FIELD);
+
     // Create enums
     platformLayersEEnum = createEEnum(PLATFORM_LAYERS);
   }
@@ -4110,6 +5223,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     parameterEClass.getESuperTypes().add(this.getTypePointer());
     returnValueEClass.getESuperTypes().add(this.getTypePointer());
     enumaratorEClass.getESuperTypes().add(this.getTypeElement());
+    triggerEClass.getESuperTypes().add(this.getTypePointer());
+    preFormTriggerEClass.getESuperTypes().add(this.getTrigger());
+    preQueryTriggerEClass.getESuperTypes().add(this.getTrigger());
+    postQueryTriggerEClass.getESuperTypes().add(this.getTrigger());
+    preInsertTriggerEClass.getESuperTypes().add(this.getTrigger());
+    preDeleteTriggerEClass.getESuperTypes().add(this.getTrigger());
+    preCreateTriggerEClass.getESuperTypes().add(this.getTrigger());
+    dataControlEClass.getESuperTypes().add(this.getTypePointer());
+    artificialFieldEClass.getESuperTypes().add(this.getTypePointer());
 
     // Initialize classes and features; add operations and parameters
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4203,7 +5325,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getApplication_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_ApplicationRecipes(), this.getApplicationRecipes(), this.getApplicationRecipes_Parent(), "applicationRecipes", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_ApplicationMappers(), this.getApplicationMappers(), this.getApplicationMappers_Parent(), "applicationMappers", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplication_ApplicationUILayer(), this.getApplicationUILayer(), this.getApplicationUILayer_Parent(), "applicationUILayer", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_Parent(), this.getDomainApplication(), this.getDomainApplication_Application(), "parent", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(applicationUILayerEClass, ApplicationUILayer.class, "ApplicationUILayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getApplicationUILayer_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationUILayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getApplicationUILayer_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationUILayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationUILayer_Parent(), this.getApplication(), this.getApplication_ApplicationUILayer(), "parent", null, 0, 1, ApplicationUILayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationUILayer_ApplicationUIPackages(), this.getApplicationUIPackage(), this.getApplicationUIPackage_Parent(), "applicationUIPackages", null, 0, -1, ApplicationUILayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(applicationUIPackageEClass, ApplicationUIPackage.class, "ApplicationUIPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getApplicationUIPackage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationUIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getApplicationUIPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationUIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationUIPackage_Parent(), this.getApplicationUILayer(), this.getApplicationUILayer_ApplicationUIPackages(), "parent", null, 0, 1, ApplicationUIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationUIPackage_Uipackage(), this.getUIPackage(), this.getUIPackage_Parent(), "uipackage", null, 0, 1, ApplicationUIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(applicationRecipesEClass, ApplicationRecipes.class, "ApplicationRecipes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getApplicationRecipes_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationRecipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4481,6 +5616,98 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getBusinessPackage_Businessobjects(), this.getBusinessObjects(), this.getBusinessObjects_Parent(), "businessobjects", null, 0, 1, BusinessPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBusinessPackage_Parent(), this.getTypes(), this.getTypes_BusinessPackages(), "parent", null, 0, 1, BusinessPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(uiPackageEClass, UIPackage.class, "UIPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUIPackage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, UIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUIPackage_Parent(), this.getApplicationUIPackage(), this.getApplicationUIPackage_Uipackage(), "parent", null, 0, 1, UIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUIPackage_Forms(), this.getForm(), null, "forms", null, 0, -1, UIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getForm_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getForm_Name(), ecorePackage.getEString(), "name", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForm_View(), this.getFormView(), null, "view", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForm_Datacontrols(), this.getFormDataControls(), null, "datacontrols", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(formViewEClass, FormView.class, "FormView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFormView_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, FormView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFormView_Name(), ecorePackage.getEString(), "name", null, 0, 1, FormView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(formDataControlsEClass, FormDataControls.class, "FormDataControls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFormDataControls_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, FormDataControls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFormDataControls_Name(), ecorePackage.getEString(), "name", null, 0, 1, FormDataControls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFormDataControls_Control(), this.getControls(), null, "control", null, 0, 1, FormDataControls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(controlsEClass, Controls.class, "Controls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getControls_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControls_Root(), this.getRoot(), null, "root", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControls_Controls(), this.getDataControl(), null, "controls", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControls_Relations(), this.getRelation(), null, "relations", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTrigger_Name(), ecorePackage.getEString(), "name", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTrigger_MethodRef(), this.getOperation(), null, "methodRef", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTrigger_Parameters(), this.getTriggerParameter(), null, "parameters", null, 0, -1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(triggerParameterEClass, TriggerParameter.class, "TriggerParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTriggerParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTriggerParameter_Parameter(), this.getParameter(), null, "parameter", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTriggerParameter_Value(), this.getContextValue(), null, "value", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(contextValueEClass, ContextValue.class, "ContextValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContextValue_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ContextValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContextValue_IsExpression(), ecorePackage.getEBoolean(), "isExpression", null, 0, 1, ContextValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContextValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, ContextValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(preFormTriggerEClass, PREFormTrigger.class, "PREFormTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(preQueryTriggerEClass, PREQueryTrigger.class, "PREQueryTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(postQueryTriggerEClass, POSTQueryTrigger.class, "POSTQueryTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(preInsertTriggerEClass, PREInsertTrigger.class, "PREInsertTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(preDeleteTriggerEClass, PREDeleteTrigger.class, "PREDeleteTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(preCreateTriggerEClass, PRECreateTrigger.class, "PRECreateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRoot_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRoot_Name(), ecorePackage.getEString(), "name", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoot_PreFormTrigger(), this.getPREFormTrigger(), null, "preFormTrigger", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dataControlEClass, DataControl.class, "DataControl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDataControl_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDataControl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_PreQueryTrigger(), this.getPREQueryTrigger(), null, "preQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_PostQueryTrigger(), this.getPOSTQueryTrigger(), null, "postQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_PreInsertTrigger(), this.getPREInsertTrigger(), null, "preInsertTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_PreDeleteTrigger(), this.getPREDeleteTrigger(), null, "preDeleteTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_PreCreateTrigger(), this.getPRECreateTrigger(), null, "preCreateTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_ArtificialField(), this.getArtificialField(), null, "artificialField", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_Create(), this.getTrigger(), null, "create", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_Insert(), this.getTrigger(), null, "insert", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_Update(), this.getTrigger(), null, "update", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_Remove(), this.getTrigger(), null, "remove", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_Search(), this.getTrigger(), null, "search", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRelation_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRelation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelation_Master(), this.getDataControl(), null, "master", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelation_Detail(), this.getDataControl(), null, "detail", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRelation_IsTree(), ecorePackage.getEBoolean(), "isTree", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelation_Links(), this.getLink(), null, "links", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(artificialFieldEClass, ArtificialField.class, "ArtificialField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getArtificialField_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getArtificialField_Name(), ecorePackage.getEString(), "name", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLink_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLink_MasterField(), ecorePackage.getEString(), "masterField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLink_DetailField(), ecorePackage.getEString(), "detailField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     // Initialize enums and add enum literals
     initEEnum(platformLayersEEnum, PlatformLayers.class, "PlatformLayers");
     addEEnumLiteral(platformLayersEEnum, PlatformLayers.SERVICE_LAYER);
@@ -4516,6 +5743,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createGmf_11Annotations();
     // gmf.diagram.typesrepository
     createGmf_12Annotations();
+    // gmf.diagram.uipackage
+    createGmf_13Annotations();
+    // gmf.diagram.control
+    createGmf_14Annotations();
   }
 
   /**
@@ -4532,7 +5763,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																						
+       });																																																																																																																	
   }
 
   /**
@@ -4549,7 +5780,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																					
+       });																																																																																																																
   }
 
   /**
@@ -4683,6 +5914,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "label", "name"
        });			
+    addAnnotation
+      (applicationUILayerEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
+       });			
+    addAnnotation
+      (applicationUIPackageEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,196,176"
+       });		
     addAnnotation
       (applicationRecipesEClass, 
        source, 
@@ -4979,6 +6228,114 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "241,238,203"
+       });			
+    addAnnotation
+      (formEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });				
+    addAnnotation
+      (formViewEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });		
+    addAnnotation
+      (formDataControlsEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });			
+    addAnnotation
+      (preFormTriggerEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });		
+    addAnnotation
+      (preQueryTriggerEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });		
+    addAnnotation
+      (postQueryTriggerEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });		
+    addAnnotation
+      (preInsertTriggerEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });		
+    addAnnotation
+      (preDeleteTriggerEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });		
+    addAnnotation
+      (preCreateTriggerEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });		
+    addAnnotation
+      (rootEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });			
+    addAnnotation
+      (dataControlEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });									
+    addAnnotation
+      (artificialFieldEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
        });
   }
 
@@ -5024,6 +6381,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        {
        "layout", "list"
        });								
+    addAnnotation
+      (getApplicationUILayer_ApplicationUIPackages(), 
+       source, 
+       new String[] 
+       {
+       });				
     addAnnotation
       (getApplicationRecipes_Recipes(), 
        source, 
@@ -5133,6 +6496,69 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
+       });						
+    addAnnotation
+      (getForm_View(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });		
+    addAnnotation
+      (getForm_Datacontrols(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });												
+    addAnnotation
+      (getRoot_PreFormTrigger(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });			
+    addAnnotation
+      (getDataControl_PreQueryTrigger(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });		
+    addAnnotation
+      (getDataControl_PostQueryTrigger(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });		
+    addAnnotation
+      (getDataControl_PreInsertTrigger(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });		
+    addAnnotation
+      (getDataControl_PreDeleteTrigger(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });		
+    addAnnotation
+      (getDataControl_PreCreateTrigger(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });		
+    addAnnotation
+      (getDataControl_ArtificialField(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
        });		
   }
 
@@ -5150,7 +6576,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																									
+       });																																																																																																				
   }
 
   /**
@@ -5167,7 +6593,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																
+       });																																																																																											
   }
 
   /**
@@ -5178,13 +6604,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_6Annotations()
   {
-    String source = "gmf.diagram.businessObjects";																															
+    String source = "gmf.diagram.businessObjects";																																		
     addAnnotation
       (businessObjectsEClass, 
        source, 
        new String[] 
        {
-       });																																																									
+       });																																																																																	
   }
 
   /**
@@ -5195,13 +6621,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_7Annotations()
   {
-    String source = "gmf.diagram.mapper";																																													
+    String source = "gmf.diagram.mapper";																																																
     addAnnotation
       (mappersEClass, 
        source, 
        new String[] 
        {
-       });																																											
+       });																																																																			
   }
 
   /**
@@ -5212,13 +6638,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_8Annotations()
   {
-    String source = "gmf.diagram.recipe";																																															
+    String source = "gmf.diagram.recipe";																																																		
     addAnnotation
       (recipesEClass, 
        source, 
        new String[] 
        {
-       });																																									
+       });																																																																	
   }
 
   /**
@@ -5229,13 +6655,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_9Annotations()
   {
-    String source = "gmf.diagram.deployment";																																																	
+    String source = "gmf.diagram.deployment";																																																				
     addAnnotation
       (deploymentComponentsEClass, 
        source, 
        new String[] 
        {
-       });																																							
+       });																																																															
   }
 
   /**
@@ -5246,7 +6672,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_10Annotations()
   {
-    String source = "gmf.link";																																																			
+    String source = "gmf.link";																																																						
     addAnnotation
       (getDeploymentComponent_DeplymentComponent(), 
        source, 
@@ -5306,7 +6732,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "style", "dot",
        "width", "2",
        "target.decoration", "closedarrow"
-       });											
+       });																																			
+    addAnnotation
+      (relationEClass, 
+       source, 
+       new String[] 
+       {
+       "source", "master",
+       "target", "detail",
+       "style", "dash",
+       "target.decoration", "arrow"
+       });	
   }
 
   /**
@@ -5317,13 +6753,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_11Annotations()
   {
-    String source = "gmf.diagram.typedefinition";																																																																							
+    String source = "gmf.diagram.typedefinition";																																																																										
     addAnnotation
       (typeDefinitionEClass, 
        source, 
        new String[] 
        {
-       });																	
+       });																																									
   }
 
   /**
@@ -5334,13 +6770,47 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   protected void createGmf_12Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																																			
+    String source = "gmf.diagram.typesrepository";																																																																																						
     addAnnotation
       (typesRepositoryEClass, 
        source, 
        new String[] 
        {
-       });					
+       });																													
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.diagram.uipackage</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_13Annotations()
+  {
+    String source = "gmf.diagram.uipackage";																																																																																												
+    addAnnotation
+      (uiPackageEClass, 
+       source, 
+       new String[] 
+       {
+       });																							
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.diagram.control</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_14Annotations()
+  {
+    String source = "gmf.diagram.control";																																																																																																		
+    addAnnotation
+      (controlsEClass, 
+       source, 
+       new String[] 
+       {
+       });																	
   }
 
 } //DomainPackageImpl

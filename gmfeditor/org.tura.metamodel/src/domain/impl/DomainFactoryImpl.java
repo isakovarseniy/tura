@@ -7,9 +7,12 @@ import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
+import domain.ApplicationUILayer;
+import domain.ApplicationUIPackage;
 import domain.Artifact;
 import domain.ArtifactRef;
 import domain.Artifacts;
+import domain.ArtificialField;
 import domain.Attribute;
 import domain.BusinessMethod;
 import domain.BusinessObject;
@@ -18,8 +21,11 @@ import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
+import domain.ContextValue;
 import domain.ContinuousIintegration;
+import domain.Controls;
 import domain.CreateMethod;
+import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
 import domain.DeploymentSequence;
@@ -35,12 +41,16 @@ import domain.DomainTypes;
 import domain.EJBService;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.Form;
+import domain.FormDataControls;
+import domain.FormView;
 import domain.Infrastructure;
 import domain.Ingredient;
 import domain.InsertMethod;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
@@ -50,6 +60,12 @@ import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
+import domain.POSTQueryTrigger;
+import domain.PRECreateTrigger;
+import domain.PREDeleteTrigger;
+import domain.PREFormTrigger;
+import domain.PREInsertTrigger;
+import domain.PREQueryTrigger;
 import domain.Parameter;
 import domain.PlatformLayers;
 import domain.Primitive;
@@ -59,10 +75,14 @@ import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
+import domain.Relation;
 import domain.RemoveMethod;
 import domain.ReturnValue;
+import domain.Root;
 import domain.SearchMethod;
 import domain.Specifier;
+import domain.Trigger;
+import domain.TriggerParameter;
 import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
@@ -71,6 +91,7 @@ import domain.TypePointer;
 import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
+import domain.UIPackage;
 import domain.UpdateMethod;
 import domain.UsingMappers;
 
@@ -153,6 +174,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.SPECIFIER: return createSpecifier();
       case DomainPackage.OPTION: return createOption();
       case DomainPackage.APPLICATION: return createApplication();
+      case DomainPackage.APPLICATION_UI_LAYER: return createApplicationUILayer();
+      case DomainPackage.APPLICATION_UI_PACKAGE: return createApplicationUIPackage();
       case DomainPackage.APPLICATION_RECIPES: return createApplicationRecipes();
       case DomainPackage.APPLICATION_RECIPE: return createApplicationRecipe();
       case DomainPackage.APPLICATION_MAPPERS: return createApplicationMappers();
@@ -204,6 +227,25 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.TYPES: return createTypes();
       case DomainPackage.PACKAGE: return createPackage();
       case DomainPackage.BUSINESS_PACKAGE: return createBusinessPackage();
+      case DomainPackage.UI_PACKAGE: return createUIPackage();
+      case DomainPackage.FORM: return createForm();
+      case DomainPackage.FORM_VIEW: return createFormView();
+      case DomainPackage.FORM_DATA_CONTROLS: return createFormDataControls();
+      case DomainPackage.CONTROLS: return createControls();
+      case DomainPackage.TRIGGER: return createTrigger();
+      case DomainPackage.TRIGGER_PARAMETER: return createTriggerParameter();
+      case DomainPackage.CONTEXT_VALUE: return createContextValue();
+      case DomainPackage.PRE_FORM_TRIGGER: return createPREFormTrigger();
+      case DomainPackage.PRE_QUERY_TRIGGER: return createPREQueryTrigger();
+      case DomainPackage.POST_QUERY_TRIGGER: return createPOSTQueryTrigger();
+      case DomainPackage.PRE_INSERT_TRIGGER: return createPREInsertTrigger();
+      case DomainPackage.PRE_DELETE_TRIGGER: return createPREDeleteTrigger();
+      case DomainPackage.PRE_CREATE_TRIGGER: return createPRECreateTrigger();
+      case DomainPackage.ROOT: return createRoot();
+      case DomainPackage.DATA_CONTROL: return createDataControl();
+      case DomainPackage.RELATION: return createRelation();
+      case DomainPackage.ARTIFICIAL_FIELD: return createArtificialField();
+      case DomainPackage.LINK: return createLink();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -439,6 +481,28 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ApplicationImpl application = new ApplicationImpl();
     return application;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ApplicationUILayer createApplicationUILayer()
+  {
+    ApplicationUILayerImpl applicationUILayer = new ApplicationUILayerImpl();
+    return applicationUILayer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ApplicationUIPackage createApplicationUIPackage()
+  {
+    ApplicationUIPackageImpl applicationUIPackage = new ApplicationUIPackageImpl();
+    return applicationUIPackage;
   }
 
   /**
@@ -1000,6 +1064,215 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     BusinessPackageImpl businessPackage = new BusinessPackageImpl();
     return businessPackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UIPackage createUIPackage()
+  {
+    UIPackageImpl uiPackage = new UIPackageImpl();
+    return uiPackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Form createForm()
+  {
+    FormImpl form = new FormImpl();
+    return form;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FormView createFormView()
+  {
+    FormViewImpl formView = new FormViewImpl();
+    return formView;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FormDataControls createFormDataControls()
+  {
+    FormDataControlsImpl formDataControls = new FormDataControlsImpl();
+    return formDataControls;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Controls createControls()
+  {
+    ControlsImpl controls = new ControlsImpl();
+    return controls;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Trigger createTrigger()
+  {
+    TriggerImpl trigger = new TriggerImpl();
+    return trigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TriggerParameter createTriggerParameter()
+  {
+    TriggerParameterImpl triggerParameter = new TriggerParameterImpl();
+    return triggerParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContextValue createContextValue()
+  {
+    ContextValueImpl contextValue = new ContextValueImpl();
+    return contextValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PREFormTrigger createPREFormTrigger()
+  {
+    PREFormTriggerImpl preFormTrigger = new PREFormTriggerImpl();
+    return preFormTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PREQueryTrigger createPREQueryTrigger()
+  {
+    PREQueryTriggerImpl preQueryTrigger = new PREQueryTriggerImpl();
+    return preQueryTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public POSTQueryTrigger createPOSTQueryTrigger()
+  {
+    POSTQueryTriggerImpl postQueryTrigger = new POSTQueryTriggerImpl();
+    return postQueryTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PREInsertTrigger createPREInsertTrigger()
+  {
+    PREInsertTriggerImpl preInsertTrigger = new PREInsertTriggerImpl();
+    return preInsertTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PREDeleteTrigger createPREDeleteTrigger()
+  {
+    PREDeleteTriggerImpl preDeleteTrigger = new PREDeleteTriggerImpl();
+    return preDeleteTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PRECreateTrigger createPRECreateTrigger()
+  {
+    PRECreateTriggerImpl preCreateTrigger = new PRECreateTriggerImpl();
+    return preCreateTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Root createRoot()
+  {
+    RootImpl root = new RootImpl();
+    return root;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DataControl createDataControl()
+  {
+    DataControlImpl dataControl = new DataControlImpl();
+    return dataControl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Relation createRelation()
+  {
+    RelationImpl relation = new RelationImpl();
+    return relation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArtificialField createArtificialField()
+  {
+    ArtificialFieldImpl artificialField = new ArtificialFieldImpl();
+    return artificialField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Link createLink()
+  {
+    LinkImpl link = new LinkImpl();
+    return link;
   }
 
   /**

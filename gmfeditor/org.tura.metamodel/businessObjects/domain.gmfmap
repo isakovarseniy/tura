@@ -190,7 +190,7 @@
         href="domain.ecore#//Type/extension"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.6"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.7"/>
     <diagramLink
         href="domain.gmfgraph#TypeExtension"/>
     <sourceMetaFeature
@@ -199,6 +199,23 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="domain.ecore#//TypeExtension/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="domain.ecore#//Relation"/>
+    <containmentFeature
+        href="domain.ecore#//Controls/relations"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="domain.gmftool#//@palette/@tools.1/@tools.6"/>
+    <diagramLink
+        href="domain.gmfgraph#Relation"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//Relation/master"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//Relation/detail"/>
   </links>
   <links>
     <labelMappings

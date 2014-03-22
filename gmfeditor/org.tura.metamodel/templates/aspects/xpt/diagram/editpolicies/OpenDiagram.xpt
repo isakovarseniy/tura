@@ -40,7 +40,7 @@
 
 		«EXPAND xpt::Common::generatedMemberComment»
 		protected org.eclipse.gmf.runtime.notation.Diagram intializeNewDiagram() throws org.eclipse.core.commands.ExecutionException {
-        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'   or editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'  or editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy' or editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'  or editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'  or editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy' or editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy' or editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'  or editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
+        «IF editPolicyClassName = 'OpenDiagramBusinessPackageEditPolicy' or  editPolicyClassName = 'OpenDiagramPackageEditPolicy'   or editPolicyClassName = 'OpenDiagramDomainArtifactEditPolicy'  or editPolicyClassName = 'OpenDiagramDomainTypesEditPolicy' or editPolicyClassName = 'OpenDiagramDomainApplicationEditPolicy'  or editPolicyClassName = 'OpenDiagramApplicationMapperEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationRecipeEditPolicy'  or editPolicyClassName = 'OpenDiagramORMEntityEditPolicy'  or editPolicyClassName = 'OpenDiagramJPAServiceEditPolicy' or editPolicyClassName = 'OpenDiagramEJBServiceEditPolicy' or editPolicyClassName = 'OpenDiagramContinuousIintegrationEditPolicy'  or editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy' or editPolicyClassName = 'OpenDiagramApplicationUIPackageEditPolicy'  or editPolicyClassName = 'OpenDiagramFormDataControlsEditPolicy'-»
  			«EXPAND sourceObject» sourceObject = («EXPAND sourceObject») ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (diagramFacet
 					.eContainer())).basicGetElement();
 			if (sourceObject.getName() == null) {
@@ -210,6 +210,10 @@
           domain.ApplicationRecipe
           «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-» 
           domain.DeploymentSequence
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationUIPackageEditPolicy'-» 
+          domain.ApplicationUIPackage
+          «ELSEIF  editPolicyClassName = 'OpenDiagramFormDataControlsEditPolicy'-» 
+          domain.FormDataControls
            «ELSE»
            null
            «ENDIF»
@@ -240,6 +244,10 @@
           setRecipes
           «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
           setDeploymentComponents
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationUIPackageEditPolicy'-» 
+          setUipackage
+           «ELSEIF  editPolicyClassName = 'OpenDiagramFormDataControlsEditPolicy'-» 
+           setControl
            «ELSE»
            null
            «ENDIF»
@@ -271,7 +279,11 @@
           getRecipes
            «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
           getDeploymentComponents
-           «ELSE»
+         «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationUIPackageEditPolicy'-» 
+          getUipackage
+           «ELSEIF  editPolicyClassName = 'OpenDiagramFormDataControlsEditPolicy'-» 
+           getControl
+            «ELSE»
            null
            «ENDIF»
 «ENDDEFINE»
@@ -302,6 +314,10 @@
           domain.Recipes
             «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
           domain.DeploymentComponents
+         «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationUIPackageEditPolicy'-» 
+          domain.UIPackage
+           «ELSEIF  editPolicyClassName = 'OpenDiagramFormDataControlsEditPolicy'-» 
+          domain.Controls
            «ELSE»
            null
            «ENDIF»
@@ -332,6 +348,10 @@
            domain.DomainFactory.eINSTANCE.createRecipes()
             «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
            domain.DomainFactory.eINSTANCE.createDeploymentComponents()
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationUIPackageEditPolicy'-» 
+           domain.DomainFactory.eINSTANCE.createUIPackage()
+           «ELSEIF  editPolicyClassName = 'OpenDiagramFormDataControlsEditPolicy'-» 
+           domain.DomainFactory.eINSTANCE.createControls()
            «ELSE»
            null
            «ENDIF»
@@ -362,6 +382,10 @@
           "recipe"
             «ELSEIF  editPolicyClassName = 'OpenDiagramDeploymentSequenceEditPolicy'-»
             "deployment"
+          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationUIPackageEditPolicy'-» 
+            "uipackage"
+            «ELSEIF  editPolicyClassName = 'OpenDiagramFormDataControlsEditPolicy'-» 
+            "control"
            «ELSE»
            null
            «ENDIF»

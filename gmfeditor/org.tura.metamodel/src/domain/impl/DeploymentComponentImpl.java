@@ -4,8 +4,8 @@ package domain.impl;
 
 import domain.DeploymentComponent;
 import domain.DomainPackage;
-
 import domain.ModelMapper;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;

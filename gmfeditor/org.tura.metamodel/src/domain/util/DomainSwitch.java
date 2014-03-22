@@ -7,9 +7,12 @@ import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
+import domain.ApplicationUILayer;
+import domain.ApplicationUIPackage;
 import domain.Artifact;
 import domain.ArtifactRef;
 import domain.Artifacts;
+import domain.ArtificialField;
 import domain.Attribute;
 import domain.BusinessMethod;
 import domain.BusinessObject;
@@ -18,8 +21,11 @@ import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
+import domain.ContextValue;
 import domain.ContinuousIintegration;
+import domain.Controls;
 import domain.CreateMethod;
+import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
 import domain.DeploymentSequence;
@@ -34,12 +40,16 @@ import domain.DomainTypes;
 import domain.EJBService;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.Form;
+import domain.FormDataControls;
+import domain.FormView;
 import domain.Infrastructure;
 import domain.Ingredient;
 import domain.InsertMethod;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
@@ -49,6 +59,12 @@ import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
+import domain.POSTQueryTrigger;
+import domain.PRECreateTrigger;
+import domain.PREDeleteTrigger;
+import domain.PREFormTrigger;
+import domain.PREInsertTrigger;
+import domain.PREQueryTrigger;
 import domain.Parameter;
 import domain.Primitive;
 import domain.Property;
@@ -57,10 +73,14 @@ import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
+import domain.Relation;
 import domain.RemoveMethod;
 import domain.ReturnValue;
+import domain.Root;
 import domain.SearchMethod;
 import domain.Specifier;
+import domain.Trigger;
+import domain.TriggerParameter;
 import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
@@ -69,6 +89,7 @@ import domain.TypePointer;
 import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
+import domain.UIPackage;
 import domain.UpdateMethod;
 import domain.UsingMappers;
 
@@ -267,6 +288,20 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Application application = (Application)theEObject;
         T result = caseApplication(application);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.APPLICATION_UI_LAYER:
+      {
+        ApplicationUILayer applicationUILayer = (ApplicationUILayer)theEObject;
+        T result = caseApplicationUILayer(applicationUILayer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.APPLICATION_UI_PACKAGE:
+      {
+        ApplicationUIPackage applicationUIPackage = (ApplicationUIPackage)theEObject;
+        T result = caseApplicationUIPackage(applicationUIPackage);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -655,6 +690,154 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.UI_PACKAGE:
+      {
+        UIPackage uiPackage = (UIPackage)theEObject;
+        T result = caseUIPackage(uiPackage);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.FORM:
+      {
+        Form form = (Form)theEObject;
+        T result = caseForm(form);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.FORM_VIEW:
+      {
+        FormView formView = (FormView)theEObject;
+        T result = caseFormView(formView);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.FORM_DATA_CONTROLS:
+      {
+        FormDataControls formDataControls = (FormDataControls)theEObject;
+        T result = caseFormDataControls(formDataControls);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CONTROLS:
+      {
+        Controls controls = (Controls)theEObject;
+        T result = caseControls(controls);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.TRIGGER:
+      {
+        Trigger trigger = (Trigger)theEObject;
+        T result = caseTrigger(trigger);
+        if (result == null) result = caseTypePointer(trigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.TRIGGER_PARAMETER:
+      {
+        TriggerParameter triggerParameter = (TriggerParameter)theEObject;
+        T result = caseTriggerParameter(triggerParameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CONTEXT_VALUE:
+      {
+        ContextValue contextValue = (ContextValue)theEObject;
+        T result = caseContextValue(contextValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.PRE_FORM_TRIGGER:
+      {
+        PREFormTrigger preFormTrigger = (PREFormTrigger)theEObject;
+        T result = casePREFormTrigger(preFormTrigger);
+        if (result == null) result = caseTrigger(preFormTrigger);
+        if (result == null) result = caseTypePointer(preFormTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.PRE_QUERY_TRIGGER:
+      {
+        PREQueryTrigger preQueryTrigger = (PREQueryTrigger)theEObject;
+        T result = casePREQueryTrigger(preQueryTrigger);
+        if (result == null) result = caseTrigger(preQueryTrigger);
+        if (result == null) result = caseTypePointer(preQueryTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.POST_QUERY_TRIGGER:
+      {
+        POSTQueryTrigger postQueryTrigger = (POSTQueryTrigger)theEObject;
+        T result = casePOSTQueryTrigger(postQueryTrigger);
+        if (result == null) result = caseTrigger(postQueryTrigger);
+        if (result == null) result = caseTypePointer(postQueryTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.PRE_INSERT_TRIGGER:
+      {
+        PREInsertTrigger preInsertTrigger = (PREInsertTrigger)theEObject;
+        T result = casePREInsertTrigger(preInsertTrigger);
+        if (result == null) result = caseTrigger(preInsertTrigger);
+        if (result == null) result = caseTypePointer(preInsertTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.PRE_DELETE_TRIGGER:
+      {
+        PREDeleteTrigger preDeleteTrigger = (PREDeleteTrigger)theEObject;
+        T result = casePREDeleteTrigger(preDeleteTrigger);
+        if (result == null) result = caseTrigger(preDeleteTrigger);
+        if (result == null) result = caseTypePointer(preDeleteTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.PRE_CREATE_TRIGGER:
+      {
+        PRECreateTrigger preCreateTrigger = (PRECreateTrigger)theEObject;
+        T result = casePRECreateTrigger(preCreateTrigger);
+        if (result == null) result = caseTrigger(preCreateTrigger);
+        if (result == null) result = caseTypePointer(preCreateTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.ROOT:
+      {
+        Root root = (Root)theEObject;
+        T result = caseRoot(root);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.DATA_CONTROL:
+      {
+        DataControl dataControl = (DataControl)theEObject;
+        T result = caseDataControl(dataControl);
+        if (result == null) result = caseTypePointer(dataControl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.RELATION:
+      {
+        Relation relation = (Relation)theEObject;
+        T result = caseRelation(relation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.ARTIFICIAL_FIELD:
+      {
+        ArtificialField artificialField = (ArtificialField)theEObject;
+        T result = caseArtificialField(artificialField);
+        if (result == null) result = caseTypePointer(artificialField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.LINK:
+      {
+        Link link = (Link)theEObject;
+        T result = caseLink(link);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -943,6 +1126,38 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseApplication(Application object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Application UI Layer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Application UI Layer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseApplicationUILayer(ApplicationUILayer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Application UI Package</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Application UI Package</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseApplicationUIPackage(ApplicationUIPackage object)
   {
     return null;
   }
@@ -1759,6 +1974,310 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBusinessPackage(BusinessPackage object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Package</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Package</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIPackage(UIPackage object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Form</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Form</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForm(Form object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Form View</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Form View</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFormView(FormView object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Form Data Controls</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Form Data Controls</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFormDataControls(FormDataControls object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Controls</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Controls</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseControls(Controls object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTrigger(Trigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Trigger Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Trigger Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTriggerParameter(TriggerParameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Context Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Context Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContextValue(ContextValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PRE Form Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PRE Form Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePREFormTrigger(PREFormTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PRE Query Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PRE Query Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePREQueryTrigger(PREQueryTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>POST Query Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>POST Query Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePOSTQueryTrigger(POSTQueryTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PRE Insert Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PRE Insert Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePREInsertTrigger(PREInsertTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PRE Delete Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PRE Delete Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePREDeleteTrigger(PREDeleteTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PRE Create Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PRE Create Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePRECreateTrigger(PRECreateTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Root</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Root</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRoot(Root object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Control</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Control</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataControl(DataControl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Relation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Relation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRelation(Relation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Artificial Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Artificial Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArtificialField(ArtificialField object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Link</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLink(Link object)
   {
     return null;
   }

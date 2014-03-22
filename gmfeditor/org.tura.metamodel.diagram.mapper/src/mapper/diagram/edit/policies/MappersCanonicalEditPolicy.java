@@ -13,6 +13,7 @@ import java.util.List;
 
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
+import mapper.diagram.edit.parts.RelationEditPart;
 import mapper.diagram.edit.parts.TypeExtensionEditPart;
 import mapper.diagram.part.DomainDiagramUpdater;
 import mapper.diagram.part.DomainLinkDescriptor;
@@ -279,6 +280,14 @@ public class MappersCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getTypeExtension_404001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case RelationEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getRelation_404011ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

@@ -256,72 +256,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Attribute1CreationTool_title;
+	public static String ArtificialField1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Attribute1CreationTool_desc;
+	public static String ArtificialField1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute2CreationTool_title;
+	public static String Attribute2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute2CreationTool_desc;
+	public static String Attribute2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator3CreationTool_title;
+	public static String EnumAttribute3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator3CreationTool_desc;
+	public static String EnumAttribute3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation4CreationTool_title;
+	public static String Enumarator4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation4CreationTool_desc;
+	public static String Enumarator4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive5CreationTool_title;
+	public static String Operation5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive5CreationTool_desc;
+	public static String Operation5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Type6CreationTool_title;
+	public static String Primitive6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Type6CreationTool_desc;
+	public static String Primitive6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeReference7CreationTool_title;
+	public static String Type7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeReference7CreationTool_desc;
+	public static String Type7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeReference8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeReference8CreationTool_desc;
 
 	/**
 	 * @generated
@@ -386,12 +396,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension7CreationTool_title;
+	public static String Relation7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension7CreationTool_desc;
+	public static String Relation7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension8CreationTool_desc;
 
 	/**
 	 * @generated
@@ -416,17 +436,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TypeReference_102001_incominglinks;
+	public static String NavigatorGroupName_Primitive_102004_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TypeReference_102001_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TypeDefinition_101000_links;
+	public static String NavigatorGroupName_Primitive_102004_outgoinglinks;
 
 	/**
 	 * @generated
@@ -441,22 +456,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Enumarator_102005_incominglinks;
+	public static String NavigatorGroupName_TypeDefinition_101000_links;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Enumarator_102005_outgoinglinks;
+	public static String NavigatorGroupName_TypeReference_102001_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Primitive_102004_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Primitive_102004_outgoinglinks;
+	public static String NavigatorGroupName_TypeReference_102001_outgoinglinks;
 
 	/**
 	 * @generated
@@ -467,6 +477,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Type_102002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Enumarator_102005_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Enumarator_102005_outgoinglinks;
 
 	/**
 	 * @generated

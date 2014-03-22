@@ -39,6 +39,9 @@ import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
+import application.diagram.edit.parts.ApplicationUILayerEditPart;
+import application.diagram.edit.parts.ApplicationUIPackageEditPart;
+import application.diagram.edit.parts.RelationEditPart;
 import application.diagram.edit.parts.TypeExtensionEditPart;
 import application.diagram.part.DomainDiagramUpdater;
 import application.diagram.part.DomainLinkDescriptor;
@@ -78,6 +81,8 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getApplication_ApplicationRecipes());
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getApplication_ApplicationMappers());
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getApplication_ApplicationUILayer());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -115,7 +120,8 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		return visualID == ApplicationRecipesEditPart.VISUAL_ID
-				|| visualID == ApplicationMappersEditPart.VISUAL_ID;
+				|| visualID == ApplicationMappersEditPart.VISUAL_ID
+				|| visualID == ApplicationUILayerEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -301,6 +307,14 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
+		case ApplicationUILayerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getApplicationUILayer_802003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
 		case ApplicationRecipeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
@@ -317,10 +331,26 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
+		case ApplicationUIPackageEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getApplicationUIPackage_803003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
 		case TypeExtensionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getTypeExtension_804001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case RelationEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getRelation_804011ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

@@ -45,6 +45,7 @@ import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
+import domain.diagram.edit.parts.RelationEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
 import domain.diagram.part.DomainDiagramUpdater;
 import domain.diagram.part.DomainLinkDescriptor;
@@ -368,6 +369,14 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getTypeExtension_504001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case RelationEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getRelation_504011ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

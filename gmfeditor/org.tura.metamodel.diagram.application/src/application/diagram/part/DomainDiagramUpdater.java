@@ -18,12 +18,18 @@ import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
 import application.diagram.edit.parts.ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationRecipesEditPart;
+import application.diagram.edit.parts.ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart;
+import application.diagram.edit.parts.ApplicationUILayerEditPart;
+import application.diagram.edit.parts.ApplicationUIPackageEditPart;
+import application.diagram.edit.parts.RelationEditPart;
 import application.diagram.edit.parts.TypeExtensionEditPart;
 import domain.Application;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
+import domain.ApplicationUILayer;
+import domain.ApplicationUIPackage;
 
 /**
  * @generated
@@ -49,6 +55,8 @@ public class DomainDiagramUpdater {
 			return getApplicationRecipesApplicationRecipesRecipesCompartment_807001SemanticChildren(view);
 		case ApplicationMappersApplicationMappersMappersCompartmentEditPart.VISUAL_ID:
 			return getApplicationMappersApplicationMappersMappersCompartment_807002SemanticChildren(view);
+		case ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID:
+			return getApplicationUILayerApplicationUILayerApplicationUIPackagesCompartment_807003SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -78,6 +86,15 @@ public class DomainDiagramUpdater {
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == ApplicationMappersEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			ApplicationUILayer childElement = modelElement
+					.getApplicationUILayer();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ApplicationUILayerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -143,6 +160,35 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainNodeDescriptor> getApplicationUILayerApplicationUILayerApplicationUIPackagesCompartment_807003SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		ApplicationUILayer modelElement = (ApplicationUILayer) containerView
+				.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getApplicationUIPackages()
+				.iterator(); it.hasNext();) {
+			ApplicationUIPackage childElement = (ApplicationUIPackage) it
+					.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ApplicationUIPackageEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ApplicationEditPart.VISUAL_ID:
@@ -151,12 +197,18 @@ public class DomainDiagramUpdater {
 			return getApplicationRecipes_802001ContainedLinks(view);
 		case ApplicationMappersEditPart.VISUAL_ID:
 			return getApplicationMappers_802002ContainedLinks(view);
+		case ApplicationUILayerEditPart.VISUAL_ID:
+			return getApplicationUILayer_802003ContainedLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return getApplicationRecipe_803001ContainedLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
 			return getApplicationMapper_803002ContainedLinks(view);
+		case ApplicationUIPackageEditPart.VISUAL_ID:
+			return getApplicationUIPackage_803003ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_804001ContainedLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_804011ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -170,12 +222,18 @@ public class DomainDiagramUpdater {
 			return getApplicationRecipes_802001IncomingLinks(view);
 		case ApplicationMappersEditPart.VISUAL_ID:
 			return getApplicationMappers_802002IncomingLinks(view);
+		case ApplicationUILayerEditPart.VISUAL_ID:
+			return getApplicationUILayer_802003IncomingLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return getApplicationRecipe_803001IncomingLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
 			return getApplicationMapper_803002IncomingLinks(view);
+		case ApplicationUIPackageEditPart.VISUAL_ID:
+			return getApplicationUIPackage_803003IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_804001IncomingLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_804011IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -189,12 +247,18 @@ public class DomainDiagramUpdater {
 			return getApplicationRecipes_802001OutgoingLinks(view);
 		case ApplicationMappersEditPart.VISUAL_ID:
 			return getApplicationMappers_802002OutgoingLinks(view);
+		case ApplicationUILayerEditPart.VISUAL_ID:
+			return getApplicationUILayer_802003OutgoingLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return getApplicationRecipe_803001OutgoingLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
 			return getApplicationMapper_803002OutgoingLinks(view);
+		case ApplicationUIPackageEditPart.VISUAL_ID:
+			return getApplicationUIPackage_803003OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_804001OutgoingLinks(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_804011OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -226,6 +290,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getApplicationUILayer_802003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getApplicationRecipe_803001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -242,7 +314,23 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getApplicationUIPackage_803003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_804001ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getRelation_804011ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -266,6 +354,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getApplicationUILayer_802003IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getApplicationRecipe_803001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -282,7 +378,23 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getApplicationUIPackage_803003IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_804001IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getRelation_804011IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -306,6 +418,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getApplicationUILayer_802003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getApplicationRecipe_803001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -322,7 +442,23 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getApplicationUIPackage_803003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_804001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getRelation_804011OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

@@ -27,6 +27,7 @@ import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.edit.parts.RecipeDeloymentEditPart;
 import typesrepository.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import typesrepository.diagram.edit.parts.RelationEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
@@ -79,6 +80,10 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType TypeExtension_204001 = getElementType("org.tura.metamodel.diagram.typesrepository.TypeExtension_204001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Relation_204011 = getElementType("org.tura.metamodel.diagram.typesrepository.Relation_204011"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -228,6 +233,8 @@ public class DomainElementTypes {
 			elements.put(TypeExtension_204001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
+			elements.put(Relation_204011, DomainPackage.eINSTANCE.getRelation());
+
 			elements.put(DeploymentComponentDeplymentComponent_204007,
 					DomainPackage.eINSTANCE
 							.getDeploymentComponent_DeplymentComponent());
@@ -268,6 +275,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Package_203002);
 			KNOWN_ELEMENT_TYPES.add(BusinessPackage_203003);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_204001);
+			KNOWN_ELEMENT_TYPES.add(Relation_204011);
 			KNOWN_ELEMENT_TYPES
 					.add(DeploymentComponentDeplymentComponent_204007);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_204009);
@@ -294,6 +302,8 @@ public class DomainElementTypes {
 			return BusinessPackage_203003;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_204001;
+		case RelationEditPart.VISUAL_ID:
+			return Relation_204011;
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return DeploymentComponentDeplymentComponent_204007;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:

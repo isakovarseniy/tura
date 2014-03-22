@@ -34,6 +34,7 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
+import typesrepository.diagram.edit.parts.RelationEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
@@ -297,6 +298,14 @@ public class TypesRepositoryCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getTypeExtension_204001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case RelationEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getRelation_204011ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

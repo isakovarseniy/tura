@@ -96,7 +96,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Application/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationRecipes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationMappers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationUILayer"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Application/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ApplicationUILayer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ApplicationUILayer/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ApplicationUILayer/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//ApplicationUILayer/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ApplicationUILayer/applicationUIPackages"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ApplicationUIPackage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ApplicationUIPackage/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ApplicationUIPackage/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//ApplicationUIPackage/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//ApplicationUIPackage/uipackage"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ApplicationRecipes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ApplicationRecipes/uid"/>
@@ -371,6 +384,92 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//BusinessPackage/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessPackage/businessobjects"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//BusinessPackage/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//UIPackage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//UIPackage/uid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//UIPackage/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//UIPackage/forms"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Form">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Form/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Form/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Form/view"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Form/datacontrols"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//FormView">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormView/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormView/name"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//FormDataControls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormDataControls/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormDataControls/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//FormDataControls/control"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Controls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Controls/uid"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/root"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/controls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/relations"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Trigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Trigger/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Trigger/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Trigger/methodRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Trigger/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Trigger/fakeMethod"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//TriggerParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TriggerParameter/uid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//TriggerParameter/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//TriggerParameter/value"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ContextValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ContextValue/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ContextValue/isExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ContextValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//PREFormTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//PREQueryTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//POSTQueryTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//PREInsertTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//PREDeleteTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//PRECreateTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//Root">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Root/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Root/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Root/preFormTrigger"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//DataControl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DataControl/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DataControl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preQueryTrigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/postQueryTrigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preInsertTrigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preDeleteTrigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preCreateTrigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/artificialField"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/create"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/insert"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/update"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/remove"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/search"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Relation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Relation/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Relation/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Relation/master"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Relation/detail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Relation/isTree"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Relation/links"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ArtificialField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtificialField/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtificialField/name"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Link">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Link/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Link/masterField"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Link/detailField"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

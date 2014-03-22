@@ -296,6 +296,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ApplicationUILayer5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationUILayer5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationUIPackage6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationUIPackage6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String ConfigExtension1CreationTool_title;
 
 	/**
@@ -356,12 +376,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension7CreationTool_title;
+	public static String Relation7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension7CreationTool_desc;
+	public static String Relation7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension8CreationTool_desc;
 
 	/**
 	 * @generated
@@ -372,6 +402,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String ApplicationMappersApplicationMappersMappersCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart_title;
 
 	/**
 	 * @generated

@@ -42,6 +42,8 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createApplicationMappers2CreationTool());
 		paletteContainer.add(createApplicationRecipe3CreationTool());
 		paletteContainer.add(createApplicationRecipes4CreationTool());
+		paletteContainer.add(createApplicationUILayer5CreationTool());
+		paletteContainer.add(createApplicationUIPackage6CreationTool());
 		return paletteContainer;
 	}
 
@@ -59,7 +61,8 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createFirstStep4CreationTool());
 		paletteContainer.add(createInfrastructures5CreationTool());
 		paletteContainer.add(createRecipeConfig6CreationTool());
-		paletteContainer.add(createTypeExtension7CreationTool());
+		paletteContainer.add(createRelation7CreationTool());
+		paletteContainer.add(createTypeExtension8CreationTool());
 		return paletteContainer;
 	}
 
@@ -123,6 +126,38 @@ public class DomainPaletteFactory {
 		entry.setId("createApplicationRecipes4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ApplicationRecipes_802001));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createApplicationUILayer5CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.ApplicationUILayer5CreationTool_title,
+				Messages.ApplicationUILayer5CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.ApplicationUILayer_802003));
+		entry.setId("createApplicationUILayer5CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.ApplicationUILayer_802003));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createApplicationUIPackage6CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.ApplicationUIPackage6CreationTool_title,
+				Messages.ApplicationUIPackage6CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.ApplicationUIPackage_803003));
+		entry.setId("createApplicationUIPackage6CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.ApplicationUIPackage_803003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -226,13 +261,28 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypeExtension7CreationTool() {
+	private ToolEntry createRelation7CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.TypeExtension7CreationTool_title,
-				Messages.TypeExtension7CreationTool_desc,
+				Messages.Relation7CreationTool_title,
+				Messages.Relation7CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Relation_804011));
+		entry.setId("createRelation7CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Relation_804011));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createTypeExtension8CreationTool() {
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.TypeExtension8CreationTool_title,
+				Messages.TypeExtension8CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.TypeExtension_804001));
-		entry.setId("createTypeExtension7CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypeExtension8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.TypeExtension_804001));
 		entry.setLargeIcon(entry.getSmallIcon());

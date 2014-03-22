@@ -1,0 +1,725 @@
+@namespace(uri="http://tura.org/2013/v1/domain", prefix="tura.domain")
+@gmf
+package domain;
+
+@gmf.diagram.domain
+class Domain{
+  id attr EString uid;
+  val DomainArtifacts[1]#parent domainArtifacts;
+  val DomainTypes[1]#parent domainTypes;
+  val DomainApplications[1]#parent domainApplications;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class DomainArtifacts{
+    id attr EString uid;
+    attr EString name;  
+   ref Domain#domainArtifacts parent;
+   @gmf.compartment
+   val DomainArtifact[*]#parent domainArtifact;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class DomainTypes{
+    id attr EString uid;
+   attr EString name;  
+   ref TypesRepository#parent typesrepository;
+   ref Domain#domainTypes parent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class DomainApplications{
+    id attr EString uid;
+   attr EString name;  
+   @gmf.compartment
+   val DomainApplication[*]#parent applications;
+   ref Domain#domainApplications parent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class DomainApplication{
+   id attr EString uid;
+   attr EString name;  
+   ref Application#parent application;
+   ref DomainApplications#applications parent;
+}
+
+
+@gmf.node(label="name")
+class DomainArtifact{
+    id attr EString uid;
+   attr EString name;
+   ref DomainArtifacts#domainArtifact parent;
+   ref  Artifacts#parent artifact;
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class ORMEntity extends DomainArtifact{
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class JPAService extends DomainArtifact{
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class EJBService extends DomainArtifact{
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class ContinuousIintegration extends DomainArtifact{
+}
+
+
+
+@gmf.diagram.artifact
+class Artifacts{
+    id attr EString uid;
+   val Artifact[*]#parent artifacts;
+   ref DomainArtifact#artifact parent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Artifact{
+    id attr EString uid;
+   attr EString name;
+   attr EString description;
+   ref Artifacts#artifacts parent;
+   
+   // Variables resolved by configuration of recipe (for example server IP)  
+   @gmf.compartment(layout="list")
+   val   ConfigVariable[*]#parent configVariables;
+   
+   // Variables to query model ( for example FormName or service name)
+   @gmf.compartment(layout="list")
+   val   ModelQuery[*]#parent modelQuery;
+   
+   //For navigation in the template (for example choosing specific technologies EclipseLink vs Hibernate)
+   @gmf.compartment(layout="list")
+   val   Specifier[*]#parent specifiers;
+
+   attr EString template;
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class ConfigVariable{
+   id attr EString uid;
+  attr EString name;
+   ref Artifact#configVariables parent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class ModelQuery{
+    id attr EString uid;
+   attr EString name;
+   attr EString query;
+   ref Artifact#modelQuery parent;
+   val  QueryParameter[*]#parent parameters;  
+
+}
+
+class QueryParameter{
+    id attr EString uid;
+   ref ModelQuery#parameters parent;
+   attr EString name;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Specifier{
+    id attr EString uid;
+   attr EString name;
+   ref Artifact#specifiers parent;
+   val  Option[1..*]#parent options;  
+}
+
+@gmf.node(label="name")
+class Option{
+    id attr EString uid;
+   ref Specifier#options parent;
+   attr EString value;
+}
+
+@gmf.diagram.application
+class Application{
+    id attr EString uid;
+   val ApplicationRecipes#parent applicationRecipes;
+   val ApplicationMappers#parent applicationMappers;
+   val ApplicationUILayer#parent applicationUILayer;
+   ref DomainApplication#application parent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class ApplicationUILayer{
+    id attr EString uid;
+   attr EString name;
+   ref Application#applicationUILayer parent;
+   @gmf.compartment
+   val ApplicationUIPackage[*]#parent applicationUIPackages;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,196,176")
+class ApplicationUIPackage{
+    id attr EString uid;
+   attr EString name;
+   ref ApplicationUILayer#applicationUIPackages parent;
+   ref UIPackage#parent uipackage;
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class ApplicationRecipes{
+    id attr EString uid;
+   attr EString name;
+   ref Application#applicationRecipes parent;
+   @gmf.compartment
+   val ApplicationRecipe[*]#parent recipes;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,196,176")
+class ApplicationRecipe{
+    id attr EString uid;
+   attr EString name;
+   ref Recipes#parent recipes;
+   ref ApplicationRecipes#recipes parent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="164,230,255")
+class ApplicationMappers{
+    id attr EString uid;
+   attr EString name;
+   ref Application#applicationMappers parent;
+    @gmf.compartment
+   val ApplicationMapper[*]#parent mappers;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,237,85")
+class ApplicationMapper{
+    id attr EString uid;
+   attr EString name;
+   ref Mappers#parent mapper; 
+   ref ApplicationMappers#mappers parent;
+}
+
+@gmf.diagram.businessObjects
+class BusinessObjects{
+    id attr EString uid;
+   val BusinessObject[*]#parent businessObject;
+   ref BusinessPackage#businessobjects parent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class BusinessObject {
+    id attr EString uid;
+   attr EString name;
+   ref BusinessObjects#businessObject parent;
+   @gmf.compartment()
+   val CreateMethod[*]#parent createMethods;
+   @gmf.compartment()
+   val InsertMethod[*]#parent insertMethods;
+   @gmf.compartment()
+   val UpdateMethod[*]#parent updateMethods;
+   @gmf.compartment()
+   val RemoveMethod[*]#parent removeMethods;
+   @gmf.compartment()
+   val SearchMethod[*]#parent searchMethods;
+   @gmf.compartment()
+   val OtherMethod[*]#parent  othersMethods;
+   
+}
+
+class BusinessMethod extends TypePointer {
+    id attr EString uid;
+    ref Operation methodRef;
+
+  // To support display label
+    attr EString fakeMethod;
+}
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
+class CreateMethod extends BusinessMethod{
+   ref BusinessObject#createMethods parent;
+}
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
+class InsertMethod extends BusinessMethod{
+   ref BusinessObject#insertMethods parent;
+}
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
+class UpdateMethod extends BusinessMethod{
+   ref BusinessObject#updateMethods parent;
+   
+}
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
+class RemoveMethod extends BusinessMethod{
+   ref BusinessObject#removeMethods parent;
+}
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
+class SearchMethod extends BusinessMethod{
+   ref BusinessObject#searchMethods parent;
+}
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
+class OtherMethod extends BusinessMethod{
+   ref BusinessObject#othersMethods parent;
+}
+
+
+@gmf.diagram.mapper
+class Mappers{
+    id attr EString uid;
+   val Mapper[*]#parent mappers;
+   ref ApplicationMapper#mapper parent;
+}
+
+class Mapper extends TypePointer{
+    id attr EString uid;
+    ref Mappers#mappers  parent;
+    attr boolean serviceLayer;
+    attr boolean uiLayer;
+}
+
+@gmf.node(label="fakePackageName,fakeTypeName",border.color="0,0,0",color="255,237,85")
+class JavaMapper extends Mapper{
+   attr EString mappedToPackageName;
+   attr EString mappedToClassName;
+   attr EString artifactId;
+   attr EString groupId;
+   attr EString version;
+   attr EString libraryName;
+}
+
+@gmf.diagram.recipe
+class Recipes{
+    id attr EString uid;
+  val Recipe#parent recipe;
+  val Configuration[*] configurations;
+  val Infrastructure[*] infrastructures;
+  ref ApplicationRecipe#recipes parent;
+  val DeploymentSequence deployment;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="177,201,236")
+class DeploymentSequence{
+    id attr EString uid;
+   attr EString name;
+   val DeploymentComponents deploymentComponents;
+}
+
+@gmf.diagram.deployment
+class DeploymentComponents{
+    id attr EString uid;
+    val DeploymentComponent[*] deplymentStep;   
+    val DeploymentStarStep startSeq;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="177,201,236")
+class DeploymentComponent{
+    id attr EString uid;
+    attr EString name;
+    ref ModelMapper mapper;
+  @gmf.link(target.decoration="arrow", style="dash")
+   ref DeploymentComponent deplymentComponent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,69,0")
+class DeploymentStarStep{
+    id attr EString uid;
+    attr EString name;
+  @gmf.link(target.decoration="arrow", style="dash")
+   ref DeploymentComponent firstStep;
+}
+
+
+class UsingMappers{
+  ref ApplicationMapper[*] mappers;
+}
+
+//Value of laers must be 2^n
+enum PlatformLayers{
+   ServiceLayer = 1;
+   UILayer = 2;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Recipe extends UsingMappers{
+    id attr EString uid;
+  ref Recipes#recipe parent;
+  attr EString name;
+  @gmf.compartment
+  val Ingredient[*]#parent ingredients;
+  @gmf.link(target.decoration="arrow", style="dash")
+  ref Infrastructure[*]#recipe infrastructures;
+  @gmf.link(target.decoration="arrow", style="dash")
+  ref DeploymentSequence#recipe deloyment;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,222,32")
+class Ingredient extends UsingMappers{
+  id attr EString uid;
+  attr EString name;
+  ref Recipe#ingredients parent;
+  @gmf.compartment
+  val Component[*]#parent components;
+  attr PlatformLayers layer;
+}
+
+class Component{
+    id attr EString uid;
+   attr EString name;
+   ref Ingredient#components parent;
+  @gmf.compartment
+   val ModelMapper[*]#parent mappers;
+   attr EString componentRoot;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="128,128,128")
+class JavaComponent extends Component{
+   attr EString artifactId;
+   attr EString groupId;
+   attr EString version;
+   attr EString basePackage;   
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Infrastructure{
+  id attr EString uid;
+  ref Recipe#infrastructures recipe;
+  attr EString name;
+  @gmf.link(target.decoration="arrow", style="dash")
+  ref Configuration#infrastructure recipeConfig;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Configuration{
+    id attr EString uid;
+   attr EString name;
+   ref Infrastructure#recipeConfig infrastructure;
+   @gmf.compartment(layout="list")
+   val Property[*] properties; 
+  @gmf.link(style="dot", width="2" ,target.decoration="closedarrow")
+   ref Configuration#parent configExtension;
+   ref Configuration#configExtension parent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class ModelMapper extends ArtifactRef{
+   attr EString name;
+   ref Component#mappers parent;
+   val MappingSpecifier[*] specifiers;
+   @gmf.compartment(layout="list")
+    val Query[*] queries;
+    attr EString artifactExecutionString;
+}
+
+@gmf.node(label="fakeName",border.color="0,0,0",color="255,239,222")
+class Property{
+    id attr EString uid;
+    ref ConfigVariable confVarRef;
+    attr EString value;
+    attr EString fakeName;
+}
+
+class MappingSpecifier{
+    id attr EString uid;
+   ref  Specifier specifierRef;
+   ref Option valueRef;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class Query{
+    id attr EString uid;
+   ref ModelQuery modelQuery;
+   attr EString name;
+   ref ModelQuery queryRef;
+   val QueryVariable[*] variables;
+   attr EString groupCode;
+}
+
+class QueryVariable{
+    id attr EString uid;
+   ref QueryParameter queryParamRef;
+   attr EString value;
+}
+
+class ArtifactRef{
+    id attr EString uid;
+   ref DomainArtifact domainArtifactRef;
+   ref Artifact artifactRef;
+}
+
+class TypePointer{
+  ref Package packageRef;
+  ref TypeElement typeRef;
+
+  // To support display label
+  attr EString fakePackageName;
+  attr EString fakeTypeName;
+}
+
+@gmf.diagram.typedefinition
+class TypeDefinition{
+    id attr EString uid;
+   val TypeElement[*]#parent types;
+   ref Package#typedefinition parent;
+}
+
+class TypeElement{
+    id attr EString uid;
+   attr EString name; 
+   ref TypeDefinition#types parent;
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Primitive extends TypeElement{
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Type extends TypeElement {
+   @gmf.compartment
+   val Attribute[*]#parent attributes;
+   @gmf.compartment
+   val Operation[*]#parent operations;
+   val TypeExtension[*] extension;
+}
+
+@gmf.node(label="fakePackageName,fakeTypeName",border.color="0,0,0",color="255,239,222")
+class TypeReference extends TypeElement , TypePointer{
+ }
+
+@gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
+class TypeExtension {
+    id attr EString uid;
+    ref TypeElement source;
+    ref TypeElement target;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Attribute extends  TypePointer{
+    id attr EString uid;
+   attr EString name;
+   attr EBoolean pk;
+   ref Type#attributes parent;
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Operation{
+    id attr EString uid;
+   attr EString name;
+   ref Type#operations parent;
+   val Parameter[*]#parent parameters;
+   val ReturnValue returnValue;
+}
+
+class Parameter extends  TypePointer{
+    id attr EString uid;
+   attr EString name;
+   ref Operation#parameters parent;
+}
+
+
+class ReturnValue extends TypePointer{
+    id attr EString uid;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Enumarator extends TypeElement{
+  @gmf.compartment
+   val EnumAttribute[*]#parent values;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class EnumAttribute{
+    id attr EString uid;
+   ref Enumarator#values parent;
+   attr EString name;
+   attr EString  value;
+}
+
+
+@gmf.diagram.typesrepository
+class TypesRepository{
+    id attr EString uid;
+  val Types[1]#parent typeDefinition;
+  ref DomainTypes#typesrepository parent;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Types {
+    id attr EString uid;
+   ref TypesRepository#typeDefinition parent;
+   attr EString name;
+   @gmf.compartment
+   val Package[*]#parent packages;
+   @gmf.compartment
+   val BusinessPackage[*]#parent businessPackages;
+   
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class Package{
+    id attr EString uid;
+   attr EString name;
+   ref TypeDefinition#parent typedefinition;
+   ref  Types#packages parent;
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class BusinessPackage{
+    id attr EString uid;
+   attr EString name;
+   ref BusinessObjects#parent businessobjects;
+   ref  Types#businessPackages parent;
+}
+
+@gmf.diagram
+class UIPackage{
+    id attr EString uid;
+    ref ApplicationUIPackage#uipackage parent;
+    val Form[*] forms;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class Form{
+    id attr EString uid;
+   attr EString name;
+   @gmf.compartment(layout="list")
+   val FormView view;
+   @gmf.compartment(layout="list")
+   val FormDataControls datacontrols;
+   
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class FormView{
+    id attr EString uid;
+   attr EString name;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class FormDataControls{
+    id attr EString uid;
+   attr EString name;
+   ref Controls control;
+}
+
+@gmf.diagram.control
+class Controls{
+    id attr EString uid;
+    val Root root;
+    val DataControl [*] controls;
+    val Relation[*] relations;
+}
+
+class Trigger extends TypePointer {
+    id attr EString uid;
+    attr EString name;
+    ref Operation methodRef;
+    val TriggerParameter[*] parameters;
+
+  // To support display label
+    attr EString fakeMethod;
+    
+}
+
+class TriggerParameter{
+    id attr EString uid;
+   ref Parameter parameter;
+   val ContextValue value;
+}
+
+class ContextValue{
+   id attr EString uid;
+   attr boolean isExpression;
+   attr EString value;
+}
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class PREFormTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class PREQueryTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class POSTQueryTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class PREInsertTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class PREDeleteTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class PRECreateTrigger extends Trigger {
+ }
+
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class Root{
+    id attr EString uid;
+   attr EString name;
+   @gmf.compartment(layout="list")
+   val PREFormTrigger preFormTrigger;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class DataControl extends TypePointer{
+    id attr EString uid;
+   attr EString name;
+   @gmf.compartment(layout="list")
+   val PREQueryTrigger preQueryTrigger;
+   @gmf.compartment(layout="list")
+   val POSTQueryTrigger postQueryTrigger;
+   @gmf.compartment(layout="list")
+   val PREInsertTrigger preInsertTrigger;
+   @gmf.compartment(layout="list")
+   val PREDeleteTrigger preDeleteTrigger;
+   @gmf.compartment(layout="list")
+   val PRECreateTrigger preCreateTrigger;
+   @gmf.compartment(layout="list")
+   val ArtificialField artificialField;   
+   
+    
+   val Trigger create;
+   val Trigger insert;
+   val Trigger update;
+   val Trigger remove;
+   val Trigger search;
+}
+
+@gmf.link(source="master", target="detail", style="dash", target.decoration="arrow")
+class Relation{
+    id attr EString uid;
+   attr EString name;
+   ref DataControl master;
+   ref DataControl detail;
+   attr EBoolean isTree;
+   val Link[*] links;  
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class ArtificialField extends TypePointer{
+    id attr EString uid;
+   attr EString name;
+   
+}
+
+class Link{
+    id attr EString uid;
+    attr EString masterField;
+    attr EString detailField;
+}
+

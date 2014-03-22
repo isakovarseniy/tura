@@ -36,6 +36,7 @@ import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
 import domain.diagram.edit.parts.RecipeDeloymentEditPart;
 import domain.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import domain.diagram.edit.parts.RelationEditPart;
 import domain.diagram.edit.parts.TypeExtensionEditPart;
 import domain.diagram.part.DomainDiagramEditorPlugin;
 
@@ -109,6 +110,10 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType TypeExtension_504001 = getElementType("org.tura.metamodel.diagram.domain.TypeExtension_504001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Relation_504011 = getElementType("org.tura.metamodel.diagram.domain.Relation_504011"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -277,6 +282,8 @@ public class DomainElementTypes {
 			elements.put(TypeExtension_504001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
+			elements.put(Relation_504011, DomainPackage.eINSTANCE.getRelation());
+
 			elements.put(DeploymentComponentDeplymentComponent_504007,
 					DomainPackage.eINSTANCE
 							.getDeploymentComponent_DeplymentComponent());
@@ -323,6 +330,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(DomainArtifact_503002);
 			KNOWN_ELEMENT_TYPES.add(DomainApplication_503001);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_504001);
+			KNOWN_ELEMENT_TYPES.add(Relation_504011);
 			KNOWN_ELEMENT_TYPES
 					.add(DeploymentComponentDeplymentComponent_504007);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_504009);
@@ -361,6 +369,8 @@ public class DomainElementTypes {
 			return DomainApplication_503001;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_504001;
+		case RelationEditPart.VISUAL_ID:
+			return Relation_504011;
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return DeploymentComponentDeplymentComponent_504007;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:

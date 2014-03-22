@@ -37,6 +37,7 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import deployment.diagram.edit.parts.DeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentsEditPart;
 import deployment.diagram.edit.parts.DeploymentStarStepEditPart;
+import deployment.diagram.edit.parts.RelationEditPart;
 import deployment.diagram.edit.parts.TypeExtensionEditPart;
 import deployment.diagram.part.DomainDiagramUpdater;
 import deployment.diagram.part.DomainLinkDescriptor;
@@ -304,6 +305,14 @@ public class DeploymentComponentsCanonicalEditPolicy extends
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getTypeExtension_904001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case RelationEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getRelation_904010ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

@@ -96,9 +96,7 @@ public class OpenDiagramApplicationRecipeEditPolicy extends OpenEditPolicy {
 			diagramFacet = linkStyle;
 		}
 
-		// FIXME canExecute if !(readOnly && getDiagramToOpen == null), i.e.
-		// open works on ro diagrams only when there's associated diagram
-		// already
+		// FIXME canExecute if  !(readOnly && getDiagramToOpen == null), i.e. open works on ro diagrams only when there's associated diagram already
 
 		/**
 		 * @generated

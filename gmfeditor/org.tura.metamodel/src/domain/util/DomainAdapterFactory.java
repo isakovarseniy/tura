@@ -7,9 +7,12 @@ import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
 import domain.ApplicationRecipes;
+import domain.ApplicationUILayer;
+import domain.ApplicationUIPackage;
 import domain.Artifact;
 import domain.ArtifactRef;
 import domain.Artifacts;
+import domain.ArtificialField;
 import domain.Attribute;
 import domain.BusinessMethod;
 import domain.BusinessObject;
@@ -18,8 +21,11 @@ import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
+import domain.ContextValue;
 import domain.ContinuousIintegration;
+import domain.Controls;
 import domain.CreateMethod;
+import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
 import domain.DeploymentSequence;
@@ -34,12 +40,16 @@ import domain.DomainTypes;
 import domain.EJBService;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.Form;
+import domain.FormDataControls;
+import domain.FormView;
 import domain.Infrastructure;
 import domain.Ingredient;
 import domain.InsertMethod;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
@@ -49,6 +59,12 @@ import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
 import domain.OtherMethod;
+import domain.POSTQueryTrigger;
+import domain.PRECreateTrigger;
+import domain.PREDeleteTrigger;
+import domain.PREFormTrigger;
+import domain.PREInsertTrigger;
+import domain.PREQueryTrigger;
 import domain.Parameter;
 import domain.Primitive;
 import domain.Property;
@@ -57,10 +73,14 @@ import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
+import domain.Relation;
 import domain.RemoveMethod;
 import domain.ReturnValue;
+import domain.Root;
 import domain.SearchMethod;
 import domain.Specifier;
+import domain.Trigger;
+import domain.TriggerParameter;
 import domain.Type;
 import domain.TypeDefinition;
 import domain.TypeElement;
@@ -69,6 +89,7 @@ import domain.TypePointer;
 import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
+import domain.UIPackage;
 import domain.UpdateMethod;
 import domain.UsingMappers;
 
@@ -231,6 +252,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseApplication(Application object)
       {
         return createApplicationAdapter();
+      }
+      @Override
+      public Adapter caseApplicationUILayer(ApplicationUILayer object)
+      {
+        return createApplicationUILayerAdapter();
+      }
+      @Override
+      public Adapter caseApplicationUIPackage(ApplicationUIPackage object)
+      {
+        return createApplicationUIPackageAdapter();
       }
       @Override
       public Adapter caseApplicationRecipes(ApplicationRecipes object)
@@ -486,6 +517,101 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBusinessPackage(BusinessPackage object)
       {
         return createBusinessPackageAdapter();
+      }
+      @Override
+      public Adapter caseUIPackage(UIPackage object)
+      {
+        return createUIPackageAdapter();
+      }
+      @Override
+      public Adapter caseForm(Form object)
+      {
+        return createFormAdapter();
+      }
+      @Override
+      public Adapter caseFormView(FormView object)
+      {
+        return createFormViewAdapter();
+      }
+      @Override
+      public Adapter caseFormDataControls(FormDataControls object)
+      {
+        return createFormDataControlsAdapter();
+      }
+      @Override
+      public Adapter caseControls(Controls object)
+      {
+        return createControlsAdapter();
+      }
+      @Override
+      public Adapter caseTrigger(Trigger object)
+      {
+        return createTriggerAdapter();
+      }
+      @Override
+      public Adapter caseTriggerParameter(TriggerParameter object)
+      {
+        return createTriggerParameterAdapter();
+      }
+      @Override
+      public Adapter caseContextValue(ContextValue object)
+      {
+        return createContextValueAdapter();
+      }
+      @Override
+      public Adapter casePREFormTrigger(PREFormTrigger object)
+      {
+        return createPREFormTriggerAdapter();
+      }
+      @Override
+      public Adapter casePREQueryTrigger(PREQueryTrigger object)
+      {
+        return createPREQueryTriggerAdapter();
+      }
+      @Override
+      public Adapter casePOSTQueryTrigger(POSTQueryTrigger object)
+      {
+        return createPOSTQueryTriggerAdapter();
+      }
+      @Override
+      public Adapter casePREInsertTrigger(PREInsertTrigger object)
+      {
+        return createPREInsertTriggerAdapter();
+      }
+      @Override
+      public Adapter casePREDeleteTrigger(PREDeleteTrigger object)
+      {
+        return createPREDeleteTriggerAdapter();
+      }
+      @Override
+      public Adapter casePRECreateTrigger(PRECreateTrigger object)
+      {
+        return createPRECreateTriggerAdapter();
+      }
+      @Override
+      public Adapter caseRoot(Root object)
+      {
+        return createRootAdapter();
+      }
+      @Override
+      public Adapter caseDataControl(DataControl object)
+      {
+        return createDataControlAdapter();
+      }
+      @Override
+      public Adapter caseRelation(Relation object)
+      {
+        return createRelationAdapter();
+      }
+      @Override
+      public Adapter caseArtificialField(ArtificialField object)
+      {
+        return createArtificialFieldAdapter();
+      }
+      @Override
+      public Adapter caseLink(Link object)
+      {
+        return createLinkAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -775,6 +901,36 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createApplicationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ApplicationUILayer <em>Application UI Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ApplicationUILayer
+   * @generated
+   */
+  public Adapter createApplicationUILayerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ApplicationUIPackage <em>Application UI Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ApplicationUIPackage
+   * @generated
+   */
+  public Adapter createApplicationUIPackageAdapter()
   {
     return null;
   }
@@ -1540,6 +1696,291 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBusinessPackageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.UIPackage <em>UI Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.UIPackage
+   * @generated
+   */
+  public Adapter createUIPackageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Form <em>Form</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Form
+   * @generated
+   */
+  public Adapter createFormAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.FormView <em>Form View</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.FormView
+   * @generated
+   */
+  public Adapter createFormViewAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.FormDataControls <em>Form Data Controls</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.FormDataControls
+   * @generated
+   */
+  public Adapter createFormDataControlsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Controls <em>Controls</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Controls
+   * @generated
+   */
+  public Adapter createControlsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Trigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Trigger
+   * @generated
+   */
+  public Adapter createTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.TriggerParameter <em>Trigger Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.TriggerParameter
+   * @generated
+   */
+  public Adapter createTriggerParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ContextValue <em>Context Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ContextValue
+   * @generated
+   */
+  public Adapter createContextValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.PREFormTrigger <em>PRE Form Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.PREFormTrigger
+   * @generated
+   */
+  public Adapter createPREFormTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.PREQueryTrigger <em>PRE Query Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.PREQueryTrigger
+   * @generated
+   */
+  public Adapter createPREQueryTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.POSTQueryTrigger <em>POST Query Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.POSTQueryTrigger
+   * @generated
+   */
+  public Adapter createPOSTQueryTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.PREInsertTrigger <em>PRE Insert Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.PREInsertTrigger
+   * @generated
+   */
+  public Adapter createPREInsertTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.PREDeleteTrigger <em>PRE Delete Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.PREDeleteTrigger
+   * @generated
+   */
+  public Adapter createPREDeleteTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.PRECreateTrigger <em>PRE Create Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.PRECreateTrigger
+   * @generated
+   */
+  public Adapter createPRECreateTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Root <em>Root</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Root
+   * @generated
+   */
+  public Adapter createRootAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.DataControl <em>Data Control</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.DataControl
+   * @generated
+   */
+  public Adapter createDataControlAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Relation <em>Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Relation
+   * @generated
+   */
+  public Adapter createRelationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ArtificialField <em>Artificial Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ArtificialField
+   * @generated
+   */
+  public Adapter createArtificialFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Link <em>Link</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Link
+   * @generated
+   */
+  public Adapter createLinkAdapter()
   {
     return null;
   }

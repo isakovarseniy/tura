@@ -40,11 +40,14 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
 import domain.Configuration;
+import domain.Controls;
+import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentSequence;
 import domain.DeploymentStarStep;
 import domain.Infrastructure;
 import domain.Recipe;
+import domain.Relation;
 import domain.Type;
 import domain.TypeElement;
 import domain.TypeExtension;
@@ -343,6 +346,14 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
+		public boolean canCreateRelation_404011(Controls container,
+				DataControl source, DataControl target) {
+			return canExistRelation_404011(container, null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public boolean canCreateDeploymentComponentDeplymentComponent_404007(
 				DeploymentComponent source, DeploymentComponent target) {
 			if (source != null) {
@@ -440,6 +451,14 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		public boolean canExistTypeExtension_404001(Type container,
 				TypeExtension linkInstance, TypeElement source,
 				TypeElement target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistRelation_404011(Controls container,
+				Relation linkInstance, DataControl source, DataControl target) {
 			return true;
 		}
 

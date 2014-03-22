@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Deployment"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="902001,902002"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="904001,904002,904008,904004,904005,904006,904007"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="904001,904010,904002,904008,904004,904005,904006,904007"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="902001,902002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="904001,904002,904008,904004,904005,904006,904007"/>
+            <method name="getType()" value="904001,904010,904002,904008,904004,904005,904006,904007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="905001,905002"/>
@@ -365,6 +365,16 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.deployment.Relation_904010"
+               name="%metatype.name.Relation_904010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Relation"
+               edithelper="deployment.diagram.edit.helpers.RelationEditHelper">
+            <param name="semanticHint" value="904010"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.diagram.deployment.DeploymentComponentDeplymentComponent_904002"
                name="%metatype.name.DeploymentComponentDeplymentComponent_904002"
@@ -438,6 +448,7 @@
          <elementType ref="org.tura.metamodel.diagram.deployment.DeploymentComponent_902001"/>
          <elementType ref="org.tura.metamodel.diagram.deployment.DeploymentStarStep_902002"/>
          <elementType ref="org.tura.metamodel.diagram.deployment.TypeExtension_904001"/>
+         <elementType ref="org.tura.metamodel.diagram.deployment.Relation_904010"/>
          <elementType ref="org.tura.metamodel.diagram.deployment.DeploymentComponentDeplymentComponent_904002"/>
          <elementType ref="org.tura.metamodel.diagram.deployment.DeploymentStarStepFirstStep_904008"/>
          <elementType ref="org.tura.metamodel.diagram.deployment.RecipeInfrastructures_904004"/>

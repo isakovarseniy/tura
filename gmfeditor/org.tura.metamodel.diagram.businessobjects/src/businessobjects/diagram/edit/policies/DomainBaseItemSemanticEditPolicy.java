@@ -39,11 +39,14 @@ import businessobjects.diagram.part.DomainDiagramEditorPlugin;
 import businessobjects.diagram.part.DomainVisualIDRegistry;
 import businessobjects.diagram.providers.DomainElementTypes;
 import domain.Configuration;
+import domain.Controls;
+import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentSequence;
 import domain.DeploymentStarStep;
 import domain.Infrastructure;
 import domain.Recipe;
+import domain.Relation;
 import domain.Type;
 import domain.TypeElement;
 import domain.TypeExtension;
@@ -342,6 +345,14 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
+		public boolean canCreateRelation_604011(Controls container,
+				DataControl source, DataControl target) {
+			return canExistRelation_604011(container, null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public boolean canCreateDeploymentComponentDeplymentComponent_604007(
 				DeploymentComponent source, DeploymentComponent target) {
 			if (source != null) {
@@ -439,6 +450,14 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		public boolean canExistTypeExtension_604001(Type container,
 				TypeExtension linkInstance, TypeElement source,
 				TypeElement target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistRelation_604011(Controls container,
+				Relation linkInstance, DataControl source, DataControl target) {
 			return true;
 		}
 

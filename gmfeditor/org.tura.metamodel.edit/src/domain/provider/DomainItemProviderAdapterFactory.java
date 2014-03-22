@@ -524,6 +524,56 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.ApplicationUILayer} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ApplicationUILayerItemProvider applicationUILayerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ApplicationUILayer}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createApplicationUILayerAdapter()
+  {
+    if (applicationUILayerItemProvider == null)
+    {
+      applicationUILayerItemProvider = new ApplicationUILayerItemProvider(this);
+    }
+
+    return applicationUILayerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ApplicationUIPackage} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ApplicationUIPackageItemProvider applicationUIPackageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ApplicationUIPackage}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createApplicationUIPackageAdapter()
+  {
+    if (applicationUIPackageItemProvider == null)
+    {
+      applicationUIPackageItemProvider = new ApplicationUIPackageItemProvider(this);
+    }
+
+    return applicationUIPackageItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.ApplicationRecipes} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1799,6 +1849,481 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.UIPackage} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected UIPackageItemProvider uiPackageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.UIPackage}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createUIPackageAdapter()
+  {
+    if (uiPackageItemProvider == null)
+    {
+      uiPackageItemProvider = new UIPackageItemProvider(this);
+    }
+
+    return uiPackageItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Form} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected FormItemProvider formItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Form}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createFormAdapter()
+  {
+    if (formItemProvider == null)
+    {
+      formItemProvider = new FormItemProvider(this);
+    }
+
+    return formItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.FormView} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected FormViewItemProvider formViewItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.FormView}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createFormViewAdapter()
+  {
+    if (formViewItemProvider == null)
+    {
+      formViewItemProvider = new FormViewItemProvider(this);
+    }
+
+    return formViewItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.FormDataControls} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected FormDataControlsItemProvider formDataControlsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.FormDataControls}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createFormDataControlsAdapter()
+  {
+    if (formDataControlsItemProvider == null)
+    {
+      formDataControlsItemProvider = new FormDataControlsItemProvider(this);
+    }
+
+    return formDataControlsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Controls} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ControlsItemProvider controlsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Controls}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createControlsAdapter()
+  {
+    if (controlsItemProvider == null)
+    {
+      controlsItemProvider = new ControlsItemProvider(this);
+    }
+
+    return controlsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Trigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TriggerItemProvider triggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Trigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTriggerAdapter()
+  {
+    if (triggerItemProvider == null)
+    {
+      triggerItemProvider = new TriggerItemProvider(this);
+    }
+
+    return triggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.TriggerParameter} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TriggerParameterItemProvider triggerParameterItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TriggerParameter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTriggerParameterAdapter()
+  {
+    if (triggerParameterItemProvider == null)
+    {
+      triggerParameterItemProvider = new TriggerParameterItemProvider(this);
+    }
+
+    return triggerParameterItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ContextValue} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ContextValueItemProvider contextValueItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ContextValue}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createContextValueAdapter()
+  {
+    if (contextValueItemProvider == null)
+    {
+      contextValueItemProvider = new ContextValueItemProvider(this);
+    }
+
+    return contextValueItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.PREFormTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PREFormTriggerItemProvider preFormTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.PREFormTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPREFormTriggerAdapter()
+  {
+    if (preFormTriggerItemProvider == null)
+    {
+      preFormTriggerItemProvider = new PREFormTriggerItemProvider(this);
+    }
+
+    return preFormTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.PREQueryTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PREQueryTriggerItemProvider preQueryTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.PREQueryTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPREQueryTriggerAdapter()
+  {
+    if (preQueryTriggerItemProvider == null)
+    {
+      preQueryTriggerItemProvider = new PREQueryTriggerItemProvider(this);
+    }
+
+    return preQueryTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.POSTQueryTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected POSTQueryTriggerItemProvider postQueryTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.POSTQueryTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPOSTQueryTriggerAdapter()
+  {
+    if (postQueryTriggerItemProvider == null)
+    {
+      postQueryTriggerItemProvider = new POSTQueryTriggerItemProvider(this);
+    }
+
+    return postQueryTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.PREInsertTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PREInsertTriggerItemProvider preInsertTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.PREInsertTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPREInsertTriggerAdapter()
+  {
+    if (preInsertTriggerItemProvider == null)
+    {
+      preInsertTriggerItemProvider = new PREInsertTriggerItemProvider(this);
+    }
+
+    return preInsertTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.PREDeleteTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PREDeleteTriggerItemProvider preDeleteTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.PREDeleteTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPREDeleteTriggerAdapter()
+  {
+    if (preDeleteTriggerItemProvider == null)
+    {
+      preDeleteTriggerItemProvider = new PREDeleteTriggerItemProvider(this);
+    }
+
+    return preDeleteTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.PRECreateTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PRECreateTriggerItemProvider preCreateTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.PRECreateTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPRECreateTriggerAdapter()
+  {
+    if (preCreateTriggerItemProvider == null)
+    {
+      preCreateTriggerItemProvider = new PRECreateTriggerItemProvider(this);
+    }
+
+    return preCreateTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Root} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RootItemProvider rootItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Root}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRootAdapter()
+  {
+    if (rootItemProvider == null)
+    {
+      rootItemProvider = new RootItemProvider(this);
+    }
+
+    return rootItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.DataControl} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DataControlItemProvider dataControlItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.DataControl}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDataControlAdapter()
+  {
+    if (dataControlItemProvider == null)
+    {
+      dataControlItemProvider = new DataControlItemProvider(this);
+    }
+
+    return dataControlItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Relation} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RelationItemProvider relationItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Relation}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRelationAdapter()
+  {
+    if (relationItemProvider == null)
+    {
+      relationItemProvider = new RelationItemProvider(this);
+    }
+
+    return relationItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ArtificialField} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ArtificialFieldItemProvider artificialFieldItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ArtificialField}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createArtificialFieldAdapter()
+  {
+    if (artificialFieldItemProvider == null)
+    {
+      artificialFieldItemProvider = new ArtificialFieldItemProvider(this);
+    }
+
+    return artificialFieldItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Link} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected LinkItemProvider linkItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Link}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createLinkAdapter()
+  {
+    if (linkItemProvider == null)
+    {
+      linkItemProvider = new LinkItemProvider(this);
+    }
+
+    return linkItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1927,6 +2452,8 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (specifierItemProvider != null) specifierItemProvider.dispose();
     if (optionItemProvider != null) optionItemProvider.dispose();
     if (applicationItemProvider != null) applicationItemProvider.dispose();
+    if (applicationUILayerItemProvider != null) applicationUILayerItemProvider.dispose();
+    if (applicationUIPackageItemProvider != null) applicationUIPackageItemProvider.dispose();
     if (applicationRecipesItemProvider != null) applicationRecipesItemProvider.dispose();
     if (applicationRecipeItemProvider != null) applicationRecipeItemProvider.dispose();
     if (applicationMappersItemProvider != null) applicationMappersItemProvider.dispose();
@@ -1978,6 +2505,25 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (typesItemProvider != null) typesItemProvider.dispose();
     if (packageItemProvider != null) packageItemProvider.dispose();
     if (businessPackageItemProvider != null) businessPackageItemProvider.dispose();
+    if (uiPackageItemProvider != null) uiPackageItemProvider.dispose();
+    if (formItemProvider != null) formItemProvider.dispose();
+    if (formViewItemProvider != null) formViewItemProvider.dispose();
+    if (formDataControlsItemProvider != null) formDataControlsItemProvider.dispose();
+    if (controlsItemProvider != null) controlsItemProvider.dispose();
+    if (triggerItemProvider != null) triggerItemProvider.dispose();
+    if (triggerParameterItemProvider != null) triggerParameterItemProvider.dispose();
+    if (contextValueItemProvider != null) contextValueItemProvider.dispose();
+    if (preFormTriggerItemProvider != null) preFormTriggerItemProvider.dispose();
+    if (preQueryTriggerItemProvider != null) preQueryTriggerItemProvider.dispose();
+    if (postQueryTriggerItemProvider != null) postQueryTriggerItemProvider.dispose();
+    if (preInsertTriggerItemProvider != null) preInsertTriggerItemProvider.dispose();
+    if (preDeleteTriggerItemProvider != null) preDeleteTriggerItemProvider.dispose();
+    if (preCreateTriggerItemProvider != null) preCreateTriggerItemProvider.dispose();
+    if (rootItemProvider != null) rootItemProvider.dispose();
+    if (dataControlItemProvider != null) dataControlItemProvider.dispose();
+    if (relationItemProvider != null) relationItemProvider.dispose();
+    if (artificialFieldItemProvider != null) artificialFieldItemProvider.dispose();
+    if (linkItemProvider != null) linkItemProvider.dispose();
   }
 
 }

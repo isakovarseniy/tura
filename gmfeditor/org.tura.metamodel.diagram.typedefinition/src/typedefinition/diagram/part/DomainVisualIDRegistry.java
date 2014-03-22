@@ -33,6 +33,7 @@ import typedefinition.diagram.edit.parts.RecipeDeloymentEditPart;
 import typedefinition.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import typedefinition.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
+import typedefinition.diagram.edit.parts.RelationEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
@@ -331,6 +332,10 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
 				domainElement.eClass())) {
 			return TypeExtensionEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
+				domainElement.eClass())) {
+			return RelationEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

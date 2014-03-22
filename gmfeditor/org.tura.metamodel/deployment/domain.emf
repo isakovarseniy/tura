@@ -145,8 +145,27 @@ class Application{
     id attr EString uid;
    val ApplicationRecipes#parent applicationRecipes;
    val ApplicationMappers#parent applicationMappers;
+   val ApplicationUILayer#parent applicationUILayer;
    ref DomainApplication#application parent;
 }
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class ApplicationUILayer{
+    id attr EString uid;
+   attr EString name;
+   ref Application#applicationUILayer parent;
+   @gmf.compartment
+   val ApplicationUIPackage[*]#parent applicationUIPackages;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,196,176")
+class ApplicationUIPackage{
+    id attr EString uid;
+   attr EString name;
+   ref ApplicationUILayer#applicationUIPackages parent;
+   ref UIPackage#parent uipackage;
+}
+
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
 class ApplicationRecipes{
@@ -560,3 +579,147 @@ class BusinessPackage{
    ref BusinessObjects#parent businessobjects;
    ref  Types#businessPackages parent;
 }
+
+@gmf.diagram.uipackage
+class UIPackage{
+    id attr EString uid;
+    ref ApplicationUIPackage#uipackage parent;
+    val Form[*] forms;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class Form{
+    id attr EString uid;
+   attr EString name;
+   @gmf.compartment(layout="list")
+   val FormView view;
+   @gmf.compartment(layout="list")
+   val FormDataControls datacontrols;
+   
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class FormView{
+    id attr EString uid;
+   attr EString name;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class FormDataControls{
+    id attr EString uid;
+   attr EString name;
+   ref Controls control;
+}
+
+@gmf.diagram.control
+class Controls{
+    id attr EString uid;
+    val Root root;
+    val DataControl [*] controls;
+    val Relation[*] relations;
+}
+
+class Trigger extends TypePointer {
+    id attr EString uid;
+    attr EString name;
+    ref Operation methodRef;
+    val TriggerParameter[*] parameters;
+
+  // To support display label
+    attr EString fakeMethod;
+    
+}
+
+class TriggerParameter{
+    id attr EString uid;
+   ref Parameter parameter;
+   val ContextValue value;
+}
+
+class ContextValue{
+   id attr EString uid;
+   attr boolean isExpression;
+   attr EString value;
+}
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class PREFormTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class PREQueryTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class POSTQueryTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class PREInsertTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class PREDeleteTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class PRECreateTrigger extends Trigger {
+ }
+
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class Root{
+    id attr EString uid;
+   attr EString name;
+   @gmf.compartment(layout="list")
+   val PREFormTrigger preFormTrigger;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class DataControl extends TypePointer{
+    id attr EString uid;
+   attr EString name;
+   @gmf.compartment(layout="list")
+   val PREQueryTrigger preQueryTrigger;
+   @gmf.compartment(layout="list")
+   val POSTQueryTrigger postQueryTrigger;
+   @gmf.compartment(layout="list")
+   val PREInsertTrigger preInsertTrigger;
+   @gmf.compartment(layout="list")
+   val PREDeleteTrigger preDeleteTrigger;
+   @gmf.compartment(layout="list")
+   val PRECreateTrigger preCreateTrigger;
+   @gmf.compartment(layout="list")
+   val ArtificialField artificialField;   
+   
+    
+   val Trigger create;
+   val Trigger insert;
+   val Trigger update;
+   val Trigger remove;
+   val Trigger search;
+}
+
+@gmf.link(source="master", target="detail", style="dash", target.decoration="arrow")
+class Relation{
+    id attr EString uid;
+   attr EString name;
+   ref DataControl master;
+   ref DataControl detail;
+   attr EBoolean isTree;
+   val Link[*] links;  
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class ArtificialField extends TypePointer{
+    id attr EString uid;
+   attr EString name;
+   
+}
+
+class Link{
+    id attr EString uid;
+    attr EString masterField;
+    attr EString detailField;
+}
+

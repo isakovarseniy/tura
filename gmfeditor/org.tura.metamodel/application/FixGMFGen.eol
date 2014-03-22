@@ -33,6 +33,21 @@ var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'Applicatio
 innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
 
 
+//Enable diagram partition for ApplicationUIPackage element
+var genTopLevelNode = GmfGen!GenChildNode.all.select(n|n.createCommandClassName = 'ApplicationUIPackageCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'uipackage.diagram.part.UIPackageDiagramEditorID';
+behaviour.diagramKind='UIPackage';
+behaviour.editPolicyClassName= 'OpenDiagramApplicationUIPackageEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for ApplicationMapper element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'ApplicationUIPackageFigure').first;
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
+
+
+
  -- distinct visual ID
 for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+800000);

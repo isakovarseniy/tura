@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Application#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Application#getApplicationRecipes <em>Application Recipes</em>}</li>
  *   <li>{@link domain.Application#getApplicationMappers <em>Application Mappers</em>}</li>
+ *   <li>{@link domain.Application#getApplicationUILayer <em>Application UI Layer</em>}</li>
  *   <li>{@link domain.Application#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -106,6 +107,34 @@ public interface Application extends EObject
    * @generated
    */
   void setApplicationMappers(ApplicationMappers value);
+
+  /**
+   * Returns the value of the '<em><b>Application UI Layer</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link domain.ApplicationUILayer#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Application UI Layer</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Application UI Layer</em>' containment reference.
+   * @see #setApplicationUILayer(ApplicationUILayer)
+   * @see domain.DomainPackage#getApplication_ApplicationUILayer()
+   * @see domain.ApplicationUILayer#getParent
+   * @model opposite="parent" containment="true"
+   * @generated
+   */
+  ApplicationUILayer getApplicationUILayer();
+
+  /**
+   * Sets the value of the '{@link domain.Application#getApplicationUILayer <em>Application UI Layer</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Application UI Layer</em>' containment reference.
+   * @see #getApplicationUILayer()
+   * @generated
+   */
+  void setApplicationUILayer(ApplicationUILayer value);
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' reference.

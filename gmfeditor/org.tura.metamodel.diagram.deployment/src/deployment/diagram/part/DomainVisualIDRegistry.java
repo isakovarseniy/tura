@@ -27,6 +27,7 @@ import deployment.diagram.edit.parts.RecipeDeloymentEditPart;
 import deployment.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import deployment.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import deployment.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
+import deployment.diagram.edit.parts.RelationEditPart;
 import deployment.diagram.edit.parts.TypeExtensionEditPart;
 import domain.DeploymentComponents;
 import domain.DomainPackage;
@@ -237,6 +238,10 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
 				domainElement.eClass())) {
 			return TypeExtensionEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
+				domainElement.eClass())) {
+			return RelationEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

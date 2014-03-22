@@ -51,20 +51,20 @@ public class InitDiagram {
 	public static String VAR_PACKAGE_NAME = "Package name";
 	public static String QUERY_TYPE_GENERIC = "Query generic type";
 	public static String VAR_TYPE_NAME = "Type name";
-	public static String QUERY_COMPONENT="Query component";
+	public static String QUERY_COMPONENT = "Query component";
 
 	public static String MAVEN_BUILDER = "Maven Builder";
 	public static String GLASSFISH_DEPLOYER = "GlassFish ejb webservice deployer";
 	public static String CONTINUOUS_INTEGRATION = "Continuous integration";
-	public static String ARTIFACT_TYPE="Artifact type";
-	
-	public static String GLASSFISH_HOME="GlassFish home";
-	public static String MAVEN_LOCATION="Maven location";
-	public static String GLASSFISH_ADMIN_PORT="GlassFish admin port";
-	public static String GLASSFISH_DOMAIN="GlassFish domain";
+	public static String ARTIFACT_TYPE = "Artifact type";
+
+	public static String GLASSFISH_HOME = "GlassFish home";
+	public static String MAVEN_LOCATION = "Maven location";
+	public static String GLASSFISH_ADMIN_PORT = "GlassFish admin port";
+	public static String GLASSFISH_DOMAIN = "GlassFish domain";
 
 	public static String OS = "OS";
-	
+
 	public static domain.Domain initDomainDiagram(Resource resource) {
 
 		domain.Domain model = domain.DomainFactory.eINSTANCE.createDomain();
@@ -110,14 +110,13 @@ public class InitDiagram {
 		model.setDomainApplications(domainApplications);
 		model.setDomainArtifacts(domainArtifacts);
 
-		domain.ContinuousIintegration cnInteg  = domain.DomainFactory.eINSTANCE
+		domain.ContinuousIintegration cnInteg = domain.DomainFactory.eINSTANCE
 				.createContinuousIintegration();
 		cnInteg.setName(CONTINUOUS_INTEGRATION);
 		cnInteg.setUid(UUID.randomUUID().toString());
 		domainArtifacts.getDomainArtifact().add(cnInteg);
 		cnInteg.setArtifact(initContinuousIntegration(resource));
-		
-		
+
 		return model;
 	}
 
@@ -145,6 +144,20 @@ public class InitDiagram {
 				.initPrimitivesMapping(resource);
 		model.getApplicationMappers().getMappers().add(appmaper);
 
+		return model;
+	}
+
+	public static domain.Form initFormDiagram(Resource resource) {
+		domain.Form model = domain.DomainFactory.eINSTANCE.createForm();
+		
+		domain.FormView view = domain.DomainFactory.eINSTANCE.createFormView();
+		view.setName("Views");
+		model.setView(view);
+
+		domain.FormDataControls controls = domain.DomainFactory.eINSTANCE.createFormDataControls();
+		controls.setName("DataControls");
+		model.setDatacontrols(controls);
+		
 		return model;
 	}
 
@@ -536,12 +549,11 @@ public class InitDiagram {
 		option.setUid(UUID.randomUUID().toString());
 		specifier.getOptions().add(option);
 		option.setValue("PostgresSQL");
- 
+
 		option = domain.DomainFactory.eINSTANCE.createOption();
 		option.setUid(UUID.randomUUID().toString());
 		specifier.getOptions().add(option);
 		option.setValue("Oracle");
-
 
 		option = domain.DomainFactory.eINSTANCE.createOption();
 		specifier.getOptions().add(option);
@@ -588,7 +600,7 @@ public class InitDiagram {
 		confVar.setUid(UUID.randomUUID().toString());
 		confVar.setName(GLASSFISH_HOME);
 		artifact.getConfigVariables().add(confVar);
-		
+
 		confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
 		confVar.setName(GLASSFISH_ADMIN_PORT);
@@ -599,8 +611,7 @@ public class InitDiagram {
 		confVar.setName(GLASSFISH_DOMAIN);
 		artifact.getConfigVariables().add(confVar);
 
-		specifier = domain.DomainFactory.eINSTANCE
-				.createSpecifier();
+		specifier = domain.DomainFactory.eINSTANCE.createSpecifier();
 		specifier.setUid(UUID.randomUUID().toString());
 		specifier.setName(OS);
 		artifact.getSpecifiers().add(specifier);
@@ -614,30 +625,30 @@ public class InitDiagram {
 		option.setUid(UUID.randomUUID().toString());
 		specifier.getOptions().add(option);
 		option.setValue("Window");
-		
 
 		return model;
 	}
 
-	
-	public static domain.Artifacts initContinuousIntegration( Resource resource) {
+	public static domain.Artifacts initContinuousIntegration(Resource resource) {
 
 		domain.Artifacts model = domain.DomainFactory.eINSTANCE
 				.createArtifacts();
 		model.setUid(UUID.randomUUID().toString());
 		resource.getContents().add(model);
 
-		domain.Artifact artifact = domain.DomainFactory.eINSTANCE.createArtifact();
+		domain.Artifact artifact = domain.DomainFactory.eINSTANCE
+				.createArtifact();
 		artifact.setName(MAVEN_BUILDER);
 		artifact.setUid(UUID.randomUUID().toString());
 		artifact.setTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/continuousIntegration/mainMavenBuilder.egl");
 		model.getArtifacts().add(artifact);
-		
-		domain.ConfigVariable confVar = domain.DomainFactory.eINSTANCE.createConfigVariable();
+
+		domain.ConfigVariable confVar = domain.DomainFactory.eINSTANCE
+				.createConfigVariable();
 		confVar.setUid(UUID.randomUUID().toString());
 		confVar.setName(MAVEN_LOCATION);
 		artifact.getConfigVariables().add(confVar);
-		
+
 		domain.Specifier specifier = domain.DomainFactory.eINSTANCE
 				.createSpecifier();
 		specifier.setUid(UUID.randomUUID().toString());
@@ -648,17 +659,16 @@ public class InitDiagram {
 		option.setUid(UUID.randomUUID().toString());
 		specifier.getOptions().add(option);
 		option.setValue("Unix");
- 
+
 		option = domain.DomainFactory.eINSTANCE.createOption();
 		option.setUid(UUID.randomUUID().toString());
 		specifier.getOptions().add(option);
 		option.setValue("Window");
 
-		
 		return model;
-		
-	}	
-	
+
+	}
+
 	public static domain.ApplicationMapper initPrimitivesMapping(
 			Resource resource) {
 

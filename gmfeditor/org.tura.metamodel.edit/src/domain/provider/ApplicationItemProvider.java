@@ -135,6 +135,7 @@ public class ApplicationItemProvider
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_RECIPES);
       childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_MAPPERS);
+      childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_UI_LAYER);
     }
     return childrenFeatures;
   }
@@ -199,6 +200,7 @@ public class ApplicationItemProvider
         return;
       case DomainPackage.APPLICATION__APPLICATION_RECIPES:
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
+      case DomainPackage.APPLICATION__APPLICATION_UI_LAYER:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -226,6 +228,11 @@ public class ApplicationItemProvider
       (createChildParameter
         (DomainPackage.Literals.APPLICATION__APPLICATION_MAPPERS,
          DomainFactory.eINSTANCE.createApplicationMappers()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.APPLICATION__APPLICATION_UI_LAYER,
+         DomainFactory.eINSTANCE.createApplicationUILayer()));
   }
 
   /**

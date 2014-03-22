@@ -46,6 +46,24 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ApplicationUILayer"
+          description="Create new ApplicationUILayer">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ApplicationUIPackage"
+          description="Create new ApplicationUIPackage">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
@@ -100,6 +118,15 @@
           xsi:type="gmftool:CreationTool"
           title="RecipeConfig"
           description="Create new RecipeConfig">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Relation"
+          description="Create new Relation">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

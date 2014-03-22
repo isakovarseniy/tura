@@ -185,6 +185,24 @@ public interface DomainFactory extends EFactory
   Application createApplication();
 
   /**
+   * Returns a new object of class '<em>Application UI Layer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application UI Layer</em>'.
+   * @generated
+   */
+  ApplicationUILayer createApplicationUILayer();
+
+  /**
+   * Returns a new object of class '<em>Application UI Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application UI Package</em>'.
+   * @generated
+   */
+  ApplicationUIPackage createApplicationUIPackage();
+
+  /**
    * Returns a new object of class '<em>Application Recipes</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -642,6 +660,177 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   BusinessPackage createBusinessPackage();
+
+  /**
+   * Returns a new object of class '<em>UI Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Package</em>'.
+   * @generated
+   */
+  UIPackage createUIPackage();
+
+  /**
+   * Returns a new object of class '<em>Form</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Form</em>'.
+   * @generated
+   */
+  Form createForm();
+
+  /**
+   * Returns a new object of class '<em>Form View</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Form View</em>'.
+   * @generated
+   */
+  FormView createFormView();
+
+  /**
+   * Returns a new object of class '<em>Form Data Controls</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Form Data Controls</em>'.
+   * @generated
+   */
+  FormDataControls createFormDataControls();
+
+  /**
+   * Returns a new object of class '<em>Controls</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Controls</em>'.
+   * @generated
+   */
+  Controls createControls();
+
+  /**
+   * Returns a new object of class '<em>Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Trigger</em>'.
+   * @generated
+   */
+  Trigger createTrigger();
+
+  /**
+   * Returns a new object of class '<em>Trigger Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Trigger Parameter</em>'.
+   * @generated
+   */
+  TriggerParameter createTriggerParameter();
+
+  /**
+   * Returns a new object of class '<em>Context Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Context Value</em>'.
+   * @generated
+   */
+  ContextValue createContextValue();
+
+  /**
+   * Returns a new object of class '<em>PRE Form Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PRE Form Trigger</em>'.
+   * @generated
+   */
+  PREFormTrigger createPREFormTrigger();
+
+  /**
+   * Returns a new object of class '<em>PRE Query Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PRE Query Trigger</em>'.
+   * @generated
+   */
+  PREQueryTrigger createPREQueryTrigger();
+
+  /**
+   * Returns a new object of class '<em>POST Query Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>POST Query Trigger</em>'.
+   * @generated
+   */
+  POSTQueryTrigger createPOSTQueryTrigger();
+
+  /**
+   * Returns a new object of class '<em>PRE Insert Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PRE Insert Trigger</em>'.
+   * @generated
+   */
+  PREInsertTrigger createPREInsertTrigger();
+
+  /**
+   * Returns a new object of class '<em>PRE Delete Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PRE Delete Trigger</em>'.
+   * @generated
+   */
+  PREDeleteTrigger createPREDeleteTrigger();
+
+  /**
+   * Returns a new object of class '<em>PRE Create Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PRE Create Trigger</em>'.
+   * @generated
+   */
+  PRECreateTrigger createPRECreateTrigger();
+
+  /**
+   * Returns a new object of class '<em>Root</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Root</em>'.
+   * @generated
+   */
+  Root createRoot();
+
+  /**
+   * Returns a new object of class '<em>Data Control</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Control</em>'.
+   * @generated
+   */
+  DataControl createDataControl();
+
+  /**
+   * Returns a new object of class '<em>Relation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Relation</em>'.
+   * @generated
+   */
+  Relation createRelation();
+
+  /**
+   * Returns a new object of class '<em>Artificial Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Artificial Field</em>'.
+   * @generated
+   */
+  ArtificialField createArtificialField();
+
+  /**
+   * Returns a new object of class '<em>Link</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Link</em>'.
+   * @generated
+   */
+  Link createLink();
 
   /**
    * Returns the package supported by this factory.

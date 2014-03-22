@@ -152,6 +152,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="Relation"
+          description="Create new Relation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="TypeExtension"
           description="Create new TypeExtension">
         <smallIcon

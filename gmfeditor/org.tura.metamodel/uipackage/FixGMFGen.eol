@@ -1,0 +1,40 @@
+//Enable dynamic templates
+var genEditorGenerator = GmfGen!GenEditorGenerator.all.first;
+genEditorGenerator.setDynamicTemplates(true);
+genEditorGenerator.setTemplateDirectory('/org.tura.metamodel/templates/');
+
+var plugin = GmfGen!GenPlugin.all.first;
+plugin.id = 'org.tura.metamodel.diagram.uipackage';
+
+
+-- distinct visual ID
+for (c in GmfGen!GenCommonBase.allInstances) {
+  c.setVisualID (c.getVisualID()+1000000);
+}
+
+//Enable diagram partition for ApplicationRecipe element
+var genTopLevelNode = GmfGen!GenChildNode.all.select(n|n.createCommandClassName = 'FormDataControlsCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'control.diagram.part.ControlDiagramEditorID';
+behaviour.diagramKind='Control';
+behaviour.editPolicyClassName= 'OpenDiagramFormDataControlsEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for ApplicationRecipe element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'FormDataControlsFigure').first;
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
+
+
+
+-- distinct model IDs
+genEditorGenerator.setModelID('UIPackage');
+-- distinct package prefix
+genEditorGenerator.setPackageNamePrefix('uipackage.diagram');
+-- distinct diagram file extension
+genEditorGenerator.setDiagramFileExtension('uipackage_diagram');
+-- set ID model editor
+var genEditorView = GmfGen!GenEditorView.all.first;
+genEditorView.setID('uipackage.diagram.part.UIPackageDiagramEditorID');
+
+

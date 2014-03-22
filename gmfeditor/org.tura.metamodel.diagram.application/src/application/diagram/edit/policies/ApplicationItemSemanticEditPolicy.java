@@ -12,6 +12,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import application.diagram.edit.commands.ApplicationMappersCreateCommand;
 import application.diagram.edit.commands.ApplicationRecipesCreateCommand;
+import application.diagram.edit.commands.ApplicationUILayerCreateCommand;
 import application.diagram.providers.DomainElementTypes;
 
 /**
@@ -38,6 +39,10 @@ public class ApplicationItemSemanticEditPolicy extends
 		if (DomainElementTypes.ApplicationMappers_802002 == req
 				.getElementType()) {
 			return getGEFWrapper(new ApplicationMappersCreateCommand(req));
+		}
+		if (DomainElementTypes.ApplicationUILayer_802003 == req
+				.getElementType()) {
+			return getGEFWrapper(new ApplicationUILayerCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

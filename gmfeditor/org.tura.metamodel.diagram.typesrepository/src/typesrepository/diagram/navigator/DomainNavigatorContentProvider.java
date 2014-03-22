@@ -36,6 +36,7 @@ import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.edit.parts.RecipeDeloymentEditPart;
 import typesrepository.diagram.edit.parts.RecipeInfrastructuresEditPart;
+import typesrepository.diagram.edit.parts.RelationEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
@@ -285,6 +286,9 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					DomainVisualIDRegistry
 							.getType(TypeExtensionEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					DomainVisualIDRegistry.getType(RelationEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),

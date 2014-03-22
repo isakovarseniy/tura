@@ -20,6 +20,8 @@ import application.diagram.edit.parts.ApplicationMapperNameEditPart;
 import application.diagram.edit.parts.ApplicationMappersNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipeNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipesNameEditPart;
+import application.diagram.edit.parts.ApplicationUILayerNameEditPart;
+import application.diagram.edit.parts.ApplicationUIPackageNameEditPart;
 import application.diagram.parsers.MessageFormatParser;
 import application.diagram.part.DomainVisualIDRegistry;
 import domain.DomainPackage;
@@ -69,6 +71,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser applicationUILayerName_805006Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getApplicationUILayerName_805006Parser() {
+		if (applicationUILayerName_805006Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getApplicationUILayer_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			applicationUILayerName_805006Parser = parser;
+		}
+		return applicationUILayerName_805006Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser applicationRecipeName_805001Parser;
 
 	/**
@@ -105,16 +125,38 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser applicationUIPackageName_805005Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getApplicationUIPackageName_805005Parser() {
+		if (applicationUIPackageName_805005Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getApplicationUIPackage_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			applicationUIPackageName_805005Parser = parser;
+		}
+		return applicationUIPackageName_805005Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ApplicationRecipesNameEditPart.VISUAL_ID:
 			return getApplicationRecipesName_805002Parser();
 		case ApplicationMappersNameEditPart.VISUAL_ID:
 			return getApplicationMappersName_805004Parser();
+		case ApplicationUILayerNameEditPart.VISUAL_ID:
+			return getApplicationUILayerName_805006Parser();
 		case ApplicationRecipeNameEditPart.VISUAL_ID:
 			return getApplicationRecipeName_805001Parser();
 		case ApplicationMapperNameEditPart.VISUAL_ID:
 			return getApplicationMapperName_805003Parser();
+		case ApplicationUIPackageNameEditPart.VISUAL_ID:
+			return getApplicationUIPackageName_805005Parser();
 		}
 		return null;
 	}

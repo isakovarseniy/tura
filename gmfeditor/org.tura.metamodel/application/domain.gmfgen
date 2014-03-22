@@ -148,6 +148,64 @@
         </modelFacet>
       </labels>
     </childNodes>
+    <childNodes
+        visualID="803003"
+        editPartClassName="ApplicationUIPackageEditPart"
+        itemSemanticEditPolicyClassName="ApplicationUIPackageItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ApplicationUIPackageCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ApplicationUIPackageGraphicalNodeEditPolicy"
+        createCommandClassName="ApplicationUIPackageCreateCommand"
+        containers="//@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ApplicationUIPackageEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ApplicationUIPackageFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ApplicationUIPackageFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.tura.metamodel.commons.editparts.SizeLimitedLabel fFigureApplicationUIPackageLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ApplicationUIPackageFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureApplicationUIPackageLabelFigure = new org.tura.metamodel.commons.editparts.SizeLimitedLabel();&#xA;&#xA;fFigureApplicationUIPackageLabelFigure.setText(&quot;ApplicationUIPackage&quot;);&#xA;&#xA;fFigureApplicationUIPackageLabelFigure.setFont(FFIGUREAPPLICATIONUIPACKAGELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureApplicationUIPackageLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.tura.metamodel.commons.editparts.SizeLimitedLabel getFigureApplicationUIPackageLabelFigure() {&#xA;&#x9;&#x9;return fFigureApplicationUIPackageLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 255, 196, 176);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREAPPLICATIONUIPACKAGELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"
+          editPolicyClassName="OpenDiagramApplicationUIPackageEditPolicy"
+          diagramKind="UIPackage"
+          editorID="uipackage.diagram.part.UIPackageDiagramEditorID"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/ApplicationUIPackage"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/ApplicationUILayer/applicationUIPackages"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/ApplicationUILayer/applicationUIPackages"/>
+      </modelFacet>
+      <labels
+          visualID="805005"
+          editPartClassName="ApplicationUIPackageNameEditPart"
+          itemSemanticEditPolicyClassName="ApplicationUIPackageNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureApplicationUIPackageLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/ApplicationUIPackage/name"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
     <topLevelNodes
         visualID="802001"
         editPartClassName="ApplicationRecipesEditPart"
@@ -258,6 +316,61 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <topLevelNodes
+        visualID="802003"
+        editPartClassName="ApplicationUILayerEditPart"
+        itemSemanticEditPolicyClassName="ApplicationUILayerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ApplicationUILayerCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.2"
+        graphicalNodeEditPolicyClassName="ApplicationUILayerGraphicalNodeEditPolicy"
+        createCommandClassName="ApplicationUILayerCreateCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ApplicationUILayerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ApplicationUILayerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ApplicationUILayerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureApplicationUILayerLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fApplicationUILayerApplicationUIPackagesCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ApplicationUILayerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureApplicationUILayerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureApplicationUILayerLabelFigure.setText(&quot;ApplicationUILayer&quot;);&#xA;&#xA;fFigureApplicationUILayerLabelFigure.setFont(FFIGUREAPPLICATIONUILAYERLABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigureApplicationUILayerLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureApplicationUILayerLabelFigure);&#xA;&#xA;&#xA;&#xA;fApplicationUILayerApplicationUIPackagesCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fApplicationUILayerApplicationUIPackagesCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fApplicationUILayerApplicationUIPackagesCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureApplicationUILayerLabelFigure() {&#xA;&#x9;&#x9;return fFigureApplicationUILayerLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getApplicationUILayerApplicationUIPackagesCompartmentFigure() {&#xA;&#x9;&#x9;return fApplicationUILayerApplicationUIPackagesCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 192, 192, 192);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREAPPLICATIONUILAYERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/ApplicationUILayer"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Application/applicationUILayer"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Application/applicationUILayer"/>
+      </modelFacet>
+      <labels
+          visualID="805006"
+          editPartClassName="ApplicationUILayerNameEditPart"
+          itemSemanticEditPolicyClassName="ApplicationUILayerNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureApplicationUILayerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/ApplicationUILayer/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
     <links
         visualID="804001"
         editPartClassName="TypeExtensionEditPart"
@@ -285,6 +398,35 @@
             href="domain.genmodel#//domain/TypeExtension/source"/>
         <targetMetaFeature
             href="domain.genmodel#//domain/TypeExtension/target"/>
+      </modelFacet>
+    </links>
+    <links
+        visualID="804011"
+        editPartClassName="RelationEditPart"
+        itemSemanticEditPolicyClassName="RelationItemSemanticEditPolicy"
+        createCommandClassName="RelationCreateCommand"
+        reorientCommandClassName="RelationReorientCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="RelationEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="RelationFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RelationFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RelationFigure() {&#xA;&#x9;&#x9;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet
+          xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass
+            href="domain.genmodel#//domain/Relation"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Controls/relations"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Controls/relations"/>
+        <sourceMetaFeature
+            href="domain.genmodel#//domain/Relation/master"/>
+        <targetMetaFeature
+            href="domain.genmodel#//domain/Relation/detail"/>
       </modelFacet>
     </links>
     <links
@@ -573,6 +715,23 @@
           getterName="getApplicationMappersMappersCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
+    <compartments
+        visualID="807003"
+        editPartClassName="ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart"
+        itemSemanticEditPolicyClassName="ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.2"
+        title="ApplicationUILayerApplicationUIPackagesCompartment"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.2"
+        listLayout="false">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getApplicationUILayerApplicationUIPackagesCompartmentFigure"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
     <palette>
       <groups
           title="Objects"
@@ -597,6 +756,16 @@
             title="ApplicationRecipes"
             description="Create new ApplicationRecipes"
             genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ApplicationUILayer"
+            description="Create new ApplicationUILayer"
+            genNodes="//@diagram/@topLevelNodes.2"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ApplicationUIPackage"
+            description="Create new ApplicationUIPackage"
+            genNodes="//@diagram/@childNodes.2"/>
       </groups>
       <groups
           title="Connections"
@@ -605,32 +774,37 @@
             xsi:type="gmfgen:ToolEntry"
             title="ConfigExtension"
             description="Create new ConfigExtension"
-            genLinks="//@diagram/@links.6"/>
+            genLinks="//@diagram/@links.7"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Deloyment"
             description="Create new Deloyment"
-            genLinks="//@diagram/@links.4"/>
+            genLinks="//@diagram/@links.5"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="DeplymentComponent"
             description="Create new DeplymentComponent"
-            genLinks="//@diagram/@links.1"/>
+            genLinks="//@diagram/@links.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="FirstStep"
             description="Create new FirstStep"
-            genLinks="//@diagram/@links.2"/>
+            genLinks="//@diagram/@links.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Infrastructures"
             description="Create new Infrastructures"
-            genLinks="//@diagram/@links.3"/>
+            genLinks="//@diagram/@links.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="RecipeConfig"
             description="Create new RecipeConfig"
-            genLinks="//@diagram/@links.5"/>
+            genLinks="//@diagram/@links.6"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Relation"
+            description="Create new Relation"
+            genLinks="//@diagram/@links.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="TypeExtension"
@@ -689,6 +863,12 @@
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.1"/>
     <childReferences
+        parent="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@childNodes.2"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.2"/>
+    <childReferences
         parent="//@diagram"
         child="//@diagram/@links.0"
         groupName="links"
@@ -723,6 +903,11 @@
         child="//@diagram/@links.6"
         groupName="links"
         groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@links.7"
+        groupName="links"
+        groupIcon="icons/linksNavigatorGroup.gif"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>
@@ -750,10 +935,10 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet"/>
     <implementations
         xsi:type="gmfgen:ExternalParser"
-        uses="//@diagram/@links.1/@labels.0/@modelFacet //@diagram/@links.2/@labels.0/@modelFacet //@diagram/@links.3/@labels.0/@modelFacet //@diagram/@links.4/@labels.0/@modelFacet //@diagram/@links.5/@labels.0/@modelFacet //@diagram/@links.6/@labels.0/@modelFacet"/>
+        uses="//@diagram/@links.2/@labels.0/@modelFacet //@diagram/@links.3/@labels.0/@modelFacet //@diagram/@links.4/@labels.0/@modelFacet //@diagram/@links.5/@labels.0/@modelFacet //@diagram/@links.6/@labels.0/@modelFacet //@diagram/@links.7/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

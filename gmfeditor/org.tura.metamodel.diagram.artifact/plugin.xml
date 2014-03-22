@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Artifact"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="702001,703004,703005,703003"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="704001,704007,704009,704005,704006,704004,704003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="704001,704011,704007,704009,704005,704006,704004,704003"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="702001,703004,703005,703003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="704001,704007,704009,704005,704006,704004,704003"/>
+            <method name="getType()" value="704001,704011,704007,704009,704005,704006,704004,704003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="705004,705005,705006,705003"/>
@@ -384,6 +384,16 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.artifact.Relation_704011"
+               name="%metatype.name.Relation_704011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Relation"
+               edithelper="artifact.diagram.edit.helpers.RelationEditHelper">
+            <param name="semanticHint" value="704011"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.diagram.artifact.DeploymentComponentDeplymentComponent_704007"
                name="%metatype.name.DeploymentComponentDeplymentComponent_704007"
@@ -459,6 +469,7 @@
          <elementType ref="org.tura.metamodel.diagram.artifact.ModelQuery_703005"/>
          <elementType ref="org.tura.metamodel.diagram.artifact.Specifier_703003"/>
          <elementType ref="org.tura.metamodel.diagram.artifact.TypeExtension_704001"/>
+         <elementType ref="org.tura.metamodel.diagram.artifact.Relation_704011"/>
          <elementType ref="org.tura.metamodel.diagram.artifact.DeploymentComponentDeplymentComponent_704007"/>
          <elementType ref="org.tura.metamodel.diagram.artifact.DeploymentStarStepFirstStep_704009"/>
          <elementType ref="org.tura.metamodel.diagram.artifact.RecipeInfrastructures_704005"/>
