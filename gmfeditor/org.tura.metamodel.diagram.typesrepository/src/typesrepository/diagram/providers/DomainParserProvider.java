@@ -16,7 +16,6 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
-import typesrepository.diagram.edit.parts.BusinessPackageNameEditPart;
 import typesrepository.diagram.edit.parts.PackageNameEditPart;
 import typesrepository.diagram.edit.parts.TypesNameEditPart;
 import typesrepository.diagram.parsers.MessageFormatParser;
@@ -68,32 +67,12 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser businessPackageName_205003Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getBusinessPackageName_205003Parser() {
-		if (businessPackageName_205003Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getBusinessPackage_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			businessPackageName_205003Parser = parser;
-		}
-		return businessPackageName_205003Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case TypesNameEditPart.VISUAL_ID:
 			return getTypesName_205004Parser();
 		case PackageNameEditPart.VISUAL_ID:
 			return getPackageName_205002Parser();
-		case BusinessPackageNameEditPart.VISUAL_ID:
-			return getBusinessPackageName_205003Parser();
 		}
 		return null;
 	}

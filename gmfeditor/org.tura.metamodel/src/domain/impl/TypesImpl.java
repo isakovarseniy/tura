@@ -2,7 +2,6 @@
  */
 package domain.impl;
 
-import domain.BusinessPackage;
 import domain.DomainPackage;
 import domain.Types;
 import domain.TypesRepository;
@@ -35,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.TypesImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.TypesImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.TypesImpl#getPackages <em>Packages</em>}</li>
- *   <li>{@link domain.impl.TypesImpl#getBusinessPackages <em>Business Packages</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,16 +90,6 @@ public class TypesImpl extends EObjectImpl implements Types
    * @ordered
    */
   protected EList<domain.Package> packages;
-
-  /**
-   * The cached value of the '{@link #getBusinessPackages() <em>Business Packages</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBusinessPackages()
-   * @generated
-   * @ordered
-   */
-  protected EList<BusinessPackage> businessPackages;
 
   /**
    * <!-- begin-user-doc -->
@@ -234,20 +222,6 @@ public class TypesImpl extends EObjectImpl implements Types
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<BusinessPackage> getBusinessPackages()
-  {
-    if (businessPackages == null)
-    {
-      businessPackages = new EObjectContainmentWithInverseEList<BusinessPackage>(BusinessPackage.class, this, DomainPackage.TYPES__BUSINESS_PACKAGES, DomainPackage.BUSINESS_PACKAGE__PARENT);
-    }
-    return businessPackages;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
@@ -260,8 +234,6 @@ public class TypesImpl extends EObjectImpl implements Types
         return basicSetParent((TypesRepository)otherEnd, msgs);
       case DomainPackage.TYPES__PACKAGES:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getPackages()).basicAdd(otherEnd, msgs);
-      case DomainPackage.TYPES__BUSINESS_PACKAGES:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getBusinessPackages()).basicAdd(otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
   }
@@ -280,8 +252,6 @@ public class TypesImpl extends EObjectImpl implements Types
         return basicSetParent(null, msgs);
       case DomainPackage.TYPES__PACKAGES:
         return ((InternalEList<?>)getPackages()).basicRemove(otherEnd, msgs);
-      case DomainPackage.TYPES__BUSINESS_PACKAGES:
-        return ((InternalEList<?>)getBusinessPackages()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -320,8 +290,6 @@ public class TypesImpl extends EObjectImpl implements Types
         return getName();
       case DomainPackage.TYPES__PACKAGES:
         return getPackages();
-      case DomainPackage.TYPES__BUSINESS_PACKAGES:
-        return getBusinessPackages();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -350,10 +318,6 @@ public class TypesImpl extends EObjectImpl implements Types
         getPackages().clear();
         getPackages().addAll((Collection<? extends domain.Package>)newValue);
         return;
-      case DomainPackage.TYPES__BUSINESS_PACKAGES:
-        getBusinessPackages().clear();
-        getBusinessPackages().addAll((Collection<? extends BusinessPackage>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -380,9 +344,6 @@ public class TypesImpl extends EObjectImpl implements Types
       case DomainPackage.TYPES__PACKAGES:
         getPackages().clear();
         return;
-      case DomainPackage.TYPES__BUSINESS_PACKAGES:
-        getBusinessPackages().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -405,8 +366,6 @@ public class TypesImpl extends EObjectImpl implements Types
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.TYPES__PACKAGES:
         return packages != null && !packages.isEmpty();
-      case DomainPackage.TYPES__BUSINESS_PACKAGES:
-        return businessPackages != null && !businessPackages.isEmpty();
     }
     return super.eIsSet(featureID);
   }

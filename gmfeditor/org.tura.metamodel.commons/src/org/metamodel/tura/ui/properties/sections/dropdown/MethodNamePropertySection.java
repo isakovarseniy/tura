@@ -12,7 +12,7 @@ import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
-import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainBusinessMethodMethodRef;
+import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainMethodPointerMethodMethodRef;
 
 import domain.DomainPackage;
 
@@ -24,7 +24,7 @@ public class MethodNamePropertySection extends
 	}
 
 	protected void init() {
-		dropDownDataSupplier = new DomainBusinessMethodMethodRef();
+		dropDownDataSupplier = new DomainMethodPointerMethodMethodRef();
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -37,8 +37,8 @@ public class MethodNamePropertySection extends
 					.getModel();
 			EObject types = (EObject) diagram.getElement();
 
-			if ((((domain.BusinessMethod) eObject).getTypeRef() == null)
-					|| ((domain.BusinessMethod) eObject).getPackageRef() == null)
+			if ((((domain.MethodPointer) eObject).getTypeRef() == null)
+					|| ((domain.MethodPointer) eObject).getPackageRef() == null)
 				return values;
 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -52,7 +52,7 @@ public class MethodNamePropertySection extends
 								+ ((domain.TypePointer) eObject)
 										.getPackageRef().getUid()
 								+ "').oclAsType(domain::Package).typedefinition.types->select(r|r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).uid = '"
-								+ ((domain.BusinessMethod) eObject)
+								+ ((domain.MethodPointer) eObject)
 										.getTypeRef().getUid()
 								+ "').oclAsType(domain::Type).operations");
 

@@ -14,9 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link domain.Trigger#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Trigger#getName <em>Name</em>}</li>
- *   <li>{@link domain.Trigger#getMethodRef <em>Method Ref</em>}</li>
  *   <li>{@link domain.Trigger#getParameters <em>Parameters</em>}</li>
- *   <li>{@link domain.Trigger#getFakeMethod <em>Fake Method</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Trigger extends TypePointer
+public interface Trigger extends MethodPointer
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.
@@ -79,32 +77,6 @@ public interface Trigger extends TypePointer
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Method Ref</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Method Ref</em>' reference.
-   * @see #setMethodRef(Operation)
-   * @see domain.DomainPackage#getTrigger_MethodRef()
-   * @model
-   * @generated
-   */
-  Operation getMethodRef();
-
-  /**
-   * Sets the value of the '{@link domain.Trigger#getMethodRef <em>Method Ref</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Method Ref</em>' reference.
-   * @see #getMethodRef()
-   * @generated
-   */
-  void setMethodRef(Operation value);
-
-  /**
    * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
    * The list contents are of type {@link domain.TriggerParameter}.
    * <!-- begin-user-doc -->
@@ -119,31 +91,5 @@ public interface Trigger extends TypePointer
    * @generated
    */
   EList<TriggerParameter> getParameters();
-
-  /**
-   * Returns the value of the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Fake Method</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Fake Method</em>' attribute.
-   * @see #setFakeMethod(String)
-   * @see domain.DomainPackage#getTrigger_FakeMethod()
-   * @model
-   * @generated
-   */
-  String getFakeMethod();
-
-  /**
-   * Sets the value of the '{@link domain.Trigger#getFakeMethod <em>Fake Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fake Method</em>' attribute.
-   * @see #getFakeMethod()
-   * @generated
-   */
-  void setFakeMethod(String value);
 
 } // Trigger

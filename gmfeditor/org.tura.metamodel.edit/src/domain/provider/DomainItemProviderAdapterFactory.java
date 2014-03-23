@@ -674,228 +674,28 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.BusinessObjects} instances.
+   * This keeps track of the one adapter used for all {@link domain.MethodPointer} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BusinessObjectsItemProvider businessObjectsItemProvider;
+  protected MethodPointerItemProvider methodPointerItemProvider;
 
   /**
-   * This creates an adapter for a {@link domain.BusinessObjects}.
+   * This creates an adapter for a {@link domain.MethodPointer}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createBusinessObjectsAdapter()
+  public Adapter createMethodPointerAdapter()
   {
-    if (businessObjectsItemProvider == null)
+    if (methodPointerItemProvider == null)
     {
-      businessObjectsItemProvider = new BusinessObjectsItemProvider(this);
+      methodPointerItemProvider = new MethodPointerItemProvider(this);
     }
 
-    return businessObjectsItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.BusinessObject} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected BusinessObjectItemProvider businessObjectItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.BusinessObject}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createBusinessObjectAdapter()
-  {
-    if (businessObjectItemProvider == null)
-    {
-      businessObjectItemProvider = new BusinessObjectItemProvider(this);
-    }
-
-    return businessObjectItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.BusinessMethod} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected BusinessMethodItemProvider businessMethodItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.BusinessMethod}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createBusinessMethodAdapter()
-  {
-    if (businessMethodItemProvider == null)
-    {
-      businessMethodItemProvider = new BusinessMethodItemProvider(this);
-    }
-
-    return businessMethodItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.CreateMethod} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected CreateMethodItemProvider createMethodItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.CreateMethod}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createCreateMethodAdapter()
-  {
-    if (createMethodItemProvider == null)
-    {
-      createMethodItemProvider = new CreateMethodItemProvider(this);
-    }
-
-    return createMethodItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.InsertMethod} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected InsertMethodItemProvider insertMethodItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.InsertMethod}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createInsertMethodAdapter()
-  {
-    if (insertMethodItemProvider == null)
-    {
-      insertMethodItemProvider = new InsertMethodItemProvider(this);
-    }
-
-    return insertMethodItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.UpdateMethod} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected UpdateMethodItemProvider updateMethodItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.UpdateMethod}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createUpdateMethodAdapter()
-  {
-    if (updateMethodItemProvider == null)
-    {
-      updateMethodItemProvider = new UpdateMethodItemProvider(this);
-    }
-
-    return updateMethodItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.RemoveMethod} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected RemoveMethodItemProvider removeMethodItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.RemoveMethod}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createRemoveMethodAdapter()
-  {
-    if (removeMethodItemProvider == null)
-    {
-      removeMethodItemProvider = new RemoveMethodItemProvider(this);
-    }
-
-    return removeMethodItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.SearchMethod} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected SearchMethodItemProvider searchMethodItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.SearchMethod}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createSearchMethodAdapter()
-  {
-    if (searchMethodItemProvider == null)
-    {
-      searchMethodItemProvider = new SearchMethodItemProvider(this);
-    }
-
-    return searchMethodItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.OtherMethod} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected OtherMethodItemProvider otherMethodItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.OtherMethod}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createOtherMethodAdapter()
-  {
-    if (otherMethodItemProvider == null)
-    {
-      otherMethodItemProvider = new OtherMethodItemProvider(this);
-    }
-
-    return otherMethodItemProvider;
+    return methodPointerItemProvider;
   }
 
   /**
@@ -1824,31 +1624,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.BusinessPackage} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected BusinessPackageItemProvider businessPackageItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.BusinessPackage}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createBusinessPackageAdapter()
-  {
-    if (businessPackageItemProvider == null)
-    {
-      businessPackageItemProvider = new BusinessPackageItemProvider(this);
-    }
-
-    return businessPackageItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link domain.UIPackage} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2174,28 +1949,53 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.PRECreateTrigger} instances.
+   * This keeps track of the one adapter used for all {@link domain.POSTCreateTrigger} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PRECreateTriggerItemProvider preCreateTriggerItemProvider;
+  protected POSTCreateTriggerItemProvider postCreateTriggerItemProvider;
 
   /**
-   * This creates an adapter for a {@link domain.PRECreateTrigger}.
+   * This creates an adapter for a {@link domain.POSTCreateTrigger}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createPRECreateTriggerAdapter()
+  public Adapter createPOSTCreateTriggerAdapter()
   {
-    if (preCreateTriggerItemProvider == null)
+    if (postCreateTriggerItemProvider == null)
     {
-      preCreateTriggerItemProvider = new PRECreateTriggerItemProvider(this);
+      postCreateTriggerItemProvider = new POSTCreateTriggerItemProvider(this);
     }
 
-    return preCreateTriggerItemProvider;
+    return postCreateTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.PREUpdateTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PREUpdateTriggerItemProvider preUpdateTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.PREUpdateTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPREUpdateTriggerAdapter()
+  {
+    if (preUpdateTriggerItemProvider == null)
+    {
+      preUpdateTriggerItemProvider = new PREUpdateTriggerItemProvider(this);
+    }
+
+    return preUpdateTriggerItemProvider;
   }
 
   /**
@@ -2458,15 +2258,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (applicationRecipeItemProvider != null) applicationRecipeItemProvider.dispose();
     if (applicationMappersItemProvider != null) applicationMappersItemProvider.dispose();
     if (applicationMapperItemProvider != null) applicationMapperItemProvider.dispose();
-    if (businessObjectsItemProvider != null) businessObjectsItemProvider.dispose();
-    if (businessObjectItemProvider != null) businessObjectItemProvider.dispose();
-    if (businessMethodItemProvider != null) businessMethodItemProvider.dispose();
-    if (createMethodItemProvider != null) createMethodItemProvider.dispose();
-    if (insertMethodItemProvider != null) insertMethodItemProvider.dispose();
-    if (updateMethodItemProvider != null) updateMethodItemProvider.dispose();
-    if (removeMethodItemProvider != null) removeMethodItemProvider.dispose();
-    if (searchMethodItemProvider != null) searchMethodItemProvider.dispose();
-    if (otherMethodItemProvider != null) otherMethodItemProvider.dispose();
+    if (methodPointerItemProvider != null) methodPointerItemProvider.dispose();
     if (mappersItemProvider != null) mappersItemProvider.dispose();
     if (mapperItemProvider != null) mapperItemProvider.dispose();
     if (javaMapperItemProvider != null) javaMapperItemProvider.dispose();
@@ -2504,7 +2296,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (typesRepositoryItemProvider != null) typesRepositoryItemProvider.dispose();
     if (typesItemProvider != null) typesItemProvider.dispose();
     if (packageItemProvider != null) packageItemProvider.dispose();
-    if (businessPackageItemProvider != null) businessPackageItemProvider.dispose();
     if (uiPackageItemProvider != null) uiPackageItemProvider.dispose();
     if (formItemProvider != null) formItemProvider.dispose();
     if (formViewItemProvider != null) formViewItemProvider.dispose();
@@ -2518,7 +2309,8 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (postQueryTriggerItemProvider != null) postQueryTriggerItemProvider.dispose();
     if (preInsertTriggerItemProvider != null) preInsertTriggerItemProvider.dispose();
     if (preDeleteTriggerItemProvider != null) preDeleteTriggerItemProvider.dispose();
-    if (preCreateTriggerItemProvider != null) preCreateTriggerItemProvider.dispose();
+    if (postCreateTriggerItemProvider != null) postCreateTriggerItemProvider.dispose();
+    if (preUpdateTriggerItemProvider != null) preUpdateTriggerItemProvider.dispose();
     if (rootItemProvider != null) rootItemProvider.dispose();
     if (dataControlItemProvider != null) dataControlItemProvider.dispose();
     if (relationItemProvider != null) relationItemProvider.dispose();

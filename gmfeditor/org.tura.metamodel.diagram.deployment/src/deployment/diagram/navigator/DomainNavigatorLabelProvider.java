@@ -109,39 +109,39 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_904004); //$NON-NLS-1$
-		case DeploymentStarStepEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DeploymentStarStep", DomainElementTypes.DeploymentStarStep_902002); //$NON-NLS-1$
-		case DeploymentComponentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DeploymentComponent", DomainElementTypes.DeploymentComponent_902001); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_904001); //$NON-NLS-1$
-		case DeploymentComponentsEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?DeploymentComponents", DomainElementTypes.DeploymentComponents_901000); //$NON-NLS-1$
-		case RelationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Relation", DomainElementTypes.Relation_904010); //$NON-NLS-1$
 		case RecipeDeloymentEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?deloyment", DomainElementTypes.RecipeDeloyment_904005); //$NON-NLS-1$
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentComponent?deplymentComponent", DomainElementTypes.DeploymentComponentDeplymentComponent_904002); //$NON-NLS-1$
+		case DeploymentComponentsEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?DeploymentComponents", DomainElementTypes.DeploymentComponents_901000); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_904001); //$NON-NLS-1$
+		case DeploymentStarStepEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DeploymentStarStep", DomainElementTypes.DeploymentStarStep_902002); //$NON-NLS-1$
+		case RelationEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Relation", DomainElementTypes.Relation_904010); //$NON-NLS-1$
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_904004); //$NON-NLS-1$
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_904007); //$NON-NLS-1$
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentStarStep?firstStep", DomainElementTypes.DeploymentStarStepFirstStep_904008); //$NON-NLS-1$
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_904006); //$NON-NLS-1$
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentStarStep?firstStep", DomainElementTypes.DeploymentStarStepFirstStep_904008); //$NON-NLS-1$
+		case DeploymentComponentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?DeploymentComponent", DomainElementTypes.DeploymentComponent_902001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -202,107 +202,30 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getRecipeInfrastructures_904004Text(view);
-		case DeploymentStarStepEditPart.VISUAL_ID:
-			return getDeploymentStarStep_902002Text(view);
-		case DeploymentComponentEditPart.VISUAL_ID:
-			return getDeploymentComponent_902001Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_904001Text(view);
-		case DeploymentComponentsEditPart.VISUAL_ID:
-			return getDeploymentComponents_901000Text(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_904010Text(view);
 		case RecipeDeloymentEditPart.VISUAL_ID:
 			return getRecipeDeloyment_904005Text(view);
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return getDeploymentComponentDeplymentComponent_904002Text(view);
+		case DeploymentComponentsEditPart.VISUAL_ID:
+			return getDeploymentComponents_901000Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_904001Text(view);
+		case DeploymentStarStepEditPart.VISUAL_ID:
+			return getDeploymentStarStep_902002Text(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_904010Text(view);
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getRecipeInfrastructures_904004Text(view);
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
 			return getConfigurationConfigExtension_904007Text(view);
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			return getDeploymentStarStepFirstStep_904008Text(view);
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return getInfrastructureRecipeConfig_904006Text(view);
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			return getDeploymentStarStepFirstStep_904008Text(view);
+		case DeploymentComponentEditPart.VISUAL_ID:
+			return getDeploymentComponent_902001Text(view);
 		}
 		return getUnknownElementText(view);
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getDeploymentStarStep_902002Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.DeploymentStarStep_902002,
-				view.getElement() != null ? view.getElement() : view,
-				DomainVisualIDRegistry
-						.getType(DeploymentStarStepNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 905002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getInfrastructureRecipeConfig_904006Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.InfrastructureRecipeConfig_904006,
-				view.getElement() != null ? view.getElement() : view,
-				CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 906005); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getDeploymentStarStepFirstStep_904008Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.DeploymentStarStepFirstStep_904008,
-				view.getElement() != null ? view.getElement() : view,
-				CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 906007); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getConfigurationConfigExtension_904007Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.ConfigurationConfigExtension_904007,
-				view.getElement() != null ? view.getElement() : view,
-				CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 906006); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
 	}
 
 	/**
@@ -320,25 +243,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 906004); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getRecipeInfrastructures_904004Text(View view) {
-		IParser parser = DomainParserProvider.getParser(
-				DomainElementTypes.RecipeInfrastructures_904004,
-				view.getElement() != null ? view.getElement() : view,
-				CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 906003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -381,6 +285,40 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
+	private String getTypeExtension_904001Text(View view) {
+		TypeExtension domainModelElement = (TypeExtension) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 904001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getDeploymentStarStep_902002Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.DeploymentStarStep_902002,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(DeploymentStarStepNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 905002); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	private String getRelation_904010Text(View view) {
 		Relation domainModelElement = (Relation) view.getElement();
 		if (domainModelElement != null) {
@@ -395,13 +333,75 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getTypeExtension_904001Text(View view) {
-		TypeExtension domainModelElement = (TypeExtension) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getUid();
+	private String getRecipeInfrastructures_904004Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.RecipeInfrastructures_904004,
+				view.getElement() != null ? view.getElement() : view,
+				CommonParserHint.DESCRIPTION);
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 904001); //$NON-NLS-1$
+					"Parser was not found for label " + 906003); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getConfigurationConfigExtension_904007Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.ConfigurationConfigExtension_904007,
+				view.getElement() != null ? view.getElement() : view,
+				CommonParserHint.DESCRIPTION);
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 906006); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getInfrastructureRecipeConfig_904006Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.InfrastructureRecipeConfig_904006,
+				view.getElement() != null ? view.getElement() : view,
+				CommonParserHint.DESCRIPTION);
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 906005); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getDeploymentStarStepFirstStep_904008Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.DeploymentStarStepFirstStep_904008,
+				view.getElement() != null ? view.getElement() : view,
+				CommonParserHint.DESCRIPTION);
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 906007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

@@ -4,8 +4,8 @@ package domain.provider;
 
 
 import domain.ArtificialField;
-
 import domain.DomainPackage;
+
 import java.util.Collection;
 import java.util.List;
 

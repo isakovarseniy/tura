@@ -48,13 +48,14 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof DataControlEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(6);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(7);
 			types.add(DomainElementTypes.PREQueryTrigger_1103002);
 			types.add(DomainElementTypes.POSTQueryTrigger_1103003);
 			types.add(DomainElementTypes.PREInsertTrigger_1103004);
 			types.add(DomainElementTypes.PREDeleteTrigger_1103005);
-			types.add(DomainElementTypes.PRECreateTrigger_1103006);
-			types.add(DomainElementTypes.ArtificialField_1103007);
+			types.add(DomainElementTypes.POSTCreateTrigger_1103011);
+			types.add(DomainElementTypes.PREUpdateTrigger_1103010);
+			types.add(DomainElementTypes.ArtificialField_1103008);
 			return types;
 		}
 		if (editPart instanceof RootEditPart) {

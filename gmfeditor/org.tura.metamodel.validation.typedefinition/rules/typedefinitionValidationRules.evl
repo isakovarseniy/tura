@@ -182,6 +182,14 @@
 
 }
 
+ context MethodPointer{
+ 
+   constraint HasName {
+      check :  self.methodRef.isDefined()
+      message : 'Undefined method name ' + self.eClass().name + ' not allowed'
+
+  }
+}
 
 
 

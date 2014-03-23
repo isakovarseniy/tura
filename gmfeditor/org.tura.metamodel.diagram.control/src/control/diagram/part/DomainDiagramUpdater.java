@@ -18,19 +18,21 @@ import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import control.diagram.edit.parts.ArtificialFieldEditPart;
 import control.diagram.edit.parts.ControlsEditPart;
-import control.diagram.edit.parts.DataControlDataControlArtificialFieldCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlArtificialFieldsCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlPostCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostQueryTriggerCompartmentEditPart;
-import control.diagram.edit.parts.DataControlDataControlPreCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreDeleteTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreInsertTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreQueryTriggerCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlPreUpdateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
+import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
-import control.diagram.edit.parts.PRECreateTriggerEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerEditPart;
 import control.diagram.edit.parts.PREFormTriggerEditPart;
 import control.diagram.edit.parts.PREInsertTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerEditPart;
+import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
 import control.diagram.edit.parts.RootRootPreFormTriggerCompartmentEditPart;
@@ -40,12 +42,13 @@ import domain.ArtificialField;
 import domain.Controls;
 import domain.DataControl;
 import domain.DomainPackage;
+import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
-import domain.PRECreateTrigger;
 import domain.PREDeleteTrigger;
 import domain.PREFormTrigger;
 import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
+import domain.PREUpdateTrigger;
 import domain.Relation;
 import domain.Root;
 
@@ -77,10 +80,12 @@ public class DomainDiagramUpdater {
 			return getDataControlDataControlPreInsertTriggerCompartment_1107004SemanticChildren(view);
 		case DataControlDataControlPreDeleteTriggerCompartmentEditPart.VISUAL_ID:
 			return getDataControlDataControlPreDeleteTriggerCompartment_1107005SemanticChildren(view);
-		case DataControlDataControlPreCreateTriggerCompartmentEditPart.VISUAL_ID:
-			return getDataControlDataControlPreCreateTriggerCompartment_1107006SemanticChildren(view);
-		case DataControlDataControlArtificialFieldCompartmentEditPart.VISUAL_ID:
-			return getDataControlDataControlArtificialFieldCompartment_1107007SemanticChildren(view);
+		case DataControlDataControlPostCreateTriggerCompartmentEditPart.VISUAL_ID:
+			return getDataControlDataControlPostCreateTriggerCompartment_1107006SemanticChildren(view);
+		case DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID:
+			return getDataControlDataControlPreUpdateTriggerCompartment_1107007SemanticChildren(view);
+		case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
+			return getDataControlDataControlArtificialFieldsCompartment_1107008SemanticChildren(view);
 		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
 			return getRootRootPreFormTriggerCompartment_1107001SemanticChildren(view);
 		}
@@ -221,7 +226,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getDataControlDataControlPreCreateTriggerCompartment_1107006SemanticChildren(
+	public static List<DomainNodeDescriptor> getDataControlDataControlPostCreateTriggerCompartment_1107006SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -233,10 +238,11 @@ public class DomainDiagramUpdater {
 		DataControl modelElement = (DataControl) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
-			PRECreateTrigger childElement = modelElement.getPreCreateTrigger();
+			POSTCreateTrigger childElement = modelElement
+					.getPostCreateTrigger();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == PRECreateTriggerEditPart.VISUAL_ID) {
+			if (visualID == POSTCreateTriggerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -246,7 +252,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getDataControlDataControlArtificialFieldCompartment_1107007SemanticChildren(
+	public static List<DomainNodeDescriptor> getDataControlDataControlPreUpdateTriggerCompartment_1107007SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -258,11 +264,38 @@ public class DomainDiagramUpdater {
 		DataControl modelElement = (DataControl) containerView.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
 		{
-			ArtificialField childElement = modelElement.getArtificialField();
+			PREUpdateTrigger childElement = modelElement.getPreUpdateTrigger();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == PREUpdateTriggerEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getDataControlDataControlArtificialFieldsCompartment_1107008SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		DataControl modelElement = (DataControl) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getArtificialFields().iterator(); it
+				.hasNext();) {
+			ArtificialField childElement = (ArtificialField) it.next();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == ArtificialFieldEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -312,10 +345,12 @@ public class DomainDiagramUpdater {
 			return getPREInsertTrigger_1103004ContainedLinks(view);
 		case PREDeleteTriggerEditPart.VISUAL_ID:
 			return getPREDeleteTrigger_1103005ContainedLinks(view);
-		case PRECreateTriggerEditPart.VISUAL_ID:
-			return getPRECreateTrigger_1103006ContainedLinks(view);
+		case POSTCreateTriggerEditPart.VISUAL_ID:
+			return getPOSTCreateTrigger_1103011ContainedLinks(view);
+		case PREUpdateTriggerEditPart.VISUAL_ID:
+			return getPREUpdateTrigger_1103010ContainedLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
-			return getArtificialField_1103007ContainedLinks(view);
+			return getArtificialField_1103008ContainedLinks(view);
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return getPREFormTrigger_1103001ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -343,10 +378,12 @@ public class DomainDiagramUpdater {
 			return getPREInsertTrigger_1103004IncomingLinks(view);
 		case PREDeleteTriggerEditPart.VISUAL_ID:
 			return getPREDeleteTrigger_1103005IncomingLinks(view);
-		case PRECreateTriggerEditPart.VISUAL_ID:
-			return getPRECreateTrigger_1103006IncomingLinks(view);
+		case POSTCreateTriggerEditPart.VISUAL_ID:
+			return getPOSTCreateTrigger_1103011IncomingLinks(view);
+		case PREUpdateTriggerEditPart.VISUAL_ID:
+			return getPREUpdateTrigger_1103010IncomingLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
-			return getArtificialField_1103007IncomingLinks(view);
+			return getArtificialField_1103008IncomingLinks(view);
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return getPREFormTrigger_1103001IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -374,10 +411,12 @@ public class DomainDiagramUpdater {
 			return getPREInsertTrigger_1103004OutgoingLinks(view);
 		case PREDeleteTriggerEditPart.VISUAL_ID:
 			return getPREDeleteTrigger_1103005OutgoingLinks(view);
-		case PRECreateTriggerEditPart.VISUAL_ID:
-			return getPRECreateTrigger_1103006OutgoingLinks(view);
+		case POSTCreateTriggerEditPart.VISUAL_ID:
+			return getPOSTCreateTrigger_1103011OutgoingLinks(view);
+		case PREUpdateTriggerEditPart.VISUAL_ID:
+			return getPREUpdateTrigger_1103010OutgoingLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
-			return getArtificialField_1103007OutgoingLinks(view);
+			return getArtificialField_1103008OutgoingLinks(view);
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return getPREFormTrigger_1103001OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
@@ -450,7 +489,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPRECreateTrigger_1103006ContainedLinks(
+	public static List<DomainLinkDescriptor> getPOSTCreateTrigger_1103011ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -458,7 +497,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getArtificialField_1103007ContainedLinks(
+	public static List<DomainLinkDescriptor> getPREUpdateTrigger_1103010ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getArtificialField_1103008ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -544,7 +591,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPRECreateTrigger_1103006IncomingLinks(
+	public static List<DomainLinkDescriptor> getPOSTCreateTrigger_1103011IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -552,7 +599,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getArtificialField_1103007IncomingLinks(
+	public static List<DomainLinkDescriptor> getPREUpdateTrigger_1103010IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getArtificialField_1103008IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -635,7 +690,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPRECreateTrigger_1103006OutgoingLinks(
+	public static List<DomainLinkDescriptor> getPOSTCreateTrigger_1103011OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -643,7 +698,15 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getArtificialField_1103007OutgoingLinks(
+	public static List<DomainLinkDescriptor> getPREUpdateTrigger_1103010OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getArtificialField_1103008OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

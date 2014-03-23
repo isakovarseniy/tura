@@ -1,7 +1,0 @@
-# Tracing options for the org.tura.metamodel.diagram.businessobjects plug-in
-
-# Common issues
-org.tura.metamodel.diagram.businessobjects/debug=false
-
-# Visual IDs
-org.tura.metamodel.diagram.businessobjects/debug/visualID=false

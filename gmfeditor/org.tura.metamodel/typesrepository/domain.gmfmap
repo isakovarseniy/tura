@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
           href="domain.gmfgraph#Types"/>
       <children
@@ -41,41 +41,15 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
-          <diagramNode
-              href="domain.gmfgraph#Package"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.1">
-        <containmentFeature
-            href="domain.ecore#//Types/businessPackages"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//BusinessPackage"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#BusinessPackageLabel"/>
-            <features
-                href="domain.ecore#//BusinessPackage/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
               href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
           <diagramNode
-              href="domain.gmfgraph#BusinessPackage"/>
+              href="domain.gmfgraph#Package"/>
         </ownedChild>
       </children>
       <compartments
           children="//@nodes.0/@ownedChild/@children.0">
         <compartment
             href="domain.gmfgraph#TypesPackagesCompartment"/>
-      </compartments>
-      <compartments
-          children="//@nodes.0/@ownedChild/@children.1">
-        <compartment
-            href="domain.gmfgraph#TypesBusinessPackagesCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>

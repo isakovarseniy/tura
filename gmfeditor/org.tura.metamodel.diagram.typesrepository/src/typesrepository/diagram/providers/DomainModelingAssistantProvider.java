@@ -25,7 +25,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
-import typesrepository.diagram.edit.parts.TypesTypesBusinessPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
 import typesrepository.diagram.part.DomainDiagramEditorPlugin;
 import typesrepository.diagram.part.Messages;
@@ -49,11 +48,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof TypesTypesPackagesCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.Package_203002);
-			return types;
-		}
-		if (editPart instanceof TypesTypesBusinessPackagesCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.BusinessPackage_203003);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

@@ -19,7 +19,6 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
-import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import typesrepository.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
 import typesrepository.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
@@ -72,10 +71,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Package_203002 = getElementType("org.tura.metamodel.diagram.typesrepository.Package_203002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType BusinessPackage_203003 = getElementType("org.tura.metamodel.diagram.typesrepository.BusinessPackage_203003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -227,9 +222,6 @@ public class DomainElementTypes {
 
 			elements.put(Package_203002, DomainPackage.eINSTANCE.getPackage());
 
-			elements.put(BusinessPackage_203003,
-					DomainPackage.eINSTANCE.getBusinessPackage());
-
 			elements.put(TypeExtension_204001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
@@ -273,7 +265,6 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(TypesRepository_201000);
 			KNOWN_ELEMENT_TYPES.add(Types_202001);
 			KNOWN_ELEMENT_TYPES.add(Package_203002);
-			KNOWN_ELEMENT_TYPES.add(BusinessPackage_203003);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_204001);
 			KNOWN_ELEMENT_TYPES.add(Relation_204011);
 			KNOWN_ELEMENT_TYPES
@@ -298,8 +289,6 @@ public class DomainElementTypes {
 			return Types_202001;
 		case PackageEditPart.VISUAL_ID:
 			return Package_203002;
-		case BusinessPackageEditPart.VISUAL_ID:
-			return BusinessPackage_203003;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_204001;
 		case RelationEditPart.VISUAL_ID:

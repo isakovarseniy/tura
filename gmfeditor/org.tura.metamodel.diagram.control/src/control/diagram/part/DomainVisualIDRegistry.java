@@ -15,12 +15,13 @@ import control.diagram.edit.parts.ArtificialFieldNameEditPart;
 import control.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import control.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import control.diagram.edit.parts.ControlsEditPart;
-import control.diagram.edit.parts.DataControlDataControlArtificialFieldCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlArtificialFieldsCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlPostCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostQueryTriggerCompartmentEditPart;
-import control.diagram.edit.parts.DataControlDataControlPreCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreDeleteTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreInsertTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreQueryTriggerCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlPreUpdateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DataControlNameEditPart;
 import control.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
@@ -29,10 +30,10 @@ import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import control.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import control.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
+import control.diagram.edit.parts.POSTCreateTriggerEditPart;
+import control.diagram.edit.parts.POSTCreateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerFakeMethodEditPart;
-import control.diagram.edit.parts.PRECreateTriggerEditPart;
-import control.diagram.edit.parts.PRECreateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREFormTriggerEditPart;
@@ -41,6 +42,8 @@ import control.diagram.edit.parts.PREInsertTriggerEditPart;
 import control.diagram.edit.parts.PREInsertTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREQueryTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerFakeMethodEditPart;
+import control.diagram.edit.parts.PREUpdateTriggerEditPart;
+import control.diagram.edit.parts.PREUpdateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.RecipeDeloymentEditPart;
 import control.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import control.diagram.edit.parts.RecipeInfrastructuresEditPart;
@@ -195,13 +198,19 @@ public class DomainVisualIDRegistry {
 				return PREDeleteTriggerEditPart.VISUAL_ID;
 			}
 			break;
-		case DataControlDataControlPreCreateTriggerCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPRECreateTrigger().isSuperTypeOf(
+		case DataControlDataControlPostCreateTriggerCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getPOSTCreateTrigger().isSuperTypeOf(
 					domainElement.eClass())) {
-				return PRECreateTriggerEditPart.VISUAL_ID;
+				return POSTCreateTriggerEditPart.VISUAL_ID;
 			}
 			break;
-		case DataControlDataControlArtificialFieldCompartmentEditPart.VISUAL_ID:
+		case DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getPREUpdateTrigger().isSuperTypeOf(
+					domainElement.eClass())) {
+				return PREUpdateTriggerEditPart.VISUAL_ID;
+			}
+			break;
+		case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getArtificialField().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ArtificialFieldEditPart.VISUAL_ID;
@@ -263,10 +272,13 @@ public class DomainVisualIDRegistry {
 			if (DataControlDataControlPreDeleteTriggerCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (DataControlDataControlPreCreateTriggerCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (DataControlDataControlPostCreateTriggerCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (DataControlDataControlArtificialFieldCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -298,8 +310,13 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case PRECreateTriggerEditPart.VISUAL_ID:
-			if (PRECreateTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
+		case POSTCreateTriggerEditPart.VISUAL_ID:
+			if (POSTCreateTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case PREUpdateTriggerEditPart.VISUAL_ID:
+			if (PREUpdateTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -333,12 +350,17 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case DataControlDataControlPreCreateTriggerCompartmentEditPart.VISUAL_ID:
-			if (PRECreateTriggerEditPart.VISUAL_ID == nodeVisualID) {
+		case DataControlDataControlPostCreateTriggerCompartmentEditPart.VISUAL_ID:
+			if (POSTCreateTriggerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case DataControlDataControlArtificialFieldCompartmentEditPart.VISUAL_ID:
+		case DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID:
+			if (PREUpdateTriggerEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
 			if (ArtificialFieldEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -432,8 +454,9 @@ public class DomainVisualIDRegistry {
 		case DataControlDataControlPostQueryTriggerCompartmentEditPart.VISUAL_ID:
 		case DataControlDataControlPreInsertTriggerCompartmentEditPart.VISUAL_ID:
 		case DataControlDataControlPreDeleteTriggerCompartmentEditPart.VISUAL_ID:
-		case DataControlDataControlPreCreateTriggerCompartmentEditPart.VISUAL_ID:
-		case DataControlDataControlArtificialFieldCompartmentEditPart.VISUAL_ID:
+		case DataControlDataControlPostCreateTriggerCompartmentEditPart.VISUAL_ID:
+		case DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID:
+		case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
 		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
@@ -454,8 +477,9 @@ public class DomainVisualIDRegistry {
 		case POSTQueryTriggerEditPart.VISUAL_ID:
 		case PREInsertTriggerEditPart.VISUAL_ID:
 		case PREDeleteTriggerEditPart.VISUAL_ID:
-		case PRECreateTriggerEditPart.VISUAL_ID:
 		case ArtificialFieldEditPart.VISUAL_ID:
+		case PREUpdateTriggerEditPart.VISUAL_ID:
+		case POSTCreateTriggerEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

@@ -48,10 +48,6 @@ public class ArtificialFieldCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		DataControl container = (DataControl) getElementToEdit();
-		if (container.getArtificialField() != null) {
-			return false;
-		}
 		return true;
 
 	}
@@ -65,7 +61,7 @@ public class ArtificialFieldCreateCommand extends EditElementCommand {
 				.createArtificialField();
 
 		DataControl owner = (DataControl) getElementToEdit();
-		owner.setArtificialField(newElement);
+		owner.getArtificialFields().add(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 

@@ -14,17 +14,12 @@ import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
-import domain.BusinessMethod;
-import domain.BusinessObject;
-import domain.BusinessObjects;
-import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
-import domain.CreateMethod;
 import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
@@ -46,7 +41,6 @@ import domain.FormDataControls;
 import domain.FormView;
 import domain.Infrastructure;
 import domain.Ingredient;
-import domain.InsertMethod;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
@@ -54,18 +48,19 @@ import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.MethodPointer;
 import domain.ModelMapper;
 import domain.ModelQuery;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
-import domain.OtherMethod;
+import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
-import domain.PRECreateTrigger;
 import domain.PREDeleteTrigger;
 import domain.PREFormTrigger;
 import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
+import domain.PREUpdateTrigger;
 import domain.Parameter;
 import domain.PlatformLayers;
 import domain.Primitive;
@@ -76,10 +71,8 @@ import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
 import domain.Relation;
-import domain.RemoveMethod;
 import domain.ReturnValue;
 import domain.Root;
-import domain.SearchMethod;
 import domain.Specifier;
 import domain.Trigger;
 import domain.TriggerParameter;
@@ -92,7 +85,6 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UIPackage;
-import domain.UpdateMethod;
 import domain.UsingMappers;
 
 import org.eclipse.emf.ecore.EClass;
@@ -180,15 +172,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.APPLICATION_RECIPE: return createApplicationRecipe();
       case DomainPackage.APPLICATION_MAPPERS: return createApplicationMappers();
       case DomainPackage.APPLICATION_MAPPER: return createApplicationMapper();
-      case DomainPackage.BUSINESS_OBJECTS: return createBusinessObjects();
-      case DomainPackage.BUSINESS_OBJECT: return createBusinessObject();
-      case DomainPackage.BUSINESS_METHOD: return createBusinessMethod();
-      case DomainPackage.CREATE_METHOD: return createCreateMethod();
-      case DomainPackage.INSERT_METHOD: return createInsertMethod();
-      case DomainPackage.UPDATE_METHOD: return createUpdateMethod();
-      case DomainPackage.REMOVE_METHOD: return createRemoveMethod();
-      case DomainPackage.SEARCH_METHOD: return createSearchMethod();
-      case DomainPackage.OTHER_METHOD: return createOtherMethod();
+      case DomainPackage.METHOD_POINTER: return createMethodPointer();
       case DomainPackage.MAPPERS: return createMappers();
       case DomainPackage.MAPPER: return createMapper();
       case DomainPackage.JAVA_MAPPER: return createJavaMapper();
@@ -226,7 +210,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.TYPES_REPOSITORY: return createTypesRepository();
       case DomainPackage.TYPES: return createTypes();
       case DomainPackage.PACKAGE: return createPackage();
-      case DomainPackage.BUSINESS_PACKAGE: return createBusinessPackage();
       case DomainPackage.UI_PACKAGE: return createUIPackage();
       case DomainPackage.FORM: return createForm();
       case DomainPackage.FORM_VIEW: return createFormView();
@@ -240,7 +223,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.POST_QUERY_TRIGGER: return createPOSTQueryTrigger();
       case DomainPackage.PRE_INSERT_TRIGGER: return createPREInsertTrigger();
       case DomainPackage.PRE_DELETE_TRIGGER: return createPREDeleteTrigger();
-      case DomainPackage.PRE_CREATE_TRIGGER: return createPRECreateTrigger();
+      case DomainPackage.POST_CREATE_TRIGGER: return createPOSTCreateTrigger();
+      case DomainPackage.PRE_UPDATE_TRIGGER: return createPREUpdateTrigger();
       case DomainPackage.ROOT: return createRoot();
       case DomainPackage.DATA_CONTROL: return createDataControl();
       case DomainPackage.RELATION: return createRelation();
@@ -554,98 +538,10 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public BusinessObjects createBusinessObjects()
+  public MethodPointer createMethodPointer()
   {
-    BusinessObjectsImpl businessObjects = new BusinessObjectsImpl();
-    return businessObjects;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BusinessObject createBusinessObject()
-  {
-    BusinessObjectImpl businessObject = new BusinessObjectImpl();
-    return businessObject;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BusinessMethod createBusinessMethod()
-  {
-    BusinessMethodImpl businessMethod = new BusinessMethodImpl();
-    return businessMethod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public CreateMethod createCreateMethod()
-  {
-    CreateMethodImpl createMethod = new CreateMethodImpl();
-    return createMethod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public InsertMethod createInsertMethod()
-  {
-    InsertMethodImpl insertMethod = new InsertMethodImpl();
-    return insertMethod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public UpdateMethod createUpdateMethod()
-  {
-    UpdateMethodImpl updateMethod = new UpdateMethodImpl();
-    return updateMethod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RemoveMethod createRemoveMethod()
-  {
-    RemoveMethodImpl removeMethod = new RemoveMethodImpl();
-    return removeMethod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SearchMethod createSearchMethod()
-  {
-    SearchMethodImpl searchMethod = new SearchMethodImpl();
-    return searchMethod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public OtherMethod createOtherMethod()
-  {
-    OtherMethodImpl otherMethod = new OtherMethodImpl();
-    return otherMethod;
+    MethodPointerImpl methodPointer = new MethodPointerImpl();
+    return methodPointer;
   }
 
   /**
@@ -1060,17 +956,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public BusinessPackage createBusinessPackage()
-  {
-    BusinessPackageImpl businessPackage = new BusinessPackageImpl();
-    return businessPackage;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public UIPackage createUIPackage()
   {
     UIPackageImpl uiPackage = new UIPackageImpl();
@@ -1214,10 +1099,21 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public PRECreateTrigger createPRECreateTrigger()
+  public POSTCreateTrigger createPOSTCreateTrigger()
   {
-    PRECreateTriggerImpl preCreateTrigger = new PRECreateTriggerImpl();
-    return preCreateTrigger;
+    POSTCreateTriggerImpl postCreateTrigger = new POSTCreateTriggerImpl();
+    return postCreateTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PREUpdateTrigger createPREUpdateTrigger()
+  {
+    PREUpdateTriggerImpl preUpdateTrigger = new PREUpdateTriggerImpl();
+    return preUpdateTrigger;
   }
 
   /**

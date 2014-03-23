@@ -889,6 +889,10 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="Configuration"
+            description="Create new Configuration"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="ContinuousIintegration"
             description="Create new ContinuousIintegration"
             genNodes="//@diagram/@childNodes.3"/>

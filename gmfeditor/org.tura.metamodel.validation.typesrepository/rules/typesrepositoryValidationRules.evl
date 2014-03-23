@@ -18,21 +18,3 @@
 
 }
 
- context BusinessPackage {
-
-  constraint HasName {
-
-      check : self.name.isDefined()
-
-      message : 'Unnamed ' + self.eClass().name + ' not allowed'
-
-  }
-
-   constraint UniqueName{
-      guard : self.satisfies("HasName")
-      check : BusinessPackage.all.select(r|r.name=self.name)->size() = 1
-      message : 'BusinessPackage name  ' + self.name + ' is not unique'
-   
-   } 
-
-}

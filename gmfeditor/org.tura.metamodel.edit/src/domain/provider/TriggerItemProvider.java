@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class TriggerItemProvider
-  extends TypePointerItemProvider
+  extends MethodPointerItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -66,8 +66,6 @@ public class TriggerItemProvider
 
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
-      addMethodRefPropertyDescriptor(object);
-      addFakeMethodPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -110,52 +108,6 @@ public class TriggerItemProvider
          getString("_UI_Trigger_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Trigger_name_feature", "_UI_Trigger_type"),
          DomainPackage.Literals.TRIGGER__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Method Ref feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addMethodRefPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Trigger_methodRef_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Trigger_methodRef_feature", "_UI_Trigger_type"),
-         DomainPackage.Literals.TRIGGER__METHOD_REF,
-         true,
-         false,
-         true,
-         null,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Fake Method feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addFakeMethodPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Trigger_fakeMethod_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Trigger_fakeMethod_feature", "_UI_Trigger_type"),
-         DomainPackage.Literals.TRIGGER__FAKE_METHOD,
          true,
          false,
          false,
@@ -240,7 +192,6 @@ public class TriggerItemProvider
     {
       case DomainPackage.TRIGGER__UID:
       case DomainPackage.TRIGGER__NAME:
-      case DomainPackage.TRIGGER__FAKE_METHOD:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.TRIGGER__PARAMETERS:

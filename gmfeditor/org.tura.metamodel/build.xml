@@ -1,6 +1,6 @@
 <project default="main">
 	
-	<target name="main" depends="application,artifact,businessObjects,domain,mapper,recipe,typedefinition,typesrepository,deployment,uipackage,control">
+	<target name="main" depends="application,artifact,domain,mapper,recipe,typedefinition,typesrepository,deployment,uipackage,control">
 	</target>
 	
 	<target name="application">
@@ -15,14 +15,6 @@
 		<replace file="artifact/domain.emf"    token="@gmf.diagram.artifact" value="@gmf.diagram"/>
 		<epsilon.eugenia   src="artifact/domain.emf" laststep="gmfgen" />		
 		<epsilon.eugenia   src="artifact/domain.emf" firststep="gmfcode"  />		
-	</target>
-	
-	
-	<target name="businessObjects">
-		<copy file="basefolder/domain.emf" todir="businessObjects"/>
-		<replace file="businessObjects/domain.emf"    token="@gmf.diagram.businessObjects" value="@gmf.diagram"/>
-		<epsilon.eugenia   src="businessObjects/domain.emf" laststep="gmfgen" />		
-		<epsilon.eugenia   src="businessObjects/domain.emf" firststep="gmfcode"  />		
 	</target>
 	
 	

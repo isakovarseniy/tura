@@ -50,12 +50,13 @@ import control.diagram.edit.parts.ArtificialFieldNameEditPart;
 import control.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import control.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import control.diagram.edit.parts.ControlsEditPart;
-import control.diagram.edit.parts.DataControlDataControlArtificialFieldCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlArtificialFieldsCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlPostCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostQueryTriggerCompartmentEditPart;
-import control.diagram.edit.parts.DataControlDataControlPreCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreDeleteTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreInsertTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreQueryTriggerCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlPreUpdateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DataControlNameEditPart;
 import control.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
@@ -64,10 +65,10 @@ import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import control.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import control.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
+import control.diagram.edit.parts.POSTCreateTriggerEditPart;
+import control.diagram.edit.parts.POSTCreateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerFakeMethodEditPart;
-import control.diagram.edit.parts.PRECreateTriggerEditPart;
-import control.diagram.edit.parts.PRECreateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREFormTriggerEditPart;
@@ -76,6 +77,8 @@ import control.diagram.edit.parts.PREInsertTriggerEditPart;
 import control.diagram.edit.parts.PREInsertTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREQueryTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerFakeMethodEditPart;
+import control.diagram.edit.parts.PREUpdateTriggerEditPart;
+import control.diagram.edit.parts.PREUpdateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.RecipeDeloymentEditPart;
 import control.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
 import control.diagram.edit.parts.RecipeInfrastructuresEditPart;
@@ -183,7 +186,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				case POSTQueryTriggerEditPart.VISUAL_ID:
 				case PREInsertTriggerEditPart.VISUAL_ID:
 				case PREDeleteTriggerEditPart.VISUAL_ID:
-				case PRECreateTriggerEditPart.VISUAL_ID:
+				case POSTCreateTriggerEditPart.VISUAL_ID:
+				case PREUpdateTriggerEditPart.VISUAL_ID:
 				case ArtificialFieldEditPart.VISUAL_ID:
 				case PREFormTriggerEditPart.VISUAL_ID:
 					if (domainElement == null
@@ -204,7 +208,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| POSTQueryTriggerEditPart.VISUAL_ID == visualID
 				|| PREInsertTriggerEditPart.VISUAL_ID == visualID
 				|| PREDeleteTriggerEditPart.VISUAL_ID == visualID
-				|| PRECreateTriggerEditPart.VISUAL_ID == visualID
+				|| POSTCreateTriggerEditPart.VISUAL_ID == visualID
+				|| PREUpdateTriggerEditPart.VISUAL_ID == visualID
 				|| ArtificialFieldEditPart.VISUAL_ID == visualID
 				|| PREFormTriggerEditPart.VISUAL_ID == visualID;
 	}
@@ -281,11 +286,14 @@ public class DomainViewProvider extends AbstractProvider implements
 		case PREDeleteTriggerEditPart.VISUAL_ID:
 			return createPREDeleteTrigger_1103005(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case PRECreateTriggerEditPart.VISUAL_ID:
-			return createPRECreateTrigger_1103006(domainElement, containerView,
+		case POSTCreateTriggerEditPart.VISUAL_ID:
+			return createPOSTCreateTrigger_1103011(domainElement,
+					containerView, index, persisted, preferencesHint);
+		case PREUpdateTriggerEditPart.VISUAL_ID:
+			return createPREUpdateTrigger_1103010(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case ArtificialFieldEditPart.VISUAL_ID:
-			return createArtificialField_1103007(domainElement, containerView,
+			return createArtificialField_1103008(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return createPREFormTrigger_1103001(domainElement, containerView,
@@ -395,12 +403,17 @@ public class DomainViewProvider extends AbstractProvider implements
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
-						.getType(DataControlDataControlPreCreateTriggerCompartmentEditPart.VISUAL_ID),
+						.getType(DataControlDataControlPostCreateTriggerCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
-						.getType(DataControlDataControlArtificialFieldCompartmentEditPart.VISUAL_ID),
+						.getType(DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		return node;
 	}
@@ -603,7 +616,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createPRECreateTrigger_1103006(EObject domainElement,
+	public Node createPOSTCreateTrigger_1103011(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
@@ -612,7 +625,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry
-				.getType(PRECreateTriggerEditPart.VISUAL_ID));
+				.getType(POSTCreateTriggerEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -632,16 +645,54 @@ public class DomainViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		Node label1105008 = createLabel(node,
+		Node label1105013 = createLabel(node,
 				DomainVisualIDRegistry
-						.getType(PRECreateTriggerFakeMethodEditPart.VISUAL_ID));
+						.getType(POSTCreateTriggerFakeMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createArtificialField_1103007(EObject domainElement,
+	public Node createPREUpdateTrigger_1103010(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(PREUpdateTriggerEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1105012 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(PREUpdateTriggerFakeMethodEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createArtificialField_1103008(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
@@ -670,7 +721,7 @@ public class DomainViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		Node label1105009 = createLabel(node,
+		Node label1105010 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(ArtificialFieldNameEditPart.VISUAL_ID));
 		return node;

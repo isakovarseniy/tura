@@ -5,20 +5,28 @@ package domain.impl;
 import domain.ArtificialField;
 import domain.DataControl;
 import domain.DomainPackage;
+import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
-import domain.PRECreateTrigger;
 import domain.PREDeleteTrigger;
 import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
+import domain.PREUpdateTrigger;
 import domain.Trigger;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,8 +41,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link domain.impl.DataControlImpl#getPostQueryTrigger <em>Post Query Trigger</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getPreInsertTrigger <em>Pre Insert Trigger</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getPreDeleteTrigger <em>Pre Delete Trigger</em>}</li>
- *   <li>{@link domain.impl.DataControlImpl#getPreCreateTrigger <em>Pre Create Trigger</em>}</li>
- *   <li>{@link domain.impl.DataControlImpl#getArtificialField <em>Artificial Field</em>}</li>
+ *   <li>{@link domain.impl.DataControlImpl#getPostCreateTrigger <em>Post Create Trigger</em>}</li>
+ *   <li>{@link domain.impl.DataControlImpl#getPreUpdateTrigger <em>Pre Update Trigger</em>}</li>
+ *   <li>{@link domain.impl.DataControlImpl#getArtificialFields <em>Artificial Fields</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getCreate <em>Create</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getInsert <em>Insert</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getUpdate <em>Update</em>}</li>
@@ -128,24 +137,34 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
   protected PREDeleteTrigger preDeleteTrigger;
 
   /**
-   * The cached value of the '{@link #getPreCreateTrigger() <em>Pre Create Trigger</em>}' containment reference.
+   * The cached value of the '{@link #getPostCreateTrigger() <em>Post Create Trigger</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPreCreateTrigger()
+   * @see #getPostCreateTrigger()
    * @generated
    * @ordered
    */
-  protected PRECreateTrigger preCreateTrigger;
+  protected POSTCreateTrigger postCreateTrigger;
 
   /**
-   * The cached value of the '{@link #getArtificialField() <em>Artificial Field</em>}' containment reference.
+   * The cached value of the '{@link #getPreUpdateTrigger() <em>Pre Update Trigger</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArtificialField()
+   * @see #getPreUpdateTrigger()
    * @generated
    * @ordered
    */
-  protected ArtificialField artificialField;
+  protected PREUpdateTrigger preUpdateTrigger;
+
+  /**
+   * The cached value of the '{@link #getArtificialFields() <em>Artificial Fields</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArtificialFields()
+   * @generated
+   * @ordered
+   */
+  protected EList<ArtificialField> artificialFields;
 
   /**
    * The cached value of the '{@link #getCreate() <em>Create</em>}' containment reference.
@@ -461,9 +480,9 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public PRECreateTrigger getPreCreateTrigger()
+  public POSTCreateTrigger getPostCreateTrigger()
   {
-    return preCreateTrigger;
+    return postCreateTrigger;
   }
 
   /**
@@ -471,13 +490,13 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPreCreateTrigger(PRECreateTrigger newPreCreateTrigger, NotificationChain msgs)
+  public NotificationChain basicSetPostCreateTrigger(POSTCreateTrigger newPostCreateTrigger, NotificationChain msgs)
   {
-    PRECreateTrigger oldPreCreateTrigger = preCreateTrigger;
-    preCreateTrigger = newPreCreateTrigger;
+    POSTCreateTrigger oldPostCreateTrigger = postCreateTrigger;
+    postCreateTrigger = newPostCreateTrigger;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__PRE_CREATE_TRIGGER, oldPreCreateTrigger, newPreCreateTrigger);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER, oldPostCreateTrigger, newPostCreateTrigger);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -488,20 +507,20 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPreCreateTrigger(PRECreateTrigger newPreCreateTrigger)
+  public void setPostCreateTrigger(POSTCreateTrigger newPostCreateTrigger)
   {
-    if (newPreCreateTrigger != preCreateTrigger)
+    if (newPostCreateTrigger != postCreateTrigger)
     {
       NotificationChain msgs = null;
-      if (preCreateTrigger != null)
-        msgs = ((InternalEObject)preCreateTrigger).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__PRE_CREATE_TRIGGER, null, msgs);
-      if (newPreCreateTrigger != null)
-        msgs = ((InternalEObject)newPreCreateTrigger).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__PRE_CREATE_TRIGGER, null, msgs);
-      msgs = basicSetPreCreateTrigger(newPreCreateTrigger, msgs);
+      if (postCreateTrigger != null)
+        msgs = ((InternalEObject)postCreateTrigger).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER, null, msgs);
+      if (newPostCreateTrigger != null)
+        msgs = ((InternalEObject)newPostCreateTrigger).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER, null, msgs);
+      msgs = basicSetPostCreateTrigger(newPostCreateTrigger, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__PRE_CREATE_TRIGGER, newPreCreateTrigger, newPreCreateTrigger));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER, newPostCreateTrigger, newPostCreateTrigger));
   }
 
   /**
@@ -509,9 +528,9 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public ArtificialField getArtificialField()
+  public PREUpdateTrigger getPreUpdateTrigger()
   {
-    return artificialField;
+    return preUpdateTrigger;
   }
 
   /**
@@ -519,13 +538,13 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetArtificialField(ArtificialField newArtificialField, NotificationChain msgs)
+  public NotificationChain basicSetPreUpdateTrigger(PREUpdateTrigger newPreUpdateTrigger, NotificationChain msgs)
   {
-    ArtificialField oldArtificialField = artificialField;
-    artificialField = newArtificialField;
+    PREUpdateTrigger oldPreUpdateTrigger = preUpdateTrigger;
+    preUpdateTrigger = newPreUpdateTrigger;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELD, oldArtificialField, newArtificialField);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER, oldPreUpdateTrigger, newPreUpdateTrigger);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -536,20 +555,34 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setArtificialField(ArtificialField newArtificialField)
+  public void setPreUpdateTrigger(PREUpdateTrigger newPreUpdateTrigger)
   {
-    if (newArtificialField != artificialField)
+    if (newPreUpdateTrigger != preUpdateTrigger)
     {
       NotificationChain msgs = null;
-      if (artificialField != null)
-        msgs = ((InternalEObject)artificialField).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELD, null, msgs);
-      if (newArtificialField != null)
-        msgs = ((InternalEObject)newArtificialField).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELD, null, msgs);
-      msgs = basicSetArtificialField(newArtificialField, msgs);
+      if (preUpdateTrigger != null)
+        msgs = ((InternalEObject)preUpdateTrigger).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER, null, msgs);
+      if (newPreUpdateTrigger != null)
+        msgs = ((InternalEObject)newPreUpdateTrigger).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER, null, msgs);
+      msgs = basicSetPreUpdateTrigger(newPreUpdateTrigger, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELD, newArtificialField, newArtificialField));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER, newPreUpdateTrigger, newPreUpdateTrigger));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ArtificialField> getArtificialFields()
+  {
+    if (artificialFields == null)
+    {
+      artificialFields = new EObjectContainmentEList<ArtificialField>(ArtificialField.class, this, DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS);
+    }
+    return artificialFields;
   }
 
   /**
@@ -810,10 +843,12 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return basicSetPreInsertTrigger(null, msgs);
       case DomainPackage.DATA_CONTROL__PRE_DELETE_TRIGGER:
         return basicSetPreDeleteTrigger(null, msgs);
-      case DomainPackage.DATA_CONTROL__PRE_CREATE_TRIGGER:
-        return basicSetPreCreateTrigger(null, msgs);
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELD:
-        return basicSetArtificialField(null, msgs);
+      case DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER:
+        return basicSetPostCreateTrigger(null, msgs);
+      case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
+        return basicSetPreUpdateTrigger(null, msgs);
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+        return ((InternalEList<?>)getArtificialFields()).basicRemove(otherEnd, msgs);
       case DomainPackage.DATA_CONTROL__CREATE:
         return basicSetCreate(null, msgs);
       case DomainPackage.DATA_CONTROL__INSERT:
@@ -850,10 +885,12 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return getPreInsertTrigger();
       case DomainPackage.DATA_CONTROL__PRE_DELETE_TRIGGER:
         return getPreDeleteTrigger();
-      case DomainPackage.DATA_CONTROL__PRE_CREATE_TRIGGER:
-        return getPreCreateTrigger();
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELD:
-        return getArtificialField();
+      case DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER:
+        return getPostCreateTrigger();
+      case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
+        return getPreUpdateTrigger();
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+        return getArtificialFields();
       case DomainPackage.DATA_CONTROL__CREATE:
         return getCreate();
       case DomainPackage.DATA_CONTROL__INSERT:
@@ -873,6 +910,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -896,11 +934,15 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
       case DomainPackage.DATA_CONTROL__PRE_DELETE_TRIGGER:
         setPreDeleteTrigger((PREDeleteTrigger)newValue);
         return;
-      case DomainPackage.DATA_CONTROL__PRE_CREATE_TRIGGER:
-        setPreCreateTrigger((PRECreateTrigger)newValue);
+      case DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER:
+        setPostCreateTrigger((POSTCreateTrigger)newValue);
         return;
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELD:
-        setArtificialField((ArtificialField)newValue);
+      case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
+        setPreUpdateTrigger((PREUpdateTrigger)newValue);
+        return;
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+        getArtificialFields().clear();
+        getArtificialFields().addAll((Collection<? extends ArtificialField>)newValue);
         return;
       case DomainPackage.DATA_CONTROL__CREATE:
         setCreate((Trigger)newValue);
@@ -949,11 +991,14 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
       case DomainPackage.DATA_CONTROL__PRE_DELETE_TRIGGER:
         setPreDeleteTrigger((PREDeleteTrigger)null);
         return;
-      case DomainPackage.DATA_CONTROL__PRE_CREATE_TRIGGER:
-        setPreCreateTrigger((PRECreateTrigger)null);
+      case DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER:
+        setPostCreateTrigger((POSTCreateTrigger)null);
         return;
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELD:
-        setArtificialField((ArtificialField)null);
+      case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
+        setPreUpdateTrigger((PREUpdateTrigger)null);
+        return;
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+        getArtificialFields().clear();
         return;
       case DomainPackage.DATA_CONTROL__CREATE:
         setCreate((Trigger)null);
@@ -996,10 +1041,12 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return preInsertTrigger != null;
       case DomainPackage.DATA_CONTROL__PRE_DELETE_TRIGGER:
         return preDeleteTrigger != null;
-      case DomainPackage.DATA_CONTROL__PRE_CREATE_TRIGGER:
-        return preCreateTrigger != null;
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELD:
-        return artificialField != null;
+      case DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER:
+        return postCreateTrigger != null;
+      case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
+        return preUpdateTrigger != null;
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+        return artificialFields != null && !artificialFields.isEmpty();
       case DomainPackage.DATA_CONTROL__CREATE:
         return create != null;
       case DomainPackage.DATA_CONTROL__INSERT:

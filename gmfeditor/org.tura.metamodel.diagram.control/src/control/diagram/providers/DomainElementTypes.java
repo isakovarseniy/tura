@@ -26,12 +26,13 @@ import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import control.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
-import control.diagram.edit.parts.PRECreateTriggerEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerEditPart;
 import control.diagram.edit.parts.PREFormTriggerEditPart;
 import control.diagram.edit.parts.PREInsertTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerEditPart;
+import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.RecipeDeloymentEditPart;
 import control.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import control.diagram.edit.parts.RelationEditPart;
@@ -97,13 +98,15 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType PRECreateTrigger_1103006 = getElementType("org.tura.metamodel.diagram.control.PRECreateTrigger_1103006"); //$NON-NLS-1$
-
+	public static final IElementType POSTCreateTrigger_1103011 = getElementType("org.tura.metamodel.diagram.control.POSTCreateTrigger_1103011"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ArtificialField_1103007 = getElementType("org.tura.metamodel.diagram.control.ArtificialField_1103007"); //$NON-NLS-1$
-
+	public static final IElementType PREUpdateTrigger_1103010 = getElementType("org.tura.metamodel.diagram.control.PREUpdateTrigger_1103010"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType ArtificialField_1103008 = getElementType("org.tura.metamodel.diagram.control.ArtificialField_1103008"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -272,10 +275,13 @@ public class DomainElementTypes {
 			elements.put(PREDeleteTrigger_1103005,
 					DomainPackage.eINSTANCE.getPREDeleteTrigger());
 
-			elements.put(PRECreateTrigger_1103006,
-					DomainPackage.eINSTANCE.getPRECreateTrigger());
+			elements.put(POSTCreateTrigger_1103011,
+					DomainPackage.eINSTANCE.getPOSTCreateTrigger());
 
-			elements.put(ArtificialField_1103007,
+			elements.put(PREUpdateTrigger_1103010,
+					DomainPackage.eINSTANCE.getPREUpdateTrigger());
+
+			elements.put(ArtificialField_1103008,
 					DomainPackage.eINSTANCE.getArtificialField());
 
 			elements.put(PREFormTrigger_1103001,
@@ -329,8 +335,9 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(POSTQueryTrigger_1103003);
 			KNOWN_ELEMENT_TYPES.add(PREInsertTrigger_1103004);
 			KNOWN_ELEMENT_TYPES.add(PREDeleteTrigger_1103005);
-			KNOWN_ELEMENT_TYPES.add(PRECreateTrigger_1103006);
-			KNOWN_ELEMENT_TYPES.add(ArtificialField_1103007);
+			KNOWN_ELEMENT_TYPES.add(POSTCreateTrigger_1103011);
+			KNOWN_ELEMENT_TYPES.add(PREUpdateTrigger_1103010);
+			KNOWN_ELEMENT_TYPES.add(ArtificialField_1103008);
 			KNOWN_ELEMENT_TYPES.add(PREFormTrigger_1103001);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_1104001);
 			KNOWN_ELEMENT_TYPES.add(Relation_1104009);
@@ -364,10 +371,12 @@ public class DomainElementTypes {
 			return PREInsertTrigger_1103004;
 		case PREDeleteTriggerEditPart.VISUAL_ID:
 			return PREDeleteTrigger_1103005;
-		case PRECreateTriggerEditPart.VISUAL_ID:
-			return PRECreateTrigger_1103006;
+		case POSTCreateTriggerEditPart.VISUAL_ID:
+			return POSTCreateTrigger_1103011;
+		case PREUpdateTriggerEditPart.VISUAL_ID:
+			return PREUpdateTrigger_1103010;
 		case ArtificialFieldEditPart.VISUAL_ID:
-			return ArtificialField_1103007;
+			return ArtificialField_1103008;
 		case PREFormTriggerEditPart.VISUAL_ID:
 			return PREFormTrigger_1103001;
 		case TypeExtensionEditPart.VISUAL_ID:

@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Types#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Types#getName <em>Name</em>}</li>
  *   <li>{@link domain.Types#getPackages <em>Packages</em>}</li>
- *   <li>{@link domain.Types#getBusinessPackages <em>Business Packages</em>}</li>
  * </ul>
  * </p>
  *
@@ -125,23 +124,5 @@ public interface Types extends EObject
    * @generated
    */
   EList<domain.Package> getPackages();
-
-  /**
-   * Returns the value of the '<em><b>Business Packages</b></em>' containment reference list.
-   * The list contents are of type {@link domain.BusinessPackage}.
-   * It is bidirectional and its opposite is '{@link domain.BusinessPackage#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Business Packages</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Business Packages</em>' containment reference list.
-   * @see domain.DomainPackage#getTypes_BusinessPackages()
-   * @see domain.BusinessPackage#getParent
-   * @model opposite="parent" containment="true"
-   * @generated
-   */
-  EList<BusinessPackage> getBusinessPackages();
 
 } // Types

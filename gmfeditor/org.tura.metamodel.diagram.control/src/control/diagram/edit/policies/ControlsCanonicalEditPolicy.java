@@ -37,12 +37,13 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import control.diagram.edit.parts.ArtificialFieldEditPart;
 import control.diagram.edit.parts.ControlsEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
+import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
-import control.diagram.edit.parts.PRECreateTriggerEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerEditPart;
 import control.diagram.edit.parts.PREFormTriggerEditPart;
 import control.diagram.edit.parts.PREInsertTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerEditPart;
+import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
 import control.diagram.edit.parts.TypeExtensionEditPart;
@@ -339,10 +340,18 @@ public class ControlsCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case PRECreateTriggerEditPart.VISUAL_ID: {
+		case POSTCreateTriggerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getPRECreateTrigger_1103006ContainedLinks(view));
+						.getPOSTCreateTrigger_1103011ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case PREUpdateTriggerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getPREUpdateTrigger_1103010ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -350,7 +359,7 @@ public class ControlsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ArtificialFieldEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getArtificialField_1103007ContainedLinks(view));
+						.getArtificialField_1103008ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

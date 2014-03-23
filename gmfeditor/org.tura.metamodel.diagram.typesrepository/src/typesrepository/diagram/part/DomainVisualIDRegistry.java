@@ -10,8 +10,6 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
-import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
-import typesrepository.diagram.edit.parts.BusinessPackageNameEditPart;
 import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
@@ -31,7 +29,6 @@ import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesNameEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
-import typesrepository.diagram.edit.parts.TypesTypesBusinessPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
 import domain.DomainPackage;
 import domain.TypesRepository;
@@ -156,12 +153,6 @@ public class DomainVisualIDRegistry {
 				return PackageEditPart.VISUAL_ID;
 			}
 			break;
-		case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getBusinessPackage().isSuperTypeOf(
-					domainElement.eClass())) {
-				return BusinessPackageEditPart.VISUAL_ID;
-			}
-			break;
 		}
 		return -1;
 	}
@@ -200,27 +191,14 @@ public class DomainVisualIDRegistry {
 			if (TypesTypesPackagesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			break;
 		case PackageEditPart.VISUAL_ID:
 			if (PackageNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case BusinessPackageEditPart.VISUAL_ID:
-			if (BusinessPackageNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
 			if (PackageEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
-			if (BusinessPackageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -305,7 +283,6 @@ public class DomainVisualIDRegistry {
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
 		case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
-		case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -321,7 +298,6 @@ public class DomainVisualIDRegistry {
 		case TypesRepositoryEditPart.VISUAL_ID:
 			return false;
 		case PackageEditPart.VISUAL_ID:
-		case BusinessPackageEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

@@ -134,8 +134,9 @@ public class DataControlItemProvider
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__POST_QUERY_TRIGGER);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__PRE_INSERT_TRIGGER);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__PRE_DELETE_TRIGGER);
-      childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__PRE_CREATE_TRIGGER);
-      childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELD);
+      childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__POST_CREATE_TRIGGER);
+      childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__PRE_UPDATE_TRIGGER);
+      childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__CREATE);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__INSERT);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__UPDATE);
@@ -208,8 +209,9 @@ public class DataControlItemProvider
       case DomainPackage.DATA_CONTROL__POST_QUERY_TRIGGER:
       case DomainPackage.DATA_CONTROL__PRE_INSERT_TRIGGER:
       case DomainPackage.DATA_CONTROL__PRE_DELETE_TRIGGER:
-      case DomainPackage.DATA_CONTROL__PRE_CREATE_TRIGGER:
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELD:
+      case DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER:
+      case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
       case DomainPackage.DATA_CONTROL__CREATE:
       case DomainPackage.DATA_CONTROL__INSERT:
       case DomainPackage.DATA_CONTROL__UPDATE:
@@ -255,12 +257,17 @@ public class DataControlItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__PRE_CREATE_TRIGGER,
-         DomainFactory.eINSTANCE.createPRECreateTrigger()));
+        (DomainPackage.Literals.DATA_CONTROL__POST_CREATE_TRIGGER,
+         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELD,
+        (DomainPackage.Literals.DATA_CONTROL__PRE_UPDATE_TRIGGER,
+         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS,
          DomainFactory.eINSTANCE.createArtificialField()));
 
     newChildDescriptors.add
@@ -296,7 +303,12 @@ public class DataControlItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.DATA_CONTROL__CREATE,
-         DomainFactory.eINSTANCE.createPRECreateTrigger()));
+         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__CREATE,
+         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -331,7 +343,12 @@ public class DataControlItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.DATA_CONTROL__INSERT,
-         DomainFactory.eINSTANCE.createPRECreateTrigger()));
+         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__INSERT,
+         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -366,7 +383,12 @@ public class DataControlItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.DATA_CONTROL__UPDATE,
-         DomainFactory.eINSTANCE.createPRECreateTrigger()));
+         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__UPDATE,
+         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -401,7 +423,12 @@ public class DataControlItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.DATA_CONTROL__REMOVE,
-         DomainFactory.eINSTANCE.createPRECreateTrigger()));
+         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__REMOVE,
+         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -436,7 +463,12 @@ public class DataControlItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.DATA_CONTROL__SEARCH,
-         DomainFactory.eINSTANCE.createPRECreateTrigger()));
+         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__SEARCH,
+         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
   }
 
   /**
@@ -461,7 +493,8 @@ public class DataControlItemProvider
       childFeature == DomainPackage.Literals.DATA_CONTROL__POST_QUERY_TRIGGER ||
       childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_INSERT_TRIGGER ||
       childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_DELETE_TRIGGER ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_CREATE_TRIGGER;
+      childFeature == DomainPackage.Literals.DATA_CONTROL__POST_CREATE_TRIGGER ||
+      childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_UPDATE_TRIGGER;
 
     if (qualify)
     {

@@ -315,6 +315,61 @@
 
 
     </propertySections>
+   </extension>  
+    
+      <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="org.tura.metamodel.diagram.control.proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tura.metamodel.diagram.control">
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.control.serviceref"
+             label="Method ref"/>
+       </propertyTabs>
+       </extension>
+    
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="org.tura.metamodel.diagram.control.propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.tura.metamodel.diagram.control">
+      
+          <propertySection
+               tab="property.tab.domain.control.serviceref"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.PackageNamePropertySection"
+               id="org.tura.metamodel.diagram.control.packageref">
+              <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREQueryTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREInsertTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREUpdateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREDeleteTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.POSTCreateTriggerEditPart"/>
+           </propertySection>        
+ 
+          <propertySection
+               tab="property.tab.domain.control.serviceref"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.TypeRefTypeNamePropertySection"
+               id="org.tura.metamodel.diagram.control.typeref">
+              <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREQueryTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREInsertTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREUpdateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREDeleteTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.POSTCreateTriggerEditPart"/>
+           </propertySection>        
+
+          <propertySection
+               tab="property.tab.domain.control.serviceref"
+               class="org.metamodel.tura.ui.properties.sections.dropdown.MethodNamePropertySection"
+               id="org.tura.metamodel.diagram.control.methodref">
+              <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREQueryTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREInsertTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREUpdateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREDeleteTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.POSTCreateTriggerEditPart"/>
+           </propertySection>        
+   
+       </propertySections>
+    
+    
   </extension>  
 
     <extension

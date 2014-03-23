@@ -466,42 +466,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
+	public static String NavigatorGroupName_Configuration_302002_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Infrastructure_302003_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304007_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304007_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_RecipeInfrastructures_304004_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_RecipeInfrastructures_304004_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Recipes_301000_links;
+	public static String NavigatorGroupName_Configuration_302002_outgoinglinks;
 
 	/**
 	 * @generated
@@ -516,17 +486,47 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Infrastructure_302003_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipeInfrastructures_304004_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipeInfrastructures_304004_source;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_DeploymentSequence_302004_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Configuration_302002_incominglinks;
+	public static String NavigatorGroupName_Recipes_301000_links;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Configuration_302002_outgoinglinks;
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304007_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConfigurationConfigExtension_304007_source;
 
 	/**
 	 * @generated

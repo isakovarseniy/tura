@@ -40,17 +40,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case PackageNameEditPart.VISUAL_ID:
 				return new PackageNameEditPart(view);
 
-			case BusinessPackageEditPart.VISUAL_ID:
-				return new BusinessPackageEditPart(view);
-
-			case BusinessPackageNameEditPart.VISUAL_ID:
-				return new BusinessPackageNameEditPart(view);
-
 			case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
 				return new TypesTypesPackagesCompartmentEditPart(view);
-
-			case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
-				return new TypesTypesBusinessPackagesCompartmentEditPart(view);
 
 			case TypeExtensionEditPart.VISUAL_ID:
 				return new TypeExtensionEditPart(view);

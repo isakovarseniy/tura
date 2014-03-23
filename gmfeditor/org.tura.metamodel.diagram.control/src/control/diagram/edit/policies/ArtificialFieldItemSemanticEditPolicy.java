@@ -23,7 +23,7 @@ public class ArtificialFieldItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ArtificialFieldItemSemanticEditPolicy() {
-		super(DomainElementTypes.ArtificialField_1103007);
+		super(DomainElementTypes.ArtificialField_1103008);
 	}
 
 	/**

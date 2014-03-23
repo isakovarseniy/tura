@@ -171,19 +171,27 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof DataControlDataControlPreCreateTriggerCompartmentEditPart) {
+		if (childEditPart instanceof DataControlDataControlPostCreateTriggerCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getDataControlPreCreateTriggerCompartmentFigure();
+					.getDataControlPostCreateTriggerCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlPreCreateTriggerCompartmentEditPart) childEditPart)
+			pane.add(((DataControlDataControlPostCreateTriggerCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof DataControlDataControlArtificialFieldCompartmentEditPart) {
+		if (childEditPart instanceof DataControlDataControlPreUpdateTriggerCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getDataControlArtificialFieldCompartmentFigure();
+					.getDataControlPreUpdateTriggerCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DataControlDataControlArtificialFieldCompartmentEditPart) childEditPart)
+			pane.add(((DataControlDataControlPreUpdateTriggerCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof DataControlDataControlArtificialFieldsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlArtificialFieldsCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((DataControlDataControlArtificialFieldsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -225,17 +233,24 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof DataControlDataControlPreCreateTriggerCompartmentEditPart) {
+		if (childEditPart instanceof DataControlDataControlPostCreateTriggerCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getDataControlPreCreateTriggerCompartmentFigure();
-			pane.remove(((DataControlDataControlPreCreateTriggerCompartmentEditPart) childEditPart)
+					.getDataControlPostCreateTriggerCompartmentFigure();
+			pane.remove(((DataControlDataControlPostCreateTriggerCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof DataControlDataControlArtificialFieldCompartmentEditPart) {
+		if (childEditPart instanceof DataControlDataControlPreUpdateTriggerCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
-					.getDataControlArtificialFieldCompartmentFigure();
-			pane.remove(((DataControlDataControlArtificialFieldCompartmentEditPart) childEditPart)
+					.getDataControlPreUpdateTriggerCompartmentFigure();
+			pane.remove(((DataControlDataControlPreUpdateTriggerCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof DataControlDataControlArtificialFieldsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlArtificialFieldsCompartmentFigure();
+			pane.remove(((DataControlDataControlArtificialFieldsCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -282,13 +297,17 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 			return getPrimaryShape()
 					.getDataControlPreDeleteTriggerCompartmentFigure();
 		}
-		if (editPart instanceof DataControlDataControlPreCreateTriggerCompartmentEditPart) {
+		if (editPart instanceof DataControlDataControlPostCreateTriggerCompartmentEditPart) {
 			return getPrimaryShape()
-					.getDataControlPreCreateTriggerCompartmentFigure();
+					.getDataControlPostCreateTriggerCompartmentFigure();
 		}
-		if (editPart instanceof DataControlDataControlArtificialFieldCompartmentEditPart) {
+		if (editPart instanceof DataControlDataControlPreUpdateTriggerCompartmentEditPart) {
 			return getPrimaryShape()
-					.getDataControlArtificialFieldCompartmentFigure();
+					.getDataControlPreUpdateTriggerCompartmentFigure();
+		}
+		if (editPart instanceof DataControlDataControlArtificialFieldsCompartmentEditPart) {
+			return getPrimaryShape()
+					.getDataControlArtificialFieldsCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -465,13 +484,17 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(DataControlDataControlPreDeleteTriggerCompartmentEditPart.VISUAL_ID));
 			}
-			if (type == DomainElementTypes.PRECreateTrigger_1103006) {
+			if (type == DomainElementTypes.POSTCreateTrigger_1103011) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(DataControlDataControlPreCreateTriggerCompartmentEditPart.VISUAL_ID));
+						.getType(DataControlDataControlPostCreateTriggerCompartmentEditPart.VISUAL_ID));
 			}
-			if (type == DomainElementTypes.ArtificialField_1103007) {
+			if (type == DomainElementTypes.PREUpdateTrigger_1103010) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
-						.getType(DataControlDataControlArtificialFieldCompartmentEditPart.VISUAL_ID));
+						.getType(DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID));
+			}
+			if (type == DomainElementTypes.ArtificialField_1103008) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);
@@ -515,16 +538,18 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private RectangleFigure fDataControlPreDeleteTriggerCompartmentFigure;
-
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fDataControlPreCreateTriggerCompartmentFigure;
-
+		private RectangleFigure fDataControlPostCreateTriggerCompartmentFigure;
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fDataControlArtificialFieldCompartmentFigure;
+		private RectangleFigure fDataControlPreUpdateTriggerCompartmentFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fDataControlArtificialFieldsCompartmentFigure;
 
 		/**
 		 * @generated
@@ -581,17 +606,23 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 
 			this.add(fDataControlPreDeleteTriggerCompartmentFigure);
 
-			fDataControlPreCreateTriggerCompartmentFigure = new RectangleFigure();
+			fDataControlPostCreateTriggerCompartmentFigure = new RectangleFigure();
 
-			fDataControlPreCreateTriggerCompartmentFigure.setOutline(false);
+			fDataControlPostCreateTriggerCompartmentFigure.setOutline(false);
 
-			this.add(fDataControlPreCreateTriggerCompartmentFigure);
+			this.add(fDataControlPostCreateTriggerCompartmentFigure);
 
-			fDataControlArtificialFieldCompartmentFigure = new RectangleFigure();
+			fDataControlPreUpdateTriggerCompartmentFigure = new RectangleFigure();
 
-			fDataControlArtificialFieldCompartmentFigure.setOutline(false);
+			fDataControlPreUpdateTriggerCompartmentFigure.setOutline(false);
 
-			this.add(fDataControlArtificialFieldCompartmentFigure);
+			this.add(fDataControlPreUpdateTriggerCompartmentFigure);
+
+			fDataControlArtificialFieldsCompartmentFigure = new RectangleFigure();
+
+			fDataControlArtificialFieldsCompartmentFigure.setOutline(false);
+
+			this.add(fDataControlArtificialFieldsCompartmentFigure);
 
 		}
 
@@ -633,15 +664,22 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getDataControlPreCreateTriggerCompartmentFigure() {
-			return fDataControlPreCreateTriggerCompartmentFigure;
+		public RectangleFigure getDataControlPostCreateTriggerCompartmentFigure() {
+			return fDataControlPostCreateTriggerCompartmentFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getDataControlArtificialFieldCompartmentFigure() {
-			return fDataControlArtificialFieldCompartmentFigure;
+		public RectangleFigure getDataControlPreUpdateTriggerCompartmentFigure() {
+			return fDataControlPreUpdateTriggerCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getDataControlArtificialFieldsCompartmentFigure() {
+			return fDataControlArtificialFieldsCompartmentFigure;
 		}
 
 	}

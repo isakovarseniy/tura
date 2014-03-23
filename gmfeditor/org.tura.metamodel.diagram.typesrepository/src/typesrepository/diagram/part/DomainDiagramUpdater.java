@@ -11,15 +11,12 @@ import java.util.List;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
-import typesrepository.diagram.edit.parts.BusinessPackageEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
 import typesrepository.diagram.edit.parts.RelationEditPart;
 import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
-import typesrepository.diagram.edit.parts.TypesTypesBusinessPackagesCompartmentEditPart;
 import typesrepository.diagram.edit.parts.TypesTypesPackagesCompartmentEditPart;
-import domain.BusinessPackage;
 import domain.Package;
 import domain.Types;
 import domain.TypesRepository;
@@ -46,8 +43,6 @@ public class DomainDiagramUpdater {
 			return getTypesRepository_201000SemanticChildren(view);
 		case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
 			return getTypesTypesPackagesCompartment_207001SemanticChildren(view);
-		case TypesTypesBusinessPackagesCompartmentEditPart.VISUAL_ID:
-			return getTypesTypesBusinessPackagesCompartment_207002SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -103,33 +98,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getTypesTypesBusinessPackagesCompartment_207002SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		Types modelElement = (Types) containerView.getElement();
-		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getBusinessPackages().iterator(); it
-				.hasNext();) {
-			BusinessPackage childElement = (BusinessPackage) it.next();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == BusinessPackageEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypesRepositoryEditPart.VISUAL_ID:
@@ -138,8 +106,6 @@ public class DomainDiagramUpdater {
 			return getTypes_202001ContainedLinks(view);
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_203002ContainedLinks(view);
-		case BusinessPackageEditPart.VISUAL_ID:
-			return getBusinessPackage_203003ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_204001ContainedLinks(view);
 		case RelationEditPart.VISUAL_ID:
@@ -157,8 +123,6 @@ public class DomainDiagramUpdater {
 			return getTypes_202001IncomingLinks(view);
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_203002IncomingLinks(view);
-		case BusinessPackageEditPart.VISUAL_ID:
-			return getBusinessPackage_203003IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_204001IncomingLinks(view);
 		case RelationEditPart.VISUAL_ID:
@@ -176,8 +140,6 @@ public class DomainDiagramUpdater {
 			return getTypes_202001OutgoingLinks(view);
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_203002OutgoingLinks(view);
-		case BusinessPackageEditPart.VISUAL_ID:
-			return getBusinessPackage_203003OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_204001OutgoingLinks(view);
 		case RelationEditPart.VISUAL_ID:
@@ -206,14 +168,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getPackage_203002ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getBusinessPackage_203003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -253,14 +207,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getBusinessPackage_203003IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_204001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -286,14 +232,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getPackage_203002OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getBusinessPackage_203003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

@@ -239,85 +239,13 @@ public interface DomainFactory extends EFactory
   ApplicationMapper createApplicationMapper();
 
   /**
-   * Returns a new object of class '<em>Business Objects</em>'.
+   * Returns a new object of class '<em>Method Pointer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Business Objects</em>'.
+   * @return a new object of class '<em>Method Pointer</em>'.
    * @generated
    */
-  BusinessObjects createBusinessObjects();
-
-  /**
-   * Returns a new object of class '<em>Business Object</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Business Object</em>'.
-   * @generated
-   */
-  BusinessObject createBusinessObject();
-
-  /**
-   * Returns a new object of class '<em>Business Method</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Business Method</em>'.
-   * @generated
-   */
-  BusinessMethod createBusinessMethod();
-
-  /**
-   * Returns a new object of class '<em>Create Method</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Create Method</em>'.
-   * @generated
-   */
-  CreateMethod createCreateMethod();
-
-  /**
-   * Returns a new object of class '<em>Insert Method</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Insert Method</em>'.
-   * @generated
-   */
-  InsertMethod createInsertMethod();
-
-  /**
-   * Returns a new object of class '<em>Update Method</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Update Method</em>'.
-   * @generated
-   */
-  UpdateMethod createUpdateMethod();
-
-  /**
-   * Returns a new object of class '<em>Remove Method</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Remove Method</em>'.
-   * @generated
-   */
-  RemoveMethod createRemoveMethod();
-
-  /**
-   * Returns a new object of class '<em>Search Method</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Search Method</em>'.
-   * @generated
-   */
-  SearchMethod createSearchMethod();
-
-  /**
-   * Returns a new object of class '<em>Other Method</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Other Method</em>'.
-   * @generated
-   */
-  OtherMethod createOtherMethod();
+  MethodPointer createMethodPointer();
 
   /**
    * Returns a new object of class '<em>Mappers</em>'.
@@ -653,15 +581,6 @@ public interface DomainFactory extends EFactory
   Package createPackage();
 
   /**
-   * Returns a new object of class '<em>Business Package</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Business Package</em>'.
-   * @generated
-   */
-  BusinessPackage createBusinessPackage();
-
-  /**
    * Returns a new object of class '<em>UI Package</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -779,13 +698,22 @@ public interface DomainFactory extends EFactory
   PREDeleteTrigger createPREDeleteTrigger();
 
   /**
-   * Returns a new object of class '<em>PRE Create Trigger</em>'.
+   * Returns a new object of class '<em>POST Create Trigger</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>PRE Create Trigger</em>'.
+   * @return a new object of class '<em>POST Create Trigger</em>'.
    * @generated
    */
-  PRECreateTrigger createPRECreateTrigger();
+  POSTCreateTrigger createPOSTCreateTrigger();
+
+  /**
+   * Returns a new object of class '<em>PRE Update Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PRE Update Trigger</em>'.
+   * @generated
+   */
+  PREUpdateTrigger createPREUpdateTrigger();
 
   /**
    * Returns a new object of class '<em>Root</em>'.

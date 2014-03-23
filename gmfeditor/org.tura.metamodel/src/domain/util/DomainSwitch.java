@@ -14,17 +14,12 @@ import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
-import domain.BusinessMethod;
-import domain.BusinessObject;
-import domain.BusinessObjects;
-import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
-import domain.CreateMethod;
 import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
@@ -45,7 +40,6 @@ import domain.FormDataControls;
 import domain.FormView;
 import domain.Infrastructure;
 import domain.Ingredient;
-import domain.InsertMethod;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
@@ -53,18 +47,19 @@ import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.MethodPointer;
 import domain.ModelMapper;
 import domain.ModelQuery;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
-import domain.OtherMethod;
+import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
-import domain.PRECreateTrigger;
 import domain.PREDeleteTrigger;
 import domain.PREFormTrigger;
 import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
+import domain.PREUpdateTrigger;
 import domain.Parameter;
 import domain.Primitive;
 import domain.Property;
@@ -74,10 +69,8 @@ import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
 import domain.Relation;
-import domain.RemoveMethod;
 import domain.ReturnValue;
 import domain.Root;
-import domain.SearchMethod;
 import domain.Specifier;
 import domain.Trigger;
 import domain.TriggerParameter;
@@ -90,7 +83,6 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UIPackage;
-import domain.UpdateMethod;
 import domain.UsingMappers;
 
 import org.eclipse.emf.ecore.EObject;
@@ -333,79 +325,11 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.BUSINESS_OBJECTS:
+      case DomainPackage.METHOD_POINTER:
       {
-        BusinessObjects businessObjects = (BusinessObjects)theEObject;
-        T result = caseBusinessObjects(businessObjects);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.BUSINESS_OBJECT:
-      {
-        BusinessObject businessObject = (BusinessObject)theEObject;
-        T result = caseBusinessObject(businessObject);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.BUSINESS_METHOD:
-      {
-        BusinessMethod businessMethod = (BusinessMethod)theEObject;
-        T result = caseBusinessMethod(businessMethod);
-        if (result == null) result = caseTypePointer(businessMethod);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.CREATE_METHOD:
-      {
-        CreateMethod createMethod = (CreateMethod)theEObject;
-        T result = caseCreateMethod(createMethod);
-        if (result == null) result = caseBusinessMethod(createMethod);
-        if (result == null) result = caseTypePointer(createMethod);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.INSERT_METHOD:
-      {
-        InsertMethod insertMethod = (InsertMethod)theEObject;
-        T result = caseInsertMethod(insertMethod);
-        if (result == null) result = caseBusinessMethod(insertMethod);
-        if (result == null) result = caseTypePointer(insertMethod);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.UPDATE_METHOD:
-      {
-        UpdateMethod updateMethod = (UpdateMethod)theEObject;
-        T result = caseUpdateMethod(updateMethod);
-        if (result == null) result = caseBusinessMethod(updateMethod);
-        if (result == null) result = caseTypePointer(updateMethod);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.REMOVE_METHOD:
-      {
-        RemoveMethod removeMethod = (RemoveMethod)theEObject;
-        T result = caseRemoveMethod(removeMethod);
-        if (result == null) result = caseBusinessMethod(removeMethod);
-        if (result == null) result = caseTypePointer(removeMethod);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.SEARCH_METHOD:
-      {
-        SearchMethod searchMethod = (SearchMethod)theEObject;
-        T result = caseSearchMethod(searchMethod);
-        if (result == null) result = caseBusinessMethod(searchMethod);
-        if (result == null) result = caseTypePointer(searchMethod);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.OTHER_METHOD:
-      {
-        OtherMethod otherMethod = (OtherMethod)theEObject;
-        T result = caseOtherMethod(otherMethod);
-        if (result == null) result = caseBusinessMethod(otherMethod);
-        if (result == null) result = caseTypePointer(otherMethod);
+        MethodPointer methodPointer = (MethodPointer)theEObject;
+        T result = caseMethodPointer(methodPointer);
+        if (result == null) result = caseTypePointer(methodPointer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -683,13 +607,6 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.BUSINESS_PACKAGE:
-      {
-        BusinessPackage businessPackage = (BusinessPackage)theEObject;
-        T result = caseBusinessPackage(businessPackage);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DomainPackage.UI_PACKAGE:
       {
         UIPackage uiPackage = (UIPackage)theEObject;
@@ -729,6 +646,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Trigger trigger = (Trigger)theEObject;
         T result = caseTrigger(trigger);
+        if (result == null) result = caseMethodPointer(trigger);
         if (result == null) result = caseTypePointer(trigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -752,6 +670,7 @@ public class DomainSwitch<T> extends Switch<T>
         PREFormTrigger preFormTrigger = (PREFormTrigger)theEObject;
         T result = casePREFormTrigger(preFormTrigger);
         if (result == null) result = caseTrigger(preFormTrigger);
+        if (result == null) result = caseMethodPointer(preFormTrigger);
         if (result == null) result = caseTypePointer(preFormTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -761,6 +680,7 @@ public class DomainSwitch<T> extends Switch<T>
         PREQueryTrigger preQueryTrigger = (PREQueryTrigger)theEObject;
         T result = casePREQueryTrigger(preQueryTrigger);
         if (result == null) result = caseTrigger(preQueryTrigger);
+        if (result == null) result = caseMethodPointer(preQueryTrigger);
         if (result == null) result = caseTypePointer(preQueryTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -770,6 +690,7 @@ public class DomainSwitch<T> extends Switch<T>
         POSTQueryTrigger postQueryTrigger = (POSTQueryTrigger)theEObject;
         T result = casePOSTQueryTrigger(postQueryTrigger);
         if (result == null) result = caseTrigger(postQueryTrigger);
+        if (result == null) result = caseMethodPointer(postQueryTrigger);
         if (result == null) result = caseTypePointer(postQueryTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -779,6 +700,7 @@ public class DomainSwitch<T> extends Switch<T>
         PREInsertTrigger preInsertTrigger = (PREInsertTrigger)theEObject;
         T result = casePREInsertTrigger(preInsertTrigger);
         if (result == null) result = caseTrigger(preInsertTrigger);
+        if (result == null) result = caseMethodPointer(preInsertTrigger);
         if (result == null) result = caseTypePointer(preInsertTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -788,16 +710,28 @@ public class DomainSwitch<T> extends Switch<T>
         PREDeleteTrigger preDeleteTrigger = (PREDeleteTrigger)theEObject;
         T result = casePREDeleteTrigger(preDeleteTrigger);
         if (result == null) result = caseTrigger(preDeleteTrigger);
+        if (result == null) result = caseMethodPointer(preDeleteTrigger);
         if (result == null) result = caseTypePointer(preDeleteTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.PRE_CREATE_TRIGGER:
+      case DomainPackage.POST_CREATE_TRIGGER:
       {
-        PRECreateTrigger preCreateTrigger = (PRECreateTrigger)theEObject;
-        T result = casePRECreateTrigger(preCreateTrigger);
-        if (result == null) result = caseTrigger(preCreateTrigger);
-        if (result == null) result = caseTypePointer(preCreateTrigger);
+        POSTCreateTrigger postCreateTrigger = (POSTCreateTrigger)theEObject;
+        T result = casePOSTCreateTrigger(postCreateTrigger);
+        if (result == null) result = caseTrigger(postCreateTrigger);
+        if (result == null) result = caseMethodPointer(postCreateTrigger);
+        if (result == null) result = caseTypePointer(postCreateTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.PRE_UPDATE_TRIGGER:
+      {
+        PREUpdateTrigger preUpdateTrigger = (PREUpdateTrigger)theEObject;
+        T result = casePREUpdateTrigger(preUpdateTrigger);
+        if (result == null) result = caseTrigger(preUpdateTrigger);
+        if (result == null) result = caseMethodPointer(preUpdateTrigger);
+        if (result == null) result = caseTypePointer(preUpdateTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1227,145 +1161,17 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Business Objects</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Method Pointer</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Business Objects</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Method Pointer</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBusinessObjects(BusinessObjects object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Business Object</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Business Object</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBusinessObject(BusinessObject object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Business Method</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Business Method</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBusinessMethod(BusinessMethod object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Create Method</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Create Method</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCreateMethod(CreateMethod object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Insert Method</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Insert Method</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseInsertMethod(InsertMethod object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Update Method</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Update Method</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUpdateMethod(UpdateMethod object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Remove Method</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Remove Method</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRemoveMethod(RemoveMethod object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Search Method</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Search Method</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSearchMethod(SearchMethod object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Other Method</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Other Method</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseOtherMethod(OtherMethod object)
+  public T caseMethodPointer(MethodPointer object)
   {
     return null;
   }
@@ -1963,22 +1769,6 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Business Package</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Business Package</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBusinessPackage(BusinessPackage object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>UI Package</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2187,17 +1977,33 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>PRE Create Trigger</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>POST Create Trigger</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>PRE Create Trigger</em>'.
+   * @return the result of interpreting the object as an instance of '<em>POST Create Trigger</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePRECreateTrigger(PRECreateTrigger object)
+  public T casePOSTCreateTrigger(POSTCreateTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PRE Update Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PRE Update Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePREUpdateTrigger(PREUpdateTrigger object)
   {
     return null;
   }

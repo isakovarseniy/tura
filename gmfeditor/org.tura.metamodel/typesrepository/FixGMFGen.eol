@@ -21,19 +21,6 @@ genTopLevelNode.behaviour.add(behaviour);
 var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'PackageFigure').first;
 innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
  
-//Enable diagram partition for BusinessPackage element
-var genTopLevelNode = GmfGen!GenChildNode.all.select(n|n.createCommandClassName = 'BusinessPackageCreateCommand').first;
-var behaviour = new GmfGen!OpenDiagramBehaviour;
-behaviour.editorID = 'businessobjects.diagram.part.BusinessobjectsDiagramEditorID';
-behaviour.diagramKind='Businessobjects';
-behaviour.editPolicyClassName= 'OpenDiagramBusinessPackageEditPolicy';
-genTopLevelNode.behaviour.add(behaviour);
- 
- // Change figure for BusinessPackage element 
-var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'BusinessPackageFigure').first;
-innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
- 
- 
  
  -- distinct visual ID
 for (c in GmfGen!GenCommonBase.allInstances) {

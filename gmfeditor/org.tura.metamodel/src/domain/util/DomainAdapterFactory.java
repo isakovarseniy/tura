@@ -14,17 +14,12 @@ import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
-import domain.BusinessMethod;
-import domain.BusinessObject;
-import domain.BusinessObjects;
-import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
-import domain.CreateMethod;
 import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
@@ -45,7 +40,6 @@ import domain.FormDataControls;
 import domain.FormView;
 import domain.Infrastructure;
 import domain.Ingredient;
-import domain.InsertMethod;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
@@ -53,18 +47,19 @@ import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.MethodPointer;
 import domain.ModelMapper;
 import domain.ModelQuery;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
-import domain.OtherMethod;
+import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
-import domain.PRECreateTrigger;
 import domain.PREDeleteTrigger;
 import domain.PREFormTrigger;
 import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
+import domain.PREUpdateTrigger;
 import domain.Parameter;
 import domain.Primitive;
 import domain.Property;
@@ -74,10 +69,8 @@ import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
 import domain.Relation;
-import domain.RemoveMethod;
 import domain.ReturnValue;
 import domain.Root;
-import domain.SearchMethod;
 import domain.Specifier;
 import domain.Trigger;
 import domain.TriggerParameter;
@@ -90,7 +83,6 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UIPackage;
-import domain.UpdateMethod;
 import domain.UsingMappers;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -284,49 +276,9 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createApplicationMapperAdapter();
       }
       @Override
-      public Adapter caseBusinessObjects(BusinessObjects object)
+      public Adapter caseMethodPointer(MethodPointer object)
       {
-        return createBusinessObjectsAdapter();
-      }
-      @Override
-      public Adapter caseBusinessObject(BusinessObject object)
-      {
-        return createBusinessObjectAdapter();
-      }
-      @Override
-      public Adapter caseBusinessMethod(BusinessMethod object)
-      {
-        return createBusinessMethodAdapter();
-      }
-      @Override
-      public Adapter caseCreateMethod(CreateMethod object)
-      {
-        return createCreateMethodAdapter();
-      }
-      @Override
-      public Adapter caseInsertMethod(InsertMethod object)
-      {
-        return createInsertMethodAdapter();
-      }
-      @Override
-      public Adapter caseUpdateMethod(UpdateMethod object)
-      {
-        return createUpdateMethodAdapter();
-      }
-      @Override
-      public Adapter caseRemoveMethod(RemoveMethod object)
-      {
-        return createRemoveMethodAdapter();
-      }
-      @Override
-      public Adapter caseSearchMethod(SearchMethod object)
-      {
-        return createSearchMethodAdapter();
-      }
-      @Override
-      public Adapter caseOtherMethod(OtherMethod object)
-      {
-        return createOtherMethodAdapter();
+        return createMethodPointerAdapter();
       }
       @Override
       public Adapter caseMappers(Mappers object)
@@ -514,11 +466,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createPackageAdapter();
       }
       @Override
-      public Adapter caseBusinessPackage(BusinessPackage object)
-      {
-        return createBusinessPackageAdapter();
-      }
-      @Override
       public Adapter caseUIPackage(UIPackage object)
       {
         return createUIPackageAdapter();
@@ -584,9 +531,14 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createPREDeleteTriggerAdapter();
       }
       @Override
-      public Adapter casePRECreateTrigger(PRECreateTrigger object)
+      public Adapter casePOSTCreateTrigger(POSTCreateTrigger object)
       {
-        return createPRECreateTriggerAdapter();
+        return createPOSTCreateTriggerAdapter();
+      }
+      @Override
+      public Adapter casePREUpdateTrigger(PREUpdateTrigger object)
+      {
+        return createPREUpdateTriggerAdapter();
       }
       @Override
       public Adapter caseRoot(Root object)
@@ -996,136 +948,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link domain.BusinessObjects <em>Business Objects</em>}'.
+   * Creates a new adapter for an object of class '{@link domain.MethodPointer <em>Method Pointer</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see domain.BusinessObjects
+   * @see domain.MethodPointer
    * @generated
    */
-  public Adapter createBusinessObjectsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.BusinessObject <em>Business Object</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.BusinessObject
-   * @generated
-   */
-  public Adapter createBusinessObjectAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.BusinessMethod <em>Business Method</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.BusinessMethod
-   * @generated
-   */
-  public Adapter createBusinessMethodAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.CreateMethod <em>Create Method</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.CreateMethod
-   * @generated
-   */
-  public Adapter createCreateMethodAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.InsertMethod <em>Insert Method</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.InsertMethod
-   * @generated
-   */
-  public Adapter createInsertMethodAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.UpdateMethod <em>Update Method</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.UpdateMethod
-   * @generated
-   */
-  public Adapter createUpdateMethodAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.RemoveMethod <em>Remove Method</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.RemoveMethod
-   * @generated
-   */
-  public Adapter createRemoveMethodAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.SearchMethod <em>Search Method</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.SearchMethod
-   * @generated
-   */
-  public Adapter createSearchMethodAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.OtherMethod <em>Other Method</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.OtherMethod
-   * @generated
-   */
-  public Adapter createOtherMethodAdapter()
+  public Adapter createMethodPointerAdapter()
   {
     return null;
   }
@@ -1686,21 +1518,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link domain.BusinessPackage <em>Business Package</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.BusinessPackage
-   * @generated
-   */
-  public Adapter createBusinessPackageAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link domain.UIPackage <em>UI Package</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1896,16 +1713,31 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link domain.PRECreateTrigger <em>PRE Create Trigger</em>}'.
+   * Creates a new adapter for an object of class '{@link domain.POSTCreateTrigger <em>POST Create Trigger</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see domain.PRECreateTrigger
+   * @see domain.POSTCreateTrigger
    * @generated
    */
-  public Adapter createPRECreateTriggerAdapter()
+  public Adapter createPOSTCreateTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.PREUpdateTrigger <em>PRE Update Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.PREUpdateTrigger
+   * @generated
+   */
+  public Adapter createPREUpdateTriggerAdapter()
   {
     return null;
   }

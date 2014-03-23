@@ -22,7 +22,6 @@ package domain;
  */
 public interface ArtificialField extends TypePointer
 {
-
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -74,4 +73,5 @@ public interface ArtificialField extends TypePointer
    * @generated
    */
   void setName(String value);
+
 } // ArtificialField

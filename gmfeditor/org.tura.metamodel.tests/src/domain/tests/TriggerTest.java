@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TriggerTest extends TypePointerTest
+public class TriggerTest extends MethodPointerTest
 {
 
   /**

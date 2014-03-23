@@ -5,6 +5,115 @@ for (  label in GmfGraph!Label.all ){
   label.font.faceName="Palatino";  
   label.font.height	 = 12;
 }
+
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'ArtificialFieldFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'PREFormTriggerFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'PREQueryTriggerFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'POSTQueryTriggerFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'PREInsertTriggerFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'PREDeleteTriggerFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'POSTCreateTriggerFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+
+
 -- remove unavailabels tools
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ModelQuery');
 delete tool;
@@ -39,22 +148,6 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Type');
 delete tool;
 -- remove unavailabels tools
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='BusinessObject');
-delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='BusinessMethod');
-delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='CreateMethod');
-delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InsertMethod');
-delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='UpdateMethod');
-delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='RemoveMethod');
-delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='SearchMethod');
-delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='OtherMethod');
-delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Component');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='JavaMapper');
@@ -74,8 +167,6 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DomainApplications');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DomainApplication');
-delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='BusinessPackage');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Package');
 delete tool;

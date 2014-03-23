@@ -276,22 +276,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String POSTQueryTrigger3CreationTool_title;
+	public static String POSTCreateTrigger3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTQueryTrigger3CreationTool_desc;
+	public static String POSTCreateTrigger3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PRECreateTrigger4CreationTool_title;
+	public static String POSTQueryTrigger4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PRECreateTrigger4CreationTool_desc;
+	public static String POSTQueryTrigger4CreationTool_desc;
 
 	/**
 	 * @generated
@@ -336,12 +336,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Root9CreationTool_title;
+	public static String PREUpdateTrigger9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Root9CreationTool_desc;
+	public static String PREUpdateTrigger9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Root10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Root10CreationTool_desc;
 
 	/**
 	 * @generated
@@ -446,12 +456,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DataControlDataControlPreCreateTriggerCompartmentEditPart_title;
+	public static String DataControlDataControlPostCreateTriggerCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DataControlDataControlArtificialFieldCompartmentEditPart_title;
+	public static String DataControlDataControlPreUpdateTriggerCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String DataControlDataControlArtificialFieldsCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -471,22 +486,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Relation_1104009_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Relation_1104009_source;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_DataControl_1102002_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_DataControl_1102002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Relation_1104009_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Relation_1104009_source;
 
 	/**
 	 * @generated

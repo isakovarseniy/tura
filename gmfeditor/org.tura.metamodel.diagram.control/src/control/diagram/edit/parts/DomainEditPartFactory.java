@@ -64,11 +64,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case PREDeleteTriggerFakeMethodEditPart.VISUAL_ID:
 				return new PREDeleteTriggerFakeMethodEditPart(view);
 
-			case PRECreateTriggerEditPart.VISUAL_ID:
-				return new PRECreateTriggerEditPart(view);
+			case POSTCreateTriggerEditPart.VISUAL_ID:
+				return new POSTCreateTriggerEditPart(view);
 
-			case PRECreateTriggerFakeMethodEditPart.VISUAL_ID:
-				return new PRECreateTriggerFakeMethodEditPart(view);
+			case POSTCreateTriggerFakeMethodEditPart.VISUAL_ID:
+				return new POSTCreateTriggerFakeMethodEditPart(view);
+
+			case PREUpdateTriggerEditPart.VISUAL_ID:
+				return new PREUpdateTriggerEditPart(view);
+
+			case PREUpdateTriggerFakeMethodEditPart.VISUAL_ID:
+				return new PREUpdateTriggerFakeMethodEditPart(view);
 
 			case ArtificialFieldEditPart.VISUAL_ID:
 				return new ArtificialFieldEditPart(view);
@@ -98,12 +104,16 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new DataControlDataControlPreDeleteTriggerCompartmentEditPart(
 						view);
 
-			case DataControlDataControlPreCreateTriggerCompartmentEditPart.VISUAL_ID:
-				return new DataControlDataControlPreCreateTriggerCompartmentEditPart(
+			case DataControlDataControlPostCreateTriggerCompartmentEditPart.VISUAL_ID:
+				return new DataControlDataControlPostCreateTriggerCompartmentEditPart(
 						view);
 
-			case DataControlDataControlArtificialFieldCompartmentEditPart.VISUAL_ID:
-				return new DataControlDataControlArtificialFieldCompartmentEditPart(
+			case DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID:
+				return new DataControlDataControlPreUpdateTriggerCompartmentEditPart(
+						view);
+
+			case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
+				return new DataControlDataControlArtificialFieldsCompartmentEditPart(
 						view);
 
 			case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:

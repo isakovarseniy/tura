@@ -201,70 +201,11 @@ class ApplicationMapper{
    ref ApplicationMappers#mappers parent;
 }
 
-@gmf.diagram.businessObjects
-class BusinessObjects{
-    id attr EString uid;
-   val BusinessObject[*]#parent businessObject;
-   ref BusinessPackage#businessobjects parent;
-}
-
-@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
-class BusinessObject {
-    id attr EString uid;
-   attr EString name;
-   ref BusinessObjects#businessObject parent;
-   @gmf.compartment()
-   val CreateMethod[*]#parent createMethods;
-   @gmf.compartment()
-   val InsertMethod[*]#parent insertMethods;
-   @gmf.compartment()
-   val UpdateMethod[*]#parent updateMethods;
-   @gmf.compartment()
-   val RemoveMethod[*]#parent removeMethods;
-   @gmf.compartment()
-   val SearchMethod[*]#parent searchMethods;
-   @gmf.compartment()
-   val OtherMethod[*]#parent  othersMethods;
-   
-}
-
-class BusinessMethod extends TypePointer {
-    id attr EString uid;
+class MethodPointer extends TypePointer{
     ref Operation methodRef;
 
   // To support display label
     attr EString fakeMethod;
-}
-
-@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
-class CreateMethod extends BusinessMethod{
-   ref BusinessObject#createMethods parent;
-}
-
-@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
-class InsertMethod extends BusinessMethod{
-   ref BusinessObject#insertMethods parent;
-}
-
-@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
-class UpdateMethod extends BusinessMethod{
-   ref BusinessObject#updateMethods parent;
-   
-}
-
-@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
-class RemoveMethod extends BusinessMethod{
-   ref BusinessObject#removeMethods parent;
-}
-
-@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
-class SearchMethod extends BusinessMethod{
-   ref BusinessObject#searchMethods parent;
-}
-
-@gmf.node(label="fakeMethod",border.color="0,0,0",color="255,239,222")
-class OtherMethod extends BusinessMethod{
-   ref BusinessObject#othersMethods parent;
 }
 
 
@@ -558,9 +499,6 @@ class Types {
    attr EString name;
    @gmf.compartment
    val Package[*]#parent packages;
-   @gmf.compartment
-   val BusinessPackage[*]#parent businessPackages;
-   
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
@@ -569,15 +507,6 @@ class Package{
    attr EString name;
    ref TypeDefinition#parent typedefinition;
    ref  Types#packages parent;
-}
-
-
-@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
-class BusinessPackage{
-    id attr EString uid;
-   attr EString name;
-   ref BusinessObjects#parent businessobjects;
-   ref  Types#businessPackages parent;
 }
 
 @gmf.diagram
@@ -619,15 +548,11 @@ class Controls{
     val Relation[*] relations;
 }
 
-class Trigger extends TypePointer {
+class Trigger extends MethodPointer {
     id attr EString uid;
     attr EString name;
-    ref Operation methodRef;
     val TriggerParameter[*] parameters;
 
-  // To support display label
-    attr EString fakeMethod;
-    
 }
 
 class TriggerParameter{
@@ -663,7 +588,11 @@ class PREDeleteTrigger extends Trigger {
  }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class PRECreateTrigger extends Trigger {
+class POSTCreateTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class PREUpdateTrigger extends Trigger {
  }
 
 
@@ -688,9 +617,11 @@ class DataControl extends TypePointer{
    @gmf.compartment(layout="list")
    val PREDeleteTrigger preDeleteTrigger;
    @gmf.compartment(layout="list")
-   val PRECreateTrigger preCreateTrigger;
+   val POSTCreateTrigger postCreateTrigger;
    @gmf.compartment(layout="list")
-   val ArtificialField artificialField;   
+   val PREUpdateTrigger preUpdateTrigger;
+   @gmf.compartment(layout="list")
+   val ArtificialField[*] artificialFields;   
    
     
    val Trigger create;

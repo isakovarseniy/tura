@@ -3,7 +3,6 @@
 package domain.impl;
 
 import domain.DomainPackage;
-import domain.Operation;
 import domain.Trigger;
 import domain.TriggerParameter;
 
@@ -31,15 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.TriggerImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TriggerImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.TriggerImpl#getMethodRef <em>Method Ref</em>}</li>
  *   <li>{@link domain.impl.TriggerImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link domain.impl.TriggerImpl#getFakeMethod <em>Fake Method</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TriggerImpl extends TypePointerImpl implements Trigger
+public class TriggerImpl extends MethodPointerImpl implements Trigger
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -82,16 +79,6 @@ public class TriggerImpl extends TypePointerImpl implements Trigger
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getMethodRef() <em>Method Ref</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethodRef()
-   * @generated
-   * @ordered
-   */
-  protected Operation methodRef;
-
-  /**
    * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -100,26 +87,6 @@ public class TriggerImpl extends TypePointerImpl implements Trigger
    * @ordered
    */
   protected EList<TriggerParameter> parameters;
-
-  /**
-   * The default value of the '{@link #getFakeMethod() <em>Fake Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFakeMethod()
-   * @generated
-   * @ordered
-   */
-  protected static final String FAKE_METHOD_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFakeMethod() <em>Fake Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFakeMethod()
-   * @generated
-   * @ordered
-   */
-  protected String fakeMethod = FAKE_METHOD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -193,49 +160,6 @@ public class TriggerImpl extends TypePointerImpl implements Trigger
    * <!-- end-user-doc -->
    * @generated
    */
-  public Operation getMethodRef()
-  {
-    if (methodRef != null && methodRef.eIsProxy())
-    {
-      InternalEObject oldMethodRef = (InternalEObject)methodRef;
-      methodRef = (Operation)eResolveProxy(oldMethodRef);
-      if (methodRef != oldMethodRef)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.TRIGGER__METHOD_REF, oldMethodRef, methodRef));
-      }
-    }
-    return methodRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Operation basicGetMethodRef()
-  {
-    return methodRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMethodRef(Operation newMethodRef)
-  {
-    Operation oldMethodRef = methodRef;
-    methodRef = newMethodRef;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TRIGGER__METHOD_REF, oldMethodRef, methodRef));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<TriggerParameter> getParameters()
   {
     if (parameters == null)
@@ -243,29 +167,6 @@ public class TriggerImpl extends TypePointerImpl implements Trigger
       parameters = new EObjectContainmentEList<TriggerParameter>(TriggerParameter.class, this, DomainPackage.TRIGGER__PARAMETERS);
     }
     return parameters;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getFakeMethod()
-  {
-    return fakeMethod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFakeMethod(String newFakeMethod)
-  {
-    String oldFakeMethod = fakeMethod;
-    fakeMethod = newFakeMethod;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TRIGGER__FAKE_METHOD, oldFakeMethod, fakeMethod));
   }
 
   /**
@@ -298,13 +199,8 @@ public class TriggerImpl extends TypePointerImpl implements Trigger
         return getUid();
       case DomainPackage.TRIGGER__NAME:
         return getName();
-      case DomainPackage.TRIGGER__METHOD_REF:
-        if (resolve) return getMethodRef();
-        return basicGetMethodRef();
       case DomainPackage.TRIGGER__PARAMETERS:
         return getParameters();
-      case DomainPackage.TRIGGER__FAKE_METHOD:
-        return getFakeMethod();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -326,15 +222,9 @@ public class TriggerImpl extends TypePointerImpl implements Trigger
       case DomainPackage.TRIGGER__NAME:
         setName((String)newValue);
         return;
-      case DomainPackage.TRIGGER__METHOD_REF:
-        setMethodRef((Operation)newValue);
-        return;
       case DomainPackage.TRIGGER__PARAMETERS:
         getParameters().clear();
         getParameters().addAll((Collection<? extends TriggerParameter>)newValue);
-        return;
-      case DomainPackage.TRIGGER__FAKE_METHOD:
-        setFakeMethod((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -356,14 +246,8 @@ public class TriggerImpl extends TypePointerImpl implements Trigger
       case DomainPackage.TRIGGER__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DomainPackage.TRIGGER__METHOD_REF:
-        setMethodRef((Operation)null);
-        return;
       case DomainPackage.TRIGGER__PARAMETERS:
         getParameters().clear();
-        return;
-      case DomainPackage.TRIGGER__FAKE_METHOD:
-        setFakeMethod(FAKE_METHOD_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -383,12 +267,8 @@ public class TriggerImpl extends TypePointerImpl implements Trigger
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.TRIGGER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.TRIGGER__METHOD_REF:
-        return methodRef != null;
       case DomainPackage.TRIGGER__PARAMETERS:
         return parameters != null && !parameters.isEmpty();
-      case DomainPackage.TRIGGER__FAKE_METHOD:
-        return FAKE_METHOD_EDEFAULT == null ? fakeMethod != null : !FAKE_METHOD_EDEFAULT.equals(fakeMethod);
     }
     return super.eIsSet(featureID);
   }
@@ -408,8 +288,6 @@ public class TriggerImpl extends TypePointerImpl implements Trigger
     result.append(uid);
     result.append(", name: ");
     result.append(name);
-    result.append(", fakeMethod: ");
-    result.append(fakeMethod);
     result.append(')');
     return result.toString();
   }

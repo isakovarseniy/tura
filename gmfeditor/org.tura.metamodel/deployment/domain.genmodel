@@ -135,44 +135,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//ApplicationMapper/mapper"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//ApplicationMapper/parent"/>
     </genClasses>
-    <genClasses ecoreClass="domain.ecore#//BusinessObjects">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//BusinessObjects/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObjects/businessObject"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObjects/parent"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//BusinessObject">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//BusinessObject/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//BusinessObject/name"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/parent"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/createMethods"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/insertMethods"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/updateMethods"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/removeMethods"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/searchMethods"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessObject/othersMethods"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//BusinessMethod">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//BusinessMethod/uid"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessMethod/methodRef"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//BusinessMethod/fakeMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//CreateMethod">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//CreateMethod/parent"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//InsertMethod">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//InsertMethod/parent"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//UpdateMethod">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//UpdateMethod/parent"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//RemoveMethod">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//RemoveMethod/parent"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//SearchMethod">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//SearchMethod/parent"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//OtherMethod">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//OtherMethod/parent"/>
+    <genClasses ecoreClass="domain.ecore#//MethodPointer">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//MethodPointer/methodRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MethodPointer/fakeMethod"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Mappers">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Mappers/uid"/>
@@ -371,19 +336,12 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Types/parent"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Types/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Types/packages"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Types/businessPackages"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Package/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Package/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Package/typedefinition"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Package/parent"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//BusinessPackage">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//BusinessPackage/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//BusinessPackage/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//BusinessPackage/businessobjects"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//BusinessPackage/parent"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//UIPackage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//UIPackage/uid"/>
@@ -414,9 +372,7 @@
     <genClasses ecoreClass="domain.ecore#//Trigger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Trigger/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Trigger/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Trigger/methodRef"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Trigger/parameters"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Trigger/fakeMethod"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//TriggerParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TriggerParameter/uid"/>
@@ -433,7 +389,8 @@
     <genClasses ecoreClass="domain.ecore#//POSTQueryTrigger"/>
     <genClasses ecoreClass="domain.ecore#//PREInsertTrigger"/>
     <genClasses ecoreClass="domain.ecore#//PREDeleteTrigger"/>
-    <genClasses ecoreClass="domain.ecore#//PRECreateTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//POSTCreateTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//PREUpdateTrigger"/>
     <genClasses ecoreClass="domain.ecore#//Root">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Root/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Root/name"/>
@@ -446,8 +403,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/postQueryTrigger"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preInsertTrigger"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preDeleteTrigger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preCreateTrigger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/artificialField"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/postCreateTrigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preUpdateTrigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/artificialFields"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/create"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/insert"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/update"/>

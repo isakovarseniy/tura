@@ -134,7 +134,6 @@ public class TypesItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.TYPES__PACKAGES);
-      childrenFeatures.add(DomainPackage.Literals.TYPES__BUSINESS_PACKAGES);
     }
     return childrenFeatures;
   }
@@ -199,7 +198,6 @@ public class TypesItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.TYPES__PACKAGES:
-      case DomainPackage.TYPES__BUSINESS_PACKAGES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -222,11 +220,6 @@ public class TypesItemProvider
       (createChildParameter
         (DomainPackage.Literals.TYPES__PACKAGES,
          DomainFactory.eINSTANCE.createPackage()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.TYPES__BUSINESS_PACKAGES,
-         DomainFactory.eINSTANCE.createBusinessPackage()));
   }
 
   /**

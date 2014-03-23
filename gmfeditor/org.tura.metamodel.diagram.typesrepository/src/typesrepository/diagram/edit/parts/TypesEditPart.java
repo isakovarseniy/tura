@@ -134,14 +134,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof TypesTypesBusinessPackagesCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getTypesBusinessPackagesCompartmentFigure();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((TypesTypesBusinessPackagesCompartmentEditPart) childEditPart)
-					.getFigure());
-			return true;
-		}
 		return false;
 	}
 
@@ -156,13 +148,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 			IFigure pane = getPrimaryShape()
 					.getTypesPackagesCompartmentFigure();
 			pane.remove(((TypesTypesPackagesCompartmentEditPart) childEditPart)
-					.getFigure());
-			return true;
-		}
-		if (childEditPart instanceof TypesTypesBusinessPackagesCompartmentEditPart) {
-			IFigure pane = getPrimaryShape()
-					.getTypesBusinessPackagesCompartmentFigure();
-			pane.remove(((TypesTypesBusinessPackagesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -195,10 +180,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof TypesTypesPackagesCompartmentEditPart) {
 			return getPrimaryShape().getTypesPackagesCompartmentFigure();
-		}
-		if (editPart instanceof TypesTypesBusinessPackagesCompartmentEditPart) {
-			return getPrimaryShape()
-					.getTypesBusinessPackagesCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -323,10 +304,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private RectangleFigure fTypesPackagesCompartmentFigure;
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fTypesBusinessPackagesCompartmentFigure;
 
 		/**
 		 * @generated
@@ -364,12 +341,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 
 			this.add(fTypesPackagesCompartmentFigure);
 
-			fTypesBusinessPackagesCompartmentFigure = new RectangleFigure();
-
-			fTypesBusinessPackagesCompartmentFigure.setOutline(false);
-
-			this.add(fTypesBusinessPackagesCompartmentFigure);
-
 		}
 
 		/**
@@ -384,13 +355,6 @@ public class TypesEditPart extends ShapeNodeEditPart {
 		 */
 		public RectangleFigure getTypesPackagesCompartmentFigure() {
 			return fTypesPackagesCompartmentFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getTypesBusinessPackagesCompartmentFigure() {
-			return fTypesBusinessPackagesCompartmentFigure;
 		}
 
 	}

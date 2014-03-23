@@ -14,17 +14,12 @@ import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
-import domain.BusinessMethod;
-import domain.BusinessObject;
-import domain.BusinessObjects;
-import domain.BusinessPackage;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
-import domain.CreateMethod;
 import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
@@ -46,7 +41,6 @@ import domain.FormDataControls;
 import domain.FormView;
 import domain.Infrastructure;
 import domain.Ingredient;
-import domain.InsertMethod;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
@@ -54,18 +48,19 @@ import domain.Link;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.MethodPointer;
 import domain.ModelMapper;
 import domain.ModelQuery;
 import domain.ORMEntity;
 import domain.Operation;
 import domain.Option;
-import domain.OtherMethod;
+import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
-import domain.PRECreateTrigger;
 import domain.PREDeleteTrigger;
 import domain.PREFormTrigger;
 import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
+import domain.PREUpdateTrigger;
 import domain.Parameter;
 import domain.PlatformLayers;
 import domain.Primitive;
@@ -76,10 +71,8 @@ import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
 import domain.Relation;
-import domain.RemoveMethod;
 import domain.ReturnValue;
 import domain.Root;
-import domain.SearchMethod;
 import domain.Specifier;
 import domain.Trigger;
 import domain.TriggerParameter;
@@ -92,7 +85,6 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UIPackage;
-import domain.UpdateMethod;
 import domain.UsingMappers;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -284,63 +276,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass businessObjectsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass businessObjectEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass businessMethodEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass createMethodEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass insertMethodEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass updateMethodEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass removeMethodEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass searchMethodEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass otherMethodEClass = null;
+  private EClass methodPointerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -606,13 +542,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass businessPackageEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass uiPackageEClass = null;
 
   /**
@@ -704,7 +633,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass preCreateTriggerEClass = null;
+  private EClass postCreateTriggerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass preUpdateTriggerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1876,9 +1812,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getBusinessObjects()
+  public EClass getMethodPointer()
   {
-    return businessObjectsEClass;
+    return methodPointerEClass;
   }
 
   /**
@@ -1886,9 +1822,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBusinessObjects_Uid()
+  public EReference getMethodPointer_MethodRef()
   {
-    return (EAttribute)businessObjectsEClass.getEStructuralFeatures().get(0);
+    return (EReference)methodPointerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1896,279 +1832,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBusinessObjects_BusinessObject()
+  public EAttribute getMethodPointer_FakeMethod()
   {
-    return (EReference)businessObjectsEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBusinessObjects_Parent()
-  {
-    return (EReference)businessObjectsEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getBusinessObject()
-  {
-    return businessObjectEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBusinessObject_Uid()
-  {
-    return (EAttribute)businessObjectEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBusinessObject_Name()
-  {
-    return (EAttribute)businessObjectEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBusinessObject_Parent()
-  {
-    return (EReference)businessObjectEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBusinessObject_CreateMethods()
-  {
-    return (EReference)businessObjectEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBusinessObject_InsertMethods()
-  {
-    return (EReference)businessObjectEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBusinessObject_UpdateMethods()
-  {
-    return (EReference)businessObjectEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBusinessObject_RemoveMethods()
-  {
-    return (EReference)businessObjectEClass.getEStructuralFeatures().get(6);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBusinessObject_SearchMethods()
-  {
-    return (EReference)businessObjectEClass.getEStructuralFeatures().get(7);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBusinessObject_OthersMethods()
-  {
-    return (EReference)businessObjectEClass.getEStructuralFeatures().get(8);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getBusinessMethod()
-  {
-    return businessMethodEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBusinessMethod_Uid()
-  {
-    return (EAttribute)businessMethodEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBusinessMethod_MethodRef()
-  {
-    return (EReference)businessMethodEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBusinessMethod_FakeMethod()
-  {
-    return (EAttribute)businessMethodEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCreateMethod()
-  {
-    return createMethodEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCreateMethod_Parent()
-  {
-    return (EReference)createMethodEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getInsertMethod()
-  {
-    return insertMethodEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getInsertMethod_Parent()
-  {
-    return (EReference)insertMethodEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getUpdateMethod()
-  {
-    return updateMethodEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getUpdateMethod_Parent()
-  {
-    return (EReference)updateMethodEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getRemoveMethod()
-  {
-    return removeMethodEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRemoveMethod_Parent()
-  {
-    return (EReference)removeMethodEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSearchMethod()
-  {
-    return searchMethodEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSearchMethod_Parent()
-  {
-    return (EReference)searchMethodEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getOtherMethod()
-  {
-    return otherMethodEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getOtherMethod_Parent()
-  {
-    return (EReference)otherMethodEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)methodPointerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3816,16 +3482,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypes_BusinessPackages()
-  {
-    return (EReference)typesEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getPackage()
   {
     return packageEClass;
@@ -3869,56 +3525,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getPackage_Parent()
   {
     return (EReference)packageEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getBusinessPackage()
-  {
-    return businessPackageEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBusinessPackage_Uid()
-  {
-    return (EAttribute)businessPackageEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBusinessPackage_Name()
-  {
-    return (EAttribute)businessPackageEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBusinessPackage_Businessobjects()
-  {
-    return (EReference)businessPackageEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBusinessPackage_Parent()
-  {
-    return (EReference)businessPackageEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -4166,29 +3772,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTrigger_MethodRef()
-  {
-    return (EReference)triggerEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getTrigger_Parameters()
   {
-    return (EReference)triggerEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTrigger_FakeMethod()
-  {
-    return (EAttribute)triggerEClass.getEStructuralFeatures().get(4);
+    return (EReference)triggerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4326,9 +3912,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPRECreateTrigger()
+  public EClass getPOSTCreateTrigger()
   {
-    return preCreateTriggerEClass;
+    return postCreateTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPREUpdateTrigger()
+  {
+    return preUpdateTriggerEClass;
   }
 
   /**
@@ -4446,7 +4042,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_PreCreateTrigger()
+  public EReference getDataControl_PostCreateTrigger()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(6);
   }
@@ -4456,7 +4052,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_ArtificialField()
+  public EReference getDataControl_PreUpdateTrigger()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(7);
   }
@@ -4466,7 +4062,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_Create()
+  public EReference getDataControl_ArtificialFields()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(8);
   }
@@ -4476,7 +4072,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_Insert()
+  public EReference getDataControl_Create()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(9);
   }
@@ -4486,7 +4082,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_Update()
+  public EReference getDataControl_Insert()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(10);
   }
@@ -4496,7 +4092,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_Remove()
+  public EReference getDataControl_Update()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(11);
   }
@@ -4506,9 +4102,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_Search()
+  public EReference getDataControl_Remove()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(12);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_Search()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(13);
   }
 
   /**
@@ -4821,44 +4427,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(applicationMapperEClass, APPLICATION_MAPPER__MAPPER);
     createEReference(applicationMapperEClass, APPLICATION_MAPPER__PARENT);
 
-    businessObjectsEClass = createEClass(BUSINESS_OBJECTS);
-    createEAttribute(businessObjectsEClass, BUSINESS_OBJECTS__UID);
-    createEReference(businessObjectsEClass, BUSINESS_OBJECTS__BUSINESS_OBJECT);
-    createEReference(businessObjectsEClass, BUSINESS_OBJECTS__PARENT);
-
-    businessObjectEClass = createEClass(BUSINESS_OBJECT);
-    createEAttribute(businessObjectEClass, BUSINESS_OBJECT__UID);
-    createEAttribute(businessObjectEClass, BUSINESS_OBJECT__NAME);
-    createEReference(businessObjectEClass, BUSINESS_OBJECT__PARENT);
-    createEReference(businessObjectEClass, BUSINESS_OBJECT__CREATE_METHODS);
-    createEReference(businessObjectEClass, BUSINESS_OBJECT__INSERT_METHODS);
-    createEReference(businessObjectEClass, BUSINESS_OBJECT__UPDATE_METHODS);
-    createEReference(businessObjectEClass, BUSINESS_OBJECT__REMOVE_METHODS);
-    createEReference(businessObjectEClass, BUSINESS_OBJECT__SEARCH_METHODS);
-    createEReference(businessObjectEClass, BUSINESS_OBJECT__OTHERS_METHODS);
-
-    businessMethodEClass = createEClass(BUSINESS_METHOD);
-    createEAttribute(businessMethodEClass, BUSINESS_METHOD__UID);
-    createEReference(businessMethodEClass, BUSINESS_METHOD__METHOD_REF);
-    createEAttribute(businessMethodEClass, BUSINESS_METHOD__FAKE_METHOD);
-
-    createMethodEClass = createEClass(CREATE_METHOD);
-    createEReference(createMethodEClass, CREATE_METHOD__PARENT);
-
-    insertMethodEClass = createEClass(INSERT_METHOD);
-    createEReference(insertMethodEClass, INSERT_METHOD__PARENT);
-
-    updateMethodEClass = createEClass(UPDATE_METHOD);
-    createEReference(updateMethodEClass, UPDATE_METHOD__PARENT);
-
-    removeMethodEClass = createEClass(REMOVE_METHOD);
-    createEReference(removeMethodEClass, REMOVE_METHOD__PARENT);
-
-    searchMethodEClass = createEClass(SEARCH_METHOD);
-    createEReference(searchMethodEClass, SEARCH_METHOD__PARENT);
-
-    otherMethodEClass = createEClass(OTHER_METHOD);
-    createEReference(otherMethodEClass, OTHER_METHOD__PARENT);
+    methodPointerEClass = createEClass(METHOD_POINTER);
+    createEReference(methodPointerEClass, METHOD_POINTER__METHOD_REF);
+    createEAttribute(methodPointerEClass, METHOD_POINTER__FAKE_METHOD);
 
     mappersEClass = createEClass(MAPPERS);
     createEAttribute(mappersEClass, MAPPERS__UID);
@@ -5059,19 +4630,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(typesEClass, TYPES__PARENT);
     createEAttribute(typesEClass, TYPES__NAME);
     createEReference(typesEClass, TYPES__PACKAGES);
-    createEReference(typesEClass, TYPES__BUSINESS_PACKAGES);
 
     packageEClass = createEClass(PACKAGE);
     createEAttribute(packageEClass, PACKAGE__UID);
     createEAttribute(packageEClass, PACKAGE__NAME);
     createEReference(packageEClass, PACKAGE__TYPEDEFINITION);
     createEReference(packageEClass, PACKAGE__PARENT);
-
-    businessPackageEClass = createEClass(BUSINESS_PACKAGE);
-    createEAttribute(businessPackageEClass, BUSINESS_PACKAGE__UID);
-    createEAttribute(businessPackageEClass, BUSINESS_PACKAGE__NAME);
-    createEReference(businessPackageEClass, BUSINESS_PACKAGE__BUSINESSOBJECTS);
-    createEReference(businessPackageEClass, BUSINESS_PACKAGE__PARENT);
 
     uiPackageEClass = createEClass(UI_PACKAGE);
     createEAttribute(uiPackageEClass, UI_PACKAGE__UID);
@@ -5102,9 +4666,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     triggerEClass = createEClass(TRIGGER);
     createEAttribute(triggerEClass, TRIGGER__UID);
     createEAttribute(triggerEClass, TRIGGER__NAME);
-    createEReference(triggerEClass, TRIGGER__METHOD_REF);
     createEReference(triggerEClass, TRIGGER__PARAMETERS);
-    createEAttribute(triggerEClass, TRIGGER__FAKE_METHOD);
 
     triggerParameterEClass = createEClass(TRIGGER_PARAMETER);
     createEAttribute(triggerParameterEClass, TRIGGER_PARAMETER__UID);
@@ -5126,7 +4688,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     preDeleteTriggerEClass = createEClass(PRE_DELETE_TRIGGER);
 
-    preCreateTriggerEClass = createEClass(PRE_CREATE_TRIGGER);
+    postCreateTriggerEClass = createEClass(POST_CREATE_TRIGGER);
+
+    preUpdateTriggerEClass = createEClass(PRE_UPDATE_TRIGGER);
 
     rootEClass = createEClass(ROOT);
     createEAttribute(rootEClass, ROOT__UID);
@@ -5140,8 +4704,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(dataControlEClass, DATA_CONTROL__POST_QUERY_TRIGGER);
     createEReference(dataControlEClass, DATA_CONTROL__PRE_INSERT_TRIGGER);
     createEReference(dataControlEClass, DATA_CONTROL__PRE_DELETE_TRIGGER);
-    createEReference(dataControlEClass, DATA_CONTROL__PRE_CREATE_TRIGGER);
-    createEReference(dataControlEClass, DATA_CONTROL__ARTIFICIAL_FIELD);
+    createEReference(dataControlEClass, DATA_CONTROL__POST_CREATE_TRIGGER);
+    createEReference(dataControlEClass, DATA_CONTROL__PRE_UPDATE_TRIGGER);
+    createEReference(dataControlEClass, DATA_CONTROL__ARTIFICIAL_FIELDS);
     createEReference(dataControlEClass, DATA_CONTROL__CREATE);
     createEReference(dataControlEClass, DATA_CONTROL__INSERT);
     createEReference(dataControlEClass, DATA_CONTROL__UPDATE);
@@ -5202,13 +4767,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     jpaServiceEClass.getESuperTypes().add(this.getDomainArtifact());
     ejbServiceEClass.getESuperTypes().add(this.getDomainArtifact());
     continuousIintegrationEClass.getESuperTypes().add(this.getDomainArtifact());
-    businessMethodEClass.getESuperTypes().add(this.getTypePointer());
-    createMethodEClass.getESuperTypes().add(this.getBusinessMethod());
-    insertMethodEClass.getESuperTypes().add(this.getBusinessMethod());
-    updateMethodEClass.getESuperTypes().add(this.getBusinessMethod());
-    removeMethodEClass.getESuperTypes().add(this.getBusinessMethod());
-    searchMethodEClass.getESuperTypes().add(this.getBusinessMethod());
-    otherMethodEClass.getESuperTypes().add(this.getBusinessMethod());
+    methodPointerEClass.getESuperTypes().add(this.getTypePointer());
     mapperEClass.getESuperTypes().add(this.getTypePointer());
     javaMapperEClass.getESuperTypes().add(this.getMapper());
     recipeEClass.getESuperTypes().add(this.getUsingMappers());
@@ -5223,13 +4782,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     parameterEClass.getESuperTypes().add(this.getTypePointer());
     returnValueEClass.getESuperTypes().add(this.getTypePointer());
     enumaratorEClass.getESuperTypes().add(this.getTypeElement());
-    triggerEClass.getESuperTypes().add(this.getTypePointer());
+    triggerEClass.getESuperTypes().add(this.getMethodPointer());
     preFormTriggerEClass.getESuperTypes().add(this.getTrigger());
     preQueryTriggerEClass.getESuperTypes().add(this.getTrigger());
     postQueryTriggerEClass.getESuperTypes().add(this.getTrigger());
     preInsertTriggerEClass.getESuperTypes().add(this.getTrigger());
     preDeleteTriggerEClass.getESuperTypes().add(this.getTrigger());
-    preCreateTriggerEClass.getESuperTypes().add(this.getTrigger());
+    postCreateTriggerEClass.getESuperTypes().add(this.getTrigger());
+    preUpdateTriggerEClass.getESuperTypes().add(this.getTrigger());
     dataControlEClass.getESuperTypes().add(this.getTypePointer());
     artificialFieldEClass.getESuperTypes().add(this.getTypePointer());
 
@@ -5364,44 +4924,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getApplicationMapper_Mapper(), this.getMappers(), this.getMappers_Parent(), "mapper", null, 0, 1, ApplicationMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplicationMapper_Parent(), this.getApplicationMappers(), this.getApplicationMappers_Mappers(), "parent", null, 0, 1, ApplicationMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(businessObjectsEClass, BusinessObjects.class, "BusinessObjects", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBusinessObjects_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, BusinessObjects.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObjects_BusinessObject(), this.getBusinessObject(), this.getBusinessObject_Parent(), "businessObject", null, 0, -1, BusinessObjects.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObjects_Parent(), this.getBusinessPackage(), this.getBusinessPackage_Businessobjects(), "parent", null, 0, 1, BusinessObjects.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(businessObjectEClass, BusinessObject.class, "BusinessObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBusinessObject_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBusinessObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_Parent(), this.getBusinessObjects(), this.getBusinessObjects_BusinessObject(), "parent", null, 0, 1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_CreateMethods(), this.getCreateMethod(), this.getCreateMethod_Parent(), "createMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_InsertMethods(), this.getInsertMethod(), this.getInsertMethod_Parent(), "insertMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_UpdateMethods(), this.getUpdateMethod(), this.getUpdateMethod_Parent(), "updateMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_RemoveMethods(), this.getRemoveMethod(), this.getRemoveMethod_Parent(), "removeMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_SearchMethods(), this.getSearchMethod(), this.getSearchMethod_Parent(), "searchMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessObject_OthersMethods(), this.getOtherMethod(), this.getOtherMethod_Parent(), "othersMethods", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(businessMethodEClass, BusinessMethod.class, "BusinessMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBusinessMethod_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, BusinessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessMethod_MethodRef(), this.getOperation(), null, "methodRef", null, 0, 1, BusinessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBusinessMethod_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, BusinessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(createMethodEClass, CreateMethod.class, "CreateMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCreateMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_CreateMethods(), "parent", null, 0, 1, CreateMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(insertMethodEClass, InsertMethod.class, "InsertMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getInsertMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_InsertMethods(), "parent", null, 0, 1, InsertMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(updateMethodEClass, UpdateMethod.class, "UpdateMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUpdateMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_UpdateMethods(), "parent", null, 0, 1, UpdateMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(removeMethodEClass, RemoveMethod.class, "RemoveMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRemoveMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_RemoveMethods(), "parent", null, 0, 1, RemoveMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(searchMethodEClass, SearchMethod.class, "SearchMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSearchMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_SearchMethods(), "parent", null, 0, 1, SearchMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(otherMethodEClass, OtherMethod.class, "OtherMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOtherMethod_Parent(), this.getBusinessObject(), this.getBusinessObject_OthersMethods(), "parent", null, 0, 1, OtherMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(methodPointerEClass, MethodPointer.class, "MethodPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMethodPointer_MethodRef(), this.getOperation(), null, "methodRef", null, 0, 1, MethodPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMethodPointer_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, MethodPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mappersEClass, Mappers.class, "Mappers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMappers_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Mappers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5602,19 +5127,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getTypes_Parent(), this.getTypesRepository(), this.getTypesRepository_TypeDefinition(), "parent", null, 0, 1, Types.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypes_Name(), ecorePackage.getEString(), "name", null, 0, 1, Types.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypes_Packages(), this.getPackage(), this.getPackage_Parent(), "packages", null, 0, -1, Types.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTypes_BusinessPackages(), this.getBusinessPackage(), this.getBusinessPackage_Parent(), "businessPackages", null, 0, -1, Types.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageEClass, domain.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPackage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, domain.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, domain.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackage_Typedefinition(), this.getTypeDefinition(), this.getTypeDefinition_Parent(), "typedefinition", null, 0, 1, domain.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackage_Parent(), this.getTypes(), this.getTypes_Packages(), "parent", null, 0, 1, domain.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(businessPackageEClass, BusinessPackage.class, "BusinessPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBusinessPackage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, BusinessPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBusinessPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, BusinessPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessPackage_Businessobjects(), this.getBusinessObjects(), this.getBusinessObjects_Parent(), "businessobjects", null, 0, 1, BusinessPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBusinessPackage_Parent(), this.getTypes(), this.getTypes_BusinessPackages(), "parent", null, 0, 1, BusinessPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(uiPackageEClass, UIPackage.class, "UIPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUIPackage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, UIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5645,9 +5163,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTrigger_Name(), ecorePackage.getEString(), "name", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTrigger_MethodRef(), this.getOperation(), null, "methodRef", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTrigger_Parameters(), this.getTriggerParameter(), null, "parameters", null, 0, -1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTrigger_FakeMethod(), ecorePackage.getEString(), "fakeMethod", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(triggerParameterEClass, TriggerParameter.class, "TriggerParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTriggerParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5669,7 +5185,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(preDeleteTriggerEClass, PREDeleteTrigger.class, "PREDeleteTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(preCreateTriggerEClass, PRECreateTrigger.class, "PRECreateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(postCreateTriggerEClass, POSTCreateTrigger.class, "POSTCreateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(preUpdateTriggerEClass, PREUpdateTrigger.class, "PREUpdateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRoot_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5683,8 +5201,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getDataControl_PostQueryTrigger(), this.getPOSTQueryTrigger(), null, "postQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_PreInsertTrigger(), this.getPREInsertTrigger(), null, "preInsertTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_PreDeleteTrigger(), this.getPREDeleteTrigger(), null, "preDeleteTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDataControl_PreCreateTrigger(), this.getPRECreateTrigger(), null, "preCreateTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDataControl_ArtificialField(), this.getArtificialField(), null, "artificialField", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_PostCreateTrigger(), this.getPOSTCreateTrigger(), null, "postCreateTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_PreUpdateTrigger(), this.getPREUpdateTrigger(), null, "preUpdateTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_ArtificialFields(), this.getArtificialField(), null, "artificialFields", null, 0, -1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_Create(), this.getTrigger(), null, "create", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_Insert(), this.getTrigger(), null, "insert", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_Update(), this.getTrigger(), null, "update", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5729,24 +5248,22 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createGmf_4Annotations();
     // gmf.diagram.application
     createGmf_5Annotations();
-    // gmf.diagram.businessObjects
-    createGmf_6Annotations();
     // gmf.diagram.mapper
-    createGmf_7Annotations();
+    createGmf_6Annotations();
     // gmf.diagram.recipe
-    createGmf_8Annotations();
+    createGmf_7Annotations();
     // gmf.diagram.deployment
-    createGmf_9Annotations();
+    createGmf_8Annotations();
     // gmf.link
-    createGmf_10Annotations();
+    createGmf_9Annotations();
     // gmf.diagram.typedefinition
-    createGmf_11Annotations();
+    createGmf_10Annotations();
     // gmf.diagram.typesrepository
-    createGmf_12Annotations();
+    createGmf_11Annotations();
     // gmf.diagram.uipackage
-    createGmf_13Annotations();
+    createGmf_12Annotations();
     // gmf.diagram.control
-    createGmf_14Annotations();
+    createGmf_13Annotations();
   }
 
   /**
@@ -5763,7 +5280,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																	
+       });																																																																																																			
   }
 
   /**
@@ -5780,7 +5297,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																
+       });																																																																																																		
   }
 
   /**
@@ -5969,69 +5486,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "color", "255,237,85"
        });			
     addAnnotation
-      (businessObjectEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "name",
-       "border.color", "0,0,0",
-       "color", "255,239,222"
-       });								
-    addAnnotation
-      (createMethodEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "fakeMethod",
-       "border.color", "0,0,0",
-       "color", "255,239,222"
-       });		
-    addAnnotation
-      (insertMethodEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "fakeMethod",
-       "border.color", "0,0,0",
-       "color", "255,239,222"
-       });		
-    addAnnotation
-      (updateMethodEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "fakeMethod",
-       "border.color", "0,0,0",
-       "color", "255,239,222"
-       });		
-    addAnnotation
-      (removeMethodEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "fakeMethod",
-       "border.color", "0,0,0",
-       "color", "255,239,222"
-       });		
-    addAnnotation
-      (searchMethodEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "fakeMethod",
-       "border.color", "0,0,0",
-       "color", "255,239,222"
-       });		
-    addAnnotation
-      (otherMethodEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "fakeMethod",
-       "border.color", "0,0,0",
-       "color", "255,239,222"
-       });			
-    addAnnotation
       (javaMapperEClass, 
        source, 
        new String[] 
@@ -6210,18 +5664,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "255,239,222"
-       });				
+       });			
     addAnnotation
       (packageEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "name",
-       "border.color", "0,0,0",
-       "color", "241,238,203"
-       });		
-    addAnnotation
-      (businessPackageEClass, 
        source, 
        new String[] 
        {
@@ -6302,7 +5747,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "color", "241,238,203"
        });		
     addAnnotation
-      (preCreateTriggerEClass, 
+      (postCreateTriggerEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "fakeMethod",
+       "border.color", "0,0,0",
+       "color", "241,238,203"
+       });		
+    addAnnotation
+      (preUpdateTriggerEClass, 
        source, 
        new String[] 
        {
@@ -6327,7 +5781,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "241,238,203"
-       });									
+       });										
     addAnnotation
       (artificialFieldEClass, 
        source, 
@@ -6398,43 +5852,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });					
-    addAnnotation
-      (getBusinessObject_CreateMethods(), 
-       source, 
-       new String[] 
-       {
-       });		
-    addAnnotation
-      (getBusinessObject_InsertMethods(), 
-       source, 
-       new String[] 
-       {
-       });		
-    addAnnotation
-      (getBusinessObject_UpdateMethods(), 
-       source, 
-       new String[] 
-       {
-       });		
-    addAnnotation
-      (getBusinessObject_RemoveMethods(), 
-       source, 
-       new String[] 
-       {
-       });		
-    addAnnotation
-      (getBusinessObject_SearchMethods(), 
-       source, 
-       new String[] 
-       {
-       });		
-    addAnnotation
-      (getBusinessObject_OthersMethods(), 
-       source, 
-       new String[] 
-       {
-       });																		
+       });													
     addAnnotation
       (getRecipe_Ingredients(), 
        source, 
@@ -6490,13 +5908,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });		
-    addAnnotation
-      (getTypes_BusinessPackages(), 
-       source, 
-       new String[] 
-       {
-       });						
+       });					
     addAnnotation
       (getForm_View(), 
        source, 
@@ -6510,7 +5922,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });												
+       });													
     addAnnotation
       (getRoot_PreFormTrigger(), 
        source, 
@@ -6547,14 +5959,21 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "layout", "list"
        });		
     addAnnotation
-      (getDataControl_PreCreateTrigger(), 
+      (getDataControl_PostCreateTrigger(), 
        source, 
        new String[] 
        {
        "layout", "list"
        });		
     addAnnotation
-      (getDataControl_ArtificialField(), 
+      (getDataControl_PreUpdateTrigger(), 
+       source, 
+       new String[] 
+       {
+       "layout", "list"
+       });		
+    addAnnotation
+      (getDataControl_ArtificialFields(), 
        source, 
        new String[] 
        {
@@ -6576,7 +5995,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																				
+       });																																																																																						
   }
 
   /**
@@ -6593,24 +6012,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																											
-  }
-
-  /**
-   * Initializes the annotations for <b>gmf.diagram.businessObjects</b>.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void createGmf_6Annotations()
-  {
-    String source = "gmf.diagram.businessObjects";																																		
-    addAnnotation
-      (businessObjectsEClass, 
-       source, 
-       new String[] 
-       {
-       });																																																																																	
+       });																																																																													
   }
 
   /**
@@ -6619,9 +6021,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_7Annotations()
+  protected void createGmf_6Annotations()
   {
-    String source = "gmf.diagram.mapper";																																																
+    String source = "gmf.diagram.mapper";																																		
     addAnnotation
       (mappersEClass, 
        source, 
@@ -6636,9 +6038,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_8Annotations()
+  protected void createGmf_7Annotations()
   {
-    String source = "gmf.diagram.recipe";																																																		
+    String source = "gmf.diagram.recipe";																																				
     addAnnotation
       (recipesEClass, 
        source, 
@@ -6653,9 +6055,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_9Annotations()
+  protected void createGmf_8Annotations()
   {
-    String source = "gmf.diagram.deployment";																																																				
+    String source = "gmf.diagram.deployment";																																						
     addAnnotation
       (deploymentComponentsEClass, 
        source, 
@@ -6670,9 +6072,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_10Annotations()
+  protected void createGmf_9Annotations()
   {
-    String source = "gmf.link";																																																						
+    String source = "gmf.link";																																								
     addAnnotation
       (getDeploymentComponent_DeplymentComponent(), 
        source, 
@@ -6751,9 +6153,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_11Annotations()
+  protected void createGmf_10Annotations()
   {
-    String source = "gmf.diagram.typedefinition";																																																																										
+    String source = "gmf.diagram.typedefinition";																																																												
     addAnnotation
       (typeDefinitionEClass, 
        source, 
@@ -6768,9 +6170,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_12Annotations()
+  protected void createGmf_11Annotations()
   {
-    String source = "gmf.diagram.typesrepository";																																																																																						
+    String source = "gmf.diagram.typesrepository";																																																																								
     addAnnotation
       (typesRepositoryEClass, 
        source, 
@@ -6785,15 +6187,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_13Annotations()
+  protected void createGmf_12Annotations()
   {
-    String source = "gmf.diagram.uipackage";																																																																																												
+    String source = "gmf.diagram.uipackage";																																																																												
     addAnnotation
       (uiPackageEClass, 
        source, 
        new String[] 
        {
-       });																							
+       });																									
   }
 
   /**
@@ -6802,15 +6204,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void createGmf_14Annotations()
+  protected void createGmf_13Annotations()
   {
-    String source = "gmf.diagram.control";																																																																																																		
+    String source = "gmf.diagram.control";																																																																																		
     addAnnotation
       (controlsEClass, 
        source, 
        new String[] 
        {
-       });																	
+       });																			
   }
 
 } //DomainPackageImpl

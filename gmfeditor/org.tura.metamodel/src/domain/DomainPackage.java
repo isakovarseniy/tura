@@ -1396,152 +1396,6 @@ public interface DomainPackage extends EPackage
   int APPLICATION_MAPPER_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link domain.impl.BusinessObjectsImpl <em>Business Objects</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.BusinessObjectsImpl
-   * @see domain.impl.DomainPackageImpl#getBusinessObjects()
-   * @generated
-   */
-  int BUSINESS_OBJECTS = 24;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECTS__UID = 0;
-
-  /**
-   * The feature id for the '<em><b>Business Object</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECTS__BUSINESS_OBJECT = 1;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECTS__PARENT = 2;
-
-  /**
-   * The number of structural features of the '<em>Business Objects</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECTS_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link domain.impl.BusinessObjectImpl <em>Business Object</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.BusinessObjectImpl
-   * @see domain.impl.DomainPackageImpl#getBusinessObject()
-   * @generated
-   */
-  int BUSINESS_OBJECT = 25;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__UID = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__PARENT = 2;
-
-  /**
-   * The feature id for the '<em><b>Create Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__CREATE_METHODS = 3;
-
-  /**
-   * The feature id for the '<em><b>Insert Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__INSERT_METHODS = 4;
-
-  /**
-   * The feature id for the '<em><b>Update Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__UPDATE_METHODS = 5;
-
-  /**
-   * The feature id for the '<em><b>Remove Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__REMOVE_METHODS = 6;
-
-  /**
-   * The feature id for the '<em><b>Search Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__SEARCH_METHODS = 7;
-
-  /**
-   * The feature id for the '<em><b>Others Methods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT__OTHERS_METHODS = 8;
-
-  /**
-   * The number of structural features of the '<em>Business Object</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_OBJECT_FEATURE_COUNT = 9;
-
-  /**
    * The meta object id for the '{@link domain.impl.TypePointerImpl <em>Type Pointer</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1549,7 +1403,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypePointer()
    * @generated
    */
-  int TYPE_POINTER = 54;
+  int TYPE_POINTER = 46;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -1597,14 +1451,14 @@ public interface DomainPackage extends EPackage
   int TYPE_POINTER_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link domain.impl.BusinessMethodImpl <em>Business Method</em>}' class.
+   * The meta object id for the '{@link domain.impl.MethodPointerImpl <em>Method Pointer</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.BusinessMethodImpl
-   * @see domain.impl.DomainPackageImpl#getBusinessMethod()
+   * @see domain.impl.MethodPointerImpl
+   * @see domain.impl.DomainPackageImpl#getMethodPointer()
    * @generated
    */
-  int BUSINESS_METHOD = 26;
+  int METHOD_POINTER = 24;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -1613,7 +1467,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
+  int METHOD_POINTER__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
 
   /**
    * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -1622,7 +1476,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD__TYPE_REF = TYPE_POINTER__TYPE_REF;
+  int METHOD_POINTER__TYPE_REF = TYPE_POINTER__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
@@ -1631,7 +1485,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD__FAKE_PACKAGE_NAME = TYPE_POINTER__FAKE_PACKAGE_NAME;
+  int METHOD_POINTER__FAKE_PACKAGE_NAME = TYPE_POINTER__FAKE_PACKAGE_NAME;
 
   /**
    * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
@@ -1640,16 +1494,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD__FAKE_TYPE_NAME = TYPE_POINTER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_METHOD__UID = TYPE_POINTER_FEATURE_COUNT + 0;
+  int METHOD_POINTER__FAKE_TYPE_NAME = TYPE_POINTER__FAKE_TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -1658,7 +1503,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD__METHOD_REF = TYPE_POINTER_FEATURE_COUNT + 1;
+  int METHOD_POINTER__METHOD_REF = TYPE_POINTER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Fake Method</b></em>' attribute.
@@ -1667,562 +1512,16 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD__FAKE_METHOD = TYPE_POINTER_FEATURE_COUNT + 2;
+  int METHOD_POINTER__FAKE_METHOD = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Business Method</em>' class.
+   * The number of structural features of the '<em>Method Pointer</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUSINESS_METHOD_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link domain.impl.CreateMethodImpl <em>Create Method</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.CreateMethodImpl
-   * @see domain.impl.DomainPackageImpl#getCreateMethod()
-   * @generated
-   */
-  int CREATE_METHOD = 27;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_METHOD__UID = BUSINESS_METHOD__UID;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_METHOD__PARENT = BUSINESS_METHOD_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Create Method</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.InsertMethodImpl <em>Insert Method</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.InsertMethodImpl
-   * @see domain.impl.DomainPackageImpl#getInsertMethod()
-   * @generated
-   */
-  int INSERT_METHOD = 28;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_METHOD__UID = BUSINESS_METHOD__UID;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_METHOD__PARENT = BUSINESS_METHOD_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Insert Method</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.UpdateMethodImpl <em>Update Method</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.UpdateMethodImpl
-   * @see domain.impl.DomainPackageImpl#getUpdateMethod()
-   * @generated
-   */
-  int UPDATE_METHOD = 29;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_METHOD__UID = BUSINESS_METHOD__UID;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_METHOD__PARENT = BUSINESS_METHOD_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Update Method</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.RemoveMethodImpl <em>Remove Method</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.RemoveMethodImpl
-   * @see domain.impl.DomainPackageImpl#getRemoveMethod()
-   * @generated
-   */
-  int REMOVE_METHOD = 30;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REMOVE_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REMOVE_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REMOVE_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REMOVE_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REMOVE_METHOD__UID = BUSINESS_METHOD__UID;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REMOVE_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REMOVE_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REMOVE_METHOD__PARENT = BUSINESS_METHOD_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Remove Method</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REMOVE_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.SearchMethodImpl <em>Search Method</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.SearchMethodImpl
-   * @see domain.impl.DomainPackageImpl#getSearchMethod()
-   * @generated
-   */
-  int SEARCH_METHOD = 31;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_METHOD__UID = BUSINESS_METHOD__UID;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_METHOD__PARENT = BUSINESS_METHOD_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Search Method</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEARCH_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link domain.impl.OtherMethodImpl <em>Other Method</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.OtherMethodImpl
-   * @see domain.impl.DomainPackageImpl#getOtherMethod()
-   * @generated
-   */
-  int OTHER_METHOD = 32;
-
-  /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OTHER_METHOD__PACKAGE_REF = BUSINESS_METHOD__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OTHER_METHOD__TYPE_REF = BUSINESS_METHOD__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OTHER_METHOD__FAKE_PACKAGE_NAME = BUSINESS_METHOD__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OTHER_METHOD__FAKE_TYPE_NAME = BUSINESS_METHOD__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OTHER_METHOD__UID = BUSINESS_METHOD__UID;
-
-  /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OTHER_METHOD__METHOD_REF = BUSINESS_METHOD__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OTHER_METHOD__FAKE_METHOD = BUSINESS_METHOD__FAKE_METHOD;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OTHER_METHOD__PARENT = BUSINESS_METHOD_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Other Method</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OTHER_METHOD_FEATURE_COUNT = BUSINESS_METHOD_FEATURE_COUNT + 1;
+  int METHOD_POINTER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link domain.impl.MappersImpl <em>Mappers</em>}' class.
@@ -2232,7 +1531,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMappers()
    * @generated
    */
-  int MAPPERS = 33;
+  int MAPPERS = 25;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2278,7 +1577,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMapper()
    * @generated
    */
-  int MAPPER = 34;
+  int MAPPER = 26;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -2369,7 +1668,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getJavaMapper()
    * @generated
    */
-  int JAVA_MAPPER = 35;
+  int JAVA_MAPPER = 27;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -2514,7 +1813,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRecipes()
    * @generated
    */
-  int RECIPES = 36;
+  int RECIPES = 28;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2587,7 +1886,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeploymentSequence()
    * @generated
    */
-  int DEPLOYMENT_SEQUENCE = 37;
+  int DEPLOYMENT_SEQUENCE = 29;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2633,7 +1932,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeploymentComponents()
    * @generated
    */
-  int DEPLOYMENT_COMPONENTS = 38;
+  int DEPLOYMENT_COMPONENTS = 30;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2679,7 +1978,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeploymentComponent()
    * @generated
    */
-  int DEPLOYMENT_COMPONENT = 39;
+  int DEPLOYMENT_COMPONENT = 31;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2734,7 +2033,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeploymentStarStep()
    * @generated
    */
-  int DEPLOYMENT_STAR_STEP = 40;
+  int DEPLOYMENT_STAR_STEP = 32;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2780,7 +2079,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUsingMappers()
    * @generated
    */
-  int USING_MAPPERS = 41;
+  int USING_MAPPERS = 33;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' reference list.
@@ -2808,7 +2107,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRecipe()
    * @generated
    */
-  int RECIPE = 42;
+  int RECIPE = 34;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' reference list.
@@ -2890,7 +2189,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getIngredient()
    * @generated
    */
-  int INGREDIENT = 43;
+  int INGREDIENT = 35;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' reference list.
@@ -2963,7 +2262,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getComponent()
    * @generated
    */
-  int COMPONENT = 44;
+  int COMPONENT = 36;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3027,7 +2326,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getJavaComponent()
    * @generated
    */
-  int JAVA_COMPONENT = 45;
+  int JAVA_COMPONENT = 37;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3127,7 +2426,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructure()
    * @generated
    */
-  int INFRASTRUCTURE = 46;
+  int INFRASTRUCTURE = 38;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3182,7 +2481,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getConfiguration()
    * @generated
    */
-  int CONFIGURATION = 47;
+  int CONFIGURATION = 39;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3255,7 +2554,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtifactRef()
    * @generated
    */
-  int ARTIFACT_REF = 53;
+  int ARTIFACT_REF = 45;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3301,7 +2600,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getModelMapper()
    * @generated
    */
-  int MODEL_MAPPER = 48;
+  int MODEL_MAPPER = 40;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3392,7 +2691,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getProperty()
    * @generated
    */
-  int PROPERTY = 49;
+  int PROPERTY = 41;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3447,7 +2746,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getMappingSpecifier()
    * @generated
    */
-  int MAPPING_SPECIFIER = 50;
+  int MAPPING_SPECIFIER = 42;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3493,7 +2792,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getQuery()
    * @generated
    */
-  int QUERY = 51;
+  int QUERY = 43;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3566,7 +2865,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getQueryVariable()
    * @generated
    */
-  int QUERY_VARIABLE = 52;
+  int QUERY_VARIABLE = 44;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3612,7 +2911,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeDefinition()
    * @generated
    */
-  int TYPE_DEFINITION = 55;
+  int TYPE_DEFINITION = 47;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3658,7 +2957,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeElement()
    * @generated
    */
-  int TYPE_ELEMENT = 56;
+  int TYPE_ELEMENT = 48;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3704,7 +3003,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPrimitive()
    * @generated
    */
-  int PRIMITIVE = 57;
+  int PRIMITIVE = 49;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3750,7 +3049,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getType()
    * @generated
    */
-  int TYPE = 58;
+  int TYPE = 50;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3823,7 +3122,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeReference()
    * @generated
    */
-  int TYPE_REFERENCE = 59;
+  int TYPE_REFERENCE = 51;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3905,7 +3204,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypeExtension()
    * @generated
    */
-  int TYPE_EXTENSION = 60;
+  int TYPE_EXTENSION = 52;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3951,7 +3250,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 61;
+  int ATTRIBUTE = 53;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -4042,7 +3341,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getOperation()
    * @generated
    */
-  int OPERATION = 62;
+  int OPERATION = 54;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4106,7 +3405,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 63;
+  int PARAMETER = 55;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -4188,7 +3487,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getReturnValue()
    * @generated
    */
-  int RETURN_VALUE = 64;
+  int RETURN_VALUE = 56;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -4252,7 +3551,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnumarator()
    * @generated
    */
-  int ENUMARATOR = 65;
+  int ENUMARATOR = 57;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4307,7 +3606,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnumAttribute()
    * @generated
    */
-  int ENUM_ATTRIBUTE = 66;
+  int ENUM_ATTRIBUTE = 58;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4362,7 +3661,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypesRepository()
    * @generated
    */
-  int TYPES_REPOSITORY = 67;
+  int TYPES_REPOSITORY = 59;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4408,7 +3707,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTypes()
    * @generated
    */
-  int TYPES = 68;
+  int TYPES = 60;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4447,22 +3746,13 @@ public interface DomainPackage extends EPackage
   int TYPES__PACKAGES = 3;
 
   /**
-   * The feature id for the '<em><b>Business Packages</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPES__BUSINESS_PACKAGES = 4;
-
-  /**
    * The number of structural features of the '<em>Types</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPES_FEATURE_COUNT = 5;
+  int TYPES_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.PackageImpl <em>Package</em>}' class.
@@ -4472,7 +3762,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPackage()
    * @generated
    */
-  int PACKAGE = 69;
+  int PACKAGE = 61;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4520,61 +3810,6 @@ public interface DomainPackage extends EPackage
   int PACKAGE_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link domain.impl.BusinessPackageImpl <em>Business Package</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see domain.impl.BusinessPackageImpl
-   * @see domain.impl.DomainPackageImpl#getBusinessPackage()
-   * @generated
-   */
-  int BUSINESS_PACKAGE = 70;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_PACKAGE__UID = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_PACKAGE__NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Businessobjects</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_PACKAGE__BUSINESSOBJECTS = 2;
-
-  /**
-   * The feature id for the '<em><b>Parent</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_PACKAGE__PARENT = 3;
-
-  /**
-   * The number of structural features of the '<em>Business Package</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUSINESS_PACKAGE_FEATURE_COUNT = 4;
-
-  /**
    * The meta object id for the '{@link domain.impl.UIPackageImpl <em>UI Package</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4582,7 +3817,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUIPackage()
    * @generated
    */
-  int UI_PACKAGE = 71;
+  int UI_PACKAGE = 62;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4628,7 +3863,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getForm()
    * @generated
    */
-  int FORM = 72;
+  int FORM = 63;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4683,7 +3918,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getFormView()
    * @generated
    */
-  int FORM_VIEW = 73;
+  int FORM_VIEW = 64;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4720,7 +3955,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getFormDataControls()
    * @generated
    */
-  int FORM_DATA_CONTROLS = 74;
+  int FORM_DATA_CONTROLS = 65;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4766,7 +4001,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getControls()
    * @generated
    */
-  int CONTROLS = 75;
+  int CONTROLS = 66;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4821,7 +4056,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTrigger()
    * @generated
    */
-  int TRIGGER = 76;
+  int TRIGGER = 67;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -4830,7 +4065,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
+  int TRIGGER__PACKAGE_REF = METHOD_POINTER__PACKAGE_REF;
 
   /**
    * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -4839,7 +4074,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER__TYPE_REF = TYPE_POINTER__TYPE_REF;
+  int TRIGGER__TYPE_REF = METHOD_POINTER__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
@@ -4848,7 +4083,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER__FAKE_PACKAGE_NAME = TYPE_POINTER__FAKE_PACKAGE_NAME;
+  int TRIGGER__FAKE_PACKAGE_NAME = METHOD_POINTER__FAKE_PACKAGE_NAME;
 
   /**
    * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
@@ -4857,25 +4092,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER__FAKE_TYPE_NAME = TYPE_POINTER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__UID = TYPE_POINTER_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__NAME = TYPE_POINTER_FEATURE_COUNT + 1;
+  int TRIGGER__FAKE_TYPE_NAME = METHOD_POINTER__FAKE_TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -4884,16 +4101,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER__METHOD_REF = TYPE_POINTER_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__PARAMETERS = TYPE_POINTER_FEATURE_COUNT + 3;
+  int TRIGGER__METHOD_REF = METHOD_POINTER__METHOD_REF;
 
   /**
    * The feature id for the '<em><b>Fake Method</b></em>' attribute.
@@ -4902,7 +4110,34 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER__FAKE_METHOD = TYPE_POINTER_FEATURE_COUNT + 4;
+  int TRIGGER__FAKE_METHOD = METHOD_POINTER__FAKE_METHOD;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRIGGER__UID = METHOD_POINTER_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRIGGER__NAME = METHOD_POINTER_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRIGGER__PARAMETERS = METHOD_POINTER_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Trigger</em>' class.
@@ -4911,7 +4146,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 5;
+  int TRIGGER_FEATURE_COUNT = METHOD_POINTER_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link domain.impl.TriggerParameterImpl <em>Trigger Parameter</em>}' class.
@@ -4921,7 +4156,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTriggerParameter()
    * @generated
    */
-  int TRIGGER_PARAMETER = 77;
+  int TRIGGER_PARAMETER = 68;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4967,7 +4202,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getContextValue()
    * @generated
    */
-  int CONTEXT_VALUE = 78;
+  int CONTEXT_VALUE = 69;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5013,7 +4248,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREFormTrigger()
    * @generated
    */
-  int PRE_FORM_TRIGGER = 79;
+  int PRE_FORM_TRIGGER = 70;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5052,6 +4287,24 @@ public interface DomainPackage extends EPackage
   int PRE_FORM_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_FORM_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_FORM_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5070,15 +4323,6 @@ public interface DomainPackage extends EPackage
   int PRE_FORM_TRIGGER__NAME = TRIGGER__NAME;
 
   /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_FORM_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5086,15 +4330,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int PRE_FORM_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_FORM_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
    * The number of structural features of the '<em>PRE Form Trigger</em>' class.
@@ -5113,7 +4348,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREQueryTrigger()
    * @generated
    */
-  int PRE_QUERY_TRIGGER = 80;
+  int PRE_QUERY_TRIGGER = 71;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5152,6 +4387,24 @@ public interface DomainPackage extends EPackage
   int PRE_QUERY_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_QUERY_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_QUERY_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5170,15 +4423,6 @@ public interface DomainPackage extends EPackage
   int PRE_QUERY_TRIGGER__NAME = TRIGGER__NAME;
 
   /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_QUERY_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5186,15 +4430,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int PRE_QUERY_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_QUERY_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
    * The number of structural features of the '<em>PRE Query Trigger</em>' class.
@@ -5213,7 +4448,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPOSTQueryTrigger()
    * @generated
    */
-  int POST_QUERY_TRIGGER = 81;
+  int POST_QUERY_TRIGGER = 72;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5252,6 +4487,24 @@ public interface DomainPackage extends EPackage
   int POST_QUERY_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POST_QUERY_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POST_QUERY_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5270,15 +4523,6 @@ public interface DomainPackage extends EPackage
   int POST_QUERY_TRIGGER__NAME = TRIGGER__NAME;
 
   /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_QUERY_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5286,15 +4530,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int POST_QUERY_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_QUERY_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
    * The number of structural features of the '<em>POST Query Trigger</em>' class.
@@ -5313,7 +4548,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREInsertTrigger()
    * @generated
    */
-  int PRE_INSERT_TRIGGER = 82;
+  int PRE_INSERT_TRIGGER = 73;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5352,6 +4587,24 @@ public interface DomainPackage extends EPackage
   int PRE_INSERT_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_INSERT_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_INSERT_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5370,15 +4623,6 @@ public interface DomainPackage extends EPackage
   int PRE_INSERT_TRIGGER__NAME = TRIGGER__NAME;
 
   /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_INSERT_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5386,15 +4630,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int PRE_INSERT_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_INSERT_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
    * The number of structural features of the '<em>PRE Insert Trigger</em>' class.
@@ -5413,7 +4648,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREDeleteTrigger()
    * @generated
    */
-  int PRE_DELETE_TRIGGER = 83;
+  int PRE_DELETE_TRIGGER = 74;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5452,6 +4687,24 @@ public interface DomainPackage extends EPackage
   int PRE_DELETE_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
 
   /**
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_DELETE_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_DELETE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5470,15 +4723,6 @@ public interface DomainPackage extends EPackage
   int PRE_DELETE_TRIGGER__NAME = TRIGGER__NAME;
 
   /**
-   * The feature id for the '<em><b>Method Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_DELETE_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5486,15 +4730,6 @@ public interface DomainPackage extends EPackage
    * @ordered
    */
   int PRE_DELETE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
-
-  /**
-   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_DELETE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
    * The number of structural features of the '<em>PRE Delete Trigger</em>' class.
@@ -5506,14 +4741,14 @@ public interface DomainPackage extends EPackage
   int PRE_DELETE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link domain.impl.PRECreateTriggerImpl <em>PRE Create Trigger</em>}' class.
+   * The meta object id for the '{@link domain.impl.POSTCreateTriggerImpl <em>POST Create Trigger</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.PRECreateTriggerImpl
-   * @see domain.impl.DomainPackageImpl#getPRECreateTrigger()
+   * @see domain.impl.POSTCreateTriggerImpl
+   * @see domain.impl.DomainPackageImpl#getPOSTCreateTrigger()
    * @generated
    */
-  int PRE_CREATE_TRIGGER = 84;
+  int POST_CREATE_TRIGGER = 75;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5522,7 +4757,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_CREATE_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
+  int POST_CREATE_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
 
   /**
    * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -5531,7 +4766,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_CREATE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
+  int POST_CREATE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
 
   /**
    * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
@@ -5540,7 +4775,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_CREATE_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
+  int POST_CREATE_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
 
   /**
    * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
@@ -5549,25 +4784,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_CREATE_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Uid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_CREATE_TRIGGER__UID = TRIGGER__UID;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_CREATE_TRIGGER__NAME = TRIGGER__NAME;
+  int POST_CREATE_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -5576,16 +4793,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_CREATE_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRE_CREATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+  int POST_CREATE_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
 
   /**
    * The feature id for the '<em><b>Fake Method</b></em>' attribute.
@@ -5594,16 +4802,143 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRE_CREATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+  int POST_CREATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
 
   /**
-   * The number of structural features of the '<em>PRE Create Trigger</em>' class.
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRE_CREATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+  int POST_CREATE_TRIGGER__UID = TRIGGER__UID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POST_CREATE_TRIGGER__NAME = TRIGGER__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POST_CREATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+
+  /**
+   * The number of structural features of the '<em>POST Create Trigger</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POST_CREATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.PREUpdateTriggerImpl <em>PRE Update Trigger</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.PREUpdateTriggerImpl
+   * @see domain.impl.DomainPackageImpl#getPREUpdateTrigger()
+   * @generated
+   */
+  int PRE_UPDATE_TRIGGER = 76;
+
+  /**
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_UPDATE_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
+
+  /**
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_UPDATE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_UPDATE_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_UPDATE_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_UPDATE_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_UPDATE_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_UPDATE_TRIGGER__UID = TRIGGER__UID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_UPDATE_TRIGGER__NAME = TRIGGER__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_UPDATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+
+  /**
+   * The number of structural features of the '<em>PRE Update Trigger</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRE_UPDATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link domain.impl.RootImpl <em>Root</em>}' class.
@@ -5613,7 +4948,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRoot()
    * @generated
    */
-  int ROOT = 85;
+  int ROOT = 77;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5659,7 +4994,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDataControl()
    * @generated
    */
-  int DATA_CONTROL = 86;
+  int DATA_CONTROL = 78;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5752,22 +5087,31 @@ public interface DomainPackage extends EPackage
   int DATA_CONTROL__PRE_DELETE_TRIGGER = TYPE_POINTER_FEATURE_COUNT + 5;
 
   /**
-   * The feature id for the '<em><b>Pre Create Trigger</b></em>' containment reference.
+   * The feature id for the '<em><b>Post Create Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__PRE_CREATE_TRIGGER = TYPE_POINTER_FEATURE_COUNT + 6;
+  int DATA_CONTROL__POST_CREATE_TRIGGER = TYPE_POINTER_FEATURE_COUNT + 6;
 
   /**
-   * The feature id for the '<em><b>Artificial Field</b></em>' containment reference.
+   * The feature id for the '<em><b>Pre Update Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__ARTIFICIAL_FIELD = TYPE_POINTER_FEATURE_COUNT + 7;
+  int DATA_CONTROL__PRE_UPDATE_TRIGGER = TYPE_POINTER_FEATURE_COUNT + 7;
+
+  /**
+   * The feature id for the '<em><b>Artificial Fields</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_CONTROL__ARTIFICIAL_FIELDS = TYPE_POINTER_FEATURE_COUNT + 8;
 
   /**
    * The feature id for the '<em><b>Create</b></em>' containment reference.
@@ -5776,7 +5120,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__CREATE = TYPE_POINTER_FEATURE_COUNT + 8;
+  int DATA_CONTROL__CREATE = TYPE_POINTER_FEATURE_COUNT + 9;
 
   /**
    * The feature id for the '<em><b>Insert</b></em>' containment reference.
@@ -5785,7 +5129,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__INSERT = TYPE_POINTER_FEATURE_COUNT + 9;
+  int DATA_CONTROL__INSERT = TYPE_POINTER_FEATURE_COUNT + 10;
 
   /**
    * The feature id for the '<em><b>Update</b></em>' containment reference.
@@ -5794,7 +5138,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__UPDATE = TYPE_POINTER_FEATURE_COUNT + 10;
+  int DATA_CONTROL__UPDATE = TYPE_POINTER_FEATURE_COUNT + 11;
 
   /**
    * The feature id for the '<em><b>Remove</b></em>' containment reference.
@@ -5803,7 +5147,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__REMOVE = TYPE_POINTER_FEATURE_COUNT + 11;
+  int DATA_CONTROL__REMOVE = TYPE_POINTER_FEATURE_COUNT + 12;
 
   /**
    * The feature id for the '<em><b>Search</b></em>' containment reference.
@@ -5812,7 +5156,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__SEARCH = TYPE_POINTER_FEATURE_COUNT + 12;
+  int DATA_CONTROL__SEARCH = TYPE_POINTER_FEATURE_COUNT + 13;
 
   /**
    * The number of structural features of the '<em>Data Control</em>' class.
@@ -5821,7 +5165,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 13;
+  int DATA_CONTROL_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 14;
 
   /**
    * The meta object id for the '{@link domain.impl.RelationImpl <em>Relation</em>}' class.
@@ -5831,7 +5175,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRelation()
    * @generated
    */
-  int RELATION = 87;
+  int RELATION = 79;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5904,7 +5248,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtificialField()
    * @generated
    */
-  int ARTIFICIAL_FIELD = 88;
+  int ARTIFICIAL_FIELD = 80;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5977,7 +5321,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLink()
    * @generated
    */
-  int LINK = 89;
+  int LINK = 81;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6023,7 +5367,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 90;
+  int PLATFORM_LAYERS = 82;
 
 
   /**
@@ -7169,325 +6513,36 @@ public interface DomainPackage extends EPackage
   EReference getApplicationMapper_Parent();
 
   /**
-   * Returns the meta object for class '{@link domain.BusinessObjects <em>Business Objects</em>}'.
+   * Returns the meta object for class '{@link domain.MethodPointer <em>Method Pointer</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Business Objects</em>'.
-   * @see domain.BusinessObjects
+   * @return the meta object for class '<em>Method Pointer</em>'.
+   * @see domain.MethodPointer
    * @generated
    */
-  EClass getBusinessObjects();
+  EClass getMethodPointer();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.BusinessObjects#getUid <em>Uid</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.BusinessObjects#getUid()
-   * @see #getBusinessObjects()
-   * @generated
-   */
-  EAttribute getBusinessObjects_Uid();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link domain.BusinessObjects#getBusinessObject <em>Business Object</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Business Object</em>'.
-   * @see domain.BusinessObjects#getBusinessObject()
-   * @see #getBusinessObjects()
-   * @generated
-   */
-  EReference getBusinessObjects_BusinessObject();
-
-  /**
-   * Returns the meta object for the reference '{@link domain.BusinessObjects#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Parent</em>'.
-   * @see domain.BusinessObjects#getParent()
-   * @see #getBusinessObjects()
-   * @generated
-   */
-  EReference getBusinessObjects_Parent();
-
-  /**
-   * Returns the meta object for class '{@link domain.BusinessObject <em>Business Object</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Business Object</em>'.
-   * @see domain.BusinessObject
-   * @generated
-   */
-  EClass getBusinessObject();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.BusinessObject#getUid <em>Uid</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.BusinessObject#getUid()
-   * @see #getBusinessObject()
-   * @generated
-   */
-  EAttribute getBusinessObject_Uid();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.BusinessObject#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see domain.BusinessObject#getName()
-   * @see #getBusinessObject()
-   * @generated
-   */
-  EAttribute getBusinessObject_Name();
-
-  /**
-   * Returns the meta object for the container reference '{@link domain.BusinessObject#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
-   * @see domain.BusinessObject#getParent()
-   * @see #getBusinessObject()
-   * @generated
-   */
-  EReference getBusinessObject_Parent();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getCreateMethods <em>Create Methods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Create Methods</em>'.
-   * @see domain.BusinessObject#getCreateMethods()
-   * @see #getBusinessObject()
-   * @generated
-   */
-  EReference getBusinessObject_CreateMethods();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getInsertMethods <em>Insert Methods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Insert Methods</em>'.
-   * @see domain.BusinessObject#getInsertMethods()
-   * @see #getBusinessObject()
-   * @generated
-   */
-  EReference getBusinessObject_InsertMethods();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getUpdateMethods <em>Update Methods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Update Methods</em>'.
-   * @see domain.BusinessObject#getUpdateMethods()
-   * @see #getBusinessObject()
-   * @generated
-   */
-  EReference getBusinessObject_UpdateMethods();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getRemoveMethods <em>Remove Methods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Remove Methods</em>'.
-   * @see domain.BusinessObject#getRemoveMethods()
-   * @see #getBusinessObject()
-   * @generated
-   */
-  EReference getBusinessObject_RemoveMethods();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getSearchMethods <em>Search Methods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Search Methods</em>'.
-   * @see domain.BusinessObject#getSearchMethods()
-   * @see #getBusinessObject()
-   * @generated
-   */
-  EReference getBusinessObject_SearchMethods();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link domain.BusinessObject#getOthersMethods <em>Others Methods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Others Methods</em>'.
-   * @see domain.BusinessObject#getOthersMethods()
-   * @see #getBusinessObject()
-   * @generated
-   */
-  EReference getBusinessObject_OthersMethods();
-
-  /**
-   * Returns the meta object for class '{@link domain.BusinessMethod <em>Business Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Business Method</em>'.
-   * @see domain.BusinessMethod
-   * @generated
-   */
-  EClass getBusinessMethod();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.BusinessMethod#getUid <em>Uid</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.BusinessMethod#getUid()
-   * @see #getBusinessMethod()
-   * @generated
-   */
-  EAttribute getBusinessMethod_Uid();
-
-  /**
-   * Returns the meta object for the reference '{@link domain.BusinessMethod#getMethodRef <em>Method Ref</em>}'.
+   * Returns the meta object for the reference '{@link domain.MethodPointer#getMethodRef <em>Method Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Method Ref</em>'.
-   * @see domain.BusinessMethod#getMethodRef()
-   * @see #getBusinessMethod()
+   * @see domain.MethodPointer#getMethodRef()
+   * @see #getMethodPointer()
    * @generated
    */
-  EReference getBusinessMethod_MethodRef();
+  EReference getMethodPointer_MethodRef();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.BusinessMethod#getFakeMethod <em>Fake Method</em>}'.
+   * Returns the meta object for the attribute '{@link domain.MethodPointer#getFakeMethod <em>Fake Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Fake Method</em>'.
-   * @see domain.BusinessMethod#getFakeMethod()
-   * @see #getBusinessMethod()
+   * @see domain.MethodPointer#getFakeMethod()
+   * @see #getMethodPointer()
    * @generated
    */
-  EAttribute getBusinessMethod_FakeMethod();
-
-  /**
-   * Returns the meta object for class '{@link domain.CreateMethod <em>Create Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Create Method</em>'.
-   * @see domain.CreateMethod
-   * @generated
-   */
-  EClass getCreateMethod();
-
-  /**
-   * Returns the meta object for the container reference '{@link domain.CreateMethod#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
-   * @see domain.CreateMethod#getParent()
-   * @see #getCreateMethod()
-   * @generated
-   */
-  EReference getCreateMethod_Parent();
-
-  /**
-   * Returns the meta object for class '{@link domain.InsertMethod <em>Insert Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Insert Method</em>'.
-   * @see domain.InsertMethod
-   * @generated
-   */
-  EClass getInsertMethod();
-
-  /**
-   * Returns the meta object for the container reference '{@link domain.InsertMethod#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
-   * @see domain.InsertMethod#getParent()
-   * @see #getInsertMethod()
-   * @generated
-   */
-  EReference getInsertMethod_Parent();
-
-  /**
-   * Returns the meta object for class '{@link domain.UpdateMethod <em>Update Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Update Method</em>'.
-   * @see domain.UpdateMethod
-   * @generated
-   */
-  EClass getUpdateMethod();
-
-  /**
-   * Returns the meta object for the container reference '{@link domain.UpdateMethod#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
-   * @see domain.UpdateMethod#getParent()
-   * @see #getUpdateMethod()
-   * @generated
-   */
-  EReference getUpdateMethod_Parent();
-
-  /**
-   * Returns the meta object for class '{@link domain.RemoveMethod <em>Remove Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Remove Method</em>'.
-   * @see domain.RemoveMethod
-   * @generated
-   */
-  EClass getRemoveMethod();
-
-  /**
-   * Returns the meta object for the container reference '{@link domain.RemoveMethod#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
-   * @see domain.RemoveMethod#getParent()
-   * @see #getRemoveMethod()
-   * @generated
-   */
-  EReference getRemoveMethod_Parent();
-
-  /**
-   * Returns the meta object for class '{@link domain.SearchMethod <em>Search Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Search Method</em>'.
-   * @see domain.SearchMethod
-   * @generated
-   */
-  EClass getSearchMethod();
-
-  /**
-   * Returns the meta object for the container reference '{@link domain.SearchMethod#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
-   * @see domain.SearchMethod#getParent()
-   * @see #getSearchMethod()
-   * @generated
-   */
-  EReference getSearchMethod_Parent();
-
-  /**
-   * Returns the meta object for class '{@link domain.OtherMethod <em>Other Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Other Method</em>'.
-   * @see domain.OtherMethod
-   * @generated
-   */
-  EClass getOtherMethod();
-
-  /**
-   * Returns the meta object for the container reference '{@link domain.OtherMethod#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
-   * @see domain.OtherMethod#getParent()
-   * @see #getOtherMethod()
-   * @generated
-   */
-  EReference getOtherMethod_Parent();
+  EAttribute getMethodPointer_FakeMethod();
 
   /**
    * Returns the meta object for class '{@link domain.Mappers <em>Mappers</em>}'.
@@ -9258,17 +8313,6 @@ public interface DomainPackage extends EPackage
   EReference getTypes_Packages();
 
   /**
-   * Returns the meta object for the containment reference list '{@link domain.Types#getBusinessPackages <em>Business Packages</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Business Packages</em>'.
-   * @see domain.Types#getBusinessPackages()
-   * @see #getTypes()
-   * @generated
-   */
-  EReference getTypes_BusinessPackages();
-
-  /**
    * Returns the meta object for class '{@link domain.Package <em>Package</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9321,60 +8365,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getPackage_Parent();
-
-  /**
-   * Returns the meta object for class '{@link domain.BusinessPackage <em>Business Package</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Business Package</em>'.
-   * @see domain.BusinessPackage
-   * @generated
-   */
-  EClass getBusinessPackage();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.BusinessPackage#getUid <em>Uid</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Uid</em>'.
-   * @see domain.BusinessPackage#getUid()
-   * @see #getBusinessPackage()
-   * @generated
-   */
-  EAttribute getBusinessPackage_Uid();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.BusinessPackage#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see domain.BusinessPackage#getName()
-   * @see #getBusinessPackage()
-   * @generated
-   */
-  EAttribute getBusinessPackage_Name();
-
-  /**
-   * Returns the meta object for the reference '{@link domain.BusinessPackage#getBusinessobjects <em>Businessobjects</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Businessobjects</em>'.
-   * @see domain.BusinessPackage#getBusinessobjects()
-   * @see #getBusinessPackage()
-   * @generated
-   */
-  EReference getBusinessPackage_Businessobjects();
-
-  /**
-   * Returns the meta object for the container reference '{@link domain.BusinessPackage#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the container reference '<em>Parent</em>'.
-   * @see domain.BusinessPackage#getParent()
-   * @see #getBusinessPackage()
-   * @generated
-   */
-  EReference getBusinessPackage_Parent();
 
   /**
    * Returns the meta object for class '{@link domain.UIPackage <em>UI Package</em>}'.
@@ -9635,17 +8625,6 @@ public interface DomainPackage extends EPackage
   EAttribute getTrigger_Name();
 
   /**
-   * Returns the meta object for the reference '{@link domain.Trigger#getMethodRef <em>Method Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Method Ref</em>'.
-   * @see domain.Trigger#getMethodRef()
-   * @see #getTrigger()
-   * @generated
-   */
-  EReference getTrigger_MethodRef();
-
-  /**
    * Returns the meta object for the containment reference list '{@link domain.Trigger#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9655,17 +8634,6 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getTrigger_Parameters();
-
-  /**
-   * Returns the meta object for the attribute '{@link domain.Trigger#getFakeMethod <em>Fake Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fake Method</em>'.
-   * @see domain.Trigger#getFakeMethod()
-   * @see #getTrigger()
-   * @generated
-   */
-  EAttribute getTrigger_FakeMethod();
 
   /**
    * Returns the meta object for class '{@link domain.TriggerParameter <em>Trigger Parameter</em>}'.
@@ -9804,14 +8772,24 @@ public interface DomainPackage extends EPackage
   EClass getPREDeleteTrigger();
 
   /**
-   * Returns the meta object for class '{@link domain.PRECreateTrigger <em>PRE Create Trigger</em>}'.
+   * Returns the meta object for class '{@link domain.POSTCreateTrigger <em>POST Create Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>PRE Create Trigger</em>'.
-   * @see domain.PRECreateTrigger
+   * @return the meta object for class '<em>POST Create Trigger</em>'.
+   * @see domain.POSTCreateTrigger
    * @generated
    */
-  EClass getPRECreateTrigger();
+  EClass getPOSTCreateTrigger();
+
+  /**
+   * Returns the meta object for class '{@link domain.PREUpdateTrigger <em>PRE Update Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PRE Update Trigger</em>'.
+   * @see domain.PREUpdateTrigger
+   * @generated
+   */
+  EClass getPREUpdateTrigger();
 
   /**
    * Returns the meta object for class '{@link domain.Root <em>Root</em>}'.
@@ -9933,26 +8911,37 @@ public interface DomainPackage extends EPackage
   EReference getDataControl_PreDeleteTrigger();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.DataControl#getPreCreateTrigger <em>Pre Create Trigger</em>}'.
+   * Returns the meta object for the containment reference '{@link domain.DataControl#getPostCreateTrigger <em>Post Create Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Pre Create Trigger</em>'.
-   * @see domain.DataControl#getPreCreateTrigger()
+   * @return the meta object for the containment reference '<em>Post Create Trigger</em>'.
+   * @see domain.DataControl#getPostCreateTrigger()
    * @see #getDataControl()
    * @generated
    */
-  EReference getDataControl_PreCreateTrigger();
+  EReference getDataControl_PostCreateTrigger();
 
   /**
-   * Returns the meta object for the containment reference '{@link domain.DataControl#getArtificialField <em>Artificial Field</em>}'.
+   * Returns the meta object for the containment reference '{@link domain.DataControl#getPreUpdateTrigger <em>Pre Update Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Artificial Field</em>'.
-   * @see domain.DataControl#getArtificialField()
+   * @return the meta object for the containment reference '<em>Pre Update Trigger</em>'.
+   * @see domain.DataControl#getPreUpdateTrigger()
    * @see #getDataControl()
    * @generated
    */
-  EReference getDataControl_ArtificialField();
+  EReference getDataControl_PreUpdateTrigger();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.DataControl#getArtificialFields <em>Artificial Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Artificial Fields</em>'.
+   * @see domain.DataControl#getArtificialFields()
+   * @see #getDataControl()
+   * @generated
+   */
+  EReference getDataControl_ArtificialFields();
 
   /**
    * Returns the meta object for the containment reference '{@link domain.DataControl#getCreate <em>Create</em>}'.
@@ -11090,138 +10079,14 @@ public interface DomainPackage extends EPackage
     EReference APPLICATION_MAPPER__PARENT = eINSTANCE.getApplicationMapper_Parent();
 
     /**
-     * The meta object literal for the '{@link domain.impl.BusinessObjectsImpl <em>Business Objects</em>}' class.
+     * The meta object literal for the '{@link domain.impl.MethodPointerImpl <em>Method Pointer</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see domain.impl.BusinessObjectsImpl
-     * @see domain.impl.DomainPackageImpl#getBusinessObjects()
+     * @see domain.impl.MethodPointerImpl
+     * @see domain.impl.DomainPackageImpl#getMethodPointer()
      * @generated
      */
-    EClass BUSINESS_OBJECTS = eINSTANCE.getBusinessObjects();
-
-    /**
-     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BUSINESS_OBJECTS__UID = eINSTANCE.getBusinessObjects_Uid();
-
-    /**
-     * The meta object literal for the '<em><b>Business Object</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUSINESS_OBJECTS__BUSINESS_OBJECT = eINSTANCE.getBusinessObjects_BusinessObject();
-
-    /**
-     * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUSINESS_OBJECTS__PARENT = eINSTANCE.getBusinessObjects_Parent();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.BusinessObjectImpl <em>Business Object</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.BusinessObjectImpl
-     * @see domain.impl.DomainPackageImpl#getBusinessObject()
-     * @generated
-     */
-    EClass BUSINESS_OBJECT = eINSTANCE.getBusinessObject();
-
-    /**
-     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BUSINESS_OBJECT__UID = eINSTANCE.getBusinessObject_Uid();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BUSINESS_OBJECT__NAME = eINSTANCE.getBusinessObject_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUSINESS_OBJECT__PARENT = eINSTANCE.getBusinessObject_Parent();
-
-    /**
-     * The meta object literal for the '<em><b>Create Methods</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUSINESS_OBJECT__CREATE_METHODS = eINSTANCE.getBusinessObject_CreateMethods();
-
-    /**
-     * The meta object literal for the '<em><b>Insert Methods</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUSINESS_OBJECT__INSERT_METHODS = eINSTANCE.getBusinessObject_InsertMethods();
-
-    /**
-     * The meta object literal for the '<em><b>Update Methods</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUSINESS_OBJECT__UPDATE_METHODS = eINSTANCE.getBusinessObject_UpdateMethods();
-
-    /**
-     * The meta object literal for the '<em><b>Remove Methods</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUSINESS_OBJECT__REMOVE_METHODS = eINSTANCE.getBusinessObject_RemoveMethods();
-
-    /**
-     * The meta object literal for the '<em><b>Search Methods</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUSINESS_OBJECT__SEARCH_METHODS = eINSTANCE.getBusinessObject_SearchMethods();
-
-    /**
-     * The meta object literal for the '<em><b>Others Methods</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUSINESS_OBJECT__OTHERS_METHODS = eINSTANCE.getBusinessObject_OthersMethods();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.BusinessMethodImpl <em>Business Method</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.BusinessMethodImpl
-     * @see domain.impl.DomainPackageImpl#getBusinessMethod()
-     * @generated
-     */
-    EClass BUSINESS_METHOD = eINSTANCE.getBusinessMethod();
-
-    /**
-     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BUSINESS_METHOD__UID = eINSTANCE.getBusinessMethod_Uid();
+    EClass METHOD_POINTER = eINSTANCE.getMethodPointer();
 
     /**
      * The meta object literal for the '<em><b>Method Ref</b></em>' reference feature.
@@ -11229,7 +10094,7 @@ public interface DomainPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BUSINESS_METHOD__METHOD_REF = eINSTANCE.getBusinessMethod_MethodRef();
+    EReference METHOD_POINTER__METHOD_REF = eINSTANCE.getMethodPointer_MethodRef();
 
     /**
      * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
@@ -11237,115 +10102,7 @@ public interface DomainPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute BUSINESS_METHOD__FAKE_METHOD = eINSTANCE.getBusinessMethod_FakeMethod();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.CreateMethodImpl <em>Create Method</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.CreateMethodImpl
-     * @see domain.impl.DomainPackageImpl#getCreateMethod()
-     * @generated
-     */
-    EClass CREATE_METHOD = eINSTANCE.getCreateMethod();
-
-    /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CREATE_METHOD__PARENT = eINSTANCE.getCreateMethod_Parent();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.InsertMethodImpl <em>Insert Method</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.InsertMethodImpl
-     * @see domain.impl.DomainPackageImpl#getInsertMethod()
-     * @generated
-     */
-    EClass INSERT_METHOD = eINSTANCE.getInsertMethod();
-
-    /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INSERT_METHOD__PARENT = eINSTANCE.getInsertMethod_Parent();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.UpdateMethodImpl <em>Update Method</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.UpdateMethodImpl
-     * @see domain.impl.DomainPackageImpl#getUpdateMethod()
-     * @generated
-     */
-    EClass UPDATE_METHOD = eINSTANCE.getUpdateMethod();
-
-    /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference UPDATE_METHOD__PARENT = eINSTANCE.getUpdateMethod_Parent();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.RemoveMethodImpl <em>Remove Method</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.RemoveMethodImpl
-     * @see domain.impl.DomainPackageImpl#getRemoveMethod()
-     * @generated
-     */
-    EClass REMOVE_METHOD = eINSTANCE.getRemoveMethod();
-
-    /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REMOVE_METHOD__PARENT = eINSTANCE.getRemoveMethod_Parent();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.SearchMethodImpl <em>Search Method</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.SearchMethodImpl
-     * @see domain.impl.DomainPackageImpl#getSearchMethod()
-     * @generated
-     */
-    EClass SEARCH_METHOD = eINSTANCE.getSearchMethod();
-
-    /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SEARCH_METHOD__PARENT = eINSTANCE.getSearchMethod_Parent();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.OtherMethodImpl <em>Other Method</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.OtherMethodImpl
-     * @see domain.impl.DomainPackageImpl#getOtherMethod()
-     * @generated
-     */
-    EClass OTHER_METHOD = eINSTANCE.getOtherMethod();
-
-    /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference OTHER_METHOD__PARENT = eINSTANCE.getOtherMethod_Parent();
+    EAttribute METHOD_POINTER__FAKE_METHOD = eINSTANCE.getMethodPointer_FakeMethod();
 
     /**
      * The meta object literal for the '{@link domain.impl.MappersImpl <em>Mappers</em>}' class.
@@ -12732,14 +11489,6 @@ public interface DomainPackage extends EPackage
     EReference TYPES__PACKAGES = eINSTANCE.getTypes_Packages();
 
     /**
-     * The meta object literal for the '<em><b>Business Packages</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TYPES__BUSINESS_PACKAGES = eINSTANCE.getTypes_BusinessPackages();
-
-    /**
      * The meta object literal for the '{@link domain.impl.PackageImpl <em>Package</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -12780,48 +11529,6 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference PACKAGE__PARENT = eINSTANCE.getPackage_Parent();
-
-    /**
-     * The meta object literal for the '{@link domain.impl.BusinessPackageImpl <em>Business Package</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see domain.impl.BusinessPackageImpl
-     * @see domain.impl.DomainPackageImpl#getBusinessPackage()
-     * @generated
-     */
-    EClass BUSINESS_PACKAGE = eINSTANCE.getBusinessPackage();
-
-    /**
-     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BUSINESS_PACKAGE__UID = eINSTANCE.getBusinessPackage_Uid();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BUSINESS_PACKAGE__NAME = eINSTANCE.getBusinessPackage_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Businessobjects</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUSINESS_PACKAGE__BUSINESSOBJECTS = eINSTANCE.getBusinessPackage_Businessobjects();
-
-    /**
-     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUSINESS_PACKAGE__PARENT = eINSTANCE.getBusinessPackage_Parent();
 
     /**
      * The meta object literal for the '{@link domain.impl.UIPackageImpl <em>UI Package</em>}' class.
@@ -13028,28 +11735,12 @@ public interface DomainPackage extends EPackage
     EAttribute TRIGGER__NAME = eINSTANCE.getTrigger_Name();
 
     /**
-     * The meta object literal for the '<em><b>Method Ref</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TRIGGER__METHOD_REF = eINSTANCE.getTrigger_MethodRef();
-
-    /**
      * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference TRIGGER__PARAMETERS = eINSTANCE.getTrigger_Parameters();
-
-    /**
-     * The meta object literal for the '<em><b>Fake Method</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TRIGGER__FAKE_METHOD = eINSTANCE.getTrigger_FakeMethod();
 
     /**
      * The meta object literal for the '{@link domain.impl.TriggerParameterImpl <em>Trigger Parameter</em>}' class.
@@ -13170,14 +11861,24 @@ public interface DomainPackage extends EPackage
     EClass PRE_DELETE_TRIGGER = eINSTANCE.getPREDeleteTrigger();
 
     /**
-     * The meta object literal for the '{@link domain.impl.PRECreateTriggerImpl <em>PRE Create Trigger</em>}' class.
+     * The meta object literal for the '{@link domain.impl.POSTCreateTriggerImpl <em>POST Create Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see domain.impl.PRECreateTriggerImpl
-     * @see domain.impl.DomainPackageImpl#getPRECreateTrigger()
+     * @see domain.impl.POSTCreateTriggerImpl
+     * @see domain.impl.DomainPackageImpl#getPOSTCreateTrigger()
      * @generated
      */
-    EClass PRE_CREATE_TRIGGER = eINSTANCE.getPRECreateTrigger();
+    EClass POST_CREATE_TRIGGER = eINSTANCE.getPOSTCreateTrigger();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.PREUpdateTriggerImpl <em>PRE Update Trigger</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.PREUpdateTriggerImpl
+     * @see domain.impl.DomainPackageImpl#getPREUpdateTrigger()
+     * @generated
+     */
+    EClass PRE_UPDATE_TRIGGER = eINSTANCE.getPREUpdateTrigger();
 
     /**
      * The meta object literal for the '{@link domain.impl.RootImpl <em>Root</em>}' class.
@@ -13272,20 +11973,28 @@ public interface DomainPackage extends EPackage
     EReference DATA_CONTROL__PRE_DELETE_TRIGGER = eINSTANCE.getDataControl_PreDeleteTrigger();
 
     /**
-     * The meta object literal for the '<em><b>Pre Create Trigger</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Post Create Trigger</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DATA_CONTROL__PRE_CREATE_TRIGGER = eINSTANCE.getDataControl_PreCreateTrigger();
+    EReference DATA_CONTROL__POST_CREATE_TRIGGER = eINSTANCE.getDataControl_PostCreateTrigger();
 
     /**
-     * The meta object literal for the '<em><b>Artificial Field</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Pre Update Trigger</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DATA_CONTROL__ARTIFICIAL_FIELD = eINSTANCE.getDataControl_ArtificialField();
+    EReference DATA_CONTROL__PRE_UPDATE_TRIGGER = eINSTANCE.getDataControl_PreUpdateTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Artificial Fields</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_CONTROL__ARTIFICIAL_FIELDS = eINSTANCE.getDataControl_ArtificialFields();
 
     /**
      * The meta object literal for the '<em><b>Create</b></em>' containment reference feature.

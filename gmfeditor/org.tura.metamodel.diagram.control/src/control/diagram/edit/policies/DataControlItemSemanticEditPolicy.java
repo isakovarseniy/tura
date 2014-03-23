@@ -21,17 +21,19 @@ import org.eclipse.gmf.runtime.notation.View;
 import control.diagram.edit.commands.RelationCreateCommand;
 import control.diagram.edit.commands.RelationReorientCommand;
 import control.diagram.edit.parts.ArtificialFieldEditPart;
-import control.diagram.edit.parts.DataControlDataControlArtificialFieldCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlArtificialFieldsCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlPostCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostQueryTriggerCompartmentEditPart;
-import control.diagram.edit.parts.DataControlDataControlPreCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreDeleteTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreInsertTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreQueryTriggerCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlPreUpdateTriggerCompartmentEditPart;
+import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
-import control.diagram.edit.parts.PRECreateTriggerEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerEditPart;
 import control.diagram.edit.parts.PREInsertTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerEditPart;
+import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.part.DomainVisualIDRegistry;
 import control.diagram.providers.DomainElementTypes;
@@ -158,12 +160,12 @@ public class DataControlItemSemanticEditPolicy extends
 					}
 				}
 				break;
-			case DataControlDataControlPreCreateTriggerCompartmentEditPart.VISUAL_ID:
+			case DataControlDataControlPostCreateTriggerCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
-					case PRECreateTriggerEditPart.VISUAL_ID:
+					case POSTCreateTriggerEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true
@@ -173,7 +175,22 @@ public class DataControlItemSemanticEditPolicy extends
 					}
 				}
 				break;
-			case DataControlDataControlArtificialFieldCompartmentEditPart.VISUAL_ID:
+			case DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
+					case PREUpdateTriggerEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
+			case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

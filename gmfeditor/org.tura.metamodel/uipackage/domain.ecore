@@ -315,110 +315,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationMappers"
         eOpposite="#//ApplicationMappers/mappers"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BusinessObjects">
-    <eAnnotations source="gmf.diagram.businessObjects"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="businessObject" upperBound="-1"
-        eType="#//BusinessObject" containment="true" eOpposite="#//BusinessObject/parent"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessPackage"
-        eOpposite="#//BusinessPackage/businessobjects"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BusinessObject">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="name"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObjects"
-        eOpposite="#//BusinessObjects/businessObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="createMethods" upperBound="-1"
-        eType="#//CreateMethod" containment="true" eOpposite="#//CreateMethod/parent">
-      <eAnnotations source="gmf.compartment"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="insertMethods" upperBound="-1"
-        eType="#//InsertMethod" containment="true" eOpposite="#//InsertMethod/parent">
-      <eAnnotations source="gmf.compartment"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="updateMethods" upperBound="-1"
-        eType="#//UpdateMethod" containment="true" eOpposite="#//UpdateMethod/parent">
-      <eAnnotations source="gmf.compartment"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="removeMethods" upperBound="-1"
-        eType="#//RemoveMethod" containment="true" eOpposite="#//RemoveMethod/parent">
-      <eAnnotations source="gmf.compartment"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="searchMethods" upperBound="-1"
-        eType="#//SearchMethod" containment="true" eOpposite="#//SearchMethod/parent">
-      <eAnnotations source="gmf.compartment"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="othersMethods" upperBound="-1"
-        eType="#//OtherMethod" containment="true" eOpposite="#//OtherMethod/parent">
-      <eAnnotations source="gmf.compartment"/>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BusinessMethod" eSuperTypes="#//TypePointer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodPointer" eSuperTypes="#//TypePointer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="methodRef" eType="#//Operation"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CreateMethod" eSuperTypes="#//BusinessMethod">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
-        eOpposite="#//BusinessObject/createMethods"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InsertMethod" eSuperTypes="#//BusinessMethod">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
-        eOpposite="#//BusinessObject/insertMethods"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UpdateMethod" eSuperTypes="#//BusinessMethod">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
-        eOpposite="#//BusinessObject/updateMethods"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RemoveMethod" eSuperTypes="#//BusinessMethod">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
-        eOpposite="#//BusinessObject/removeMethods"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SearchMethod" eSuperTypes="#//BusinessMethod">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
-        eOpposite="#//BusinessObject/searchMethods"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OtherMethod" eSuperTypes="#//BusinessMethod">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeMethod"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BusinessObject"
-        eOpposite="#//BusinessObject/othersMethods"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mappers">
     <eAnnotations source="gmf.diagram.mapper"/>
@@ -862,10 +761,6 @@
         eType="#//Package" containment="true" eOpposite="#//Package/parent">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="businessPackages" upperBound="-1"
-        eType="#//BusinessPackage" containment="true" eOpposite="#//BusinessPackage/parent">
-      <eAnnotations source="gmf.compartment"/>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eAnnotations source="gmf.node">
@@ -880,20 +775,6 @@
         eOpposite="#//TypeDefinition/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Types"
         eOpposite="#//Types/packages"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BusinessPackage">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="name"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="businessobjects" eType="#//BusinessObjects"
-        eOpposite="#//BusinessObjects/parent"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Types"
-        eOpposite="#//Types/businessPackages"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UIPackage">
     <eAnnotations source="gmf.diagram"/>
@@ -957,14 +838,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
         eType="#//Relation" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="#//TypePointer">
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="#//MethodPointer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="methodRef" eType="#//Operation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//TriggerParameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TriggerParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1014,7 +893,14 @@
       <details key="color" value="241,238,203"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PRECreateTrigger" eSuperTypes="#//Trigger">
+  <eClassifiers xsi:type="ecore:EClass" name="POSTCreateTrigger" eSuperTypes="#//Trigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PREUpdateTrigger" eSuperTypes="#//Trigger">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakeMethod"/>
       <details key="border.color" value="0,0,0"/>
@@ -1070,14 +956,20 @@
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preCreateTrigger" eType="#//PRECreateTrigger"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postCreateTrigger" eType="#//POSTCreateTrigger"
         containment="true">
       <eAnnotations source="gmf.compartment">
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="artificialField" eType="#//ArtificialField"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preUpdateTrigger" eType="#//PREUpdateTrigger"
         containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="artificialFields" upperBound="-1"
+        eType="#//ArtificialField" containment="true">
       <eAnnotations source="gmf.compartment">
         <details key="layout" value="list"/>
       </eAnnotations>

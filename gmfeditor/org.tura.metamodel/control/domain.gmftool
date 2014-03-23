@@ -30,8 +30,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="POSTQueryTrigger"
-          description="Create new POSTQueryTrigger">
+          title="POSTCreateTrigger"
+          description="Create new POSTCreateTrigger">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -39,8 +39,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="PRECreateTrigger"
-          description="Create new PRECreateTrigger">
+          title="POSTQueryTrigger"
+          description="Create new POSTQueryTrigger">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -77,6 +77,15 @@
           xsi:type="gmftool:CreationTool"
           title="PREQueryTrigger"
           description="Create new PREQueryTrigger">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="PREUpdateTrigger"
+          description="Create new PREUpdateTrigger">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

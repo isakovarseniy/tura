@@ -61,7 +61,7 @@ public class ArtificialFieldNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1105009;
+	public static final int VISUAL_ID = 1105010;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class ArtificialFieldNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.ArtificialField_1103007,
+							DomainElementTypes.ArtificialField_1103008,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(control.diagram.edit.parts.ArtificialFieldNameEditPart.VISUAL_ID));

@@ -2,6 +2,7 @@
  */
 package domain;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,8 +18,9 @@ package domain;
  *   <li>{@link domain.DataControl#getPostQueryTrigger <em>Post Query Trigger</em>}</li>
  *   <li>{@link domain.DataControl#getPreInsertTrigger <em>Pre Insert Trigger</em>}</li>
  *   <li>{@link domain.DataControl#getPreDeleteTrigger <em>Pre Delete Trigger</em>}</li>
- *   <li>{@link domain.DataControl#getPreCreateTrigger <em>Pre Create Trigger</em>}</li>
- *   <li>{@link domain.DataControl#getArtificialField <em>Artificial Field</em>}</li>
+ *   <li>{@link domain.DataControl#getPostCreateTrigger <em>Post Create Trigger</em>}</li>
+ *   <li>{@link domain.DataControl#getPreUpdateTrigger <em>Pre Update Trigger</em>}</li>
+ *   <li>{@link domain.DataControl#getArtificialFields <em>Artificial Fields</em>}</li>
  *   <li>{@link domain.DataControl#getCreate <em>Create</em>}</li>
  *   <li>{@link domain.DataControl#getInsert <em>Insert</em>}</li>
  *   <li>{@link domain.DataControl#getUpdate <em>Update</em>}</li>
@@ -194,58 +196,75 @@ public interface DataControl extends TypePointer
   void setPreDeleteTrigger(PREDeleteTrigger value);
 
   /**
-   * Returns the value of the '<em><b>Pre Create Trigger</b></em>' containment reference.
+   * Returns the value of the '<em><b>Post Create Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Pre Create Trigger</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Post Create Trigger</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pre Create Trigger</em>' containment reference.
-   * @see #setPreCreateTrigger(PRECreateTrigger)
-   * @see domain.DomainPackage#getDataControl_PreCreateTrigger()
+   * @return the value of the '<em>Post Create Trigger</em>' containment reference.
+   * @see #setPostCreateTrigger(POSTCreateTrigger)
+   * @see domain.DomainPackage#getDataControl_PostCreateTrigger()
    * @model containment="true"
    *        annotation="gmf.compartment layout='list'"
    * @generated
    */
-  PRECreateTrigger getPreCreateTrigger();
+  POSTCreateTrigger getPostCreateTrigger();
 
   /**
-   * Sets the value of the '{@link domain.DataControl#getPreCreateTrigger <em>Pre Create Trigger</em>}' containment reference.
+   * Sets the value of the '{@link domain.DataControl#getPostCreateTrigger <em>Post Create Trigger</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pre Create Trigger</em>' containment reference.
-   * @see #getPreCreateTrigger()
+   * @param value the new value of the '<em>Post Create Trigger</em>' containment reference.
+   * @see #getPostCreateTrigger()
    * @generated
    */
-  void setPreCreateTrigger(PRECreateTrigger value);
+  void setPostCreateTrigger(POSTCreateTrigger value);
 
   /**
-   * Returns the value of the '<em><b>Artificial Field</b></em>' containment reference.
+   * Returns the value of the '<em><b>Pre Update Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Artificial Field</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Pre Update Trigger</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Artificial Field</em>' containment reference.
-   * @see #setArtificialField(ArtificialField)
-   * @see domain.DomainPackage#getDataControl_ArtificialField()
+   * @return the value of the '<em>Pre Update Trigger</em>' containment reference.
+   * @see #setPreUpdateTrigger(PREUpdateTrigger)
+   * @see domain.DomainPackage#getDataControl_PreUpdateTrigger()
    * @model containment="true"
    *        annotation="gmf.compartment layout='list'"
    * @generated
    */
-  ArtificialField getArtificialField();
+  PREUpdateTrigger getPreUpdateTrigger();
 
   /**
-   * Sets the value of the '{@link domain.DataControl#getArtificialField <em>Artificial Field</em>}' containment reference.
+   * Sets the value of the '{@link domain.DataControl#getPreUpdateTrigger <em>Pre Update Trigger</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Artificial Field</em>' containment reference.
-   * @see #getArtificialField()
+   * @param value the new value of the '<em>Pre Update Trigger</em>' containment reference.
+   * @see #getPreUpdateTrigger()
    * @generated
    */
-  void setArtificialField(ArtificialField value);
+  void setPreUpdateTrigger(PREUpdateTrigger value);
+
+  /**
+   * Returns the value of the '<em><b>Artificial Fields</b></em>' containment reference list.
+   * The list contents are of type {@link domain.ArtificialField}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Artificial Fields</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Artificial Fields</em>' containment reference list.
+   * @see domain.DomainPackage#getDataControl_ArtificialFields()
+   * @model containment="true"
+   *        annotation="gmf.compartment layout='list'"
+   * @generated
+   */
+  EList<ArtificialField> getArtificialFields();
 
   /**
    * Returns the value of the '<em><b>Create</b></em>' containment reference.
