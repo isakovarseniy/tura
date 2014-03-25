@@ -716,6 +716,51 @@ public interface DomainFactory extends EFactory
   PREUpdateTrigger createPREUpdateTrigger();
 
   /**
+   * Returns a new object of class '<em>Create Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Create Trigger</em>'.
+   * @generated
+   */
+  CreateTrigger createCreateTrigger();
+
+  /**
+   * Returns a new object of class '<em>Insert Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Insert Trigger</em>'.
+   * @generated
+   */
+  InsertTrigger createInsertTrigger();
+
+  /**
+   * Returns a new object of class '<em>Update Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Update Trigger</em>'.
+   * @generated
+   */
+  UpdateTrigger createUpdateTrigger();
+
+  /**
+   * Returns a new object of class '<em>Delete Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Delete Trigger</em>'.
+   * @generated
+   */
+  DeleteTrigger createDeleteTrigger();
+
+  /**
+   * Returns a new object of class '<em>Search Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Search Trigger</em>'.
+   * @generated
+   */
+  SearchTrigger createSearchTrigger();
+
+  /**
    * Returns a new object of class '<em>Root</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

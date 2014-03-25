@@ -462,6 +462,7 @@ class Operation{
 class Parameter extends  TypePointer{
     id attr EString uid;
    attr EString name;
+   attr EInt order;
    ref Operation#parameters parent;
 }
 
@@ -595,6 +596,26 @@ class POSTCreateTrigger extends Trigger {
 class PREUpdateTrigger extends Trigger {
  }
 
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class CreateTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class InsertTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class UpdateTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class DeleteTrigger extends Trigger {
+ }
+
+@gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
+class SearchTrigger extends Trigger {
+ }
+
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
 class Root{
@@ -621,14 +642,20 @@ class DataControl extends TypePointer{
    @gmf.compartment(layout="list")
    val PREUpdateTrigger preUpdateTrigger;
    @gmf.compartment(layout="list")
+   val CreateTrigger create;
+   @gmf.compartment(layout="list")
+   val InsertTrigger insert;
+   @gmf.compartment(layout="list")
+   val UpdateTrigger update;
+   @gmf.compartment(layout="list")
+   val DeleteTrigger remove;
+   @gmf.compartment(layout="list")
+   val SearchTrigger search;
+
+   @gmf.compartment(layout="list")
    val ArtificialField[*] artificialFields;   
    
     
-   val Trigger create;
-   val Trigger insert;
-   val Trigger update;
-   val Trigger remove;
-   val Trigger search;
 }
 
 @gmf.link(source="master", target="detail", style="dash", target.decoration="arrow")

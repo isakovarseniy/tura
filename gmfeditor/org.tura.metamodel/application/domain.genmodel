@@ -312,6 +312,7 @@
     <genClasses ecoreClass="domain.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Parameter/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Parameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Parameter/order"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Parameter/parent"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ReturnValue">
@@ -391,6 +392,11 @@
     <genClasses ecoreClass="domain.ecore#//PREDeleteTrigger"/>
     <genClasses ecoreClass="domain.ecore#//POSTCreateTrigger"/>
     <genClasses ecoreClass="domain.ecore#//PREUpdateTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//CreateTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//InsertTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//UpdateTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//DeleteTrigger"/>
+    <genClasses ecoreClass="domain.ecore#//SearchTrigger"/>
     <genClasses ecoreClass="domain.ecore#//Root">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Root/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Root/name"/>
@@ -405,12 +411,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preDeleteTrigger"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/postCreateTrigger"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preUpdateTrigger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/artificialFields"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/create"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/insert"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/update"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/remove"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/search"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/artificialFields"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Relation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Relation/uid"/>

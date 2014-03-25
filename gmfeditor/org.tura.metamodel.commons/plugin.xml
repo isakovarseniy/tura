@@ -324,6 +324,10 @@
              category="domain"
              id="property.tab.domain.control.serviceref"
              label="Method ref"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.control.parameters"
+             label="Parameters"/>
        </propertyTabs>
        </extension>
     
@@ -341,6 +345,11 @@
               <input type="control.diagram.edit.parts.PREUpdateTriggerEditPart"/>
               <input type="control.diagram.edit.parts.PREDeleteTriggerEditPart"/>
               <input type="control.diagram.edit.parts.POSTCreateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.CreateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.InsertTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.UpdateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.DeleteTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.SearchTriggerEditPart"/>
            </propertySection>        
  
           <propertySection
@@ -353,6 +362,11 @@
               <input type="control.diagram.edit.parts.PREUpdateTriggerEditPart"/>
               <input type="control.diagram.edit.parts.PREDeleteTriggerEditPart"/>
               <input type="control.diagram.edit.parts.POSTCreateTriggerEditPart"/>
+               <input type="control.diagram.edit.parts.CreateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.InsertTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.UpdateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.DeleteTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.SearchTriggerEditPart"/>
            </propertySection>        
 
           <propertySection
@@ -365,7 +379,32 @@
               <input type="control.diagram.edit.parts.PREUpdateTriggerEditPart"/>
               <input type="control.diagram.edit.parts.PREDeleteTriggerEditPart"/>
               <input type="control.diagram.edit.parts.POSTCreateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.CreateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.InsertTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.UpdateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.DeleteTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.SearchTriggerEditPart"/>
            </propertySection>        
+   
+             <propertySection
+               tab="property.tab.domain.control.parameters"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.TriggerParameterPropertySelection"
+               id="org.tura.metamodel.diagram.control.parameters">
+              <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.POSTQueryTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREQueryTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREInsertTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREUpdateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.PREDeleteTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.POSTCreateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.CreateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.InsertTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.UpdateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.DeleteTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.SearchTriggerEditPart"/>
+           </propertySection>        
+   
+   
    
        </propertySections>
     

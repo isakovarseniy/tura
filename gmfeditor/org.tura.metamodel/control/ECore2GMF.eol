@@ -112,6 +112,81 @@ preferredSize.dx = 200;
 preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
 
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'CreateTriggerFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'InsertTriggerFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'UpdateTriggerFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'DeleteTriggerFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'SearchTriggerFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
 
 
 -- remove unavailabels tools

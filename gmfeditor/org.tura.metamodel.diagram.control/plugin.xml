@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Control"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1102002,1102001,1103002,1103003,1103004,1103005,1103011,1103010,1103008,1103001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1102002,1102001,1103002,1103003,1103004,1103005,1103011,1103010,1103012,1103013,1103014,1103015,1103016,1103008,1103001"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1104001,1104009,1104002,1104003,1104004,1104005,1104006,1104007"/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="Control"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="1102002,1102001,1103002,1103003,1103004,1103005,1103011,1103010,1103008,1103001"/>
+            <method name="getType()" value="1102002,1102001,1103002,1103003,1103004,1103005,1103011,1103010,1103012,1103013,1103014,1103015,1103016,1103008,1103001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="1104001,1104009,1104002,1104003,1104004,1104005,1104006,1104007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="1105007,1105002,1105003,1105004,1105005,1105006,1105013,1105012,1105010,1105001"/>
+            <method name="getType()" value="1105007,1105002,1105003,1105004,1105005,1105006,1105013,1105012,1105014,1105015,1105016,1105017,1105018,1105010,1105001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="1107002,1107003,1107004,1107005,1107006,1107007,1107008,1107001"/>
+            <method name="getType()" value="1107002,1107003,1107004,1107005,1107006,1107007,1107008,1107009,1107010,1107011,1107012,1107013,1107001"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -416,6 +416,56 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
+               id="org.tura.metamodel.diagram.control.CreateTrigger_1103012"
+               name="%metatype.name.CreateTrigger_1103012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="CreateTrigger"
+               edithelper="control.diagram.edit.helpers.CreateTriggerEditHelper">
+            <param name="semanticHint" value="1103012"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.control.InsertTrigger_1103013"
+               name="%metatype.name.InsertTrigger_1103013"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InsertTrigger"
+               edithelper="control.diagram.edit.helpers.InsertTriggerEditHelper">
+            <param name="semanticHint" value="1103013"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.control.UpdateTrigger_1103014"
+               name="%metatype.name.UpdateTrigger_1103014"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="UpdateTrigger"
+               edithelper="control.diagram.edit.helpers.UpdateTriggerEditHelper">
+            <param name="semanticHint" value="1103014"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.control.DeleteTrigger_1103015"
+               name="%metatype.name.DeleteTrigger_1103015"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DeleteTrigger"
+               edithelper="control.diagram.edit.helpers.DeleteTriggerEditHelper">
+            <param name="semanticHint" value="1103015"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.control.SearchTrigger_1103016"
+               name="%metatype.name.SearchTrigger_1103016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SearchTrigger"
+               edithelper="control.diagram.edit.helpers.SearchTriggerEditHelper">
+            <param name="semanticHint" value="1103016"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
                id="org.tura.metamodel.diagram.control.ArtificialField_1103008"
                name="%metatype.name.ArtificialField_1103008"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -533,6 +583,11 @@
          <elementType ref="org.tura.metamodel.diagram.control.PREDeleteTrigger_1103005"/>
          <elementType ref="org.tura.metamodel.diagram.control.POSTCreateTrigger_1103011"/>
          <elementType ref="org.tura.metamodel.diagram.control.PREUpdateTrigger_1103010"/>
+         <elementType ref="org.tura.metamodel.diagram.control.CreateTrigger_1103012"/>
+         <elementType ref="org.tura.metamodel.diagram.control.InsertTrigger_1103013"/>
+         <elementType ref="org.tura.metamodel.diagram.control.UpdateTrigger_1103014"/>
+         <elementType ref="org.tura.metamodel.diagram.control.DeleteTrigger_1103015"/>
+         <elementType ref="org.tura.metamodel.diagram.control.SearchTrigger_1103016"/>
          <elementType ref="org.tura.metamodel.diagram.control.ArtificialField_1103008"/>
          <elementType ref="org.tura.metamodel.diagram.control.PREFormTrigger_1103001"/>
          <elementType ref="org.tura.metamodel.diagram.control.TypeExtension_1104001"/>

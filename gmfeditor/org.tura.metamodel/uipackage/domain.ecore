@@ -706,6 +706,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Operation"
         eOpposite="#//Operation/parameters"/>
   </eClassifiers>
@@ -907,6 +908,41 @@
       <details key="color" value="241,238,203"/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CreateTrigger" eSuperTypes="#//Trigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InsertTrigger" eSuperTypes="#//Trigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateTrigger" eSuperTypes="#//Trigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeleteTrigger" eSuperTypes="#//Trigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SearchTrigger" eSuperTypes="#//Trigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Root">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
@@ -968,22 +1004,42 @@
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="create" eType="#//CreateTrigger"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="insert" eType="#//InsertTrigger"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="update" eType="#//UpdateTrigger"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="remove" eType="#//DeleteTrigger"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="search" eType="#//SearchTrigger"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="artificialFields" upperBound="-1"
         eType="#//ArtificialField" containment="true">
       <eAnnotations source="gmf.compartment">
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="create" eType="#//Trigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="insert" eType="#//Trigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="update" eType="#//Trigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="remove" eType="#//Trigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="search" eType="#//Trigger"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Relation">
     <eAnnotations source="gmf.link">

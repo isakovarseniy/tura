@@ -22,10 +22,13 @@ import org.eclipse.swt.graphics.Image;
 import control.diagram.edit.parts.ArtificialFieldEditPart;
 import control.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import control.diagram.edit.parts.ControlsEditPart;
+import control.diagram.edit.parts.CreateTriggerEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
+import control.diagram.edit.parts.DeleteTriggerEditPart;
 import control.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import control.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerEditPart;
@@ -37,7 +40,9 @@ import control.diagram.edit.parts.RecipeDeloymentEditPart;
 import control.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
+import control.diagram.edit.parts.SearchTriggerEditPart;
 import control.diagram.edit.parts.TypeExtensionEditPart;
+import control.diagram.edit.parts.UpdateTriggerEditPart;
 import control.diagram.part.DomainDiagramEditorPlugin;
 import domain.DomainPackage;
 
@@ -103,6 +108,31 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType PREUpdateTrigger_1103010 = getElementType("org.tura.metamodel.diagram.control.PREUpdateTrigger_1103010"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType CreateTrigger_1103012 = getElementType("org.tura.metamodel.diagram.control.CreateTrigger_1103012"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType InsertTrigger_1103013 = getElementType("org.tura.metamodel.diagram.control.InsertTrigger_1103013"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType UpdateTrigger_1103014 = getElementType("org.tura.metamodel.diagram.control.UpdateTrigger_1103014"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DeleteTrigger_1103015 = getElementType("org.tura.metamodel.diagram.control.DeleteTrigger_1103015"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SearchTrigger_1103016 = getElementType("org.tura.metamodel.diagram.control.SearchTrigger_1103016"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -281,6 +311,21 @@ public class DomainElementTypes {
 			elements.put(PREUpdateTrigger_1103010,
 					DomainPackage.eINSTANCE.getPREUpdateTrigger());
 
+			elements.put(CreateTrigger_1103012,
+					DomainPackage.eINSTANCE.getCreateTrigger());
+
+			elements.put(InsertTrigger_1103013,
+					DomainPackage.eINSTANCE.getInsertTrigger());
+
+			elements.put(UpdateTrigger_1103014,
+					DomainPackage.eINSTANCE.getUpdateTrigger());
+
+			elements.put(DeleteTrigger_1103015,
+					DomainPackage.eINSTANCE.getDeleteTrigger());
+
+			elements.put(SearchTrigger_1103016,
+					DomainPackage.eINSTANCE.getSearchTrigger());
+
 			elements.put(ArtificialField_1103008,
 					DomainPackage.eINSTANCE.getArtificialField());
 
@@ -337,6 +382,11 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(PREDeleteTrigger_1103005);
 			KNOWN_ELEMENT_TYPES.add(POSTCreateTrigger_1103011);
 			KNOWN_ELEMENT_TYPES.add(PREUpdateTrigger_1103010);
+			KNOWN_ELEMENT_TYPES.add(CreateTrigger_1103012);
+			KNOWN_ELEMENT_TYPES.add(InsertTrigger_1103013);
+			KNOWN_ELEMENT_TYPES.add(UpdateTrigger_1103014);
+			KNOWN_ELEMENT_TYPES.add(DeleteTrigger_1103015);
+			KNOWN_ELEMENT_TYPES.add(SearchTrigger_1103016);
 			KNOWN_ELEMENT_TYPES.add(ArtificialField_1103008);
 			KNOWN_ELEMENT_TYPES.add(PREFormTrigger_1103001);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_1104001);
@@ -375,6 +425,16 @@ public class DomainElementTypes {
 			return POSTCreateTrigger_1103011;
 		case PREUpdateTriggerEditPart.VISUAL_ID:
 			return PREUpdateTrigger_1103010;
+		case CreateTriggerEditPart.VISUAL_ID:
+			return CreateTrigger_1103012;
+		case InsertTriggerEditPart.VISUAL_ID:
+			return InsertTrigger_1103013;
+		case UpdateTriggerEditPart.VISUAL_ID:
+			return UpdateTrigger_1103014;
+		case DeleteTriggerEditPart.VISUAL_ID:
+			return DeleteTrigger_1103015;
+		case SearchTriggerEditPart.VISUAL_ID:
+			return SearchTrigger_1103016;
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return ArtificialField_1103008;
 		case PREFormTriggerEditPart.VISUAL_ID:

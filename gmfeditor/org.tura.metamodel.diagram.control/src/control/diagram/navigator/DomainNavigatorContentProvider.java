@@ -31,17 +31,25 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 import control.diagram.edit.parts.ArtificialFieldEditPart;
 import control.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import control.diagram.edit.parts.ControlsEditPart;
+import control.diagram.edit.parts.CreateTriggerEditPart;
 import control.diagram.edit.parts.DataControlDataControlArtificialFieldsCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlCreateCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlInsertCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostQueryTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreDeleteTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreInsertTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreQueryTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreUpdateTriggerCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlRemoveCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlSearchCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlUpdateCompartmentEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
+import control.diagram.edit.parts.DeleteTriggerEditPart;
 import control.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import control.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
+import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerEditPart;
@@ -54,7 +62,9 @@ import control.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
 import control.diagram.edit.parts.RootRootPreFormTriggerCompartmentEditPart;
+import control.diagram.edit.parts.SearchTriggerEditPart;
 import control.diagram.edit.parts.TypeExtensionEditPart;
+import control.diagram.edit.parts.UpdateTriggerEditPart;
 import control.diagram.part.DomainVisualIDRegistry;
 import control.diagram.part.Messages;
 
@@ -380,6 +390,51 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(connectedViews,
 					DomainVisualIDRegistry
 							.getType(PREUpdateTriggerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DataControlDataControlCreateCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(CreateTriggerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DataControlDataControlInsertCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(InsertTriggerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DataControlDataControlUpdateCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(UpdateTriggerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DataControlDataControlRemoveCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(DeleteTriggerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(DataControlDataControlSearchCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(SearchTriggerEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(

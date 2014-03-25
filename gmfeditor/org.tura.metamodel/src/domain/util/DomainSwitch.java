@@ -20,7 +20,9 @@ import domain.Configuration;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
+import domain.CreateTrigger;
 import domain.DataControl;
+import domain.DeleteTrigger;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
 import domain.DeploymentSequence;
@@ -40,6 +42,7 @@ import domain.FormDataControls;
 import domain.FormView;
 import domain.Infrastructure;
 import domain.Ingredient;
+import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
@@ -71,6 +74,7 @@ import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
 import domain.Root;
+import domain.SearchTrigger;
 import domain.Specifier;
 import domain.Trigger;
 import domain.TriggerParameter;
@@ -83,6 +87,7 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UIPackage;
+import domain.UpdateTrigger;
 import domain.UsingMappers;
 
 import org.eclipse.emf.ecore.EObject;
@@ -732,6 +737,56 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = caseTrigger(preUpdateTrigger);
         if (result == null) result = caseMethodPointer(preUpdateTrigger);
         if (result == null) result = caseTypePointer(preUpdateTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.CREATE_TRIGGER:
+      {
+        CreateTrigger createTrigger = (CreateTrigger)theEObject;
+        T result = caseCreateTrigger(createTrigger);
+        if (result == null) result = caseTrigger(createTrigger);
+        if (result == null) result = caseMethodPointer(createTrigger);
+        if (result == null) result = caseTypePointer(createTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.INSERT_TRIGGER:
+      {
+        InsertTrigger insertTrigger = (InsertTrigger)theEObject;
+        T result = caseInsertTrigger(insertTrigger);
+        if (result == null) result = caseTrigger(insertTrigger);
+        if (result == null) result = caseMethodPointer(insertTrigger);
+        if (result == null) result = caseTypePointer(insertTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.UPDATE_TRIGGER:
+      {
+        UpdateTrigger updateTrigger = (UpdateTrigger)theEObject;
+        T result = caseUpdateTrigger(updateTrigger);
+        if (result == null) result = caseTrigger(updateTrigger);
+        if (result == null) result = caseMethodPointer(updateTrigger);
+        if (result == null) result = caseTypePointer(updateTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.DELETE_TRIGGER:
+      {
+        DeleteTrigger deleteTrigger = (DeleteTrigger)theEObject;
+        T result = caseDeleteTrigger(deleteTrigger);
+        if (result == null) result = caseTrigger(deleteTrigger);
+        if (result == null) result = caseMethodPointer(deleteTrigger);
+        if (result == null) result = caseTypePointer(deleteTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.SEARCH_TRIGGER:
+      {
+        SearchTrigger searchTrigger = (SearchTrigger)theEObject;
+        T result = caseSearchTrigger(searchTrigger);
+        if (result == null) result = caseTrigger(searchTrigger);
+        if (result == null) result = caseMethodPointer(searchTrigger);
+        if (result == null) result = caseTypePointer(searchTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2004,6 +2059,86 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePREUpdateTrigger(PREUpdateTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Create Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Create Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCreateTrigger(CreateTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Insert Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Insert Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInsertTrigger(InsertTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Update Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Update Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUpdateTrigger(UpdateTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Delete Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Delete Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeleteTrigger(DeleteTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Search Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Search Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSearchTrigger(SearchTrigger object)
   {
     return null;
   }

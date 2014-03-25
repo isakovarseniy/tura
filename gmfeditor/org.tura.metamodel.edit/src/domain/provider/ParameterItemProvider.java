@@ -63,6 +63,7 @@ public class ParameterItemProvider
 
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
+      addOrderPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -114,6 +115,29 @@ public class ParameterItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Order feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addOrderPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Parameter_order_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Parameter_order_feature", "_UI_Parameter_type"),
+         DomainPackage.Literals.PARAMETER__ORDER,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This returns Parameter.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -156,6 +180,7 @@ public class ParameterItemProvider
     {
       case DomainPackage.PARAMETER__UID:
       case DomainPackage.PARAMETER__NAME:
+      case DomainPackage.PARAMETER__ORDER:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

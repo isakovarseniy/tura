@@ -21,13 +21,21 @@ import org.eclipse.gmf.runtime.notation.View;
 import control.diagram.edit.commands.RelationCreateCommand;
 import control.diagram.edit.commands.RelationReorientCommand;
 import control.diagram.edit.parts.ArtificialFieldEditPart;
+import control.diagram.edit.parts.CreateTriggerEditPart;
 import control.diagram.edit.parts.DataControlDataControlArtificialFieldsCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlCreateCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlInsertCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostQueryTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreDeleteTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreInsertTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreQueryTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreUpdateTriggerCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlRemoveCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlSearchCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlUpdateCompartmentEditPart;
+import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerEditPart;
@@ -35,6 +43,8 @@ import control.diagram.edit.parts.PREInsertTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerEditPart;
 import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.RelationEditPart;
+import control.diagram.edit.parts.SearchTriggerEditPart;
+import control.diagram.edit.parts.UpdateTriggerEditPart;
 import control.diagram.part.DomainVisualIDRegistry;
 import control.diagram.providers.DomainElementTypes;
 
@@ -181,6 +191,81 @@ public class DataControlItemSemanticEditPolicy extends
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case PREUpdateTriggerEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
+			case DataControlDataControlCreateCompartmentEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
+					case CreateTriggerEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
+			case DataControlDataControlInsertCompartmentEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
+					case InsertTriggerEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
+			case DataControlDataControlUpdateCompartmentEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
+					case UpdateTriggerEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
+			case DataControlDataControlRemoveCompartmentEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
+					case DeleteTriggerEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
+			case DataControlDataControlSearchCompartmentEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
+					case SearchTriggerEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

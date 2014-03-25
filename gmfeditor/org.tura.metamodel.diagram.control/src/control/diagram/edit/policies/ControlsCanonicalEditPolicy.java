@@ -36,7 +36,10 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import control.diagram.edit.parts.ArtificialFieldEditPart;
 import control.diagram.edit.parts.ControlsEditPart;
+import control.diagram.edit.parts.CreateTriggerEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
+import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerEditPart;
@@ -46,7 +49,9 @@ import control.diagram.edit.parts.PREQueryTriggerEditPart;
 import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
+import control.diagram.edit.parts.SearchTriggerEditPart;
 import control.diagram.edit.parts.TypeExtensionEditPart;
+import control.diagram.edit.parts.UpdateTriggerEditPart;
 import control.diagram.part.DomainDiagramUpdater;
 import control.diagram.part.DomainLinkDescriptor;
 import control.diagram.part.DomainNodeDescriptor;
@@ -352,6 +357,46 @@ public class ControlsCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getPREUpdateTrigger_1103010ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case CreateTriggerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getCreateTrigger_1103012ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case InsertTriggerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getInsertTrigger_1103013ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case UpdateTriggerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getUpdateTrigger_1103014ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case DeleteTriggerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getDeleteTrigger_1103015ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case SearchTriggerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getSearchTrigger_1103016ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

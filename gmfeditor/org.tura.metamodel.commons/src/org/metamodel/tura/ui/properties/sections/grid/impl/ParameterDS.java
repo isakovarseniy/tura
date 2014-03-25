@@ -84,7 +84,7 @@ public class ParameterDS extends DataSource {
 
 	@Override
 	public int getSorterID() {
-		return -1;
+		return 3;
 	}
 
 }

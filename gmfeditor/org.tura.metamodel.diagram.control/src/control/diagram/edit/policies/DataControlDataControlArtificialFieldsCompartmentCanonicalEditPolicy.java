@@ -63,7 +63,7 @@ public class DataControlDataControlArtificialFieldsCompartmentCanonicalEditPolic
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getDataControlDataControlArtificialFieldsCompartment_1107008SemanticChildren(viewObject);
+				.getDataControlDataControlArtificialFieldsCompartment_1107013SemanticChildren(viewObject);
 		for (DomainNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -96,7 +96,7 @@ public class DataControlDataControlArtificialFieldsCompartmentCanonicalEditPolic
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<DomainNodeDescriptor> childDescriptors = DomainDiagramUpdater
-				.getDataControlDataControlArtificialFieldsCompartment_1107008SemanticChildren((View) getHost()
+				.getDataControlDataControlArtificialFieldsCompartment_1107013SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

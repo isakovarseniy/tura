@@ -6,16 +6,25 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.validation.internal.modeled.model.validation.Constraint;
 import org.eclipse.ocl.OCL;
+import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 
+import domain.ContextValue;
+import domain.DomainFactory;
 import domain.DomainPackage;
+import domain.Parameter;
+import domain.TriggerParameter;
 
 public class QueryHelper {
 
@@ -278,4 +287,75 @@ public class QueryHelper {
 
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public List<Object> findTriggerParameters(domain.Trigger trg,
+			EObject types, EditingDomain editingDomain) throws ParserException {
+
+		ArrayList<domain.TriggerParameter> removeParameters = new ArrayList<domain.TriggerParameter>();
+		ArrayList<domain.TriggerParameter> addParameters = new ArrayList<domain.TriggerParameter>();
+
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+		OCLExpression<EClassifier> query = helper
+				.createQuery("domain::Operation.allInstances()->select(r|r.oclAsType(domain::Operation).uid ='"
+						+ trg.getMethodRef().getUid()
+						+ "').oclAsType(domain::Operation).parameters");
+
+		Collection<domain.Parameter> map = (Collection<Parameter>) ocl
+				.evaluate(types, query);
+
+		ArrayList<domain.Parameter> parameters = new ArrayList<domain.Parameter>();
+		for (Iterator<domain.Parameter> i = map.iterator(); i.hasNext();) {
+			domain.Parameter p = i.next();
+			parameters.add(p);
+		}
+
+		boolean renewParameters = false;
+		if (trg.getParameters().size() != parameters.size())
+			removeParameters.addAll(trg.getParameters());
+		else {
+
+			for (int i = 0; i < trg.getParameters().size(); i++) {
+				TriggerParameter trgParam = trg.getParameters().get(i);
+				domain.Parameter param = parameters.get(i);
+				if (trgParam.getParameter().getUid().equals(param.getUid())) {
+					removeParameters.addAll(trg.getParameters());
+					renewParameters = true;
+					break;
+				}
+			}
+		}
+		if (renewParameters) {
+			for (int i = 0; i < parameters.size(); i++) {
+				TriggerParameter trgParam = DomainFactory.eINSTANCE
+						.createTriggerParameter();
+				trgParam.setParameter(parameters.get(i));
+				trgParam.setUid(UUID.randomUUID().toString());
+				addParameters.add(trgParam);
+				ContextValue value = DomainFactory.eINSTANCE
+						.createContextValue();
+				value.setUid(UUID.randomUUID().toString());
+				trgParam.setValue(value);
+			}
+		}
+		if (removeParameters.size() != 0) {
+			editingDomain.getCommandStack().execute(
+					RemoveCommand.create(editingDomain, trg,
+							DomainPackage.eINSTANCE.getTrigger_Parameters(),
+							removeParameters));
+		}
+
+		if (addParameters.size() != 0) {
+			editingDomain.getCommandStack().execute(
+					AddCommand.create(editingDomain, trg,
+							DomainPackage.eINSTANCE.getTrigger_Parameters(),
+							addParameters));
+		}
+
+		ArrayList<Object> rows = new ArrayList<>();
+		rows.addAll(trg.getParameters());
+		return rows;
+	}
 }

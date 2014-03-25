@@ -17,7 +17,10 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import control.diagram.edit.parts.ArtificialFieldNameEditPart;
+import control.diagram.edit.parts.CreateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.DataControlNameEditPart;
+import control.diagram.edit.parts.DeleteTriggerFakeMethodEditPart;
+import control.diagram.edit.parts.InsertTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerFakeMethodEditPart;
@@ -26,6 +29,8 @@ import control.diagram.edit.parts.PREInsertTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREQueryTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREUpdateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.RootNameEditPart;
+import control.diagram.edit.parts.SearchTriggerFakeMethodEditPart;
+import control.diagram.edit.parts.UpdateTriggerFakeMethodEditPart;
 import control.diagram.parsers.MessageFormatParser;
 import control.diagram.part.DomainVisualIDRegistry;
 import domain.DomainPackage;
@@ -183,6 +188,96 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser createTriggerFakeMethod_1105014Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCreateTriggerFakeMethod_1105014Parser() {
+		if (createTriggerFakeMethod_1105014Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMethodPointer_FakeMethod() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			createTriggerFakeMethod_1105014Parser = parser;
+		}
+		return createTriggerFakeMethod_1105014Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser insertTriggerFakeMethod_1105015Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getInsertTriggerFakeMethod_1105015Parser() {
+		if (insertTriggerFakeMethod_1105015Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMethodPointer_FakeMethod() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			insertTriggerFakeMethod_1105015Parser = parser;
+		}
+		return insertTriggerFakeMethod_1105015Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser updateTriggerFakeMethod_1105016Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getUpdateTriggerFakeMethod_1105016Parser() {
+		if (updateTriggerFakeMethod_1105016Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMethodPointer_FakeMethod() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			updateTriggerFakeMethod_1105016Parser = parser;
+		}
+		return updateTriggerFakeMethod_1105016Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser deleteTriggerFakeMethod_1105017Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDeleteTriggerFakeMethod_1105017Parser() {
+		if (deleteTriggerFakeMethod_1105017Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMethodPointer_FakeMethod() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			deleteTriggerFakeMethod_1105017Parser = parser;
+		}
+		return deleteTriggerFakeMethod_1105017Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser searchTriggerFakeMethod_1105018Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSearchTriggerFakeMethod_1105018Parser() {
+		if (searchTriggerFakeMethod_1105018Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMethodPointer_FakeMethod() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			searchTriggerFakeMethod_1105018Parser = parser;
+		}
+		return searchTriggerFakeMethod_1105018Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser artificialFieldName_1105010Parser;
 
 	/**
@@ -237,6 +332,16 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getPOSTCreateTriggerFakeMethod_1105013Parser();
 		case PREUpdateTriggerFakeMethodEditPart.VISUAL_ID:
 			return getPREUpdateTriggerFakeMethod_1105012Parser();
+		case CreateTriggerFakeMethodEditPart.VISUAL_ID:
+			return getCreateTriggerFakeMethod_1105014Parser();
+		case InsertTriggerFakeMethodEditPart.VISUAL_ID:
+			return getInsertTriggerFakeMethod_1105015Parser();
+		case UpdateTriggerFakeMethodEditPart.VISUAL_ID:
+			return getUpdateTriggerFakeMethod_1105016Parser();
+		case DeleteTriggerFakeMethodEditPart.VISUAL_ID:
+			return getDeleteTriggerFakeMethod_1105017Parser();
+		case SearchTriggerFakeMethodEditPart.VISUAL_ID:
+			return getSearchTriggerFakeMethod_1105018Parser();
 		case ArtificialFieldNameEditPart.VISUAL_ID:
 			return getArtificialFieldName_1105010Parser();
 		case PREFormTriggerFakeMethodEditPart.VISUAL_ID:

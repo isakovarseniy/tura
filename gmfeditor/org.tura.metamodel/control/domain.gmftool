@@ -21,8 +21,35 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="CreateTrigger"
+          description="Create new CreateTrigger">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="DataControl"
           description="Create new DataControl">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="DeleteTrigger"
+          description="Create new DeleteTrigger">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="InsertTrigger"
+          description="Create new InsertTrigger">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -95,6 +122,24 @@
           xsi:type="gmftool:CreationTool"
           title="Root"
           description="Create new Root">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="SearchTrigger"
+          description="Create new SearchTrigger">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="UpdateTrigger"
+          description="Create new UpdateTrigger">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

@@ -3,14 +3,19 @@
 package domain.impl;
 
 import domain.ArtificialField;
+import domain.CreateTrigger;
 import domain.DataControl;
+import domain.DeleteTrigger;
 import domain.DomainPackage;
+import domain.InsertTrigger;
 import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
 import domain.PREDeleteTrigger;
 import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
+import domain.SearchTrigger;
+import domain.UpdateTrigger;
 import domain.Trigger;
 
 import java.util.Collection;
@@ -43,12 +48,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.DataControlImpl#getPreDeleteTrigger <em>Pre Delete Trigger</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getPostCreateTrigger <em>Post Create Trigger</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getPreUpdateTrigger <em>Pre Update Trigger</em>}</li>
- *   <li>{@link domain.impl.DataControlImpl#getArtificialFields <em>Artificial Fields</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getCreate <em>Create</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getInsert <em>Insert</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getUpdate <em>Update</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getRemove <em>Remove</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getSearch <em>Search</em>}</li>
+ *   <li>{@link domain.impl.DataControlImpl#getArtificialFields <em>Artificial Fields</em>}</li>
  * </ul>
  * </p>
  *
@@ -157,16 +162,6 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
   protected PREUpdateTrigger preUpdateTrigger;
 
   /**
-   * The cached value of the '{@link #getArtificialFields() <em>Artificial Fields</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getArtificialFields()
-   * @generated
-   * @ordered
-   */
-  protected EList<ArtificialField> artificialFields;
-
-  /**
    * The cached value of the '{@link #getCreate() <em>Create</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -174,7 +169,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * @generated
    * @ordered
    */
-  protected Trigger create;
+  protected CreateTrigger create;
 
   /**
    * The cached value of the '{@link #getInsert() <em>Insert</em>}' containment reference.
@@ -184,7 +179,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * @generated
    * @ordered
    */
-  protected Trigger insert;
+  protected InsertTrigger insert;
 
   /**
    * The cached value of the '{@link #getUpdate() <em>Update</em>}' containment reference.
@@ -194,7 +189,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * @generated
    * @ordered
    */
-  protected Trigger update;
+  protected UpdateTrigger update;
 
   /**
    * The cached value of the '{@link #getRemove() <em>Remove</em>}' containment reference.
@@ -204,7 +199,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * @generated
    * @ordered
    */
-  protected Trigger remove;
+  protected DeleteTrigger remove;
 
   /**
    * The cached value of the '{@link #getSearch() <em>Search</em>}' containment reference.
@@ -214,7 +209,17 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * @generated
    * @ordered
    */
-  protected Trigger search;
+  protected SearchTrigger search;
+
+  /**
+   * The cached value of the '{@link #getArtificialFields() <em>Artificial Fields</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArtificialFields()
+   * @generated
+   * @ordered
+   */
+  protected EList<ArtificialField> artificialFields;
 
   /**
    * <!-- begin-user-doc -->
@@ -590,7 +595,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Trigger getCreate()
+  public CreateTrigger getCreate()
   {
     return create;
   }
@@ -600,9 +605,9 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCreate(Trigger newCreate, NotificationChain msgs)
+  public NotificationChain basicSetCreate(CreateTrigger newCreate, NotificationChain msgs)
   {
-    Trigger oldCreate = create;
+    CreateTrigger oldCreate = create;
     create = newCreate;
     if (eNotificationRequired())
     {
@@ -617,7 +622,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCreate(Trigger newCreate)
+  public void setCreate(CreateTrigger newCreate)
   {
     if (newCreate != create)
     {
@@ -638,7 +643,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Trigger getInsert()
+  public InsertTrigger getInsert()
   {
     return insert;
   }
@@ -648,9 +653,9 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetInsert(Trigger newInsert, NotificationChain msgs)
+  public NotificationChain basicSetInsert(InsertTrigger newInsert, NotificationChain msgs)
   {
-    Trigger oldInsert = insert;
+    InsertTrigger oldInsert = insert;
     insert = newInsert;
     if (eNotificationRequired())
     {
@@ -665,7 +670,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setInsert(Trigger newInsert)
+  public void setInsert(InsertTrigger newInsert)
   {
     if (newInsert != insert)
     {
@@ -686,7 +691,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Trigger getUpdate()
+  public UpdateTrigger getUpdate()
   {
     return update;
   }
@@ -696,9 +701,9 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetUpdate(Trigger newUpdate, NotificationChain msgs)
+  public NotificationChain basicSetUpdate(UpdateTrigger newUpdate, NotificationChain msgs)
   {
-    Trigger oldUpdate = update;
+    UpdateTrigger oldUpdate = update;
     update = newUpdate;
     if (eNotificationRequired())
     {
@@ -713,7 +718,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setUpdate(Trigger newUpdate)
+  public void setUpdate(UpdateTrigger newUpdate)
   {
     if (newUpdate != update)
     {
@@ -734,7 +739,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Trigger getRemove()
+  public DeleteTrigger getRemove()
   {
     return remove;
   }
@@ -744,9 +749,9 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRemove(Trigger newRemove, NotificationChain msgs)
+  public NotificationChain basicSetRemove(DeleteTrigger newRemove, NotificationChain msgs)
   {
-    Trigger oldRemove = remove;
+    DeleteTrigger oldRemove = remove;
     remove = newRemove;
     if (eNotificationRequired())
     {
@@ -761,7 +766,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRemove(Trigger newRemove)
+  public void setRemove(DeleteTrigger newRemove)
   {
     if (newRemove != remove)
     {
@@ -782,7 +787,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Trigger getSearch()
+  public SearchTrigger getSearch()
   {
     return search;
   }
@@ -792,9 +797,9 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSearch(Trigger newSearch, NotificationChain msgs)
+  public NotificationChain basicSetSearch(SearchTrigger newSearch, NotificationChain msgs)
   {
-    Trigger oldSearch = search;
+    SearchTrigger oldSearch = search;
     search = newSearch;
     if (eNotificationRequired())
     {
@@ -809,7 +814,7 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSearch(Trigger newSearch)
+  public void setSearch(SearchTrigger newSearch)
   {
     if (newSearch != search)
     {
@@ -847,8 +852,6 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return basicSetPostCreateTrigger(null, msgs);
       case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
         return basicSetPreUpdateTrigger(null, msgs);
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
-        return ((InternalEList<?>)getArtificialFields()).basicRemove(otherEnd, msgs);
       case DomainPackage.DATA_CONTROL__CREATE:
         return basicSetCreate(null, msgs);
       case DomainPackage.DATA_CONTROL__INSERT:
@@ -859,6 +862,8 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return basicSetRemove(null, msgs);
       case DomainPackage.DATA_CONTROL__SEARCH:
         return basicSetSearch(null, msgs);
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+        return ((InternalEList<?>)getArtificialFields()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -889,8 +894,6 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return getPostCreateTrigger();
       case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
         return getPreUpdateTrigger();
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
-        return getArtificialFields();
       case DomainPackage.DATA_CONTROL__CREATE:
         return getCreate();
       case DomainPackage.DATA_CONTROL__INSERT:
@@ -901,6 +904,8 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return getRemove();
       case DomainPackage.DATA_CONTROL__SEARCH:
         return getSearch();
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+        return getArtificialFields();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -940,24 +945,24 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
       case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
         setPreUpdateTrigger((PREUpdateTrigger)newValue);
         return;
+      case DomainPackage.DATA_CONTROL__CREATE:
+        setCreate((CreateTrigger)newValue);
+        return;
+      case DomainPackage.DATA_CONTROL__INSERT:
+        setInsert((InsertTrigger)newValue);
+        return;
+      case DomainPackage.DATA_CONTROL__UPDATE:
+        setUpdate((UpdateTrigger)newValue);
+        return;
+      case DomainPackage.DATA_CONTROL__REMOVE:
+        setRemove((DeleteTrigger)newValue);
+        return;
+      case DomainPackage.DATA_CONTROL__SEARCH:
+        setSearch((SearchTrigger)newValue);
+        return;
       case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
         getArtificialFields().clear();
         getArtificialFields().addAll((Collection<? extends ArtificialField>)newValue);
-        return;
-      case DomainPackage.DATA_CONTROL__CREATE:
-        setCreate((Trigger)newValue);
-        return;
-      case DomainPackage.DATA_CONTROL__INSERT:
-        setInsert((Trigger)newValue);
-        return;
-      case DomainPackage.DATA_CONTROL__UPDATE:
-        setUpdate((Trigger)newValue);
-        return;
-      case DomainPackage.DATA_CONTROL__REMOVE:
-        setRemove((Trigger)newValue);
-        return;
-      case DomainPackage.DATA_CONTROL__SEARCH:
-        setSearch((Trigger)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -997,23 +1002,23 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
       case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
         setPreUpdateTrigger((PREUpdateTrigger)null);
         return;
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
-        getArtificialFields().clear();
-        return;
       case DomainPackage.DATA_CONTROL__CREATE:
-        setCreate((Trigger)null);
+        setCreate((CreateTrigger)null);
         return;
       case DomainPackage.DATA_CONTROL__INSERT:
-        setInsert((Trigger)null);
+        setInsert((InsertTrigger)null);
         return;
       case DomainPackage.DATA_CONTROL__UPDATE:
-        setUpdate((Trigger)null);
+        setUpdate((UpdateTrigger)null);
         return;
       case DomainPackage.DATA_CONTROL__REMOVE:
-        setRemove((Trigger)null);
+        setRemove((DeleteTrigger)null);
         return;
       case DomainPackage.DATA_CONTROL__SEARCH:
-        setSearch((Trigger)null);
+        setSearch((SearchTrigger)null);
+        return;
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+        getArtificialFields().clear();
         return;
     }
     super.eUnset(featureID);
@@ -1045,8 +1050,6 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return postCreateTrigger != null;
       case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
         return preUpdateTrigger != null;
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
-        return artificialFields != null && !artificialFields.isEmpty();
       case DomainPackage.DATA_CONTROL__CREATE:
         return create != null;
       case DomainPackage.DATA_CONTROL__INSERT:
@@ -1057,6 +1060,8 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return remove != null;
       case DomainPackage.DATA_CONTROL__SEARCH:
         return search != null;
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+        return artificialFields != null && !artificialFields.isEmpty();
     }
     return super.eIsSet(featureID);
   }

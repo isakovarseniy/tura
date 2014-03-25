@@ -136,12 +136,12 @@ public class DataControlItemProvider
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__PRE_DELETE_TRIGGER);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__POST_CREATE_TRIGGER);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__PRE_UPDATE_TRIGGER);
-      childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__CREATE);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__INSERT);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__UPDATE);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__REMOVE);
       childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__SEARCH);
+      childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS);
     }
     return childrenFeatures;
   }
@@ -211,12 +211,12 @@ public class DataControlItemProvider
       case DomainPackage.DATA_CONTROL__PRE_DELETE_TRIGGER:
       case DomainPackage.DATA_CONTROL__POST_CREATE_TRIGGER:
       case DomainPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
       case DomainPackage.DATA_CONTROL__CREATE:
       case DomainPackage.DATA_CONTROL__INSERT:
       case DomainPackage.DATA_CONTROL__UPDATE:
       case DomainPackage.DATA_CONTROL__REMOVE:
       case DomainPackage.DATA_CONTROL__SEARCH:
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -267,242 +267,33 @@ public class DataControlItemProvider
 
     newChildDescriptors.add
       (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__CREATE,
+         DomainFactory.eINSTANCE.createCreateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__INSERT,
+         DomainFactory.eINSTANCE.createInsertTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__UPDATE,
+         DomainFactory.eINSTANCE.createUpdateTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__REMOVE,
+         DomainFactory.eINSTANCE.createDeleteTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.DATA_CONTROL__SEARCH,
+         DomainFactory.eINSTANCE.createSearchTrigger()));
+
+    newChildDescriptors.add
+      (createChildParameter
         (DomainPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS,
          DomainFactory.eINSTANCE.createArtificialField()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__CREATE,
-         DomainFactory.eINSTANCE.createTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__CREATE,
-         DomainFactory.eINSTANCE.createPREFormTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__CREATE,
-         DomainFactory.eINSTANCE.createPREQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__CREATE,
-         DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__CREATE,
-         DomainFactory.eINSTANCE.createPREInsertTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__CREATE,
-         DomainFactory.eINSTANCE.createPREDeleteTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__CREATE,
-         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__CREATE,
-         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__INSERT,
-         DomainFactory.eINSTANCE.createTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__INSERT,
-         DomainFactory.eINSTANCE.createPREFormTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__INSERT,
-         DomainFactory.eINSTANCE.createPREQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__INSERT,
-         DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__INSERT,
-         DomainFactory.eINSTANCE.createPREInsertTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__INSERT,
-         DomainFactory.eINSTANCE.createPREDeleteTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__INSERT,
-         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__INSERT,
-         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__UPDATE,
-         DomainFactory.eINSTANCE.createTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__UPDATE,
-         DomainFactory.eINSTANCE.createPREFormTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__UPDATE,
-         DomainFactory.eINSTANCE.createPREQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__UPDATE,
-         DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__UPDATE,
-         DomainFactory.eINSTANCE.createPREInsertTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__UPDATE,
-         DomainFactory.eINSTANCE.createPREDeleteTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__UPDATE,
-         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__UPDATE,
-         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__REMOVE,
-         DomainFactory.eINSTANCE.createTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__REMOVE,
-         DomainFactory.eINSTANCE.createPREFormTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__REMOVE,
-         DomainFactory.eINSTANCE.createPREQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__REMOVE,
-         DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__REMOVE,
-         DomainFactory.eINSTANCE.createPREInsertTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__REMOVE,
-         DomainFactory.eINSTANCE.createPREDeleteTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__REMOVE,
-         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__REMOVE,
-         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__SEARCH,
-         DomainFactory.eINSTANCE.createTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__SEARCH,
-         DomainFactory.eINSTANCE.createPREFormTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__SEARCH,
-         DomainFactory.eINSTANCE.createPREQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__SEARCH,
-         DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__SEARCH,
-         DomainFactory.eINSTANCE.createPREInsertTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__SEARCH,
-         DomainFactory.eINSTANCE.createPREDeleteTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__SEARCH,
-         DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.DATA_CONTROL__SEARCH,
-         DomainFactory.eINSTANCE.createPREUpdateTrigger()));
-  }
-
-  /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
-  {
-    Object childFeature = feature;
-    Object childObject = child;
-
-    boolean qualify =
-      childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_QUERY_TRIGGER ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__CREATE ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__INSERT ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__UPDATE ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__REMOVE ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__SEARCH ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__POST_QUERY_TRIGGER ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_INSERT_TRIGGER ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_DELETE_TRIGGER ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__POST_CREATE_TRIGGER ||
-      childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_UPDATE_TRIGGER;
-
-    if (qualify)
-    {
-      return getString
-        ("_UI_CreateChild_text2",
-         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-    }
-    return super.getCreateChildText(owner, feature, child, selection);
   }
 
 }

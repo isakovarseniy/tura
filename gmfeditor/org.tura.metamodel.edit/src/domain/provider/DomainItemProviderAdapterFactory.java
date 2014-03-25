@@ -1999,6 +1999,131 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.CreateTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CreateTriggerItemProvider createTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.CreateTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCreateTriggerAdapter()
+  {
+    if (createTriggerItemProvider == null)
+    {
+      createTriggerItemProvider = new CreateTriggerItemProvider(this);
+    }
+
+    return createTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.InsertTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected InsertTriggerItemProvider insertTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.InsertTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createInsertTriggerAdapter()
+  {
+    if (insertTriggerItemProvider == null)
+    {
+      insertTriggerItemProvider = new InsertTriggerItemProvider(this);
+    }
+
+    return insertTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.UpdateTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected UpdateTriggerItemProvider updateTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.UpdateTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createUpdateTriggerAdapter()
+  {
+    if (updateTriggerItemProvider == null)
+    {
+      updateTriggerItemProvider = new UpdateTriggerItemProvider(this);
+    }
+
+    return updateTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.DeleteTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DeleteTriggerItemProvider deleteTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.DeleteTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDeleteTriggerAdapter()
+  {
+    if (deleteTriggerItemProvider == null)
+    {
+      deleteTriggerItemProvider = new DeleteTriggerItemProvider(this);
+    }
+
+    return deleteTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.SearchTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SearchTriggerItemProvider searchTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.SearchTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSearchTriggerAdapter()
+  {
+    if (searchTriggerItemProvider == null)
+    {
+      searchTriggerItemProvider = new SearchTriggerItemProvider(this);
+    }
+
+    return searchTriggerItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.Root} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2311,6 +2436,11 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (preDeleteTriggerItemProvider != null) preDeleteTriggerItemProvider.dispose();
     if (postCreateTriggerItemProvider != null) postCreateTriggerItemProvider.dispose();
     if (preUpdateTriggerItemProvider != null) preUpdateTriggerItemProvider.dispose();
+    if (createTriggerItemProvider != null) createTriggerItemProvider.dispose();
+    if (insertTriggerItemProvider != null) insertTriggerItemProvider.dispose();
+    if (updateTriggerItemProvider != null) updateTriggerItemProvider.dispose();
+    if (deleteTriggerItemProvider != null) deleteTriggerItemProvider.dispose();
+    if (searchTriggerItemProvider != null) searchTriggerItemProvider.dispose();
     if (rootItemProvider != null) rootItemProvider.dispose();
     if (dataControlItemProvider != null) dataControlItemProvider.dispose();
     if (relationItemProvider != null) relationItemProvider.dispose();

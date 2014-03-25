@@ -187,6 +187,46 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
+		if (childEditPart instanceof DataControlDataControlCreateCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlCreateCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((DataControlDataControlCreateCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof DataControlDataControlInsertCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlInsertCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((DataControlDataControlInsertCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof DataControlDataControlUpdateCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlUpdateCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((DataControlDataControlUpdateCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof DataControlDataControlRemoveCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlRemoveCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((DataControlDataControlRemoveCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof DataControlDataControlSearchCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlSearchCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((DataControlDataControlSearchCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		if (childEditPart instanceof DataControlDataControlArtificialFieldsCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getDataControlArtificialFieldsCompartmentFigure();
@@ -247,6 +287,41 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
+		if (childEditPart instanceof DataControlDataControlCreateCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlCreateCompartmentFigure();
+			pane.remove(((DataControlDataControlCreateCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof DataControlDataControlInsertCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlInsertCompartmentFigure();
+			pane.remove(((DataControlDataControlInsertCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof DataControlDataControlUpdateCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlUpdateCompartmentFigure();
+			pane.remove(((DataControlDataControlUpdateCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof DataControlDataControlRemoveCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlRemoveCompartmentFigure();
+			pane.remove(((DataControlDataControlRemoveCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof DataControlDataControlSearchCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getDataControlSearchCompartmentFigure();
+			pane.remove(((DataControlDataControlSearchCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		if (childEditPart instanceof DataControlDataControlArtificialFieldsCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getDataControlArtificialFieldsCompartmentFigure();
@@ -304,6 +379,21 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 		if (editPart instanceof DataControlDataControlPreUpdateTriggerCompartmentEditPart) {
 			return getPrimaryShape()
 					.getDataControlPreUpdateTriggerCompartmentFigure();
+		}
+		if (editPart instanceof DataControlDataControlCreateCompartmentEditPart) {
+			return getPrimaryShape().getDataControlCreateCompartmentFigure();
+		}
+		if (editPart instanceof DataControlDataControlInsertCompartmentEditPart) {
+			return getPrimaryShape().getDataControlInsertCompartmentFigure();
+		}
+		if (editPart instanceof DataControlDataControlUpdateCompartmentEditPart) {
+			return getPrimaryShape().getDataControlUpdateCompartmentFigure();
+		}
+		if (editPart instanceof DataControlDataControlRemoveCompartmentEditPart) {
+			return getPrimaryShape().getDataControlRemoveCompartmentFigure();
+		}
+		if (editPart instanceof DataControlDataControlSearchCompartmentEditPart) {
+			return getPrimaryShape().getDataControlSearchCompartmentFigure();
 		}
 		if (editPart instanceof DataControlDataControlArtificialFieldsCompartmentEditPart) {
 			return getPrimaryShape()
@@ -492,6 +582,26 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID));
 			}
+			if (type == DomainElementTypes.CreateTrigger_1103012) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(DataControlDataControlCreateCompartmentEditPart.VISUAL_ID));
+			}
+			if (type == DomainElementTypes.InsertTrigger_1103013) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(DataControlDataControlInsertCompartmentEditPart.VISUAL_ID));
+			}
+			if (type == DomainElementTypes.UpdateTrigger_1103014) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(DataControlDataControlUpdateCompartmentEditPart.VISUAL_ID));
+			}
+			if (type == DomainElementTypes.DeleteTrigger_1103015) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(DataControlDataControlRemoveCompartmentEditPart.VISUAL_ID));
+			}
+			if (type == DomainElementTypes.SearchTrigger_1103016) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(DataControlDataControlSearchCompartmentEditPart.VISUAL_ID));
+			}
 			if (type == DomainElementTypes.ArtificialField_1103008) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID));
@@ -546,6 +656,26 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private RectangleFigure fDataControlPreUpdateTriggerCompartmentFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fDataControlCreateCompartmentFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fDataControlInsertCompartmentFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fDataControlUpdateCompartmentFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fDataControlRemoveCompartmentFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fDataControlSearchCompartmentFigure;
 		/**
 		 * @generated
 		 */
@@ -618,6 +748,36 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 
 			this.add(fDataControlPreUpdateTriggerCompartmentFigure);
 
+			fDataControlCreateCompartmentFigure = new RectangleFigure();
+
+			fDataControlCreateCompartmentFigure.setOutline(false);
+
+			this.add(fDataControlCreateCompartmentFigure);
+
+			fDataControlInsertCompartmentFigure = new RectangleFigure();
+
+			fDataControlInsertCompartmentFigure.setOutline(false);
+
+			this.add(fDataControlInsertCompartmentFigure);
+
+			fDataControlUpdateCompartmentFigure = new RectangleFigure();
+
+			fDataControlUpdateCompartmentFigure.setOutline(false);
+
+			this.add(fDataControlUpdateCompartmentFigure);
+
+			fDataControlRemoveCompartmentFigure = new RectangleFigure();
+
+			fDataControlRemoveCompartmentFigure.setOutline(false);
+
+			this.add(fDataControlRemoveCompartmentFigure);
+
+			fDataControlSearchCompartmentFigure = new RectangleFigure();
+
+			fDataControlSearchCompartmentFigure.setOutline(false);
+
+			this.add(fDataControlSearchCompartmentFigure);
+
 			fDataControlArtificialFieldsCompartmentFigure = new RectangleFigure();
 
 			fDataControlArtificialFieldsCompartmentFigure.setOutline(false);
@@ -673,6 +833,41 @@ public class DataControlEditPart extends ShapeNodeEditPart {
 		 */
 		public RectangleFigure getDataControlPreUpdateTriggerCompartmentFigure() {
 			return fDataControlPreUpdateTriggerCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getDataControlCreateCompartmentFigure() {
+			return fDataControlCreateCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getDataControlInsertCompartmentFigure() {
+			return fDataControlInsertCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getDataControlUpdateCompartmentFigure() {
+			return fDataControlUpdateCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getDataControlRemoveCompartmentFigure() {
+			return fDataControlRemoveCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getDataControlSearchCompartmentFigure() {
+			return fDataControlSearchCompartmentFigure;
 		}
 
 		/**

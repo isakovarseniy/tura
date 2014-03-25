@@ -50,21 +50,32 @@ import control.diagram.edit.parts.ArtificialFieldNameEditPart;
 import control.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import control.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import control.diagram.edit.parts.ControlsEditPart;
+import control.diagram.edit.parts.CreateTriggerEditPart;
+import control.diagram.edit.parts.CreateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.DataControlDataControlArtificialFieldsCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlCreateCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlInsertCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostQueryTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreDeleteTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreInsertTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreQueryTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreUpdateTriggerCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlRemoveCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlSearchCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlUpdateCompartmentEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DataControlNameEditPart;
+import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.DeleteTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
 import control.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import control.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import control.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
+import control.diagram.edit.parts.InsertTriggerEditPart;
+import control.diagram.edit.parts.InsertTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
@@ -87,7 +98,11 @@ import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
 import control.diagram.edit.parts.RootNameEditPart;
 import control.diagram.edit.parts.RootRootPreFormTriggerCompartmentEditPart;
+import control.diagram.edit.parts.SearchTriggerEditPart;
+import control.diagram.edit.parts.SearchTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.TypeExtensionEditPart;
+import control.diagram.edit.parts.UpdateTriggerEditPart;
+import control.diagram.edit.parts.UpdateTriggerFakeMethodEditPart;
 import control.diagram.part.DomainVisualIDRegistry;
 
 /**
@@ -188,6 +203,11 @@ public class DomainViewProvider extends AbstractProvider implements
 				case PREDeleteTriggerEditPart.VISUAL_ID:
 				case POSTCreateTriggerEditPart.VISUAL_ID:
 				case PREUpdateTriggerEditPart.VISUAL_ID:
+				case CreateTriggerEditPart.VISUAL_ID:
+				case InsertTriggerEditPart.VISUAL_ID:
+				case UpdateTriggerEditPart.VISUAL_ID:
+				case DeleteTriggerEditPart.VISUAL_ID:
+				case SearchTriggerEditPart.VISUAL_ID:
 				case ArtificialFieldEditPart.VISUAL_ID:
 				case PREFormTriggerEditPart.VISUAL_ID:
 					if (domainElement == null
@@ -210,6 +230,11 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| PREDeleteTriggerEditPart.VISUAL_ID == visualID
 				|| POSTCreateTriggerEditPart.VISUAL_ID == visualID
 				|| PREUpdateTriggerEditPart.VISUAL_ID == visualID
+				|| CreateTriggerEditPart.VISUAL_ID == visualID
+				|| InsertTriggerEditPart.VISUAL_ID == visualID
+				|| UpdateTriggerEditPart.VISUAL_ID == visualID
+				|| DeleteTriggerEditPart.VISUAL_ID == visualID
+				|| SearchTriggerEditPart.VISUAL_ID == visualID
 				|| ArtificialFieldEditPart.VISUAL_ID == visualID
 				|| PREFormTriggerEditPart.VISUAL_ID == visualID;
 	}
@@ -291,6 +316,21 @@ public class DomainViewProvider extends AbstractProvider implements
 					containerView, index, persisted, preferencesHint);
 		case PREUpdateTriggerEditPart.VISUAL_ID:
 			return createPREUpdateTrigger_1103010(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case CreateTriggerEditPart.VISUAL_ID:
+			return createCreateTrigger_1103012(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case InsertTriggerEditPart.VISUAL_ID:
+			return createInsertTrigger_1103013(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case UpdateTriggerEditPart.VISUAL_ID:
+			return createUpdateTrigger_1103014(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case DeleteTriggerEditPart.VISUAL_ID:
+			return createDeleteTrigger_1103015(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case SearchTriggerEditPart.VISUAL_ID:
+			return createSearchTrigger_1103016(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return createArtificialField_1103008(domainElement, containerView,
@@ -409,6 +449,31 @@ public class DomainViewProvider extends AbstractProvider implements
 				node,
 				DomainVisualIDRegistry
 						.getType(DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(DataControlDataControlCreateCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(DataControlDataControlInsertCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(DataControlDataControlUpdateCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(DataControlDataControlRemoveCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(DataControlDataControlSearchCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		createCompartment(
 				node,
@@ -686,6 +751,196 @@ public class DomainViewProvider extends AbstractProvider implements
 		Node label1105012 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(PREUpdateTriggerFakeMethodEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createCreateTrigger_1103012(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(CreateTriggerEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1105014 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(CreateTriggerFakeMethodEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createInsertTrigger_1103013(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(InsertTriggerEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1105015 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(InsertTriggerFakeMethodEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createUpdateTrigger_1103014(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(UpdateTriggerEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1105016 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(UpdateTriggerFakeMethodEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createDeleteTrigger_1103015(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(DeleteTriggerEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1105017 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(DeleteTriggerFakeMethodEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createSearchTrigger_1103016(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(SearchTriggerEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1105018 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(SearchTriggerFakeMethodEditPart.VISUAL_ID));
 		return node;
 	}
 

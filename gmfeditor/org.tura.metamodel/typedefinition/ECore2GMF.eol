@@ -153,5 +153,15 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='POSTCreateTrigger');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREUpdateTrigger');
 delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='CreateTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InsertTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='UpdateTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeleteTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='SearchTrigger');
+delete tool;
 
 

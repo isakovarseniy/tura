@@ -20,7 +20,9 @@ import domain.Configuration;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
+import domain.CreateTrigger;
 import domain.DataControl;
+import domain.DeleteTrigger;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
 import domain.DeploymentSequence;
@@ -40,6 +42,7 @@ import domain.FormDataControls;
 import domain.FormView;
 import domain.Infrastructure;
 import domain.Ingredient;
+import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
@@ -71,6 +74,7 @@ import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
 import domain.Root;
+import domain.SearchTrigger;
 import domain.Specifier;
 import domain.Trigger;
 import domain.TriggerParameter;
@@ -83,6 +87,7 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UIPackage;
+import domain.UpdateTrigger;
 import domain.UsingMappers;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -539,6 +544,31 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter casePREUpdateTrigger(PREUpdateTrigger object)
       {
         return createPREUpdateTriggerAdapter();
+      }
+      @Override
+      public Adapter caseCreateTrigger(CreateTrigger object)
+      {
+        return createCreateTriggerAdapter();
+      }
+      @Override
+      public Adapter caseInsertTrigger(InsertTrigger object)
+      {
+        return createInsertTriggerAdapter();
+      }
+      @Override
+      public Adapter caseUpdateTrigger(UpdateTrigger object)
+      {
+        return createUpdateTriggerAdapter();
+      }
+      @Override
+      public Adapter caseDeleteTrigger(DeleteTrigger object)
+      {
+        return createDeleteTriggerAdapter();
+      }
+      @Override
+      public Adapter caseSearchTrigger(SearchTrigger object)
+      {
+        return createSearchTriggerAdapter();
       }
       @Override
       public Adapter caseRoot(Root object)
@@ -1738,6 +1768,81 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPREUpdateTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.CreateTrigger <em>Create Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.CreateTrigger
+   * @generated
+   */
+  public Adapter createCreateTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.InsertTrigger <em>Insert Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.InsertTrigger
+   * @generated
+   */
+  public Adapter createInsertTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.UpdateTrigger <em>Update Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.UpdateTrigger
+   * @generated
+   */
+  public Adapter createUpdateTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.DeleteTrigger <em>Delete Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.DeleteTrigger
+   * @generated
+   */
+  public Adapter createDeleteTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.SearchTrigger <em>Search Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.SearchTrigger
+   * @generated
+   */
+  public Adapter createSearchTriggerAdapter()
   {
     return null;
   }

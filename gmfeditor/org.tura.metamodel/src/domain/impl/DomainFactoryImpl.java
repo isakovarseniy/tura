@@ -20,7 +20,9 @@ import domain.Configuration;
 import domain.ContextValue;
 import domain.ContinuousIintegration;
 import domain.Controls;
+import domain.CreateTrigger;
 import domain.DataControl;
+import domain.DeleteTrigger;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
 import domain.DeploymentSequence;
@@ -41,6 +43,7 @@ import domain.FormDataControls;
 import domain.FormView;
 import domain.Infrastructure;
 import domain.Ingredient;
+import domain.InsertTrigger;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
@@ -73,6 +76,7 @@ import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
 import domain.Root;
+import domain.SearchTrigger;
 import domain.Specifier;
 import domain.Trigger;
 import domain.TriggerParameter;
@@ -85,6 +89,7 @@ import domain.TypeReference;
 import domain.Types;
 import domain.TypesRepository;
 import domain.UIPackage;
+import domain.UpdateTrigger;
 import domain.UsingMappers;
 
 import org.eclipse.emf.ecore.EClass;
@@ -225,6 +230,11 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.PRE_DELETE_TRIGGER: return createPREDeleteTrigger();
       case DomainPackage.POST_CREATE_TRIGGER: return createPOSTCreateTrigger();
       case DomainPackage.PRE_UPDATE_TRIGGER: return createPREUpdateTrigger();
+      case DomainPackage.CREATE_TRIGGER: return createCreateTrigger();
+      case DomainPackage.INSERT_TRIGGER: return createInsertTrigger();
+      case DomainPackage.UPDATE_TRIGGER: return createUpdateTrigger();
+      case DomainPackage.DELETE_TRIGGER: return createDeleteTrigger();
+      case DomainPackage.SEARCH_TRIGGER: return createSearchTrigger();
       case DomainPackage.ROOT: return createRoot();
       case DomainPackage.DATA_CONTROL: return createDataControl();
       case DomainPackage.RELATION: return createRelation();
@@ -1114,6 +1124,61 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     PREUpdateTriggerImpl preUpdateTrigger = new PREUpdateTriggerImpl();
     return preUpdateTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CreateTrigger createCreateTrigger()
+  {
+    CreateTriggerImpl createTrigger = new CreateTriggerImpl();
+    return createTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InsertTrigger createInsertTrigger()
+  {
+    InsertTriggerImpl insertTrigger = new InsertTriggerImpl();
+    return insertTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UpdateTrigger createUpdateTrigger()
+  {
+    UpdateTriggerImpl updateTrigger = new UpdateTriggerImpl();
+    return updateTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeleteTrigger createDeleteTrigger()
+  {
+    DeleteTriggerImpl deleteTrigger = new DeleteTriggerImpl();
+    return deleteTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SearchTrigger createSearchTrigger()
+  {
+    SearchTriggerImpl searchTrigger = new SearchTriggerImpl();
+    return searchTrigger;
   }
 
   /**

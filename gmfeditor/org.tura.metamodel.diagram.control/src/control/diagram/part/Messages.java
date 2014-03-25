@@ -266,92 +266,142 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DataControl2CreationTool_title;
+	public static String CreateTrigger2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DataControl2CreationTool_desc;
+	public static String CreateTrigger2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTCreateTrigger3CreationTool_title;
+	public static String DataControl3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTCreateTrigger3CreationTool_desc;
+	public static String DataControl3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTQueryTrigger4CreationTool_title;
+	public static String DeleteTrigger4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTQueryTrigger4CreationTool_desc;
+	public static String DeleteTrigger4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREDeleteTrigger5CreationTool_title;
+	public static String InsertTrigger5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREDeleteTrigger5CreationTool_desc;
+	public static String InsertTrigger5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREFormTrigger6CreationTool_title;
+	public static String POSTCreateTrigger6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREFormTrigger6CreationTool_desc;
+	public static String POSTCreateTrigger6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREInsertTrigger7CreationTool_title;
+	public static String POSTQueryTrigger7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREInsertTrigger7CreationTool_desc;
+	public static String POSTQueryTrigger7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREQueryTrigger8CreationTool_title;
+	public static String PREDeleteTrigger8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREQueryTrigger8CreationTool_desc;
+	public static String PREDeleteTrigger8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREUpdateTrigger9CreationTool_title;
+	public static String PREFormTrigger9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREUpdateTrigger9CreationTool_desc;
+	public static String PREFormTrigger9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Root10CreationTool_title;
+	public static String PREInsertTrigger10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Root10CreationTool_desc;
+	public static String PREInsertTrigger10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String PREQueryTrigger11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String PREQueryTrigger11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String PREUpdateTrigger12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String PREUpdateTrigger12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Root13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Root13CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String SearchTrigger14CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SearchTrigger14CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String UpdateTrigger15CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String UpdateTrigger15CreationTool_desc;
 
 	/**
 	 * @generated
@@ -462,6 +512,31 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String DataControlDataControlPreUpdateTriggerCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String DataControlDataControlCreateCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String DataControlDataControlInsertCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String DataControlDataControlUpdateCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String DataControlDataControlRemoveCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String DataControlDataControlSearchCompartmentEditPart_title;
 
 	/**
 	 * @generated

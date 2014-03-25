@@ -44,6 +44,8 @@ public class ParameterPropertySelection extends GridProperty {
 			columnList.add(new ParameterColumn(table, this));
 			columnList.add(new PackageColumn(table, this));
 			columnList.add(new TypeColumn(table, this));
+			columnList.add(new OrderColumn(table, this));
+
 		}
 		return columnList;
 	}
@@ -100,7 +102,7 @@ public class ParameterPropertySelection extends GridProperty {
 
 		@Override
 		public TableColumn createColumn() {
-			TableColumn column = new TableColumn(table, SWT.LEFT, 1);
+			TableColumn column = new TableColumn(table, SWT.LEFT, 2);
 			column.setText(TYPE_COLUMN);
 			column.setWidth(100);
 
@@ -419,6 +421,84 @@ public class ParameterPropertySelection extends GridProperty {
 					SetCommand.create(editingDomain, opt,
 							DomainPackage.eINSTANCE.getParameter_Name(),
 							valueString));
+		}
+
+		@Override
+		public boolean isModify() {
+			return true;
+		}
+
+	}
+
+	class OrderColumn implements GridColumn {
+
+		// Set the table column property names
+		private final String ORDER_COLUMN = "Order";
+
+		private Table table;
+		@SuppressWarnings("unused")
+		private GridProperty property;
+
+		public OrderColumn(Table table, GridProperty property) {
+			this.table = table;
+			this.property = property;
+		}
+
+		@Override
+		public TableColumn createColumn() {
+			TableColumn column = new TableColumn(table, SWT.LEFT, 3);
+			column.setText(ORDER_COLUMN);
+			column.setWidth(40);
+			return column;
+		}
+
+		@Override
+		public String getName() {
+			return ORDER_COLUMN;
+		}
+
+		@Override
+		public CellEditor getEditor() {
+			TextCellEditor textEditor = new TextCellEditor(table);
+			((Text) textEditor.getControl()).setTextLimit(40);
+			return textEditor;
+		}
+
+		@Override
+		public int compareOptions(Object o1, Object o2) {
+			domain.Parameter op1 = (domain.Parameter) o1;
+			domain.Parameter op2 = (domain.Parameter) o2;
+
+			return  new Integer(op1.getOrder()).compareTo(new Integer(op2.getOrder()));
+		}
+
+		@Override
+		public Object getValue(Object element) {
+			int result = -1;
+			domain.Parameter task = (domain.Parameter) element;
+			if (task.getName() != null)
+				result = task.getOrder();
+			return new Integer(result).toString();
+		}
+
+		@Override
+		public Object getText(Object element) {
+			return getValue(element);
+		}
+
+		@Override
+		public void modify(Object element, Object value) {
+
+			TableItem item = (TableItem) element;
+			domain.Parameter opt = (domain.Parameter) item.getData();
+
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
+					.getEditingDomain();
+			/* apply the property change to single selected object */
+			editingDomain.getCommandStack().execute(
+					SetCommand.create(editingDomain, opt,
+							DomainPackage.eINSTANCE.getParameter_Order(),
+							new Integer((String) value)));
 		}
 
 		@Override

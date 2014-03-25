@@ -13,6 +13,7 @@ package domain;
  * <ul>
  *   <li>{@link domain.Parameter#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Parameter#getName <em>Name</em>}</li>
+ *   <li>{@link domain.Parameter#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.Parameter#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -74,6 +75,32 @@ public interface Parameter extends TypePointer
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Order</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Order</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Order</em>' attribute.
+   * @see #setOrder(int)
+   * @see domain.DomainPackage#getParameter_Order()
+   * @model
+   * @generated
+   */
+  int getOrder();
+
+  /**
+   * Sets the value of the '{@link domain.Parameter#getOrder <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Order</em>' attribute.
+   * @see #getOrder()
+   * @generated
+   */
+  void setOrder(int value);
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' container reference.

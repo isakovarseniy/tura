@@ -18,14 +18,22 @@ import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import control.diagram.edit.parts.ArtificialFieldEditPart;
 import control.diagram.edit.parts.ControlsEditPart;
+import control.diagram.edit.parts.CreateTriggerEditPart;
 import control.diagram.edit.parts.DataControlDataControlArtificialFieldsCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlCreateCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlInsertCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostCreateTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPostQueryTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreDeleteTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreInsertTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreQueryTriggerCompartmentEditPart;
 import control.diagram.edit.parts.DataControlDataControlPreUpdateTriggerCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlRemoveCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlSearchCompartmentEditPart;
+import control.diagram.edit.parts.DataControlDataControlUpdateCompartmentEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
+import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
 import control.diagram.edit.parts.PREDeleteTriggerEditPart;
@@ -36,12 +44,17 @@ import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
 import control.diagram.edit.parts.RootRootPreFormTriggerCompartmentEditPart;
+import control.diagram.edit.parts.SearchTriggerEditPart;
 import control.diagram.edit.parts.TypeExtensionEditPart;
+import control.diagram.edit.parts.UpdateTriggerEditPart;
 import control.diagram.providers.DomainElementTypes;
 import domain.ArtificialField;
 import domain.Controls;
+import domain.CreateTrigger;
 import domain.DataControl;
+import domain.DeleteTrigger;
 import domain.DomainPackage;
+import domain.InsertTrigger;
 import domain.POSTCreateTrigger;
 import domain.POSTQueryTrigger;
 import domain.PREDeleteTrigger;
@@ -51,6 +64,8 @@ import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
 import domain.Relation;
 import domain.Root;
+import domain.SearchTrigger;
+import domain.UpdateTrigger;
 
 /**
  * @generated
@@ -84,8 +99,18 @@ public class DomainDiagramUpdater {
 			return getDataControlDataControlPostCreateTriggerCompartment_1107006SemanticChildren(view);
 		case DataControlDataControlPreUpdateTriggerCompartmentEditPart.VISUAL_ID:
 			return getDataControlDataControlPreUpdateTriggerCompartment_1107007SemanticChildren(view);
+		case DataControlDataControlCreateCompartmentEditPart.VISUAL_ID:
+			return getDataControlDataControlCreateCompartment_1107008SemanticChildren(view);
+		case DataControlDataControlInsertCompartmentEditPart.VISUAL_ID:
+			return getDataControlDataControlInsertCompartment_1107009SemanticChildren(view);
+		case DataControlDataControlUpdateCompartmentEditPart.VISUAL_ID:
+			return getDataControlDataControlUpdateCompartment_1107010SemanticChildren(view);
+		case DataControlDataControlRemoveCompartmentEditPart.VISUAL_ID:
+			return getDataControlDataControlRemoveCompartment_1107011SemanticChildren(view);
+		case DataControlDataControlSearchCompartmentEditPart.VISUAL_ID:
+			return getDataControlDataControlSearchCompartment_1107012SemanticChildren(view);
 		case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
-			return getDataControlDataControlArtificialFieldsCompartment_1107008SemanticChildren(view);
+			return getDataControlDataControlArtificialFieldsCompartment_1107013SemanticChildren(view);
 		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
 			return getRootRootPreFormTriggerCompartment_1107001SemanticChildren(view);
 		}
@@ -277,7 +302,132 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getDataControlDataControlArtificialFieldsCompartment_1107008SemanticChildren(
+	public static List<DomainNodeDescriptor> getDataControlDataControlCreateCompartment_1107008SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		DataControl modelElement = (DataControl) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		{
+			CreateTrigger childElement = modelElement.getCreate();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == CreateTriggerEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getDataControlDataControlInsertCompartment_1107009SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		DataControl modelElement = (DataControl) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		{
+			InsertTrigger childElement = modelElement.getInsert();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == InsertTriggerEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getDataControlDataControlUpdateCompartment_1107010SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		DataControl modelElement = (DataControl) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		{
+			UpdateTrigger childElement = modelElement.getUpdate();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == UpdateTriggerEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getDataControlDataControlRemoveCompartment_1107011SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		DataControl modelElement = (DataControl) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		{
+			DeleteTrigger childElement = modelElement.getRemove();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == DeleteTriggerEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getDataControlDataControlSearchCompartment_1107012SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		DataControl modelElement = (DataControl) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		{
+			SearchTrigger childElement = modelElement.getSearch();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == SearchTriggerEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainNodeDescriptor> getDataControlDataControlArtificialFieldsCompartment_1107013SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -349,6 +499,16 @@ public class DomainDiagramUpdater {
 			return getPOSTCreateTrigger_1103011ContainedLinks(view);
 		case PREUpdateTriggerEditPart.VISUAL_ID:
 			return getPREUpdateTrigger_1103010ContainedLinks(view);
+		case CreateTriggerEditPart.VISUAL_ID:
+			return getCreateTrigger_1103012ContainedLinks(view);
+		case InsertTriggerEditPart.VISUAL_ID:
+			return getInsertTrigger_1103013ContainedLinks(view);
+		case UpdateTriggerEditPart.VISUAL_ID:
+			return getUpdateTrigger_1103014ContainedLinks(view);
+		case DeleteTriggerEditPart.VISUAL_ID:
+			return getDeleteTrigger_1103015ContainedLinks(view);
+		case SearchTriggerEditPart.VISUAL_ID:
+			return getSearchTrigger_1103016ContainedLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return getArtificialField_1103008ContainedLinks(view);
 		case PREFormTriggerEditPart.VISUAL_ID:
@@ -382,6 +542,16 @@ public class DomainDiagramUpdater {
 			return getPOSTCreateTrigger_1103011IncomingLinks(view);
 		case PREUpdateTriggerEditPart.VISUAL_ID:
 			return getPREUpdateTrigger_1103010IncomingLinks(view);
+		case CreateTriggerEditPart.VISUAL_ID:
+			return getCreateTrigger_1103012IncomingLinks(view);
+		case InsertTriggerEditPart.VISUAL_ID:
+			return getInsertTrigger_1103013IncomingLinks(view);
+		case UpdateTriggerEditPart.VISUAL_ID:
+			return getUpdateTrigger_1103014IncomingLinks(view);
+		case DeleteTriggerEditPart.VISUAL_ID:
+			return getDeleteTrigger_1103015IncomingLinks(view);
+		case SearchTriggerEditPart.VISUAL_ID:
+			return getSearchTrigger_1103016IncomingLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return getArtificialField_1103008IncomingLinks(view);
 		case PREFormTriggerEditPart.VISUAL_ID:
@@ -415,6 +585,16 @@ public class DomainDiagramUpdater {
 			return getPOSTCreateTrigger_1103011OutgoingLinks(view);
 		case PREUpdateTriggerEditPart.VISUAL_ID:
 			return getPREUpdateTrigger_1103010OutgoingLinks(view);
+		case CreateTriggerEditPart.VISUAL_ID:
+			return getCreateTrigger_1103012OutgoingLinks(view);
+		case InsertTriggerEditPart.VISUAL_ID:
+			return getInsertTrigger_1103013OutgoingLinks(view);
+		case UpdateTriggerEditPart.VISUAL_ID:
+			return getUpdateTrigger_1103014OutgoingLinks(view);
+		case DeleteTriggerEditPart.VISUAL_ID:
+			return getDeleteTrigger_1103015OutgoingLinks(view);
+		case SearchTriggerEditPart.VISUAL_ID:
+			return getSearchTrigger_1103016OutgoingLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return getArtificialField_1103008OutgoingLinks(view);
 		case PREFormTriggerEditPart.VISUAL_ID:
@@ -498,6 +678,46 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getPREUpdateTrigger_1103010ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getCreateTrigger_1103012ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInsertTrigger_1103013ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getUpdateTrigger_1103014ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getDeleteTrigger_1103015ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getSearchTrigger_1103016ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -607,6 +827,46 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getCreateTrigger_1103012IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInsertTrigger_1103013IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getUpdateTrigger_1103014IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getDeleteTrigger_1103015IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getSearchTrigger_1103016IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getArtificialField_1103008IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -699,6 +959,46 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getPREUpdateTrigger_1103010OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getCreateTrigger_1103012OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInsertTrigger_1103013OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getUpdateTrigger_1103014OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getDeleteTrigger_1103015OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getSearchTrigger_1103016OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

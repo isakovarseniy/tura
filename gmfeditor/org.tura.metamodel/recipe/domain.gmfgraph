@@ -1998,6 +1998,181 @@
           figure="//@figures.0/@descriptors.50/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
+        name="CreateTriggerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="CreateTriggerFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CreateTriggerLabelFigure"
+            text="CreateTrigger">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getFigureCreateTriggerLabelFigure"
+          figure="//@figures.0/@descriptors.51/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="InsertTriggerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="InsertTriggerFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="InsertTriggerLabelFigure"
+            text="InsertTrigger">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getFigureInsertTriggerLabelFigure"
+          figure="//@figures.0/@descriptors.52/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="UpdateTriggerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="UpdateTriggerFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="UpdateTriggerLabelFigure"
+            text="UpdateTrigger">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getFigureUpdateTriggerLabelFigure"
+          figure="//@figures.0/@descriptors.53/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="DeleteTriggerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="DeleteTriggerFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DeleteTriggerLabelFigure"
+            text="DeleteTrigger">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getFigureDeleteTriggerLabelFigure"
+          figure="//@figures.0/@descriptors.54/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="SearchTriggerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="SearchTriggerFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="241"
+            green="238"
+            blue="203"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SearchTriggerLabelFigure"
+            text="SearchTrigger">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getFigureSearchTriggerLabelFigure"
+          figure="//@figures.0/@descriptors.55/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="RootFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
@@ -2037,10 +2212,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureRootLabelFigure"
-          figure="//@figures.0/@descriptors.51/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.56/@actualFigure/@children.0"/>
       <accessors
           accessor="getRootPreFormTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.51/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.56/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="DataControlFigure">
@@ -2101,33 +2276,68 @@
             outline="false"/>
         <children
             xsi:type="gmfgraph:Rectangle"
+            name="DataControlCreateCompartmentFigure"
+            outline="false"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="DataControlInsertCompartmentFigure"
+            outline="false"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="DataControlUpdateCompartmentFigure"
+            outline="false"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="DataControlRemoveCompartmentFigure"
+            outline="false"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="DataControlSearchCompartmentFigure"
+            outline="false"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
             name="DataControlArtificialFieldsCompartmentFigure"
             outline="false"/>
       </actualFigure>
       <accessors
           accessor="getFigureDataControlLabelFigure"
-          figure="//@figures.0/@descriptors.52/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.0"/>
       <accessors
           accessor="getDataControlPreQueryTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.52/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.1"/>
       <accessors
           accessor="getDataControlPostQueryTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.52/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.2"/>
       <accessors
           accessor="getDataControlPreInsertTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.52/@actualFigure/@children.3"/>
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.3"/>
       <accessors
           accessor="getDataControlPreDeleteTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.52/@actualFigure/@children.4"/>
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.4"/>
       <accessors
           accessor="getDataControlPostCreateTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.52/@actualFigure/@children.5"/>
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.5"/>
       <accessors
           accessor="getDataControlPreUpdateTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.52/@actualFigure/@children.6"/>
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.6"/>
+      <accessors
+          accessor="getDataControlCreateCompartmentFigure"
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.7"/>
+      <accessors
+          accessor="getDataControlInsertCompartmentFigure"
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.8"/>
+      <accessors
+          accessor="getDataControlUpdateCompartmentFigure"
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.9"/>
+      <accessors
+          accessor="getDataControlRemoveCompartmentFigure"
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.10"/>
+      <accessors
+          accessor="getDataControlSearchCompartmentFigure"
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.11"/>
       <accessors
           accessor="getDataControlArtificialFieldsCompartmentFigure"
-          figure="//@figures.0/@descriptors.52/@actualFigure/@children.7"/>
+          figure="//@figures.0/@descriptors.57/@actualFigure/@children.12"/>
     </descriptors>
     <descriptors
         name="ArtificialFieldFigure">
@@ -2162,7 +2372,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureArtificialFieldLabelFigure"
-          figure="//@figures.0/@descriptors.53/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.58/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="TypeExtensionFigure">
@@ -2457,6 +2667,21 @@
       name="PREUpdateTrigger"
       figure="PREUpdateTriggerFigure"/>
   <nodes
+      name="CreateTrigger"
+      figure="CreateTriggerFigure"/>
+  <nodes
+      name="InsertTrigger"
+      figure="InsertTriggerFigure"/>
+  <nodes
+      name="UpdateTrigger"
+      figure="UpdateTriggerFigure"/>
+  <nodes
+      name="DeleteTrigger"
+      figure="DeleteTriggerFigure"/>
+  <nodes
+      name="SearchTrigger"
+      figure="SearchTriggerFigure"/>
+  <nodes
       name="Root"
       figure="RootFigure"/>
   <nodes
@@ -2588,42 +2813,67 @@
       name="RootPreFormTriggerCompartment"
       figure="RootFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.51/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.56/@accessors.1"/>
   <compartments
       name="DataControlPreQueryTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.52/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.57/@accessors.1"/>
   <compartments
       name="DataControlPostQueryTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.52/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.57/@accessors.2"/>
   <compartments
       name="DataControlPreInsertTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.52/@accessors.3"/>
+      accessor="//@figures.0/@descriptors.57/@accessors.3"/>
   <compartments
       name="DataControlPreDeleteTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.52/@accessors.4"/>
+      accessor="//@figures.0/@descriptors.57/@accessors.4"/>
   <compartments
       name="DataControlPostCreateTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.52/@accessors.5"/>
+      accessor="//@figures.0/@descriptors.57/@accessors.5"/>
   <compartments
       name="DataControlPreUpdateTriggerCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.52/@accessors.6"/>
+      accessor="//@figures.0/@descriptors.57/@accessors.6"/>
+  <compartments
+      name="DataControlCreateCompartment"
+      figure="DataControlFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.57/@accessors.7"/>
+  <compartments
+      name="DataControlInsertCompartment"
+      figure="DataControlFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.57/@accessors.8"/>
+  <compartments
+      name="DataControlUpdateCompartment"
+      figure="DataControlFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.57/@accessors.9"/>
+  <compartments
+      name="DataControlRemoveCompartment"
+      figure="DataControlFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.57/@accessors.10"/>
+  <compartments
+      name="DataControlSearchCompartment"
+      figure="DataControlFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.57/@accessors.11"/>
   <compartments
       name="DataControlArtificialFieldsCompartment"
       figure="DataControlFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.52/@accessors.7"/>
+      accessor="//@figures.0/@descriptors.57/@accessors.12"/>
   <labels
       name="DomainArtifactsLabel"
       figure="DomainArtifactsFigure"
@@ -2829,17 +3079,37 @@
       figure="PREUpdateTriggerFigure"
       accessor="//@figures.0/@descriptors.50/@accessors.0"/>
   <labels
+      name="CreateTriggerLabel"
+      figure="CreateTriggerFigure"
+      accessor="//@figures.0/@descriptors.51/@accessors.0"/>
+  <labels
+      name="InsertTriggerLabel"
+      figure="InsertTriggerFigure"
+      accessor="//@figures.0/@descriptors.52/@accessors.0"/>
+  <labels
+      name="UpdateTriggerLabel"
+      figure="UpdateTriggerFigure"
+      accessor="//@figures.0/@descriptors.53/@accessors.0"/>
+  <labels
+      name="DeleteTriggerLabel"
+      figure="DeleteTriggerFigure"
+      accessor="//@figures.0/@descriptors.54/@accessors.0"/>
+  <labels
+      name="SearchTriggerLabel"
+      figure="SearchTriggerFigure"
+      accessor="//@figures.0/@descriptors.55/@accessors.0"/>
+  <labels
       name="RootLabel"
       figure="RootFigure"
-      accessor="//@figures.0/@descriptors.51/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.56/@accessors.0"/>
   <labels
       name="DataControlLabel"
       figure="DataControlFigure"
-      accessor="//@figures.0/@descriptors.52/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.57/@accessors.0"/>
   <labels
       name="ArtificialFieldLabel"
       figure="ArtificialFieldFigure"
-      accessor="//@figures.0/@descriptors.53/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.58/@accessors.0"/>
   <labels
       name="DeploymentComponentDeplymentComponentExternalLabel"
       figure="DeploymentComponentDeplymentComponentExternalLabelFigure"

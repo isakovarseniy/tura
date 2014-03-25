@@ -20,12 +20,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.DataControl#getPreDeleteTrigger <em>Pre Delete Trigger</em>}</li>
  *   <li>{@link domain.DataControl#getPostCreateTrigger <em>Post Create Trigger</em>}</li>
  *   <li>{@link domain.DataControl#getPreUpdateTrigger <em>Pre Update Trigger</em>}</li>
- *   <li>{@link domain.DataControl#getArtificialFields <em>Artificial Fields</em>}</li>
  *   <li>{@link domain.DataControl#getCreate <em>Create</em>}</li>
  *   <li>{@link domain.DataControl#getInsert <em>Insert</em>}</li>
  *   <li>{@link domain.DataControl#getUpdate <em>Update</em>}</li>
  *   <li>{@link domain.DataControl#getRemove <em>Remove</em>}</li>
  *   <li>{@link domain.DataControl#getSearch <em>Search</em>}</li>
+ *   <li>{@link domain.DataControl#getArtificialFields <em>Artificial Fields</em>}</li>
  * </ul>
  * </p>
  *
@@ -275,12 +275,13 @@ public interface DataControl extends TypePointer
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Create</em>' containment reference.
-   * @see #setCreate(Trigger)
+   * @see #setCreate(CreateTrigger)
    * @see domain.DomainPackage#getDataControl_Create()
    * @model containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
-  Trigger getCreate();
+  CreateTrigger getCreate();
 
   /**
    * Sets the value of the '{@link domain.DataControl#getCreate <em>Create</em>}' containment reference.
@@ -290,7 +291,7 @@ public interface DataControl extends TypePointer
    * @see #getCreate()
    * @generated
    */
-  void setCreate(Trigger value);
+  void setCreate(CreateTrigger value);
 
   /**
    * Returns the value of the '<em><b>Insert</b></em>' containment reference.
@@ -301,12 +302,13 @@ public interface DataControl extends TypePointer
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Insert</em>' containment reference.
-   * @see #setInsert(Trigger)
+   * @see #setInsert(InsertTrigger)
    * @see domain.DomainPackage#getDataControl_Insert()
    * @model containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
-  Trigger getInsert();
+  InsertTrigger getInsert();
 
   /**
    * Sets the value of the '{@link domain.DataControl#getInsert <em>Insert</em>}' containment reference.
@@ -316,7 +318,7 @@ public interface DataControl extends TypePointer
    * @see #getInsert()
    * @generated
    */
-  void setInsert(Trigger value);
+  void setInsert(InsertTrigger value);
 
   /**
    * Returns the value of the '<em><b>Update</b></em>' containment reference.
@@ -327,12 +329,13 @@ public interface DataControl extends TypePointer
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Update</em>' containment reference.
-   * @see #setUpdate(Trigger)
+   * @see #setUpdate(UpdateTrigger)
    * @see domain.DomainPackage#getDataControl_Update()
    * @model containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
-  Trigger getUpdate();
+  UpdateTrigger getUpdate();
 
   /**
    * Sets the value of the '{@link domain.DataControl#getUpdate <em>Update</em>}' containment reference.
@@ -342,7 +345,7 @@ public interface DataControl extends TypePointer
    * @see #getUpdate()
    * @generated
    */
-  void setUpdate(Trigger value);
+  void setUpdate(UpdateTrigger value);
 
   /**
    * Returns the value of the '<em><b>Remove</b></em>' containment reference.
@@ -353,12 +356,13 @@ public interface DataControl extends TypePointer
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Remove</em>' containment reference.
-   * @see #setRemove(Trigger)
+   * @see #setRemove(DeleteTrigger)
    * @see domain.DomainPackage#getDataControl_Remove()
    * @model containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
-  Trigger getRemove();
+  DeleteTrigger getRemove();
 
   /**
    * Sets the value of the '{@link domain.DataControl#getRemove <em>Remove</em>}' containment reference.
@@ -368,7 +372,7 @@ public interface DataControl extends TypePointer
    * @see #getRemove()
    * @generated
    */
-  void setRemove(Trigger value);
+  void setRemove(DeleteTrigger value);
 
   /**
    * Returns the value of the '<em><b>Search</b></em>' containment reference.
@@ -379,12 +383,13 @@ public interface DataControl extends TypePointer
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Search</em>' containment reference.
-   * @see #setSearch(Trigger)
+   * @see #setSearch(SearchTrigger)
    * @see domain.DomainPackage#getDataControl_Search()
    * @model containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
-  Trigger getSearch();
+  SearchTrigger getSearch();
 
   /**
    * Sets the value of the '{@link domain.DataControl#getSearch <em>Search</em>}' containment reference.
@@ -394,6 +399,6 @@ public interface DataControl extends TypePointer
    * @see #getSearch()
    * @generated
    */
-  void setSearch(Trigger value);
+  void setSearch(SearchTrigger value);
 
 } // DataControl
