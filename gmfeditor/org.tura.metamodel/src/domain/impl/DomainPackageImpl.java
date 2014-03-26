@@ -3852,9 +3852,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getTriggerParameter_Order()
+  {
+    return (EAttribute)triggerParameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getTriggerParameter_Parameter()
   {
-    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(1);
+    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3864,7 +3874,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   public EReference getTriggerParameter_Value()
   {
-    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(2);
+    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -4771,6 +4781,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     triggerParameterEClass = createEClass(TRIGGER_PARAMETER);
     createEAttribute(triggerParameterEClass, TRIGGER_PARAMETER__UID);
+    createEAttribute(triggerParameterEClass, TRIGGER_PARAMETER__ORDER);
     createEReference(triggerParameterEClass, TRIGGER_PARAMETER__PARAMETER);
     createEReference(triggerParameterEClass, TRIGGER_PARAMETER__VALUE);
 
@@ -5284,6 +5295,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(triggerParameterEClass, TriggerParameter.class, "TriggerParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTriggerParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTriggerParameter_Order(), ecorePackage.getEInt(), "order", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTriggerParameter_Parameter(), this.getParameter(), null, "parameter", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTriggerParameter_Value(), this.getContextValue(), null, "value", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

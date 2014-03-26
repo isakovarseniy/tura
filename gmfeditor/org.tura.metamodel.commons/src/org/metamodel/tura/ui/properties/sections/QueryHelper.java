@@ -2,6 +2,8 @@ package org.metamodel.tura.ui.properties.sections;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -311,17 +313,29 @@ public class QueryHelper {
 			domain.Parameter p = i.next();
 			parameters.add(p);
 		}
+		Collections.sort(parameters,new ParameterComparator());
 
+		ArrayList<domain.TriggerParameter> trgParameters = new ArrayList<domain.TriggerParameter>();
+		for (Iterator<domain.TriggerParameter> i = trg.getParameters().iterator(); i.hasNext();) {
+			domain.TriggerParameter p = i.next();
+			trgParameters.add(p);
+		}
+
+		Collections.sort(trgParameters,new TriggerParameterComparator());
+		
+		
 		boolean renewParameters = false;
-		if (trg.getParameters().size() != parameters.size())
-			removeParameters.addAll(trg.getParameters());
+		if (trgParameters.size() != parameters.size()){
+			removeParameters.addAll(trgParameters);
+			renewParameters = true;
+		}
 		else {
 
-			for (int i = 0; i < trg.getParameters().size(); i++) {
-				TriggerParameter trgParam = trg.getParameters().get(i);
+			for (int i = 0; i < trgParameters.size(); i++) {
+				TriggerParameter trgParam = trgParameters.get(i);
 				domain.Parameter param = parameters.get(i);
-				if (trgParam.getParameter().getUid().equals(param.getUid())) {
-					removeParameters.addAll(trg.getParameters());
+				if (trgParam.getParameter() == null || !trgParam.getParameter().getUid().equals(param.getUid())) {
+					removeParameters.addAll(trgParameters);
 					renewParameters = true;
 					break;
 				}
@@ -354,8 +368,37 @@ public class QueryHelper {
 							addParameters));
 		}
 
+		trgParameters = new ArrayList<domain.TriggerParameter>();
+		for (Iterator<domain.TriggerParameter> i = trg.getParameters().iterator(); i.hasNext();) {
+			domain.TriggerParameter p = i.next();
+			trgParameters.add(p);
+		}
+		Collections.sort(trgParameters,new TriggerParameterComparator());
+		
 		ArrayList<Object> rows = new ArrayList<>();
-		rows.addAll(trg.getParameters());
+		rows.addAll(trgParameters);
 		return rows;
 	}
+	
+	class ParameterComparator implements Comparator<domain.Parameter>{
+
+		@Override
+		public int compare(Parameter o1, Parameter o2) {
+			return new Integer(o1.getOrder()).compareTo(new Integer(o2.getOrder()));
+		}
+		
+	}
+	
+	class TriggerParameterComparator implements Comparator<domain.TriggerParameter>{
+
+		@Override
+		public int compare(TriggerParameter o1, TriggerParameter o2) {
+			if (o1.getParameter() == null || o2.getParameter() == null)
+				return -1;
+			return new Integer(o1.getParameter().getOrder()).compareTo(new Integer(o2.getParameter().getOrder()));
+		}
+		
+	}
+	
+	
 }

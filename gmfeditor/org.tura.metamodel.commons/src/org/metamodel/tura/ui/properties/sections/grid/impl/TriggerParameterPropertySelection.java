@@ -150,7 +150,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 		public TableColumn createColumn() {
 			TableColumn column = new TableColumn(table, SWT.LEFT, 1);
 			column.setText(ISEXPRESSIOIN_COLUMN);
-			column.setWidth(40);
+			column.setWidth(80);
 			return column;
 		}
 

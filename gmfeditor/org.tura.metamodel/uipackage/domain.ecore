@@ -849,6 +849,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="TriggerParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//Parameter"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ContextValue"
         containment="true"/>

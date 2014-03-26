@@ -558,6 +558,7 @@ class Trigger extends MethodPointer {
 
 class TriggerParameter{
     id attr EString uid;
+    attr EInt order;
    ref Parameter parameter;
    val ContextValue value;
 }

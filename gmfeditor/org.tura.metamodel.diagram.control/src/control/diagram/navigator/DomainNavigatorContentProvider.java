@@ -328,6 +328,22 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
+		case RootEditPart.VISUAL_ID: {
+			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					DomainVisualIDRegistry
+							.getType(PREFormTriggerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
 		case DataControlEditPart.VISUAL_ID: {
 			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -489,22 +505,6 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			if (!source.isEmpty()) {
 				result.add(source);
 			}
-			return result.toArray();
-		}
-
-		case RootEditPart.VISUAL_ID: {
-			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					DomainVisualIDRegistry
-							.getType(RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry
-							.getType(PREFormTriggerEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
 			return result.toArray();
 		}
 		}

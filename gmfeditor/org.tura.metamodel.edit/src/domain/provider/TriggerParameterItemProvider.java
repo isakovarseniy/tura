@@ -68,6 +68,7 @@ public class TriggerParameterItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
+      addOrderPropertyDescriptor(object);
       addParameterPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -92,6 +93,29 @@ public class TriggerParameterItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Order feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addOrderPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_TriggerParameter_order_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_TriggerParameter_order_feature", "_UI_TriggerParameter_type"),
+         DomainPackage.Literals.TRIGGER_PARAMETER__ORDER,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
          null,
          null));
   }
@@ -194,6 +218,7 @@ public class TriggerParameterItemProvider
     switch (notification.getFeatureID(TriggerParameter.class))
     {
       case DomainPackage.TRIGGER_PARAMETER__UID:
+      case DomainPackage.TRIGGER_PARAMETER__ORDER:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.TRIGGER_PARAMETER__VALUE:

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.TriggerParameterImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.impl.TriggerParameterImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.impl.TriggerParameterImpl#getParameter <em>Parameter</em>}</li>
  *   <li>{@link domain.impl.TriggerParameterImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -52,6 +53,26 @@ public class TriggerParameterImpl extends EObjectImpl implements TriggerParamete
    * @ordered
    */
   protected String uid = UID_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrder()
+   * @generated
+   * @ordered
+   */
+  protected static final int ORDER_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrder()
+   * @generated
+   * @ordered
+   */
+  protected int order = ORDER_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
@@ -115,6 +136,29 @@ public class TriggerParameterImpl extends EObjectImpl implements TriggerParamete
     uid = newUid;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TRIGGER_PARAMETER__UID, oldUid, uid));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getOrder()
+  {
+    return order;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOrder(int newOrder)
+  {
+    int oldOrder = order;
+    order = newOrder;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.TRIGGER_PARAMETER__ORDER, oldOrder, order));
   }
 
   /**
@@ -236,6 +280,8 @@ public class TriggerParameterImpl extends EObjectImpl implements TriggerParamete
     {
       case DomainPackage.TRIGGER_PARAMETER__UID:
         return getUid();
+      case DomainPackage.TRIGGER_PARAMETER__ORDER:
+        return getOrder();
       case DomainPackage.TRIGGER_PARAMETER__PARAMETER:
         if (resolve) return getParameter();
         return basicGetParameter();
@@ -257,6 +303,9 @@ public class TriggerParameterImpl extends EObjectImpl implements TriggerParamete
     {
       case DomainPackage.TRIGGER_PARAMETER__UID:
         setUid((String)newValue);
+        return;
+      case DomainPackage.TRIGGER_PARAMETER__ORDER:
+        setOrder((Integer)newValue);
         return;
       case DomainPackage.TRIGGER_PARAMETER__PARAMETER:
         setParameter((Parameter)newValue);
@@ -281,6 +330,9 @@ public class TriggerParameterImpl extends EObjectImpl implements TriggerParamete
       case DomainPackage.TRIGGER_PARAMETER__UID:
         setUid(UID_EDEFAULT);
         return;
+      case DomainPackage.TRIGGER_PARAMETER__ORDER:
+        setOrder(ORDER_EDEFAULT);
+        return;
       case DomainPackage.TRIGGER_PARAMETER__PARAMETER:
         setParameter((Parameter)null);
         return;
@@ -303,6 +355,8 @@ public class TriggerParameterImpl extends EObjectImpl implements TriggerParamete
     {
       case DomainPackage.TRIGGER_PARAMETER__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+      case DomainPackage.TRIGGER_PARAMETER__ORDER:
+        return order != ORDER_EDEFAULT;
       case DomainPackage.TRIGGER_PARAMETER__PARAMETER:
         return parameter != null;
       case DomainPackage.TRIGGER_PARAMETER__VALUE:
@@ -324,6 +378,8 @@ public class TriggerParameterImpl extends EObjectImpl implements TriggerParamete
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (uid: ");
     result.append(uid);
+    result.append(", order: ");
+    result.append(order);
     result.append(')');
     return result.toString();
   }

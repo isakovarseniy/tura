@@ -4177,13 +4177,22 @@ public interface DomainPackage extends EPackage
   int TRIGGER_PARAMETER__UID = 0;
 
   /**
+   * The feature id for the '<em><b>Order</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRIGGER_PARAMETER__ORDER = 1;
+
+  /**
    * The feature id for the '<em><b>Parameter</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRIGGER_PARAMETER__PARAMETER = 1;
+  int TRIGGER_PARAMETER__PARAMETER = 2;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -4192,7 +4201,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER_PARAMETER__VALUE = 2;
+  int TRIGGER_PARAMETER__VALUE = 3;
 
   /**
    * The number of structural features of the '<em>Trigger Parameter</em>' class.
@@ -4201,7 +4210,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER_PARAMETER_FEATURE_COUNT = 3;
+  int TRIGGER_PARAMETER_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ContextValueImpl <em>Context Value</em>}' class.
@@ -9177,6 +9186,17 @@ public interface DomainPackage extends EPackage
   EAttribute getTriggerParameter_Uid();
 
   /**
+   * Returns the meta object for the attribute '{@link domain.TriggerParameter#getOrder <em>Order</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Order</em>'.
+   * @see domain.TriggerParameter#getOrder()
+   * @see #getTriggerParameter()
+   * @generated
+   */
+  EAttribute getTriggerParameter_Order();
+
+  /**
    * Returns the meta object for the reference '{@link domain.TriggerParameter#getParameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -12337,6 +12357,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute TRIGGER_PARAMETER__UID = eINSTANCE.getTriggerParameter_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Order</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TRIGGER_PARAMETER__ORDER = eINSTANCE.getTriggerParameter_Order();
 
     /**
      * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
