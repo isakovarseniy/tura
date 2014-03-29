@@ -665,7 +665,7 @@ class Relation{
    ref DataControl master;
    ref DataControl detail;
    attr EBoolean isTree;
-   val Link[*] links;  
+   val Link[*]#parent links;  
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
@@ -677,7 +677,8 @@ class ArtificialField extends TypePointer{
 
 class Link{
     id attr EString uid;
-    attr EString masterField;
-    attr EString detailField;
+    ref Relation#links parent;
+    ref Attribute masterField;
+    ref Attribute detailField;
 }
 

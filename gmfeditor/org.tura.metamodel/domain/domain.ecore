@@ -849,7 +849,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="TriggerParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//Parameter"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ContextValue"
         containment="true"/>
@@ -1056,7 +1055,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="detail" eType="#//DataControl"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTree" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
-        eType="#//Link" containment="true"/>
+        eType="#//Link" containment="true" eOpposite="#//Link/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArtificialField" eSuperTypes="#//TypePointer">
     <eAnnotations source="gmf.node">
@@ -1071,7 +1070,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="Link">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="masterField" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="detailField" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Relation"
+        eOpposite="#//Relation/links"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masterField" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="detailField" eType="#//Attribute"/>
   </eClassifiers>
 </ecore:EPackage>

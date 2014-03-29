@@ -162,6 +162,7 @@ public interface Relation extends EObject
   /**
    * Returns the value of the '<em><b>Links</b></em>' containment reference list.
    * The list contents are of type {@link domain.Link}.
+   * It is bidirectional and its opposite is '{@link domain.Link#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Links</em>' containment reference list isn't clear,
@@ -170,7 +171,8 @@ public interface Relation extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Links</em>' containment reference list.
    * @see domain.DomainPackage#getRelation_Links()
-   * @model containment="true"
+   * @see domain.Link#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<Link> getLinks();

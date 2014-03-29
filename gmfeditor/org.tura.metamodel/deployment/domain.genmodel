@@ -377,7 +377,6 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//TriggerParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TriggerParameter/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TriggerParameter/order"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//TriggerParameter/parameter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//TriggerParameter/value"/>
     </genClasses>
@@ -433,8 +432,9 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Link">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Link/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Link/masterField"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Link/detailField"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Link/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Link/masterField"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Link/detailField"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -328,6 +328,12 @@
              category="domain"
              id="property.tab.domain.control.parameters"
              label="Parameters"/>
+             
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.control.relations"
+             label="Relation"/>
+
        </propertyTabs>
        </extension>
     
@@ -404,6 +410,12 @@
               <input type="control.diagram.edit.parts.SearchTriggerEditPart"/>
            </propertySection>        
    
+             <propertySection
+               tab="property.tab.domain.control.relations"
+               class="org.metamodel.tura.ui.properties.sections.grid.impl.RelationPropertySelection"
+               id="org.tura.metamodel.diagram.control.relation">
+               <input type="control.diagram.edit.parts.RelationEditPart"/>
+           </propertySection>        
    
    
        </propertySections>

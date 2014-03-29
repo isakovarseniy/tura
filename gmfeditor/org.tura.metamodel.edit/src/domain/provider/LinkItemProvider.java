@@ -111,8 +111,8 @@ public class LinkItemProvider
          DomainPackage.Literals.LINK__MASTER_FIELD,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
@@ -134,8 +134,8 @@ public class LinkItemProvider
          DomainPackage.Literals.LINK__DETAIL_FIELD,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
@@ -182,8 +182,6 @@ public class LinkItemProvider
     switch (notification.getFeatureID(Link.class))
     {
       case DomainPackage.LINK__UID:
-      case DomainPackage.LINK__MASTER_FIELD:
-      case DomainPackage.LINK__DETAIL_FIELD:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.TriggerParameter#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.TriggerParameter#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.TriggerParameter#getParameter <em>Parameter</em>}</li>
  *   <li>{@link domain.TriggerParameter#getValue <em>Value</em>}</li>
  * </ul>
@@ -50,32 +49,6 @@ public interface TriggerParameter extends EObject
    * @generated
    */
   void setUid(String value);
-
-  /**
-   * Returns the value of the '<em><b>Order</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Order</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Order</em>' attribute.
-   * @see #setOrder(int)
-   * @see domain.DomainPackage#getTriggerParameter_Order()
-   * @model
-   * @generated
-   */
-  int getOrder();
-
-  /**
-   * Sets the value of the '{@link domain.TriggerParameter#getOrder <em>Order</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Order</em>' attribute.
-   * @see #getOrder()
-   * @generated
-   */
-  void setOrder(int value);
 
   /**
    * Returns the value of the '<em><b>Parameter</b></em>' reference.

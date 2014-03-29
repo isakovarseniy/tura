@@ -4177,22 +4177,13 @@ public interface DomainPackage extends EPackage
   int TRIGGER_PARAMETER__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Order</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER_PARAMETER__ORDER = 1;
-
-  /**
    * The feature id for the '<em><b>Parameter</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRIGGER_PARAMETER__PARAMETER = 2;
+  int TRIGGER_PARAMETER__PARAMETER = 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -4201,7 +4192,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER_PARAMETER__VALUE = 3;
+  int TRIGGER_PARAMETER__VALUE = 2;
 
   /**
    * The number of structural features of the '<em>Trigger Parameter</em>' class.
@@ -4210,7 +4201,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRIGGER_PARAMETER_FEATURE_COUNT = 4;
+  int TRIGGER_PARAMETER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.ContextValueImpl <em>Context Value</em>}' class.
@@ -5851,22 +5842,31 @@ public interface DomainPackage extends EPackage
   int LINK__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Master Field</b></em>' attribute.
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LINK__MASTER_FIELD = 1;
+  int LINK__PARENT = 1;
 
   /**
-   * The feature id for the '<em><b>Detail Field</b></em>' attribute.
+   * The feature id for the '<em><b>Master Field</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LINK__DETAIL_FIELD = 2;
+  int LINK__MASTER_FIELD = 2;
+
+  /**
+   * The feature id for the '<em><b>Detail Field</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK__DETAIL_FIELD = 3;
 
   /**
    * The number of structural features of the '<em>Link</em>' class.
@@ -5875,7 +5875,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINK_FEATURE_COUNT = 3;
+  int LINK_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.PlatformLayers <em>Platform Layers</em>}' enum.
@@ -9186,17 +9186,6 @@ public interface DomainPackage extends EPackage
   EAttribute getTriggerParameter_Uid();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.TriggerParameter#getOrder <em>Order</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Order</em>'.
-   * @see domain.TriggerParameter#getOrder()
-   * @see #getTriggerParameter()
-   * @generated
-   */
-  EAttribute getTriggerParameter_Order();
-
-  /**
    * Returns the meta object for the reference '{@link domain.TriggerParameter#getParameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9718,26 +9707,37 @@ public interface DomainPackage extends EPackage
   EAttribute getLink_Uid();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Link#getMasterField <em>Master Field</em>}'.
+   * Returns the meta object for the container reference '{@link domain.Link#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Master Field</em>'.
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.Link#getParent()
+   * @see #getLink()
+   * @generated
+   */
+  EReference getLink_Parent();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Link#getMasterField <em>Master Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Master Field</em>'.
    * @see domain.Link#getMasterField()
    * @see #getLink()
    * @generated
    */
-  EAttribute getLink_MasterField();
+  EReference getLink_MasterField();
 
   /**
-   * Returns the meta object for the attribute '{@link domain.Link#getDetailField <em>Detail Field</em>}'.
+   * Returns the meta object for the reference '{@link domain.Link#getDetailField <em>Detail Field</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Detail Field</em>'.
+   * @return the meta object for the reference '<em>Detail Field</em>'.
    * @see domain.Link#getDetailField()
    * @see #getLink()
    * @generated
    */
-  EAttribute getLink_DetailField();
+  EReference getLink_DetailField();
 
   /**
    * Returns the meta object for enum '{@link domain.PlatformLayers <em>Platform Layers</em>}'.
@@ -12359,14 +12359,6 @@ public interface DomainPackage extends EPackage
     EAttribute TRIGGER_PARAMETER__UID = eINSTANCE.getTriggerParameter_Uid();
 
     /**
-     * The meta object literal for the '<em><b>Order</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TRIGGER_PARAMETER__ORDER = eINSTANCE.getTriggerParameter_Order();
-
-    /**
      * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -12795,20 +12787,28 @@ public interface DomainPackage extends EPackage
     EAttribute LINK__UID = eINSTANCE.getLink_Uid();
 
     /**
-     * The meta object literal for the '<em><b>Master Field</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LINK__MASTER_FIELD = eINSTANCE.getLink_MasterField();
+    EReference LINK__PARENT = eINSTANCE.getLink_Parent();
 
     /**
-     * The meta object literal for the '<em><b>Detail Field</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Master Field</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LINK__DETAIL_FIELD = eINSTANCE.getLink_DetailField();
+    EReference LINK__MASTER_FIELD = eINSTANCE.getLink_MasterField();
+
+    /**
+     * The meta object literal for the '<em><b>Detail Field</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LINK__DETAIL_FIELD = eINSTANCE.getLink_DetailField();
 
     /**
      * The meta object literal for the '{@link domain.PlatformLayers <em>Platform Layers</em>}' enum.

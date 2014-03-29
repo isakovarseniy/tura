@@ -3852,19 +3852,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTriggerParameter_Order()
-  {
-    return (EAttribute)triggerParameterEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getTriggerParameter_Parameter()
   {
-    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(2);
+    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3874,7 +3864,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    */
   public EReference getTriggerParameter_Value()
   {
-    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(3);
+    return (EReference)triggerParameterEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4352,9 +4342,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLink_MasterField()
+  public EReference getLink_Parent()
   {
-    return (EAttribute)linkEClass.getEStructuralFeatures().get(1);
+    return (EReference)linkEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4362,9 +4352,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLink_DetailField()
+  public EReference getLink_MasterField()
   {
-    return (EAttribute)linkEClass.getEStructuralFeatures().get(2);
+    return (EReference)linkEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLink_DetailField()
+  {
+    return (EReference)linkEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -4781,7 +4781,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     triggerParameterEClass = createEClass(TRIGGER_PARAMETER);
     createEAttribute(triggerParameterEClass, TRIGGER_PARAMETER__UID);
-    createEAttribute(triggerParameterEClass, TRIGGER_PARAMETER__ORDER);
     createEReference(triggerParameterEClass, TRIGGER_PARAMETER__PARAMETER);
     createEReference(triggerParameterEClass, TRIGGER_PARAMETER__VALUE);
 
@@ -4849,8 +4848,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     linkEClass = createEClass(LINK);
     createEAttribute(linkEClass, LINK__UID);
-    createEAttribute(linkEClass, LINK__MASTER_FIELD);
-    createEAttribute(linkEClass, LINK__DETAIL_FIELD);
+    createEReference(linkEClass, LINK__PARENT);
+    createEReference(linkEClass, LINK__MASTER_FIELD);
+    createEReference(linkEClass, LINK__DETAIL_FIELD);
 
     // Create enums
     platformLayersEEnum = createEEnum(PLATFORM_LAYERS);
@@ -5295,7 +5295,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(triggerParameterEClass, TriggerParameter.class, "TriggerParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTriggerParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTriggerParameter_Order(), ecorePackage.getEInt(), "order", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTriggerParameter_Parameter(), this.getParameter(), null, "parameter", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTriggerParameter_Value(), this.getContextValue(), null, "value", null, 0, 1, TriggerParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -5355,7 +5354,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getRelation_Master(), this.getDataControl(), null, "master", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRelation_Detail(), this.getDataControl(), null, "detail", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRelation_IsTree(), ecorePackage.getEBoolean(), "isTree", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRelation_Links(), this.getLink(), null, "links", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelation_Links(), this.getLink(), this.getLink_Parent(), "links", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(artificialFieldEClass, ArtificialField.class, "ArtificialField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getArtificialField_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5363,8 +5362,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLink_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLink_MasterField(), ecorePackage.getEString(), "masterField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLink_DetailField(), ecorePackage.getEString(), "detailField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLink_Parent(), this.getRelation(), this.getRelation_Links(), "parent", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLink_MasterField(), this.getAttribute(), null, "masterField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLink_DetailField(), this.getAttribute(), null, "detailField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(platformLayersEEnum, PlatformLayers.class, "PlatformLayers");
