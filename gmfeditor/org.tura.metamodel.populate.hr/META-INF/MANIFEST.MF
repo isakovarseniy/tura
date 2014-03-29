@@ -11,3 +11,4 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.tura.metamodel.diagram.domain;bundle-version="1.0.0",
  org.eclipse.gmf.runtime.diagram.core;bundle-version="1.6.0",
  org.tura.metamodel.wizard.recipe;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

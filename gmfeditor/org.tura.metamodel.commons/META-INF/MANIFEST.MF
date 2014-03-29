@@ -78,3 +78,4 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.103.0",
 Bundle-ClassPath: .,
  lib/commons-lang-2.6.jar,
  lib/velocity-1.7-dep.jar
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
