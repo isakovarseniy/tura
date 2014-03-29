@@ -33,13 +33,70 @@
     <domainDiagramElement
         href="domain.genmodel#//domain/Controls"/>
     <childNodes
+        visualID="1103001"
+        editPartClassName="PREFormTriggerEditPart"
+        itemSemanticEditPolicyClassName="PREFormTriggerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PREFormTriggerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PREFormTriggerGraphicalNodeEditPolicy"
+        createCommandClassName="PREFormTriggerCreateCommand"
+        containers="//@diagram/@compartments.0">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PREFormTriggerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="PREFormTriggerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PREFormTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePREFormTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PREFormTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePREFormTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePREFormTriggerLabelFigure.setText(&quot;PREFormTrigger&quot;);&#xA;&#xA;fFigurePREFormTriggerLabelFigure.setFont(FFIGUREPREFORMTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePREFormTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePREFormTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePREFormTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPREFORMTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="200"
+            height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/PREFormTrigger"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Root/preFormTrigger"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Root/preFormTrigger"/>
+      </modelFacet>
+      <labels
+          visualID="1105001"
+          editPartClassName="PREFormTriggerFakeMethodEditPart"
+          itemSemanticEditPolicyClassName="PREFormTriggerFakeMethodItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigurePREFormTriggerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
         visualID="1103002"
         editPartClassName="PREQueryTriggerEditPart"
         itemSemanticEditPolicyClassName="PREQueryTriggerItemSemanticEditPolicy"
         canonicalEditPolicyClassName="PREQueryTriggerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="PREQueryTriggerGraphicalNodeEditPolicy"
         createCommandClassName="PREQueryTriggerCreateCommand"
-        containers="//@diagram/@compartments.0">
+        containers="//@diagram/@compartments.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -96,7 +153,7 @@
         canonicalEditPolicyClassName="POSTQueryTriggerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="POSTQueryTriggerGraphicalNodeEditPolicy"
         createCommandClassName="POSTQueryTriggerCreateCommand"
-        containers="//@diagram/@compartments.1">
+        containers="//@diagram/@compartments.2">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -153,7 +210,7 @@
         canonicalEditPolicyClassName="PREInsertTriggerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="PREInsertTriggerGraphicalNodeEditPolicy"
         createCommandClassName="PREInsertTriggerCreateCommand"
-        containers="//@diagram/@compartments.2">
+        containers="//@diagram/@compartments.3">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -210,7 +267,7 @@
         canonicalEditPolicyClassName="PREDeleteTriggerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="PREDeleteTriggerGraphicalNodeEditPolicy"
         createCommandClassName="PREDeleteTriggerCreateCommand"
-        containers="//@diagram/@compartments.3">
+        containers="//@diagram/@compartments.4">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -267,7 +324,7 @@
         canonicalEditPolicyClassName="POSTCreateTriggerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="POSTCreateTriggerGraphicalNodeEditPolicy"
         createCommandClassName="POSTCreateTriggerCreateCommand"
-        containers="//@diagram/@compartments.4">
+        containers="//@diagram/@compartments.5">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -324,7 +381,7 @@
         canonicalEditPolicyClassName="PREUpdateTriggerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="PREUpdateTriggerGraphicalNodeEditPolicy"
         createCommandClassName="PREUpdateTriggerCreateCommand"
-        containers="//@diagram/@compartments.5">
+        containers="//@diagram/@compartments.6">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -377,7 +434,7 @@
         canonicalEditPolicyClassName="CreateTriggerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CreateTriggerGraphicalNodeEditPolicy"
         createCommandClassName="CreateTriggerCreateCommand"
-        containers="//@diagram/@compartments.6">
+        containers="//@diagram/@compartments.7">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -434,7 +491,7 @@
         canonicalEditPolicyClassName="InsertTriggerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="InsertTriggerGraphicalNodeEditPolicy"
         createCommandClassName="InsertTriggerCreateCommand"
-        containers="//@diagram/@compartments.7">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -491,7 +548,7 @@
         canonicalEditPolicyClassName="UpdateTriggerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="UpdateTriggerGraphicalNodeEditPolicy"
         createCommandClassName="UpdateTriggerCreateCommand"
-        containers="//@diagram/@compartments.8">
+        containers="//@diagram/@compartments.9">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -548,7 +605,7 @@
         canonicalEditPolicyClassName="DeleteTriggerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="DeleteTriggerGraphicalNodeEditPolicy"
         createCommandClassName="DeleteTriggerCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.10">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -605,7 +662,7 @@
         canonicalEditPolicyClassName="SearchTriggerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="SearchTriggerGraphicalNodeEditPolicy"
         createCommandClassName="SearchTriggerCreateCommand"
-        containers="//@diagram/@compartments.10">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -662,7 +719,7 @@
         canonicalEditPolicyClassName="ArtificialFieldCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ArtificialFieldGraphicalNodeEditPolicy"
         createCommandClassName="ArtificialFieldCreateCommand"
-        containers="//@diagram/@compartments.11">
+        containers="//@diagram/@compartments.12">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -712,124 +769,12 @@
         </modelFacet>
       </labels>
     </childNodes>
-    <childNodes
-        visualID="1103001"
-        editPartClassName="PREFormTriggerEditPart"
-        itemSemanticEditPolicyClassName="PREFormTriggerItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="PREFormTriggerCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="PREFormTriggerGraphicalNodeEditPolicy"
-        createCommandClassName="PREFormTriggerCreateCommand"
-        containers="//@diagram/@compartments.12">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PREFormTriggerEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="PREFormTriggerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PREFormTriggerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePREFormTriggerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PREFormTriggerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePREFormTriggerLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePREFormTriggerLabelFigure.setText(&quot;PREFormTrigger&quot;);&#xA;&#xA;fFigurePREFormTriggerLabelFigure.setFont(FFIGUREPREFORMTRIGGERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePREFormTriggerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePREFormTriggerLabelFigure() {&#xA;&#x9;&#x9;return fFigurePREFormTriggerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPREFORMTRIGGERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="200"
-            height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/PREFormTrigger"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/Root/preFormTrigger"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/Root/preFormTrigger"/>
-      </modelFacet>
-      <labels
-          visualID="1105001"
-          editPartClassName="PREFormTriggerFakeMethodEditPart"
-          itemSemanticEditPolicyClassName="PREFormTriggerFakeMethodItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigurePREFormTriggerLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/MethodPointer/fakeMethod"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <topLevelNodes
-        visualID="1102002"
-        editPartClassName="DataControlEditPart"
-        itemSemanticEditPolicyClassName="DataControlItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="DataControlCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3 //@diagram/@compartments.4 //@diagram/@compartments.5 //@diagram/@compartments.6 //@diagram/@compartments.7 //@diagram/@compartments.8 //@diagram/@compartments.9 //@diagram/@compartments.10 //@diagram/@compartments.11"
-        graphicalNodeEditPolicyClassName="DataControlGraphicalNodeEditPolicy"
-        createCommandClassName="DataControlCreateCommand">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="DataControlEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="DataControlFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DataControlFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDataControlLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPreQueryTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPostQueryTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPreInsertTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPreDeleteTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPostCreateTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPreUpdateTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlCreateCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlInsertCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlUpdateCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlRemoveCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlSearchCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlArtificialFieldsCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DataControlFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureDataControlLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDataControlLabelFigure.setText(&quot;DataControl&quot;);&#xA;&#xA;fFigureDataControlLabelFigure.setFont(FFIGUREDATACONTROLLABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigureDataControlLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureDataControlLabelFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPreQueryTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPreQueryTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPreQueryTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPostQueryTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPostQueryTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPostQueryTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPreInsertTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPreInsertTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPreInsertTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPreDeleteTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPreDeleteTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPreDeleteTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPostCreateTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPostCreateTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPostCreateTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPreUpdateTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPreUpdateTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPreUpdateTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlCreateCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlCreateCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlCreateCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlInsertCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlInsertCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlInsertCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlUpdateCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlUpdateCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlUpdateCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlRemoveCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlRemoveCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlRemoveCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlSearchCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlSearchCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlSearchCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlArtificialFieldsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlArtificialFieldsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlArtificialFieldsCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDataControlLabelFigure() {&#xA;&#x9;&#x9;return fFigureDataControlLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPreQueryTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPreQueryTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPostQueryTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPostQueryTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPreInsertTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPreInsertTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPreDeleteTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPreDeleteTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPostCreateTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPostCreateTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPreUpdateTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPreUpdateTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlCreateCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlCreateCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlInsertCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlInsertCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlUpdateCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlUpdateCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlRemoveCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlRemoveCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlSearchCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlSearchCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlArtificialFieldsCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlArtificialFieldsCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREDATACONTROLLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-      </viewmap>
-      <behaviour
-          xsi:type="gmfgen:OpenDiagramBehaviour"/>
-      <modelFacet>
-        <metaClass
-            href="domain.genmodel#//domain/DataControl"/>
-        <containmentMetaFeature
-            href="domain.genmodel#//domain/Controls/controls"/>
-        <childMetaFeature
-            href="domain.genmodel#//domain/Controls/controls"/>
-      </modelFacet>
-      <labels
-          visualID="1105007"
-          editPartClassName="DataControlNameEditPart"
-          itemSemanticEditPolicyClassName="DataControlNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureDataControlLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="domain.genmodel#//domain/DataControl/name"/>
-        </modelFacet>
-      </labels>
-    </topLevelNodes>
     <topLevelNodes
         visualID="1102001"
         editPartClassName="RootEditPart"
         itemSemanticEditPolicyClassName="RootItemSemanticEditPolicy"
         canonicalEditPolicyClassName="RootCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.12"
+        compartments="//@diagram/@compartments.0"
         graphicalNodeEditPolicyClassName="RootGraphicalNodeEditPolicy"
         createCommandClassName="RootCreateCommand">
       <diagramRunTimeClass
@@ -876,6 +821,61 @@
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
               href="domain.genmodel#//domain/Root/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="1102002"
+        editPartClassName="DataControlEditPart"
+        itemSemanticEditPolicyClassName="DataControlItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="DataControlCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3 //@diagram/@compartments.4 //@diagram/@compartments.5 //@diagram/@compartments.6 //@diagram/@compartments.7 //@diagram/@compartments.8 //@diagram/@compartments.9 //@diagram/@compartments.10 //@diagram/@compartments.11 //@diagram/@compartments.12"
+        graphicalNodeEditPolicyClassName="DataControlGraphicalNodeEditPolicy"
+        createCommandClassName="DataControlCreateCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="DataControlEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="DataControlFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DataControlFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDataControlLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPreQueryTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPostQueryTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPreInsertTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPreDeleteTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPostCreateTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlPreUpdateTriggerCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlCreateCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlInsertCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlUpdateCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlRemoveCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlSearchCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fDataControlArtificialFieldsCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DataControlFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureDataControlLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDataControlLabelFigure.setText(&quot;DataControl&quot;);&#xA;&#xA;fFigureDataControlLabelFigure.setFont(FFIGUREDATACONTROLLABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigureDataControlLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureDataControlLabelFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPreQueryTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPreQueryTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPreQueryTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPostQueryTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPostQueryTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPostQueryTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPreInsertTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPreInsertTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPreInsertTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPreDeleteTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPreDeleteTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPreDeleteTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPostCreateTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPostCreateTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPostCreateTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlPreUpdateTriggerCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlPreUpdateTriggerCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlPreUpdateTriggerCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlCreateCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlCreateCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlCreateCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlInsertCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlInsertCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlInsertCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlUpdateCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlUpdateCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlUpdateCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlRemoveCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlRemoveCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlRemoveCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlSearchCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlSearchCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlSearchCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fDataControlArtificialFieldsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fDataControlArtificialFieldsCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fDataControlArtificialFieldsCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDataControlLabelFigure() {&#xA;&#x9;&#x9;return fFigureDataControlLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPreQueryTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPreQueryTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPostQueryTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPostQueryTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPreInsertTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPreInsertTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPreDeleteTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPreDeleteTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPostCreateTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPostCreateTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlPreUpdateTriggerCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlPreUpdateTriggerCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlCreateCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlCreateCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlInsertCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlInsertCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlUpdateCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlUpdateCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlRemoveCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlRemoveCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlSearchCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlSearchCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getDataControlArtificialFieldsCompartmentFigure() {&#xA;&#x9;&#x9;return fDataControlArtificialFieldsCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREDATACONTROLLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/DataControl"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Controls/controls"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Controls/controls"/>
+      </modelFacet>
+      <labels
+          visualID="1105007"
+          editPartClassName="DataControlNameEditPart"
+          itemSemanticEditPolicyClassName="DataControlNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureDataControlLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/DataControl/name"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
@@ -1190,14 +1190,30 @@
       </labels>
     </links>
     <compartments
+        visualID="1107001"
+        editPartClassName="RootRootPreFormTriggerCompartmentEditPart"
+        itemSemanticEditPolicyClassName="RootRootPreFormTriggerCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="RootRootPreFormTriggerCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.0"
+        title="RootPreFormTriggerCompartment"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.0">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getRootPreFormTriggerCompartmentFigure"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
         visualID="1107002"
         editPartClassName="DataControlDataControlPreQueryTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPreQueryTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPreQueryTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0"
+        childNodes="//@diagram/@childNodes.1"
         title="DataControlPreQueryTriggerCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1210,10 +1226,10 @@
         editPartClassName="DataControlDataControlPostQueryTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPostQueryTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPostQueryTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.1"
+        childNodes="//@diagram/@childNodes.2"
         title="DataControlPostQueryTriggerCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1226,10 +1242,10 @@
         editPartClassName="DataControlDataControlPreInsertTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPreInsertTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPreInsertTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.2"
+        childNodes="//@diagram/@childNodes.3"
         title="DataControlPreInsertTriggerCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1242,10 +1258,10 @@
         editPartClassName="DataControlDataControlPreDeleteTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPreDeleteTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPreDeleteTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.3"
+        childNodes="//@diagram/@childNodes.4"
         title="DataControlPreDeleteTriggerCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1258,10 +1274,10 @@
         editPartClassName="DataControlDataControlPostCreateTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPostCreateTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPostCreateTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.4"
+        childNodes="//@diagram/@childNodes.5"
         title="DataControlPostCreateTriggerCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1274,10 +1290,10 @@
         editPartClassName="DataControlDataControlPreUpdateTriggerCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlPreUpdateTriggerCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlPreUpdateTriggerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.5"
+        childNodes="//@diagram/@childNodes.6"
         title="DataControlPreUpdateTriggerCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1290,10 +1306,10 @@
         editPartClassName="DataControlDataControlCreateCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlCreateCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlCreateCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.6"
+        childNodes="//@diagram/@childNodes.7"
         title="DataControlCreateCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1306,10 +1322,10 @@
         editPartClassName="DataControlDataControlInsertCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlInsertCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlInsertCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.7"
+        childNodes="//@diagram/@childNodes.8"
         title="DataControlInsertCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1322,10 +1338,10 @@
         editPartClassName="DataControlDataControlUpdateCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlUpdateCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlUpdateCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.8"
+        childNodes="//@diagram/@childNodes.9"
         title="DataControlUpdateCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1338,10 +1354,10 @@
         editPartClassName="DataControlDataControlRemoveCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlRemoveCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlRemoveCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.9"
+        childNodes="//@diagram/@childNodes.10"
         title="DataControlRemoveCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1354,10 +1370,10 @@
         editPartClassName="DataControlDataControlSearchCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlSearchCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlSearchCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.10"
+        childNodes="//@diagram/@childNodes.11"
         title="DataControlSearchCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1370,31 +1386,15 @@
         editPartClassName="DataControlDataControlArtificialFieldsCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataControlDataControlArtificialFieldsCompartmentItemSemanticEditPolicy"
         canonicalEditPolicyClassName="DataControlDataControlArtificialFieldsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.11"
-        title="DataControlArtificialFieldsCompartment"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
-      <diagramRunTimeClass
-          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getDataControlArtificialFieldsCompartmentFigure"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments
-        visualID="1107001"
-        editPartClassName="RootRootPreFormTriggerCompartmentEditPart"
-        itemSemanticEditPolicyClassName="RootRootPreFormTriggerCompartmentItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="RootRootPreFormTriggerCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.12"
-        title="RootPreFormTriggerCompartment"
+        title="DataControlArtificialFieldsCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getRootPreFormTriggerCompartmentFigure"
+          getterName="getDataControlArtificialFieldsCompartmentFigure"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <palette>
@@ -1405,77 +1405,77 @@
             xsi:type="gmfgen:ToolEntry"
             title="ArtificialField"
             description="Create new ArtificialField"
-            genNodes="//@diagram/@childNodes.11"/>
+            genNodes="//@diagram/@childNodes.12"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="CreateTrigger"
             description="Create new CreateTrigger"
-            genNodes="//@diagram/@childNodes.6"/>
+            genNodes="//@diagram/@childNodes.7"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="DataControl"
             description="Create new DataControl"
-            genNodes="//@diagram/@topLevelNodes.0"/>
+            genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="DeleteTrigger"
             description="Create new DeleteTrigger"
-            genNodes="//@diagram/@childNodes.9"/>
+            genNodes="//@diagram/@childNodes.10"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="InsertTrigger"
             description="Create new InsertTrigger"
-            genNodes="//@diagram/@childNodes.7"/>
+            genNodes="//@diagram/@childNodes.8"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="POSTCreateTrigger"
             description="Create new POSTCreateTrigger"
-            genNodes="//@diagram/@childNodes.4"/>
+            genNodes="//@diagram/@childNodes.5"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="POSTQueryTrigger"
             description="Create new POSTQueryTrigger"
-            genNodes="//@diagram/@childNodes.1"/>
+            genNodes="//@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="PREDeleteTrigger"
             description="Create new PREDeleteTrigger"
-            genNodes="//@diagram/@childNodes.3"/>
+            genNodes="//@diagram/@childNodes.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="PREFormTrigger"
             description="Create new PREFormTrigger"
-            genNodes="//@diagram/@childNodes.12"/>
+            genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="PREInsertTrigger"
             description="Create new PREInsertTrigger"
-            genNodes="//@diagram/@childNodes.2"/>
+            genNodes="//@diagram/@childNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="PREQueryTrigger"
             description="Create new PREQueryTrigger"
-            genNodes="//@diagram/@childNodes.0"/>
+            genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="PREUpdateTrigger"
             description="Create new PREUpdateTrigger"
-            genNodes="//@diagram/@childNodes.5"/>
+            genNodes="//@diagram/@childNodes.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Root"
             description="Create new Root"
-            genNodes="//@diagram/@topLevelNodes.1"/>
+            genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="SearchTrigger"
             description="Create new SearchTrigger"
-            genNodes="//@diagram/@childNodes.10"/>
+            genNodes="//@diagram/@childNodes.11"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="UpdateTrigger"
             description="Create new UpdateTrigger"
-            genNodes="//@diagram/@childNodes.8"/>
+            genNodes="//@diagram/@childNodes.9"/>
       </groups>
       <groups
           title="Connections"
@@ -1564,41 +1564,41 @@
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.0"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.1"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.2"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.3"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.4"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.5"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.6"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.7"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.8"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.9"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.10"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.11"/>
-    <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.1"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.2"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.3"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.4"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.5"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.6"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.7"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.8"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.9"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.10"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.11"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.1"
         child="//@diagram/@childNodes.12"/>
@@ -1617,24 +1617,24 @@
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.1"
-        child="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@topLevelNodes.1"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.0"
+        parent="//@diagram/@topLevelNodes.1"
         child="//@diagram/@links.1"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.1"
-        child="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@topLevelNodes.1"
         referenceType="in_source"
         groupName="source"
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.0"
+        parent="//@diagram/@topLevelNodes.1"
         child="//@diagram/@links.1"
         referenceType="out_target"
         groupName="outgoing links"
@@ -1696,7 +1696,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@childNodes.7/@labels.0/@modelFacet //@diagram/@childNodes.8/@labels.0/@modelFacet //@diagram/@childNodes.9/@labels.0/@modelFacet //@diagram/@childNodes.10/@labels.0/@modelFacet //@diagram/@childNodes.11/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.12/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@childNodes.7/@labels.0/@modelFacet //@diagram/@childNodes.8/@labels.0/@modelFacet //@diagram/@childNodes.9/@labels.0/@modelFacet //@diagram/@childNodes.10/@labels.0/@modelFacet //@diagram/@childNodes.11/@labels.0/@modelFacet //@diagram/@childNodes.12/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet"/>
     <implementations
         xsi:type="gmfgen:ExternalParser"
         uses="//@diagram/@links.2/@labels.0/@modelFacet //@diagram/@links.3/@labels.0/@modelFacet //@diagram/@links.4/@labels.0/@modelFacet //@diagram/@links.5/@labels.0/@modelFacet //@diagram/@links.6/@labels.0/@modelFacet //@diagram/@links.7/@labels.0/@modelFacet"/>

@@ -801,7 +801,6 @@ public class DomainSwitch<T> extends Switch<T>
       {
         DataControl dataControl = (DataControl)theEObject;
         T result = caseDataControl(dataControl);
-        if (result == null) result = caseTypePointer(dataControl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

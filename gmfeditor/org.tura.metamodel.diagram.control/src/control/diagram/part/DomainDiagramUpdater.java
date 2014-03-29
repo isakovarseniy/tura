@@ -87,6 +87,8 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ControlsEditPart.VISUAL_ID:
 			return getControls_1101000SemanticChildren(view);
+		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
+			return getRootRootPreFormTriggerCompartment_1107001SemanticChildren(view);
 		case DataControlDataControlPreQueryTriggerCompartmentEditPart.VISUAL_ID:
 			return getDataControlDataControlPreQueryTriggerCompartment_1107002SemanticChildren(view);
 		case DataControlDataControlPostQueryTriggerCompartmentEditPart.VISUAL_ID:
@@ -111,8 +113,6 @@ public class DomainDiagramUpdater {
 			return getDataControlDataControlSearchCompartment_1107012SemanticChildren(view);
 		case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
 			return getDataControlDataControlArtificialFieldsCompartment_1107013SemanticChildren(view);
-		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
-			return getRootRootPreFormTriggerCompartment_1107001SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -127,6 +127,14 @@ public class DomainDiagramUpdater {
 		}
 		Controls modelElement = (Controls) view.getElement();
 		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		{
+			Root childElement = modelElement.getRoot();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == RootEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
 		for (Iterator<?> it = modelElement.getControls().iterator(); it
 				.hasNext();) {
 			DataControl childElement = (DataControl) it.next();
@@ -135,14 +143,6 @@ public class DomainDiagramUpdater {
 			if (visualID == DataControlEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
-			}
-		}
-		{
-			Root childElement = modelElement.getRoot();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == RootEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
 		return result;
@@ -483,10 +483,12 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ControlsEditPart.VISUAL_ID:
 			return getControls_1101000ContainedLinks(view);
-		case DataControlEditPart.VISUAL_ID:
-			return getDataControl_1102002ContainedLinks(view);
 		case RootEditPart.VISUAL_ID:
 			return getRoot_1102001ContainedLinks(view);
+		case DataControlEditPart.VISUAL_ID:
+			return getDataControl_1102002ContainedLinks(view);
+		case PREFormTriggerEditPart.VISUAL_ID:
+			return getPREFormTrigger_1103001ContainedLinks(view);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return getPREQueryTrigger_1103002ContainedLinks(view);
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -511,8 +513,6 @@ public class DomainDiagramUpdater {
 			return getSearchTrigger_1103016ContainedLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return getArtificialField_1103008ContainedLinks(view);
-		case PREFormTriggerEditPart.VISUAL_ID:
-			return getPREFormTrigger_1103001ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_1104001ContainedLinks(view);
 		case RelationEditPart.VISUAL_ID:
@@ -526,10 +526,12 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getIncomingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case DataControlEditPart.VISUAL_ID:
-			return getDataControl_1102002IncomingLinks(view);
 		case RootEditPart.VISUAL_ID:
 			return getRoot_1102001IncomingLinks(view);
+		case DataControlEditPart.VISUAL_ID:
+			return getDataControl_1102002IncomingLinks(view);
+		case PREFormTriggerEditPart.VISUAL_ID:
+			return getPREFormTrigger_1103001IncomingLinks(view);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return getPREQueryTrigger_1103002IncomingLinks(view);
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -554,8 +556,6 @@ public class DomainDiagramUpdater {
 			return getSearchTrigger_1103016IncomingLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return getArtificialField_1103008IncomingLinks(view);
-		case PREFormTriggerEditPart.VISUAL_ID:
-			return getPREFormTrigger_1103001IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_1104001IncomingLinks(view);
 		case RelationEditPart.VISUAL_ID:
@@ -569,10 +569,12 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getOutgoingLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case DataControlEditPart.VISUAL_ID:
-			return getDataControl_1102002OutgoingLinks(view);
 		case RootEditPart.VISUAL_ID:
 			return getRoot_1102001OutgoingLinks(view);
+		case DataControlEditPart.VISUAL_ID:
+			return getDataControl_1102002OutgoingLinks(view);
+		case PREFormTriggerEditPart.VISUAL_ID:
+			return getPREFormTrigger_1103001OutgoingLinks(view);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return getPREQueryTrigger_1103002OutgoingLinks(view);
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -597,8 +599,6 @@ public class DomainDiagramUpdater {
 			return getSearchTrigger_1103016OutgoingLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return getArtificialField_1103008OutgoingLinks(view);
-		case PREFormTriggerEditPart.VISUAL_ID:
-			return getPREFormTrigger_1103001OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_1104001OutgoingLinks(view);
 		case RelationEditPart.VISUAL_ID:

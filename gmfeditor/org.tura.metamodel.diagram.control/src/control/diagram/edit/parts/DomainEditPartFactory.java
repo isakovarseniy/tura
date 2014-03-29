@@ -28,17 +28,23 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ControlsEditPart.VISUAL_ID:
 				return new ControlsEditPart(view);
 
+			case RootEditPart.VISUAL_ID:
+				return new RootEditPart(view);
+
+			case RootNameEditPart.VISUAL_ID:
+				return new RootNameEditPart(view);
+
 			case DataControlEditPart.VISUAL_ID:
 				return new DataControlEditPart(view);
 
 			case DataControlNameEditPart.VISUAL_ID:
 				return new DataControlNameEditPart(view);
 
-			case RootEditPart.VISUAL_ID:
-				return new RootEditPart(view);
+			case PREFormTriggerEditPart.VISUAL_ID:
+				return new PREFormTriggerEditPart(view);
 
-			case RootNameEditPart.VISUAL_ID:
-				return new RootNameEditPart(view);
+			case PREFormTriggerFakeMethodEditPart.VISUAL_ID:
+				return new PREFormTriggerFakeMethodEditPart(view);
 
 			case PREQueryTriggerEditPart.VISUAL_ID:
 				return new PREQueryTriggerEditPart(view);
@@ -112,11 +118,8 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ArtificialFieldNameEditPart.VISUAL_ID:
 				return new ArtificialFieldNameEditPart(view);
 
-			case PREFormTriggerEditPart.VISUAL_ID:
-				return new PREFormTriggerEditPart(view);
-
-			case PREFormTriggerFakeMethodEditPart.VISUAL_ID:
-				return new PREFormTriggerFakeMethodEditPart(view);
+			case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
+				return new RootRootPreFormTriggerCompartmentEditPart(view);
 
 			case DataControlDataControlPreQueryTriggerCompartmentEditPart.VISUAL_ID:
 				return new DataControlDataControlPreQueryTriggerCompartmentEditPart(
@@ -160,9 +163,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
 				return new DataControlDataControlArtificialFieldsCompartmentEditPart(
 						view);
-
-			case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
-				return new RootRootPreFormTriggerCompartmentEditPart(view);
 
 			case TypeExtensionEditPart.VISUAL_ID:
 				return new TypeExtensionEditPart(view);

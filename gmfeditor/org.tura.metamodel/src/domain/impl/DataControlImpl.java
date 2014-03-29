@@ -3,6 +3,7 @@
 package domain.impl;
 
 import domain.ArtificialField;
+import domain.Controls;
 import domain.CreateTrigger;
 import domain.DataControl;
 import domain.DeleteTrigger;
@@ -30,7 +31,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -42,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.DataControlImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.DataControlImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getPreQueryTrigger <em>Pre Query Trigger</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getPostQueryTrigger <em>Post Query Trigger</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getPreInsertTrigger <em>Pre Insert Trigger</em>}</li>
@@ -59,7 +63,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DataControlImpl extends TypePointerImpl implements DataControl
+public class DataControlImpl extends EObjectImpl implements DataControl
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -286,6 +290,51 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Controls getParent()
+  {
+    if (eContainerFeatureID() != DomainPackage.DATA_CONTROL__PARENT) return null;
+    return (Controls)eContainer();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(Controls newParent, NotificationChain msgs)
+  {
+    msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.DATA_CONTROL__PARENT, msgs);
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(Controls newParent)
+  {
+    if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.DATA_CONTROL__PARENT && newParent != null))
+    {
+      if (EcoreUtil.isAncestor(this, newParent))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+      NotificationChain msgs = null;
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.CONTROLS__CONTROLS, Controls.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__PARENT, newParent, newParent));
   }
 
   /**
@@ -595,6 +644,24 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.DATA_CONTROL__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((Controls)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public CreateTrigger getCreate()
   {
     return create;
@@ -840,6 +907,8 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
   {
     switch (featureID)
     {
+      case DomainPackage.DATA_CONTROL__PARENT:
+        return basicSetParent(null, msgs);
       case DomainPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
         return basicSetPreQueryTrigger(null, msgs);
       case DomainPackage.DATA_CONTROL__POST_QUERY_TRIGGER:
@@ -874,6 +943,22 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
    * @generated
    */
   @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case DomainPackage.DATA_CONTROL__PARENT:
+        return eInternalContainer().eInverseRemove(this, DomainPackage.CONTROLS__CONTROLS, Controls.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -882,6 +967,8 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return getUid();
       case DomainPackage.DATA_CONTROL__NAME:
         return getName();
+      case DomainPackage.DATA_CONTROL__PARENT:
+        return getParent();
       case DomainPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
         return getPreQueryTrigger();
       case DomainPackage.DATA_CONTROL__POST_QUERY_TRIGGER:
@@ -926,6 +1013,9 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return;
       case DomainPackage.DATA_CONTROL__NAME:
         setName((String)newValue);
+        return;
+      case DomainPackage.DATA_CONTROL__PARENT:
+        setParent((Controls)newValue);
         return;
       case DomainPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
         setPreQueryTrigger((PREQueryTrigger)newValue);
@@ -984,6 +1074,9 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
       case DomainPackage.DATA_CONTROL__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DomainPackage.DATA_CONTROL__PARENT:
+        setParent((Controls)null);
+        return;
       case DomainPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
         setPreQueryTrigger((PREQueryTrigger)null);
         return;
@@ -1038,6 +1131,8 @@ public class DataControlImpl extends TypePointerImpl implements DataControl
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.DATA_CONTROL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.DATA_CONTROL__PARENT:
+        return getParent() != null;
       case DomainPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
         return preQueryTrigger != null;
       case DomainPackage.DATA_CONTROL__POST_QUERY_TRIGGER:

@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Control"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1102002,1102001,1103002,1103003,1103004,1103005,1103011,1103010,1103012,1103013,1103014,1103015,1103016,1103008,1103001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1102001,1102002,1103001,1103002,1103003,1103004,1103005,1103011,1103010,1103012,1103013,1103014,1103015,1103016,1103008"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1104001,1104009,1104002,1104003,1104004,1104005,1104006,1104007"/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="Control"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="1102002,1102001,1103002,1103003,1103004,1103005,1103011,1103010,1103012,1103013,1103014,1103015,1103016,1103008,1103001"/>
+            <method name="getType()" value="1102001,1102002,1103001,1103002,1103003,1103004,1103005,1103011,1103010,1103012,1103013,1103014,1103015,1103016,1103008"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="1104001,1104009,1104002,1104003,1104004,1104005,1104006,1104007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="1105007,1105002,1105003,1105004,1105005,1105006,1105013,1105012,1105014,1105015,1105016,1105017,1105018,1105010,1105001"/>
+            <method name="getType()" value="1105002,1105007,1105001,1105003,1105004,1105005,1105006,1105013,1105012,1105014,1105015,1105016,1105017,1105018,1105010"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="1107002,1107003,1107004,1107005,1107006,1107007,1107008,1107009,1107010,1107011,1107012,1107013,1107001"/>
+            <method name="getType()" value="1107001,1107002,1107003,1107004,1107005,1107006,1107007,1107008,1107009,1107010,1107011,1107012,1107013"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -291,9 +291,9 @@
       <modelingAssistantProvider class="control.diagram.providers.DomainModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="control.diagram.edit.parts.ControlsEditPart" id="Controls_1101000"/>
-         <object class="control.diagram.edit.parts.DataControlEditPart" id="DataControl_1102002"/>
          <object class="control.diagram.edit.parts.RootEditPart" id="Root_1102001"/>
-         <context elements="Controls_1101000,DataControl_1102002,Root_1102001"/>
+         <object class="control.diagram.edit.parts.DataControlEditPart" id="DataControl_1102002"/>
+         <context elements="Controls_1101000,Root_1102001,DataControl_1102002"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -316,7 +316,7 @@
       <decoratorProvider class="control.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="1102002,1102001"/>
+            <method name="getType()" value="1102001,1102002"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -336,6 +336,16 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
+               id="org.tura.metamodel.diagram.control.Root_1102001"
+               name="%metatype.name.Root_1102001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Root"
+               edithelper="control.diagram.edit.helpers.RootEditHelper">
+            <param name="semanticHint" value="1102001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
                id="org.tura.metamodel.diagram.control.DataControl_1102002"
                name="%metatype.name.DataControl_1102002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -346,12 +356,12 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.diagram.control.Root_1102001"
-               name="%metatype.name.Root_1102001"
+               id="org.tura.metamodel.diagram.control.PREFormTrigger_1103001"
+               name="%metatype.name.PREFormTrigger_1103001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Root"
-               edithelper="control.diagram.edit.helpers.RootEditHelper">
-            <param name="semanticHint" value="1102001"/>
+               eclass="PREFormTrigger"
+               edithelper="control.diagram.edit.helpers.PREFormTriggerEditHelper">
+            <param name="semanticHint" value="1103001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -476,16 +486,6 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
-               id="org.tura.metamodel.diagram.control.PREFormTrigger_1103001"
-               name="%metatype.name.PREFormTrigger_1103001"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="PREFormTrigger"
-               edithelper="control.diagram.edit.helpers.PREFormTriggerEditHelper">
-            <param name="semanticHint" value="1103001"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <metamodelType
                id="org.tura.metamodel.diagram.control.TypeExtension_1104001"
                name="%metatype.name.TypeExtension_1104001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -575,8 +575,9 @@
       <!-- <binding context="org.tura.metamodel.diagram.control.TypeContext"> -->
       <binding context="SharedClientContext">
          <elementType ref="org.tura.metamodel.diagram.control.Controls_1101000"/>
-         <elementType ref="org.tura.metamodel.diagram.control.DataControl_1102002"/>
          <elementType ref="org.tura.metamodel.diagram.control.Root_1102001"/>
+         <elementType ref="org.tura.metamodel.diagram.control.DataControl_1102002"/>
+         <elementType ref="org.tura.metamodel.diagram.control.PREFormTrigger_1103001"/>
          <elementType ref="org.tura.metamodel.diagram.control.PREQueryTrigger_1103002"/>
          <elementType ref="org.tura.metamodel.diagram.control.POSTQueryTrigger_1103003"/>
          <elementType ref="org.tura.metamodel.diagram.control.PREInsertTrigger_1103004"/>
@@ -589,7 +590,6 @@
          <elementType ref="org.tura.metamodel.diagram.control.DeleteTrigger_1103015"/>
          <elementType ref="org.tura.metamodel.diagram.control.SearchTrigger_1103016"/>
          <elementType ref="org.tura.metamodel.diagram.control.ArtificialField_1103008"/>
-         <elementType ref="org.tura.metamodel.diagram.control.PREFormTrigger_1103001"/>
          <elementType ref="org.tura.metamodel.diagram.control.TypeExtension_1104001"/>
          <elementType ref="org.tura.metamodel.diagram.control.Relation_1104009"/>
          <elementType ref="org.tura.metamodel.diagram.control.DeploymentComponentDeplymentComponent_1104002"/>

@@ -316,10 +316,12 @@ public class DomainParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case DataControlNameEditPart.VISUAL_ID:
-			return getDataControlName_1105007Parser();
 		case RootNameEditPart.VISUAL_ID:
 			return getRootName_1105002Parser();
+		case DataControlNameEditPart.VISUAL_ID:
+			return getDataControlName_1105007Parser();
+		case PREFormTriggerFakeMethodEditPart.VISUAL_ID:
+			return getPREFormTriggerFakeMethod_1105001Parser();
 		case PREQueryTriggerFakeMethodEditPart.VISUAL_ID:
 			return getPREQueryTriggerFakeMethod_1105003Parser();
 		case POSTQueryTriggerFakeMethodEditPart.VISUAL_ID:
@@ -344,8 +346,6 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getSearchTriggerFakeMethod_1105018Parser();
 		case ArtificialFieldNameEditPart.VISUAL_ID:
 			return getArtificialFieldName_1105010Parser();
-		case PREFormTriggerFakeMethodEditPart.VISUAL_ID:
-			return getPREFormTriggerFakeMethod_1105001Parser();
 		}
 		return null;
 	}

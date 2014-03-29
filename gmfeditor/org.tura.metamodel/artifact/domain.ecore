@@ -835,7 +835,7 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//Root" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
-        eType="#//DataControl" containment="true"/>
+        eType="#//DataControl" containment="true" eOpposite="#//DataControl/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
         eType="#//Relation" containment="true"/>
   </eClassifiers>
@@ -959,7 +959,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataControl" eSuperTypes="#//TypePointer">
+  <eClassifiers xsi:type="ecore:EClass" name="DataControl">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
@@ -968,6 +968,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Controls"
+        eOpposite="#//Controls/controls"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preQueryTrigger" eType="#//PREQueryTrigger"
         containment="true">
       <eAnnotations source="gmf.compartment">

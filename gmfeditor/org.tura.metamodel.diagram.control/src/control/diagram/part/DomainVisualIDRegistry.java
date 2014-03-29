@@ -180,13 +180,19 @@ public class DomainVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case ControlsEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getRoot().isSuperTypeOf(
+					domainElement.eClass())) {
+				return RootEditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getDataControl().isSuperTypeOf(
 					domainElement.eClass())) {
 				return DataControlEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getRoot().isSuperTypeOf(
+			break;
+		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getPREFormTrigger().isSuperTypeOf(
 					domainElement.eClass())) {
-				return RootEditPart.VISUAL_ID;
+				return PREFormTriggerEditPart.VISUAL_ID;
 			}
 			break;
 		case DataControlDataControlPreQueryTriggerCompartmentEditPart.VISUAL_ID:
@@ -261,12 +267,6 @@ public class DomainVisualIDRegistry {
 				return ArtificialFieldEditPart.VISUAL_ID;
 			}
 			break;
-		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
-			if (DomainPackage.eINSTANCE.getPREFormTrigger().isSuperTypeOf(
-					domainElement.eClass())) {
-				return PREFormTriggerEditPart.VISUAL_ID;
-			}
-			break;
 		}
 		return -1;
 	}
@@ -294,10 +294,18 @@ public class DomainVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case ControlsEditPart.VISUAL_ID:
+			if (RootEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (DataControlEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (RootEditPart.VISUAL_ID == nodeVisualID) {
+			break;
+		case RootEditPart.VISUAL_ID:
+			if (RootNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -342,11 +350,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RootEditPart.VISUAL_ID:
-			if (RootNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+		case PREFormTriggerEditPart.VISUAL_ID:
+			if (PREFormTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -410,8 +415,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case PREFormTriggerEditPart.VISUAL_ID:
-			if (PREFormTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
+		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
+			if (PREFormTriggerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -472,11 +477,6 @@ public class DomainVisualIDRegistry {
 			break;
 		case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
 			if (ArtificialFieldEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
-			if (PREFormTriggerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -560,6 +560,7 @@ public class DomainVisualIDRegistry {
 	 */
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
+		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
 		case DataControlDataControlPreQueryTriggerCompartmentEditPart.VISUAL_ID:
 		case DataControlDataControlPostQueryTriggerCompartmentEditPart.VISUAL_ID:
 		case DataControlDataControlPreInsertTriggerCompartmentEditPart.VISUAL_ID:
@@ -572,7 +573,6 @@ public class DomainVisualIDRegistry {
 		case DataControlDataControlRemoveCompartmentEditPart.VISUAL_ID:
 		case DataControlDataControlSearchCompartmentEditPart.VISUAL_ID:
 		case DataControlDataControlArtificialFieldsCompartmentEditPart.VISUAL_ID:
-		case RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

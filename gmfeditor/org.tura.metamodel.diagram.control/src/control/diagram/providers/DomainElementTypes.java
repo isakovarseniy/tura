@@ -288,10 +288,13 @@ public class DomainElementTypes {
 			elements.put(Controls_1101000,
 					DomainPackage.eINSTANCE.getControls());
 
+			elements.put(Root_1102001, DomainPackage.eINSTANCE.getRoot());
+
 			elements.put(DataControl_1102002,
 					DomainPackage.eINSTANCE.getDataControl());
 
-			elements.put(Root_1102001, DomainPackage.eINSTANCE.getRoot());
+			elements.put(PREFormTrigger_1103001,
+					DomainPackage.eINSTANCE.getPREFormTrigger());
 
 			elements.put(PREQueryTrigger_1103002,
 					DomainPackage.eINSTANCE.getPREQueryTrigger());
@@ -328,9 +331,6 @@ public class DomainElementTypes {
 
 			elements.put(ArtificialField_1103008,
 					DomainPackage.eINSTANCE.getArtificialField());
-
-			elements.put(PREFormTrigger_1103001,
-					DomainPackage.eINSTANCE.getPREFormTrigger());
 
 			elements.put(TypeExtension_1104001,
 					DomainPackage.eINSTANCE.getTypeExtension());
@@ -374,8 +374,9 @@ public class DomainElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(Controls_1101000);
-			KNOWN_ELEMENT_TYPES.add(DataControl_1102002);
 			KNOWN_ELEMENT_TYPES.add(Root_1102001);
+			KNOWN_ELEMENT_TYPES.add(DataControl_1102002);
+			KNOWN_ELEMENT_TYPES.add(PREFormTrigger_1103001);
 			KNOWN_ELEMENT_TYPES.add(PREQueryTrigger_1103002);
 			KNOWN_ELEMENT_TYPES.add(POSTQueryTrigger_1103003);
 			KNOWN_ELEMENT_TYPES.add(PREInsertTrigger_1103004);
@@ -388,7 +389,6 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(DeleteTrigger_1103015);
 			KNOWN_ELEMENT_TYPES.add(SearchTrigger_1103016);
 			KNOWN_ELEMENT_TYPES.add(ArtificialField_1103008);
-			KNOWN_ELEMENT_TYPES.add(PREFormTrigger_1103001);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_1104001);
 			KNOWN_ELEMENT_TYPES.add(Relation_1104009);
 			KNOWN_ELEMENT_TYPES
@@ -409,10 +409,12 @@ public class DomainElementTypes {
 		switch (visualID) {
 		case ControlsEditPart.VISUAL_ID:
 			return Controls_1101000;
-		case DataControlEditPart.VISUAL_ID:
-			return DataControl_1102002;
 		case RootEditPart.VISUAL_ID:
 			return Root_1102001;
+		case DataControlEditPart.VISUAL_ID:
+			return DataControl_1102002;
+		case PREFormTriggerEditPart.VISUAL_ID:
+			return PREFormTrigger_1103001;
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return PREQueryTrigger_1103002;
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -437,8 +439,6 @@ public class DomainElementTypes {
 			return SearchTrigger_1103016;
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return ArtificialField_1103008;
-		case PREFormTriggerEditPart.VISUAL_ID:
-			return PREFormTrigger_1103001;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_1104001;
 		case RelationEditPart.VISUAL_ID:

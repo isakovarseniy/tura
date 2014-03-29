@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -193,7 +194,7 @@ public class ControlsImpl extends EObjectImpl implements Controls
   {
     if (controls == null)
     {
-      controls = new EObjectContainmentEList<DataControl>(DataControl.class, this, DomainPackage.CONTROLS__CONTROLS);
+      controls = new EObjectContainmentWithInverseEList<DataControl>(DataControl.class, this, DomainPackage.CONTROLS__CONTROLS, DomainPackage.DATA_CONTROL__PARENT);
     }
     return controls;
   }
@@ -210,6 +211,23 @@ public class ControlsImpl extends EObjectImpl implements Controls
       relations = new EObjectContainmentEList<Relation>(Relation.class, this, DomainPackage.CONTROLS__RELATIONS);
     }
     return relations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.CONTROLS__CONTROLS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getControls()).basicAdd(otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**

@@ -405,6 +405,7 @@
     <genClasses ecoreClass="domain.ecore#//DataControl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DataControl/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DataControl/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//DataControl/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preQueryTrigger"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/postQueryTrigger"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DataControl/preInsertTrigger"/>

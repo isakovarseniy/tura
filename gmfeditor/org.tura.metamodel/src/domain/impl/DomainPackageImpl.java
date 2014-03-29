@@ -4102,7 +4102,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_PreQueryTrigger()
+  public EReference getDataControl_Parent()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(2);
   }
@@ -4112,7 +4112,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_PostQueryTrigger()
+  public EReference getDataControl_PreQueryTrigger()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(3);
   }
@@ -4122,7 +4122,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_PreInsertTrigger()
+  public EReference getDataControl_PostQueryTrigger()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(4);
   }
@@ -4132,7 +4132,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_PreDeleteTrigger()
+  public EReference getDataControl_PreInsertTrigger()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(5);
   }
@@ -4142,7 +4142,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_PostCreateTrigger()
+  public EReference getDataControl_PreDeleteTrigger()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(6);
   }
@@ -4152,7 +4152,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_PreUpdateTrigger()
+  public EReference getDataControl_PostCreateTrigger()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(7);
   }
@@ -4162,17 +4162,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_ArtificialFields()
-  {
-    return (EReference)dataControlEClass.getEStructuralFeatures().get(13);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDataControl_Create()
+  public EReference getDataControl_PreUpdateTrigger()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(8);
   }
@@ -4182,7 +4172,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_Insert()
+  public EReference getDataControl_ArtificialFields()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(14);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_Create()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(9);
   }
@@ -4192,7 +4192,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_Update()
+  public EReference getDataControl_Insert()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(10);
   }
@@ -4202,7 +4202,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_Remove()
+  public EReference getDataControl_Update()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(11);
   }
@@ -4212,9 +4212,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataControl_Search()
+  public EReference getDataControl_Remove()
   {
     return (EReference)dataControlEClass.getEStructuralFeatures().get(12);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataControl_Search()
+  {
+    return (EReference)dataControlEClass.getEStructuralFeatures().get(13);
   }
 
   /**
@@ -4821,6 +4831,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     dataControlEClass = createEClass(DATA_CONTROL);
     createEAttribute(dataControlEClass, DATA_CONTROL__UID);
     createEAttribute(dataControlEClass, DATA_CONTROL__NAME);
+    createEReference(dataControlEClass, DATA_CONTROL__PARENT);
     createEReference(dataControlEClass, DATA_CONTROL__PRE_QUERY_TRIGGER);
     createEReference(dataControlEClass, DATA_CONTROL__POST_QUERY_TRIGGER);
     createEReference(dataControlEClass, DATA_CONTROL__PRE_INSERT_TRIGGER);
@@ -4917,7 +4928,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     updateTriggerEClass.getESuperTypes().add(this.getTrigger());
     deleteTriggerEClass.getESuperTypes().add(this.getTrigger());
     searchTriggerEClass.getESuperTypes().add(this.getTrigger());
-    dataControlEClass.getESuperTypes().add(this.getTypePointer());
     artificialFieldEClass.getESuperTypes().add(this.getTypePointer());
 
     // Initialize classes and features; add operations and parameters
@@ -5285,7 +5295,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(controlsEClass, Controls.class, "Controls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getControls_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getControls_Root(), this.getRoot(), null, "root", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getControls_Controls(), this.getDataControl(), null, "controls", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControls_Controls(), this.getDataControl(), this.getDataControl_Parent(), "controls", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getControls_Relations(), this.getRelation(), null, "relations", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -5335,6 +5345,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(dataControlEClass, DataControl.class, "DataControl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDataControl_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDataControl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_Parent(), this.getControls(), this.getControls_Controls(), "parent", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_PreQueryTrigger(), this.getPREQueryTrigger(), null, "preQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_PostQueryTrigger(), this.getPOSTQueryTrigger(), null, "postQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_PreInsertTrigger(), this.getPREInsertTrigger(), null, "preInsertTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

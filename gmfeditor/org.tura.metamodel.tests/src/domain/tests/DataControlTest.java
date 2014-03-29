@@ -5,6 +5,8 @@ package domain.tests;
 import domain.DataControl;
 import domain.DomainFactory;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,8 +15,16 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataControlTest extends TypePointerTest
+public class DataControlTest extends TestCase
 {
+
+  /**
+   * The fixture for this Data Control test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DataControl fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -38,15 +48,25 @@ public class DataControlTest extends TypePointerTest
   }
 
   /**
+   * Sets the fixture for this Data Control test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void setFixture(DataControl fixture)
+  {
+    this.fixture = fixture;
+  }
+
+  /**
    * Returns the fixture for this Data Control test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   protected DataControl getFixture()
   {
-    return (DataControl)fixture;
+    return fixture;
   }
 
   /**

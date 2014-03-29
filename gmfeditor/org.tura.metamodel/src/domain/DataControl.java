@@ -3,6 +3,7 @@
 package domain;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link domain.DataControl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.DataControl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.DataControl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.DataControl#getPreQueryTrigger <em>Pre Query Trigger</em>}</li>
  *   <li>{@link domain.DataControl#getPostQueryTrigger <em>Post Query Trigger</em>}</li>
  *   <li>{@link domain.DataControl#getPreInsertTrigger <em>Pre Insert Trigger</em>}</li>
@@ -33,7 +35,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"
  * @generated
  */
-public interface DataControl extends TypePointer
+public interface DataControl extends EObject
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.
@@ -86,6 +88,34 @@ public interface DataControl extends TypePointer
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.Controls#getControls <em>Controls</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(Controls)
+   * @see domain.DomainPackage#getDataControl_Parent()
+   * @see domain.Controls#getControls
+   * @model opposite="controls" transient="false"
+   * @generated
+   */
+  Controls getParent();
+
+  /**
+   * Sets the value of the '{@link domain.DataControl#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(Controls value);
 
   /**
    * Returns the value of the '<em><b>Pre Query Trigger</b></em>' containment reference.

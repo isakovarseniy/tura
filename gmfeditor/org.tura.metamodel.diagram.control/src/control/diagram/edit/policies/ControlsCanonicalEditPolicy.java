@@ -87,9 +87,9 @@ public class ControlsCanonicalEditPolicy extends CanonicalEditPolicy {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
-					.getControls_Controls());
-			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getControls_Root());
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getControls_Controls());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -126,8 +126,8 @@ public class ControlsCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
-		return visualID == DataControlEditPart.VISUAL_ID
-				|| visualID == RootEditPart.VISUAL_ID;
+		return visualID == RootEditPart.VISUAL_ID
+				|| visualID == DataControlEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -297,6 +297,14 @@ public class ControlsCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
+		case RootEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getRoot_1102001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
 		case DataControlEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
@@ -305,10 +313,10 @@ public class ControlsCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case RootEditPart.VISUAL_ID: {
+		case PREFormTriggerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getRoot_1102001ContainedLinks(view));
+						.getPREFormTrigger_1103001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -405,14 +413,6 @@ public class ControlsCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getArtificialField_1103008ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case PREFormTriggerEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(DomainDiagramUpdater
-						.getPREFormTrigger_1103001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

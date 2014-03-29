@@ -82,6 +82,7 @@ public interface Controls extends EObject
   /**
    * Returns the value of the '<em><b>Controls</b></em>' containment reference list.
    * The list contents are of type {@link domain.DataControl}.
+   * It is bidirectional and its opposite is '{@link domain.DataControl#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Controls</em>' containment reference list isn't clear,
@@ -90,7 +91,8 @@ public interface Controls extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Controls</em>' containment reference list.
    * @see domain.DomainPackage#getControls_Controls()
-   * @model containment="true"
+   * @see domain.DataControl#getParent
+   * @model opposite="parent" containment="true"
    * @generated
    */
   EList<DataControl> getControls();

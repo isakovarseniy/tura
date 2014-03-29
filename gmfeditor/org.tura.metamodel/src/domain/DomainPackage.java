@@ -5506,49 +5506,13 @@ public interface DomainPackage extends EPackage
   int DATA_CONTROL = 83;
 
   /**
-   * The feature id for the '<em><b>Package Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATA_CONTROL__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
-
-  /**
-   * The feature id for the '<em><b>Type Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATA_CONTROL__TYPE_REF = TYPE_POINTER__TYPE_REF;
-
-  /**
-   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATA_CONTROL__FAKE_PACKAGE_NAME = TYPE_POINTER__FAKE_PACKAGE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATA_CONTROL__FAKE_TYPE_NAME = TYPE_POINTER__FAKE_TYPE_NAME;
-
-  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__UID = TYPE_POINTER_FEATURE_COUNT + 0;
+  int DATA_CONTROL__UID = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5557,7 +5521,16 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__NAME = TYPE_POINTER_FEATURE_COUNT + 1;
+  int DATA_CONTROL__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_CONTROL__PARENT = 2;
 
   /**
    * The feature id for the '<em><b>Pre Query Trigger</b></em>' containment reference.
@@ -5566,7 +5539,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__PRE_QUERY_TRIGGER = TYPE_POINTER_FEATURE_COUNT + 2;
+  int DATA_CONTROL__PRE_QUERY_TRIGGER = 3;
 
   /**
    * The feature id for the '<em><b>Post Query Trigger</b></em>' containment reference.
@@ -5575,7 +5548,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__POST_QUERY_TRIGGER = TYPE_POINTER_FEATURE_COUNT + 3;
+  int DATA_CONTROL__POST_QUERY_TRIGGER = 4;
 
   /**
    * The feature id for the '<em><b>Pre Insert Trigger</b></em>' containment reference.
@@ -5584,7 +5557,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__PRE_INSERT_TRIGGER = TYPE_POINTER_FEATURE_COUNT + 4;
+  int DATA_CONTROL__PRE_INSERT_TRIGGER = 5;
 
   /**
    * The feature id for the '<em><b>Pre Delete Trigger</b></em>' containment reference.
@@ -5593,7 +5566,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__PRE_DELETE_TRIGGER = TYPE_POINTER_FEATURE_COUNT + 5;
+  int DATA_CONTROL__PRE_DELETE_TRIGGER = 6;
 
   /**
    * The feature id for the '<em><b>Post Create Trigger</b></em>' containment reference.
@@ -5602,7 +5575,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__POST_CREATE_TRIGGER = TYPE_POINTER_FEATURE_COUNT + 6;
+  int DATA_CONTROL__POST_CREATE_TRIGGER = 7;
 
   /**
    * The feature id for the '<em><b>Pre Update Trigger</b></em>' containment reference.
@@ -5611,7 +5584,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__PRE_UPDATE_TRIGGER = TYPE_POINTER_FEATURE_COUNT + 7;
+  int DATA_CONTROL__PRE_UPDATE_TRIGGER = 8;
 
   /**
    * The feature id for the '<em><b>Create</b></em>' containment reference.
@@ -5620,7 +5593,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__CREATE = TYPE_POINTER_FEATURE_COUNT + 8;
+  int DATA_CONTROL__CREATE = 9;
 
   /**
    * The feature id for the '<em><b>Insert</b></em>' containment reference.
@@ -5629,7 +5602,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__INSERT = TYPE_POINTER_FEATURE_COUNT + 9;
+  int DATA_CONTROL__INSERT = 10;
 
   /**
    * The feature id for the '<em><b>Update</b></em>' containment reference.
@@ -5638,7 +5611,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__UPDATE = TYPE_POINTER_FEATURE_COUNT + 10;
+  int DATA_CONTROL__UPDATE = 11;
 
   /**
    * The feature id for the '<em><b>Remove</b></em>' containment reference.
@@ -5647,7 +5620,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__REMOVE = TYPE_POINTER_FEATURE_COUNT + 11;
+  int DATA_CONTROL__REMOVE = 12;
 
   /**
    * The feature id for the '<em><b>Search</b></em>' containment reference.
@@ -5656,7 +5629,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__SEARCH = TYPE_POINTER_FEATURE_COUNT + 12;
+  int DATA_CONTROL__SEARCH = 13;
 
   /**
    * The feature id for the '<em><b>Artificial Fields</b></em>' containment reference list.
@@ -5665,7 +5638,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL__ARTIFICIAL_FIELDS = TYPE_POINTER_FEATURE_COUNT + 13;
+  int DATA_CONTROL__ARTIFICIAL_FIELDS = 14;
 
   /**
    * The number of structural features of the '<em>Data Control</em>' class.
@@ -5674,7 +5647,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_CONTROL_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 14;
+  int DATA_CONTROL_FEATURE_COUNT = 15;
 
   /**
    * The meta object id for the '{@link domain.impl.RelationImpl <em>Relation</em>}' class.
@@ -9446,6 +9419,17 @@ public interface DomainPackage extends EPackage
   EAttribute getDataControl_Name();
 
   /**
+   * Returns the meta object for the container reference '{@link domain.DataControl#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.DataControl#getParent()
+   * @see #getDataControl()
+   * @generated
+   */
+  EReference getDataControl_Parent();
+
+  /**
    * Returns the meta object for the containment reference '{@link domain.DataControl#getPreQueryTrigger <em>Pre Query Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -12587,6 +12571,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute DATA_CONTROL__NAME = eINSTANCE.getDataControl_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_CONTROL__PARENT = eINSTANCE.getDataControl_Parent();
 
     /**
      * The meta object literal for the '<em><b>Pre Query Trigger</b></em>' containment reference feature.

@@ -1,0 +1,60 @@
+ context DataControl {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.controls.select(r|r.isKindOf(DataControl) and r.name=self.name).size() = 1
+      message : 'Data control name  ' + self.name + ' is not unique'
+   
+   } 
+
+  constraint HasCreateMethod {
+
+      check :  self.create.isDefined()
+
+      message : 'Create Method for ' + self.name + ' is not defined'
+
+  }
+
+  constraint HasInsertMethod {
+
+      check :  self.insert.isDefined()
+
+      message : 'Insert Method for ' + self.name + ' is not defined'
+
+  }
+
+ constraint HasUpdatetMethod {
+
+      check :  self.update.isDefined()
+
+      message : 'Update Method for ' + self.name + ' is not defined'
+
+  }
+
+ constraint HasRemoveMethod {
+
+      check :  self.remove.isDefined()
+
+      message : 'Remove Method for ' + self.name + ' is not defined'
+
+  }
+
+ constraint HasSearchMethod {
+
+      check :  self.search.isDefined()
+
+      message : 'Search Method for ' + self.name + ' is not defined'
+
+  }
+
+
+}

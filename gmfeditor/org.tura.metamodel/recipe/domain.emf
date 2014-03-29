@@ -545,7 +545,7 @@ class FormDataControls{
 class Controls{
     id attr EString uid;
     val Root root;
-    val DataControl [*] controls;
+    val DataControl [*]#parent controls;
     val Relation[*] relations;
 }
 
@@ -626,9 +626,10 @@ class Root{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
-class DataControl extends TypePointer{
+class DataControl {
     id attr EString uid;
    attr EString name;
+   ref Controls#controls parent;
    @gmf.compartment(layout="list")
    val PREQueryTrigger preQueryTrigger;
    @gmf.compartment(layout="list")

@@ -43,8 +43,13 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof ControlsEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(DomainElementTypes.DataControl_1102002);
 			types.add(DomainElementTypes.Root_1102001);
+			types.add(DomainElementTypes.DataControl_1102002);
+			return types;
+		}
+		if (editPart instanceof RootEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.PREFormTrigger_1103001);
 			return types;
 		}
 		if (editPart instanceof DataControlEditPart) {
@@ -61,11 +66,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.DeleteTrigger_1103015);
 			types.add(DomainElementTypes.SearchTrigger_1103016);
 			types.add(DomainElementTypes.ArtificialField_1103008);
-			return types;
-		}
-		if (editPart instanceof RootEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.PREFormTrigger_1103001);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

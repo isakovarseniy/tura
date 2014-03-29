@@ -31,11 +31,11 @@ public class ControlsItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.DataControl_1102002 == req.getElementType()) {
-			return getGEFWrapper(new DataControlCreateCommand(req));
-		}
 		if (DomainElementTypes.Root_1102001 == req.getElementType()) {
 			return getGEFWrapper(new RootCreateCommand(req));
+		}
+		if (DomainElementTypes.DataControl_1102002 == req.getElementType()) {
+			return getGEFWrapper(new DataControlCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
