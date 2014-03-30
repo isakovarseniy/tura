@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -629,7 +630,7 @@ public class DataControlImpl extends EObjectImpl implements DataControl
   {
     if (artificialFields == null)
     {
-      artificialFields = new EObjectContainmentEList<ArtificialField>(ArtificialField.class, this, DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS);
+      artificialFields = new EObjectContainmentWithInverseEList<ArtificialField>(ArtificialField.class, this, DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS, DomainPackage.ARTIFICIAL_FIELD__PARENT);
     }
     return artificialFields;
   }
@@ -639,6 +640,7 @@ public class DataControlImpl extends EObjectImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -648,6 +650,8 @@ public class DataControlImpl extends EObjectImpl implements DataControl
         if (eInternalContainer() != null)
           msgs = eBasicRemoveFromContainer(msgs);
         return basicSetParent((Controls)otherEnd, msgs);
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getArtificialFields()).basicAdd(otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
   }

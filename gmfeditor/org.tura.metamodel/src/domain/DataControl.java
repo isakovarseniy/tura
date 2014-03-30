@@ -282,6 +282,7 @@ public interface DataControl extends EObject
   /**
    * Returns the value of the '<em><b>Artificial Fields</b></em>' containment reference list.
    * The list contents are of type {@link domain.ArtificialField}.
+   * It is bidirectional and its opposite is '{@link domain.ArtificialField#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Artificial Fields</em>' containment reference list isn't clear,
@@ -290,7 +291,8 @@ public interface DataControl extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Artificial Fields</em>' containment reference list.
    * @see domain.DomainPackage#getDataControl_ArtificialFields()
-   * @model containment="true"
+   * @see domain.ArtificialField#getParent
+   * @model opposite="parent" containment="true"
    *        annotation="gmf.compartment layout='list'"
    * @generated
    */

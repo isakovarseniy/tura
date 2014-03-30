@@ -136,6 +136,7 @@ public class ApplicationItemProvider
       childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_RECIPES);
       childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_MAPPERS);
       childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_UI_LAYER);
+      childrenFeatures.add(DomainPackage.Literals.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER);
     }
     return childrenFeatures;
   }
@@ -201,6 +202,7 @@ public class ApplicationItemProvider
       case DomainPackage.APPLICATION__APPLICATION_RECIPES:
       case DomainPackage.APPLICATION__APPLICATION_MAPPERS:
       case DomainPackage.APPLICATION__APPLICATION_UI_LAYER:
+      case DomainPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -233,6 +235,11 @@ public class ApplicationItemProvider
       (createChildParameter
         (DomainPackage.Literals.APPLICATION__APPLICATION_UI_LAYER,
          DomainFactory.eINSTANCE.createApplicationUILayer()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER,
+         DomainFactory.eINSTANCE.createApplicationInfrastructureLayer()));
   }
 
   /**

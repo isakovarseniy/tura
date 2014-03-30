@@ -256,82 +256,172 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ArtificialField1CreationTool_title;
+	public static String ApplicationInfrastructureLayer1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ArtificialField1CreationTool_desc;
+	public static String ApplicationInfrastructureLayer1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Attribute2CreationTool_title;
+	public static String ArtificialField2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Attribute2CreationTool_desc;
+	public static String ArtificialField2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute3CreationTool_title;
+	public static String Attribute3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute3CreationTool_desc;
+	public static String Attribute3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator4CreationTool_title;
+	public static String Datacenter4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator4CreationTool_desc;
+	public static String Datacenter4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation5CreationTool_title;
+	public static String EnumAttribute5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation5CreationTool_desc;
+	public static String EnumAttribute5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive6CreationTool_title;
+	public static String Enumarator6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive6CreationTool_desc;
+	public static String Enumarator6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Type7CreationTool_title;
+	public static String Hub7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Type7CreationTool_desc;
+	public static String Hub7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeReference8CreationTool_title;
+	public static String InfrastructureLayer8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeReference8CreationTool_desc;
+	public static String InfrastructureLayer8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Operation9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Operation9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Primitive10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Primitive10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Router11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Router11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Server12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Server12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ServerClaster13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ServerClaster13CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Storage14CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Storage14CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Subsystem15CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Subsystem15CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Type16CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Type16CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeReference17CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeReference17CreationTool_desc;
 
 	/**
 	 * @generated

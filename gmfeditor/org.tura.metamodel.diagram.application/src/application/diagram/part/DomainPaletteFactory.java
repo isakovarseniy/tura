@@ -38,12 +38,22 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createApplicationMapper1CreationTool());
-		paletteContainer.add(createApplicationMappers2CreationTool());
-		paletteContainer.add(createApplicationRecipe3CreationTool());
-		paletteContainer.add(createApplicationRecipes4CreationTool());
-		paletteContainer.add(createApplicationUILayer5CreationTool());
-		paletteContainer.add(createApplicationUIPackage6CreationTool());
+		paletteContainer
+				.add(createApplicationInfrastructureLayer1CreationTool());
+		paletteContainer.add(createApplicationMapper2CreationTool());
+		paletteContainer.add(createApplicationMappers3CreationTool());
+		paletteContainer.add(createApplicationRecipe4CreationTool());
+		paletteContainer.add(createApplicationRecipes5CreationTool());
+		paletteContainer.add(createApplicationUILayer6CreationTool());
+		paletteContainer.add(createApplicationUIPackage7CreationTool());
+		paletteContainer.add(createDatacenter8CreationTool());
+		paletteContainer.add(createHub9CreationTool());
+		paletteContainer.add(createInfrastructureLayer10CreationTool());
+		paletteContainer.add(createRouter11CreationTool());
+		paletteContainer.add(createServer12CreationTool());
+		paletteContainer.add(createServerClaster13CreationTool());
+		paletteContainer.add(createStorage14CreationTool());
+		paletteContainer.add(createSubsystem15CreationTool());
 		return paletteContainer;
 	}
 
@@ -69,13 +79,29 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createApplicationMapper1CreationTool() {
+	private ToolEntry createApplicationInfrastructureLayer1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ApplicationMapper1CreationTool_title,
-				Messages.ApplicationMapper1CreationTool_desc,
+				Messages.ApplicationInfrastructureLayer1CreationTool_title,
+				Messages.ApplicationInfrastructureLayer1CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.ApplicationInfrastructureLayer_802004));
+		entry.setId("createApplicationInfrastructureLayer1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.ApplicationInfrastructureLayer_802004));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createApplicationMapper2CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.ApplicationMapper2CreationTool_title,
+				Messages.ApplicationMapper2CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ApplicationMapper_803002));
-		entry.setId("createApplicationMapper1CreationTool"); //$NON-NLS-1$
+		entry.setId("createApplicationMapper2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ApplicationMapper_803002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -85,13 +111,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createApplicationMappers2CreationTool() {
+	private ToolEntry createApplicationMappers3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ApplicationMappers2CreationTool_title,
-				Messages.ApplicationMappers2CreationTool_desc,
+				Messages.ApplicationMappers3CreationTool_title,
+				Messages.ApplicationMappers3CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ApplicationMappers_802002));
-		entry.setId("createApplicationMappers2CreationTool"); //$NON-NLS-1$
+		entry.setId("createApplicationMappers3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ApplicationMappers_802002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -101,13 +127,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createApplicationRecipe3CreationTool() {
+	private ToolEntry createApplicationRecipe4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ApplicationRecipe3CreationTool_title,
-				Messages.ApplicationRecipe3CreationTool_desc,
+				Messages.ApplicationRecipe4CreationTool_title,
+				Messages.ApplicationRecipe4CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ApplicationRecipe_803001));
-		entry.setId("createApplicationRecipe3CreationTool"); //$NON-NLS-1$
+		entry.setId("createApplicationRecipe4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ApplicationRecipe_803001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -117,13 +143,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createApplicationRecipes4CreationTool() {
+	private ToolEntry createApplicationRecipes5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ApplicationRecipes4CreationTool_title,
-				Messages.ApplicationRecipes4CreationTool_desc,
+				Messages.ApplicationRecipes5CreationTool_title,
+				Messages.ApplicationRecipes5CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ApplicationRecipes_802001));
-		entry.setId("createApplicationRecipes4CreationTool"); //$NON-NLS-1$
+		entry.setId("createApplicationRecipes5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ApplicationRecipes_802001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -133,13 +159,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createApplicationUILayer5CreationTool() {
+	private ToolEntry createApplicationUILayer6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ApplicationUILayer5CreationTool_title,
-				Messages.ApplicationUILayer5CreationTool_desc,
+				Messages.ApplicationUILayer6CreationTool_title,
+				Messages.ApplicationUILayer6CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ApplicationUILayer_802003));
-		entry.setId("createApplicationUILayer5CreationTool"); //$NON-NLS-1$
+		entry.setId("createApplicationUILayer6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ApplicationUILayer_802003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -149,16 +175,106 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createApplicationUIPackage6CreationTool() {
+	private ToolEntry createApplicationUIPackage7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ApplicationUIPackage6CreationTool_title,
-				Messages.ApplicationUIPackage6CreationTool_desc,
+				Messages.ApplicationUIPackage7CreationTool_title,
+				Messages.ApplicationUIPackage7CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ApplicationUIPackage_803003));
-		entry.setId("createApplicationUIPackage6CreationTool"); //$NON-NLS-1$
+		entry.setId("createApplicationUIPackage7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ApplicationUIPackage_803003));
 		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createDatacenter8CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Datacenter8CreationTool_title,
+				Messages.Datacenter8CreationTool_desc, null, null) {
+		};
+		entry.setId("createDatacenter8CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createHub9CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Hub9CreationTool_title,
+				Messages.Hub9CreationTool_desc, null, null) {
+		};
+		entry.setId("createHub9CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createInfrastructureLayer10CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.InfrastructureLayer10CreationTool_title,
+				Messages.InfrastructureLayer10CreationTool_desc, null, null) {
+		};
+		entry.setId("createInfrastructureLayer10CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRouter11CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Router11CreationTool_title,
+				Messages.Router11CreationTool_desc, null, null) {
+		};
+		entry.setId("createRouter11CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createServer12CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Server12CreationTool_title,
+				Messages.Server12CreationTool_desc, null, null) {
+		};
+		entry.setId("createServer12CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createServerClaster13CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.ServerClaster13CreationTool_title,
+				Messages.ServerClaster13CreationTool_desc, null, null) {
+		};
+		entry.setId("createServerClaster13CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createStorage14CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Storage14CreationTool_title,
+				Messages.Storage14CreationTool_desc, null, null) {
+		};
+		entry.setId("createStorage14CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createSubsystem15CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Subsystem15CreationTool_title,
+				Messages.Subsystem15CreationTool_desc, null, null) {
+		};
+		entry.setId("createSubsystem15CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

@@ -97,6 +97,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationRecipes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationMappers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationUILayer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Application/applicationInfrastructureLayer"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Application/parent"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ApplicationUILayer">
@@ -430,12 +431,54 @@
     <genClasses ecoreClass="domain.ecore#//ArtificialField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtificialField/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ArtificialField/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//ArtificialField/parent"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Link">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Link/uid"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Link/parent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Link/masterField"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Link/detailField"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ApplicationInfrastructureLayer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ApplicationInfrastructureLayer/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ApplicationInfrastructureLayer/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//ApplicationInfrastructureLayer/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ApplicationInfrastructureLayer/infarastructure"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//EnterpriseInfrastructure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//EnterpriseInfrastructure/uid"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//EnterpriseInfrastructure/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//EnterpriseInfrastructure/datacenters"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Datacenter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Datacenter/uid"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Datacenter/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Datacenter/subsystems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Datacenter/name"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Subsystem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Subsystem/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Subsystem/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Subsystem/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Subsystem/infrastructureLayer"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//InfrastructureLayer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//InfrastructureLayer/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//InfrastructureLayer/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//InfrastructureLayer/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//InfrastructureLayer/infrastructureComponent"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//InfrastructureComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//InfrastructureComponent/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//InfrastructureComponent/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//InfrastructureComponent/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Server"/>
+    <genClasses ecoreClass="domain.ecore#//Router"/>
+    <genClasses ecoreClass="domain.ecore#//Hub"/>
+    <genClasses ecoreClass="domain.ecore#//Storage"/>
+    <genClasses ecoreClass="domain.ecore#//ServerClaster">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ServerClaster/servers"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

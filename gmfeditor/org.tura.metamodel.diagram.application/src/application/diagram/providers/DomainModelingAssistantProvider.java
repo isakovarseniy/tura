@@ -43,10 +43,11 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof ApplicationEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
 			types.add(DomainElementTypes.ApplicationRecipes_802001);
 			types.add(DomainElementTypes.ApplicationMappers_802002);
 			types.add(DomainElementTypes.ApplicationUILayer_802003);
+			types.add(DomainElementTypes.ApplicationInfrastructureLayer_802004);
 			return types;
 		}
 		if (editPart instanceof ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart) {

@@ -12,6 +12,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import application.diagram.edit.parts.ApplicationEditPart;
+import application.diagram.edit.parts.ApplicationInfrastructureLayerEditPart;
 import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMappersApplicationMappersMappersCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
@@ -24,6 +25,7 @@ import application.diagram.edit.parts.ApplicationUIPackageEditPart;
 import application.diagram.edit.parts.RelationEditPart;
 import application.diagram.edit.parts.TypeExtensionEditPart;
 import domain.Application;
+import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
@@ -95,6 +97,15 @@ public class DomainDiagramUpdater {
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == ApplicationUILayerEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			ApplicationInfrastructureLayer childElement = modelElement
+					.getApplicationInfrastructureLayer();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ApplicationInfrastructureLayerEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -199,6 +210,8 @@ public class DomainDiagramUpdater {
 			return getApplicationMappers_802002ContainedLinks(view);
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return getApplicationUILayer_802003ContainedLinks(view);
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return getApplicationInfrastructureLayer_802004ContainedLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return getApplicationRecipe_803001ContainedLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
@@ -224,6 +237,8 @@ public class DomainDiagramUpdater {
 			return getApplicationMappers_802002IncomingLinks(view);
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return getApplicationUILayer_802003IncomingLinks(view);
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return getApplicationInfrastructureLayer_802004IncomingLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return getApplicationRecipe_803001IncomingLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
@@ -249,6 +264,8 @@ public class DomainDiagramUpdater {
 			return getApplicationMappers_802002OutgoingLinks(view);
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return getApplicationUILayer_802003OutgoingLinks(view);
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return getApplicationInfrastructureLayer_802004OutgoingLinks(view);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return getApplicationRecipe_803001OutgoingLinks(view);
 		case ApplicationMapperEditPart.VISUAL_ID:
@@ -291,6 +308,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getApplicationUILayer_802003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -362,6 +387,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getApplicationRecipe_803001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -419,6 +452,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getApplicationUILayer_802003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getApplicationInfrastructureLayer_802004OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

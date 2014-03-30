@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
+import application.diagram.edit.parts.ApplicationInfrastructureLayerNameEditPart;
 import application.diagram.edit.parts.ApplicationMapperNameEditPart;
 import application.diagram.edit.parts.ApplicationMappersNameEditPart;
 import application.diagram.edit.parts.ApplicationRecipeNameEditPart;
@@ -89,6 +90,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser applicationInfrastructureLayerName_805007Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getApplicationInfrastructureLayerName_805007Parser() {
+		if (applicationInfrastructureLayerName_805007Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getApplicationInfrastructureLayer_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			applicationInfrastructureLayerName_805007Parser = parser;
+		}
+		return applicationInfrastructureLayerName_805007Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser applicationRecipeName_805001Parser;
 
 	/**
@@ -151,6 +170,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getApplicationMappersName_805004Parser();
 		case ApplicationUILayerNameEditPart.VISUAL_ID:
 			return getApplicationUILayerName_805006Parser();
+		case ApplicationInfrastructureLayerNameEditPart.VISUAL_ID:
+			return getApplicationInfrastructureLayerName_805007Parser();
 		case ApplicationRecipeNameEditPart.VISUAL_ID:
 			return getApplicationRecipeName_805001Parser();
 		case ApplicationMapperNameEditPart.VISUAL_ID:

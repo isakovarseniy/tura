@@ -1048,13 +1048,22 @@ public interface DomainPackage extends EPackage
   int APPLICATION__APPLICATION_UI_LAYER = 3;
 
   /**
+   * The feature id for the '<em><b>Application Infrastructure Layer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER = 4;
+
+  /**
    * The feature id for the '<em><b>Parent</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION__PARENT = 4;
+  int APPLICATION__PARENT = 5;
 
   /**
    * The number of structural features of the '<em>Application</em>' class.
@@ -1063,7 +1072,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_FEATURE_COUNT = 5;
+  int APPLICATION_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link domain.impl.ApplicationUILayerImpl <em>Application UI Layer</em>}' class.
@@ -5787,13 +5796,22 @@ public interface DomainPackage extends EPackage
   int ARTIFICIAL_FIELD__NAME = TYPE_POINTER_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIFICIAL_FIELD__PARENT = TYPE_POINTER_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Artificial Field</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARTIFICIAL_FIELD_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 2;
+  int ARTIFICIAL_FIELD_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link domain.impl.LinkImpl <em>Link</em>}' class.
@@ -5851,6 +5869,557 @@ public interface DomainPackage extends EPackage
   int LINK_FEATURE_COUNT = 4;
 
   /**
+   * The meta object id for the '{@link domain.impl.ApplicationInfrastructureLayerImpl <em>Application Infrastructure Layer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ApplicationInfrastructureLayerImpl
+   * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
+   * @generated
+   */
+  int APPLICATION_INFRASTRUCTURE_LAYER = 87;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_INFRASTRUCTURE_LAYER__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_INFRASTRUCTURE_LAYER__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_INFRASTRUCTURE_LAYER__PARENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Infarastructure</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURE = 3;
+
+  /**
+   * The number of structural features of the '<em>Application Infrastructure Layer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_INFRASTRUCTURE_LAYER_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.EnterpriseInfrastructureImpl <em>Enterprise Infrastructure</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.EnterpriseInfrastructureImpl
+   * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
+   * @generated
+   */
+  int ENTERPRISE_INFRASTRUCTURE = 88;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_INFRASTRUCTURE__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_INFRASTRUCTURE__PARENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Datacenters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_INFRASTRUCTURE__DATACENTERS = 2;
+
+  /**
+   * The number of structural features of the '<em>Enterprise Infrastructure</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_INFRASTRUCTURE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.DatacenterImpl <em>Datacenter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.DatacenterImpl
+   * @see domain.impl.DomainPackageImpl#getDatacenter()
+   * @generated
+   */
+  int DATACENTER = 89;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATACENTER__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATACENTER__PARENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Subsystems</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATACENTER__SUBSYSTEMS = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATACENTER__NAME = 3;
+
+  /**
+   * The number of structural features of the '<em>Datacenter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATACENTER_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.SubsystemImpl <em>Subsystem</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.SubsystemImpl
+   * @see domain.impl.DomainPackageImpl#getSubsystem()
+   * @generated
+   */
+  int SUBSYSTEM = 90;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBSYSTEM__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBSYSTEM__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBSYSTEM__PARENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Infrastructure Layer</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBSYSTEM__INFRASTRUCTURE_LAYER = 3;
+
+  /**
+   * The number of structural features of the '<em>Subsystem</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBSYSTEM_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.InfrastructureLayerImpl <em>Infrastructure Layer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.InfrastructureLayerImpl
+   * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
+   * @generated
+   */
+  int INFRASTRUCTURE_LAYER = 91;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_LAYER__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_LAYER__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_LAYER__PARENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Infrastructure Component</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_LAYER__INFRASTRUCTURE_COMPONENT = 3;
+
+  /**
+   * The number of structural features of the '<em>Infrastructure Layer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_LAYER_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link domain.impl.InfrastructureComponentImpl <em>Infrastructure Component</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.InfrastructureComponentImpl
+   * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
+   * @generated
+   */
+  int INFRASTRUCTURE_COMPONENT = 92;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_COMPONENT__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_COMPONENT__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_COMPONENT__PARENT = 2;
+
+  /**
+   * The number of structural features of the '<em>Infrastructure Component</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_COMPONENT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ServerImpl <em>Server</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ServerImpl
+   * @see domain.impl.DomainPackageImpl#getServer()
+   * @generated
+   */
+  int SERVER = 93;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVER__UID = INFRASTRUCTURE_COMPONENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVER__NAME = INFRASTRUCTURE_COMPONENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVER__PARENT = INFRASTRUCTURE_COMPONENT__PARENT;
+
+  /**
+   * The number of structural features of the '<em>Server</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVER_FEATURE_COUNT = INFRASTRUCTURE_COMPONENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.RouterImpl <em>Router</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.RouterImpl
+   * @see domain.impl.DomainPackageImpl#getRouter()
+   * @generated
+   */
+  int ROUTER = 94;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTER__UID = INFRASTRUCTURE_COMPONENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTER__NAME = INFRASTRUCTURE_COMPONENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTER__PARENT = INFRASTRUCTURE_COMPONENT__PARENT;
+
+  /**
+   * The number of structural features of the '<em>Router</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTER_FEATURE_COUNT = INFRASTRUCTURE_COMPONENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.HubImpl <em>Hub</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.HubImpl
+   * @see domain.impl.DomainPackageImpl#getHub()
+   * @generated
+   */
+  int HUB = 95;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HUB__UID = INFRASTRUCTURE_COMPONENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HUB__NAME = INFRASTRUCTURE_COMPONENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HUB__PARENT = INFRASTRUCTURE_COMPONENT__PARENT;
+
+  /**
+   * The number of structural features of the '<em>Hub</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HUB_FEATURE_COUNT = INFRASTRUCTURE_COMPONENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.StorageImpl <em>Storage</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.StorageImpl
+   * @see domain.impl.DomainPackageImpl#getStorage()
+   * @generated
+   */
+  int STORAGE = 96;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STORAGE__UID = INFRASTRUCTURE_COMPONENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STORAGE__NAME = INFRASTRUCTURE_COMPONENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STORAGE__PARENT = INFRASTRUCTURE_COMPONENT__PARENT;
+
+  /**
+   * The number of structural features of the '<em>Storage</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STORAGE_FEATURE_COUNT = INFRASTRUCTURE_COMPONENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ServerClasterImpl <em>Server Claster</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ServerClasterImpl
+   * @see domain.impl.DomainPackageImpl#getServerClaster()
+   * @generated
+   */
+  int SERVER_CLASTER = 97;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVER_CLASTER__UID = INFRASTRUCTURE_COMPONENT__UID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVER_CLASTER__NAME = INFRASTRUCTURE_COMPONENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVER_CLASTER__PARENT = INFRASTRUCTURE_COMPONENT__PARENT;
+
+  /**
+   * The feature id for the '<em><b>Servers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVER_CLASTER__SERVERS = INFRASTRUCTURE_COMPONENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Server Claster</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVER_CLASTER_FEATURE_COUNT = INFRASTRUCTURE_COMPONENT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link domain.PlatformLayers <em>Platform Layers</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5858,7 +6427,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 87;
+  int PLATFORM_LAYERS = 98;
 
 
   /**
@@ -6667,6 +7236,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getApplication_ApplicationUILayer();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Application#getApplicationInfrastructureLayer <em>Application Infrastructure Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Application Infrastructure Layer</em>'.
+   * @see domain.Application#getApplicationInfrastructureLayer()
+   * @see #getApplication()
+   * @generated
+   */
+  EReference getApplication_ApplicationInfrastructureLayer();
 
   /**
    * Returns the meta object for the reference '{@link domain.Application#getParent <em>Parent</em>}'.
@@ -9670,6 +10250,17 @@ public interface DomainPackage extends EPackage
   EAttribute getArtificialField_Name();
 
   /**
+   * Returns the meta object for the container reference '{@link domain.ArtificialField#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.ArtificialField#getParent()
+   * @see #getArtificialField()
+   * @generated
+   */
+  EReference getArtificialField_Parent();
+
+  /**
    * Returns the meta object for class '{@link domain.Link <em>Link</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9722,6 +10313,369 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getLink_DetailField();
+
+  /**
+   * Returns the meta object for class '{@link domain.ApplicationInfrastructureLayer <em>Application Infrastructure Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Application Infrastructure Layer</em>'.
+   * @see domain.ApplicationInfrastructureLayer
+   * @generated
+   */
+  EClass getApplicationInfrastructureLayer();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationInfrastructureLayer#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ApplicationInfrastructureLayer#getUid()
+   * @see #getApplicationInfrastructureLayer()
+   * @generated
+   */
+  EAttribute getApplicationInfrastructureLayer_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ApplicationInfrastructureLayer#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.ApplicationInfrastructureLayer#getName()
+   * @see #getApplicationInfrastructureLayer()
+   * @generated
+   */
+  EAttribute getApplicationInfrastructureLayer_Name();
+
+  /**
+   * Returns the meta object for the container reference '{@link domain.ApplicationInfrastructureLayer#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.ApplicationInfrastructureLayer#getParent()
+   * @see #getApplicationInfrastructureLayer()
+   * @generated
+   */
+  EReference getApplicationInfrastructureLayer_Parent();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.ApplicationInfrastructureLayer#getInfarastructure <em>Infarastructure</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Infarastructure</em>'.
+   * @see domain.ApplicationInfrastructureLayer#getInfarastructure()
+   * @see #getApplicationInfrastructureLayer()
+   * @generated
+   */
+  EReference getApplicationInfrastructureLayer_Infarastructure();
+
+  /**
+   * Returns the meta object for class '{@link domain.EnterpriseInfrastructure <em>Enterprise Infrastructure</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enterprise Infrastructure</em>'.
+   * @see domain.EnterpriseInfrastructure
+   * @generated
+   */
+  EClass getEnterpriseInfrastructure();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.EnterpriseInfrastructure#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.EnterpriseInfrastructure#getUid()
+   * @see #getEnterpriseInfrastructure()
+   * @generated
+   */
+  EAttribute getEnterpriseInfrastructure_Uid();
+
+  /**
+   * Returns the meta object for the container reference '{@link domain.EnterpriseInfrastructure#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.EnterpriseInfrastructure#getParent()
+   * @see #getEnterpriseInfrastructure()
+   * @generated
+   */
+  EReference getEnterpriseInfrastructure_Parent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.EnterpriseInfrastructure#getDatacenters <em>Datacenters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Datacenters</em>'.
+   * @see domain.EnterpriseInfrastructure#getDatacenters()
+   * @see #getEnterpriseInfrastructure()
+   * @generated
+   */
+  EReference getEnterpriseInfrastructure_Datacenters();
+
+  /**
+   * Returns the meta object for class '{@link domain.Datacenter <em>Datacenter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Datacenter</em>'.
+   * @see domain.Datacenter
+   * @generated
+   */
+  EClass getDatacenter();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Datacenter#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Datacenter#getUid()
+   * @see #getDatacenter()
+   * @generated
+   */
+  EAttribute getDatacenter_Uid();
+
+  /**
+   * Returns the meta object for the container reference '{@link domain.Datacenter#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.Datacenter#getParent()
+   * @see #getDatacenter()
+   * @generated
+   */
+  EReference getDatacenter_Parent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Datacenter#getSubsystems <em>Subsystems</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Subsystems</em>'.
+   * @see domain.Datacenter#getSubsystems()
+   * @see #getDatacenter()
+   * @generated
+   */
+  EReference getDatacenter_Subsystems();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Datacenter#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Datacenter#getName()
+   * @see #getDatacenter()
+   * @generated
+   */
+  EAttribute getDatacenter_Name();
+
+  /**
+   * Returns the meta object for class '{@link domain.Subsystem <em>Subsystem</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Subsystem</em>'.
+   * @see domain.Subsystem
+   * @generated
+   */
+  EClass getSubsystem();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Subsystem#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Subsystem#getUid()
+   * @see #getSubsystem()
+   * @generated
+   */
+  EAttribute getSubsystem_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Subsystem#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Subsystem#getName()
+   * @see #getSubsystem()
+   * @generated
+   */
+  EAttribute getSubsystem_Name();
+
+  /**
+   * Returns the meta object for the container reference '{@link domain.Subsystem#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.Subsystem#getParent()
+   * @see #getSubsystem()
+   * @generated
+   */
+  EReference getSubsystem_Parent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Subsystem#getInfrastructureLayer <em>Infrastructure Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Infrastructure Layer</em>'.
+   * @see domain.Subsystem#getInfrastructureLayer()
+   * @see #getSubsystem()
+   * @generated
+   */
+  EReference getSubsystem_InfrastructureLayer();
+
+  /**
+   * Returns the meta object for class '{@link domain.InfrastructureLayer <em>Infrastructure Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Infrastructure Layer</em>'.
+   * @see domain.InfrastructureLayer
+   * @generated
+   */
+  EClass getInfrastructureLayer();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.InfrastructureLayer#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.InfrastructureLayer#getUid()
+   * @see #getInfrastructureLayer()
+   * @generated
+   */
+  EAttribute getInfrastructureLayer_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.InfrastructureLayer#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.InfrastructureLayer#getName()
+   * @see #getInfrastructureLayer()
+   * @generated
+   */
+  EAttribute getInfrastructureLayer_Name();
+
+  /**
+   * Returns the meta object for the container reference '{@link domain.InfrastructureLayer#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.InfrastructureLayer#getParent()
+   * @see #getInfrastructureLayer()
+   * @generated
+   */
+  EReference getInfrastructureLayer_Parent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.InfrastructureLayer#getInfrastructureComponent <em>Infrastructure Component</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Infrastructure Component</em>'.
+   * @see domain.InfrastructureLayer#getInfrastructureComponent()
+   * @see #getInfrastructureLayer()
+   * @generated
+   */
+  EReference getInfrastructureLayer_InfrastructureComponent();
+
+  /**
+   * Returns the meta object for class '{@link domain.InfrastructureComponent <em>Infrastructure Component</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Infrastructure Component</em>'.
+   * @see domain.InfrastructureComponent
+   * @generated
+   */
+  EClass getInfrastructureComponent();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.InfrastructureComponent#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.InfrastructureComponent#getUid()
+   * @see #getInfrastructureComponent()
+   * @generated
+   */
+  EAttribute getInfrastructureComponent_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.InfrastructureComponent#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.InfrastructureComponent#getName()
+   * @see #getInfrastructureComponent()
+   * @generated
+   */
+  EAttribute getInfrastructureComponent_Name();
+
+  /**
+   * Returns the meta object for the container reference '{@link domain.InfrastructureComponent#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Parent</em>'.
+   * @see domain.InfrastructureComponent#getParent()
+   * @see #getInfrastructureComponent()
+   * @generated
+   */
+  EReference getInfrastructureComponent_Parent();
+
+  /**
+   * Returns the meta object for class '{@link domain.Server <em>Server</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Server</em>'.
+   * @see domain.Server
+   * @generated
+   */
+  EClass getServer();
+
+  /**
+   * Returns the meta object for class '{@link domain.Router <em>Router</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Router</em>'.
+   * @see domain.Router
+   * @generated
+   */
+  EClass getRouter();
+
+  /**
+   * Returns the meta object for class '{@link domain.Hub <em>Hub</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Hub</em>'.
+   * @see domain.Hub
+   * @generated
+   */
+  EClass getHub();
+
+  /**
+   * Returns the meta object for class '{@link domain.Storage <em>Storage</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Storage</em>'.
+   * @see domain.Storage
+   * @generated
+   */
+  EClass getStorage();
+
+  /**
+   * Returns the meta object for class '{@link domain.ServerClaster <em>Server Claster</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Server Claster</em>'.
+   * @see domain.ServerClaster
+   * @generated
+   */
+  EClass getServerClaster();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.ServerClaster#getServers <em>Servers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Servers</em>'.
+   * @see domain.ServerClaster#getServers()
+   * @see #getServerClaster()
+   * @generated
+   */
+  EReference getServerClaster_Servers();
 
   /**
    * Returns the meta object for enum '{@link domain.PlatformLayers <em>Platform Layers</em>}'.
@@ -10391,6 +11345,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference APPLICATION__APPLICATION_UI_LAYER = eINSTANCE.getApplication_ApplicationUILayer();
+
+    /**
+     * The meta object literal for the '<em><b>Application Infrastructure Layer</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER = eINSTANCE.getApplication_ApplicationInfrastructureLayer();
 
     /**
      * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
@@ -12761,6 +13723,14 @@ public interface DomainPackage extends EPackage
     EAttribute ARTIFICIAL_FIELD__NAME = eINSTANCE.getArtificialField_Name();
 
     /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARTIFICIAL_FIELD__PARENT = eINSTANCE.getArtificialField_Parent();
+
+    /**
      * The meta object literal for the '{@link domain.impl.LinkImpl <em>Link</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -12801,6 +13771,300 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference LINK__DETAIL_FIELD = eINSTANCE.getLink_DetailField();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ApplicationInfrastructureLayerImpl <em>Application Infrastructure Layer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ApplicationInfrastructureLayerImpl
+     * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
+     * @generated
+     */
+    EClass APPLICATION_INFRASTRUCTURE_LAYER = eINSTANCE.getApplicationInfrastructureLayer();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_INFRASTRUCTURE_LAYER__UID = eINSTANCE.getApplicationInfrastructureLayer_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION_INFRASTRUCTURE_LAYER__NAME = eINSTANCE.getApplicationInfrastructureLayer_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION_INFRASTRUCTURE_LAYER__PARENT = eINSTANCE.getApplicationInfrastructureLayer_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Infarastructure</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURE = eINSTANCE.getApplicationInfrastructureLayer_Infarastructure();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.EnterpriseInfrastructureImpl <em>Enterprise Infrastructure</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.EnterpriseInfrastructureImpl
+     * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
+     * @generated
+     */
+    EClass ENTERPRISE_INFRASTRUCTURE = eINSTANCE.getEnterpriseInfrastructure();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTERPRISE_INFRASTRUCTURE__UID = eINSTANCE.getEnterpriseInfrastructure_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTERPRISE_INFRASTRUCTURE__PARENT = eINSTANCE.getEnterpriseInfrastructure_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Datacenters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTERPRISE_INFRASTRUCTURE__DATACENTERS = eINSTANCE.getEnterpriseInfrastructure_Datacenters();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.DatacenterImpl <em>Datacenter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.DatacenterImpl
+     * @see domain.impl.DomainPackageImpl#getDatacenter()
+     * @generated
+     */
+    EClass DATACENTER = eINSTANCE.getDatacenter();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATACENTER__UID = eINSTANCE.getDatacenter_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATACENTER__PARENT = eINSTANCE.getDatacenter_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Subsystems</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATACENTER__SUBSYSTEMS = eINSTANCE.getDatacenter_Subsystems();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATACENTER__NAME = eINSTANCE.getDatacenter_Name();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.SubsystemImpl <em>Subsystem</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.SubsystemImpl
+     * @see domain.impl.DomainPackageImpl#getSubsystem()
+     * @generated
+     */
+    EClass SUBSYSTEM = eINSTANCE.getSubsystem();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SUBSYSTEM__UID = eINSTANCE.getSubsystem_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SUBSYSTEM__NAME = eINSTANCE.getSubsystem_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUBSYSTEM__PARENT = eINSTANCE.getSubsystem_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Infrastructure Layer</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUBSYSTEM__INFRASTRUCTURE_LAYER = eINSTANCE.getSubsystem_InfrastructureLayer();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.InfrastructureLayerImpl <em>Infrastructure Layer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.InfrastructureLayerImpl
+     * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
+     * @generated
+     */
+    EClass INFRASTRUCTURE_LAYER = eINSTANCE.getInfrastructureLayer();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INFRASTRUCTURE_LAYER__UID = eINSTANCE.getInfrastructureLayer_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INFRASTRUCTURE_LAYER__NAME = eINSTANCE.getInfrastructureLayer_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INFRASTRUCTURE_LAYER__PARENT = eINSTANCE.getInfrastructureLayer_Parent();
+
+    /**
+     * The meta object literal for the '<em><b>Infrastructure Component</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INFRASTRUCTURE_LAYER__INFRASTRUCTURE_COMPONENT = eINSTANCE.getInfrastructureLayer_InfrastructureComponent();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.InfrastructureComponentImpl <em>Infrastructure Component</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.InfrastructureComponentImpl
+     * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
+     * @generated
+     */
+    EClass INFRASTRUCTURE_COMPONENT = eINSTANCE.getInfrastructureComponent();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INFRASTRUCTURE_COMPONENT__UID = eINSTANCE.getInfrastructureComponent_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INFRASTRUCTURE_COMPONENT__NAME = eINSTANCE.getInfrastructureComponent_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INFRASTRUCTURE_COMPONENT__PARENT = eINSTANCE.getInfrastructureComponent_Parent();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ServerImpl <em>Server</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ServerImpl
+     * @see domain.impl.DomainPackageImpl#getServer()
+     * @generated
+     */
+    EClass SERVER = eINSTANCE.getServer();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.RouterImpl <em>Router</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.RouterImpl
+     * @see domain.impl.DomainPackageImpl#getRouter()
+     * @generated
+     */
+    EClass ROUTER = eINSTANCE.getRouter();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.HubImpl <em>Hub</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.HubImpl
+     * @see domain.impl.DomainPackageImpl#getHub()
+     * @generated
+     */
+    EClass HUB = eINSTANCE.getHub();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.StorageImpl <em>Storage</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.StorageImpl
+     * @see domain.impl.DomainPackageImpl#getStorage()
+     * @generated
+     */
+    EClass STORAGE = eINSTANCE.getStorage();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ServerClasterImpl <em>Server Claster</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ServerClasterImpl
+     * @see domain.impl.DomainPackageImpl#getServerClaster()
+     * @generated
+     */
+    EClass SERVER_CLASTER = eINSTANCE.getServerClaster();
+
+    /**
+     * The meta object literal for the '<em><b>Servers</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SERVER_CLASTER__SERVERS = eINSTANCE.getServerClaster_Servers();
 
     /**
      * The meta object literal for the '{@link domain.PlatformLayers <em>Platform Layers</em>}' enum.

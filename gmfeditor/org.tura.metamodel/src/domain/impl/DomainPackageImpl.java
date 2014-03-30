@@ -3,6 +3,7 @@
 package domain.impl;
 
 import domain.Application;
+import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
@@ -22,6 +23,7 @@ import domain.ContinuousIintegration;
 import domain.Controls;
 import domain.CreateTrigger;
 import domain.DataControl;
+import domain.Datacenter;
 import domain.DeleteTrigger;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
@@ -36,12 +38,17 @@ import domain.DomainFactory;
 import domain.DomainPackage;
 import domain.DomainTypes;
 import domain.EJBService;
+import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
+import domain.Hub;
+import domain.Infarastructure;
 import domain.Infrastructure;
+import domain.InfrastructureComponent;
+import domain.InfrastructureLayer;
 import domain.Ingredient;
 import domain.InsertTrigger;
 import domain.JPAService;
@@ -76,8 +83,13 @@ import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
 import domain.Root;
+import domain.Router;
 import domain.SearchTrigger;
+import domain.Server;
+import domain.ServerClaster;
 import domain.Specifier;
+import domain.Storage;
+import domain.Subsystem;
 import domain.Trigger;
 import domain.TriggerParameter;
 import domain.Type;
@@ -716,6 +728,83 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass linkEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass applicationInfrastructureLayerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass enterpriseInfrastructureEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass datacenterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass subsystemEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass infrastructureLayerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass infrastructureComponentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass serverEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass routerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass hubEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass storageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass serverClasterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1542,9 +1631,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getApplication_Parent()
+  public EReference getApplication_ApplicationInfrastructureLayer()
   {
     return (EReference)applicationEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplication_Parent()
+  {
+    return (EReference)applicationEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -4332,6 +4431,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getArtificialField_Parent()
+  {
+    return (EReference)artificialFieldEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getLink()
   {
     return linkEClass;
@@ -4375,6 +4484,346 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getLink_DetailField()
   {
     return (EReference)linkEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getApplicationInfrastructureLayer()
+  {
+    return applicationInfrastructureLayerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationInfrastructureLayer_Uid()
+  {
+    return (EAttribute)applicationInfrastructureLayerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getApplicationInfrastructureLayer_Name()
+  {
+    return (EAttribute)applicationInfrastructureLayerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationInfrastructureLayer_Parent()
+  {
+    return (EReference)applicationInfrastructureLayerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getApplicationInfrastructureLayer_Infarastructure()
+  {
+    return (EReference)applicationInfrastructureLayerEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEnterpriseInfrastructure()
+  {
+    return enterpriseInfrastructureEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEnterpriseInfrastructure_Uid()
+  {
+    return (EAttribute)enterpriseInfrastructureEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEnterpriseInfrastructure_Parent()
+  {
+    return (EReference)enterpriseInfrastructureEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEnterpriseInfrastructure_Datacenters()
+  {
+    return (EReference)enterpriseInfrastructureEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDatacenter()
+  {
+    return datacenterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDatacenter_Uid()
+  {
+    return (EAttribute)datacenterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDatacenter_Parent()
+  {
+    return (EReference)datacenterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDatacenter_Subsystems()
+  {
+    return (EReference)datacenterEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDatacenter_Name()
+  {
+    return (EAttribute)datacenterEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSubsystem()
+  {
+    return subsystemEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSubsystem_Uid()
+  {
+    return (EAttribute)subsystemEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSubsystem_Name()
+  {
+    return (EAttribute)subsystemEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSubsystem_Parent()
+  {
+    return (EReference)subsystemEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSubsystem_InfrastructureLayer()
+  {
+    return (EReference)subsystemEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInfrastructureLayer()
+  {
+    return infrastructureLayerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInfrastructureLayer_Uid()
+  {
+    return (EAttribute)infrastructureLayerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInfrastructureLayer_Name()
+  {
+    return (EAttribute)infrastructureLayerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInfrastructureLayer_Parent()
+  {
+    return (EReference)infrastructureLayerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInfrastructureLayer_InfrastructureComponent()
+  {
+    return (EReference)infrastructureLayerEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInfrastructureComponent()
+  {
+    return infrastructureComponentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInfrastructureComponent_Uid()
+  {
+    return (EAttribute)infrastructureComponentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInfrastructureComponent_Name()
+  {
+    return (EAttribute)infrastructureComponentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInfrastructureComponent_Parent()
+  {
+    return (EReference)infrastructureComponentEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getServer()
+  {
+    return serverEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRouter()
+  {
+    return routerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getHub()
+  {
+    return hubEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStorage()
+  {
+    return storageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getServerClaster()
+  {
+    return serverClasterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getServerClaster_Servers()
+  {
+    return (EReference)serverClasterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4509,6 +4958,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(applicationEClass, APPLICATION__APPLICATION_RECIPES);
     createEReference(applicationEClass, APPLICATION__APPLICATION_MAPPERS);
     createEReference(applicationEClass, APPLICATION__APPLICATION_UI_LAYER);
+    createEReference(applicationEClass, APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER);
     createEReference(applicationEClass, APPLICATION__PARENT);
 
     applicationUILayerEClass = createEClass(APPLICATION_UI_LAYER);
@@ -4856,12 +5306,58 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     artificialFieldEClass = createEClass(ARTIFICIAL_FIELD);
     createEAttribute(artificialFieldEClass, ARTIFICIAL_FIELD__UID);
     createEAttribute(artificialFieldEClass, ARTIFICIAL_FIELD__NAME);
+    createEReference(artificialFieldEClass, ARTIFICIAL_FIELD__PARENT);
 
     linkEClass = createEClass(LINK);
     createEAttribute(linkEClass, LINK__UID);
     createEReference(linkEClass, LINK__PARENT);
     createEReference(linkEClass, LINK__MASTER_FIELD);
     createEReference(linkEClass, LINK__DETAIL_FIELD);
+
+    applicationInfrastructureLayerEClass = createEClass(APPLICATION_INFRASTRUCTURE_LAYER);
+    createEAttribute(applicationInfrastructureLayerEClass, APPLICATION_INFRASTRUCTURE_LAYER__UID);
+    createEAttribute(applicationInfrastructureLayerEClass, APPLICATION_INFRASTRUCTURE_LAYER__NAME);
+    createEReference(applicationInfrastructureLayerEClass, APPLICATION_INFRASTRUCTURE_LAYER__PARENT);
+    createEReference(applicationInfrastructureLayerEClass, APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURE);
+
+    enterpriseInfrastructureEClass = createEClass(ENTERPRISE_INFRASTRUCTURE);
+    createEAttribute(enterpriseInfrastructureEClass, ENTERPRISE_INFRASTRUCTURE__UID);
+    createEReference(enterpriseInfrastructureEClass, ENTERPRISE_INFRASTRUCTURE__PARENT);
+    createEReference(enterpriseInfrastructureEClass, ENTERPRISE_INFRASTRUCTURE__DATACENTERS);
+
+    datacenterEClass = createEClass(DATACENTER);
+    createEAttribute(datacenterEClass, DATACENTER__UID);
+    createEReference(datacenterEClass, DATACENTER__PARENT);
+    createEReference(datacenterEClass, DATACENTER__SUBSYSTEMS);
+    createEAttribute(datacenterEClass, DATACENTER__NAME);
+
+    subsystemEClass = createEClass(SUBSYSTEM);
+    createEAttribute(subsystemEClass, SUBSYSTEM__UID);
+    createEAttribute(subsystemEClass, SUBSYSTEM__NAME);
+    createEReference(subsystemEClass, SUBSYSTEM__PARENT);
+    createEReference(subsystemEClass, SUBSYSTEM__INFRASTRUCTURE_LAYER);
+
+    infrastructureLayerEClass = createEClass(INFRASTRUCTURE_LAYER);
+    createEAttribute(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__UID);
+    createEAttribute(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__NAME);
+    createEReference(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__PARENT);
+    createEReference(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__INFRASTRUCTURE_COMPONENT);
+
+    infrastructureComponentEClass = createEClass(INFRASTRUCTURE_COMPONENT);
+    createEAttribute(infrastructureComponentEClass, INFRASTRUCTURE_COMPONENT__UID);
+    createEAttribute(infrastructureComponentEClass, INFRASTRUCTURE_COMPONENT__NAME);
+    createEReference(infrastructureComponentEClass, INFRASTRUCTURE_COMPONENT__PARENT);
+
+    serverEClass = createEClass(SERVER);
+
+    routerEClass = createEClass(ROUTER);
+
+    hubEClass = createEClass(HUB);
+
+    storageEClass = createEClass(STORAGE);
+
+    serverClasterEClass = createEClass(SERVER_CLASTER);
+    createEReference(serverClasterEClass, SERVER_CLASTER__SERVERS);
 
     // Create enums
     platformLayersEEnum = createEEnum(PLATFORM_LAYERS);
@@ -4929,6 +5425,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     deleteTriggerEClass.getESuperTypes().add(this.getTrigger());
     searchTriggerEClass.getESuperTypes().add(this.getTrigger());
     artificialFieldEClass.getESuperTypes().add(this.getTypePointer());
+    serverEClass.getESuperTypes().add(this.getInfrastructureComponent());
+    routerEClass.getESuperTypes().add(this.getInfrastructureComponent());
+    hubEClass.getESuperTypes().add(this.getInfrastructureComponent());
+    storageEClass.getESuperTypes().add(this.getInfrastructureComponent());
+    serverClasterEClass.getESuperTypes().add(this.getInfrastructureComponent());
 
     // Initialize classes and features; add operations and parameters
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -5023,6 +5524,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getApplication_ApplicationRecipes(), this.getApplicationRecipes(), this.getApplicationRecipes_Parent(), "applicationRecipes", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_ApplicationMappers(), this.getApplicationMappers(), this.getApplicationMappers_Parent(), "applicationMappers", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_ApplicationUILayer(), this.getApplicationUILayer(), this.getApplicationUILayer_Parent(), "applicationUILayer", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplication_ApplicationInfrastructureLayer(), this.getApplicationInfrastructureLayer(), this.getApplicationInfrastructureLayer_Parent(), "applicationInfrastructureLayer", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_Parent(), this.getDomainApplication(), this.getDomainApplication_Application(), "parent", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(applicationUILayerEClass, ApplicationUILayer.class, "ApplicationUILayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -5357,7 +5859,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getDataControl_Update(), this.getUpdateTrigger(), null, "update", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_Remove(), this.getDeleteTrigger(), null, "remove", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataControl_Search(), this.getSearchTrigger(), null, "search", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDataControl_ArtificialFields(), this.getArtificialField(), null, "artificialFields", null, 0, -1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataControl_ArtificialFields(), this.getArtificialField(), this.getArtificialField_Parent(), "artificialFields", null, 0, -1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRelation_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5370,12 +5872,58 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEClass(artificialFieldEClass, ArtificialField.class, "ArtificialField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getArtificialField_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArtificialField_Name(), ecorePackage.getEString(), "name", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArtificialField_Parent(), this.getDataControl(), this.getDataControl_ArtificialFields(), "parent", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLink_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLink_Parent(), this.getRelation(), this.getRelation_Links(), "parent", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLink_MasterField(), this.getAttribute(), null, "masterField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLink_DetailField(), this.getAttribute(), null, "detailField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(applicationInfrastructureLayerEClass, ApplicationInfrastructureLayer.class, "ApplicationInfrastructureLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getApplicationInfrastructureLayer_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationInfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getApplicationInfrastructureLayer_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationInfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationInfrastructureLayer_Parent(), this.getApplication(), this.getApplication_ApplicationInfrastructureLayer(), "parent", null, 0, 1, ApplicationInfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplicationInfrastructureLayer_Infarastructure(), this.getEnterpriseInfrastructure(), this.getEnterpriseInfrastructure_Parent(), "infarastructure", null, 0, 1, ApplicationInfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(enterpriseInfrastructureEClass, EnterpriseInfrastructure.class, "EnterpriseInfrastructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEnterpriseInfrastructure_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, EnterpriseInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnterpriseInfrastructure_Parent(), this.getApplicationInfrastructureLayer(), this.getApplicationInfrastructureLayer_Infarastructure(), "parent", null, 0, 1, EnterpriseInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnterpriseInfrastructure_Datacenters(), this.getDatacenter(), this.getDatacenter_Parent(), "datacenters", null, 0, -1, EnterpriseInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(datacenterEClass, Datacenter.class, "Datacenter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDatacenter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Datacenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDatacenter_Parent(), this.getEnterpriseInfrastructure(), this.getEnterpriseInfrastructure_Datacenters(), "parent", null, 0, 1, Datacenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDatacenter_Subsystems(), this.getSubsystem(), this.getSubsystem_Parent(), "subsystems", null, 0, -1, Datacenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDatacenter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Datacenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(subsystemEClass, Subsystem.class, "Subsystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSubsystem_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Subsystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSubsystem_Name(), ecorePackage.getEString(), "name", null, 0, 1, Subsystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubsystem_Parent(), this.getDatacenter(), this.getDatacenter_Subsystems(), "parent", null, 0, 1, Subsystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubsystem_InfrastructureLayer(), this.getInfrastructureLayer(), this.getInfrastructureLayer_Parent(), "infrastructureLayer", null, 0, -1, Subsystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(infrastructureLayerEClass, InfrastructureLayer.class, "InfrastructureLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInfrastructureLayer_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInfrastructureLayer_Name(), ecorePackage.getEString(), "name", null, 0, 1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInfrastructureLayer_Parent(), this.getSubsystem(), this.getSubsystem_InfrastructureLayer(), "parent", null, 0, 1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInfrastructureLayer_InfrastructureComponent(), this.getInfrastructureComponent(), this.getInfrastructureComponent_Parent(), "infrastructureComponent", null, 0, -1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(infrastructureComponentEClass, InfrastructureComponent.class, "InfrastructureComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInfrastructureComponent_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, InfrastructureComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInfrastructureComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, InfrastructureComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInfrastructureComponent_Parent(), this.getInfrastructureLayer(), this.getInfrastructureLayer_InfrastructureComponent(), "parent", null, 0, 1, InfrastructureComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(serverEClass, Server.class, "Server", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(routerEClass, Router.class, "Router", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(hubEClass, Hub.class, "Hub", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(storageEClass, Storage.class, "Storage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(serverClasterEClass, ServerClaster.class, "ServerClaster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getServerClaster_Servers(), this.getServer(), null, "servers", null, 0, -1, ServerClaster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(platformLayersEEnum, PlatformLayers.class, "PlatformLayers");
@@ -5414,6 +5962,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createGmf_12Annotations();
     // gmf.diagram.control
     createGmf_13Annotations();
+    // gmf.diagram.infarastructure
+    createGmf_14Annotations();
   }
 
   /**
@@ -5430,7 +5980,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																													
+       });																																																																																																																										
   }
 
   /**
@@ -5447,7 +5997,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																												
+       });																																																																																																																									
   }
 
   /**
@@ -5985,6 +6535,91 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "241,238,203"
+       });		
+    addAnnotation
+      (applicationInfrastructureLayerEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
+       });			
+    addAnnotation
+      (datacenterEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
+       });			
+    addAnnotation
+      (subsystemEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
+       });			
+    addAnnotation
+      (infrastructureLayerEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
+       });			
+    addAnnotation
+      (serverEClass, 
+       source, 
+       new String[] 
+       {
+       "figure", "org.tura.metamodel.commons.figures.ServerFigure",
+       "label.icon", "false",
+       "label", "name",
+       "label.placement", "external"
+       });		
+    addAnnotation
+      (routerEClass, 
+       source, 
+       new String[] 
+       {
+       "figure", "org.tura.metamodel.commons.figures.RouterFigure",
+       "label.icon", "false",
+       "label", "name",
+       "label.placement", "external"
+       });		
+    addAnnotation
+      (hubEClass, 
+       source, 
+       new String[] 
+       {
+       "figure", "org.tura.metamodel.commons.figures.HubFigure",
+       "label.icon", "false",
+       "label", "name",
+       "label.placement", "external"
+       });		
+    addAnnotation
+      (storageEClass, 
+       source, 
+       new String[] 
+       {
+       "figure", "org.tura.metamodel.commons.figures.StorageFigure",
+       "label.icon", "false",
+       "label", "name",
+       "label.placement", "external"
+       });		
+    addAnnotation
+      (serverClasterEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "255,239,222"
        });
   }
 
@@ -6208,7 +6843,25 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });		
+       });							
+    addAnnotation
+      (getDatacenter_Subsystems(), 
+       source, 
+       new String[] 
+       {
+       });			
+    addAnnotation
+      (getSubsystem_InfrastructureLayer(), 
+       source, 
+       new String[] 
+       {
+       });			
+    addAnnotation
+      (getInfrastructureLayer_InfrastructureComponent(), 
+       source, 
+       new String[] 
+       {
+       });					
   }
 
   /**
@@ -6225,7 +6878,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																
+       });																																																																																																													
   }
 
   /**
@@ -6242,7 +6895,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																							
+       });																																																																																																				
   }
 
   /**
@@ -6259,7 +6912,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																													
+       });																																																																																										
   }
 
   /**
@@ -6276,7 +6929,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																											
+       });																																																																																								
   }
 
   /**
@@ -6293,7 +6946,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																									
+       });																																																																																						
   }
 
   /**
@@ -6374,7 +7027,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "target", "detail",
        "style", "dash",
        "target.decoration", "arrow"
-       });	
+       });														
   }
 
   /**
@@ -6391,7 +7044,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																			
+       });																																																																
   }
 
   /**
@@ -6408,7 +7061,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																							
+       });																																																				
   }
 
   /**
@@ -6425,7 +7078,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																			
+       });																																																
   }
 
   /**
@@ -6442,7 +7095,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																													
+       });																																										
+  }
+
+  /**
+   * Initializes the annotations for <b>gmf.diagram.infarastructure</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createGmf_14Annotations()
+  {
+    String source = "gmf.diagram.infarastructure";																																																																																																																	
+    addAnnotation
+      (enterpriseInfrastructureEClass, 
+       source, 
+       new String[] 
+       {
+       });											
   }
 
 } //DomainPackageImpl

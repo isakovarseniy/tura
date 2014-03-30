@@ -222,6 +222,8 @@
         containment="true" eOpposite="#//ApplicationMappers/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="applicationUILayer" eType="#//ApplicationUILayer"
         containment="true" eOpposite="#//ApplicationUILayer/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applicationInfrastructureLayer"
+        eType="#//ApplicationInfrastructureLayer" containment="true" eOpposite="#//ApplicationInfrastructureLayer/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DomainApplication"
         eOpposite="#//DomainApplication/application"/>
   </eClassifiers>
@@ -1037,7 +1039,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="artificialFields" upperBound="-1"
-        eType="#//ArtificialField" containment="true">
+        eType="#//ArtificialField" containment="true" eOpposite="#//ArtificialField/parent">
       <eAnnotations source="gmf.compartment">
         <details key="layout" value="list"/>
       </eAnnotations>
@@ -1068,6 +1070,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DataControl"
+        eOpposite="#//DataControl/artificialFields"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Link">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1076,5 +1080,124 @@
         eOpposite="#//Relation/links"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="masterField" eType="#//Attribute"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="detailField" eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationInfrastructureLayer">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Application"
+        eOpposite="#//Application/applicationInfrastructureLayer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="infarastructure" eType="#//EnterpriseInfrastructure"
+        containment="true" eOpposite="#//EnterpriseInfrastructure/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnterpriseInfrastructure">
+    <eAnnotations source="gmf.diagram.infarastructure"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ApplicationInfrastructureLayer"
+        eOpposite="#//ApplicationInfrastructureLayer/infarastructure"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datacenters" upperBound="-1"
+        eType="#//Datacenter" containment="true" eOpposite="#//Datacenter/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Datacenter">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,239,222"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//EnterpriseInfrastructure"
+        eOpposite="#//EnterpriseInfrastructure/datacenters"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subsystems" upperBound="-1"
+        eType="#//Subsystem" containment="true" eOpposite="#//Subsystem/parent">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subsystem">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,239,222"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Datacenter"
+        eOpposite="#//Datacenter/subsystems"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureLayer" upperBound="-1"
+        eType="#//InfrastructureLayer" containment="true" eOpposite="#//InfrastructureLayer/parent">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InfrastructureLayer">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,239,222"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Subsystem"
+        eOpposite="#//Subsystem/infrastructureLayer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureComponent"
+        upperBound="-1" eType="#//InfrastructureComponent" containment="true" eOpposite="#//InfrastructureComponent/parent">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InfrastructureComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//InfrastructureLayer"
+        eOpposite="#//InfrastructureLayer/infrastructureComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Server" eSuperTypes="#//InfrastructureComponent">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.ServerFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Router" eSuperTypes="#//InfrastructureComponent">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.RouterFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hub" eSuperTypes="#//InfrastructureComponent">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.HubFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Storage" eSuperTypes="#//InfrastructureComponent">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="org.tura.metamodel.commons.figures.StorageFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServerClaster" eSuperTypes="#//InfrastructureComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,239,222"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="servers" upperBound="-1"
+        eType="#//Server" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

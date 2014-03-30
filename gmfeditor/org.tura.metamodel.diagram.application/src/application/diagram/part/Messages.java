@@ -256,62 +256,152 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ApplicationMapper1CreationTool_title;
+	public static String ApplicationInfrastructureLayer1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationMapper1CreationTool_desc;
+	public static String ApplicationInfrastructureLayer1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationMappers2CreationTool_title;
+	public static String ApplicationMapper2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationMappers2CreationTool_desc;
+	public static String ApplicationMapper2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipe3CreationTool_title;
+	public static String ApplicationMappers3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipe3CreationTool_desc;
+	public static String ApplicationMappers3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipes4CreationTool_title;
+	public static String ApplicationRecipe4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationRecipes4CreationTool_desc;
+	public static String ApplicationRecipe4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUILayer5CreationTool_title;
+	public static String ApplicationRecipes5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUILayer5CreationTool_desc;
+	public static String ApplicationRecipes5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUIPackage6CreationTool_title;
+	public static String ApplicationUILayer6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationUIPackage6CreationTool_desc;
+	public static String ApplicationUILayer6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationUIPackage7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ApplicationUIPackage7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Datacenter8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Datacenter8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Hub9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Hub9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String InfrastructureLayer10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String InfrastructureLayer10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Router11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Router11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Server12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Server12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ServerClaster13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ServerClaster13CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Storage14CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Storage14CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Subsystem15CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Subsystem15CreationTool_desc;
 
 	/**
 	 * @generated

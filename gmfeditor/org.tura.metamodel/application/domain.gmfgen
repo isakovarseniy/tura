@@ -371,6 +371,63 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <topLevelNodes
+        visualID="802004"
+        editPartClassName="ApplicationInfrastructureLayerEditPart"
+        itemSemanticEditPolicyClassName="ApplicationInfrastructureLayerItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ApplicationInfrastructureLayerCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ApplicationInfrastructureLayerGraphicalNodeEditPolicy"
+        createCommandClassName="ApplicationInfrastructureLayerCreateCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ApplicationInfrastructureLayerEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ApplicationInfrastructureLayerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ApplicationInfrastructureLayerFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.tura.metamodel.commons.editparts.SizeLimitedLabel fFigureApplicationInfrastructureLayerLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ApplicationInfrastructureLayerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureApplicationInfrastructureLayerLabelFigure = new org.tura.metamodel.commons.editparts.SizeLimitedLabel();&#xA;&#xA;fFigureApplicationInfrastructureLayerLabelFigure.setText(&quot;ApplicationInfrastructureLayer&quot;);&#xA;&#xA;fFigureApplicationInfrastructureLayerLabelFigure.setFont(FFIGUREAPPLICATIONINFRASTRUCTURELAYERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureApplicationInfrastructureLayerLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.tura.metamodel.commons.editparts.SizeLimitedLabel getFigureApplicationInfrastructureLayerLabelFigure() {&#xA;&#x9;&#x9;return fFigureApplicationInfrastructureLayerLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 192, 192, 192);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREAPPLICATIONINFRASTRUCTURELAYERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"
+          editPolicyClassName="OpenDiagramApplicationInfrastructureLayerEditPolicy"
+          diagramKind="Infarastructure"
+          editorID="infarastructure.diagram.part.InfarastructureDiagramEditorID"/>
+      <modelFacet>
+        <metaClass
+            href="domain.genmodel#//domain/ApplicationInfrastructureLayer"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/Application/applicationInfrastructureLayer"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/Application/applicationInfrastructureLayer"/>
+      </modelFacet>
+      <labels
+          visualID="805007"
+          editPartClassName="ApplicationInfrastructureLayerNameEditPart"
+          itemSemanticEditPolicyClassName="ApplicationInfrastructureLayerNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureApplicationInfrastructureLayerLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="domain.genmodel#//domain/ApplicationInfrastructureLayer/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
     <links
         visualID="804001"
         editPartClassName="TypeExtensionEditPart"
@@ -738,6 +795,11 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="ApplicationInfrastructureLayer"
+            description="Create new ApplicationInfrastructureLayer"
+            genNodes="//@diagram/@topLevelNodes.3"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="ApplicationMapper"
             description="Create new ApplicationMapper"
             genNodes="//@diagram/@childNodes.1"/>
@@ -766,6 +828,38 @@
             title="ApplicationUIPackage"
             description="Create new ApplicationUIPackage"
             genNodes="//@diagram/@childNodes.2"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Datacenter"
+            description="Create new Datacenter"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Hub"
+            description="Create new Hub"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="InfrastructureLayer"
+            description="Create new InfrastructureLayer"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Router"
+            description="Create new Router"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Server"
+            description="Create new Server"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ServerClaster"
+            description="Create new ServerClaster"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Storage"
+            description="Create new Storage"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Subsystem"
+            description="Create new Subsystem"/>
       </groups>
       <groups
           title="Connections"
@@ -870,6 +964,9 @@
         child="//@diagram/@topLevelNodes.2"/>
     <childReferences
         parent="//@diagram"
+        child="//@diagram/@topLevelNodes.3"/>
+    <childReferences
+        parent="//@diagram"
         child="//@diagram/@links.0"
         groupName="links"
         groupIcon="icons/linksNavigatorGroup.gif"/>
@@ -935,7 +1032,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet"/>
     <implementations
         xsi:type="gmfgen:ExternalParser"
         uses="//@diagram/@links.2/@labels.0/@modelFacet //@diagram/@links.3/@labels.0/@modelFacet //@diagram/@links.4/@labels.0/@modelFacet //@diagram/@links.5/@labels.0/@modelFacet //@diagram/@links.6/@labels.0/@modelFacet //@diagram/@links.7/@labels.0/@modelFacet"/>

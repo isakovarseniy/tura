@@ -806,6 +806,105 @@ public interface DomainFactory extends EFactory
   Link createLink();
 
   /**
+   * Returns a new object of class '<em>Application Infrastructure Layer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application Infrastructure Layer</em>'.
+   * @generated
+   */
+  ApplicationInfrastructureLayer createApplicationInfrastructureLayer();
+
+  /**
+   * Returns a new object of class '<em>Enterprise Infrastructure</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enterprise Infrastructure</em>'.
+   * @generated
+   */
+  EnterpriseInfrastructure createEnterpriseInfrastructure();
+
+  /**
+   * Returns a new object of class '<em>Datacenter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Datacenter</em>'.
+   * @generated
+   */
+  Datacenter createDatacenter();
+
+  /**
+   * Returns a new object of class '<em>Subsystem</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Subsystem</em>'.
+   * @generated
+   */
+  Subsystem createSubsystem();
+
+  /**
+   * Returns a new object of class '<em>Infrastructure Layer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Infrastructure Layer</em>'.
+   * @generated
+   */
+  InfrastructureLayer createInfrastructureLayer();
+
+  /**
+   * Returns a new object of class '<em>Infrastructure Component</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Infrastructure Component</em>'.
+   * @generated
+   */
+  InfrastructureComponent createInfrastructureComponent();
+
+  /**
+   * Returns a new object of class '<em>Server</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Server</em>'.
+   * @generated
+   */
+  Server createServer();
+
+  /**
+   * Returns a new object of class '<em>Router</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Router</em>'.
+   * @generated
+   */
+  Router createRouter();
+
+  /**
+   * Returns a new object of class '<em>Hub</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Hub</em>'.
+   * @generated
+   */
+  Hub createHub();
+
+  /**
+   * Returns a new object of class '<em>Storage</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Storage</em>'.
+   * @generated
+   */
+  Storage createStorage();
+
+  /**
+   * Returns a new object of class '<em>Server Claster</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Server Claster</em>'.
+   * @generated
+   */
+  ServerClaster createServerClaster();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

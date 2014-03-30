@@ -146,6 +146,7 @@ class Application{
    val ApplicationRecipes#parent applicationRecipes;
    val ApplicationMappers#parent applicationMappers;
    val ApplicationUILayer#parent applicationUILayer;
+   val ApplicationInfrastructureLayer#parent  applicationInfrastructureLayer;
    ref DomainApplication#application parent;
 }
 
@@ -654,7 +655,7 @@ class DataControl {
    val SearchTrigger search;
 
    @gmf.compartment(layout="list")
-   val ArtificialField[*] artificialFields;   
+   val ArtificialField[*]#parent artificialFields;   
    
     
 }
@@ -673,6 +674,7 @@ class Relation{
 class ArtificialField extends TypePointer{
     id attr EString uid;
    attr EString name;
+   ref DataControl#artificialFields parent; 
    
 }
 
@@ -681,5 +683,82 @@ class Link{
     ref Relation#links parent;
     ref Attribute masterField;
     ref Attribute detailField;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class ApplicationInfrastructureLayer{
+    id attr EString uid;
+   attr EString name;
+   ref Application#applicationInfrastructureLayer parent;
+   val EnterpriseInfrastructure#parent infarastructure;
+}
+
+@gmf.diagram.infarastructure
+class EnterpriseInfrastructure{
+    id attr EString uid;
+    ref ApplicationInfrastructureLayer#infarastructure parent;
+    val Datacenter[*]#parent datacenters;
+   
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Datacenter{
+    id attr EString uid;
+    ref EnterpriseInfrastructure#datacenters parent;
+   @gmf.compartment
+    val Subsystem[*]#parent subsystems;
+   attr EString name;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class Subsystem{
+    id attr EString uid;
+    attr EString name;
+    ref Datacenter#subsystems parent;
+   @gmf.compartment
+    val InfrastructureLayer[*]#parent  infrastructureLayer;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class InfrastructureLayer {
+     id attr EString uid;
+     attr EString name;
+     ref Subsystem#infrastructureLayer parent;
+   @gmf.compartment
+     val InfrastructureComponent[*]#parent  infrastructureComponent;
+}
+
+class InfrastructureComponent{
+     id attr EString uid;
+     attr EString name;
+     ref InfrastructureLayer#infrastructureComponent parent;
+   
+}
+
+@gmf.node(figure="org.tura.metamodel.commons.figures.ServerFigure", label.icon="false", label="name", label.placement="external")
+class Server extends InfrastructureComponent{
+   
+   
+}
+
+@gmf.node(figure="org.tura.metamodel.commons.figures.RouterFigure", label.icon="false", label="name", label.placement="external")
+class Router extends InfrastructureComponent{
+   
+}
+
+@gmf.node(figure="org.tura.metamodel.commons.figures.HubFigure", label.icon="false", label="name", label.placement="external")
+class Hub extends InfrastructureComponent{
+   
+}
+
+@gmf.node(figure="org.tura.metamodel.commons.figures.StorageFigure", label.icon="false", label="name", label.placement="external")
+class Storage extends InfrastructureComponent{
+   
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class ServerClaster extends InfrastructureComponent{
+  val Server[*] servers;
 }
 

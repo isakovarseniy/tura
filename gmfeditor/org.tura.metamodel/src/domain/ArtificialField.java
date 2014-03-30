@@ -13,6 +13,7 @@ package domain;
  * <ul>
  *   <li>{@link domain.ArtificialField#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ArtificialField#getName <em>Name</em>}</li>
+ *   <li>{@link domain.ArtificialField#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,5 +74,33 @@ public interface ArtificialField extends TypePointer
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link domain.DataControl#getArtificialFields <em>Artificial Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' container reference.
+   * @see #setParent(DataControl)
+   * @see domain.DomainPackage#getArtificialField_Parent()
+   * @see domain.DataControl#getArtificialFields
+   * @model opposite="artificialFields" transient="false"
+   * @generated
+   */
+  DataControl getParent();
+
+  /**
+   * Sets the value of the '{@link domain.ArtificialField#getParent <em>Parent</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' container reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(DataControl value);
 
 } // ArtificialField

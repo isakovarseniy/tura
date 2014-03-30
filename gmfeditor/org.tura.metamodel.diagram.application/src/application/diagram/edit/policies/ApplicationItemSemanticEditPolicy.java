@@ -10,6 +10,7 @@ import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsComma
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
+import application.diagram.edit.commands.ApplicationInfrastructureLayerCreateCommand;
 import application.diagram.edit.commands.ApplicationMappersCreateCommand;
 import application.diagram.edit.commands.ApplicationRecipesCreateCommand;
 import application.diagram.edit.commands.ApplicationUILayerCreateCommand;
@@ -43,6 +44,11 @@ public class ApplicationItemSemanticEditPolicy extends
 		if (DomainElementTypes.ApplicationUILayer_802003 == req
 				.getElementType()) {
 			return getGEFWrapper(new ApplicationUILayerCreateCommand(req));
+		}
+		if (DomainElementTypes.ApplicationInfrastructureLayer_802004 == req
+				.getElementType()) {
+			return getGEFWrapper(new ApplicationInfrastructureLayerCreateCommand(
+					req));
 		}
 		return super.getCreateCommand(req);
 	}

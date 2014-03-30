@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Application#getApplicationRecipes <em>Application Recipes</em>}</li>
  *   <li>{@link domain.Application#getApplicationMappers <em>Application Mappers</em>}</li>
  *   <li>{@link domain.Application#getApplicationUILayer <em>Application UI Layer</em>}</li>
+ *   <li>{@link domain.Application#getApplicationInfrastructureLayer <em>Application Infrastructure Layer</em>}</li>
  *   <li>{@link domain.Application#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -135,6 +136,34 @@ public interface Application extends EObject
    * @generated
    */
   void setApplicationUILayer(ApplicationUILayer value);
+
+  /**
+   * Returns the value of the '<em><b>Application Infrastructure Layer</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link domain.ApplicationInfrastructureLayer#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Application Infrastructure Layer</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Application Infrastructure Layer</em>' containment reference.
+   * @see #setApplicationInfrastructureLayer(ApplicationInfrastructureLayer)
+   * @see domain.DomainPackage#getApplication_ApplicationInfrastructureLayer()
+   * @see domain.ApplicationInfrastructureLayer#getParent
+   * @model opposite="parent" containment="true"
+   * @generated
+   */
+  ApplicationInfrastructureLayer getApplicationInfrastructureLayer();
+
+  /**
+   * Sets the value of the '{@link domain.Application#getApplicationInfrastructureLayer <em>Application Infrastructure Layer</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Application Infrastructure Layer</em>' containment reference.
+   * @see #getApplicationInfrastructureLayer()
+   * @generated
+   */
+  void setApplicationInfrastructureLayer(ApplicationInfrastructureLayer value);
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' reference.

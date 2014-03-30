@@ -11,6 +11,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import application.diagram.edit.parts.ApplicationEditPart;
+import application.diagram.edit.parts.ApplicationInfrastructureLayerEditPart;
+import application.diagram.edit.parts.ApplicationInfrastructureLayerNameEditPart;
 import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMapperNameEditPart;
 import application.diagram.edit.parts.ApplicationMappersApplicationMappersMappersCompartmentEditPart;
@@ -164,6 +166,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return ApplicationUILayerEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getApplicationInfrastructureLayer()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ApplicationInfrastructureLayerEditPart.VISUAL_ID;
+			}
 			break;
 		case ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getApplicationRecipe().isSuperTypeOf(
@@ -219,6 +225,9 @@ public class DomainVisualIDRegistry {
 			if (ApplicationUILayerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ApplicationInfrastructureLayerEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case ApplicationRecipesEditPart.VISUAL_ID:
 			if (ApplicationRecipesNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -241,6 +250,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			if (ApplicationInfrastructureLayerNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -371,6 +385,7 @@ public class DomainVisualIDRegistry {
 		switch (visualID) {
 		case ApplicationEditPart.VISUAL_ID:
 			return false;
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
 		case ApplicationRecipeEditPart.VISUAL_ID:
 		case ApplicationMapperEditPart.VISUAL_ID:
 		case ApplicationUIPackageEditPart.VISUAL_ID:

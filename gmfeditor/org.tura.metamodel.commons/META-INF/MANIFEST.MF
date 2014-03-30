@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Commons
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.commons; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Export-Package: 
@@ -47,6 +47,7 @@ Export-Package:
  org.metamodel.tura.ui.properties.sections,
  org.tura.metamodel.commons,
  org.tura.metamodel.commons.editparts,
+ org.tura.metamodel.commons.figures,
  org.tura.metamodel.commons.initdiagram
 Import-Package: org.eclipse.draw2d,
  org.eclipse.draw2d.geometry,
@@ -79,3 +80,5 @@ Bundle-ClassPath: .,
  lib/commons-lang-2.6.jar,
  lib/velocity-1.7-dep.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Activator: org.metamodel.tura.Activator
+Bundle-ActivationPolicy: lazy

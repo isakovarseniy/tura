@@ -35,6 +35,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import application.diagram.edit.parts.ApplicationEditPart;
+import application.diagram.edit.parts.ApplicationInfrastructureLayerEditPart;
 import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
@@ -83,6 +84,8 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getApplication_ApplicationMappers());
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getApplication_ApplicationUILayer());
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getApplication_ApplicationInfrastructureLayer());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -119,9 +122,14 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
-		return visualID == ApplicationRecipesEditPart.VISUAL_ID
-				|| visualID == ApplicationMappersEditPart.VISUAL_ID
-				|| visualID == ApplicationUILayerEditPart.VISUAL_ID;
+		switch (visualID) {
+		case ApplicationRecipesEditPart.VISUAL_ID:
+		case ApplicationMappersEditPart.VISUAL_ID:
+		case ApplicationUILayerEditPart.VISUAL_ID:
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -311,6 +319,14 @@ public class ApplicationCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getApplicationUILayer_802003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getApplicationInfrastructureLayer_802004ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

@@ -3,6 +3,7 @@
 package domain.util;
 
 import domain.Application;
+import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
@@ -22,6 +23,7 @@ import domain.ContinuousIintegration;
 import domain.Controls;
 import domain.CreateTrigger;
 import domain.DataControl;
+import domain.Datacenter;
 import domain.DeleteTrigger;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
@@ -35,12 +37,17 @@ import domain.DomainArtifacts;
 import domain.DomainPackage;
 import domain.DomainTypes;
 import domain.EJBService;
+import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
+import domain.Hub;
+import domain.Infarastructure;
 import domain.Infrastructure;
+import domain.InfrastructureComponent;
+import domain.InfrastructureLayer;
 import domain.Ingredient;
 import domain.InsertTrigger;
 import domain.JPAService;
@@ -74,8 +81,13 @@ import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
 import domain.Root;
+import domain.Router;
 import domain.SearchTrigger;
+import domain.Server;
+import domain.ServerClaster;
 import domain.Specifier;
+import domain.Storage;
+import domain.Subsystem;
 import domain.Trigger;
 import domain.TriggerParameter;
 import domain.Type;
@@ -823,6 +835,88 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Link link = (Link)theEObject;
         T result = caseLink(link);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER:
+      {
+        ApplicationInfrastructureLayer applicationInfrastructureLayer = (ApplicationInfrastructureLayer)theEObject;
+        T result = caseApplicationInfrastructureLayer(applicationInfrastructureLayer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.ENTERPRISE_INFRASTRUCTURE:
+      {
+        EnterpriseInfrastructure enterpriseInfrastructure = (EnterpriseInfrastructure)theEObject;
+        T result = caseEnterpriseInfrastructure(enterpriseInfrastructure);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.DATACENTER:
+      {
+        Datacenter datacenter = (Datacenter)theEObject;
+        T result = caseDatacenter(datacenter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.SUBSYSTEM:
+      {
+        Subsystem subsystem = (Subsystem)theEObject;
+        T result = caseSubsystem(subsystem);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.INFRASTRUCTURE_LAYER:
+      {
+        InfrastructureLayer infrastructureLayer = (InfrastructureLayer)theEObject;
+        T result = caseInfrastructureLayer(infrastructureLayer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.INFRASTRUCTURE_COMPONENT:
+      {
+        InfrastructureComponent infrastructureComponent = (InfrastructureComponent)theEObject;
+        T result = caseInfrastructureComponent(infrastructureComponent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.SERVER:
+      {
+        Server server = (Server)theEObject;
+        T result = caseServer(server);
+        if (result == null) result = caseInfrastructureComponent(server);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.ROUTER:
+      {
+        Router router = (Router)theEObject;
+        T result = caseRouter(router);
+        if (result == null) result = caseInfrastructureComponent(router);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.HUB:
+      {
+        Hub hub = (Hub)theEObject;
+        T result = caseHub(hub);
+        if (result == null) result = caseInfrastructureComponent(hub);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.STORAGE:
+      {
+        Storage storage = (Storage)theEObject;
+        T result = caseStorage(storage);
+        if (result == null) result = caseInfrastructureComponent(storage);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.SERVER_CLASTER:
+      {
+        ServerClaster serverClaster = (ServerClaster)theEObject;
+        T result = caseServerClaster(serverClaster);
+        if (result == null) result = caseInfrastructureComponent(serverClaster);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2218,6 +2312,182 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLink(Link object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Application Infrastructure Layer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Application Infrastructure Layer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseApplicationInfrastructureLayer(ApplicationInfrastructureLayer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Enterprise Infrastructure</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enterprise Infrastructure</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnterpriseInfrastructure(EnterpriseInfrastructure object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Datacenter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Datacenter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDatacenter(Datacenter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Subsystem</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Subsystem</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubsystem(Subsystem object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Infrastructure Layer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Infrastructure Layer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInfrastructureLayer(InfrastructureLayer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Infrastructure Component</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Infrastructure Component</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInfrastructureComponent(InfrastructureComponent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Server</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Server</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseServer(Server object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Router</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Router</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRouter(Router object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Hub</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Hub</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHub(Hub object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Storage</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Storage</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStorage(Storage object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Server Claster</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Server Claster</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseServerClaster(ServerClaster object)
   {
     return null;
   }

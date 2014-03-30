@@ -2249,6 +2249,281 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.ApplicationInfrastructureLayer} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ApplicationInfrastructureLayerItemProvider applicationInfrastructureLayerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ApplicationInfrastructureLayer}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createApplicationInfrastructureLayerAdapter()
+  {
+    if (applicationInfrastructureLayerItemProvider == null)
+    {
+      applicationInfrastructureLayerItemProvider = new ApplicationInfrastructureLayerItemProvider(this);
+    }
+
+    return applicationInfrastructureLayerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.EnterpriseInfrastructure} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected EnterpriseInfrastructureItemProvider enterpriseInfrastructureItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.EnterpriseInfrastructure}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createEnterpriseInfrastructureAdapter()
+  {
+    if (enterpriseInfrastructureItemProvider == null)
+    {
+      enterpriseInfrastructureItemProvider = new EnterpriseInfrastructureItemProvider(this);
+    }
+
+    return enterpriseInfrastructureItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Datacenter} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DatacenterItemProvider datacenterItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Datacenter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDatacenterAdapter()
+  {
+    if (datacenterItemProvider == null)
+    {
+      datacenterItemProvider = new DatacenterItemProvider(this);
+    }
+
+    return datacenterItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Subsystem} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SubsystemItemProvider subsystemItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Subsystem}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSubsystemAdapter()
+  {
+    if (subsystemItemProvider == null)
+    {
+      subsystemItemProvider = new SubsystemItemProvider(this);
+    }
+
+    return subsystemItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.InfrastructureLayer} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected InfrastructureLayerItemProvider infrastructureLayerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.InfrastructureLayer}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createInfrastructureLayerAdapter()
+  {
+    if (infrastructureLayerItemProvider == null)
+    {
+      infrastructureLayerItemProvider = new InfrastructureLayerItemProvider(this);
+    }
+
+    return infrastructureLayerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.InfrastructureComponent} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected InfrastructureComponentItemProvider infrastructureComponentItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.InfrastructureComponent}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createInfrastructureComponentAdapter()
+  {
+    if (infrastructureComponentItemProvider == null)
+    {
+      infrastructureComponentItemProvider = new InfrastructureComponentItemProvider(this);
+    }
+
+    return infrastructureComponentItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Server} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ServerItemProvider serverItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Server}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createServerAdapter()
+  {
+    if (serverItemProvider == null)
+    {
+      serverItemProvider = new ServerItemProvider(this);
+    }
+
+    return serverItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Router} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RouterItemProvider routerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Router}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRouterAdapter()
+  {
+    if (routerItemProvider == null)
+    {
+      routerItemProvider = new RouterItemProvider(this);
+    }
+
+    return routerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Hub} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected HubItemProvider hubItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Hub}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createHubAdapter()
+  {
+    if (hubItemProvider == null)
+    {
+      hubItemProvider = new HubItemProvider(this);
+    }
+
+    return hubItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Storage} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected StorageItemProvider storageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Storage}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createStorageAdapter()
+  {
+    if (storageItemProvider == null)
+    {
+      storageItemProvider = new StorageItemProvider(this);
+    }
+
+    return storageItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ServerClaster} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ServerClasterItemProvider serverClasterItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ServerClaster}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createServerClasterAdapter()
+  {
+    if (serverClasterItemProvider == null)
+    {
+      serverClasterItemProvider = new ServerClasterItemProvider(this);
+    }
+
+    return serverClasterItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2446,6 +2721,17 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (relationItemProvider != null) relationItemProvider.dispose();
     if (artificialFieldItemProvider != null) artificialFieldItemProvider.dispose();
     if (linkItemProvider != null) linkItemProvider.dispose();
+    if (applicationInfrastructureLayerItemProvider != null) applicationInfrastructureLayerItemProvider.dispose();
+    if (enterpriseInfrastructureItemProvider != null) enterpriseInfrastructureItemProvider.dispose();
+    if (datacenterItemProvider != null) datacenterItemProvider.dispose();
+    if (subsystemItemProvider != null) subsystemItemProvider.dispose();
+    if (infrastructureLayerItemProvider != null) infrastructureLayerItemProvider.dispose();
+    if (infrastructureComponentItemProvider != null) infrastructureComponentItemProvider.dispose();
+    if (serverItemProvider != null) serverItemProvider.dispose();
+    if (routerItemProvider != null) routerItemProvider.dispose();
+    if (hubItemProvider != null) hubItemProvider.dispose();
+    if (storageItemProvider != null) storageItemProvider.dispose();
+    if (serverClasterItemProvider != null) serverClasterItemProvider.dispose();
   }
 
 }

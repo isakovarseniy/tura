@@ -256,42 +256,132 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DeploymentStarStep1CreationTool_title;
+	public static String ApplicationInfrastructureLayer1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentStarStep1CreationTool_desc;
+	public static String ApplicationInfrastructureLayer1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Form2CreationTool_title;
+	public static String Datacenter2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Form2CreationTool_desc;
+	public static String Datacenter2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String FormDataControls3CreationTool_title;
+	public static String DeploymentStarStep3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String FormDataControls3CreationTool_desc;
+	public static String DeploymentStarStep3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String FormView4CreationTool_title;
+	public static String Form4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String FormView4CreationTool_desc;
+	public static String Form4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String FormDataControls5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String FormDataControls5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String FormView6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String FormView6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Hub7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Hub7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String InfrastructureLayer8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String InfrastructureLayer8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Router9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Router9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Server10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Server10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ServerClaster11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ServerClaster11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Storage12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Storage12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Subsystem13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Subsystem13CreationTool_desc;
 
 	/**
 	 * @generated

@@ -48,6 +48,21 @@ innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2
 
 
 
+//Enable diagram partition for ApplicationInfrastructureLayer element
+var genTopLevelNode = GmfGen!GenTopLevelNode.all.select(n|n.createCommandClassName = 'ApplicationInfrastructureLayerCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'infarastructure.diagram.part.InfarastructureDiagramEditorID';
+behaviour.diagramKind='Infarastructure';
+behaviour.editPolicyClassName= 'OpenDiagramApplicationInfrastructureLayerEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for ApplicationMapper element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'ApplicationInfrastructureLayerFigure').first;
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
+
+
+
  -- distinct visual ID
 for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+800000);

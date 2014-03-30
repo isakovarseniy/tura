@@ -1,3 +1,22 @@
+context ArtificialField{
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.parent.artificialFields.select(r|r.isKindOf(ArtificialField) and r.name=self.name).size() = 1
+      message : 'Artificial name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
  context DataControl {
 
   constraint HasName {

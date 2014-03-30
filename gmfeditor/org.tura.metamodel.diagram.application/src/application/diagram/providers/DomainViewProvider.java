@@ -47,6 +47,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
 import application.diagram.edit.parts.ApplicationEditPart;
+import application.diagram.edit.parts.ApplicationInfrastructureLayerEditPart;
+import application.diagram.edit.parts.ApplicationInfrastructureLayerNameEditPart;
 import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMapperNameEditPart;
 import application.diagram.edit.parts.ApplicationMappersApplicationMappersMappersCompartmentEditPart;
@@ -171,6 +173,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				case ApplicationRecipesEditPart.VISUAL_ID:
 				case ApplicationMappersEditPart.VISUAL_ID:
 				case ApplicationUILayerEditPart.VISUAL_ID:
+				case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
 				case ApplicationRecipeEditPart.VISUAL_ID:
 				case ApplicationMapperEditPart.VISUAL_ID:
 				case ApplicationUIPackageEditPart.VISUAL_ID:
@@ -189,6 +192,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		return ApplicationRecipesEditPart.VISUAL_ID == visualID
 				|| ApplicationMappersEditPart.VISUAL_ID == visualID
 				|| ApplicationUILayerEditPart.VISUAL_ID == visualID
+				|| ApplicationInfrastructureLayerEditPart.VISUAL_ID == visualID
 				|| ApplicationRecipeEditPart.VISUAL_ID == visualID
 				|| ApplicationMapperEditPart.VISUAL_ID == visualID
 				|| ApplicationUIPackageEditPart.VISUAL_ID == visualID;
@@ -256,6 +260,9 @@ public class DomainViewProvider extends AbstractProvider implements
 					containerView, index, persisted, preferencesHint);
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return createApplicationUILayer_802003(domainElement,
+					containerView, index, persisted, preferencesHint);
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return createApplicationInfrastructureLayer_802004(domainElement,
 					containerView, index, persisted, preferencesHint);
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return createApplicationRecipe_803001(domainElement, containerView,
@@ -445,6 +452,52 @@ public class DomainViewProvider extends AbstractProvider implements
 				DomainVisualIDRegistry
 						.getType(ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createApplicationInfrastructureLayer_802004(
+			EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		{
+			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
+					.createHintedDiagramLinkStyle();
+			diagramFacet.setHint("Infarastructure"); //$NON-NLS-1$
+			node.getStyles().add(diagramFacet);
+		}
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(ApplicationInfrastructureLayerEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label805007 = createLabel(
+				node,
+				DomainVisualIDRegistry
+						.getType(ApplicationInfrastructureLayerNameEditPart.VISUAL_ID));
 		return node;
 	}
 

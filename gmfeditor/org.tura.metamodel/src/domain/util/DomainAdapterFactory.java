@@ -3,6 +3,7 @@
 package domain.util;
 
 import domain.Application;
+import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
@@ -22,6 +23,7 @@ import domain.ContinuousIintegration;
 import domain.Controls;
 import domain.CreateTrigger;
 import domain.DataControl;
+import domain.Datacenter;
 import domain.DeleteTrigger;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
@@ -35,12 +37,17 @@ import domain.DomainArtifacts;
 import domain.DomainPackage;
 import domain.DomainTypes;
 import domain.EJBService;
+import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
+import domain.Hub;
+import domain.Infarastructure;
 import domain.Infrastructure;
+import domain.InfrastructureComponent;
+import domain.InfrastructureLayer;
 import domain.Ingredient;
 import domain.InsertTrigger;
 import domain.JPAService;
@@ -74,8 +81,13 @@ import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
 import domain.Root;
+import domain.Router;
 import domain.SearchTrigger;
+import domain.Server;
+import domain.ServerClaster;
 import domain.Specifier;
+import domain.Storage;
+import domain.Subsystem;
 import domain.Trigger;
 import domain.TriggerParameter;
 import domain.Type;
@@ -594,6 +606,61 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLink(Link object)
       {
         return createLinkAdapter();
+      }
+      @Override
+      public Adapter caseApplicationInfrastructureLayer(ApplicationInfrastructureLayer object)
+      {
+        return createApplicationInfrastructureLayerAdapter();
+      }
+      @Override
+      public Adapter caseEnterpriseInfrastructure(EnterpriseInfrastructure object)
+      {
+        return createEnterpriseInfrastructureAdapter();
+      }
+      @Override
+      public Adapter caseDatacenter(Datacenter object)
+      {
+        return createDatacenterAdapter();
+      }
+      @Override
+      public Adapter caseSubsystem(Subsystem object)
+      {
+        return createSubsystemAdapter();
+      }
+      @Override
+      public Adapter caseInfrastructureLayer(InfrastructureLayer object)
+      {
+        return createInfrastructureLayerAdapter();
+      }
+      @Override
+      public Adapter caseInfrastructureComponent(InfrastructureComponent object)
+      {
+        return createInfrastructureComponentAdapter();
+      }
+      @Override
+      public Adapter caseServer(Server object)
+      {
+        return createServerAdapter();
+      }
+      @Override
+      public Adapter caseRouter(Router object)
+      {
+        return createRouterAdapter();
+      }
+      @Override
+      public Adapter caseHub(Hub object)
+      {
+        return createHubAdapter();
+      }
+      @Override
+      public Adapter caseStorage(Storage object)
+      {
+        return createStorageAdapter();
+      }
+      @Override
+      public Adapter caseServerClaster(ServerClaster object)
+      {
+        return createServerClasterAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -1918,6 +1985,171 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLinkAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ApplicationInfrastructureLayer <em>Application Infrastructure Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ApplicationInfrastructureLayer
+   * @generated
+   */
+  public Adapter createApplicationInfrastructureLayerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.EnterpriseInfrastructure <em>Enterprise Infrastructure</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.EnterpriseInfrastructure
+   * @generated
+   */
+  public Adapter createEnterpriseInfrastructureAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Datacenter <em>Datacenter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Datacenter
+   * @generated
+   */
+  public Adapter createDatacenterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Subsystem <em>Subsystem</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Subsystem
+   * @generated
+   */
+  public Adapter createSubsystemAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.InfrastructureLayer <em>Infrastructure Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.InfrastructureLayer
+   * @generated
+   */
+  public Adapter createInfrastructureLayerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.InfrastructureComponent <em>Infrastructure Component</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.InfrastructureComponent
+   * @generated
+   */
+  public Adapter createInfrastructureComponentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Server <em>Server</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Server
+   * @generated
+   */
+  public Adapter createServerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Router <em>Router</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Router
+   * @generated
+   */
+  public Adapter createRouterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Hub <em>Hub</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Hub
+   * @generated
+   */
+  public Adapter createHubAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Storage <em>Storage</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Storage
+   * @generated
+   */
+  public Adapter createStorageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ServerClaster <em>Server Claster</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ServerClaster
+   * @generated
+   */
+  public Adapter createServerClasterAdapter()
   {
     return null;
   }

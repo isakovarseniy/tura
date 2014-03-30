@@ -1,6 +1,6 @@
 <project default="main">
 	
-	<target name="main" depends="application,artifact,domain,mapper,recipe,typedefinition,typesrepository,deployment,uipackage,control">
+	<target name="main" depends="application,artifact,domain,mapper,recipe,typedefinition,typesrepository,deployment,uipackage,control,infarastructure">
 	</target>
 	
 	<target name="application">
@@ -74,4 +74,14 @@
 		<epsilon.eugenia   src="control/domain.emf" firststep="gmfcode"  />		
 	</target>	
 	
+
+	<target name="infarastructure">
+		<copy file="basefolder/domain.emf" todir="infarastructure"/>
+		<replace file="infarastructure/domain.emf"    token="@gmf.diagram.infarastructure" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="infarastructure/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="infarastructure/domain.emf" firststep="gmfcode"  />		
+	</target>	
+
+
+
 </project>

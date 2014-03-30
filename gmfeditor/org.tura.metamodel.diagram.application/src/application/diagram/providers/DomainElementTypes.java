@@ -20,6 +20,7 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
 import application.diagram.edit.parts.ApplicationEditPart;
+import application.diagram.edit.parts.ApplicationInfrastructureLayerEditPart;
 import application.diagram.edit.parts.ApplicationMapperEditPart;
 import application.diagram.edit.parts.ApplicationMappersEditPart;
 import application.diagram.edit.parts.ApplicationRecipeEditPart;
@@ -79,6 +80,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ApplicationUILayer_802003 = getElementType("org.tura.metamodel.diagram.application.ApplicationUILayer_802003"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType ApplicationInfrastructureLayer_802004 = getElementType("org.tura.metamodel.diagram.application.ApplicationInfrastructureLayer_802004"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -247,6 +253,9 @@ public class DomainElementTypes {
 			elements.put(ApplicationUILayer_802003,
 					DomainPackage.eINSTANCE.getApplicationUILayer());
 
+			elements.put(ApplicationInfrastructureLayer_802004,
+					DomainPackage.eINSTANCE.getApplicationInfrastructureLayer());
+
 			elements.put(ApplicationRecipe_803001,
 					DomainPackage.eINSTANCE.getApplicationRecipe());
 
@@ -300,6 +309,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ApplicationRecipes_802001);
 			KNOWN_ELEMENT_TYPES.add(ApplicationMappers_802002);
 			KNOWN_ELEMENT_TYPES.add(ApplicationUILayer_802003);
+			KNOWN_ELEMENT_TYPES.add(ApplicationInfrastructureLayer_802004);
 			KNOWN_ELEMENT_TYPES.add(ApplicationRecipe_803001);
 			KNOWN_ELEMENT_TYPES.add(ApplicationMapper_803002);
 			KNOWN_ELEMENT_TYPES.add(ApplicationUIPackage_803003);
@@ -329,6 +339,8 @@ public class DomainElementTypes {
 			return ApplicationMappers_802002;
 		case ApplicationUILayerEditPart.VISUAL_ID:
 			return ApplicationUILayer_802003;
+		case ApplicationInfrastructureLayerEditPart.VISUAL_ID:
+			return ApplicationInfrastructureLayer_802004;
 		case ApplicationRecipeEditPart.VISUAL_ID:
 			return ApplicationRecipe_803001;
 		case ApplicationMapperEditPart.VISUAL_ID:

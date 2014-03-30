@@ -3,6 +3,7 @@
 package domain.impl;
 
 import domain.Application;
+import domain.ApplicationInfrastructureLayer;
 import domain.ApplicationMapper;
 import domain.ApplicationMappers;
 import domain.ApplicationRecipe;
@@ -22,6 +23,7 @@ import domain.ContinuousIintegration;
 import domain.Controls;
 import domain.CreateTrigger;
 import domain.DataControl;
+import domain.Datacenter;
 import domain.DeleteTrigger;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
@@ -36,12 +38,17 @@ import domain.DomainFactory;
 import domain.DomainPackage;
 import domain.DomainTypes;
 import domain.EJBService;
+import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
+import domain.Hub;
+import domain.Infarastructure;
 import domain.Infrastructure;
+import domain.InfrastructureComponent;
+import domain.InfrastructureLayer;
 import domain.Ingredient;
 import domain.InsertTrigger;
 import domain.JPAService;
@@ -76,8 +83,13 @@ import domain.Recipes;
 import domain.Relation;
 import domain.ReturnValue;
 import domain.Root;
+import domain.Router;
 import domain.SearchTrigger;
+import domain.Server;
+import domain.ServerClaster;
 import domain.Specifier;
+import domain.Storage;
+import domain.Subsystem;
 import domain.Trigger;
 import domain.TriggerParameter;
 import domain.Type;
@@ -240,6 +252,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.RELATION: return createRelation();
       case DomainPackage.ARTIFICIAL_FIELD: return createArtificialField();
       case DomainPackage.LINK: return createLink();
+      case DomainPackage.APPLICATION_INFRASTRUCTURE_LAYER: return createApplicationInfrastructureLayer();
+      case DomainPackage.ENTERPRISE_INFRASTRUCTURE: return createEnterpriseInfrastructure();
+      case DomainPackage.DATACENTER: return createDatacenter();
+      case DomainPackage.SUBSYSTEM: return createSubsystem();
+      case DomainPackage.INFRASTRUCTURE_LAYER: return createInfrastructureLayer();
+      case DomainPackage.INFRASTRUCTURE_COMPONENT: return createInfrastructureComponent();
+      case DomainPackage.SERVER: return createServer();
+      case DomainPackage.ROUTER: return createRouter();
+      case DomainPackage.HUB: return createHub();
+      case DomainPackage.STORAGE: return createStorage();
+      case DomainPackage.SERVER_CLASTER: return createServerClaster();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -1234,6 +1257,127 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     LinkImpl link = new LinkImpl();
     return link;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ApplicationInfrastructureLayer createApplicationInfrastructureLayer()
+  {
+    ApplicationInfrastructureLayerImpl applicationInfrastructureLayer = new ApplicationInfrastructureLayerImpl();
+    return applicationInfrastructureLayer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EnterpriseInfrastructure createEnterpriseInfrastructure()
+  {
+    EnterpriseInfrastructureImpl enterpriseInfrastructure = new EnterpriseInfrastructureImpl();
+    return enterpriseInfrastructure;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Datacenter createDatacenter()
+  {
+    DatacenterImpl datacenter = new DatacenterImpl();
+    return datacenter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Subsystem createSubsystem()
+  {
+    SubsystemImpl subsystem = new SubsystemImpl();
+    return subsystem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InfrastructureLayer createInfrastructureLayer()
+  {
+    InfrastructureLayerImpl infrastructureLayer = new InfrastructureLayerImpl();
+    return infrastructureLayer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InfrastructureComponent createInfrastructureComponent()
+  {
+    InfrastructureComponentImpl infrastructureComponent = new InfrastructureComponentImpl();
+    return infrastructureComponent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Server createServer()
+  {
+    ServerImpl server = new ServerImpl();
+    return server;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Router createRouter()
+  {
+    RouterImpl router = new RouterImpl();
+    return router;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Hub createHub()
+  {
+    HubImpl hub = new HubImpl();
+    return hub;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Storage createStorage()
+  {
+    StorageImpl storage = new StorageImpl();
+    return storage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ServerClaster createServerClaster()
+  {
+    ServerClasterImpl serverClaster = new ServerClasterImpl();
+    return serverClaster;
   }
 
   /**
