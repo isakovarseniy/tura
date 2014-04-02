@@ -44,6 +44,7 @@ import domain.Enumarator;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
+import domain.HTMLLayerHolder;
 import domain.Hub;
 import domain.Infarastructure;
 import domain.Infrastructure;
@@ -126,6 +127,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass domainEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass htmlLayerHolderEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -924,6 +932,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getDomain_DomainApplications()
   {
     return (EReference)domainEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getHTMLLayerHolder()
+  {
+    return htmlLayerHolderEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getHTMLLayerHolder_Columns()
+  {
+    return (EAttribute)htmlLayerHolderEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4872,6 +4900,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEReference(domainEClass, DOMAIN__DOMAIN_TYPES);
     createEReference(domainEClass, DOMAIN__DOMAIN_APPLICATIONS);
 
+    htmlLayerHolderEClass = createEClass(HTML_LAYER_HOLDER);
+    createEAttribute(htmlLayerHolderEClass, HTML_LAYER_HOLDER__COLUMNS);
+
     domainArtifactsEClass = createEClass(DOMAIN_ARTIFACTS);
     createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__UID);
     createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__NAME);
@@ -5425,6 +5456,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     deleteTriggerEClass.getESuperTypes().add(this.getTrigger());
     searchTriggerEClass.getESuperTypes().add(this.getTrigger());
     artificialFieldEClass.getESuperTypes().add(this.getTypePointer());
+    datacenterEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     serverEClass.getESuperTypes().add(this.getInfrastructureComponent());
     routerEClass.getESuperTypes().add(this.getInfrastructureComponent());
     hubEClass.getESuperTypes().add(this.getInfrastructureComponent());
@@ -5437,6 +5469,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEReference(getDomain_DomainArtifacts(), this.getDomainArtifacts(), this.getDomainArtifacts_Parent(), "domainArtifacts", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDomain_DomainTypes(), this.getDomainTypes(), this.getDomainTypes_Parent(), "domainTypes", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDomain_DomainApplications(), this.getDomainApplications(), this.getDomainApplications_Parent(), "domainApplications", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(htmlLayerHolderEClass, HTMLLayerHolder.class, "HTMLLayerHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getHTMLLayerHolder_Columns(), ecorePackage.getEInt(), "columns", "1", 0, 1, HTMLLayerHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainArtifactsEClass, DomainArtifacts.class, "DomainArtifacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDomainArtifacts_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6550,27 +6585,21 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "name",
-       "border.color", "0,0,0",
-       "color", "255,239,222"
+       "label", "name"
        });			
     addAnnotation
       (subsystemEClass, 
        source, 
        new String[] 
        {
-       "label", "name",
-       "border.color", "0,0,0",
-       "color", "255,239,222"
+       "label", "name"
        });			
     addAnnotation
       (infrastructureLayerEClass, 
        source, 
        new String[] 
        {
-       "label", "name",
-       "border.color", "0,0,0",
-       "color", "255,239,222"
+       "label", "name"
        });			
     addAnnotation
       (serverEClass, 
@@ -6617,9 +6646,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "name",
-       "border.color", "0,0,0",
-       "color", "255,239,222"
+       "label", "name"
        });
   }
 

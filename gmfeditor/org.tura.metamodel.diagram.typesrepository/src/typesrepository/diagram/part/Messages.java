@@ -256,112 +256,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ApplicationInfrastructureLayer1CreationTool_title;
+	public static String Package1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationInfrastructureLayer1CreationTool_desc;
+	public static String Package1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter2CreationTool_title;
+	public static String Types2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Hub3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Hub3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureLayer4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureLayer4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Package5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Package5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Router6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Router6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Server7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Server7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ServerClaster8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ServerClaster8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Storage9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Storage9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Types11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Types11CreationTool_desc;
+	public static String Types2CreationTool_desc;
 
 	/**
 	 * @generated

@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DatacenterImpl extends EObjectImpl implements Datacenter
+public class DatacenterImpl extends HTMLLayerHolderImpl implements Datacenter
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.

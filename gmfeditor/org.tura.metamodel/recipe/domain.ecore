@@ -13,6 +13,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainApplications" lowerBound="1"
         eType="#//DomainApplications" containment="true" eOpposite="#//DomainApplications/parent"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HTMLLayerHolder">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainArtifacts">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
@@ -1104,11 +1108,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="datacenters" upperBound="-1"
         eType="#//Datacenter" containment="true" eOpposite="#//Datacenter/parent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Datacenter">
+  <eClassifiers xsi:type="ecore:EClass" name="Datacenter" eSuperTypes="#//HTMLLayerHolder">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -1123,8 +1125,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Subsystem">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -1139,8 +1139,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="InfrastructureLayer">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -1194,8 +1192,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="ServerClaster" eSuperTypes="#//InfrastructureComponent">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="servers" upperBound="-1"
         eType="#//Server" containment="true"/>

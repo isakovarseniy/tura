@@ -43,6 +43,7 @@ import domain.Enumarator;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
+import domain.HTMLLayerHolder;
 import domain.Hub;
 import domain.Infarastructure;
 import domain.Infrastructure;
@@ -174,6 +175,13 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Domain domain = (Domain)theEObject;
         T result = caseDomain(domain);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.HTML_LAYER_HOLDER:
+      {
+        HTMLLayerHolder htmlLayerHolder = (HTMLLayerHolder)theEObject;
+        T result = caseHTMLLayerHolder(htmlLayerHolder);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -856,6 +864,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Datacenter datacenter = (Datacenter)theEObject;
         T result = caseDatacenter(datacenter);
+        if (result == null) result = caseHTMLLayerHolder(datacenter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -936,6 +945,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDomain(Domain object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>HTML Layer Holder</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>HTML Layer Holder</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHTMLLayerHolder(HTMLLayerHolder object)
   {
     return null;
   }

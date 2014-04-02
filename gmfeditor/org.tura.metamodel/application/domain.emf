@@ -10,6 +10,11 @@ class Domain{
   val DomainApplications[1]#parent domainApplications;
 }
 
+
+class HTMLLayerHolder{
+   attr EInt columns = 1;
+}
+
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class DomainArtifacts{
     id attr EString uid;
@@ -702,8 +707,8 @@ class EnterpriseInfrastructure{
 }
 
 
-@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
-class Datacenter{
+@gmf.node(label="name")
+class Datacenter extends HTMLLayerHolder{
     id attr EString uid;
     ref EnterpriseInfrastructure#datacenters parent;
    @gmf.compartment
@@ -711,7 +716,7 @@ class Datacenter{
    attr EString name;
 }
 
-@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+@gmf.node(label="name")
 class Subsystem{
     id attr EString uid;
     attr EString name;
@@ -720,7 +725,7 @@ class Subsystem{
     val InfrastructureLayer[*]#parent  infrastructureLayer;
 }
 
-@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+@gmf.node(label="name")
 class InfrastructureLayer {
      id attr EString uid;
      attr EString name;
@@ -757,7 +762,7 @@ class Storage extends InfrastructureComponent{
    
 }
 
-@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+@gmf.node(label="name")
 class ServerClaster extends InfrastructureComponent{
   val Server[*] servers;
 }

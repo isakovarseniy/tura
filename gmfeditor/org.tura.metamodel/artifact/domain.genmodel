@@ -15,6 +15,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainApplications"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//HTMLLayerHolder">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//HTMLLayerHolder/columns"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainArtifacts">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/name"/>

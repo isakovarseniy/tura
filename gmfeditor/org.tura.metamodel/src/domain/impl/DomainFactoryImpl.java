@@ -44,6 +44,7 @@ import domain.Enumarator;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
+import domain.HTMLLayerHolder;
 import domain.Hub;
 import domain.Infarastructure;
 import domain.Infrastructure;
@@ -166,6 +167,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
     switch (eClass.getClassifierID())
     {
       case DomainPackage.DOMAIN: return createDomain();
+      case DomainPackage.HTML_LAYER_HOLDER: return createHTMLLayerHolder();
       case DomainPackage.DOMAIN_ARTIFACTS: return createDomainArtifacts();
       case DomainPackage.DOMAIN_TYPES: return createDomainTypes();
       case DomainPackage.DOMAIN_APPLICATIONS: return createDomainApplications();
@@ -311,6 +313,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     DomainImpl domain = new DomainImpl();
     return domain;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public HTMLLayerHolder createHTMLLayerHolder()
+  {
+    HTMLLayerHolderImpl htmlLayerHolder = new HTMLLayerHolderImpl();
+    return htmlLayerHolder;
   }
 
   /**

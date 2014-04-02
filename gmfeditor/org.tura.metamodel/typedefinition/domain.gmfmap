@@ -23,7 +23,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.16"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
       <diagramNode
           href="domain.gmfgraph#TypeReference"/>
     </ownedChild>
@@ -43,7 +43,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
       <diagramNode
           href="domain.gmfgraph#Primitive"/>
     </ownedChild>
@@ -64,7 +64,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.15"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="domain.gmfgraph#Type"/>
       <children
@@ -83,7 +83,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="domain.gmfgraph#Attribute"/>
         </ownedChild>
@@ -104,7 +104,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="domain.gmfgraph#Operation"/>
         </ownedChild>
@@ -137,7 +137,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="domain.gmfgraph#Enumarator"/>
       <children
@@ -156,7 +156,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="domain.gmfgraph#EnumAttribute"/>
         </ownedChild>

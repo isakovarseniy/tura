@@ -928,17 +928,9 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="ApplicationInfrastructureLayer"
-            description="Create new ApplicationInfrastructureLayer"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Configuration"
             description="Create new Configuration"
             genNodes="//@diagram/@topLevelNodes.1"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Datacenter"
-            description="Create new Datacenter"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="DeploymentSequence"
@@ -946,17 +938,9 @@
             genNodes="//@diagram/@topLevelNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Hub"
-            description="Create new Hub"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Infrastructure"
             description="Create new Infrastructure"
             genNodes="//@diagram/@topLevelNodes.2"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="InfrastructureLayer"
-            description="Create new InfrastructureLayer"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Ingredient"
@@ -987,26 +971,6 @@
             title="Recipe"
             description="Create new Recipe"
             genNodes="//@diagram/@topLevelNodes.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Router"
-            description="Create new Router"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Server"
-            description="Create new Server"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ServerClaster"
-            description="Create new ServerClaster"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Storage"
-            description="Create new Storage"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Subsystem"
-            description="Create new Subsystem"/>
       </groups>
       <groups
           title="Connections"

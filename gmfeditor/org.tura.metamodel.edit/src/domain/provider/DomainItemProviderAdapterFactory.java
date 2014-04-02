@@ -99,6 +99,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.HTMLLayerHolder} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected HTMLLayerHolderItemProvider htmlLayerHolderItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.HTMLLayerHolder}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createHTMLLayerHolderAdapter()
+  {
+    if (htmlLayerHolderItemProvider == null)
+    {
+      htmlLayerHolderItemProvider = new HTMLLayerHolderItemProvider(this);
+    }
+
+    return htmlLayerHolderItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.DomainArtifacts} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2635,6 +2660,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   public void dispose()
   {
     if (domainItemProvider != null) domainItemProvider.dispose();
+    if (htmlLayerHolderItemProvider != null) htmlLayerHolderItemProvider.dispose();
     if (domainArtifactsItemProvider != null) domainArtifactsItemProvider.dispose();
     if (domainTypesItemProvider != null) domainTypesItemProvider.dispose();
     if (domainApplicationsItemProvider != null) domainApplicationsItemProvider.dispose();

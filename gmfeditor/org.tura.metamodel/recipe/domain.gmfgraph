@@ -2414,13 +2414,6 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="DatacenterFigure">
-        <foregroundColor
-            xsi:type="gmfgraph:RGBColor"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="255"
-            green="239"
-            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -2459,13 +2452,6 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="SubsystemFigure">
-        <foregroundColor
-            xsi:type="gmfgraph:RGBColor"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="255"
-            green="239"
-            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -2504,13 +2490,6 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="InfrastructureLayerFigure">
-        <foregroundColor
-            xsi:type="gmfgraph:RGBColor"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="255"
-            green="239"
-            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets
@@ -2629,13 +2608,6 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ServerClasterFigure">
-        <foregroundColor
-            xsi:type="gmfgraph:RGBColor"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="255"
-            green="239"
-            blue="222"/>
         <border
             xsi:type="gmfgraph:MarginBorder">
           <insets

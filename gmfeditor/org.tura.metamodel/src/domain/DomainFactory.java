@@ -32,6 +32,15 @@ public interface DomainFactory extends EFactory
   Domain createDomain();
 
   /**
+   * Returns a new object of class '<em>HTML Layer Holder</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>HTML Layer Holder</em>'.
+   * @generated
+   */
+  HTMLLayerHolder createHTMLLayerHolder();
+
+  /**
    * Returns a new object of class '<em>Artifacts</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

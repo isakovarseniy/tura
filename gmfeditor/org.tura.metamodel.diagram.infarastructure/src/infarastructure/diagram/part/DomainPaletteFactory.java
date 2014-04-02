@@ -38,18 +38,14 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer
-				.add(createApplicationInfrastructureLayer1CreationTool());
-		paletteContainer.add(createDatacenter2CreationTool());
-		paletteContainer.add(createHub3CreationTool());
-		paletteContainer.add(createInfrastructureLayer4CreationTool());
-		paletteContainer.add(createIngredient5CreationTool());
-		paletteContainer.add(createJavaMapper6CreationTool());
-		paletteContainer.add(createRouter7CreationTool());
-		paletteContainer.add(createServer8CreationTool());
-		paletteContainer.add(createServerClaster9CreationTool());
-		paletteContainer.add(createStorage10CreationTool());
-		paletteContainer.add(createSubsystem11CreationTool());
+		paletteContainer.add(createDatacenter1CreationTool());
+		paletteContainer.add(createHub2CreationTool());
+		paletteContainer.add(createInfrastructureLayer3CreationTool());
+		paletteContainer.add(createRouter4CreationTool());
+		paletteContainer.add(createServer5CreationTool());
+		paletteContainer.add(createServerClaster6CreationTool());
+		paletteContainer.add(createStorage7CreationTool());
+		paletteContainer.add(createSubsystem8CreationTool());
 		return paletteContainer;
 	}
 
@@ -75,26 +71,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createApplicationInfrastructureLayer1CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.ApplicationInfrastructureLayer1CreationTool_title,
-				Messages.ApplicationInfrastructureLayer1CreationTool_desc,
-				null, null) {
-		};
-		entry.setId("createApplicationInfrastructureLayer1CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createDatacenter2CreationTool() {
+	private ToolEntry createDatacenter1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Datacenter2CreationTool_title,
-				Messages.Datacenter2CreationTool_desc,
+				Messages.Datacenter1CreationTool_title,
+				Messages.Datacenter1CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.Datacenter_1202002));
-		entry.setId("createDatacenter2CreationTool"); //$NON-NLS-1$
+		entry.setId("createDatacenter1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Datacenter_1202002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -104,12 +87,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createHub3CreationTool() {
+	private ToolEntry createHub2CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Hub3CreationTool_title,
-				Messages.Hub3CreationTool_desc,
+				Messages.Hub2CreationTool_title,
+				Messages.Hub2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Hub_1203005));
-		entry.setId("createHub3CreationTool"); //$NON-NLS-1$
+		entry.setId("createHub2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Hub_1203005));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -119,13 +102,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createInfrastructureLayer4CreationTool() {
+	private ToolEntry createInfrastructureLayer3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.InfrastructureLayer4CreationTool_title,
-				Messages.InfrastructureLayer4CreationTool_desc,
+				Messages.InfrastructureLayer3CreationTool_title,
+				Messages.InfrastructureLayer3CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.InfrastructureLayer_1203002));
-		entry.setId("createInfrastructureLayer4CreationTool"); //$NON-NLS-1$
+		entry.setId("createInfrastructureLayer3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.InfrastructureLayer_1203002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -135,34 +118,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createIngredient5CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Ingredient5CreationTool_title,
-				Messages.Ingredient5CreationTool_desc, null, null) {
-		};
-		entry.setId("createIngredient5CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createJavaMapper6CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.JavaMapper6CreationTool_title,
-				Messages.JavaMapper6CreationTool_desc, null, null) {
-		};
-		entry.setId("createJavaMapper6CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createRouter7CreationTool() {
+	private ToolEntry createRouter4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Router7CreationTool_title,
-				Messages.Router7CreationTool_desc,
+				Messages.Router4CreationTool_title,
+				Messages.Router4CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Router_1203004));
-		entry.setId("createRouter7CreationTool"); //$NON-NLS-1$
+		entry.setId("createRouter4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Router_1203004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -172,12 +133,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createServer8CreationTool() {
+	private ToolEntry createServer5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Server8CreationTool_title,
-				Messages.Server8CreationTool_desc,
+				Messages.Server5CreationTool_title,
+				Messages.Server5CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Server_1203003));
-		entry.setId("createServer8CreationTool"); //$NON-NLS-1$
+		entry.setId("createServer5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Server_1203003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -187,13 +148,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createServerClaster9CreationTool() {
+	private ToolEntry createServerClaster6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ServerClaster9CreationTool_title,
-				Messages.ServerClaster9CreationTool_desc,
+				Messages.ServerClaster6CreationTool_title,
+				Messages.ServerClaster6CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ServerClaster_1203007));
-		entry.setId("createServerClaster9CreationTool"); //$NON-NLS-1$
+		entry.setId("createServerClaster6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ServerClaster_1203007));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -203,12 +164,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createStorage10CreationTool() {
+	private ToolEntry createStorage7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Storage10CreationTool_title,
-				Messages.Storage10CreationTool_desc,
+				Messages.Storage7CreationTool_title,
+				Messages.Storage7CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Storage_1203006));
-		entry.setId("createStorage10CreationTool"); //$NON-NLS-1$
+		entry.setId("createStorage7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Storage_1203006));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -218,12 +179,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSubsystem11CreationTool() {
+	private ToolEntry createSubsystem8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Subsystem11CreationTool_title,
-				Messages.Subsystem11CreationTool_desc,
+				Messages.Subsystem8CreationTool_title,
+				Messages.Subsystem8CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Subsystem_1203001));
-		entry.setId("createSubsystem11CreationTool"); //$NON-NLS-1$
+		entry.setId("createSubsystem8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.Subsystem_1203001));
 		entry.setLargeIcon(entry.getSmallIcon());

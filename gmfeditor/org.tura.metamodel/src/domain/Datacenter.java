@@ -22,10 +22,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see domain.DomainPackage#getDatacenter()
- * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
+ * @model annotation="gmf.node label='name'"
  * @generated
  */
-public interface Datacenter extends EObject
+public interface Datacenter extends HTMLLayerHolder
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.

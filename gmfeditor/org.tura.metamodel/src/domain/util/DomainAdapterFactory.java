@@ -43,6 +43,7 @@ import domain.Enumarator;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
+import domain.HTMLLayerHolder;
 import domain.Hub;
 import domain.Infarastructure;
 import domain.Infrastructure;
@@ -176,6 +177,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDomain(Domain object)
       {
         return createDomainAdapter();
+      }
+      @Override
+      public Adapter caseHTMLLayerHolder(HTMLLayerHolder object)
+      {
+        return createHTMLLayerHolderAdapter();
       }
       @Override
       public Adapter caseDomainArtifacts(DomainArtifacts object)
@@ -695,6 +701,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDomainAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.HTMLLayerHolder <em>HTML Layer Holder</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.HTMLLayerHolder
+   * @generated
+   */
+  public Adapter createHTMLLayerHolderAdapter()
   {
     return null;
   }

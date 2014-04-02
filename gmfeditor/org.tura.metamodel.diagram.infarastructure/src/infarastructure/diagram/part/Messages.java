@@ -256,112 +256,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ApplicationInfrastructureLayer1CreationTool_title;
+	public static String Datacenter1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationInfrastructureLayer1CreationTool_desc;
+	public static String Datacenter1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter2CreationTool_title;
+	public static String Hub2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter2CreationTool_desc;
+	public static String Hub2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Hub3CreationTool_title;
+	public static String InfrastructureLayer3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Hub3CreationTool_desc;
+	public static String InfrastructureLayer3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InfrastructureLayer4CreationTool_title;
+	public static String Router4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InfrastructureLayer4CreationTool_desc;
+	public static String Router4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient5CreationTool_title;
+	public static String Server5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient5CreationTool_desc;
+	public static String Server5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaMapper6CreationTool_title;
+	public static String ServerClaster6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaMapper6CreationTool_desc;
+	public static String ServerClaster6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Router7CreationTool_title;
+	public static String Storage7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Router7CreationTool_desc;
+	public static String Storage7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Server8CreationTool_title;
+	public static String Subsystem8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Server8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ServerClaster9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ServerClaster9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Storage10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Storage10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem11CreationTool_desc;
+	public static String Subsystem8CreationTool_desc;
 
 	/**
 	 * @generated

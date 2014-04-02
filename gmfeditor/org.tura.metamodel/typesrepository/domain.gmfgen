@@ -478,45 +478,9 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="ApplicationInfrastructureLayer"
-            description="Create new ApplicationInfrastructureLayer"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Datacenter"
-            description="Create new Datacenter"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Hub"
-            description="Create new Hub"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="InfrastructureLayer"
-            description="Create new InfrastructureLayer"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Package"
             description="Create new Package"
             genNodes="//@diagram/@childNodes.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Router"
-            description="Create new Router"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Server"
-            description="Create new Server"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ServerClaster"
-            description="Create new ServerClaster"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Storage"
-            description="Create new Storage"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Subsystem"
-            description="Create new Subsystem"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Types"

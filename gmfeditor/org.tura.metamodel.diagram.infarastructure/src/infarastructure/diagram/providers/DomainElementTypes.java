@@ -78,37 +78,30 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Subsystem_1203001 = getElementType("org.tura.metamodel.diagram.infarastructure.Subsystem_1203001"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType InfrastructureLayer_1203002 = getElementType("org.tura.metamodel.diagram.infarastructure.InfrastructureLayer_1203002"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType Server_1203003 = getElementType("org.tura.metamodel.diagram.infarastructure.Server_1203003"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType Router_1203004 = getElementType("org.tura.metamodel.diagram.infarastructure.Router_1203004"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType Hub_1203005 = getElementType("org.tura.metamodel.diagram.infarastructure.Hub_1203005"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType Storage_1203006 = getElementType("org.tura.metamodel.diagram.infarastructure.Storage_1203006"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType ServerClaster_1203007 = getElementType("org.tura.metamodel.diagram.infarastructure.ServerClaster_1203007"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */

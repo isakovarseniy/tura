@@ -256,132 +256,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ApplicationInfrastructureLayer1CreationTool_title;
+	public static String Artifact1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationInfrastructureLayer1CreationTool_desc;
+	public static String Artifact1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Artifact2CreationTool_title;
+	public static String ConfigVariable2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Artifact2CreationTool_desc;
+	public static String ConfigVariable2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ConfigVariable3CreationTool_title;
+	public static String ModelQuery3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ConfigVariable3CreationTool_desc;
+	public static String ModelQuery3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter4CreationTool_title;
+	public static String Specifier4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Hub5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Hub5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureLayer6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureLayer6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ModelQuery7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ModelQuery7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Router8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Router8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Server9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Server9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ServerClaster10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ServerClaster10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Specifier11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Specifier11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Storage12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Storage12CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem13CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem13CreationTool_desc;
+	public static String Specifier4CreationTool_desc;
 
 	/**
 	 * @generated

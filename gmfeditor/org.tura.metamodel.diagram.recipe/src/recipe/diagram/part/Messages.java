@@ -256,182 +256,92 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ApplicationInfrastructureLayer1CreationTool_title;
+	public static String Configuration1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ApplicationInfrastructureLayer1CreationTool_desc;
+	public static String Configuration1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Configuration2CreationTool_title;
+	public static String DeploymentSequence2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Configuration2CreationTool_desc;
+	public static String DeploymentSequence2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter3CreationTool_title;
+	public static String Infrastructure3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter3CreationTool_desc;
+	public static String Infrastructure3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentSequence4CreationTool_title;
+	public static String Ingredient4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentSequence4CreationTool_desc;
+	public static String Ingredient4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Hub5CreationTool_title;
+	public static String JavaComponent5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Hub5CreationTool_desc;
+	public static String JavaComponent5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure6CreationTool_title;
+	public static String ModelMapper6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure6CreationTool_desc;
+	public static String ModelMapper6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InfrastructureLayer7CreationTool_title;
+	public static String Property7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InfrastructureLayer7CreationTool_desc;
+	public static String Property7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient8CreationTool_title;
+	public static String Query8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient8CreationTool_desc;
+	public static String Query8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaComponent9CreationTool_title;
+	public static String Recipe9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaComponent9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ModelMapper10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ModelMapper10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Property11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Property11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Query12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Query12CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Recipe13CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Recipe13CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Router14CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Router14CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Server15CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Server15CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ServerClaster16CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ServerClaster16CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Storage17CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Storage17CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem18CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem18CreationTool_desc;
+	public static String Recipe9CreationTool_desc;
 
 	/**
 	 * @generated

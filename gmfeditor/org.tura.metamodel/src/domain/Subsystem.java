@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see domain.DomainPackage#getSubsystem()
- * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
+ * @model annotation="gmf.node label='name'"
  * @generated
  */
 public interface Subsystem extends EObject

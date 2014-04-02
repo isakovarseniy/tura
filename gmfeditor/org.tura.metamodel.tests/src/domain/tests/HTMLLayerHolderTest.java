@@ -2,8 +2,8 @@
  */
 package domain.tests;
 
-import domain.Datacenter;
 import domain.DomainFactory;
+import domain.HTMLLayerHolder;
 
 import junit.framework.TestCase;
 
@@ -11,12 +11,20 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Datacenter</b></em>'.
+ * A test case for the model object '<em><b>HTML Layer Holder</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class DatacenterTest extends HTMLLayerHolderTest
+public class HTMLLayerHolderTest extends TestCase
 {
+
+  /**
+   * The fixture for this HTML Layer Holder test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected HTMLLayerHolder fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -25,30 +33,40 @@ public class DatacenterTest extends HTMLLayerHolderTest
    */
   public static void main(String[] args)
   {
-    TestRunner.run(DatacenterTest.class);
+    TestRunner.run(HTMLLayerHolderTest.class);
   }
 
   /**
-   * Constructs a new Datacenter test case with the given name.
+   * Constructs a new HTML Layer Holder test case with the given name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public DatacenterTest(String name)
+  public HTMLLayerHolderTest(String name)
   {
     super(name);
   }
 
   /**
-   * Returns the fixture for this Datacenter test case.
+   * Sets the fixture for this HTML Layer Holder test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected Datacenter getFixture()
+  protected void setFixture(HTMLLayerHolder fixture)
   {
-    return (Datacenter)fixture;
+    this.fixture = fixture;
+  }
+
+  /**
+   * Returns the fixture for this HTML Layer Holder test case.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected HTMLLayerHolder getFixture()
+  {
+    return fixture;
   }
 
   /**
@@ -60,7 +78,7 @@ public class DatacenterTest extends HTMLLayerHolderTest
   @Override
   protected void setUp() throws Exception
   {
-    setFixture(DomainFactory.eINSTANCE.createDatacenter());
+    setFixture(DomainFactory.eINSTANCE.createHTMLLayerHolder());
   }
 
   /**
@@ -75,4 +93,4 @@ public class DatacenterTest extends HTMLLayerHolderTest
     setFixture(null);
   }
 
-} //DatacenterTest
+} //HTMLLayerHolderTest
