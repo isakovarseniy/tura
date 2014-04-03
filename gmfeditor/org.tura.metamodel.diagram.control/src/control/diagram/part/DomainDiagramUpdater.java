@@ -33,6 +33,7 @@ import control.diagram.edit.parts.DataControlDataControlSearchCompartmentEditPar
 import control.diagram.edit.parts.DataControlDataControlUpdateCompartmentEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
+import control.diagram.edit.parts.InfrastructureConnectionEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
@@ -517,6 +518,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_1104001ContainedLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_1104009ContainedLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_1104010ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -560,6 +563,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_1104001IncomingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_1104009IncomingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_1104010IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -603,6 +608,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_1104001OutgoingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_1104009OutgoingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_1104010OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -757,6 +764,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_1104010ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDataControl_1102002IncomingLinks(
 			View view) {
 		DataControl modelElement = (DataControl) view.getElement();
@@ -899,6 +914,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_1104010IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDataControl_1102002OutgoingLinks(
 			View view) {
 		DataControl modelElement = (DataControl) view.getElement();
@@ -1031,6 +1054,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getRelation_1104009OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_1104010OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

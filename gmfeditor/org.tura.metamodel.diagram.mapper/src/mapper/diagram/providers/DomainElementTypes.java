@@ -11,6 +11,7 @@ import java.util.Set;
 import mapper.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import mapper.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
 import mapper.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import mapper.diagram.edit.parts.InfrastructureConnectionEditPart;
 import mapper.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
@@ -75,6 +76,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Relation_404011 = getElementType("org.tura.metamodel.diagram.mapper.Relation_404011"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType InfrastructureConnection_404012 = getElementType("org.tura.metamodel.diagram.mapper.InfrastructureConnection_404012"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -221,6 +227,9 @@ public class DomainElementTypes {
 
 			elements.put(Relation_404011, DomainPackage.eINSTANCE.getRelation());
 
+			elements.put(InfrastructureConnection_404012,
+					DomainPackage.eINSTANCE.getInfrastructureConnection());
+
 			elements.put(DeploymentComponentDeplymentComponent_404007,
 					DomainPackage.eINSTANCE
 							.getDeploymentComponent_DeplymentComponent());
@@ -260,6 +269,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(JavaMapper_402001);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_404001);
 			KNOWN_ELEMENT_TYPES.add(Relation_404011);
+			KNOWN_ELEMENT_TYPES.add(InfrastructureConnection_404012);
 			KNOWN_ELEMENT_TYPES
 					.add(DeploymentComponentDeplymentComponent_404007);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_404009);
@@ -284,6 +294,8 @@ public class DomainElementTypes {
 			return TypeExtension_404001;
 		case RelationEditPart.VISUAL_ID:
 			return Relation_404011;
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return InfrastructureConnection_404012;
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return DeploymentComponentDeplymentComponent_404007;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:

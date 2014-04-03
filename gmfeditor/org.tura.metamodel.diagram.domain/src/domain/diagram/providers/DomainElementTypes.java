@@ -31,6 +31,7 @@ import domain.diagram.edit.parts.DomainArtifactsEditPart;
 import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
+import domain.diagram.edit.parts.InfrastructureConnectionEditPart;
 import domain.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
@@ -114,6 +115,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Relation_504011 = getElementType("org.tura.metamodel.diagram.domain.Relation_504011"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType InfrastructureConnection_504012 = getElementType("org.tura.metamodel.diagram.domain.InfrastructureConnection_504012"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -255,11 +261,11 @@ public class DomainElementTypes {
 			elements.put(DomainArtifacts_502001,
 					DomainPackage.eINSTANCE.getDomainArtifacts());
 
-			elements.put(DomainTypes_502002,
-					DomainPackage.eINSTANCE.getDomainTypes());
-
 			elements.put(DomainApplications_502003,
 					DomainPackage.eINSTANCE.getDomainApplications());
+
+			elements.put(DomainTypes_502002,
+					DomainPackage.eINSTANCE.getDomainTypes());
 
 			elements.put(ORMEntity_503003,
 					DomainPackage.eINSTANCE.getORMEntity());
@@ -283,6 +289,9 @@ public class DomainElementTypes {
 					DomainPackage.eINSTANCE.getTypeExtension());
 
 			elements.put(Relation_504011, DomainPackage.eINSTANCE.getRelation());
+
+			elements.put(InfrastructureConnection_504012,
+					DomainPackage.eINSTANCE.getInfrastructureConnection());
 
 			elements.put(DeploymentComponentDeplymentComponent_504007,
 					DomainPackage.eINSTANCE
@@ -321,8 +330,8 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(Domain_501000);
 			KNOWN_ELEMENT_TYPES.add(DomainArtifacts_502001);
-			KNOWN_ELEMENT_TYPES.add(DomainTypes_502002);
 			KNOWN_ELEMENT_TYPES.add(DomainApplications_502003);
+			KNOWN_ELEMENT_TYPES.add(DomainTypes_502002);
 			KNOWN_ELEMENT_TYPES.add(ORMEntity_503003);
 			KNOWN_ELEMENT_TYPES.add(JPAService_503004);
 			KNOWN_ELEMENT_TYPES.add(EJBService_503005);
@@ -331,6 +340,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(DomainApplication_503001);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_504001);
 			KNOWN_ELEMENT_TYPES.add(Relation_504011);
+			KNOWN_ELEMENT_TYPES.add(InfrastructureConnection_504012);
 			KNOWN_ELEMENT_TYPES
 					.add(DeploymentComponentDeplymentComponent_504007);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_504009);
@@ -351,10 +361,10 @@ public class DomainElementTypes {
 			return Domain_501000;
 		case DomainArtifactsEditPart.VISUAL_ID:
 			return DomainArtifacts_502001;
-		case DomainTypesEditPart.VISUAL_ID:
-			return DomainTypes_502002;
 		case DomainApplicationsEditPart.VISUAL_ID:
 			return DomainApplications_502003;
+		case DomainTypesEditPart.VISUAL_ID:
+			return DomainTypes_502002;
 		case ORMEntityEditPart.VISUAL_ID:
 			return ORMEntity_503003;
 		case JPAServiceEditPart.VISUAL_ID:
@@ -371,6 +381,8 @@ public class DomainElementTypes {
 			return TypeExtension_504001;
 		case RelationEditPart.VISUAL_ID:
 			return Relation_504011;
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return InfrastructureConnection_504012;
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return DeploymentComponentDeplymentComponent_504007;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:

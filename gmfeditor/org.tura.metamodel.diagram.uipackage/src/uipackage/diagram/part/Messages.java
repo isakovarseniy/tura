@@ -336,42 +336,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Infrastructures5CreationTool_title;
+	public static String InfrastructureConnection5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructures5CreationTool_desc;
+	public static String InfrastructureConnection5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeConfig6CreationTool_title;
+	public static String Infrastructures6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeConfig6CreationTool_desc;
+	public static String Infrastructures6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Relation7CreationTool_title;
+	public static String RecipeConfig7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Relation7CreationTool_desc;
+	public static String RecipeConfig7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension8CreationTool_title;
+	public static String Relation8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension8CreationTool_desc;
+	public static String Relation8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension9CreationTool_desc;
 
 	/**
 	 * @generated

@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ComponentImpl extends EObjectImpl implements Component
+public class ComponentImpl extends HTMLLayerHolderImpl implements Component
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.

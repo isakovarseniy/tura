@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMappers
+public class ApplicationMappersImpl extends HTMLLayerHolderImpl implements ApplicationMappers
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.

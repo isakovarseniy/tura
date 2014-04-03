@@ -2399,6 +2399,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.InfrastructureConnection} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected InfrastructureConnectionItemProvider infrastructureConnectionItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.InfrastructureConnection}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createInfrastructureConnectionAdapter()
+  {
+    if (infrastructureConnectionItemProvider == null)
+    {
+      infrastructureConnectionItemProvider = new InfrastructureConnectionItemProvider(this);
+    }
+
+    return infrastructureConnectionItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.InfrastructureComponent} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2752,6 +2777,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (datacenterItemProvider != null) datacenterItemProvider.dispose();
     if (subsystemItemProvider != null) subsystemItemProvider.dispose();
     if (infrastructureLayerItemProvider != null) infrastructureLayerItemProvider.dispose();
+    if (infrastructureConnectionItemProvider != null) infrastructureConnectionItemProvider.dispose();
     if (infrastructureComponentItemProvider != null) infrastructureComponentItemProvider.dispose();
     if (serverItemProvider != null) serverItemProvider.dispose();
     if (routerItemProvider != null) routerItemProvider.dispose();

@@ -30,6 +30,7 @@ import application.diagram.edit.parts.ApplicationUIPackageEditPart;
 import application.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import application.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
 import application.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import application.diagram.edit.parts.InfrastructureConnectionEditPart;
 import application.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import application.diagram.edit.parts.RecipeDeloymentEditPart;
 import application.diagram.edit.parts.RecipeInfrastructuresEditPart;
@@ -105,6 +106,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Relation_804011 = getElementType("org.tura.metamodel.diagram.application.Relation_804011"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType InfrastructureConnection_804012 = getElementType("org.tura.metamodel.diagram.application.InfrastructureConnection_804012"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -270,6 +276,9 @@ public class DomainElementTypes {
 
 			elements.put(Relation_804011, DomainPackage.eINSTANCE.getRelation());
 
+			elements.put(InfrastructureConnection_804012,
+					DomainPackage.eINSTANCE.getInfrastructureConnection());
+
 			elements.put(DeploymentComponentDeplymentComponent_804007,
 					DomainPackage.eINSTANCE
 							.getDeploymentComponent_DeplymentComponent());
@@ -315,6 +324,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ApplicationUIPackage_803003);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_804001);
 			KNOWN_ELEMENT_TYPES.add(Relation_804011);
+			KNOWN_ELEMENT_TYPES.add(InfrastructureConnection_804012);
 			KNOWN_ELEMENT_TYPES
 					.add(DeploymentComponentDeplymentComponent_804007);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_804009);
@@ -351,6 +361,8 @@ public class DomainElementTypes {
 			return TypeExtension_804001;
 		case RelationEditPart.VISUAL_ID:
 			return Relation_804011;
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return InfrastructureConnection_804012;
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return DeploymentComponentDeplymentComponent_804007;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:

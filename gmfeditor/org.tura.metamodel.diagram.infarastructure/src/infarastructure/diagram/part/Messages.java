@@ -376,42 +376,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Infrastructures5CreationTool_title;
+	public static String InfrastructureConnection5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructures5CreationTool_desc;
+	public static String InfrastructureConnection5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeConfig6CreationTool_title;
+	public static String Infrastructures6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeConfig6CreationTool_desc;
+	public static String Infrastructures6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Relation7CreationTool_title;
+	public static String RecipeConfig7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Relation7CreationTool_desc;
+	public static String RecipeConfig7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension8CreationTool_title;
+	public static String Relation8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension8CreationTool_desc;
+	public static String Relation8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension9CreationTool_desc;
 
 	/**
 	 * @generated
@@ -432,6 +442,66 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ServerClaster_1203007_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ServerClaster_1203007_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Router_1203004_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Router_1203004_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Storage_1203006_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Storage_1203006_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InfrastructureConnection_1204009_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InfrastructureConnection_1204009_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Hub_1203005_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Hub_1203005_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Server_1203003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Server_1203003_outgoinglinks;
 
 	/**
 	 * @generated

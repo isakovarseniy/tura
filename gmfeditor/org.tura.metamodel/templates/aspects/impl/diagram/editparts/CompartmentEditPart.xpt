@@ -3,106 +3,18 @@
 		«REM»By default titles are shown even if there are no TitleStyle, we need to switch it off«ENDREM»«-»
 		«EXPAND xpt::Common::generatedMemberComment»
 
-		«IF  editPartClassName.indexOf('PrimitivesCompartmentEditPart') > 0-»
-		public org.eclipse.draw2d.IFigure createFigure() {
-			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
-			result.setTitleVisibility(false);
-		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    result.getContentPane().setLayoutManager(layout);
-			return result;
-		}
-		«ELSEIF editPartClassName.indexOf('PackagesCompartmentEditPart') > 0-»
-		public org.eclipse.draw2d.IFigure createFigure() {
-			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
-			result.setTitleVisibility(false);
-		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    layout.setColumns(5);
-		    result.getContentPane().setLayoutManager(layout);
-			return result;
-		}
+		«IF editPartClassName.indexOf('PackagesCompartmentEditPart') > 0-»
+           «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('DomainArtifactCompartmentEditPart') > 0-»
-		public org.eclipse.draw2d.IFigure createFigure() {
-			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
-			result.setTitleVisibility(false);
-		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    layout.setColumns(5);
-		    result.getContentPane().setLayoutManager(layout);
-			return result;
-		}
-
+           «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('ApplicationsCompartmentEditPart') > 0-»
-		public org.eclipse.draw2d.IFigure createFigure() {
-			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
-			result.setTitleVisibility(false);
-		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    layout.setColumns(5);
-		    result.getContentPane().setLayoutManager(layout);
-			return result;
-		}
+           «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('RecipesCompartmentEditPart') > 0-»
-		public org.eclipse.draw2d.IFigure createFigure() {
-			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
-			result.setTitleVisibility(false);
-		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    layout.setColumns(5);
-		    result.getContentPane().setLayoutManager(layout);
-			return result;
-		}
+           «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('MappersCompartmentEditPart') > 0-»
-		public org.eclipse.draw2d.IFigure createFigure() {
-			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
-			result.setTitleVisibility(false);
-		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    layout.setColumns(3);
-		    result.getContentPane().setLayoutManager(layout);
-			return result;
-		}
-		«ELSEIF editPartClassName.indexOf('TypeAttributesCompartmentEditPart') > 0-»
-		public org.eclipse.draw2d.IFigure createFigure() {
-			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
-			result.setTitleVisibility(false);
-		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    layout.setColumns(1);
-		    result.getContentPane().setLayoutManager(layout);
-			return result;
-		}
-		«ELSEIF editPartClassName.indexOf('TypeOperationsCompartmentEditPart') > 0-»
-		public org.eclipse.draw2d.IFigure createFigure() {
-			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
-			result.setTitleVisibility(false);
-		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    layout.setColumns(1);
-		    result.getContentPane().setLayoutManager(layout);
-			return result;
-		}
-		«ELSEIF editPartClassName.indexOf('EnumaratorValuesCompartmentEditPart') > 0-»
-		public org.eclipse.draw2d.IFigure createFigure() {
-			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
-			result.setTitleVisibility(false);
-		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    layout.setColumns(1);
-		    result.getContentPane().setLayoutManager(layout);
-			return result;
-		}
+           «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('ComponentsCompartmentEditPart') > 0-»
-		public org.eclipse.draw2d.IFigure createFigure() {
-			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
-			result.setTitleVisibility(false);
-		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    layout.setColumns(5);
-		    result.getContentPane().setLayoutManager(layout);
-			return result;
-		}
-		«ELSEIF editPartClassName.indexOf('IngredientsCompartmentEditPart') > 0-»
-		public org.eclipse.draw2d.IFigure createFigure() {
-			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();
-			result.setTitleVisibility(false);
-		    org.tura.metamodel.commons.editparts.HTMLLikeLayout layout = new org.tura.metamodel.commons.editparts.HTMLLikeLayout();
-		    layout.setColumns(1);
-		    result.getContentPane().setLayoutManager(layout);
-			return result;
-		}
-
+           «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('SubsystemsCompartmentEditPart') > 0-»
             «EXPAND compartmentHTMLLayout-»
 		«ELSE»
@@ -112,8 +24,6 @@
 			return result;
 		}
 		«ENDIF-»
-
-
 	«ENDIF-»
 «ENDAROUND»
 

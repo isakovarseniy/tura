@@ -20,6 +20,7 @@ import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
+import typedefinition.diagram.edit.parts.InfrastructureConnectionEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.RelationEditPart;
@@ -211,6 +212,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_104001ContainedLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_104011ContainedLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_104012ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -238,6 +241,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_104001IncomingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_104011IncomingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_104012IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -265,6 +270,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_104001OutgoingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_104011OutgoingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_104012OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -348,6 +355,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getRelation_104011ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_104012ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -451,6 +466,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_104012IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypeReference_102001OutgoingLinks(
 			View view) {
 		TypeReference modelElement = (TypeReference) view.getElement();
@@ -528,6 +551,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getRelation_104011OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_104012OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ApplicationRecipesImpl extends EObjectImpl implements ApplicationRecipes
+public class ApplicationRecipesImpl extends HTMLLayerHolderImpl implements ApplicationRecipes
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.

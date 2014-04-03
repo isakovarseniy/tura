@@ -7,6 +7,7 @@ import domain.Datacenter;
 import domain.DomainPackage;
 import domain.EnterpriseInfrastructure;
 
+import domain.InfrastructureConnection;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -34,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.EnterpriseInfrastructureImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.EnterpriseInfrastructureImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.EnterpriseInfrastructureImpl#getDatacenters <em>Datacenters</em>}</li>
+ *   <li>{@link domain.impl.EnterpriseInfrastructureImpl#getInfrastructureConnections <em>Infrastructure Connections</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +73,16 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
    * @ordered
    */
   protected EList<Datacenter> datacenters;
+
+  /**
+   * The cached value of the '{@link #getInfrastructureConnections() <em>Infrastructure Connections</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInfrastructureConnections()
+   * @generated
+   * @ordered
+   */
+  protected EList<InfrastructureConnection> infrastructureConnections;
 
   /**
    * <!-- begin-user-doc -->
@@ -179,6 +192,20 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<InfrastructureConnection> getInfrastructureConnections()
+  {
+    if (infrastructureConnections == null)
+    {
+      infrastructureConnections = new EObjectContainmentEList<InfrastructureConnection>(InfrastructureConnection.class, this, DomainPackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS);
+    }
+    return infrastructureConnections;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
@@ -209,6 +236,8 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
         return basicSetParent(null, msgs);
       case DomainPackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
         return ((InternalEList<?>)getDatacenters()).basicRemove(otherEnd, msgs);
+      case DomainPackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
+        return ((InternalEList<?>)getInfrastructureConnections()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -245,6 +274,8 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
         return getParent();
       case DomainPackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
         return getDatacenters();
+      case DomainPackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
+        return getInfrastructureConnections();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -270,6 +301,10 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
         getDatacenters().clear();
         getDatacenters().addAll((Collection<? extends Datacenter>)newValue);
         return;
+      case DomainPackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
+        getInfrastructureConnections().clear();
+        getInfrastructureConnections().addAll((Collection<? extends InfrastructureConnection>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -293,6 +328,9 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
       case DomainPackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
         getDatacenters().clear();
         return;
+      case DomainPackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
+        getInfrastructureConnections().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -313,6 +351,8 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
         return getParent() != null;
       case DomainPackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
         return datacenters != null && !datacenters.isEmpty();
+      case DomainPackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
+        return infrastructureConnections != null && !infrastructureConnections.isEmpty();
     }
     return super.eIsSet(featureID);
   }

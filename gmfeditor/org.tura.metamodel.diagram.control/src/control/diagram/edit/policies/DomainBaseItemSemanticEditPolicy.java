@@ -44,7 +44,10 @@ import domain.DataControl;
 import domain.DeploymentComponent;
 import domain.DeploymentSequence;
 import domain.DeploymentStarStep;
+import domain.EnterpriseInfrastructure;
 import domain.Infrastructure;
+import domain.InfrastructureComponent;
+import domain.InfrastructureConnection;
 import domain.Recipe;
 import domain.Relation;
 import domain.Type;
@@ -354,6 +357,16 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
+		public boolean canCreateInfrastructureConnection_1104010(
+				EnterpriseInfrastructure container,
+				InfrastructureComponent source, InfrastructureComponent target) {
+			return canExistInfrastructureConnection_1104010(container, null,
+					source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public boolean canCreateDeploymentComponentDeplymentComponent_1104002(
 				DeploymentComponent source, DeploymentComponent target) {
 			if (source != null) {
@@ -459,6 +472,16 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		 */
 		public boolean canExistRelation_1104009(Controls container,
 				Relation linkInstance, DataControl source, DataControl target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistInfrastructureConnection_1104010(
+				EnterpriseInfrastructure container,
+				InfrastructureConnection linkInstance,
+				InfrastructureComponent source, InfrastructureComponent target) {
 			return true;
 		}
 

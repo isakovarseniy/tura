@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Mapper"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="402001"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="404001,404011,404007,404009,404005,404006,404004,404003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="404001,404011,404012,404007,404009,404005,404006,404004,404003"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="402001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="404001,404011,404007,404009,404005,404006,404004,404003"/>
+            <method name="getType()" value="404001,404011,404012,404007,404009,404005,404006,404004,404003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="405001"/>
@@ -364,6 +364,16 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.mapper.InfrastructureConnection_404012"
+               name="%metatype.name.InfrastructureConnection_404012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InfrastructureConnection"
+               edithelper="mapper.diagram.edit.helpers.InfrastructureConnectionEditHelper">
+            <param name="semanticHint" value="404012"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.diagram.mapper.DeploymentComponentDeplymentComponent_404007"
                name="%metatype.name.DeploymentComponentDeplymentComponent_404007"
@@ -437,6 +447,7 @@
          <elementType ref="org.tura.metamodel.diagram.mapper.JavaMapper_402001"/>
          <elementType ref="org.tura.metamodel.diagram.mapper.TypeExtension_404001"/>
          <elementType ref="org.tura.metamodel.diagram.mapper.Relation_404011"/>
+         <elementType ref="org.tura.metamodel.diagram.mapper.InfrastructureConnection_404012"/>
          <elementType ref="org.tura.metamodel.diagram.mapper.DeploymentComponentDeplymentComponent_404007"/>
          <elementType ref="org.tura.metamodel.diagram.mapper.DeploymentStarStepFirstStep_404009"/>
          <elementType ref="org.tura.metamodel.diagram.mapper.RecipeInfrastructures_404005"/>

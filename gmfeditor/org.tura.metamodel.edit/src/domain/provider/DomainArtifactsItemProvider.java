@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DomainArtifactsItemProvider
-  extends ItemProviderAdapter
+  extends HTMLLayerHolderItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -240,18 +240,6 @@ public class DomainArtifactsItemProvider
       (createChildParameter
         (DomainPackage.Literals.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT,
          DomainFactory.eINSTANCE.createContinuousIintegration()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return DomainEditPlugin.INSTANCE;
   }
 
 }

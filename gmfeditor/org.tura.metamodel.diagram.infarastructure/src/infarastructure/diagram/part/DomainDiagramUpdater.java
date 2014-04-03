@@ -7,6 +7,7 @@ import infarastructure.diagram.edit.parts.DatacenterDatacenterSubsystemsCompartm
 import infarastructure.diagram.edit.parts.DatacenterEditPart;
 import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
 import infarastructure.diagram.edit.parts.HubEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
 import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
 import infarastructure.diagram.edit.parts.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart;
 import infarastructure.diagram.edit.parts.RelationEditPart;
@@ -18,18 +19,31 @@ import infarastructure.diagram.edit.parts.SubsystemEditPart;
 import infarastructure.diagram.edit.parts.SubsystemSubsystemInfrastructureLayerCompartmentEditPart;
 import infarastructure.diagram.edit.parts.TypeExtensionEditPart;
 
+import infarastructure.diagram.providers.DomainElementTypes;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Map;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import domain.Datacenter;
+import domain.DomainPackage;
 import domain.EnterpriseInfrastructure;
+import domain.Hub;
 import domain.InfrastructureComponent;
+import domain.InfrastructureConnection;
 import domain.InfrastructureLayer;
+import domain.Router;
+import domain.Server;
+import domain.ServerClaster;
+import domain.Storage;
 import domain.Subsystem;
 
 /**
@@ -212,6 +226,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_1204001ContainedLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_1204002ContainedLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_1204009ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -241,6 +257,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_1204001IncomingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_1204002IncomingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_1204009IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -270,6 +288,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_1204001OutgoingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_1204002OutgoingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_1204009OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -279,7 +299,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getEnterpriseInfrastructure_1201000ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		EnterpriseInfrastructure modelElement = (EnterpriseInfrastructure) view
+				.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_InfrastructureConnection_1204009(modelElement));
+		return result;
 	}
 
 	/**
@@ -365,6 +389,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_1204009ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDatacenter_1202002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -391,7 +423,13 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getServer_1203003IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		Server modelElement = (Server) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_InfrastructureConnection_1204009(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -399,7 +437,13 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getRouter_1203004IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		Router modelElement = (Router) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_InfrastructureConnection_1204009(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -407,7 +451,13 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getHub_1203005IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		Hub modelElement = (Hub) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_InfrastructureConnection_1204009(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -415,7 +465,13 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getStorage_1203006IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		Storage modelElement = (Storage) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_InfrastructureConnection_1204009(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -423,7 +479,13 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getServerClaster_1203007IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		ServerClaster modelElement = (ServerClaster) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_InfrastructureConnection_1204009(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -438,6 +500,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getRelation_1204002IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_1204009IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -471,7 +541,10 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getServer_1203003OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Server modelElement = (Server) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_InfrastructureConnection_1204009(modelElement));
+		return result;
 	}
 
 	/**
@@ -479,7 +552,10 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getRouter_1203004OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Router modelElement = (Router) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_InfrastructureConnection_1204009(modelElement));
+		return result;
 	}
 
 	/**
@@ -487,7 +563,10 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getHub_1203005OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Hub modelElement = (Hub) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_InfrastructureConnection_1204009(modelElement));
+		return result;
 	}
 
 	/**
@@ -495,7 +574,10 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getStorage_1203006OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Storage modelElement = (Storage) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_InfrastructureConnection_1204009(modelElement));
+		return result;
 	}
 
 	/**
@@ -503,7 +585,10 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getServerClaster_1203007OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		ServerClaster modelElement = (ServerClaster) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_InfrastructureConnection_1204009(modelElement));
+		return result;
 	}
 
 	/**
@@ -520,6 +605,111 @@ public class DomainDiagramUpdater {
 	public static List<DomainLinkDescriptor> getRelation_1204002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_1204009OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_InfrastructureConnection_1204009(
+			EnterpriseInfrastructure container) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getInfrastructureConnections()
+				.iterator(); links.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof InfrastructureConnection) {
+				continue;
+			}
+			InfrastructureConnection link = (InfrastructureConnection) linkObject;
+			if (InfrastructureConnectionEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			InfrastructureComponent dst = link.getDetail();
+			InfrastructureComponent src = link.getMaster();
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.InfrastructureConnection_1204009,
+					InfrastructureConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_InfrastructureConnection_1204009(
+			InfrastructureComponent target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE
+					.getInfrastructureConnection_Detail()
+					|| false == setting.getEObject() instanceof InfrastructureConnection) {
+				continue;
+			}
+			InfrastructureConnection link = (InfrastructureConnection) setting
+					.getEObject();
+			if (InfrastructureConnectionEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			InfrastructureComponent src = link.getMaster();
+			result.add(new DomainLinkDescriptor(src, target, link,
+					DomainElementTypes.InfrastructureConnection_1204009,
+					InfrastructureConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_InfrastructureConnection_1204009(
+			InfrastructureComponent source) {
+		EnterpriseInfrastructure container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof EnterpriseInfrastructure) {
+				container = (EnterpriseInfrastructure) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getInfrastructureConnections()
+				.iterator(); links.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof InfrastructureConnection) {
+				continue;
+			}
+			InfrastructureConnection link = (InfrastructureConnection) linkObject;
+			if (InfrastructureConnectionEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			InfrastructureComponent dst = link.getDetail();
+			InfrastructureComponent src = link.getMaster();
+			if (src != source) {
+				continue;
+			}
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.InfrastructureConnection_1204009,
+					InfrastructureConnectionEditPart.VISUAL_ID));
+		}
+		return result;
 	}
 
 	/**

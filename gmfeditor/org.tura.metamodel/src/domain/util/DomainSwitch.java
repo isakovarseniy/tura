@@ -45,9 +45,9 @@ import domain.FormDataControls;
 import domain.FormView;
 import domain.HTMLLayerHolder;
 import domain.Hub;
-import domain.Infarastructure;
 import domain.Infrastructure;
 import domain.InfrastructureComponent;
+import domain.InfrastructureConnection;
 import domain.InfrastructureLayer;
 import domain.Ingredient;
 import domain.InsertTrigger;
@@ -102,11 +102,11 @@ import domain.TypesRepository;
 import domain.UIPackage;
 import domain.UpdateTrigger;
 import domain.UsingMappers;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+
+import domain.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -189,6 +189,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         DomainArtifacts domainArtifacts = (DomainArtifacts)theEObject;
         T result = caseDomainArtifacts(domainArtifacts);
+        if (result == null) result = caseHTMLLayerHolder(domainArtifacts);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -203,6 +204,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         DomainApplications domainApplications = (DomainApplications)theEObject;
         T result = caseDomainApplications(domainApplications);
+        if (result == null) result = caseHTMLLayerHolder(domainApplications);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -326,6 +328,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         ApplicationRecipes applicationRecipes = (ApplicationRecipes)theEObject;
         T result = caseApplicationRecipes(applicationRecipes);
+        if (result == null) result = caseHTMLLayerHolder(applicationRecipes);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -340,6 +343,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         ApplicationMappers applicationMappers = (ApplicationMappers)theEObject;
         T result = caseApplicationMappers(applicationMappers);
+        if (result == null) result = caseHTMLLayerHolder(applicationMappers);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -437,6 +441,7 @@ public class DomainSwitch<T> extends Switch<T>
         Ingredient ingredient = (Ingredient)theEObject;
         T result = caseIngredient(ingredient);
         if (result == null) result = caseUsingMappers(ingredient);
+        if (result == null) result = caseHTMLLayerHolder(ingredient);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -444,6 +449,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Component component = (Component)theEObject;
         T result = caseComponent(component);
+        if (result == null) result = caseHTMLLayerHolder(component);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -452,6 +458,7 @@ public class DomainSwitch<T> extends Switch<T>
         JavaComponent javaComponent = (JavaComponent)theEObject;
         T result = caseJavaComponent(javaComponent);
         if (result == null) result = caseComponent(javaComponent);
+        if (result == null) result = caseHTMLLayerHolder(javaComponent);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -622,6 +629,7 @@ public class DomainSwitch<T> extends Switch<T>
       {
         Types types = (Types)theEObject;
         T result = caseTypes(types);
+        if (result == null) result = caseHTMLLayerHolder(types);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -879,6 +887,13 @@ public class DomainSwitch<T> extends Switch<T>
       {
         InfrastructureLayer infrastructureLayer = (InfrastructureLayer)theEObject;
         T result = caseInfrastructureLayer(infrastructureLayer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.INFRASTRUCTURE_CONNECTION:
+      {
+        InfrastructureConnection infrastructureConnection = (InfrastructureConnection)theEObject;
+        T result = caseInfrastructureConnection(infrastructureConnection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2417,6 +2432,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseInfrastructureLayer(InfrastructureLayer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Infrastructure Connection</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Infrastructure Connection</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInfrastructureConnection(InfrastructureConnection object)
   {
     return null;
   }

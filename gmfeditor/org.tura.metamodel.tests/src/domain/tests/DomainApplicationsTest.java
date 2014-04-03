@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DomainApplicationsTest extends TestCase
+public class DomainApplicationsTest extends HTMLLayerHolderTest
 {
-
-  /**
-   * The fixture for this Applications test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected DomainApplications fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class DomainApplicationsTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Applications test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(DomainApplications fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Applications test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected DomainApplications getFixture()
   {
-    return fixture;
+    return (DomainApplications)fixture;
   }
 
   /**

@@ -46,9 +46,9 @@ import domain.FormDataControls;
 import domain.FormView;
 import domain.HTMLLayerHolder;
 import domain.Hub;
-import domain.Infarastructure;
 import domain.Infrastructure;
 import domain.InfrastructureComponent;
+import domain.InfrastructureConnection;
 import domain.InfrastructureLayer;
 import domain.Ingredient;
 import domain.InsertTrigger;
@@ -104,14 +104,14 @@ import domain.TypesRepository;
 import domain.UIPackage;
 import domain.UpdateTrigger;
 import domain.UsingMappers;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import domain.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -771,6 +771,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * @generated
    */
   private EClass infrastructureLayerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass infrastructureConnectionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -4609,6 +4616,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getEnterpriseInfrastructure_InfrastructureConnections()
+  {
+    return (EReference)enterpriseInfrastructureEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDatacenter()
   {
     return datacenterEClass;
@@ -4752,6 +4769,46 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getInfrastructureLayer_InfrastructureComponent()
   {
     return (EReference)infrastructureLayerEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInfrastructureConnection()
+  {
+    return infrastructureConnectionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInfrastructureConnection_Uid()
+  {
+    return (EAttribute)infrastructureConnectionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInfrastructureConnection_Master()
+  {
+    return (EReference)infrastructureConnectionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInfrastructureConnection_Detail()
+  {
+    return (EReference)infrastructureConnectionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -5355,6 +5412,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(enterpriseInfrastructureEClass, ENTERPRISE_INFRASTRUCTURE__UID);
     createEReference(enterpriseInfrastructureEClass, ENTERPRISE_INFRASTRUCTURE__PARENT);
     createEReference(enterpriseInfrastructureEClass, ENTERPRISE_INFRASTRUCTURE__DATACENTERS);
+    createEReference(enterpriseInfrastructureEClass, ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS);
 
     datacenterEClass = createEClass(DATACENTER);
     createEAttribute(datacenterEClass, DATACENTER__UID);
@@ -5373,6 +5431,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     createEAttribute(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__NAME);
     createEReference(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__PARENT);
     createEReference(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__INFRASTRUCTURE_COMPONENT);
+
+    infrastructureConnectionEClass = createEClass(INFRASTRUCTURE_CONNECTION);
+    createEAttribute(infrastructureConnectionEClass, INFRASTRUCTURE_CONNECTION__UID);
+    createEReference(infrastructureConnectionEClass, INFRASTRUCTURE_CONNECTION__MASTER);
+    createEReference(infrastructureConnectionEClass, INFRASTRUCTURE_CONNECTION__DETAIL);
 
     infrastructureComponentEClass = createEClass(INFRASTRUCTURE_COMPONENT);
     createEAttribute(infrastructureComponentEClass, INFRASTRUCTURE_COMPONENT__UID);
@@ -5423,15 +5486,21 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    domainArtifactsEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+    domainApplicationsEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     ormEntityEClass.getESuperTypes().add(this.getDomainArtifact());
     jpaServiceEClass.getESuperTypes().add(this.getDomainArtifact());
     ejbServiceEClass.getESuperTypes().add(this.getDomainArtifact());
     continuousIintegrationEClass.getESuperTypes().add(this.getDomainArtifact());
+    applicationRecipesEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+    applicationMappersEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     methodPointerEClass.getESuperTypes().add(this.getTypePointer());
     mapperEClass.getESuperTypes().add(this.getTypePointer());
     javaMapperEClass.getESuperTypes().add(this.getMapper());
     recipeEClass.getESuperTypes().add(this.getUsingMappers());
     ingredientEClass.getESuperTypes().add(this.getUsingMappers());
+    ingredientEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+    componentEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     javaComponentEClass.getESuperTypes().add(this.getComponent());
     modelMapperEClass.getESuperTypes().add(this.getArtifactRef());
     primitiveEClass.getESuperTypes().add(this.getTypeElement());
@@ -5442,6 +5511,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     parameterEClass.getESuperTypes().add(this.getTypePointer());
     returnValueEClass.getESuperTypes().add(this.getTypePointer());
     enumaratorEClass.getESuperTypes().add(this.getTypeElement());
+    typesEClass.getESuperTypes().add(this.getHTMLLayerHolder());
     triggerEClass.getESuperTypes().add(this.getMethodPointer());
     preFormTriggerEClass.getESuperTypes().add(this.getTrigger());
     preQueryTriggerEClass.getESuperTypes().add(this.getTrigger());
@@ -5925,6 +5995,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getEnterpriseInfrastructure_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, EnterpriseInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEnterpriseInfrastructure_Parent(), this.getApplicationInfrastructureLayer(), this.getApplicationInfrastructureLayer_Infarastructure(), "parent", null, 0, 1, EnterpriseInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEnterpriseInfrastructure_Datacenters(), this.getDatacenter(), this.getDatacenter_Parent(), "datacenters", null, 0, -1, EnterpriseInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnterpriseInfrastructure_InfrastructureConnections(), this.getInfrastructureConnection(), null, "infrastructureConnections", null, 0, -1, EnterpriseInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(datacenterEClass, Datacenter.class, "Datacenter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDatacenter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Datacenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5943,6 +6014,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     initEAttribute(getInfrastructureLayer_Name(), ecorePackage.getEString(), "name", null, 0, 1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInfrastructureLayer_Parent(), this.getSubsystem(), this.getSubsystem_InfrastructureLayer(), "parent", null, 0, 1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInfrastructureLayer_InfrastructureComponent(), this.getInfrastructureComponent(), this.getInfrastructureComponent_Parent(), "infrastructureComponent", null, 0, -1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(infrastructureConnectionEClass, InfrastructureConnection.class, "InfrastructureConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInfrastructureConnection_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, InfrastructureConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInfrastructureConnection_Master(), this.getInfrastructureComponent(), null, "master", null, 0, 1, InfrastructureConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInfrastructureConnection_Detail(), this.getInfrastructureComponent(), null, "detail", null, 0, 1, InfrastructureConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(infrastructureComponentEClass, InfrastructureComponent.class, "InfrastructureComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInfrastructureComponent_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, InfrastructureComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6015,7 +6091,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																										
+       });																																																																																																																											
   }
 
   /**
@@ -6032,7 +6108,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																									
+       });																																																																																																																										
   }
 
   /**
@@ -6600,7 +6676,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "label", "name"
-       });			
+       });				
     addAnnotation
       (serverEClass, 
        source, 
@@ -6715,6 +6791,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
+       "layout", "list"
        });					
     addAnnotation
       (getIngredient_Components(), 
@@ -6747,18 +6824,21 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
+       "layout", "list"
        });		
     addAnnotation
       (getType_Operations(), 
        source, 
        new String[] 
        {
+       "layout", "list"
        });							
     addAnnotation
       (getEnumarator_Values(), 
        source, 
        new String[] 
        {
+       "layout", "list"
        });					
     addAnnotation
       (getTypes_Packages(), 
@@ -6888,7 +6968,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });					
+       });						
   }
 
   /**
@@ -6905,7 +6985,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																													
+       });																																																																																																														
   }
 
   /**
@@ -6922,7 +7002,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																				
+       });																																																																																																					
   }
 
   /**
@@ -6939,7 +7019,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																										
+       });																																																																																											
   }
 
   /**
@@ -6956,7 +7036,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																								
+       });																																																																																									
   }
 
   /**
@@ -6973,7 +7053,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																						
+       });																																																																																							
   }
 
   /**
@@ -7054,7 +7134,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "target", "detail",
        "style", "dash",
        "target.decoration", "arrow"
-       });														
+       });											
+    addAnnotation
+      (infrastructureConnectionEClass, 
+       source, 
+       new String[] 
+       {
+       "source", "master",
+       "target", "detail"
+       });					
   }
 
   /**
@@ -7071,7 +7159,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																
+       });																																																																	
   }
 
   /**
@@ -7088,7 +7176,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																				
+       });																																																					
   }
 
   /**
@@ -7105,7 +7193,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																
+       });																																																	
   }
 
   /**
@@ -7122,7 +7210,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																										
+       });																																											
   }
 
   /**
@@ -7139,7 +7227,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });											
+       });												
   }
 
 } //DomainPackageImpl

@@ -478,6 +478,34 @@
       </modelFacet>
     </links>
     <links
+        visualID="104012"
+        editPartClassName="InfrastructureConnectionEditPart"
+        itemSemanticEditPolicyClassName="InfrastructureConnectionItemSemanticEditPolicy"
+        createCommandClassName="InfrastructureConnectionCreateCommand"
+        reorientCommandClassName="InfrastructureConnectionReorientCommand">
+      <diagramRunTimeClass
+          href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="InfrastructureConnectionEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx"/>
+      <modelFacet
+          xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass
+            href="domain.genmodel#//domain/InfrastructureConnection"/>
+        <containmentMetaFeature
+            href="domain.genmodel#//domain/EnterpriseInfrastructure/infrastructureConnections"/>
+        <childMetaFeature
+            href="domain.genmodel#//domain/EnterpriseInfrastructure/infrastructureConnections"/>
+        <sourceMetaFeature
+            href="domain.genmodel#//domain/InfrastructureConnection/master"/>
+        <targetMetaFeature
+            href="domain.genmodel#//domain/InfrastructureConnection/detail"/>
+      </modelFacet>
+    </links>
+    <links
         visualID="104007"
         editPartClassName="DeploymentComponentDeplymentComponentEditPart"
         itemSemanticEditPolicyClassName="DeploymentComponentDeplymentComponentItemSemanticEditPolicy"
@@ -737,8 +765,7 @@
         childNodes="//@diagram/@childNodes.0"
         title="TypeAttributesCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.2"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.2">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -754,8 +781,7 @@
         childNodes="//@diagram/@childNodes.1"
         title="TypeOperationsCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.2"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.2">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -771,8 +797,7 @@
         childNodes="//@diagram/@childNodes.2"
         title="EnumaratorValuesCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.3"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.3">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -784,10 +809,6 @@
       <groups
           title="Objects"
           collapse="true">
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ArtificialField"
-            description="Create new ArtificialField"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Attribute"
@@ -831,32 +852,37 @@
             xsi:type="gmfgen:ToolEntry"
             title="ConfigExtension"
             description="Create new ConfigExtension"
-            genLinks="//@diagram/@links.7"/>
+            genLinks="//@diagram/@links.8"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Deloyment"
             description="Create new Deloyment"
-            genLinks="//@diagram/@links.5"/>
+            genLinks="//@diagram/@links.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="DeplymentComponent"
             description="Create new DeplymentComponent"
-            genLinks="//@diagram/@links.2"/>
+            genLinks="//@diagram/@links.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="FirstStep"
             description="Create new FirstStep"
-            genLinks="//@diagram/@links.3"/>
+            genLinks="//@diagram/@links.4"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="InfrastructureConnection"
+            description="Create new InfrastructureConnection"
+            genLinks="//@diagram/@links.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Infrastructures"
             description="Create new Infrastructures"
-            genLinks="//@diagram/@links.4"/>
+            genLinks="//@diagram/@links.5"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="RecipeConfig"
             description="Create new RecipeConfig"
-            genLinks="//@diagram/@links.6"/>
+            genLinks="//@diagram/@links.7"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Relation"
@@ -1064,6 +1090,11 @@
         child="//@diagram/@links.7"
         groupName="links"
         groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@links.8"
+        groupName="links"
+        groupIcon="icons/linksNavigatorGroup.gif"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>
@@ -1094,7 +1125,7 @@
         uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet"/>
     <implementations
         xsi:type="gmfgen:ExternalParser"
-        uses="//@diagram/@links.2/@labels.0/@modelFacet //@diagram/@links.3/@labels.0/@modelFacet //@diagram/@links.4/@labels.0/@modelFacet //@diagram/@links.5/@labels.0/@modelFacet //@diagram/@links.6/@labels.0/@modelFacet //@diagram/@links.7/@labels.0/@modelFacet"/>
+        uses="//@diagram/@links.3/@labels.0/@modelFacet //@diagram/@links.4/@labels.0/@modelFacet //@diagram/@links.5/@labels.0/@modelFacet //@diagram/@links.6/@labels.0/@modelFacet //@diagram/@links.7/@labels.0/@modelFacet //@diagram/@links.8/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

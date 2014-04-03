@@ -15,6 +15,7 @@ import infarastructure.diagram.edit.parts.DeploymentStarStepFirstStepExternalLab
 import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
 import infarastructure.diagram.edit.parts.HubEditPart;
 import infarastructure.diagram.edit.parts.HubNameEditPart;
+import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
 import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
 import infarastructure.diagram.edit.parts.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart;
 import infarastructure.diagram.edit.parts.InfrastructureLayerNameEditPart;
@@ -352,6 +353,10 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
 				domainElement.eClass())) {
 			return RelationEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getInfrastructureConnection()
+				.isSuperTypeOf(domainElement.eClass())) {
+			return InfrastructureConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

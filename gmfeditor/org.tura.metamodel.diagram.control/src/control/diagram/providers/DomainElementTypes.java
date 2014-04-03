@@ -27,6 +27,7 @@ import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
 import control.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import control.diagram.edit.parts.InfrastructureConnectionEditPart;
 import control.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
@@ -149,6 +150,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Relation_1104009 = getElementType("org.tura.metamodel.diagram.control.Relation_1104009"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType InfrastructureConnection_1104010 = getElementType("org.tura.metamodel.diagram.control.InfrastructureConnection_1104010"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -338,6 +344,9 @@ public class DomainElementTypes {
 			elements.put(Relation_1104009,
 					DomainPackage.eINSTANCE.getRelation());
 
+			elements.put(InfrastructureConnection_1104010,
+					DomainPackage.eINSTANCE.getInfrastructureConnection());
+
 			elements.put(DeploymentComponentDeplymentComponent_1104002,
 					DomainPackage.eINSTANCE
 							.getDeploymentComponent_DeplymentComponent());
@@ -391,6 +400,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ArtificialField_1103008);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_1104001);
 			KNOWN_ELEMENT_TYPES.add(Relation_1104009);
+			KNOWN_ELEMENT_TYPES.add(InfrastructureConnection_1104010);
 			KNOWN_ELEMENT_TYPES
 					.add(DeploymentComponentDeplymentComponent_1104002);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_1104003);
@@ -443,6 +453,8 @@ public class DomainElementTypes {
 			return TypeExtension_1104001;
 		case RelationEditPart.VISUAL_ID:
 			return Relation_1104009;
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return InfrastructureConnection_1104010;
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return DeploymentComponentDeplymentComponent_1104002;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:

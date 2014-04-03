@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Control"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1102001,1102002,1103001,1103002,1103003,1103004,1103005,1103011,1103010,1103012,1103013,1103014,1103015,1103016,1103008"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1104001,1104009,1104002,1104003,1104004,1104005,1104006,1104007"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1104001,1104009,1104010,1104002,1104003,1104004,1104005,1104006,1104007"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="1102001,1102002,1103001,1103002,1103003,1103004,1103005,1103011,1103010,1103012,1103013,1103014,1103015,1103016,1103008"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="1104001,1104009,1104002,1104003,1104004,1104005,1104006,1104007"/>
+            <method name="getType()" value="1104001,1104009,1104010,1104002,1104003,1104004,1104005,1104006,1104007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="1105002,1105007,1105001,1105003,1105004,1105005,1105006,1105013,1105012,1105014,1105015,1105016,1105017,1105018,1105010"/>
@@ -505,6 +505,16 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.control.InfrastructureConnection_1104010"
+               name="%metatype.name.InfrastructureConnection_1104010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InfrastructureConnection"
+               edithelper="control.diagram.edit.helpers.InfrastructureConnectionEditHelper">
+            <param name="semanticHint" value="1104010"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.diagram.control.DeploymentComponentDeplymentComponent_1104002"
                name="%metatype.name.DeploymentComponentDeplymentComponent_1104002"
@@ -592,6 +602,7 @@
          <elementType ref="org.tura.metamodel.diagram.control.ArtificialField_1103008"/>
          <elementType ref="org.tura.metamodel.diagram.control.TypeExtension_1104001"/>
          <elementType ref="org.tura.metamodel.diagram.control.Relation_1104009"/>
+         <elementType ref="org.tura.metamodel.diagram.control.InfrastructureConnection_1104010"/>
          <elementType ref="org.tura.metamodel.diagram.control.DeploymentComponentDeplymentComponent_1104002"/>
          <elementType ref="org.tura.metamodel.diagram.control.DeploymentStarStepFirstStep_1104003"/>
          <elementType ref="org.tura.metamodel.diagram.control.RecipeInfrastructures_1104004"/>

@@ -121,6 +121,7 @@ public interface Recipe extends UsingMappers
    * @see domain.DomainPackage#getRecipe_Ingredients()
    * @see domain.Ingredient#getParent
    * @model opposite="parent" containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
   EList<Ingredient> getIngredients();

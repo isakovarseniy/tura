@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,222,32'"
  * @generated
  */
-public interface Ingredient extends UsingMappers
+public interface Ingredient extends UsingMappers, HTMLLayerHolder
 {
   /**
    * Returns the value of the '<em><b>Uid</b></em>' attribute.

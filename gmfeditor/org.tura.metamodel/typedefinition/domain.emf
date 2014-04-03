@@ -16,7 +16,7 @@ class HTMLLayerHolder{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
-class DomainArtifacts{
+class DomainArtifacts extends HTMLLayerHolder{
     id attr EString uid;
     attr EString name;  
    ref Domain#domainArtifacts parent;
@@ -33,7 +33,7 @@ class DomainTypes{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
-class DomainApplications{
+class DomainApplications extends HTMLLayerHolder{
     id attr EString uid;
    attr EString name;  
    @gmf.compartment
@@ -174,7 +174,7 @@ class ApplicationUIPackage{
 
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class ApplicationRecipes{
+class ApplicationRecipes extends HTMLLayerHolder{
     id attr EString uid;
    attr EString name;
    ref Application#applicationRecipes parent;
@@ -191,7 +191,7 @@ class ApplicationRecipe{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="164,230,255")
-class ApplicationMappers{
+class ApplicationMappers extends HTMLLayerHolder{
     id attr EString uid;
    attr EString name;
    ref Application#applicationMappers parent;
@@ -296,7 +296,7 @@ class Recipe extends UsingMappers{
     id attr EString uid;
   ref Recipes#recipe parent;
   attr EString name;
-  @gmf.compartment
+  @gmf.compartment(layout="list")
   val Ingredient[*]#parent ingredients;
   @gmf.link(target.decoration="arrow", style="dash")
   ref Infrastructure[*]#recipe infrastructures;
@@ -305,7 +305,7 @@ class Recipe extends UsingMappers{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,222,32")
-class Ingredient extends UsingMappers{
+class Ingredient extends UsingMappers ,HTMLLayerHolder{
   id attr EString uid;
   attr EString name;
   ref Recipe#ingredients parent;
@@ -314,7 +314,7 @@ class Ingredient extends UsingMappers{
   attr PlatformLayers layer;
 }
 
-class Component{
+class Component extends HTMLLayerHolder{
     id attr EString uid;
    attr EString name;
    ref Ingredient#components parent;
@@ -429,9 +429,9 @@ class Primitive extends TypeElement{
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class Type extends TypeElement {
-   @gmf.compartment
+   @gmf.compartment(layout="list")
    val Attribute[*]#parent attributes;
-   @gmf.compartment
+   @gmf.compartment(layout="list")
    val Operation[*]#parent operations;
    val TypeExtension[*] extension;
 }
@@ -479,7 +479,7 @@ class ReturnValue extends TypePointer{
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class Enumarator extends TypeElement{
-  @gmf.compartment
+  @gmf.compartment(layout="list")
    val EnumAttribute[*]#parent values;
 }
 
@@ -500,7 +500,7 @@ class TypesRepository{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
-class Types {
+class Types  extends HTMLLayerHolder{
     id attr EString uid;
    ref TypesRepository#typeDefinition parent;
    attr EString name;
@@ -703,6 +703,7 @@ class EnterpriseInfrastructure{
     id attr EString uid;
     ref ApplicationInfrastructureLayer#infarastructure parent;
     val Datacenter[*]#parent datacenters;
+    val InfrastructureConnection[*] infrastructureConnections;
    
 }
 
@@ -733,6 +734,15 @@ class InfrastructureLayer {
    @gmf.compartment
      val InfrastructureComponent[*]#parent  infrastructureComponent;
 }
+
+
+@gmf.link(source="master", target="detail")
+class InfrastructureConnection{
+    id attr EString uid;
+   ref InfrastructureComponent master;
+   ref InfrastructureComponent detail;
+}
+
 
 class InfrastructureComponent{
      id attr EString uid;

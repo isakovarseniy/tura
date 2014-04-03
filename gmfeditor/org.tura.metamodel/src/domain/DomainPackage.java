@@ -151,13 +151,22 @@ public interface DomainPackage extends EPackage
   int DOMAIN_ARTIFACTS = 2;
 
   /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_ARTIFACTS__COLUMNS = HTML_LAYER_HOLDER__COLUMNS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACTS__UID = 0;
+  int DOMAIN_ARTIFACTS__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -166,7 +175,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACTS__NAME = 1;
+  int DOMAIN_ARTIFACTS__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -175,7 +184,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACTS__PARENT = 2;
+  int DOMAIN_ARTIFACTS__PARENT = HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Domain Artifact</b></em>' containment reference list.
@@ -184,7 +193,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT = 3;
+  int DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT = HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Artifacts</em>' class.
@@ -193,7 +202,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_ARTIFACTS_FEATURE_COUNT = 4;
+  int DOMAIN_ARTIFACTS_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link domain.impl.DomainTypesImpl <em>Types</em>}' class.
@@ -261,13 +270,22 @@ public interface DomainPackage extends EPackage
   int DOMAIN_APPLICATIONS = 4;
 
   /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_APPLICATIONS__COLUMNS = HTML_LAYER_HOLDER__COLUMNS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATIONS__UID = 0;
+  int DOMAIN_APPLICATIONS__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -276,7 +294,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATIONS__NAME = 1;
+  int DOMAIN_APPLICATIONS__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -285,7 +303,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATIONS__APPLICATIONS = 2;
+  int DOMAIN_APPLICATIONS__APPLICATIONS = HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -294,7 +312,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATIONS__PARENT = 3;
+  int DOMAIN_APPLICATIONS__PARENT = HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Applications</em>' class.
@@ -303,7 +321,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_APPLICATIONS_FEATURE_COUNT = 4;
+  int DOMAIN_APPLICATIONS_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link domain.impl.DomainApplicationImpl <em>Application</em>}' class.
@@ -1223,13 +1241,22 @@ public interface DomainPackage extends EPackage
   int APPLICATION_RECIPES = 21;
 
   /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_RECIPES__COLUMNS = HTML_LAYER_HOLDER__COLUMNS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPES__UID = 0;
+  int APPLICATION_RECIPES__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1238,7 +1265,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPES__NAME = 1;
+  int APPLICATION_RECIPES__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1247,7 +1274,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPES__PARENT = 2;
+  int APPLICATION_RECIPES__PARENT = HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Recipes</b></em>' containment reference list.
@@ -1256,7 +1283,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPES__RECIPES = 3;
+  int APPLICATION_RECIPES__RECIPES = HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Application Recipes</em>' class.
@@ -1265,7 +1292,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_RECIPES_FEATURE_COUNT = 4;
+  int APPLICATION_RECIPES_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ApplicationRecipeImpl <em>Application Recipe</em>}' class.
@@ -1333,13 +1360,22 @@ public interface DomainPackage extends EPackage
   int APPLICATION_MAPPERS = 23;
 
   /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_MAPPERS__COLUMNS = HTML_LAYER_HOLDER__COLUMNS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPERS__UID = 0;
+  int APPLICATION_MAPPERS__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1348,7 +1384,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPERS__NAME = 1;
+  int APPLICATION_MAPPERS__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1357,7 +1393,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPERS__PARENT = 2;
+  int APPLICATION_MAPPERS__PARENT = HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
@@ -1366,7 +1402,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPERS__MAPPERS = 3;
+  int APPLICATION_MAPPERS__MAPPERS = HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Application Mappers</em>' class.
@@ -1375,7 +1411,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_MAPPERS_FEATURE_COUNT = 4;
+  int APPLICATION_MAPPERS_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link domain.impl.ApplicationMapperImpl <em>Application Mapper</em>}' class.
@@ -2238,13 +2274,22 @@ public interface DomainPackage extends EPackage
   int INGREDIENT__MAPPERS = USING_MAPPERS__MAPPERS;
 
   /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INGREDIENT__COLUMNS = USING_MAPPERS_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INGREDIENT__UID = USING_MAPPERS_FEATURE_COUNT + 0;
+  int INGREDIENT__UID = USING_MAPPERS_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2253,7 +2298,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INGREDIENT__NAME = USING_MAPPERS_FEATURE_COUNT + 1;
+  int INGREDIENT__NAME = USING_MAPPERS_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2262,7 +2307,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INGREDIENT__PARENT = USING_MAPPERS_FEATURE_COUNT + 2;
+  int INGREDIENT__PARENT = USING_MAPPERS_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -2271,7 +2316,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INGREDIENT__COMPONENTS = USING_MAPPERS_FEATURE_COUNT + 3;
+  int INGREDIENT__COMPONENTS = USING_MAPPERS_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Layer</b></em>' attribute.
@@ -2280,7 +2325,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INGREDIENT__LAYER = USING_MAPPERS_FEATURE_COUNT + 4;
+  int INGREDIENT__LAYER = USING_MAPPERS_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Ingredient</em>' class.
@@ -2289,7 +2334,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INGREDIENT_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 5;
+  int INGREDIENT_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link domain.impl.ComponentImpl <em>Component</em>}' class.
@@ -2302,13 +2347,22 @@ public interface DomainPackage extends EPackage
   int COMPONENT = 37;
 
   /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__COLUMNS = HTML_LAYER_HOLDER__COLUMNS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT__UID = 0;
+  int COMPONENT__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2317,7 +2371,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__NAME = 1;
+  int COMPONENT__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2326,7 +2380,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__PARENT = 2;
+  int COMPONENT__PARENT = HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
@@ -2335,7 +2389,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__MAPPERS = 3;
+  int COMPONENT__MAPPERS = HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Component Root</b></em>' attribute.
@@ -2344,7 +2398,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__COMPONENT_ROOT = 4;
+  int COMPONENT__COMPONENT_ROOT = HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Component</em>' class.
@@ -2353,7 +2407,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT_FEATURE_COUNT = 5;
+  int COMPONENT_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link domain.impl.JavaComponentImpl <em>Java Component</em>}' class.
@@ -2364,6 +2418,15 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   int JAVA_COMPONENT = 38;
+
+  /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_COMPONENT__COLUMNS = COMPONENT__COLUMNS;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3756,13 +3819,22 @@ public interface DomainPackage extends EPackage
   int TYPES = 61;
 
   /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPES__COLUMNS = HTML_LAYER_HOLDER__COLUMNS;
+
+  /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPES__UID = 0;
+  int TYPES__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -3771,7 +3843,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES__PARENT = 1;
+  int TYPES__PARENT = HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3780,7 +3852,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES__NAME = 2;
+  int TYPES__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -3789,7 +3861,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES__PACKAGES = 3;
+  int TYPES__PACKAGES = HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Types</em>' class.
@@ -3798,7 +3870,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPES_FEATURE_COUNT = 4;
+  int TYPES_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link domain.impl.PackageImpl <em>Package</em>}' class.
@@ -5989,13 +6061,22 @@ public interface DomainPackage extends EPackage
   int ENTERPRISE_INFRASTRUCTURE__DATACENTERS = 2;
 
   /**
+   * The feature id for the '<em><b>Infrastructure Connections</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS = 3;
+
+  /**
    * The number of structural features of the '<em>Enterprise Infrastructure</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTERPRISE_INFRASTRUCTURE_FEATURE_COUNT = 3;
+  int ENTERPRISE_INFRASTRUCTURE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link domain.impl.DatacenterImpl <em>Datacenter</em>}' class.
@@ -6172,6 +6253,52 @@ public interface DomainPackage extends EPackage
   int INFRASTRUCTURE_LAYER_FEATURE_COUNT = 4;
 
   /**
+   * The meta object id for the '{@link domain.impl.InfrastructureConnectionImpl <em>Infrastructure Connection</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.InfrastructureConnectionImpl
+   * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
+   * @generated
+   */
+  int INFRASTRUCTURE_CONNECTION = 93;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_CONNECTION__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Master</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_CONNECTION__MASTER = 1;
+
+  /**
+   * The feature id for the '<em><b>Detail</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_CONNECTION__DETAIL = 2;
+
+  /**
+   * The number of structural features of the '<em>Infrastructure Connection</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFRASTRUCTURE_CONNECTION_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link domain.impl.InfrastructureComponentImpl <em>Infrastructure Component</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6179,7 +6306,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
    * @generated
    */
-  int INFRASTRUCTURE_COMPONENT = 93;
+  int INFRASTRUCTURE_COMPONENT = 94;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6225,7 +6352,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServer()
    * @generated
    */
-  int SERVER = 94;
+  int SERVER = 95;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6271,7 +6398,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRouter()
    * @generated
    */
-  int ROUTER = 95;
+  int ROUTER = 96;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6317,7 +6444,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getHub()
    * @generated
    */
-  int HUB = 96;
+  int HUB = 97;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6363,7 +6490,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getStorage()
    * @generated
    */
-  int STORAGE = 97;
+  int STORAGE = 98;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6409,7 +6536,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServerClaster()
    * @generated
    */
-  int SERVER_CLASTER = 98;
+  int SERVER_CLASTER = 99;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6464,7 +6591,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 99;
+  int PLATFORM_LAYERS = 100;
 
 
   /**
@@ -10470,6 +10597,17 @@ public interface DomainPackage extends EPackage
   EReference getEnterpriseInfrastructure_Datacenters();
 
   /**
+   * Returns the meta object for the containment reference list '{@link domain.EnterpriseInfrastructure#getInfrastructureConnections <em>Infrastructure Connections</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Infrastructure Connections</em>'.
+   * @see domain.EnterpriseInfrastructure#getInfrastructureConnections()
+   * @see #getEnterpriseInfrastructure()
+   * @generated
+   */
+  EReference getEnterpriseInfrastructure_InfrastructureConnections();
+
+  /**
    * Returns the meta object for class '{@link domain.Datacenter <em>Datacenter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -10630,6 +10768,49 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getInfrastructureLayer_InfrastructureComponent();
+
+  /**
+   * Returns the meta object for class '{@link domain.InfrastructureConnection <em>Infrastructure Connection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Infrastructure Connection</em>'.
+   * @see domain.InfrastructureConnection
+   * @generated
+   */
+  EClass getInfrastructureConnection();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.InfrastructureConnection#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.InfrastructureConnection#getUid()
+   * @see #getInfrastructureConnection()
+   * @generated
+   */
+  EAttribute getInfrastructureConnection_Uid();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.InfrastructureConnection#getMaster <em>Master</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Master</em>'.
+   * @see domain.InfrastructureConnection#getMaster()
+   * @see #getInfrastructureConnection()
+   * @generated
+   */
+  EReference getInfrastructureConnection_Master();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.InfrastructureConnection#getDetail <em>Detail</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Detail</em>'.
+   * @see domain.InfrastructureConnection#getDetail()
+   * @see #getInfrastructureConnection()
+   * @generated
+   */
+  EReference getInfrastructureConnection_Detail();
 
   /**
    * Returns the meta object for class '{@link domain.InfrastructureComponent <em>Infrastructure Component</em>}'.
@@ -13925,6 +14106,14 @@ public interface DomainPackage extends EPackage
     EReference ENTERPRISE_INFRASTRUCTURE__DATACENTERS = eINSTANCE.getEnterpriseInfrastructure_Datacenters();
 
     /**
+     * The meta object literal for the '<em><b>Infrastructure Connections</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS = eINSTANCE.getEnterpriseInfrastructure_InfrastructureConnections();
+
+    /**
      * The meta object literal for the '{@link domain.impl.DatacenterImpl <em>Datacenter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -14049,6 +14238,40 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference INFRASTRUCTURE_LAYER__INFRASTRUCTURE_COMPONENT = eINSTANCE.getInfrastructureLayer_InfrastructureComponent();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.InfrastructureConnectionImpl <em>Infrastructure Connection</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.InfrastructureConnectionImpl
+     * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
+     * @generated
+     */
+    EClass INFRASTRUCTURE_CONNECTION = eINSTANCE.getInfrastructureConnection();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INFRASTRUCTURE_CONNECTION__UID = eINSTANCE.getInfrastructureConnection_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Master</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INFRASTRUCTURE_CONNECTION__MASTER = eINSTANCE.getInfrastructureConnection_Master();
+
+    /**
+     * The meta object literal for the '<em><b>Detail</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INFRASTRUCTURE_CONNECTION__DETAIL = eINSTANCE.getInfrastructureConnection_Detail();
 
     /**
      * The meta object literal for the '{@link domain.impl.InfrastructureComponentImpl <em>Infrastructure Component</em>}' class.

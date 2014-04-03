@@ -34,6 +34,7 @@ import application.diagram.edit.parts.DeploymentComponentDeplymentComponentEditP
 import application.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
 import application.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import application.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
+import application.diagram.edit.parts.InfrastructureConnectionEditPart;
 import application.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import application.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import application.diagram.edit.parts.RecipeDeloymentEditPart;
@@ -336,6 +337,10 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
 				domainElement.eClass())) {
 			return RelationEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getInfrastructureConnection()
+				.isSuperTypeOf(domainElement.eClass())) {
+			return InfrastructureConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

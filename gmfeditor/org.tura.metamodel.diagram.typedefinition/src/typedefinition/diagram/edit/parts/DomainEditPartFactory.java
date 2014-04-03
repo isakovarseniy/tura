@@ -85,6 +85,9 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case RelationEditPart.VISUAL_ID:
 				return new RelationEditPart(view);
 
+			case InfrastructureConnectionEditPart.VISUAL_ID:
+				return new InfrastructureConnectionEditPart(view);
+
 			case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 				return new DeploymentComponentDeplymentComponentEditPart(view);
 

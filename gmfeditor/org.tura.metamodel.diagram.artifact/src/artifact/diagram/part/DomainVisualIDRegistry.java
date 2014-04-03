@@ -24,6 +24,7 @@ import artifact.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart
 import artifact.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
 import artifact.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import artifact.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
+import artifact.diagram.edit.parts.InfrastructureConnectionEditPart;
 import artifact.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import artifact.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import artifact.diagram.edit.parts.ModelQueryEditPart;
@@ -294,6 +295,10 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
 				domainElement.eClass())) {
 			return RelationEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getInfrastructureConnection()
+				.isSuperTypeOf(domainElement.eClass())) {
+			return InfrastructureConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

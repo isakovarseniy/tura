@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts
+public class DomainArtifactsImpl extends HTMLLayerHolderImpl implements DomainArtifacts
 {
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.

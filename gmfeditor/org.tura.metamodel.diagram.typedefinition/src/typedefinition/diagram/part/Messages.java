@@ -256,82 +256,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ArtificialField1CreationTool_title;
+	public static String Attribute1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ArtificialField1CreationTool_desc;
+	public static String Attribute1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Attribute2CreationTool_title;
+	public static String EnumAttribute2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Attribute2CreationTool_desc;
+	public static String EnumAttribute2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute3CreationTool_title;
+	public static String Enumarator3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EnumAttribute3CreationTool_desc;
+	public static String Enumarator3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator4CreationTool_title;
+	public static String Operation4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Enumarator4CreationTool_desc;
+	public static String Operation4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation5CreationTool_title;
+	public static String Primitive5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Operation5CreationTool_desc;
+	public static String Primitive5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive6CreationTool_title;
+	public static String Type6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Primitive6CreationTool_desc;
+	public static String Type6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Type7CreationTool_title;
+	public static String TypeReference7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Type7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeReference8CreationTool_desc;
+	public static String TypeReference7CreationTool_desc;
 
 	/**
 	 * @generated
@@ -376,42 +366,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Infrastructures5CreationTool_title;
+	public static String InfrastructureConnection5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructures5CreationTool_desc;
+	public static String InfrastructureConnection5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeConfig6CreationTool_title;
+	public static String Infrastructures6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeConfig6CreationTool_desc;
+	public static String Infrastructures6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Relation7CreationTool_title;
+	public static String RecipeConfig7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Relation7CreationTool_desc;
+	public static String RecipeConfig7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension8CreationTool_title;
+	public static String Relation8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension8CreationTool_desc;
+	public static String Relation8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TypeExtension9CreationTool_desc;
 
 	/**
 	 * @generated

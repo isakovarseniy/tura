@@ -36,6 +36,7 @@ public interface Enumarator extends TypeElement
    * @see domain.DomainPackage#getEnumarator_Values()
    * @see domain.EnumAttribute#getParent
    * @model opposite="parent" containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
   EList<EnumAttribute> getValues();

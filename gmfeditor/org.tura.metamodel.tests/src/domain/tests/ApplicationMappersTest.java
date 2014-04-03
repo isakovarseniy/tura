@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationMappersTest extends TestCase
+public class ApplicationMappersTest extends HTMLLayerHolderTest
 {
-
-  /**
-   * The fixture for this Application Mappers test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ApplicationMappers fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class ApplicationMappersTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Application Mappers test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(ApplicationMappers fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Application Mappers test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected ApplicationMappers getFixture()
   {
-    return fixture;
+    return (ApplicationMappers)fixture;
   }
 
   /**

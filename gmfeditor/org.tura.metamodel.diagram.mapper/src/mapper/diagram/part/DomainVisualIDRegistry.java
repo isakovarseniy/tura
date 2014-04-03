@@ -9,6 +9,7 @@ import mapper.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
 import mapper.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
 import mapper.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import mapper.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
+import mapper.diagram.edit.parts.InfrastructureConnectionEditPart;
 import mapper.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import mapper.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
@@ -229,6 +230,10 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
 				domainElement.eClass())) {
 			return RelationEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getInfrastructureConnection()
+				.isSuperTypeOf(domainElement.eClass())) {
+			return InfrastructureConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

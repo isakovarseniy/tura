@@ -4,6 +4,7 @@ package domain.impl;
 
 import domain.Component;
 import domain.DomainPackage;
+import domain.HTMLLayerHolder;
 import domain.Ingredient;
 import domain.PlatformLayers;
 import domain.Recipe;
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.IngredientImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.IngredientImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.IngredientImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.IngredientImpl#getParent <em>Parent</em>}</li>
@@ -43,6 +45,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class IngredientImpl extends UsingMappersImpl implements Ingredient
 {
+  /**
+   * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getColumns()
+   * @generated
+   * @ordered
+   */
+  protected static final int COLUMNS_EDEFAULT = 1;
+
+  /**
+   * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getColumns()
+   * @generated
+   * @ordered
+   */
+  protected int columns = COLUMNS_EDEFAULT;
+
   /**
    * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -132,6 +154,29 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient
   protected EClass eStaticClass()
   {
     return DomainPackage.Literals.INGREDIENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getColumns()
+  {
+    return columns;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setColumns(int newColumns)
+  {
+    int oldColumns = columns;
+    columns = newColumns;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.INGREDIENT__COLUMNS, oldColumns, columns));
   }
 
   /**
@@ -327,6 +372,8 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient
   {
     switch (featureID)
     {
+      case DomainPackage.INGREDIENT__COLUMNS:
+        return getColumns();
       case DomainPackage.INGREDIENT__UID:
         return getUid();
       case DomainPackage.INGREDIENT__NAME:
@@ -352,6 +399,9 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient
   {
     switch (featureID)
     {
+      case DomainPackage.INGREDIENT__COLUMNS:
+        setColumns((Integer)newValue);
+        return;
       case DomainPackage.INGREDIENT__UID:
         setUid((String)newValue);
         return;
@@ -382,6 +432,9 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient
   {
     switch (featureID)
     {
+      case DomainPackage.INGREDIENT__COLUMNS:
+        setColumns(COLUMNS_EDEFAULT);
+        return;
       case DomainPackage.INGREDIENT__UID:
         setUid(UID_EDEFAULT);
         return;
@@ -411,6 +464,8 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient
   {
     switch (featureID)
     {
+      case DomainPackage.INGREDIENT__COLUMNS:
+        return columns != COLUMNS_EDEFAULT;
       case DomainPackage.INGREDIENT__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.INGREDIENT__NAME:
@@ -431,12 +486,52 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient
    * @generated
    */
   @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == HTMLLayerHolder.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.INGREDIENT__COLUMNS: return DomainPackage.HTML_LAYER_HOLDER__COLUMNS;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == HTMLLayerHolder.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.HTML_LAYER_HOLDER__COLUMNS: return DomainPackage.INGREDIENT__COLUMNS;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public String toString()
   {
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
+    result.append(" (columns: ");
+    result.append(columns);
+    result.append(", uid: ");
     result.append(uid);
     result.append(", name: ");
     result.append(name);

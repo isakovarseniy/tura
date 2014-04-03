@@ -139,26 +139,6 @@
   </nodes>
   <nodes>
     <containmentFeature
-        href="domain.ecore#//Domain/domainTypes"/>
-    <ownedChild>
-      <domainMetaElement
-          href="domain.ecore#//DomainTypes"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="domain.gmfgraph#DomainTypesLabel"/>
-        <features
-            href="domain.ecore#//DomainTypes/name"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
-      <diagramNode
-          href="domain.gmfgraph#DomainTypes"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
         href="domain.ecore#//Domain/domainApplications"/>
     <ownedChild
         relatedDiagrams="//@diagram">
@@ -177,7 +157,7 @@
       <diagramNode
           href="domain.gmfgraph#DomainApplications"/>
       <children
-          compartment="//@nodes.2/@ownedChild/@compartments.0">
+          compartment="//@nodes.1/@ownedChild/@compartments.0">
         <containmentFeature
             href="domain.ecore#//DomainApplications/applications"/>
         <ownedChild>
@@ -198,10 +178,30 @@
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.2/@ownedChild/@children.0">
+          children="//@nodes.1/@ownedChild/@children.0">
         <compartment
             href="domain.gmfgraph#DomainApplicationsApplicationsCompartment"/>
       </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Domain/domainTypes"/>
+    <ownedChild>
+      <domainMetaElement
+          href="domain.ecore#//DomainTypes"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#DomainTypesLabel"/>
+        <features
+            href="domain.ecore#//DomainTypes/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+      <diagramNode
+          href="domain.gmfgraph#DomainTypes"/>
     </ownedChild>
   </nodes>
   <links>
@@ -211,7 +211,7 @@
         href="domain.ecore#//Type/extension"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.7"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.8"/>
     <diagramLink
         href="domain.gmfgraph#TypeExtension"/>
     <sourceMetaFeature
@@ -228,7 +228,7 @@
         href="domain.ecore#//Controls/relations"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.6"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.7"/>
     <diagramLink
         href="domain.gmfgraph#Relation"/>
     <sourceMetaFeature
@@ -237,6 +237,23 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="domain.ecore#//Relation/detail"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="domain.ecore#//InfrastructureConnection"/>
+    <containmentFeature
+        href="domain.ecore#//EnterpriseInfrastructure/infrastructureConnections"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="domain.gmftool#//@palette/@tools.1/@tools.4"/>
+    <diagramLink
+        href="domain.gmfgraph#InfrastructureConnection"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//InfrastructureConnection/master"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//InfrastructureConnection/detail"/>
   </links>
   <links>
     <labelMappings
@@ -279,7 +296,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.4"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.5"/>
     <diagramLink
         href="domain.gmfgraph#RecipeInfrastructures"/>
     <linkMetaFeature
@@ -311,7 +328,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.5"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.6"/>
     <diagramLink
         href="domain.gmfgraph#InfrastructureRecipeConfig"/>
     <linkMetaFeature

@@ -46,9 +46,9 @@ import domain.FormDataControls;
 import domain.FormView;
 import domain.HTMLLayerHolder;
 import domain.Hub;
-import domain.Infarastructure;
 import domain.Infrastructure;
 import domain.InfrastructureComponent;
+import domain.InfrastructureConnection;
 import domain.InfrastructureLayer;
 import domain.Ingredient;
 import domain.InsertTrigger;
@@ -104,15 +104,14 @@ import domain.TypesRepository;
 import domain.UIPackage;
 import domain.UpdateTrigger;
 import domain.UsingMappers;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import domain.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -259,6 +258,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.DATACENTER: return createDatacenter();
       case DomainPackage.SUBSYSTEM: return createSubsystem();
       case DomainPackage.INFRASTRUCTURE_LAYER: return createInfrastructureLayer();
+      case DomainPackage.INFRASTRUCTURE_CONNECTION: return createInfrastructureConnection();
       case DomainPackage.INFRASTRUCTURE_COMPONENT: return createInfrastructureComponent();
       case DomainPackage.SERVER: return createServer();
       case DomainPackage.ROUTER: return createRouter();
@@ -1325,6 +1325,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     InfrastructureLayerImpl infrastructureLayer = new InfrastructureLayerImpl();
     return infrastructureLayer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InfrastructureConnection createInfrastructureConnection()
+  {
+    InfrastructureConnectionImpl infrastructureConnection = new InfrastructureConnectionImpl();
+    return infrastructureConnection;
   }
 
   /**

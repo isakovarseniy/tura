@@ -35,6 +35,7 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import uipackage.diagram.edit.parts.FormDataControlsEditPart;
 import uipackage.diagram.edit.parts.FormEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
+import uipackage.diagram.edit.parts.InfrastructureConnectionEditPart;
 import uipackage.diagram.edit.parts.RelationEditPart;
 import uipackage.diagram.edit.parts.TypeExtensionEditPart;
 import uipackage.diagram.edit.parts.UIPackageEditPart;
@@ -306,6 +307,14 @@ public class UIPackageCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getRelation_1004009ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case InfrastructureConnectionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getInfrastructureConnection_1004010ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

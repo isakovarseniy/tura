@@ -34,17 +34,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case DomainArtifactsNameEditPart.VISUAL_ID:
 				return new DomainArtifactsNameEditPart(view);
 
-			case DomainTypesEditPart.VISUAL_ID:
-				return new DomainTypesEditPart(view);
-
-			case DomainTypesNameEditPart.VISUAL_ID:
-				return new DomainTypesNameEditPart(view);
-
 			case DomainApplicationsEditPart.VISUAL_ID:
 				return new DomainApplicationsEditPart(view);
 
 			case DomainApplicationsNameEditPart.VISUAL_ID:
 				return new DomainApplicationsNameEditPart(view);
+
+			case DomainTypesEditPart.VISUAL_ID:
+				return new DomainTypesEditPart(view);
+
+			case DomainTypesNameEditPart.VISUAL_ID:
+				return new DomainTypesNameEditPart(view);
 
 			case ORMEntityEditPart.VISUAL_ID:
 				return new ORMEntityEditPart(view);
@@ -95,6 +95,9 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case RelationEditPart.VISUAL_ID:
 				return new RelationEditPart(view);
+
+			case InfrastructureConnectionEditPart.VISUAL_ID:
+				return new InfrastructureConnectionEditPart(view);
 
 			case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 				return new DeploymentComponentDeplymentComponentEditPart(view);

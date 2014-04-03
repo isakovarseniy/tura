@@ -45,9 +45,9 @@ import domain.FormDataControls;
 import domain.FormView;
 import domain.HTMLLayerHolder;
 import domain.Hub;
-import domain.Infarastructure;
 import domain.Infrastructure;
 import domain.InfrastructureComponent;
+import domain.InfrastructureConnection;
 import domain.InfrastructureLayer;
 import domain.Ingredient;
 import domain.InsertTrigger;
@@ -102,13 +102,12 @@ import domain.TypesRepository;
 import domain.UIPackage;
 import domain.UpdateTrigger;
 import domain.UsingMappers;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import domain.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -637,6 +636,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseInfrastructureLayer(InfrastructureLayer object)
       {
         return createInfrastructureLayerAdapter();
+      }
+      @Override
+      public Adapter caseInfrastructureConnection(InfrastructureConnection object)
+      {
+        return createInfrastructureConnectionAdapter();
       }
       @Override
       public Adapter caseInfrastructureComponent(InfrastructureComponent object)
@@ -2081,6 +2085,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInfrastructureLayerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.InfrastructureConnection <em>Infrastructure Connection</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.InfrastructureConnection
+   * @generated
+   */
+  public Adapter createInfrastructureConnectionAdapter()
   {
     return null;
   }

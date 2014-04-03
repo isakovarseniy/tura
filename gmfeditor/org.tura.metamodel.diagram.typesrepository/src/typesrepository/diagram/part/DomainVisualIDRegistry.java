@@ -16,6 +16,7 @@ import typesrepository.diagram.edit.parts.DeploymentComponentDeplymentComponentE
 import typesrepository.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import typesrepository.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
+import typesrepository.diagram.edit.parts.InfrastructureConnectionEditPart;
 import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
@@ -250,6 +251,10 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
 				domainElement.eClass())) {
 			return RelationEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getInfrastructureConnection()
+				.isSuperTypeOf(domainElement.eClass())) {
+			return InfrastructureConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

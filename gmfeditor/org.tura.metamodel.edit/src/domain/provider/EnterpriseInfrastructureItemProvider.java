@@ -110,6 +110,7 @@ public class EnterpriseInfrastructureItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__DATACENTERS);
+      childrenFeatures.add(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS);
     }
     return childrenFeatures;
   }
@@ -173,6 +174,7 @@ public class EnterpriseInfrastructureItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
+      case DomainPackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -195,6 +197,11 @@ public class EnterpriseInfrastructureItemProvider
       (createChildParameter
         (DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__DATACENTERS,
          DomainFactory.eINSTANCE.createDatacenter()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS,
+         DomainFactory.eINSTANCE.createInfrastructureConnection()));
   }
 
   /**

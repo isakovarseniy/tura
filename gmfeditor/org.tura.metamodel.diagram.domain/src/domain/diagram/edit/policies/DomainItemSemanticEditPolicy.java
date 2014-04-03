@@ -35,12 +35,12 @@ public class DomainItemSemanticEditPolicy extends
 		if (DomainElementTypes.DomainArtifacts_502001 == req.getElementType()) {
 			return getGEFWrapper(new DomainArtifactsCreateCommand(req));
 		}
-		if (DomainElementTypes.DomainTypes_502002 == req.getElementType()) {
-			return getGEFWrapper(new DomainTypesCreateCommand(req));
-		}
 		if (DomainElementTypes.DomainApplications_502003 == req
 				.getElementType()) {
 			return getGEFWrapper(new DomainApplicationsCreateCommand(req));
+		}
+		if (DomainElementTypes.DomainTypes_502002 == req.getElementType()) {
+			return getGEFWrapper(new DomainTypesCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

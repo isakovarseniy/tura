@@ -70,6 +70,7 @@ import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.DomainTypesNameEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
 import domain.diagram.edit.parts.EJBServiceNameEditPart;
+import domain.diagram.edit.parts.InfrastructureConnectionEditPart;
 import domain.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import domain.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
@@ -175,8 +176,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				}
 				switch (visualID) {
 				case DomainArtifactsEditPart.VISUAL_ID:
-				case DomainTypesEditPart.VISUAL_ID:
 				case DomainApplicationsEditPart.VISUAL_ID:
+				case DomainTypesEditPart.VISUAL_ID:
 				case ORMEntityEditPart.VISUAL_ID:
 				case JPAServiceEditPart.VISUAL_ID:
 				case EJBServiceEditPart.VISUAL_ID:
@@ -196,8 +197,8 @@ public class DomainViewProvider extends AbstractProvider implements
 			}
 		}
 		return DomainArtifactsEditPart.VISUAL_ID == visualID
-				|| DomainTypesEditPart.VISUAL_ID == visualID
 				|| DomainApplicationsEditPart.VISUAL_ID == visualID
+				|| DomainTypesEditPart.VISUAL_ID == visualID
 				|| ORMEntityEditPart.VISUAL_ID == visualID
 				|| JPAServiceEditPart.VISUAL_ID == visualID
 				|| EJBServiceEditPart.VISUAL_ID == visualID
@@ -263,12 +264,12 @@ public class DomainViewProvider extends AbstractProvider implements
 		case DomainArtifactsEditPart.VISUAL_ID:
 			return createDomainArtifacts_502001(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case DomainTypesEditPart.VISUAL_ID:
-			return createDomainTypes_502002(domainElement, containerView,
-					index, persisted, preferencesHint);
 		case DomainApplicationsEditPart.VISUAL_ID:
 			return createDomainApplications_502003(domainElement,
 					containerView, index, persisted, preferencesHint);
+		case DomainTypesEditPart.VISUAL_ID:
+			return createDomainTypes_502002(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case ORMEntityEditPart.VISUAL_ID:
 			return createORMEntity_503003(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -308,6 +309,10 @@ public class DomainViewProvider extends AbstractProvider implements
 		case RelationEditPart.VISUAL_ID:
 			return createRelation_504011(getSemanticElement(semanticAdapter),
 					containerView, index, persisted, preferencesHint);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return createInfrastructureConnection_504012(
+					getSemanticElement(semanticAdapter), containerView, index,
+					persisted, preferencesHint);
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return createDeploymentComponentDeplymentComponent_504007(
 					containerView, index, persisted, preferencesHint);
@@ -810,6 +815,59 @@ public class DomainViewProvider extends AbstractProvider implements
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge.setType(DomainVisualIDRegistry.getType(RelationEditPart.VISUAL_ID));
+		edge.setElement(domainElement);
+		// initializePreferences
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(edge,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle edgeFontStyle = (FontStyle) edge
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (edgeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			edgeFontStyle.setFontName(fontData.getName());
+			edgeFontStyle.setFontHeight(fontData.getHeight());
+			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Routing routing = Routing.get(prefStore
+				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+		if (routing != null) {
+			ViewUtil.setStructuralFeatureValue(edge,
+					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
+					routing);
+		}
+		return edge;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Edge createInfrastructureConnection_504012(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Connector edge = NotationFactory.eINSTANCE.createConnector();
+		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
+				.createRelativeBendpoints();
+		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(
+				2);
+		points.add(new RelativeBendpoint());
+		points.add(new RelativeBendpoint());
+		bendpoints.setPoints(points);
+		edge.setBendpoints(bendpoints);
+		ViewUtil.insertChildView(containerView, edge, index, persisted);
+		edge.setType(DomainVisualIDRegistry
+				.getType(InfrastructureConnectionEditPart.VISUAL_ID));
 		edge.setElement(domainElement);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint

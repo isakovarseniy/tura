@@ -43,6 +43,7 @@ import domain.diagram.edit.parts.DomainArtifactsEditPart;
 import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
+import domain.diagram.edit.parts.InfrastructureConnectionEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
 import domain.diagram.edit.parts.RelationEditPart;
@@ -83,9 +84,9 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getDomain_DomainArtifacts());
 			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
-					.getDomain_DomainTypes());
-			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
 					.getDomain_DomainApplications());
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getDomain_DomainTypes());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -123,8 +124,8 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		return visualID == DomainArtifactsEditPart.VISUAL_ID
-				|| visualID == DomainTypesEditPart.VISUAL_ID
-				|| visualID == DomainApplicationsEditPart.VISUAL_ID;
+				|| visualID == DomainApplicationsEditPart.VISUAL_ID
+				|| visualID == DomainTypesEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -301,18 +302,18 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case DomainTypesEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(DomainDiagramUpdater
-						.getDomainTypes_502002ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
 		case DomainApplicationsEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getDomainApplications_502003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case DomainTypesEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getDomainTypes_502002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -377,6 +378,14 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getRelation_504011ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case InfrastructureConnectionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getInfrastructureConnection_504012ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

@@ -17,6 +17,7 @@ import artifact.diagram.edit.parts.ArtifactArtifactSpecifiersCompartmentEditPart
 import artifact.diagram.edit.parts.ArtifactEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
+import artifact.diagram.edit.parts.InfrastructureConnectionEditPart;
 import artifact.diagram.edit.parts.ModelQueryEditPart;
 import artifact.diagram.edit.parts.RelationEditPart;
 import artifact.diagram.edit.parts.SpecifierEditPart;
@@ -180,6 +181,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_704001ContainedLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_704011ContainedLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_704012ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -201,6 +204,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_704001IncomingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_704011IncomingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_704012IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -222,6 +227,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_704001OutgoingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_704011OutgoingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_704012OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -285,6 +292,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_704012ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getArtifact_702001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -333,6 +348,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_704012IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getArtifact_702001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -374,6 +397,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getRelation_704011OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_704012OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

@@ -35,6 +35,7 @@ import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.DomainTypesNameEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
 import domain.diagram.edit.parts.EJBServiceNameEditPart;
+import domain.diagram.edit.parts.InfrastructureConnectionEditPart;
 import domain.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import domain.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
@@ -161,13 +162,13 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return DomainArtifactsEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getDomainTypes().isSuperTypeOf(
-					domainElement.eClass())) {
-				return DomainTypesEditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getDomainApplications().isSuperTypeOf(
 					domainElement.eClass())) {
 				return DomainApplicationsEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getDomainTypes().isSuperTypeOf(
+					domainElement.eClass())) {
+				return DomainTypesEditPart.VISUAL_ID;
 			}
 			break;
 		case DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart.VISUAL_ID:
@@ -228,10 +229,10 @@ public class DomainVisualIDRegistry {
 			if (DomainArtifactsEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (DomainTypesEditPart.VISUAL_ID == nodeVisualID) {
+			if (DomainApplicationsEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (DomainApplicationsEditPart.VISUAL_ID == nodeVisualID) {
+			if (DomainTypesEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -243,16 +244,16 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case DomainTypesEditPart.VISUAL_ID:
-			if (DomainTypesNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case DomainApplicationsEditPart.VISUAL_ID:
 			if (DomainApplicationsNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DomainTypesEditPart.VISUAL_ID:
+			if (DomainTypesNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -356,6 +357,10 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
 				domainElement.eClass())) {
 			return RelationEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getInfrastructureConnection()
+				.isSuperTypeOf(domainElement.eClass())) {
+			return InfrastructureConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

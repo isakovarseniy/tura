@@ -21,6 +21,7 @@ import deployment.diagram.edit.parts.DeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentsEditPart;
 import deployment.diagram.edit.parts.DeploymentStarStepEditPart;
 import deployment.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import deployment.diagram.edit.parts.InfrastructureConnectionEditPart;
 import deployment.diagram.edit.parts.RelationEditPart;
 import deployment.diagram.edit.parts.TypeExtensionEditPart;
 import deployment.diagram.providers.DomainElementTypes;
@@ -100,6 +101,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_904001ContainedLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_904010ContainedLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_904011ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -117,6 +120,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_904001IncomingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_904010IncomingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_904011IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -134,6 +139,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_904001OutgoingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_904010OutgoingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_904011OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -189,6 +196,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_904011ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDeploymentComponent_902001IncomingLinks(
 			View view) {
 		DeploymentComponent modelElement = (DeploymentComponent) view
@@ -230,6 +245,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_904011IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDeploymentComponent_902001OutgoingLinks(
 			View view) {
 		DeploymentComponent modelElement = (DeploymentComponent) view
@@ -263,6 +286,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getRelation_904010OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_904011OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

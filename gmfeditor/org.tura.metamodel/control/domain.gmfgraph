@@ -2605,6 +2605,12 @@
           targetDecoration="//@figures.0/@figures.1"/>
     </descriptors>
     <descriptors
+        name="InfrastructureConnectionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="InfrastructureConnectionFigure"/>
+    </descriptors>
+    <descriptors
         name="DeploymentComponentDeplymentComponentFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
@@ -2936,6 +2942,9 @@
   <connections
       name="Relation"
       figure="RelationFigure"/>
+  <connections
+      name="InfrastructureConnection"
+      figure="InfrastructureConnectionFigure"/>
   <connections
       name="DeploymentComponentDeplymentComponent"
       figure="DeploymentComponentDeplymentComponentFigure"/>

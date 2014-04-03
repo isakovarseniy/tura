@@ -22,6 +22,7 @@ import application.diagram.edit.parts.ApplicationRecipesEditPart;
 import application.diagram.edit.parts.ApplicationUILayerApplicationUILayerApplicationUIPackagesCompartmentEditPart;
 import application.diagram.edit.parts.ApplicationUILayerEditPart;
 import application.diagram.edit.parts.ApplicationUIPackageEditPart;
+import application.diagram.edit.parts.InfrastructureConnectionEditPart;
 import application.diagram.edit.parts.RelationEditPart;
 import application.diagram.edit.parts.TypeExtensionEditPart;
 import domain.Application;
@@ -222,6 +223,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_804001ContainedLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_804011ContainedLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_804012ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -249,6 +252,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_804001IncomingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_804011IncomingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_804012IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -276,6 +281,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_804001OutgoingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_804011OutgoingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_804012OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -363,6 +370,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_804012ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getApplicationRecipes_802001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -435,6 +450,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_804012IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getApplicationRecipes_802001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -500,6 +523,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getRelation_804011OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_804012OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

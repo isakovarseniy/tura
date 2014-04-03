@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Infarastructure"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1202002,1203001,1203002,1203003,1203004,1203005,1203006,1203007"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1204001,1204002,1204003,1204004,1204005,1204006,1204007,1204008"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1204001,1204002,1204009,1204003,1204004,1204005,1204006,1204007,1204008"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="1202002,1203001,1203002,1203003,1203004,1203005,1203006,1203007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="1204001,1204002,1204003,1204004,1204005,1204006,1204007,1204008"/>
+            <method name="getType()" value="1204001,1204002,1204009,1204003,1204004,1204005,1204006,1204007,1204008"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="1205002,1205009,1205008,1205003,1205004,1205005,1205006,1205007"/>
@@ -434,6 +434,16 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.infarastructure.InfrastructureConnection_1204009"
+               name="%metatype.name.InfrastructureConnection_1204009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InfrastructureConnection"
+               edithelper="infarastructure.diagram.edit.helpers.InfrastructureConnectionEditHelper">
+            <param name="semanticHint" value="1204009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.diagram.infarastructure.DeploymentComponentDeplymentComponent_1204003"
                name="%metatype.name.DeploymentComponentDeplymentComponent_1204003"
@@ -514,6 +524,7 @@
          <elementType ref="org.tura.metamodel.diagram.infarastructure.ServerClaster_1203007"/>
          <elementType ref="org.tura.metamodel.diagram.infarastructure.TypeExtension_1204001"/>
          <elementType ref="org.tura.metamodel.diagram.infarastructure.Relation_1204002"/>
+         <elementType ref="org.tura.metamodel.diagram.infarastructure.InfrastructureConnection_1204009"/>
          <elementType ref="org.tura.metamodel.diagram.infarastructure.DeploymentComponentDeplymentComponent_1204003"/>
          <elementType ref="org.tura.metamodel.diagram.infarastructure.DeploymentStarStepFirstStep_1204004"/>
          <elementType ref="org.tura.metamodel.diagram.infarastructure.RecipeInfrastructures_1204005"/>

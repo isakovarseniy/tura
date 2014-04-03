@@ -125,6 +125,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="InfrastructureConnection"
+          description="Create new InfrastructureConnection">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Infrastructures"
           description="Create new Infrastructures">
         <smallIcon

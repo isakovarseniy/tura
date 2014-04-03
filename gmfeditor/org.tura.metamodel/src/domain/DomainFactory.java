@@ -860,6 +860,15 @@ public interface DomainFactory extends EFactory
   InfrastructureLayer createInfrastructureLayer();
 
   /**
+   * Returns a new object of class '<em>Infrastructure Connection</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Infrastructure Connection</em>'.
+   * @generated
+   */
+  InfrastructureConnection createInfrastructureConnection();
+
+  /**
    * Returns a new object of class '<em>Infrastructure Component</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

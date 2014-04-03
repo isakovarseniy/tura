@@ -54,17 +54,13 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.Enumarator_102005);
 			return types;
 		}
-		if (editPart instanceof TypeTypeAttributesCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+		if (editPart instanceof TypeEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 			types.add(DomainElementTypes.Attribute_103001);
-			return types;
-		}
-		if (editPart instanceof TypeTypeOperationsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.Operation_103002);
 			return types;
 		}
-		if (editPart instanceof EnumaratorEnumaratorValuesCompartmentEditPart) {
+		if (editPart instanceof EnumaratorEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.EnumAttribute_103005);
 			return types;

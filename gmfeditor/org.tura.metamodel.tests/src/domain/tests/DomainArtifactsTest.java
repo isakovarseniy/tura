@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DomainArtifactsTest extends TestCase
+public class DomainArtifactsTest extends HTMLLayerHolderTest
 {
-
-  /**
-   * The fixture for this Artifacts test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected DomainArtifacts fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class DomainArtifactsTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Artifacts test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(DomainArtifacts fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Artifacts test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected DomainArtifacts getFixture()
   {
-    return fixture;
+    return (DomainArtifacts)fixture;
   }
 
   /**

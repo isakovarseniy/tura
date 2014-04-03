@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.EnterpriseInfrastructure#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.EnterpriseInfrastructure#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.EnterpriseInfrastructure#getDatacenters <em>Datacenters</em>}</li>
+ *   <li>{@link domain.EnterpriseInfrastructure#getInfrastructureConnections <em>Infrastructure Connections</em>}</li>
  * </ul>
  * </p>
  *
@@ -97,5 +98,21 @@ public interface EnterpriseInfrastructure extends EObject
    * @generated
    */
   EList<Datacenter> getDatacenters();
+
+  /**
+   * Returns the value of the '<em><b>Infrastructure Connections</b></em>' containment reference list.
+   * The list contents are of type {@link domain.InfrastructureConnection}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Infrastructure Connections</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Infrastructure Connections</em>' containment reference list.
+   * @see domain.DomainPackage#getEnterpriseInfrastructure_InfrastructureConnections()
+   * @model containment="true"
+   * @generated
+   */
+  EList<InfrastructureConnection> getInfrastructureConnections();
 
 } // EnterpriseInfrastructure

@@ -25,6 +25,7 @@ import deployment.diagram.edit.parts.DeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentsEditPart;
 import deployment.diagram.edit.parts.DeploymentStarStepEditPart;
 import deployment.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
+import deployment.diagram.edit.parts.InfrastructureConnectionEditPart;
 import deployment.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import deployment.diagram.edit.parts.RecipeDeloymentEditPart;
 import deployment.diagram.edit.parts.RecipeInfrastructuresEditPart;
@@ -79,6 +80,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Relation_904010 = getElementType("org.tura.metamodel.diagram.deployment.Relation_904010"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType InfrastructureConnection_904011 = getElementType("org.tura.metamodel.diagram.deployment.InfrastructureConnection_904011"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -229,6 +235,9 @@ public class DomainElementTypes {
 
 			elements.put(Relation_904010, DomainPackage.eINSTANCE.getRelation());
 
+			elements.put(InfrastructureConnection_904011,
+					DomainPackage.eINSTANCE.getInfrastructureConnection());
+
 			elements.put(DeploymentComponentDeplymentComponent_904002,
 					DomainPackage.eINSTANCE
 							.getDeploymentComponent_DeplymentComponent());
@@ -269,6 +278,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStep_902002);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_904001);
 			KNOWN_ELEMENT_TYPES.add(Relation_904010);
+			KNOWN_ELEMENT_TYPES.add(InfrastructureConnection_904011);
 			KNOWN_ELEMENT_TYPES
 					.add(DeploymentComponentDeplymentComponent_904002);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_904008);
@@ -295,6 +305,8 @@ public class DomainElementTypes {
 			return TypeExtension_904001;
 		case RelationEditPart.VISUAL_ID:
 			return Relation_904010;
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return InfrastructureConnection_904011;
 		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
 			return DeploymentComponentDeplymentComponent_904002;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:

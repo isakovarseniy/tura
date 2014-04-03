@@ -15,16 +15,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationRecipesTest extends TestCase
+public class ApplicationRecipesTest extends HTMLLayerHolderTest
 {
-
-  /**
-   * The fixture for this Application Recipes test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ApplicationRecipes fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +40,15 @@ public class ApplicationRecipesTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Application Recipes test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(ApplicationRecipes fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Application Recipes test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected ApplicationRecipes getFixture()
   {
-    return fixture;
+    return (ApplicationRecipes)fixture;
   }
 
   /**

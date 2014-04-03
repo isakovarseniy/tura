@@ -55,6 +55,11 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.DeploymentSequence_302004);
 			return types;
 		}
+		if (editPart instanceof RecipeEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.Ingredient_303001);
+			return types;
+		}
 		if (editPart instanceof ConfigurationEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.Property_303005);
@@ -63,11 +68,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof ModelMapperEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.Query_303004);
-			return types;
-		}
-		if (editPart instanceof RecipeRecipeIngredientsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.Ingredient_303001);
 			return types;
 		}
 		if (editPart instanceof IngredientIngredientComponentsCompartmentEditPart) {

@@ -204,10 +204,10 @@ public class DomainParserProvider extends AbstractProvider implements
 		switch (visualID) {
 		case DomainArtifactsNameEditPart.VISUAL_ID:
 			return getDomainArtifactsName_505001Parser();
-		case DomainTypesNameEditPart.VISUAL_ID:
-			return getDomainTypesName_505002Parser();
 		case DomainApplicationsNameEditPart.VISUAL_ID:
 			return getDomainApplicationsName_505004Parser();
+		case DomainTypesNameEditPart.VISUAL_ID:
+			return getDomainTypesName_505002Parser();
 		case ORMEntityNameEditPart.VISUAL_ID:
 			return getORMEntityName_505006Parser();
 		case JPAServiceNameEditPart.VISUAL_ID:

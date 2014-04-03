@@ -44,8 +44,8 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof DomainEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 			types.add(DomainElementTypes.DomainArtifacts_502001);
-			types.add(DomainElementTypes.DomainTypes_502002);
 			types.add(DomainElementTypes.DomainApplications_502003);
+			types.add(DomainElementTypes.DomainTypes_502002);
 			return types;
 		}
 		if (editPart instanceof DomainArtifactsDomainArtifactsDomainArtifactCompartmentEditPart) {

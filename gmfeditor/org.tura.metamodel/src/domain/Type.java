@@ -38,6 +38,7 @@ public interface Type extends TypeElement
    * @see domain.DomainPackage#getType_Attributes()
    * @see domain.Attribute#getParent
    * @model opposite="parent" containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
   EList<Attribute> getAttributes();
@@ -56,6 +57,7 @@ public interface Type extends TypeElement
    * @see domain.DomainPackage#getType_Operations()
    * @see domain.Operation#getParent
    * @model opposite="parent" containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
   EList<Operation> getOperations();

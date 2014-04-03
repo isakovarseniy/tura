@@ -27,6 +27,7 @@ import domain.diagram.edit.parts.DomainArtifactsEditPart;
 import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
+import domain.diagram.edit.parts.InfrastructureConnectionEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
 import domain.diagram.edit.parts.RelationEditPart;
@@ -79,19 +80,19 @@ public class DomainDiagramUpdater {
 			}
 		}
 		{
-			DomainTypes childElement = modelElement.getDomainTypes();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == DomainTypesEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-		}
-		{
 			DomainApplications childElement = modelElement
 					.getDomainApplications();
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == DomainApplicationsEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			DomainTypes childElement = modelElement.getDomainTypes();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == DomainTypesEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -179,10 +180,10 @@ public class DomainDiagramUpdater {
 			return getDomain_501000ContainedLinks(view);
 		case DomainArtifactsEditPart.VISUAL_ID:
 			return getDomainArtifacts_502001ContainedLinks(view);
-		case DomainTypesEditPart.VISUAL_ID:
-			return getDomainTypes_502002ContainedLinks(view);
 		case DomainApplicationsEditPart.VISUAL_ID:
 			return getDomainApplications_502003ContainedLinks(view);
+		case DomainTypesEditPart.VISUAL_ID:
+			return getDomainTypes_502002ContainedLinks(view);
 		case ORMEntityEditPart.VISUAL_ID:
 			return getORMEntity_503003ContainedLinks(view);
 		case JPAServiceEditPart.VISUAL_ID:
@@ -199,6 +200,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_504001ContainedLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_504011ContainedLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_504012ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -210,10 +213,10 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case DomainArtifactsEditPart.VISUAL_ID:
 			return getDomainArtifacts_502001IncomingLinks(view);
-		case DomainTypesEditPart.VISUAL_ID:
-			return getDomainTypes_502002IncomingLinks(view);
 		case DomainApplicationsEditPart.VISUAL_ID:
 			return getDomainApplications_502003IncomingLinks(view);
+		case DomainTypesEditPart.VISUAL_ID:
+			return getDomainTypes_502002IncomingLinks(view);
 		case ORMEntityEditPart.VISUAL_ID:
 			return getORMEntity_503003IncomingLinks(view);
 		case JPAServiceEditPart.VISUAL_ID:
@@ -230,6 +233,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_504001IncomingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_504011IncomingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_504012IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -241,10 +246,10 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case DomainArtifactsEditPart.VISUAL_ID:
 			return getDomainArtifacts_502001OutgoingLinks(view);
-		case DomainTypesEditPart.VISUAL_ID:
-			return getDomainTypes_502002OutgoingLinks(view);
 		case DomainApplicationsEditPart.VISUAL_ID:
 			return getDomainApplications_502003OutgoingLinks(view);
+		case DomainTypesEditPart.VISUAL_ID:
+			return getDomainTypes_502002OutgoingLinks(view);
 		case ORMEntityEditPart.VISUAL_ID:
 			return getORMEntity_503003OutgoingLinks(view);
 		case JPAServiceEditPart.VISUAL_ID:
@@ -261,6 +266,8 @@ public class DomainDiagramUpdater {
 			return getTypeExtension_504001OutgoingLinks(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_504011OutgoingLinks(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_504012OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -364,6 +371,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_504012ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDomainArtifacts_502001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -452,6 +467,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_504012IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDomainArtifacts_502001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -533,6 +556,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getRelation_504011OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getInfrastructureConnection_504012OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

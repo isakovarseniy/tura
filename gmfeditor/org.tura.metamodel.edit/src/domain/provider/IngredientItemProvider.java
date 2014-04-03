@@ -64,11 +64,35 @@ public class IngredientItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addColumnsPropertyDescriptor(object);
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addLayerPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Columns feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addColumnsPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_HTMLLayerHolder_columns_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
+         DomainPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -214,6 +238,7 @@ public class IngredientItemProvider
 
     switch (notification.getFeatureID(Ingredient.class))
     {
+      case DomainPackage.INGREDIENT__COLUMNS:
       case DomainPackage.INGREDIENT__UID:
       case DomainPackage.INGREDIENT__NAME:
       case DomainPackage.INGREDIENT__LAYER:

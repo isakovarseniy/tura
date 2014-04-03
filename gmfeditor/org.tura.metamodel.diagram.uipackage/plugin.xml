@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="UIPackage"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1002002,1003001,1003002"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1004001,1004009,1004002,1004003,1004004,1004005,1004006,1004007"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1004001,1004009,1004010,1004002,1004003,1004004,1004005,1004006,1004007"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="1002002,1003001,1003002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="1004001,1004009,1004002,1004003,1004004,1004005,1004006,1004007"/>
+            <method name="getType()" value="1004001,1004009,1004010,1004002,1004003,1004004,1004005,1004006,1004007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="1005002,1005003,1005004"/>
@@ -384,6 +384,16 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.uipackage.InfrastructureConnection_1004010"
+               name="%metatype.name.InfrastructureConnection_1004010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InfrastructureConnection"
+               edithelper="uipackage.diagram.edit.helpers.InfrastructureConnectionEditHelper">
+            <param name="semanticHint" value="1004010"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
                id="org.tura.metamodel.diagram.uipackage.DeploymentComponentDeplymentComponent_1004002"
                name="%metatype.name.DeploymentComponentDeplymentComponent_1004002"
@@ -459,6 +469,7 @@
          <elementType ref="org.tura.metamodel.diagram.uipackage.FormDataControls_1003002"/>
          <elementType ref="org.tura.metamodel.diagram.uipackage.TypeExtension_1004001"/>
          <elementType ref="org.tura.metamodel.diagram.uipackage.Relation_1004009"/>
+         <elementType ref="org.tura.metamodel.diagram.uipackage.InfrastructureConnection_1004010"/>
          <elementType ref="org.tura.metamodel.diagram.uipackage.DeploymentComponentDeplymentComponent_1004002"/>
          <elementType ref="org.tura.metamodel.diagram.uipackage.DeploymentStarStepFirstStep_1004003"/>
          <elementType ref="org.tura.metamodel.diagram.uipackage.RecipeInfrastructures_1004004"/>

@@ -36,6 +36,7 @@ import uipackage.diagram.edit.parts.FormEditPart;
 import uipackage.diagram.edit.parts.FormFormDatacontrolsCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormFormViewCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
+import uipackage.diagram.edit.parts.InfrastructureConnectionEditPart;
 import uipackage.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import uipackage.diagram.edit.parts.RecipeDeloymentEditPart;
 import uipackage.diagram.edit.parts.RecipeInfrastructuresEditPart;
@@ -288,6 +289,11 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(RelationEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
+					Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(InfrastructureConnectionEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),
