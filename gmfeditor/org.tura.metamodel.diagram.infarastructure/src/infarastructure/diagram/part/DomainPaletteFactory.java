@@ -79,8 +79,8 @@ public class DomainPaletteFactory {
 				Collections
 						.singletonList(DomainElementTypes.Datacenter_1202002));
 		entry.setId("createDatacenter1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Datacenter_1202002));
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/datacenter.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -94,8 +94,8 @@ public class DomainPaletteFactory {
 				Messages.Hub2CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Hub_1203005));
 		entry.setId("createHub2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Hub_1203005));
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/hub.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -110,8 +110,8 @@ public class DomainPaletteFactory {
 				Collections
 						.singletonList(DomainElementTypes.InfrastructureLayer_1203002));
 		entry.setId("createInfrastructureLayer3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.InfrastructureLayer_1203002));
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/infra.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -125,8 +125,8 @@ public class DomainPaletteFactory {
 				Messages.Router4CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Router_1203004));
 		entry.setId("createRouter4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Router_1203004));
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/router.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -140,8 +140,8 @@ public class DomainPaletteFactory {
 				Messages.Server5CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Server_1203003));
 		entry.setId("createServer5CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Server_1203003));
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/server.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -156,8 +156,8 @@ public class DomainPaletteFactory {
 				Collections
 						.singletonList(DomainElementTypes.ServerClaster_1203007));
 		entry.setId("createServerClaster6CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.ServerClaster_1203007));
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/serverclaster.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -171,8 +171,8 @@ public class DomainPaletteFactory {
 				Messages.Storage7CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Storage_1203006));
 		entry.setId("createStorage7CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Storage_1203006));
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/storage.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -186,8 +186,8 @@ public class DomainPaletteFactory {
 				Messages.Subsystem8CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.Subsystem_1203001));
 		entry.setId("createSubsystem8CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Subsystem_1203001));
+		entry.setSmallIcon(DomainDiagramEditorPlugin
+				.findImageDescriptor("/org.tura.metamodel.commons/icons/subsystem.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

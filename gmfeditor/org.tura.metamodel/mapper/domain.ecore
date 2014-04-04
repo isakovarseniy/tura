@@ -1121,6 +1121,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Datacenter" eSuperTypes="#//HTMLLayerHolder">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/datacenter.png"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -1135,6 +1137,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Subsystem">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/subsystem.png"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -1149,6 +1153,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="InfrastructureLayer">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/infra.png"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -1164,6 +1170,7 @@
     <eAnnotations source="gmf.link">
       <details key="source" value="master"/>
       <details key="target" value="detail"/>
+      <details key="width" value="2"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -1183,6 +1190,8 @@
       <details key="label.icon" value="false"/>
       <details key="label" value="name"/>
       <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/server.png"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Router" eSuperTypes="#//InfrastructureComponent">
@@ -1191,6 +1200,8 @@
       <details key="label.icon" value="false"/>
       <details key="label" value="name"/>
       <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/router.png"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Hub" eSuperTypes="#//InfrastructureComponent">
@@ -1199,6 +1210,8 @@
       <details key="label.icon" value="false"/>
       <details key="label" value="name"/>
       <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/hub.png"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Storage" eSuperTypes="#//InfrastructureComponent">
@@ -1207,11 +1220,15 @@
       <details key="label.icon" value="false"/>
       <details key="label" value="name"/>
       <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/storage.png"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServerClaster" eSuperTypes="#//InfrastructureComponent">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="tool.small.bundle" value="org.tura.metamodel.commons"/>
+      <details key="tool.small.path" value="icons/serverclaster.png"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="servers" upperBound="-1"
         eType="#//Server" containment="true"/>

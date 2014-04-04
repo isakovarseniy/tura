@@ -15,7 +15,9 @@
           title="Datacenter"
           description="Create new Datacenter">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="icons/datacenter.png"
+            bundle="org.tura.metamodel.commons"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
@@ -24,7 +26,9 @@
           title="Hub"
           description="Create new Hub">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="icons/hub.png"
+            bundle="org.tura.metamodel.commons"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
@@ -33,7 +37,9 @@
           title="InfrastructureLayer"
           description="Create new InfrastructureLayer">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="icons/infra.png"
+            bundle="org.tura.metamodel.commons"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
@@ -42,7 +48,9 @@
           title="Router"
           description="Create new Router">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="icons/router.png"
+            bundle="org.tura.metamodel.commons"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
@@ -51,7 +59,9 @@
           title="Server"
           description="Create new Server">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="icons/server.png"
+            bundle="org.tura.metamodel.commons"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
@@ -60,7 +70,9 @@
           title="ServerClaster"
           description="Create new ServerClaster">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="icons/serverclaster.png"
+            bundle="org.tura.metamodel.commons"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
@@ -69,7 +81,9 @@
           title="Storage"
           description="Create new Storage">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="icons/storage.png"
+            bundle="org.tura.metamodel.commons"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
@@ -78,7 +92,9 @@
           title="Subsystem"
           description="Create new Subsystem">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="icons/subsystem.png"
+            bundle="org.tura.metamodel.commons"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>

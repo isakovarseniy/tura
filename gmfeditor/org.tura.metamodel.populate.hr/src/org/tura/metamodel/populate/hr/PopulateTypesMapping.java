@@ -26,6 +26,8 @@ public class PopulateTypesMapping {
 		resource.getContents().add(mapping);
 		
 		appl.getApplicationMappers().getMappers().add(mapping);
+		int col = appl.getApplicationMappers().getColumns();
+		 appl.getApplicationMappers().setColumns(++col);
 		
 		domain.Mappers mps =  domain.DomainFactory.eINSTANCE.createMappers();
 		mps.setUid(UUID.randomUUID().toString());

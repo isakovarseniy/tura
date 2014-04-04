@@ -84,6 +84,7 @@ public class InitDiagram {
 				.createDomainArtifacts();
 		domainArtifacts.setName(DOMAIN_ARTIFACTS);
 		domainArtifacts.setUid(UUID.randomUUID().toString());
+		domainArtifacts.setColumns(4);
 
 		domain.JPAService jpaService = domain.DomainFactory.eINSTANCE
 				.createJPAService();
@@ -170,6 +171,7 @@ public class InitDiagram {
 
 		domain.Types types = domain.DomainFactory.eINSTANCE.createTypes();
 		types.setUid(UUID.randomUUID().toString());
+		types.setColumns(2);
 
 		model.setTypeDefinition(types);
 

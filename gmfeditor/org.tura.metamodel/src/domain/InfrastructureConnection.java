@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see domain.DomainPackage#getInfrastructureConnection()
- * @model annotation="gmf.link source='master' target='detail'"
+ * @model annotation="gmf.link source='master' target='detail' width='2'"
  * @generated
  */
 public interface InfrastructureConnection extends EObject

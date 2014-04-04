@@ -708,7 +708,7 @@ class EnterpriseInfrastructure{
 }
 
 
-@gmf.node(label="name")
+@gmf.node(label="name" ,tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/datacenter.png")
 class Datacenter extends HTMLLayerHolder{
     id attr EString uid;
     ref EnterpriseInfrastructure#datacenters parent;
@@ -717,7 +717,7 @@ class Datacenter extends HTMLLayerHolder{
    attr EString name;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name" ,tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/subsystem.png")
 class Subsystem{
     id attr EString uid;
     attr EString name;
@@ -726,7 +726,7 @@ class Subsystem{
     val InfrastructureLayer[*]#parent  infrastructureLayer;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name" ,tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/infra.png")
 class InfrastructureLayer {
      id attr EString uid;
      attr EString name;
@@ -736,7 +736,7 @@ class InfrastructureLayer {
 }
 
 
-@gmf.link(source="master", target="detail")
+@gmf.link(source="master", target="detail",width="2")
 class InfrastructureConnection{
     id attr EString uid;
    ref InfrastructureComponent master;
@@ -751,28 +751,28 @@ class InfrastructureComponent{
    
 }
 
-@gmf.node(figure="org.tura.metamodel.commons.figures.ServerFigure", label.icon="false", label="name", label.placement="external")
+@gmf.node(figure="org.tura.metamodel.commons.figures.ServerFigure", label.icon="false", label="name", label.placement="external",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/server.png")
 class Server extends InfrastructureComponent{
    
    
 }
 
-@gmf.node(figure="org.tura.metamodel.commons.figures.RouterFigure", label.icon="false", label="name", label.placement="external")
+@gmf.node(figure="org.tura.metamodel.commons.figures.RouterFigure", label.icon="false", label="name", label.placement="external",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/router.png")
 class Router extends InfrastructureComponent{
    
 }
 
-@gmf.node(figure="org.tura.metamodel.commons.figures.HubFigure", label.icon="false", label="name", label.placement="external")
+@gmf.node(figure="org.tura.metamodel.commons.figures.HubFigure", label.icon="false", label="name", label.placement="external",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/hub.png")
 class Hub extends InfrastructureComponent{
    
 }
 
-@gmf.node(figure="org.tura.metamodel.commons.figures.StorageFigure", label.icon="false", label="name", label.placement="external")
+@gmf.node(figure="org.tura.metamodel.commons.figures.StorageFigure", label.icon="false", label="name", label.placement="external",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/storage.png")
 class Storage extends InfrastructureComponent{
    
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name" ,tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/serverclaster.png")
 class ServerClaster extends InfrastructureComponent{
   val Server[*] servers;
 }

@@ -6661,21 +6661,27 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/datacenter.png"
        });			
     addAnnotation
       (subsystemEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/subsystem.png"
        });			
     addAnnotation
       (infrastructureLayerEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/infra.png"
        });				
     addAnnotation
       (serverEClass, 
@@ -6685,7 +6691,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "figure", "org.tura.metamodel.commons.figures.ServerFigure",
        "label.icon", "false",
        "label", "name",
-       "label.placement", "external"
+       "label.placement", "external",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/server.png"
        });		
     addAnnotation
       (routerEClass, 
@@ -6695,7 +6703,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "figure", "org.tura.metamodel.commons.figures.RouterFigure",
        "label.icon", "false",
        "label", "name",
-       "label.placement", "external"
+       "label.placement", "external",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/router.png"
        });		
     addAnnotation
       (hubEClass, 
@@ -6705,7 +6715,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "figure", "org.tura.metamodel.commons.figures.HubFigure",
        "label.icon", "false",
        "label", "name",
-       "label.placement", "external"
+       "label.placement", "external",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/hub.png"
        });		
     addAnnotation
       (storageEClass, 
@@ -6715,14 +6727,18 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "figure", "org.tura.metamodel.commons.figures.StorageFigure",
        "label.icon", "false",
        "label", "name",
-       "label.placement", "external"
+       "label.placement", "external",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/storage.png"
        });		
     addAnnotation
       (serverClasterEClass, 
        source, 
        new String[] 
        {
-       "label", "name"
+       "label", "name",
+       "tool.small.bundle", "org.tura.metamodel.commons",
+       "tool.small.path", "icons/serverclaster.png"
        });
   }
 
@@ -7141,7 +7157,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "source", "master",
-       "target", "detail"
+       "target", "detail",
+       "width", "2"
        });					
   }
 

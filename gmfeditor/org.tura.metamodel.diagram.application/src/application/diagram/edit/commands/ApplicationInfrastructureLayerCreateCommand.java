@@ -70,6 +70,8 @@ public class ApplicationInfrastructureLayerCreateCommand extends
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 
+		newElement.setName("Application Infrastructure");
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

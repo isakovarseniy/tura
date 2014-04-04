@@ -2656,7 +2656,8 @@
         name="InfrastructureConnectionFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="InfrastructureConnectionFigure"/>
+          name="InfrastructureConnectionFigure"
+          lineWidth="2"/>
     </descriptors>
     <descriptors
         name="DeploymentComponentDeplymentComponentFigure">

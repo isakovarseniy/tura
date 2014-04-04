@@ -50,14 +50,29 @@ public class InfrastructureConnectionEditPart extends ConnectionNodeEditPart
 	 */
 
 	protected Connection createConnectionFigure() {
-		return new PolylineConnectionEx();
+		return new InfrastructureConnectionFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public PolylineConnectionEx getPrimaryShape() {
-		return (PolylineConnectionEx) getFigure();
+	public InfrastructureConnectionFigure getPrimaryShape() {
+		return (InfrastructureConnectionFigure) getFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class InfrastructureConnectionFigure extends PolylineConnectionEx {
+
+		/**
+		 * @generated
+		 */
+		public InfrastructureConnectionFigure() {
+			this.setLineWidth(2);
+
+		}
+
 	}
 
 }

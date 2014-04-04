@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see domain.DomainPackage#getServerClaster()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='name' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/serverclaster.png'"
  * @generated
  */
 public interface ServerClaster extends InfrastructureComponent

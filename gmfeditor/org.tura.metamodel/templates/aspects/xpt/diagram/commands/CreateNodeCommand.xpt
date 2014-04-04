@@ -12,6 +12,12 @@
 «ENDIF»
 		«EXPAND initialize(self, 'newElement') FOR modelFacet-»
 		newElement.setUid(java.util.UUID.randomUUID().toString());
+		
+  «IF self.createCommandClassName.indexOf('ApplicationInfrastructureLayerCreateCommand') > 0-»
+        newElement.setName("Application Infrastructure");
+  «ENDIF-»
+		
+		
 «IF true/*FIXME boolean needsExternalConfiguration*/»
 		doConfigure(newElement, monitor, info);
 «ENDIF»

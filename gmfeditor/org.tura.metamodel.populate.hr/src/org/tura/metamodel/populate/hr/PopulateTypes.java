@@ -27,6 +27,10 @@ public class PopulateTypes {
 
 		model.getDomainTypes().getTypesrepository().getTypeDefinition()
 				.getPackages().add(pkg);
+
+		int col = model.getDomainTypes().getTypesrepository().getTypeDefinition().getColumns();
+		model.getDomainTypes().getTypesrepository().getTypeDefinition().setColumns(++col);
+		
 		domain.TypeDefinition td = domain.DomainFactory.eINSTANCE
 				.createTypeDefinition();
 		resource.getContents().add(td);

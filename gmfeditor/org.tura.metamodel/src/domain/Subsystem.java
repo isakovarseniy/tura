@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see domain.DomainPackage#getSubsystem()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='name' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/subsystem.png'"
  * @generated
  */
 public interface Subsystem extends EObject

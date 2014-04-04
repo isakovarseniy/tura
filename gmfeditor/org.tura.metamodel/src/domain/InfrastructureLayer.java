@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see domain.DomainPackage#getInfrastructureLayer()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='name' tool.small.bundle='org.tura.metamodel.commons' tool.small.path='icons/infra.png'"
  * @generated
  */
 public interface InfrastructureLayer extends EObject
