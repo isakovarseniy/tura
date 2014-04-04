@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Infarastructure"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1202002,1203001,1203002,1203003,1203004,1203005,1203006,1203007"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1202002,1203001,1203002,1203003,1203004,1203005,1203006,1203007,1203008"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1204001,1204002,1204009,1204003,1204004,1204005,1204006,1204007,1204008"/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="Infarastructure"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="1202002,1203001,1203002,1203003,1203004,1203005,1203006,1203007"/>
+            <method name="getType()" value="1202002,1203001,1203002,1203003,1203004,1203005,1203006,1203007,1203008"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="1204001,1204002,1204009,1204003,1204004,1204005,1204006,1204007,1204008"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="1205002,1205009,1205008,1205003,1205004,1205005,1205006,1205007"/>
+            <method name="getType()" value="1205002,1205009,1205008,1205003,1205004,1205005,1205006,1205007,1205010"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="1207001,1207002,1207003"/>
+            <method name="getType()" value="1207001,1207002,1207003,1207004"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -414,6 +414,15 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <specializationType
+               id="org.tura.metamodel.diagram.infarastructure.Server_1203008"
+               name="%metatype.name.Server_1203008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.tura.metamodel.diagram.infarastructure.Server_1203003"/>
+            <param name="semanticHint" value="1203008"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
                id="org.tura.metamodel.diagram.infarastructure.TypeExtension_1204001"
                name="%metatype.name.TypeExtension_1204001"
@@ -522,6 +531,7 @@
          <elementType ref="org.tura.metamodel.diagram.infarastructure.Hub_1203005"/>
          <elementType ref="org.tura.metamodel.diagram.infarastructure.Storage_1203006"/>
          <elementType ref="org.tura.metamodel.diagram.infarastructure.ServerClaster_1203007"/>
+         <elementType ref="org.tura.metamodel.diagram.infarastructure.Server_1203008"/>
          <elementType ref="org.tura.metamodel.diagram.infarastructure.TypeExtension_1204001"/>
          <elementType ref="org.tura.metamodel.diagram.infarastructure.Relation_1204002"/>
          <elementType ref="org.tura.metamodel.diagram.infarastructure.InfrastructureConnection_1204009"/>

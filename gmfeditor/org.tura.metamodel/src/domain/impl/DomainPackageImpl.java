@@ -6091,7 +6091,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																											
+       });																																																																																																																												
   }
 
   /**
@@ -6108,7 +6108,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																																										
+       });																																																																																																																											
   }
 
   /**
@@ -6739,7 +6739,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "tool.small.bundle", "org.tura.metamodel.commons",
        "tool.small.path", "icons/serverclaster.png"
-       });
+       });	
   }
 
   /**
@@ -6984,7 +6984,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });						
+       "layer", "list"
+       });								
+    addAnnotation
+      (getServerClaster_Servers(), 
+       source, 
+       new String[] 
+       {
+       });
   }
 
   /**
@@ -7001,7 +7008,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																														
+       });																																																																																																															
   }
 
   /**
@@ -7018,7 +7025,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																																					
+       });																																																																																																						
   }
 
   /**
@@ -7035,7 +7042,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																											
+       });																																																																																												
   }
 
   /**
@@ -7052,7 +7059,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																									
+       });																																																																																										
   }
 
   /**
@@ -7069,7 +7076,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																																							
+       });																																																																																								
   }
 
   /**
@@ -7159,7 +7166,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "source", "master",
        "target", "detail",
        "width", "2"
-       });					
+       });						
   }
 
   /**
@@ -7176,7 +7183,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																																	
+       });																																																																		
   }
 
   /**
@@ -7193,7 +7200,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																					
+       });																																																						
   }
 
   /**
@@ -7210,7 +7217,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																																	
+       });																																																		
   }
 
   /**
@@ -7227,7 +7234,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });																																											
+       });																																												
   }
 
   /**
@@ -7244,7 +7251,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
-       });												
+       });													
   }
 
 } //DomainPackageImpl

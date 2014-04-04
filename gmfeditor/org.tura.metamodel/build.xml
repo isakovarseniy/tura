@@ -1,4 +1,4 @@
-<project default="main">
+<project default="infarastructure">
 	
 	<target name="main" depends="application,artifact,domain,mapper,recipe,typedefinition,typesrepository,deployment,uipackage,control,infarastructure">
 	</target>

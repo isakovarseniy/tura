@@ -3,10 +3,10 @@
  */
 package infarastructure.diagram.edit.parts;
 
-import infarastructure.diagram.edit.policies.RouterItemSemanticEditPolicy;
+import infarastructure.diagram.edit.policies.Server2ItemSemanticEditPolicy;
 import infarastructure.diagram.part.DomainVisualIDRegistry;
-
 import infarastructure.diagram.providers.DomainElementTypes;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -37,17 +37,17 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.tura.metamodel.commons.figures.RouterFigure;
+import org.tura.metamodel.commons.figures.ServerFigure;
 
 /**
  * @generated
  */
-public class RouterEditPart extends AbstractBorderedShapeEditPart {
+public class Server2EditPart extends AbstractBorderedShapeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1203004;
+	public static final int VISUAL_ID = 1203008;
 
 	/**
 	 * @generated
@@ -62,7 +62,7 @@ public class RouterEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	public RouterEditPart(View view) {
+	public Server2EditPart(View view) {
 		super(view);
 	}
 
@@ -72,7 +72,7 @@ public class RouterEditPart extends AbstractBorderedShapeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new RouterItemSemanticEditPolicy());
+				new Server2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -87,7 +87,7 @@ public class RouterEditPart extends AbstractBorderedShapeEditPart {
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
 				switch (DomainVisualIDRegistry.getVisualID(childView)) {
-				case RouterNameEditPart.VISUAL_ID:
+				case ServerName2EditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy() {
 
 						protected List createSelectionHandles() {
@@ -121,14 +121,14 @@ public class RouterEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RouterFigure();
+		return primaryShape = new ServerFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public RouterFigure getPrimaryShape() {
-		return (RouterFigure) primaryShape;
+	public ServerFigure getPrimaryShape() {
+		return (ServerFigure) primaryShape;
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class RouterEditPart extends AbstractBorderedShapeEditPart {
 	 */
 	protected void addBorderItem(IFigure borderItemContainer,
 			IBorderItemEditPart borderItemEditPart) {
-		if (borderItemEditPart instanceof RouterNameEditPart) {
+		if (borderItemEditPart instanceof ServerName2EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.SOUTH);
 			locator.setBorderItemOffset(new Dimension(-20, -20));
@@ -232,7 +232,7 @@ public class RouterEditPart extends AbstractBorderedShapeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(RouterNameEditPart.VISUAL_ID));
+				.getType(ServerName2EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -253,7 +253,7 @@ public class RouterEditPart extends AbstractBorderedShapeEditPart {
 		if (targetEditPart instanceof ServerEditPart) {
 			types.add(DomainElementTypes.InfrastructureConnection_1204009);
 		}
-		if (targetEditPart instanceof infarastructure.diagram.edit.parts.RouterEditPart) {
+		if (targetEditPart instanceof RouterEditPart) {
 			types.add(DomainElementTypes.InfrastructureConnection_1204009);
 		}
 		if (targetEditPart instanceof HubEditPart) {
@@ -265,7 +265,7 @@ public class RouterEditPart extends AbstractBorderedShapeEditPart {
 		if (targetEditPart instanceof ServerClasterEditPart) {
 			types.add(DomainElementTypes.InfrastructureConnection_1204009);
 		}
-		if (targetEditPart instanceof Server2EditPart) {
+		if (targetEditPart instanceof infarastructure.diagram.edit.parts.Server2EditPart) {
 			types.add(DomainElementTypes.InfrastructureConnection_1204009);
 		}
 		return types;

@@ -3,6 +3,7 @@
  */
 package infarastructure.diagram.edit.parts;
 
+import infarastructure.diagram.edit.policies.OpenDiagramEditPolicy;
 import infarastructure.diagram.edit.policies.ServerClasterItemSemanticEditPolicy;
 import infarastructure.diagram.part.DomainVisualIDRegistry;
 
@@ -12,6 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -72,6 +74,8 @@ public class ServerClasterEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ServerClasterItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -126,6 +130,14 @@ public class ServerClasterEditPart extends ShapeNodeEditPart {
 							.getFigureServerClasterLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof ServerClasterServerClasterServersCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getServerClasterServersCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((ServerClasterServerClasterServersCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -134,6 +146,13 @@ public class ServerClasterEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ServerClasterNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ServerClasterServerClasterServersCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getServerClasterServersCompartmentFigure();
+			pane.remove(((ServerClasterServerClasterServersCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -163,6 +182,9 @@ public class ServerClasterEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof ServerClasterServerClasterServersCompartmentEditPart) {
+			return getPrimaryShape().getServerClasterServersCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -290,6 +312,9 @@ public class ServerClasterEditPart extends ShapeNodeEditPart {
 		if (targetEditPart instanceof infarastructure.diagram.edit.parts.ServerClasterEditPart) {
 			types.add(DomainElementTypes.InfrastructureConnection_1204009);
 		}
+		if (targetEditPart instanceof Server2EditPart) {
+			types.add(DomainElementTypes.InfrastructureConnection_1204009);
+		}
 		return types;
 	}
 
@@ -304,6 +329,7 @@ public class ServerClasterEditPart extends ShapeNodeEditPart {
 			types.add(DomainElementTypes.Hub_1203005);
 			types.add(DomainElementTypes.Storage_1203006);
 			types.add(DomainElementTypes.ServerClaster_1203007);
+			types.add(DomainElementTypes.Server_1203008);
 		}
 		return types;
 	}
@@ -328,6 +354,7 @@ public class ServerClasterEditPart extends ShapeNodeEditPart {
 			types.add(DomainElementTypes.Hub_1203005);
 			types.add(DomainElementTypes.Storage_1203006);
 			types.add(DomainElementTypes.ServerClaster_1203007);
+			types.add(DomainElementTypes.Server_1203008);
 		}
 		return types;
 	}
@@ -341,6 +368,11 @@ public class ServerClasterEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureServerClasterLabelFigure;
+
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fServerClasterServersCompartmentFigure;
 
 		/**
 		 * @generated
@@ -366,7 +398,16 @@ public class ServerClasterEditPart extends ShapeNodeEditPart {
 			fFigureServerClasterLabelFigure
 					.setFont(FFIGURESERVERCLASTERLABELFIGURE_FONT);
 
+			fFigureServerClasterLabelFigure.setMaximumSize(new Dimension(
+					getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
+
 			this.add(fFigureServerClasterLabelFigure);
+
+			fServerClasterServersCompartmentFigure = new RectangleFigure();
+
+			fServerClasterServersCompartmentFigure.setOutline(false);
+
+			this.add(fServerClasterServersCompartmentFigure);
 
 		}
 
@@ -375,6 +416,13 @@ public class ServerClasterEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureServerClasterLabelFigure() {
 			return fFigureServerClasterLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getServerClasterServersCompartmentFigure() {
+			return fServerClasterServersCompartmentFigure;
 		}
 
 	}

@@ -3,15 +3,13 @@
  */
 package infarastructure.diagram.edit.parts;
 
-import infarastructure.diagram.edit.policies.SubsystemSubsystemInfrastructureLayerCompartmentCanonicalEditPolicy;
-import infarastructure.diagram.edit.policies.SubsystemSubsystemInfrastructureLayerCompartmentItemSemanticEditPolicy;
+import infarastructure.diagram.edit.policies.ServerClasterServerClasterServersCompartmentCanonicalEditPolicy;
+import infarastructure.diagram.edit.policies.ServerClasterServerClasterServersCompartmentItemSemanticEditPolicy;
 import infarastructure.diagram.part.DomainVisualIDRegistry;
 import infarastructure.diagram.part.Messages;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -24,33 +22,26 @@ import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicy
 /**
  * @generated
  */
-public class SubsystemSubsystemInfrastructureLayerCompartmentEditPart extends
-		ListCompartmentEditPart {
+public class ServerClasterServerClasterServersCompartmentEditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1207002;
+	public static final int VISUAL_ID = 1207004;
 
 	/**
 	 * @generated
 	 */
-	public SubsystemSubsystemInfrastructureLayerCompartmentEditPart(View view) {
+	public ServerClasterServerClasterServersCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected boolean hasModelChildrenChanged(Notification evt) {
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
 	public String getCompartmentName() {
-		return Messages.SubsystemSubsystemInfrastructureLayerCompartmentEditPart_title;
+		return Messages.ServerClasterServerClasterServersCompartmentEditPart_title;
 	}
 
 	/**
@@ -73,7 +64,7 @@ public class SubsystemSubsystemInfrastructureLayerCompartmentEditPart extends
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new SubsystemSubsystemInfrastructureLayerCompartmentItemSemanticEditPolicy());
+				new ServerClasterServerClasterServersCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(
 						DomainVisualIDRegistry.TYPED_INSTANCE));
@@ -81,7 +72,7 @@ public class SubsystemSubsystemInfrastructureLayerCompartmentEditPart extends
 				new DragDropEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.CANONICAL_ROLE,
-				new SubsystemSubsystemInfrastructureLayerCompartmentCanonicalEditPolicy());
+				new ServerClasterServerClasterServersCompartmentCanonicalEditPolicy());
 	}
 
 	/**

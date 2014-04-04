@@ -5,6 +5,7 @@ package infarastructure.diagram.part;
 
 import infarastructure.diagram.providers.DomainElementTypes;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -135,10 +136,12 @@ public class DomainPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createServer5CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(DomainElementTypes.Server_1203003);
+		types.add(DomainElementTypes.Server_1203008);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Server5CreationTool_title,
-				Messages.Server5CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Server_1203003));
+				Messages.Server5CreationTool_desc, types);
 		entry.setId("createServer5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/server.png")); //$NON-NLS-1$

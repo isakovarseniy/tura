@@ -441,6 +441,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ServerClasterServerClasterServersCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
@@ -502,6 +507,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Server_1203003_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Server_1203008_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Server_1203008_outgoinglinks;
 
 	/**
 	 * @generated

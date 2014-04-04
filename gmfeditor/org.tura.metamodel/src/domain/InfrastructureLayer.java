@@ -121,6 +121,7 @@ public interface InfrastructureLayer extends EObject
    * @see domain.DomainPackage#getInfrastructureLayer_InfrastructureComponent()
    * @see domain.InfrastructureComponent#getParent
    * @model opposite="parent" containment="true"
+   *        annotation="gmf.compartment layer='list'"
    * @generated
    */
   EList<InfrastructureComponent> getInfrastructureComponent();

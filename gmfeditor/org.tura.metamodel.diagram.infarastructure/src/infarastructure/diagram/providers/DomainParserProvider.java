@@ -8,6 +8,7 @@ import infarastructure.diagram.edit.parts.HubNameEditPart;
 import infarastructure.diagram.edit.parts.InfrastructureLayerNameEditPart;
 import infarastructure.diagram.edit.parts.RouterNameEditPart;
 import infarastructure.diagram.edit.parts.ServerClasterNameEditPart;
+import infarastructure.diagram.edit.parts.ServerName2EditPart;
 import infarastructure.diagram.edit.parts.ServerNameEditPart;
 import infarastructure.diagram.edit.parts.StorageNameEditPart;
 import infarastructure.diagram.edit.parts.SubsystemNameEditPart;
@@ -182,6 +183,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser serverName_1205010Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getServerName_1205010Parser() {
+		if (serverName_1205010Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getInfrastructureComponent_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			serverName_1205010Parser = parser;
+		}
+		return serverName_1205010Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case DatacenterNameEditPart.VISUAL_ID:
@@ -200,6 +219,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getStorageName_1205006Parser();
 		case ServerClasterNameEditPart.VISUAL_ID:
 			return getServerClasterName_1205007Parser();
+		case ServerName2EditPart.VISUAL_ID:
+			return getServerName_1205010Parser();
 		}
 		return null;
 	}

@@ -76,6 +76,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ServerClasterNameEditPart.VISUAL_ID:
 				return new ServerClasterNameEditPart(view);
 
+			case Server2EditPart.VISUAL_ID:
+				return new Server2EditPart(view);
+
+			case ServerName2EditPart.VISUAL_ID:
+				return new ServerName2EditPart(view);
+
 			case DatacenterDatacenterSubsystemsCompartmentEditPart.VISUAL_ID:
 				return new DatacenterDatacenterSubsystemsCompartmentEditPart(
 						view);
@@ -86,6 +92,10 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart.VISUAL_ID:
 				return new InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart(
+						view);
+
+			case ServerClasterServerClasterServersCompartmentEditPart.VISUAL_ID:
+				return new ServerClasterServerClasterServersCompartmentEditPart(
 						view);
 
 			case TypeExtensionEditPart.VISUAL_ID:

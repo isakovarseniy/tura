@@ -731,7 +731,7 @@ class InfrastructureLayer {
      id attr EString uid;
      attr EString name;
      ref Subsystem#infrastructureLayer parent;
-   @gmf.compartment
+   @gmf.compartment(layer="list")
      val InfrastructureComponent[*]#parent  infrastructureComponent;
 }
 
@@ -774,6 +774,7 @@ class Storage extends InfrastructureComponent{
 
 @gmf.node(label="name" ,tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/serverclaster.png")
 class ServerClaster extends InfrastructureComponent{
+   @gmf.compartment
   val Server[*] servers;
 }
 

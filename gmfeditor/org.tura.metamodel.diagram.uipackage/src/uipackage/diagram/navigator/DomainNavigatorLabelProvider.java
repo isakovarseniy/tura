@@ -116,42 +116,42 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_1004001); //$NON-NLS-1$
-		case FormViewEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://tura.org/2013/v1/domain?FormView", DomainElementTypes.FormView_1003001); //$NON-NLS-1$
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_1004004); //$NON-NLS-1$
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?deloyment", DomainElementTypes.RecipeDeloyment_1004005); //$NON-NLS-1$
-		case UIPackageEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?UIPackage", DomainElementTypes.UIPackage_1001000); //$NON-NLS-1$
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentComponent?deplymentComponent", DomainElementTypes.DeploymentComponentDeplymentComponent_1004002); //$NON-NLS-1$
-		case FormEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Form", DomainElementTypes.Form_1002002); //$NON-NLS-1$
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?InfrastructureConnection", DomainElementTypes.InfrastructureConnection_1004010); //$NON-NLS-1$
 		case RelationEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Relation", DomainElementTypes.Relation_1004009); //$NON-NLS-1$
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_1004007); //$NON-NLS-1$
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentStarStep?firstStep", DomainElementTypes.DeploymentStarStepFirstStep_1004003); //$NON-NLS-1$
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_1004006); //$NON-NLS-1$
 		case FormDataControlsEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?FormDataControls", DomainElementTypes.FormDataControls_1003002); //$NON-NLS-1$
+		case FormEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Form", DomainElementTypes.Form_1002002); //$NON-NLS-1$
+		case FormViewEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?FormView", DomainElementTypes.FormView_1003001); //$NON-NLS-1$
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentStarStep?firstStep", DomainElementTypes.DeploymentStarStepFirstStep_1004003); //$NON-NLS-1$
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?InfrastructureConnection", DomainElementTypes.InfrastructureConnection_1004010); //$NON-NLS-1$
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentComponent?deplymentComponent", DomainElementTypes.DeploymentComponentDeplymentComponent_1004002); //$NON-NLS-1$
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?deloyment", DomainElementTypes.RecipeDeloyment_1004005); //$NON-NLS-1$
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_1004007); //$NON-NLS-1$
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_1004006); //$NON-NLS-1$
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_1004004); //$NON-NLS-1$
+		case UIPackageEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?UIPackage", DomainElementTypes.UIPackage_1001000); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -214,30 +214,30 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_1004001Text(view);
-		case FormViewEditPart.VISUAL_ID:
-			return getFormView_1003001Text(view);
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return getRecipeInfrastructures_1004004Text(view);
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return getRecipeDeloyment_1004005Text(view);
-		case UIPackageEditPart.VISUAL_ID:
-			return getUIPackage_1001000Text(view);
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			return getDeploymentComponentDeplymentComponent_1004002Text(view);
-		case FormEditPart.VISUAL_ID:
-			return getForm_1002002Text(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_1004010Text(view);
 		case RelationEditPart.VISUAL_ID:
 			return getRelation_1004009Text(view);
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_1004007Text(view);
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			return getDeploymentStarStepFirstStep_1004003Text(view);
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getInfrastructureRecipeConfig_1004006Text(view);
 		case FormDataControlsEditPart.VISUAL_ID:
 			return getFormDataControls_1003002Text(view);
+		case FormEditPart.VISUAL_ID:
+			return getForm_1002002Text(view);
+		case FormViewEditPart.VISUAL_ID:
+			return getFormView_1003001Text(view);
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			return getDeploymentStarStepFirstStep_1004003Text(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_1004010Text(view);
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			return getDeploymentComponentDeplymentComponent_1004002Text(view);
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			return getRecipeDeloyment_1004005Text(view);
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getConfigurationConfigExtension_1004007Text(view);
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return getInfrastructureRecipeConfig_1004006Text(view);
+		case RecipeInfrastructuresEditPart.VISUAL_ID:
+			return getRecipeInfrastructures_1004004Text(view);
+		case UIPackageEditPart.VISUAL_ID:
+			return getUIPackage_1001000Text(view);
 		}
 		return getUnknownElementText(view);
 	}

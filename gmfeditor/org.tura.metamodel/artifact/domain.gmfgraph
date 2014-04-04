@@ -2612,16 +2612,26 @@
             xsi:type="gmfgraph:Label"
             name="ServerClasterLabelFigure"
             text="ServerClaster">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
           <font
               xsi:type="gmfgraph:BasicFont"
               faceName="Palatino"
               height="12"
               style="ITALIC"/>
         </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ServerClasterServersCompartmentFigure"
+            outline="false"/>
       </actualFigure>
       <accessors
           accessor="getFigureServerClasterLabelFigure"
           figure="//@figures.0/@descriptors.71/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getServerClasterServersCompartmentFigure"
+          figure="//@figures.0/@descriptors.71/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="TypeExtensionFigure">
@@ -3175,6 +3185,11 @@
       figure="InfrastructureLayerFigure"
       collapsible="true"
       accessor="//@figures.0/@descriptors.62/@accessors.1"/>
+  <compartments
+      name="ServerClasterServersCompartment"
+      figure="ServerClasterFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.71/@accessors.1"/>
   <labels
       name="DomainArtifactsLabel"
       figure="DomainArtifactsFigure"

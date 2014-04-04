@@ -10,6 +10,7 @@ import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
 import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
 import infarastructure.diagram.edit.parts.RelationEditPart;
 import infarastructure.diagram.edit.parts.RouterEditPart;
+import infarastructure.diagram.edit.parts.Server2EditPart;
 import infarastructure.diagram.edit.parts.ServerClasterEditPart;
 import infarastructure.diagram.edit.parts.ServerEditPart;
 import infarastructure.diagram.edit.parts.StorageEditPart;
@@ -339,6 +340,14 @@ public class EnterpriseInfrastructureCanonicalEditPolicy extends
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getServerClaster_1203007ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case Server2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getServer_1203008ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

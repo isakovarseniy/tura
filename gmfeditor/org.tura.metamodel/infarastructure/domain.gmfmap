@@ -153,7 +153,8 @@
                   compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                 <containmentFeature
                     href="domain.ecore#//InfrastructureLayer/infrastructureComponent"/>
-                <ownedChild>
+                <ownedChild
+                    relatedDiagrams="//@diagram">
                   <domainMetaElement
                       href="domain.ecore#//ServerClaster"/>
                   <labelMappings
@@ -168,6 +169,17 @@
                       href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
                   <diagramNode
                       href="domain.gmfgraph#ServerClaster"/>
+                  <children
+                      compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@compartments.0"
+                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                    <containmentFeature
+                        href="domain.ecore#//ServerClaster/servers"/>
+                  </children>
+                  <compartments
+                      children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0">
+                    <compartment
+                        href="domain.gmfgraph#ServerClasterServersCompartment"/>
+                  </compartments>
                 </ownedChild>
               </children>
               <compartments

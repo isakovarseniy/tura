@@ -16,6 +16,7 @@ import infarastructure.diagram.edit.parts.RecipeDeloymentEditPart;
 import infarastructure.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import infarastructure.diagram.edit.parts.RelationEditPart;
 import infarastructure.diagram.edit.parts.RouterEditPart;
+import infarastructure.diagram.edit.parts.Server2EditPart;
 import infarastructure.diagram.edit.parts.ServerClasterEditPart;
 import infarastructure.diagram.edit.parts.ServerEditPart;
 import infarastructure.diagram.edit.parts.StorageEditPart;
@@ -103,6 +104,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ServerClaster_1203007 = getElementType("org.tura.metamodel.diagram.infarastructure.ServerClaster_1203007"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Server_1203008 = getElementType("org.tura.metamodel.diagram.infarastructure.Server_1203008"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -275,6 +281,8 @@ public class DomainElementTypes {
 			elements.put(ServerClaster_1203007,
 					DomainPackage.eINSTANCE.getServerClaster());
 
+			elements.put(Server_1203008, DomainPackage.eINSTANCE.getServer());
+
 			elements.put(TypeExtension_1204001,
 					DomainPackage.eINSTANCE.getTypeExtension());
 
@@ -328,6 +336,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Hub_1203005);
 			KNOWN_ELEMENT_TYPES.add(Storage_1203006);
 			KNOWN_ELEMENT_TYPES.add(ServerClaster_1203007);
+			KNOWN_ELEMENT_TYPES.add(Server_1203008);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_1204001);
 			KNOWN_ELEMENT_TYPES.add(Relation_1204002);
 			KNOWN_ELEMENT_TYPES.add(InfrastructureConnection_1204009);
@@ -365,6 +374,8 @@ public class DomainElementTypes {
 			return Storage_1203006;
 		case ServerClasterEditPart.VISUAL_ID:
 			return ServerClaster_1203007;
+		case Server2EditPart.VISUAL_ID:
+			return Server_1203008;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_1204001;
 		case RelationEditPart.VISUAL_ID:

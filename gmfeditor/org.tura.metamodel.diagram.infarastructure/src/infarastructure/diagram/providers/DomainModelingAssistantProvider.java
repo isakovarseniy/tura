@@ -8,9 +8,12 @@ import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
 import infarastructure.diagram.edit.parts.HubEditPart;
 import infarastructure.diagram.edit.parts.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart;
 import infarastructure.diagram.edit.parts.RouterEditPart;
+import infarastructure.diagram.edit.parts.Server2EditPart;
 import infarastructure.diagram.edit.parts.ServerClasterEditPart;
+import infarastructure.diagram.edit.parts.ServerClasterServerClasterServersCompartmentEditPart;
 import infarastructure.diagram.edit.parts.ServerEditPart;
 import infarastructure.diagram.edit.parts.StorageEditPart;
+import infarastructure.diagram.edit.parts.SubsystemEditPart;
 import infarastructure.diagram.edit.parts.SubsystemSubsystemInfrastructureLayerCompartmentEditPart;
 import infarastructure.diagram.part.DomainDiagramEditorPlugin;
 import infarastructure.diagram.part.Messages;
@@ -52,14 +55,14 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.Datacenter_1202002);
 			return types;
 		}
+		if (editPart instanceof SubsystemEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.InfrastructureLayer_1203002);
+			return types;
+		}
 		if (editPart instanceof DatacenterDatacenterSubsystemsCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(DomainElementTypes.Subsystem_1203001);
-			return types;
-		}
-		if (editPart instanceof SubsystemSubsystemInfrastructureLayerCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(DomainElementTypes.InfrastructureLayer_1203002);
 			return types;
 		}
 		if (editPart instanceof InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart) {
@@ -69,6 +72,11 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(DomainElementTypes.Hub_1203005);
 			types.add(DomainElementTypes.Storage_1203006);
 			types.add(DomainElementTypes.ServerClaster_1203007);
+			return types;
+		}
+		if (editPart instanceof ServerClasterServerClasterServersCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.Server_1203008);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
@@ -96,6 +104,9 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((ServerClasterEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
+		if (sourceEditPart instanceof Server2EditPart) {
+			return ((Server2EditPart) sourceEditPart).getMARelTypesOnSource();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -120,6 +131,9 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		if (targetEditPart instanceof ServerClasterEditPart) {
 			return ((ServerClasterEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof Server2EditPart) {
+			return ((Server2EditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -153,6 +167,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((ServerClasterEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
+		if (sourceEditPart instanceof Server2EditPart) {
+			return ((Server2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -183,6 +201,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((ServerClasterEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
+		if (targetEditPart instanceof Server2EditPart) {
+			return ((Server2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -211,6 +233,10 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (sourceEditPart instanceof ServerClasterEditPart) {
 			return ((ServerClasterEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof Server2EditPart) {
+			return ((Server2EditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

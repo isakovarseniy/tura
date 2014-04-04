@@ -265,6 +265,9 @@ public class HubEditPart extends AbstractBorderedShapeEditPart {
 		if (targetEditPart instanceof ServerClasterEditPart) {
 			types.add(DomainElementTypes.InfrastructureConnection_1204009);
 		}
+		if (targetEditPart instanceof Server2EditPart) {
+			types.add(DomainElementTypes.InfrastructureConnection_1204009);
+		}
 		return types;
 	}
 
@@ -279,6 +282,7 @@ public class HubEditPart extends AbstractBorderedShapeEditPart {
 			types.add(DomainElementTypes.Hub_1203005);
 			types.add(DomainElementTypes.Storage_1203006);
 			types.add(DomainElementTypes.ServerClaster_1203007);
+			types.add(DomainElementTypes.Server_1203008);
 		}
 		return types;
 	}
@@ -303,6 +307,7 @@ public class HubEditPart extends AbstractBorderedShapeEditPart {
 			types.add(DomainElementTypes.Hub_1203005);
 			types.add(DomainElementTypes.Storage_1203006);
 			types.add(DomainElementTypes.ServerClaster_1203007);
+			types.add(DomainElementTypes.Server_1203008);
 		}
 		return types;
 	}

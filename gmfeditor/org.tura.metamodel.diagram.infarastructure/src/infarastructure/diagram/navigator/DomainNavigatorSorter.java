@@ -15,12 +15,12 @@ public class DomainNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 1207005;
+	private static final int GROUP_CATEGORY = 1207006;
 
 	/**
 	 * @generated
 	 */
-	private static final int SHORTCUTS_CATEGORY = 1207004;
+	private static final int SHORTCUTS_CATEGORY = 1207005;
 
 	/**
 	 * @generated

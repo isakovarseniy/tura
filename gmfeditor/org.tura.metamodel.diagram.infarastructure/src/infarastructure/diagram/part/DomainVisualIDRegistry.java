@@ -28,9 +28,12 @@ import infarastructure.diagram.edit.parts.RecipeInfrastructuresExternalLabelEdit
 import infarastructure.diagram.edit.parts.RelationEditPart;
 import infarastructure.diagram.edit.parts.RouterEditPart;
 import infarastructure.diagram.edit.parts.RouterNameEditPart;
+import infarastructure.diagram.edit.parts.Server2EditPart;
 import infarastructure.diagram.edit.parts.ServerClasterEditPart;
 import infarastructure.diagram.edit.parts.ServerClasterNameEditPart;
+import infarastructure.diagram.edit.parts.ServerClasterServerClasterServersCompartmentEditPart;
 import infarastructure.diagram.edit.parts.ServerEditPart;
+import infarastructure.diagram.edit.parts.ServerName2EditPart;
 import infarastructure.diagram.edit.parts.ServerNameEditPart;
 import infarastructure.diagram.edit.parts.StorageEditPart;
 import infarastructure.diagram.edit.parts.StorageNameEditPart;
@@ -198,6 +201,12 @@ public class DomainVisualIDRegistry {
 				return ServerClasterEditPart.VISUAL_ID;
 			}
 			break;
+		case ServerClasterServerClasterServersCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getServer().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Server2EditPart.VISUAL_ID;
+			}
+			break;
 		}
 		return -1;
 	}
@@ -277,6 +286,14 @@ public class DomainVisualIDRegistry {
 			if (ServerClasterNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ServerClasterServerClasterServersCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case Server2EditPart.VISUAL_ID:
+			if (ServerName2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case DatacenterDatacenterSubsystemsCompartmentEditPart.VISUAL_ID:
 			if (SubsystemEditPart.VISUAL_ID == nodeVisualID) {
@@ -302,6 +319,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (ServerClasterEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ServerClasterServerClasterServersCompartmentEditPart.VISUAL_ID:
+			if (Server2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -392,6 +414,7 @@ public class DomainVisualIDRegistry {
 		case DatacenterDatacenterSubsystemsCompartmentEditPart.VISUAL_ID:
 		case SubsystemSubsystemInfrastructureLayerCompartmentEditPart.VISUAL_ID:
 		case InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart.VISUAL_ID:
+		case ServerClasterServerClasterServersCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -410,7 +433,7 @@ public class DomainVisualIDRegistry {
 		case RouterEditPart.VISUAL_ID:
 		case HubEditPart.VISUAL_ID:
 		case StorageEditPart.VISUAL_ID:
-		case ServerClasterEditPart.VISUAL_ID:
+		case Server2EditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
