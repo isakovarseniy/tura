@@ -6,8 +6,8 @@ package infarastructure.diagram.edit.parts;
 import infarastructure.diagram.edit.policies.OpenDiagramEditPolicy;
 import infarastructure.diagram.edit.policies.SubsystemItemSemanticEditPolicy;
 import infarastructure.diagram.part.DomainVisualIDRegistry;
-
 import infarastructure.diagram.providers.DomainElementTypes;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;

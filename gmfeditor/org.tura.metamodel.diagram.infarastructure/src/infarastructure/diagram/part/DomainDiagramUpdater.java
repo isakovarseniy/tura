@@ -20,15 +20,15 @@ import infarastructure.diagram.edit.parts.StorageEditPart;
 import infarastructure.diagram.edit.parts.SubsystemEditPart;
 import infarastructure.diagram.edit.parts.SubsystemSubsystemInfrastructureLayerCompartmentEditPart;
 import infarastructure.diagram.edit.parts.TypeExtensionEditPart;
-
 import infarastructure.diagram.providers.DomainElementTypes;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
 import java.util.Map;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;

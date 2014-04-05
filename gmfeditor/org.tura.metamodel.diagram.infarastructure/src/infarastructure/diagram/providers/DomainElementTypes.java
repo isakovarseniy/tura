@@ -108,7 +108,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Server_1203008 = getElementType("org.tura.metamodel.diagram.infarastructure.Server_1203008"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
@@ -121,7 +120,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType InfrastructureConnection_1204009 = getElementType("org.tura.metamodel.diagram.infarastructure.InfrastructureConnection_1204009"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */

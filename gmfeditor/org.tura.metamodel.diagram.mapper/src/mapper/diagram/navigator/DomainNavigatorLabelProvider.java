@@ -110,39 +110,39 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case RelationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Relation", DomainElementTypes.Relation_404011); //$NON-NLS-1$
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_404004); //$NON-NLS-1$
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?InfrastructureConnection", DomainElementTypes.InfrastructureConnection_404012); //$NON-NLS-1$
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_404003); //$NON-NLS-1$
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?deloyment", DomainElementTypes.RecipeDeloyment_404006); //$NON-NLS-1$
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_404005); //$NON-NLS-1$
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentStarStep?firstStep", DomainElementTypes.DeploymentStarStepFirstStep_404009); //$NON-NLS-1$
-		case MappersEditPart.VISUAL_ID:
+					"Navigator?Link?http://tura.org/2013/v1/domain?Infrastructure?recipeConfig", DomainElementTypes.InfrastructureRecipeConfig_404004); //$NON-NLS-1$
+		case RecipeDeloymentEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://tura.org/2013/v1/domain?Mappers", DomainElementTypes.Mappers_401000); //$NON-NLS-1$
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentComponent?deplymentComponent", DomainElementTypes.DeploymentComponentDeplymentComponent_404007); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_404001); //$NON-NLS-1$
+					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?deloyment", DomainElementTypes.RecipeDeloyment_404006); //$NON-NLS-1$
 		case JavaMapperEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaMapper", DomainElementTypes.JavaMapper_402001); //$NON-NLS-1$
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentStarStep?firstStep", DomainElementTypes.DeploymentStarStepFirstStep_404009); //$NON-NLS-1$
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_404001); //$NON-NLS-1$
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?InfrastructureConnection", DomainElementTypes.InfrastructureConnection_404012); //$NON-NLS-1$
+		case RelationEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Relation", DomainElementTypes.Relation_404011); //$NON-NLS-1$
+		case MappersEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://tura.org/2013/v1/domain?Mappers", DomainElementTypes.Mappers_401000); //$NON-NLS-1$
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Configuration?configExtension", DomainElementTypes.ConfigurationConfigExtension_404003); //$NON-NLS-1$
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?DeploymentComponent?deplymentComponent", DomainElementTypes.DeploymentComponentDeplymentComponent_404007); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -203,28 +203,28 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_404011Text(view);
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return getInfrastructureRecipeConfig_404004Text(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_404012Text(view);
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getConfigurationConfigExtension_404003Text(view);
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return getRecipeDeloyment_404006Text(view);
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return getRecipeInfrastructures_404005Text(view);
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			return getDeploymentStarStepFirstStep_404009Text(view);
-		case MappersEditPart.VISUAL_ID:
-			return getMappers_401000Text(view);
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			return getDeploymentComponentDeplymentComponent_404007Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_404001Text(view);
+		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
+			return getInfrastructureRecipeConfig_404004Text(view);
+		case RecipeDeloymentEditPart.VISUAL_ID:
+			return getRecipeDeloyment_404006Text(view);
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_402001Text(view);
+		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
+			return getDeploymentStarStepFirstStep_404009Text(view);
+		case TypeExtensionEditPart.VISUAL_ID:
+			return getTypeExtension_404001Text(view);
+		case InfrastructureConnectionEditPart.VISUAL_ID:
+			return getInfrastructureConnection_404012Text(view);
+		case RelationEditPart.VISUAL_ID:
+			return getRelation_404011Text(view);
+		case MappersEditPart.VISUAL_ID:
+			return getMappers_401000Text(view);
+		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
+			return getConfigurationConfigExtension_404003Text(view);
+		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
+			return getDeploymentComponentDeplymentComponent_404007Text(view);
 		}
 		return getUnknownElementText(view);
 	}

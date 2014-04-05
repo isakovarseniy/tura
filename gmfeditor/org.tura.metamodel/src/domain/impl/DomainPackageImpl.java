@@ -6978,13 +6978,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        source, 
        new String[] 
        {
+       "layout", "list"
        });			
     addAnnotation
       (getInfrastructureLayer_InfrastructureComponent(), 
        source, 
        new String[] 
        {
-       "layer", "list"
        });								
     addAnnotation
       (getServerClaster_Servers(), 

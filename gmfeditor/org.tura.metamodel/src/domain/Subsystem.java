@@ -121,6 +121,7 @@ public interface Subsystem extends EObject
    * @see domain.DomainPackage#getSubsystem_InfrastructureLayer()
    * @see domain.InfrastructureLayer#getParent
    * @model opposite="parent" containment="true"
+   *        annotation="gmf.compartment layout='list'"
    * @generated
    */
   EList<InfrastructureLayer> getInfrastructureLayer();

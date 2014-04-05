@@ -722,7 +722,7 @@ class Subsystem{
     id attr EString uid;
     attr EString name;
     ref Datacenter#subsystems parent;
-   @gmf.compartment
+   @gmf.compartment(layout="list")
     val InfrastructureLayer[*]#parent  infrastructureLayer;
 }
 
@@ -731,7 +731,7 @@ class InfrastructureLayer {
      id attr EString uid;
      attr EString name;
      ref Subsystem#infrastructureLayer parent;
-   @gmf.compartment(layer="list")
+   @gmf.compartment
      val InfrastructureComponent[*]#parent  infrastructureComponent;
 }
 

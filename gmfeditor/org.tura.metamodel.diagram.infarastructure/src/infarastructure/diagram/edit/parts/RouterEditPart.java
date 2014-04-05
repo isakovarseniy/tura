@@ -5,8 +5,8 @@ package infarastructure.diagram.edit.parts;
 
 import infarastructure.diagram.edit.policies.RouterItemSemanticEditPolicy;
 import infarastructure.diagram.part.DomainVisualIDRegistry;
-
 import infarastructure.diagram.providers.DomainElementTypes;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;

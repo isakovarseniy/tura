@@ -1,6 +1,6 @@
-<project default="infarastructure">
+<project default="main">
 	
-	<target name="main" depends="application,artifact,domain,mapper,recipe,typedefinition,typesrepository,deployment,uipackage,control,infarastructure">
+	<target name="main" depends="application,artifact,domain,mapper,recipe,typedefinition,typesrepository,deployment,uipackage,control,infarastructure,copy-icons">
 	</target>
 	
 	<target name="application">
@@ -82,6 +82,9 @@
 		<epsilon.eugenia   src="infarastructure/domain.emf" firststep="gmfcode"  />		
 	</target>	
 
-
-
+	<target name="copy-icons">
+		<copy todir="../org.tura.metamodel.edit/icons/full/obj16">
+			<fileset dir="icons"/>
+		</copy>
+     </target>
 </project>

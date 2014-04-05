@@ -14,7 +14,6 @@ import infarastructure.diagram.edit.parts.ServerClasterServerClasterServersCompa
 import infarastructure.diagram.edit.parts.ServerEditPart;
 import infarastructure.diagram.edit.parts.StorageEditPart;
 import infarastructure.diagram.edit.parts.SubsystemEditPart;
-import infarastructure.diagram.edit.parts.SubsystemSubsystemInfrastructureLayerCompartmentEditPart;
 import infarastructure.diagram.part.DomainDiagramEditorPlugin;
 import infarastructure.diagram.part.Messages;
 

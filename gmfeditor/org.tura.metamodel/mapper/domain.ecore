@@ -1147,7 +1147,9 @@
         eOpposite="#//Datacenter/subsystems"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureLayer" upperBound="-1"
         eType="#//InfrastructureLayer" containment="true" eOpposite="#//InfrastructureLayer/parent">
-      <eAnnotations source="gmf.compartment"/>
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InfrastructureLayer">
@@ -1163,9 +1165,7 @@
         eOpposite="#//Subsystem/infrastructureLayer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureComponent"
         upperBound="-1" eType="#//InfrastructureComponent" containment="true" eOpposite="#//InfrastructureComponent/parent">
-      <eAnnotations source="gmf.compartment">
-        <details key="layer" value="list"/>
-      </eAnnotations>
+      <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InfrastructureConnection">

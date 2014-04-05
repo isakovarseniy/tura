@@ -6,11 +6,12 @@ package infarastructure.diagram.edit.parts;
 import infarastructure.diagram.edit.policies.OpenDiagramEditPolicy;
 import infarastructure.diagram.edit.policies.ServerClasterItemSemanticEditPolicy;
 import infarastructure.diagram.part.DomainVisualIDRegistry;
-
 import infarastructure.diagram.providers.DomainElementTypes;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
@@ -368,7 +369,6 @@ public class ServerClasterEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureServerClasterLabelFigure;
-
 		/**
 		 * @generated
 		 */
