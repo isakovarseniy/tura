@@ -152,6 +152,31 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainNodeDescriptor> getRootRootPreFormTriggerCompartment_1107001SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Root modelElement = (Root) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		{
+			PREFormTrigger childElement = modelElement.getPreFormTrigger();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == PREFormTriggerEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainNodeDescriptor> getDataControlDataControlPreQueryTriggerCompartment_1107002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -455,31 +480,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainNodeDescriptor> getRootRootPreFormTriggerCompartment_1107001SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		Root modelElement = (Root) containerView.getElement();
-		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
-		{
-			PREFormTrigger childElement = modelElement.getPreFormTrigger();
-			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == PREFormTriggerEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case ControlsEditPart.VISUAL_ID:
@@ -628,6 +628,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRoot_1102001ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDataControl_1102002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -636,7 +644,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRoot_1102001ContainedLinks(
+	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -740,14 +748,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_1104001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -772,6 +772,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRoot_1102001IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDataControl_1102002IncomingLinks(
 			View view) {
 		DataControl modelElement = (DataControl) view.getElement();
@@ -786,7 +794,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRoot_1102001IncomingLinks(
+	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -890,14 +898,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_1104001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -922,6 +922,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getRoot_1102001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getDataControl_1102002OutgoingLinks(
 			View view) {
 		DataControl modelElement = (DataControl) view.getElement();
@@ -933,7 +941,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getRoot_1102001OutgoingLinks(
+	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -1030,14 +1038,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getArtificialField_1103008OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getPREFormTrigger_1103001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

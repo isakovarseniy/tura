@@ -20,12 +20,12 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import recipe.diagram.edit.commands.RecipeDeloymentCreateCommand;
-import recipe.diagram.edit.commands.RecipeDeloymentReorientCommand;
+import recipe.diagram.edit.commands.RecipeDeploymentCreateCommand;
+import recipe.diagram.edit.commands.RecipeDeploymentReorientCommand;
 import recipe.diagram.edit.commands.RecipeInfrastructuresCreateCommand;
 import recipe.diagram.edit.commands.RecipeInfrastructuresReorientCommand;
 import recipe.diagram.edit.parts.IngredientEditPart;
-import recipe.diagram.edit.parts.RecipeDeloymentEditPart;
+import recipe.diagram.edit.parts.RecipeDeploymentEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.part.DomainVisualIDRegistry;
@@ -62,7 +62,7 @@ public class RecipeItemSemanticEditPolicy extends
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
-			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == RecipeDeloymentEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == RecipeDeploymentEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
@@ -131,8 +131,8 @@ public class RecipeItemSemanticEditPolicy extends
 			return getGEFWrapper(new RecipeInfrastructuresCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (DomainElementTypes.RecipeDeloyment_304005 == req.getElementType()) {
-			return getGEFWrapper(new RecipeDeloymentCreateCommand(req,
+		if (DomainElementTypes.RecipeDeployment_304013 == req.getElementType()) {
+			return getGEFWrapper(new RecipeDeploymentCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -147,7 +147,7 @@ public class RecipeItemSemanticEditPolicy extends
 				.getElementType()) {
 			return null;
 		}
-		if (DomainElementTypes.RecipeDeloyment_304005 == req.getElementType()) {
+		if (DomainElementTypes.RecipeDeployment_304013 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -164,8 +164,8 @@ public class RecipeItemSemanticEditPolicy extends
 		switch (getVisualID(req)) {
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return getGEFWrapper(new RecipeInfrastructuresReorientCommand(req));
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return getGEFWrapper(new RecipeDeloymentReorientCommand(req));
+		case RecipeDeploymentEditPart.VISUAL_ID:
+			return getGEFWrapper(new RecipeDeploymentReorientCommand(req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
 	}

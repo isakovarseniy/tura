@@ -18,9 +18,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelations
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import recipe.diagram.edit.commands.RecipeDeloymentCreateCommand;
-import recipe.diagram.edit.commands.RecipeDeloymentReorientCommand;
-import recipe.diagram.edit.parts.RecipeDeloymentEditPart;
+import recipe.diagram.edit.commands.RecipeDeploymentCreateCommand;
+import recipe.diagram.edit.commands.RecipeDeploymentReorientCommand;
+import recipe.diagram.edit.parts.RecipeDeploymentEditPart;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.providers.DomainElementTypes;
 
@@ -47,7 +47,7 @@ public class DeploymentSequenceItemSemanticEditPolicy extends
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
-			if (DomainVisualIDRegistry.getVisualID(incomingLink) == RecipeDeloymentEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(incomingLink) == RecipeDeploymentEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						incomingLink.getSource().getElement(), null,
 						incomingLink.getTarget().getElement(), false);
@@ -83,7 +83,7 @@ public class DeploymentSequenceItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (DomainElementTypes.RecipeDeloyment_304005 == req.getElementType()) {
+		if (DomainElementTypes.RecipeDeployment_304013 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -94,8 +94,8 @@ public class DeploymentSequenceItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (DomainElementTypes.RecipeDeloyment_304005 == req.getElementType()) {
-			return getGEFWrapper(new RecipeDeloymentCreateCommand(req,
+		if (DomainElementTypes.RecipeDeployment_304013 == req.getElementType()) {
+			return getGEFWrapper(new RecipeDeploymentCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -110,8 +110,8 @@ public class DeploymentSequenceItemSemanticEditPolicy extends
 	protected Command getReorientReferenceRelationshipCommand(
 			ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return getGEFWrapper(new RecipeDeloymentReorientCommand(req));
+		case RecipeDeploymentEditPart.VISUAL_ID:
+			return getGEFWrapper(new RecipeDeploymentReorientCommand(req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
 	}

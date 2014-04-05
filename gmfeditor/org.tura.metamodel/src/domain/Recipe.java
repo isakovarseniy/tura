@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.Recipe#getName <em>Name</em>}</li>
  *   <li>{@link domain.Recipe#getIngredients <em>Ingredients</em>}</li>
  *   <li>{@link domain.Recipe#getInfrastructures <em>Infrastructures</em>}</li>
- *   <li>{@link domain.Recipe#getDeloyment <em>Deloyment</em>}</li>
+ *   <li>{@link domain.Recipe#getDeployment <em>Deployment</em>}</li>
  * </ul>
  * </p>
  *
@@ -146,29 +146,29 @@ public interface Recipe extends UsingMappers
   EList<Infrastructure> getInfrastructures();
 
   /**
-   * Returns the value of the '<em><b>Deloyment</b></em>' reference.
+   * Returns the value of the '<em><b>Deployment</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Deloyment</em>' reference isn't clear,
+   * If the meaning of the '<em>Deployment</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Deloyment</em>' reference.
-   * @see #setDeloyment(DeploymentSequence)
-   * @see domain.DomainPackage#getRecipe_Deloyment()
+   * @return the value of the '<em>Deployment</em>' reference.
+   * @see #setDeployment(DeploymentSequence)
+   * @see domain.DomainPackage#getRecipe_Deployment()
    * @model annotation="gmf.link target.decoration='arrow' style='dash'"
    * @generated
    */
-  DeploymentSequence getDeloyment();
+  DeploymentSequence getDeployment();
 
   /**
-   * Sets the value of the '{@link domain.Recipe#getDeloyment <em>Deloyment</em>}' reference.
+   * Sets the value of the '{@link domain.Recipe#getDeployment <em>Deployment</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Deloyment</em>' reference.
-   * @see #getDeloyment()
+   * @param value the new value of the '<em>Deployment</em>' reference.
+   * @see #getDeployment()
    * @generated
    */
-  void setDeloyment(DeploymentSequence value);
+  void setDeployment(DeploymentSequence value);
 
 } // Recipe

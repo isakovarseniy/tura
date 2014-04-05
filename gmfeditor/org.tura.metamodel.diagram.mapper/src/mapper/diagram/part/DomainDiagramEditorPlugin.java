@@ -6,7 +6,6 @@ package mapper.diagram.part;
 import java.util.ArrayList;
 import java.util.List;
 
-import mapper.diagram.edit.policies.DomainBaseItemSemanticEditPolicy;
 import mapper.diagram.providers.ElementInitializers;
 
 import org.eclipse.core.runtime.IPath;
@@ -62,11 +61,6 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
-	private DomainBaseItemSemanticEditPolicy.LinkConstraints linkConstraints;
-
-	/**
-	 * @generated
-	 */
 	private ElementInitializers initializers;
 
 	/**
@@ -92,7 +86,6 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		adapterFactory.dispose();
 		adapterFactory = null;
-		linkConstraints = null;
 		initializers = null;
 		instance = null;
 		super.stop(context);
@@ -208,21 +201,6 @@ public class DomainDiagramEditorPlugin extends AbstractUIPlugin {
 			documentProvider = new DomainDocumentProvider();
 		}
 		return documentProvider;
-	}
-
-	/**
-	 * @generated
-	 */
-	public DomainBaseItemSemanticEditPolicy.LinkConstraints getLinkConstraints() {
-		return linkConstraints;
-	}
-
-	/**
-	 * @generated
-	 */
-	public void setLinkConstraints(
-			DomainBaseItemSemanticEditPolicy.LinkConstraints lc) {
-		this.linkConstraints = lc;
 	}
 
 	/**

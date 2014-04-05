@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.DeploymentComponent#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.DeploymentComponent#getName <em>Name</em>}</li>
  *   <li>{@link domain.DeploymentComponent#getMapper <em>Mapper</em>}</li>
- *   <li>{@link domain.DeploymentComponent#getDeplymentComponent <em>Deplyment Component</em>}</li>
+ *   <li>{@link domain.DeploymentComponent#getDeploymentComponent <em>Deployment Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,29 +104,29 @@ public interface DeploymentComponent extends EObject
   void setMapper(ModelMapper value);
 
   /**
-   * Returns the value of the '<em><b>Deplyment Component</b></em>' reference.
+   * Returns the value of the '<em><b>Deployment Component</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Deplyment Component</em>' reference isn't clear,
+   * If the meaning of the '<em>Deployment Component</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Deplyment Component</em>' reference.
-   * @see #setDeplymentComponent(DeploymentComponent)
-   * @see domain.DomainPackage#getDeploymentComponent_DeplymentComponent()
+   * @return the value of the '<em>Deployment Component</em>' reference.
+   * @see #setDeploymentComponent(DeploymentComponent)
+   * @see domain.DomainPackage#getDeploymentComponent_DeploymentComponent()
    * @model annotation="gmf.link target.decoration='arrow' style='dash'"
    * @generated
    */
-  DeploymentComponent getDeplymentComponent();
+  DeploymentComponent getDeploymentComponent();
 
   /**
-   * Sets the value of the '{@link domain.DeploymentComponent#getDeplymentComponent <em>Deplyment Component</em>}' reference.
+   * Sets the value of the '{@link domain.DeploymentComponent#getDeploymentComponent <em>Deployment Component</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Deplyment Component</em>' reference.
-   * @see #getDeplymentComponent()
+   * @param value the new value of the '<em>Deployment Component</em>' reference.
+   * @see #getDeploymentComponent()
    * @generated
    */
-  void setDeplymentComponent(DeploymentComponent value);
+  void setDeploymentComponent(DeploymentComponent value);
 
 } // DeploymentComponent

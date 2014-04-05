@@ -8,11 +8,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import mapper.diagram.edit.parts.InfrastructureConnectionEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
-import mapper.diagram.edit.parts.RelationEditPart;
-import mapper.diagram.edit.parts.TypeExtensionEditPart;
 
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
@@ -76,12 +73,6 @@ public class DomainDiagramUpdater {
 			return getMappers_401000ContainedLinks(view);
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_402001ContainedLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_404001ContainedLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_404011ContainedLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_404012ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -93,12 +84,6 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_402001IncomingLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_404001IncomingLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_404011IncomingLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_404012IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -110,12 +95,6 @@ public class DomainDiagramUpdater {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case JavaMapperEditPart.VISUAL_ID:
 			return getJavaMapper_402001OutgoingLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_404001OutgoingLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_404011OutgoingLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_404012OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -139,30 +118,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_404001ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_404011ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_404012ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getJavaMapper_402001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -171,55 +126,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_404001IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_404011IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_404012IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getJavaMapper_402001OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_404001OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_404011OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_404012OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

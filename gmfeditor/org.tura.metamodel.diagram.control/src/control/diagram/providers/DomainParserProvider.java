@@ -44,6 +44,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser rootName_1105002Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getRootName_1105002Parser() {
+		if (rootName_1105002Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getRoot_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			rootName_1105002Parser = parser;
+		}
+		return rootName_1105002Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser dataControlName_1105007Parser;
 
 	/**
@@ -62,19 +80,19 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser rootName_1105002Parser;
+	private IParser pREFormTriggerFakeMethod_1105001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRootName_1105002Parser() {
-		if (rootName_1105002Parser == null) {
+	private IParser getPREFormTriggerFakeMethod_1105001Parser() {
+		if (pREFormTriggerFakeMethod_1105001Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getRoot_Name() };
+					.getMethodPointer_FakeMethod() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			rootName_1105002Parser = parser;
+			pREFormTriggerFakeMethod_1105001Parser = parser;
 		}
-		return rootName_1105002Parser;
+		return pREFormTriggerFakeMethod_1105001Parser;
 	}
 
 	/**
@@ -291,24 +309,6 @@ public class DomainParserProvider extends AbstractProvider implements
 			artificialFieldName_1105010Parser = parser;
 		}
 		return artificialFieldName_1105010Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser pREFormTriggerFakeMethod_1105001Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getPREFormTriggerFakeMethod_1105001Parser() {
-		if (pREFormTriggerFakeMethod_1105001Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMethodPointer_FakeMethod() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			pREFormTriggerFakeMethod_1105001Parser = parser;
-		}
-		return pREFormTriggerFakeMethod_1105001Parser;
 	}
 
 	/**

@@ -15,8 +15,8 @@ import recipe.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPa
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.ConfigurationNameEditPart;
-import recipe.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
-import recipe.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
+import recipe.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
+import recipe.diagram.edit.parts.DeploymentComponentDeploymentComponentExternalLabelEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceNameEditPart;
 import recipe.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
@@ -39,8 +39,8 @@ import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.PropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.QueryEditPart;
 import recipe.diagram.edit.parts.QueryNameEditPart;
-import recipe.diagram.edit.parts.RecipeDeloymentEditPart;
-import recipe.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
+import recipe.diagram.edit.parts.RecipeDeploymentEditPart;
+import recipe.diagram.edit.parts.RecipeDeploymentExternalLabelEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
@@ -333,8 +333,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
+			if (DeploymentComponentDeploymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -348,8 +348,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case RecipeDeploymentEditPart.VISUAL_ID:
+			if (RecipeDeploymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

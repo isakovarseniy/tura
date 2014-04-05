@@ -27,11 +27,8 @@ import domain.diagram.edit.parts.DomainArtifactsEditPart;
 import domain.diagram.edit.parts.DomainEditPart;
 import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
-import domain.diagram.edit.parts.InfrastructureConnectionEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
-import domain.diagram.edit.parts.RelationEditPart;
-import domain.diagram.edit.parts.TypeExtensionEditPart;
 
 /**
  * @generated
@@ -196,12 +193,6 @@ public class DomainDiagramUpdater {
 			return getDomainArtifact_503002ContainedLinks(view);
 		case DomainApplicationEditPart.VISUAL_ID:
 			return getDomainApplication_503001ContainedLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_504001ContainedLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_504011ContainedLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_504012ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -229,12 +220,6 @@ public class DomainDiagramUpdater {
 			return getDomainArtifact_503002IncomingLinks(view);
 		case DomainApplicationEditPart.VISUAL_ID:
 			return getDomainApplication_503001IncomingLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_504001IncomingLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_504011IncomingLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_504012IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -262,12 +247,6 @@ public class DomainDiagramUpdater {
 			return getDomainArtifact_503002OutgoingLinks(view);
 		case DomainApplicationEditPart.VISUAL_ID:
 			return getDomainApplication_503001OutgoingLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_504001OutgoingLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_504011OutgoingLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_504012OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -291,7 +270,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainTypes_502002ContainedLinks(
+	public static List<DomainLinkDescriptor> getDomainApplications_502003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -299,7 +278,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplications_502003ContainedLinks(
+	public static List<DomainLinkDescriptor> getDomainTypes_502002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -355,30 +334,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_504001ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_504011ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_504012ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getDomainArtifacts_502001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -387,7 +342,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainTypes_502002IncomingLinks(
+	public static List<DomainLinkDescriptor> getDomainApplications_502003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -395,7 +350,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplications_502003IncomingLinks(
+	public static List<DomainLinkDescriptor> getDomainTypes_502002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -451,30 +406,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_504001IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_504011IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_504012IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getDomainArtifacts_502001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -483,7 +414,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainTypes_502002OutgoingLinks(
+	public static List<DomainLinkDescriptor> getDomainApplications_502003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -491,7 +422,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getDomainApplications_502003OutgoingLinks(
+	public static List<DomainLinkDescriptor> getDomainTypes_502002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -540,30 +471,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getDomainApplication_503001OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_504001OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_504011OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_504012OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

@@ -19,18 +19,9 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
-import uipackage.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import uipackage.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
-import uipackage.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import uipackage.diagram.edit.parts.FormDataControlsEditPart;
 import uipackage.diagram.edit.parts.FormEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
-import uipackage.diagram.edit.parts.InfrastructureConnectionEditPart;
-import uipackage.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
-import uipackage.diagram.edit.parts.RecipeDeloymentEditPart;
-import uipackage.diagram.edit.parts.RecipeInfrastructuresEditPart;
-import uipackage.diagram.edit.parts.RelationEditPart;
-import uipackage.diagram.edit.parts.TypeExtensionEditPart;
 import uipackage.diagram.edit.parts.UIPackageEditPart;
 import uipackage.diagram.part.DomainDiagramEditorPlugin;
 import domain.DomainPackage;
@@ -77,43 +68,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType FormDataControls_1003002 = getElementType("org.tura.metamodel.diagram.uipackage.FormDataControls_1003002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType TypeExtension_1004001 = getElementType("org.tura.metamodel.diagram.uipackage.TypeExtension_1004001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Relation_1004009 = getElementType("org.tura.metamodel.diagram.uipackage.Relation_1004009"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType InfrastructureConnection_1004010 = getElementType("org.tura.metamodel.diagram.uipackage.InfrastructureConnection_1004010"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType DeploymentComponentDeplymentComponent_1004002 = getElementType("org.tura.metamodel.diagram.uipackage.DeploymentComponentDeplymentComponent_1004002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType DeploymentStarStepFirstStep_1004003 = getElementType("org.tura.metamodel.diagram.uipackage.DeploymentStarStepFirstStep_1004003"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType RecipeInfrastructures_1004004 = getElementType("org.tura.metamodel.diagram.uipackage.RecipeInfrastructures_1004004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType RecipeDeloyment_1004005 = getElementType("org.tura.metamodel.diagram.uipackage.RecipeDeloyment_1004005"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType InfrastructureRecipeConfig_1004006 = getElementType("org.tura.metamodel.diagram.uipackage.InfrastructureRecipeConfig_1004006"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType ConfigurationConfigExtension_1004007 = getElementType("org.tura.metamodel.diagram.uipackage.ConfigurationConfigExtension_1004007"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -236,34 +190,6 @@ public class DomainElementTypes {
 
 			elements.put(FormDataControls_1003002,
 					DomainPackage.eINSTANCE.getFormDataControls());
-
-			elements.put(TypeExtension_1004001,
-					DomainPackage.eINSTANCE.getTypeExtension());
-
-			elements.put(Relation_1004009,
-					DomainPackage.eINSTANCE.getRelation());
-
-			elements.put(InfrastructureConnection_1004010,
-					DomainPackage.eINSTANCE.getInfrastructureConnection());
-
-			elements.put(DeploymentComponentDeplymentComponent_1004002,
-					DomainPackage.eINSTANCE
-							.getDeploymentComponent_DeplymentComponent());
-
-			elements.put(DeploymentStarStepFirstStep_1004003,
-					DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep());
-
-			elements.put(RecipeInfrastructures_1004004,
-					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
-
-			elements.put(RecipeDeloyment_1004005,
-					DomainPackage.eINSTANCE.getRecipe_Deloyment());
-
-			elements.put(InfrastructureRecipeConfig_1004006,
-					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
-
-			elements.put(ConfigurationConfigExtension_1004007,
-					DomainPackage.eINSTANCE.getConfiguration_ConfigExtension());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -285,16 +211,6 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Form_1002002);
 			KNOWN_ELEMENT_TYPES.add(FormView_1003001);
 			KNOWN_ELEMENT_TYPES.add(FormDataControls_1003002);
-			KNOWN_ELEMENT_TYPES.add(TypeExtension_1004001);
-			KNOWN_ELEMENT_TYPES.add(Relation_1004009);
-			KNOWN_ELEMENT_TYPES.add(InfrastructureConnection_1004010);
-			KNOWN_ELEMENT_TYPES
-					.add(DeploymentComponentDeplymentComponent_1004002);
-			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_1004003);
-			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_1004004);
-			KNOWN_ELEMENT_TYPES.add(RecipeDeloyment_1004005);
-			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_1004006);
-			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_1004007);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -312,24 +228,6 @@ public class DomainElementTypes {
 			return FormView_1003001;
 		case FormDataControlsEditPart.VISUAL_ID:
 			return FormDataControls_1003002;
-		case TypeExtensionEditPart.VISUAL_ID:
-			return TypeExtension_1004001;
-		case RelationEditPart.VISUAL_ID:
-			return Relation_1004009;
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return InfrastructureConnection_1004010;
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			return DeploymentComponentDeplymentComponent_1004002;
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			return DeploymentStarStepFirstStep_1004003;
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return RecipeInfrastructures_1004004;
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return RecipeDeloyment_1004005;
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return InfrastructureRecipeConfig_1004006;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return ConfigurationConfigExtension_1004007;
 		}
 		return null;
 	}

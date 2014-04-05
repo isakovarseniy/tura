@@ -19,16 +19,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
-import typesrepository.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import typesrepository.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
-import typesrepository.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
-import typesrepository.diagram.edit.parts.InfrastructureConnectionEditPart;
-import typesrepository.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import typesrepository.diagram.edit.parts.PackageEditPart;
-import typesrepository.diagram.edit.parts.RecipeDeloymentEditPart;
-import typesrepository.diagram.edit.parts.RecipeInfrastructuresEditPart;
-import typesrepository.diagram.edit.parts.RelationEditPart;
-import typesrepository.diagram.edit.parts.TypeExtensionEditPart;
 import typesrepository.diagram.edit.parts.TypesEditPart;
 import typesrepository.diagram.edit.parts.TypesRepositoryEditPart;
 import typesrepository.diagram.part.DomainDiagramEditorPlugin;
@@ -72,43 +63,6 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Package_203002 = getElementType("org.tura.metamodel.diagram.typesrepository.Package_203002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType TypeExtension_204001 = getElementType("org.tura.metamodel.diagram.typesrepository.TypeExtension_204001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Relation_204011 = getElementType("org.tura.metamodel.diagram.typesrepository.Relation_204011"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType InfrastructureConnection_204012 = getElementType("org.tura.metamodel.diagram.typesrepository.InfrastructureConnection_204012"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType DeploymentComponentDeplymentComponent_204007 = getElementType("org.tura.metamodel.diagram.typesrepository.DeploymentComponentDeplymentComponent_204007"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType DeploymentStarStepFirstStep_204009 = getElementType("org.tura.metamodel.diagram.typesrepository.DeploymentStarStepFirstStep_204009"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType RecipeInfrastructures_204005 = getElementType("org.tura.metamodel.diagram.typesrepository.RecipeInfrastructures_204005"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType RecipeDeloyment_204006 = getElementType("org.tura.metamodel.diagram.typesrepository.RecipeDeloyment_204006"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType InfrastructureRecipeConfig_204004 = getElementType("org.tura.metamodel.diagram.typesrepository.InfrastructureRecipeConfig_204004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType ConfigurationConfigExtension_204003 = getElementType("org.tura.metamodel.diagram.typesrepository.ConfigurationConfigExtension_204003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -227,33 +181,6 @@ public class DomainElementTypes {
 			elements.put(Types_202001, DomainPackage.eINSTANCE.getTypes());
 
 			elements.put(Package_203002, DomainPackage.eINSTANCE.getPackage());
-
-			elements.put(TypeExtension_204001,
-					DomainPackage.eINSTANCE.getTypeExtension());
-
-			elements.put(Relation_204011, DomainPackage.eINSTANCE.getRelation());
-
-			elements.put(InfrastructureConnection_204012,
-					DomainPackage.eINSTANCE.getInfrastructureConnection());
-
-			elements.put(DeploymentComponentDeplymentComponent_204007,
-					DomainPackage.eINSTANCE
-							.getDeploymentComponent_DeplymentComponent());
-
-			elements.put(DeploymentStarStepFirstStep_204009,
-					DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep());
-
-			elements.put(RecipeInfrastructures_204005,
-					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
-
-			elements.put(RecipeDeloyment_204006,
-					DomainPackage.eINSTANCE.getRecipe_Deloyment());
-
-			elements.put(InfrastructureRecipeConfig_204004,
-					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
-
-			elements.put(ConfigurationConfigExtension_204003,
-					DomainPackage.eINSTANCE.getConfiguration_ConfigExtension());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -274,16 +201,6 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(TypesRepository_201000);
 			KNOWN_ELEMENT_TYPES.add(Types_202001);
 			KNOWN_ELEMENT_TYPES.add(Package_203002);
-			KNOWN_ELEMENT_TYPES.add(TypeExtension_204001);
-			KNOWN_ELEMENT_TYPES.add(Relation_204011);
-			KNOWN_ELEMENT_TYPES.add(InfrastructureConnection_204012);
-			KNOWN_ELEMENT_TYPES
-					.add(DeploymentComponentDeplymentComponent_204007);
-			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_204009);
-			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_204005);
-			KNOWN_ELEMENT_TYPES.add(RecipeDeloyment_204006);
-			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_204004);
-			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_204003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -299,24 +216,6 @@ public class DomainElementTypes {
 			return Types_202001;
 		case PackageEditPart.VISUAL_ID:
 			return Package_203002;
-		case TypeExtensionEditPart.VISUAL_ID:
-			return TypeExtension_204001;
-		case RelationEditPart.VISUAL_ID:
-			return Relation_204011;
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return InfrastructureConnection_204012;
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			return DeploymentComponentDeplymentComponent_204007;
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			return DeploymentStarStepFirstStep_204009;
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return RecipeInfrastructures_204005;
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return RecipeDeloyment_204006;
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return InfrastructureRecipeConfig_204004;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return ConfigurationConfigExtension_204003;
 		}
 		return null;
 	}

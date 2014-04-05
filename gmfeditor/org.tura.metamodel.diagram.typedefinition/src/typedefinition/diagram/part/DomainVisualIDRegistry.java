@@ -12,29 +12,15 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
-import typedefinition.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import typedefinition.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
-import typedefinition.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
-import typedefinition.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
-import typedefinition.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
-import typedefinition.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
-import typedefinition.diagram.edit.parts.InfrastructureConnectionEditPart;
-import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
-import typedefinition.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
-import typedefinition.diagram.edit.parts.RecipeDeloymentEditPart;
-import typedefinition.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
-import typedefinition.diagram.edit.parts.RecipeInfrastructuresEditPart;
-import typedefinition.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
-import typedefinition.diagram.edit.parts.RelationEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
@@ -289,36 +275,6 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			if (DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			if (InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			if (ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		}
 		return false;
 	}
@@ -333,14 +289,6 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
 				domainElement.eClass())) {
 			return TypeExtensionEditPart.VISUAL_ID;
-		}
-		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
-				domainElement.eClass())) {
-			return RelationEditPart.VISUAL_ID;
-		}
-		if (DomainPackage.eINSTANCE.getInfrastructureConnection()
-				.isSuperTypeOf(domainElement.eClass())) {
-			return InfrastructureConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

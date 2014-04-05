@@ -286,22 +286,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Deloyment2CreationTool_title;
+	public static String Deployment2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Deloyment2CreationTool_desc;
+	public static String Deployment2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeplymentComponent3CreationTool_title;
+	public static String DeploymentComponent3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeplymentComponent3CreationTool_desc;
+	public static String DeploymentComponent3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -371,22 +371,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_DeploymentComponentDeplymentComponent_904002_target;
+	public static String NavigatorGroupName_DeploymentComponent_902001_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_DeploymentComponentDeplymentComponent_904002_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DeploymentComponents_901000_links;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DeploymentStarStep_902002_outgoinglinks;
+	public static String NavigatorGroupName_DeploymentComponent_902001_outgoinglinks;
 
 	/**
 	 * @generated
@@ -401,12 +391,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_DeploymentComponent_902001_incominglinks;
+	public static String NavigatorGroupName_DeploymentComponentDeploymentComponent_904012_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_DeploymentComponent_902001_outgoinglinks;
+	public static String NavigatorGroupName_DeploymentComponentDeploymentComponent_904012_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DeploymentStarStep_902002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DeploymentComponents_901000_links;
 
 	/**
 	 * @generated

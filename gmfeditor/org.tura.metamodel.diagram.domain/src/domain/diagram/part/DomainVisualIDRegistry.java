@@ -12,14 +12,8 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import domain.Domain;
 import domain.DomainPackage;
-import domain.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import domain.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import domain.diagram.edit.parts.ContinuousIintegrationEditPart;
 import domain.diagram.edit.parts.ContinuousIintegrationNameEditPart;
-import domain.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
-import domain.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
-import domain.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
-import domain.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import domain.diagram.edit.parts.DomainApplicationEditPart;
 import domain.diagram.edit.parts.DomainApplicationNameEditPart;
 import domain.diagram.edit.parts.DomainApplicationsDomainApplicationsApplicationsCompartmentEditPart;
@@ -35,19 +29,10 @@ import domain.diagram.edit.parts.DomainTypesEditPart;
 import domain.diagram.edit.parts.DomainTypesNameEditPart;
 import domain.diagram.edit.parts.EJBServiceEditPart;
 import domain.diagram.edit.parts.EJBServiceNameEditPart;
-import domain.diagram.edit.parts.InfrastructureConnectionEditPart;
-import domain.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
-import domain.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import domain.diagram.edit.parts.JPAServiceEditPart;
 import domain.diagram.edit.parts.JPAServiceNameEditPart;
 import domain.diagram.edit.parts.ORMEntityEditPart;
 import domain.diagram.edit.parts.ORMEntityNameEditPart;
-import domain.diagram.edit.parts.RecipeDeloymentEditPart;
-import domain.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
-import domain.diagram.edit.parts.RecipeInfrastructuresEditPart;
-import domain.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
-import domain.diagram.edit.parts.RelationEditPart;
-import domain.diagram.edit.parts.TypeExtensionEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -309,36 +294,6 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			if (DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			if (InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			if (ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		}
 		return false;
 	}
@@ -349,18 +304,6 @@ public class DomainVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
-		}
-		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
-				domainElement.eClass())) {
-			return TypeExtensionEditPart.VISUAL_ID;
-		}
-		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
-				domainElement.eClass())) {
-			return RelationEditPart.VISUAL_ID;
-		}
-		if (DomainPackage.eINSTANCE.getInfrastructureConnection()
-				.isSuperTypeOf(domainElement.eClass())) {
-			return InfrastructureConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

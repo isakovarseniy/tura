@@ -26,7 +26,7 @@
         name="RelationFigureTargetDecoration"/>
     <figures
         xsi:type="gmfgraph:PolylineDecoration"
-        name="DeploymentComponentDeplymentComponentFigureTargetDecoration"/>
+        name="DeploymentComponentDeploymentComponentFigureTargetDecoration"/>
     <figures
         xsi:type="gmfgraph:PolylineDecoration"
         name="DeploymentStarStepFirstStepFigureTargetDecoration"/>
@@ -35,7 +35,7 @@
         name="RecipeInfrastructuresFigureTargetDecoration"/>
     <figures
         xsi:type="gmfgraph:PolylineDecoration"
-        name="RecipeDeloymentFigureTargetDecoration"/>
+        name="RecipeDeploymentFigureTargetDecoration"/>
     <figures
         xsi:type="gmfgraph:PolylineDecoration"
         name="InfrastructureRecipeConfigFigureTargetDecoration"/>
@@ -2666,18 +2666,18 @@
           lineWidth="2"/>
     </descriptors>
     <descriptors
-        name="DeploymentComponentDeplymentComponentFigure">
+        name="DeploymentComponentDeploymentComponentFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="DeploymentComponentDeplymentComponentFigure"
+          name="DeploymentComponentDeploymentComponentFigure"
           lineKind="LINE_DASH"
           targetDecoration="//@figures.0/@figures.2"/>
     </descriptors>
     <descriptors
-        name="DeploymentComponentDeplymentComponentExternalLabelFigure">
+        name="DeploymentComponentDeploymentComponentExternalLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="DeploymentComponentDeplymentComponentExternalLabel">
+          name="DeploymentComponentDeploymentComponentExternalLabel">
         <font
             xsi:type="gmfgraph:BasicFont"
             faceName="Palatino"
@@ -2726,18 +2726,18 @@
       </actualFigure>
     </descriptors>
     <descriptors
-        name="RecipeDeloymentFigure">
+        name="RecipeDeploymentFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="RecipeDeloymentFigure"
+          name="RecipeDeploymentFigure"
           lineKind="LINE_DASH"
           targetDecoration="//@figures.0/@figures.5"/>
     </descriptors>
     <descriptors
-        name="RecipeDeloymentExternalLabelFigure">
+        name="RecipeDeploymentExternalLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="RecipeDeloymentExternalLabel">
+          name="RecipeDeploymentExternalLabel">
         <font
             xsi:type="gmfgraph:BasicFont"
             faceName="Palatino"
@@ -3001,8 +3001,8 @@
       name="InfrastructureConnection"
       figure="InfrastructureConnectionFigure"/>
   <connections
-      name="DeploymentComponentDeplymentComponent"
-      figure="DeploymentComponentDeplymentComponentFigure"/>
+      name="DeploymentComponentDeploymentComponent"
+      figure="DeploymentComponentDeploymentComponentFigure"/>
   <connections
       name="DeploymentStarStepFirstStep"
       figure="DeploymentStarStepFirstStepFigure"/>
@@ -3010,8 +3010,8 @@
       name="RecipeInfrastructures"
       figure="RecipeInfrastructuresFigure"/>
   <connections
-      name="RecipeDeloyment"
-      figure="RecipeDeloymentFigure"/>
+      name="RecipeDeployment"
+      figure="RecipeDeploymentFigure"/>
   <connections
       name="InfrastructureRecipeConfig"
       figure="InfrastructureRecipeConfigFigure"/>
@@ -3471,8 +3471,8 @@
       figure="ServerClasterFigure"
       accessor="//@figures.0/@descriptors.71/@accessors.0"/>
   <labels
-      name="DeploymentComponentDeplymentComponentExternalLabel"
-      figure="DeploymentComponentDeplymentComponentExternalLabelFigure"
+      name="DeploymentComponentDeploymentComponentExternalLabel"
+      figure="DeploymentComponentDeploymentComponentExternalLabelFigure"
       elementIcon="false"/>
   <labels
       name="DeploymentStarStepFirstStepExternalLabel"
@@ -3483,8 +3483,8 @@
       figure="RecipeInfrastructuresExternalLabelFigure"
       elementIcon="false"/>
   <labels
-      name="RecipeDeloymentExternalLabel"
-      figure="RecipeDeloymentExternalLabelFigure"
+      name="RecipeDeploymentExternalLabel"
+      figure="RecipeDeploymentExternalLabelFigure"
       elementIcon="false"/>
   <labels
       name="InfrastructureRecipeConfigExternalLabel"

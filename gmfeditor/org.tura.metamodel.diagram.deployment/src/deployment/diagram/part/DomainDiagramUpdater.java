@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
-import deployment.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentsEditPart;
 import deployment.diagram.edit.parts.DeploymentStarStepEditPart;
@@ -161,7 +161,7 @@ public class DomainDiagramUpdater {
 		DeploymentComponent modelElement = (DeploymentComponent) view
 				.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeplymentComponent_904002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponent_904012(modelElement));
 		return result;
 	}
 
@@ -211,7 +211,7 @@ public class DomainDiagramUpdater {
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentComponent_DeplymentComponent_904002(
+		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponent_904012(
 				modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentStarStep_FirstStep_904008(
 				modelElement, crossReferences));
@@ -258,7 +258,7 @@ public class DomainDiagramUpdater {
 		DeploymentComponent modelElement = (DeploymentComponent) view
 				.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeplymentComponent_904002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponent_904012(modelElement));
 		return result;
 	}
 
@@ -301,7 +301,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_DeploymentComponent_DeplymentComponent_904002(
+	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponent_904012(
 			DeploymentComponent target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -309,12 +309,12 @@ public class DomainDiagramUpdater {
 				.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
 			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE
-					.getDeploymentComponent_DeplymentComponent()) {
+					.getDeploymentComponent_DeploymentComponent()) {
 				result.add(new DomainLinkDescriptor(
 						setting.getEObject(),
 						target,
-						DomainElementTypes.DeploymentComponentDeplymentComponent_904002,
-						DeploymentComponentDeplymentComponentEditPart.VISUAL_ID));
+						DomainElementTypes.DeploymentComponentDeploymentComponent_904012,
+						DeploymentComponentDeploymentComponentEditPart.VISUAL_ID));
 			}
 		}
 		return result;
@@ -344,18 +344,18 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeplymentComponent_904002(
+	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponent_904012(
 			DeploymentComponent source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		DeploymentComponent destination = source.getDeplymentComponent();
+		DeploymentComponent destination = source.getDeploymentComponent();
 		if (destination == null) {
 			return result;
 		}
 		result.add(new DomainLinkDescriptor(
 				source,
 				destination,
-				DomainElementTypes.DeploymentComponentDeplymentComponent_904002,
-				DeploymentComponentDeplymentComponentEditPart.VISUAL_ID));
+				DomainElementTypes.DeploymentComponentDeploymentComponent_904012,
+				DeploymentComponentDeploymentComponentEditPart.VISUAL_ID));
 		return result;
 	}
 

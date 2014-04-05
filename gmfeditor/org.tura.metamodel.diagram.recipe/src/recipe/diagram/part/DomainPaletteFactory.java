@@ -59,8 +59,8 @@ public class DomainPaletteFactory {
 				Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
 		paletteContainer.add(createConfigExtension1CreationTool());
-		paletteContainer.add(createDeloyment2CreationTool());
-		paletteContainer.add(createDeplymentComponent3CreationTool());
+		paletteContainer.add(createDeployment2CreationTool());
+		paletteContainer.add(createDeploymentComponent3CreationTool());
 		paletteContainer.add(createFirstStep4CreationTool());
 		paletteContainer.add(createInfrastructureConnection5CreationTool());
 		paletteContainer.add(createInfrastructures6CreationTool());
@@ -229,15 +229,15 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDeloyment2CreationTool() {
+	private ToolEntry createDeployment2CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.Deloyment2CreationTool_title,
-				Messages.Deloyment2CreationTool_desc,
+				Messages.Deployment2CreationTool_title,
+				Messages.Deployment2CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.RecipeDeloyment_304005));
-		entry.setId("createDeloyment2CreationTool"); //$NON-NLS-1$
+						.singletonList(DomainElementTypes.RecipeDeployment_304013));
+		entry.setId("createDeployment2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.RecipeDeloyment_304005));
+				.getImageDescriptor(DomainElementTypes.RecipeDeployment_304013));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -245,15 +245,15 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDeplymentComponent3CreationTool() {
+	private ToolEntry createDeploymentComponent3CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.DeplymentComponent3CreationTool_title,
-				Messages.DeplymentComponent3CreationTool_desc,
+				Messages.DeploymentComponent3CreationTool_title,
+				Messages.DeploymentComponent3CreationTool_desc,
 				Collections
-						.singletonList(DomainElementTypes.DeploymentComponentDeplymentComponent_304002));
-		entry.setId("createDeplymentComponent3CreationTool"); //$NON-NLS-1$
+						.singletonList(DomainElementTypes.DeploymentComponentDeploymentComponent_304012));
+		entry.setId("createDeploymentComponent3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.DeploymentComponentDeplymentComponent_304002));
+				.getImageDescriptor(DomainElementTypes.DeploymentComponentDeploymentComponent_304012));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

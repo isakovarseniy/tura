@@ -251,11 +251,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Connections2Group_title;
-
-	/**
-	 * @generated
-	 */
 	public static String Package1CreationTool_title;
 
 	/**
@@ -276,107 +271,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ConfigExtension1CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ConfigExtension1CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Deloyment2CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Deloyment2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String DeplymentComponent3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String DeplymentComponent3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String FirstStep4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String FirstStep4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureConnection5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureConnection5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Infrastructures6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Infrastructures6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String RecipeConfig7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String RecipeConfig7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Relation8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Relation8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeExtension9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeExtension9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
 	public static String TypesTypesPackagesCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TypesRepository_201000_links;
 
 	/**
 	 * @generated

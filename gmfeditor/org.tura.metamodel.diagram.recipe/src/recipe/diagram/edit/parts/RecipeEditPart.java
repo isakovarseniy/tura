@@ -296,7 +296,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.RecipeInfrastructures_304004);
-		types.add(DomainElementTypes.RecipeDeloyment_304005);
+		types.add(DomainElementTypes.RecipeDeployment_304013);
 		return types;
 	}
 
@@ -310,7 +310,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 			types.add(DomainElementTypes.RecipeInfrastructures_304004);
 		}
 		if (targetEditPart instanceof DeploymentSequenceEditPart) {
-			types.add(DomainElementTypes.RecipeDeloyment_304005);
+			types.add(DomainElementTypes.RecipeDeployment_304013);
 		}
 		return types;
 	}
@@ -322,7 +322,7 @@ public class RecipeEditPart extends ShapeNodeEditPart {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == DomainElementTypes.RecipeInfrastructures_304004) {
 			types.add(DomainElementTypes.Infrastructure_302003);
-		} else if (relationshipType == DomainElementTypes.RecipeDeloyment_304005) {
+		} else if (relationshipType == DomainElementTypes.RecipeDeployment_304013) {
 			types.add(DomainElementTypes.DeploymentSequence_302004);
 		}
 		return types;

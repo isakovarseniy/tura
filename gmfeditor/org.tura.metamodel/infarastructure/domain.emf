@@ -269,7 +269,7 @@ class DeploymentComponent{
     attr EString name;
     ref ModelMapper mapper;
   @gmf.link(target.decoration="arrow", style="dash")
-   ref DeploymentComponent deplymentComponent;
+   ref DeploymentComponent deploymentComponent;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,69,0")
@@ -301,7 +301,7 @@ class Recipe extends UsingMappers{
   @gmf.link(target.decoration="arrow", style="dash")
   ref Infrastructure[*]#recipe infrastructures;
   @gmf.link(target.decoration="arrow", style="dash")
-  ref DeploymentSequence#recipe deloyment;
+  ref DeploymentSequence#recipe deployment;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,222,32")

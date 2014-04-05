@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Typedefinition"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="102001,102004,102002,102005,103001,103002,103005"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="104001,104011,104012,104007,104009,104005,104006,104004,104003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="104001"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="102001,102004,102002,102005,103001,103002,103005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="104001,104011,104012,104007,104009,104005,104006,104004,104003"/>
+            <method name="getType()" value="104001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="105001,105010,105006,105011,105002,105005,105007"/>
@@ -416,80 +416,6 @@
             <param name="semanticHint" value="104001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <metamodelType
-               id="org.tura.metamodel.diagram.typedefinition.Relation_104011"
-               name="%metatype.name.Relation_104011"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Relation"
-               edithelper="typedefinition.diagram.edit.helpers.RelationEditHelper">
-            <param name="semanticHint" value="104011"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <metamodelType
-               id="org.tura.metamodel.diagram.typedefinition.InfrastructureConnection_104012"
-               name="%metatype.name.InfrastructureConnection_104012"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="InfrastructureConnection"
-               edithelper="typedefinition.diagram.edit.helpers.InfrastructureConnectionEditHelper">
-            <param name="semanticHint" value="104012"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <specializationType
-               id="org.tura.metamodel.diagram.typedefinition.DeploymentComponentDeplymentComponent_104007"
-               name="%metatype.name.DeploymentComponentDeplymentComponent_104007"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="104007"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <specializationType
-               id="org.tura.metamodel.diagram.typedefinition.DeploymentStarStepFirstStep_104009"
-               name="%metatype.name.DeploymentStarStepFirstStep_104009"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="104009"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <specializationType
-               id="org.tura.metamodel.diagram.typedefinition.RecipeInfrastructures_104005"
-               name="%metatype.name.RecipeInfrastructures_104005"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="104005"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <specializationType
-               id="org.tura.metamodel.diagram.typedefinition.RecipeDeloyment_104006"
-               name="%metatype.name.RecipeDeloyment_104006"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="104006"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <specializationType
-               id="org.tura.metamodel.diagram.typedefinition.InfrastructureRecipeConfig_104004"
-               name="%metatype.name.InfrastructureRecipeConfig_104004"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="104004"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <specializationType
-               id="org.tura.metamodel.diagram.typedefinition.ConfigurationConfigExtension_104003"
-               name="%metatype.name.ConfigurationConfigExtension_104003"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="104003"/>
-         </specializationType>
-      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
@@ -515,14 +441,6 @@
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Operation_103002"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.EnumAttribute_103005"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.TypeExtension_104001"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.Relation_104011"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.InfrastructureConnection_104012"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.DeploymentComponentDeplymentComponent_104007"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.DeploymentStarStepFirstStep_104009"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.RecipeInfrastructures_104005"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.RecipeDeloyment_104006"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.InfrastructureRecipeConfig_104004"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.ConfigurationConfigExtension_104003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

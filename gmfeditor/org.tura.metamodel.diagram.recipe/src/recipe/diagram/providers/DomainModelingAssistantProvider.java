@@ -31,7 +31,6 @@ import recipe.diagram.edit.parts.IngredientIngredientComponentsCompartmentEditPa
 import recipe.diagram.edit.parts.JavaComponentJavaComponentMappersCompartmentEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
-import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
 import recipe.diagram.part.DomainDiagramEditorPlugin;
 import recipe.diagram.part.Messages;

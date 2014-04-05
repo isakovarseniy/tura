@@ -67,7 +67,7 @@ public class RecipeItemProvider
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addInfrastructuresPropertyDescriptor(object);
-      addDeloymentPropertyDescriptor(object);
+      addDeploymentPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -142,20 +142,20 @@ public class RecipeItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Deloyment feature.
+   * This adds a property descriptor for the Deployment feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addDeloymentPropertyDescriptor(Object object)
+  protected void addDeploymentPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Recipe_deloyment_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Recipe_deloyment_feature", "_UI_Recipe_type"),
-         DomainPackage.Literals.RECIPE__DELOYMENT,
+         getString("_UI_Recipe_deployment_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Recipe_deployment_feature", "_UI_Recipe_type"),
+         DomainPackage.Literals.RECIPE__DEPLOYMENT,
          true,
          false,
          true,

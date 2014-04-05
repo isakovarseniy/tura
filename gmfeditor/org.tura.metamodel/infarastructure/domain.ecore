@@ -401,7 +401,7 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" eType="#//ModelMapper"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deplymentComponent" eType="#//DeploymentComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentComponent" eType="#//DeploymentComponent">
       <eAnnotations source="gmf.link">
         <details key="target.decoration" value="arrow"/>
         <details key="style" value="dash"/>
@@ -456,7 +456,7 @@
         <details key="style" value="dash"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deloyment" eType="#//DeploymentSequence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deployment" eType="#//DeploymentSequence">
       <eAnnotations source="gmf.link">
         <details key="target.decoration" value="arrow"/>
         <details key="style" value="dash"/>

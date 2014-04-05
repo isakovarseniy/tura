@@ -42,55 +42,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case TypesTypesPackagesCompartmentEditPart.VISUAL_ID:
 				return new TypesTypesPackagesCompartmentEditPart(view);
-
-			case TypeExtensionEditPart.VISUAL_ID:
-				return new TypeExtensionEditPart(view);
-
-			case RelationEditPart.VISUAL_ID:
-				return new RelationEditPart(view);
-
-			case InfrastructureConnectionEditPart.VISUAL_ID:
-				return new InfrastructureConnectionEditPart(view);
-
-			case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-				return new DeploymentComponentDeplymentComponentEditPart(view);
-
-			case DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID:
-				return new DeploymentComponentDeplymentComponentExternalLabelEditPart(
-						view);
-
-			case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-				return new DeploymentStarStepFirstStepEditPart(view);
-
-			case DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID:
-				return new DeploymentStarStepFirstStepExternalLabelEditPart(
-						view);
-
-			case RecipeInfrastructuresEditPart.VISUAL_ID:
-				return new RecipeInfrastructuresEditPart(view);
-
-			case RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID:
-				return new RecipeInfrastructuresExternalLabelEditPart(view);
-
-			case RecipeDeloymentEditPart.VISUAL_ID:
-				return new RecipeDeloymentEditPart(view);
-
-			case RecipeDeloymentExternalLabelEditPart.VISUAL_ID:
-				return new RecipeDeloymentExternalLabelEditPart(view);
-
-			case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-				return new InfrastructureRecipeConfigEditPart(view);
-
-			case InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID:
-				return new InfrastructureRecipeConfigExternalLabelEditPart(view);
-
-			case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-				return new ConfigurationConfigExtensionEditPart(view);
-
-			case ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID:
-				return new ConfigurationConfigExtensionExternalLabelEditPart(
-						view);
-
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

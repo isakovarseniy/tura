@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.DeploymentComponentImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DeploymentComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DeploymentComponentImpl#getMapper <em>Mapper</em>}</li>
- *   <li>{@link domain.impl.DeploymentComponentImpl#getDeplymentComponent <em>Deplyment Component</em>}</li>
+ *   <li>{@link domain.impl.DeploymentComponentImpl#getDeploymentComponent <em>Deployment Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,14 +83,14 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
   protected ModelMapper mapper;
 
   /**
-   * The cached value of the '{@link #getDeplymentComponent() <em>Deplyment Component</em>}' reference.
+   * The cached value of the '{@link #getDeploymentComponent() <em>Deployment Component</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDeplymentComponent()
+   * @see #getDeploymentComponent()
    * @generated
    * @ordered
    */
-  protected DeploymentComponent deplymentComponent;
+  protected DeploymentComponent deploymentComponent;
 
   /**
    * <!-- begin-user-doc -->
@@ -207,19 +207,19 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
    * <!-- end-user-doc -->
    * @generated
    */
-  public DeploymentComponent getDeplymentComponent()
+  public DeploymentComponent getDeploymentComponent()
   {
-    if (deplymentComponent != null && deplymentComponent.eIsProxy())
+    if (deploymentComponent != null && deploymentComponent.eIsProxy())
     {
-      InternalEObject oldDeplymentComponent = (InternalEObject)deplymentComponent;
-      deplymentComponent = (DeploymentComponent)eResolveProxy(oldDeplymentComponent);
-      if (deplymentComponent != oldDeplymentComponent)
+      InternalEObject oldDeploymentComponent = (InternalEObject)deploymentComponent;
+      deploymentComponent = (DeploymentComponent)eResolveProxy(oldDeploymentComponent);
+      if (deploymentComponent != oldDeploymentComponent)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.DEPLOYMENT_COMPONENT__DEPLYMENT_COMPONENT, oldDeplymentComponent, deplymentComponent));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT, oldDeploymentComponent, deploymentComponent));
       }
     }
-    return deplymentComponent;
+    return deploymentComponent;
   }
 
   /**
@@ -227,9 +227,9 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
    * <!-- end-user-doc -->
    * @generated
    */
-  public DeploymentComponent basicGetDeplymentComponent()
+  public DeploymentComponent basicGetDeploymentComponent()
   {
-    return deplymentComponent;
+    return deploymentComponent;
   }
 
   /**
@@ -237,12 +237,12 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDeplymentComponent(DeploymentComponent newDeplymentComponent)
+  public void setDeploymentComponent(DeploymentComponent newDeploymentComponent)
   {
-    DeploymentComponent oldDeplymentComponent = deplymentComponent;
-    deplymentComponent = newDeplymentComponent;
+    DeploymentComponent oldDeploymentComponent = deploymentComponent;
+    deploymentComponent = newDeploymentComponent;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_COMPONENT__DEPLYMENT_COMPONENT, oldDeplymentComponent, deplymentComponent));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT, oldDeploymentComponent, deploymentComponent));
   }
 
   /**
@@ -262,9 +262,9 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
       case DomainPackage.DEPLOYMENT_COMPONENT__MAPPER:
         if (resolve) return getMapper();
         return basicGetMapper();
-      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLYMENT_COMPONENT:
-        if (resolve) return getDeplymentComponent();
-        return basicGetDeplymentComponent();
+      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT:
+        if (resolve) return getDeploymentComponent();
+        return basicGetDeploymentComponent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -288,8 +288,8 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
       case DomainPackage.DEPLOYMENT_COMPONENT__MAPPER:
         setMapper((ModelMapper)newValue);
         return;
-      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLYMENT_COMPONENT:
-        setDeplymentComponent((DeploymentComponent)newValue);
+      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT:
+        setDeploymentComponent((DeploymentComponent)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -314,8 +314,8 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
       case DomainPackage.DEPLOYMENT_COMPONENT__MAPPER:
         setMapper((ModelMapper)null);
         return;
-      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLYMENT_COMPONENT:
-        setDeplymentComponent((DeploymentComponent)null);
+      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT:
+        setDeploymentComponent((DeploymentComponent)null);
         return;
     }
     super.eUnset(featureID);
@@ -337,8 +337,8 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.DEPLOYMENT_COMPONENT__MAPPER:
         return mapper != null;
-      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLYMENT_COMPONENT:
-        return deplymentComponent != null;
+      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT:
+        return deploymentComponent != null;
     }
     return super.eIsSet(featureID);
   }

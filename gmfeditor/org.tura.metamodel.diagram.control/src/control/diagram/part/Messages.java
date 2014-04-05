@@ -416,22 +416,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Deloyment2CreationTool_title;
+	public static String Deployment2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Deloyment2CreationTool_desc;
+	public static String Deployment2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeplymentComponent3CreationTool_title;
+	public static String DeploymentComponent3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeplymentComponent3CreationTool_desc;
+	public static String DeploymentComponent3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -496,6 +496,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String RootRootPreFormTriggerCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String DataControlDataControlPreQueryTriggerCompartmentEditPart_title;
 
 	/**
@@ -556,17 +561,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String RootRootPreFormTriggerCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Controls_1101000_links;
+	public static String NavigatorGroupName_Relation_1104009_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Relation_1104009_source;
 
 	/**
 	 * @generated
@@ -581,12 +586,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Relation_1104009_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Relation_1104009_source;
+	public static String NavigatorGroupName_Controls_1101000_links;
 
 	/**
 	 * @generated

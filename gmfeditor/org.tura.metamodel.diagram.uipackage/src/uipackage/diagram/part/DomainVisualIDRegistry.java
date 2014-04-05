@@ -10,12 +10,6 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
-import uipackage.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import uipackage.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
-import uipackage.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
-import uipackage.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
-import uipackage.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
-import uipackage.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import uipackage.diagram.edit.parts.FormDataControlsEditPart;
 import uipackage.diagram.edit.parts.FormDataControlsNameEditPart;
 import uipackage.diagram.edit.parts.FormEditPart;
@@ -24,15 +18,6 @@ import uipackage.diagram.edit.parts.FormFormViewCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormNameEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
 import uipackage.diagram.edit.parts.FormViewNameEditPart;
-import uipackage.diagram.edit.parts.InfrastructureConnectionEditPart;
-import uipackage.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
-import uipackage.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
-import uipackage.diagram.edit.parts.RecipeDeloymentEditPart;
-import uipackage.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
-import uipackage.diagram.edit.parts.RecipeInfrastructuresEditPart;
-import uipackage.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
-import uipackage.diagram.edit.parts.RelationEditPart;
-import uipackage.diagram.edit.parts.TypeExtensionEditPart;
 import uipackage.diagram.edit.parts.UIPackageEditPart;
 import domain.DomainPackage;
 import domain.UIPackage;
@@ -225,36 +210,6 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			if (DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			if (InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			if (ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		}
 		return false;
 	}
@@ -265,18 +220,6 @@ public class DomainVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
-		}
-		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
-				domainElement.eClass())) {
-			return TypeExtensionEditPart.VISUAL_ID;
-		}
-		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
-				domainElement.eClass())) {
-			return RelationEditPart.VISUAL_ID;
-		}
-		if (DomainPackage.eINSTANCE.getInfrastructureConnection()
-				.isSuperTypeOf(domainElement.eClass())) {
-			return InfrastructureConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

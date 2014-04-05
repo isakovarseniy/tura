@@ -56,24 +56,6 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser domainTypesName_505002Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDomainTypesName_505002Parser() {
-		if (domainTypesName_505002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getDomainTypes_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			domainTypesName_505002Parser = parser;
-		}
-		return domainTypesName_505002Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser domainApplicationsName_505004Parser;
 
 	/**
@@ -87,6 +69,24 @@ public class DomainParserProvider extends AbstractProvider implements
 			domainApplicationsName_505004Parser = parser;
 		}
 		return domainApplicationsName_505004Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser domainTypesName_505002Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDomainTypesName_505002Parser() {
+		if (domainTypesName_505002Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getDomainTypes_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			domainTypesName_505002Parser = parser;
+		}
+		return domainTypesName_505002Parser;
 	}
 
 	/**

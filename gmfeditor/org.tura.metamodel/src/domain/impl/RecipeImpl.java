@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.RecipeImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getIngredients <em>Ingredients</em>}</li>
  *   <li>{@link domain.impl.RecipeImpl#getInfrastructures <em>Infrastructures</em>}</li>
- *   <li>{@link domain.impl.RecipeImpl#getDeloyment <em>Deloyment</em>}</li>
+ *   <li>{@link domain.impl.RecipeImpl#getDeployment <em>Deployment</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,14 +107,14 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
   protected EList<Infrastructure> infrastructures;
 
   /**
-   * The cached value of the '{@link #getDeloyment() <em>Deloyment</em>}' reference.
+   * The cached value of the '{@link #getDeployment() <em>Deployment</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDeloyment()
+   * @see #getDeployment()
    * @generated
    * @ordered
    */
-  protected DeploymentSequence deloyment;
+  protected DeploymentSequence deployment;
 
   /**
    * <!-- begin-user-doc -->
@@ -261,19 +261,19 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
    * <!-- end-user-doc -->
    * @generated
    */
-  public DeploymentSequence getDeloyment()
+  public DeploymentSequence getDeployment()
   {
-    if (deloyment != null && deloyment.eIsProxy())
+    if (deployment != null && deployment.eIsProxy())
     {
-      InternalEObject oldDeloyment = (InternalEObject)deloyment;
-      deloyment = (DeploymentSequence)eResolveProxy(oldDeloyment);
-      if (deloyment != oldDeloyment)
+      InternalEObject oldDeployment = (InternalEObject)deployment;
+      deployment = (DeploymentSequence)eResolveProxy(oldDeployment);
+      if (deployment != oldDeployment)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.RECIPE__DELOYMENT, oldDeloyment, deloyment));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.RECIPE__DEPLOYMENT, oldDeployment, deployment));
       }
     }
-    return deloyment;
+    return deployment;
   }
 
   /**
@@ -281,9 +281,9 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
    * <!-- end-user-doc -->
    * @generated
    */
-  public DeploymentSequence basicGetDeloyment()
+  public DeploymentSequence basicGetDeployment()
   {
-    return deloyment;
+    return deployment;
   }
 
   /**
@@ -291,12 +291,12 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDeloyment(DeploymentSequence newDeloyment)
+  public void setDeployment(DeploymentSequence newDeployment)
   {
-    DeploymentSequence oldDeloyment = deloyment;
-    deloyment = newDeloyment;
+    DeploymentSequence oldDeployment = deployment;
+    deployment = newDeployment;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPE__DELOYMENT, oldDeloyment, deloyment));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.RECIPE__DEPLOYMENT, oldDeployment, deployment));
   }
 
   /**
@@ -378,9 +378,9 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
         return getIngredients();
       case DomainPackage.RECIPE__INFRASTRUCTURES:
         return getInfrastructures();
-      case DomainPackage.RECIPE__DELOYMENT:
-        if (resolve) return getDeloyment();
-        return basicGetDeloyment();
+      case DomainPackage.RECIPE__DEPLOYMENT:
+        if (resolve) return getDeployment();
+        return basicGetDeployment();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -413,8 +413,8 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
         getInfrastructures().clear();
         getInfrastructures().addAll((Collection<? extends Infrastructure>)newValue);
         return;
-      case DomainPackage.RECIPE__DELOYMENT:
-        setDeloyment((DeploymentSequence)newValue);
+      case DomainPackage.RECIPE__DEPLOYMENT:
+        setDeployment((DeploymentSequence)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -445,8 +445,8 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
       case DomainPackage.RECIPE__INFRASTRUCTURES:
         getInfrastructures().clear();
         return;
-      case DomainPackage.RECIPE__DELOYMENT:
-        setDeloyment((DeploymentSequence)null);
+      case DomainPackage.RECIPE__DEPLOYMENT:
+        setDeployment((DeploymentSequence)null);
         return;
     }
     super.eUnset(featureID);
@@ -472,8 +472,8 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe
         return ingredients != null && !ingredients.isEmpty();
       case DomainPackage.RECIPE__INFRASTRUCTURES:
         return infrastructures != null && !infrastructures.isEmpty();
-      case DomainPackage.RECIPE__DELOYMENT:
-        return deloyment != null;
+      case DomainPackage.RECIPE__DEPLOYMENT:
+        return deployment != null;
     }
     return super.eIsSet(featureID);
   }

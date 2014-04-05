@@ -271,7 +271,7 @@ public class DeploymentSequenceEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.RecipeDeloyment_304005);
+		types.add(DomainElementTypes.RecipeDeployment_304013);
 		return types;
 	}
 
@@ -280,7 +280,7 @@ public class DeploymentSequenceEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.RecipeDeloyment_304005) {
+		if (relationshipType == DomainElementTypes.RecipeDeployment_304013) {
 			types.add(DomainElementTypes.Recipe_302001);
 		}
 		return types;

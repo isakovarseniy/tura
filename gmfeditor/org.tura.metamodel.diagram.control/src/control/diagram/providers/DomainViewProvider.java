@@ -68,8 +68,8 @@ import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DataControlNameEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
 import control.diagram.edit.parts.DeleteTriggerFakeMethodEditPart;
-import control.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
-import control.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
+import control.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
+import control.diagram.edit.parts.DeploymentComponentDeploymentComponentExternalLabelEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import control.diagram.edit.parts.InfrastructureConnectionEditPart;
@@ -91,8 +91,8 @@ import control.diagram.edit.parts.PREQueryTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.PREUpdateTriggerFakeMethodEditPart;
-import control.diagram.edit.parts.RecipeDeloymentEditPart;
-import control.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
+import control.diagram.edit.parts.RecipeDeploymentEditPart;
+import control.diagram.edit.parts.RecipeDeploymentExternalLabelEditPart;
 import control.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import control.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import control.diagram.edit.parts.RelationEditPart;
@@ -364,8 +364,8 @@ public class DomainViewProvider extends AbstractProvider implements
 			return createInfrastructureConnection_1104010(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			return createDeploymentComponentDeplymentComponent_1104002(
+		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
+			return createDeploymentComponentDeploymentComponent_1104011(
 					containerView, index, persisted, preferencesHint);
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
 			return createDeploymentStarStepFirstStep_1104003(containerView,
@@ -373,8 +373,8 @@ public class DomainViewProvider extends AbstractProvider implements
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return createRecipeInfrastructures_1104004(containerView, index,
 					persisted, preferencesHint);
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return createRecipeDeloyment_1104005(containerView, index,
+		case RecipeDeploymentEditPart.VISUAL_ID:
+			return createRecipeDeployment_1104012(containerView, index,
 					persisted, preferencesHint);
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return createInfrastructureRecipeConfig_1104006(containerView,
@@ -385,6 +385,49 @@ public class DomainViewProvider extends AbstractProvider implements
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
 		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createRoot_1102001(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(
+				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry.getType(RootEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1105002 = createLabel(node,
+				DomainVisualIDRegistry.getType(RootNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
 	}
 
 	/**
@@ -491,19 +534,18 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createRoot_1102001(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createPREFormTrigger_1103001(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles()
 				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(
-				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(DomainVisualIDRegistry.getType(RootEditPart.VISUAL_ID));
+		node.setType(DomainVisualIDRegistry
+				.getType(PREFormTriggerEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
-		stampShortcut(containerView, node);
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
@@ -521,13 +563,9 @@ public class DomainViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		Node label1105002 = createLabel(node,
-				DomainVisualIDRegistry.getType(RootNameEditPart.VISUAL_ID));
-		createCompartment(
-				node,
+		Node label1105001 = createLabel(node,
 				DomainVisualIDRegistry
-						.getType(RootRootPreFormTriggerCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
+						.getType(PREFormTriggerFakeMethodEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -990,44 +1028,6 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createPREFormTrigger_1103001(EObject domainElement,
-			View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles()
-				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(DomainVisualIDRegistry
-				.getType(PREFormTriggerEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
-				.getPreferenceStore();
-		FontStyle nodeFontStyle = (FontStyle) node
-				.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore,
-					IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
-					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
-					.intValue());
-		}
-		Node label1105001 = createLabel(node,
-				DomainVisualIDRegistry
-						.getType(PREFormTriggerFakeMethodEditPart.VISUAL_ID));
-		return node;
-	}
-
-	/**
-	 * @generated
-	 */
 	public Edge createTypeExtension_1104001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
@@ -1186,7 +1186,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createDeploymentComponentDeplymentComponent_1104002(
+	public Edge createDeploymentComponentDeploymentComponent_1104011(
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -1201,7 +1201,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge.setType(DomainVisualIDRegistry
-				.getType(DeploymentComponentDeplymentComponentEditPart.VISUAL_ID));
+				.getType(DeploymentComponentDeploymentComponentEditPart.VISUAL_ID));
 		edge.setElement(null);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
@@ -1233,18 +1233,18 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label1106001 = createLabel(
+		Node label1106007 = createLabel(
 				edge,
 				DomainVisualIDRegistry
-						.getType(DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID));
-		label1106001.getStyles().add(
+						.getType(DeploymentComponentDeploymentComponentExternalLabelEditPart.VISUAL_ID));
+		label1106007.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label1106001.setLayoutConstraint(NotationFactory.eINSTANCE
+		label1106007.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location1106001 = (Location) label1106001
+		Location location1106007 = (Location) label1106007
 				.getLayoutConstraint();
-		location1106001.setX(0);
-		location1106001.setY(40);
+		location1106007.setX(0);
+		location1106007.setY(40);
 		return edge;
 	}
 
@@ -1379,7 +1379,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createRecipeDeloyment_1104005(View containerView, int index,
+	public Edge createRecipeDeployment_1104012(View containerView, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -1393,7 +1393,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge.setType(DomainVisualIDRegistry
-				.getType(RecipeDeloymentEditPart.VISUAL_ID));
+				.getType(RecipeDeploymentEditPart.VISUAL_ID));
 		edge.setElement(null);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
@@ -1425,18 +1425,18 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label1106004 = createLabel(
+		Node label1106008 = createLabel(
 				edge,
 				DomainVisualIDRegistry
-						.getType(RecipeDeloymentExternalLabelEditPart.VISUAL_ID));
-		label1106004.getStyles().add(
+						.getType(RecipeDeploymentExternalLabelEditPart.VISUAL_ID));
+		label1106008.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label1106004.setLayoutConstraint(NotationFactory.eINSTANCE
+		label1106008.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location1106004 = (Location) label1106004
+		Location location1106008 = (Location) label1106008
 				.getLayoutConstraint();
-		location1106004.setX(0);
-		location1106004.setY(40);
+		location1106008.setX(0);
+		location1106008.setY(40);
 		return edge;
 	}
 

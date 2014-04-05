@@ -25,7 +25,7 @@ import control.diagram.edit.parts.ControlsEditPart;
 import control.diagram.edit.parts.CreateTriggerEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
-import control.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import control.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import control.diagram.edit.parts.InfrastructureConnectionEditPart;
 import control.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
@@ -37,7 +37,7 @@ import control.diagram.edit.parts.PREFormTriggerEditPart;
 import control.diagram.edit.parts.PREInsertTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerEditPart;
 import control.diagram.edit.parts.PREUpdateTriggerEditPart;
-import control.diagram.edit.parts.RecipeDeloymentEditPart;
+import control.diagram.edit.parts.RecipeDeploymentEditPart;
 import control.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
@@ -80,11 +80,15 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Root_1102001 = getElementType("org.tura.metamodel.diagram.control.Root_1102001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType DataControl_1102002 = getElementType("org.tura.metamodel.diagram.control.DataControl_1102002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Root_1102001 = getElementType("org.tura.metamodel.diagram.control.Root_1102001"); //$NON-NLS-1$
+	public static final IElementType PREFormTrigger_1103001 = getElementType("org.tura.metamodel.diagram.control.PREFormTrigger_1103001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -113,35 +117,26 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType CreateTrigger_1103012 = getElementType("org.tura.metamodel.diagram.control.CreateTrigger_1103012"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType InsertTrigger_1103013 = getElementType("org.tura.metamodel.diagram.control.InsertTrigger_1103013"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType UpdateTrigger_1103014 = getElementType("org.tura.metamodel.diagram.control.UpdateTrigger_1103014"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType DeleteTrigger_1103015 = getElementType("org.tura.metamodel.diagram.control.DeleteTrigger_1103015"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType SearchTrigger_1103016 = getElementType("org.tura.metamodel.diagram.control.SearchTrigger_1103016"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType ArtificialField_1103008 = getElementType("org.tura.metamodel.diagram.control.ArtificialField_1103008"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType PREFormTrigger_1103001 = getElementType("org.tura.metamodel.diagram.control.PREFormTrigger_1103001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -154,11 +149,10 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType InfrastructureConnection_1104010 = getElementType("org.tura.metamodel.diagram.control.InfrastructureConnection_1104010"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
-	public static final IElementType DeploymentComponentDeplymentComponent_1104002 = getElementType("org.tura.metamodel.diagram.control.DeploymentComponentDeplymentComponent_1104002"); //$NON-NLS-1$
+	public static final IElementType DeploymentComponentDeploymentComponent_1104011 = getElementType("org.tura.metamodel.diagram.control.DeploymentComponentDeploymentComponent_1104011"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -170,7 +164,7 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeDeloyment_1104005 = getElementType("org.tura.metamodel.diagram.control.RecipeDeloyment_1104005"); //$NON-NLS-1$
+	public static final IElementType RecipeDeployment_1104012 = getElementType("org.tura.metamodel.diagram.control.RecipeDeployment_1104012"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -347,9 +341,9 @@ public class DomainElementTypes {
 			elements.put(InfrastructureConnection_1104010,
 					DomainPackage.eINSTANCE.getInfrastructureConnection());
 
-			elements.put(DeploymentComponentDeplymentComponent_1104002,
+			elements.put(DeploymentComponentDeploymentComponent_1104011,
 					DomainPackage.eINSTANCE
-							.getDeploymentComponent_DeplymentComponent());
+							.getDeploymentComponent_DeploymentComponent());
 
 			elements.put(DeploymentStarStepFirstStep_1104003,
 					DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep());
@@ -357,8 +351,8 @@ public class DomainElementTypes {
 			elements.put(RecipeInfrastructures_1104004,
 					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
 
-			elements.put(RecipeDeloyment_1104005,
-					DomainPackage.eINSTANCE.getRecipe_Deloyment());
+			elements.put(RecipeDeployment_1104012,
+					DomainPackage.eINSTANCE.getRecipe_Deployment());
 
 			elements.put(InfrastructureRecipeConfig_1104006,
 					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
@@ -402,10 +396,10 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Relation_1104009);
 			KNOWN_ELEMENT_TYPES.add(InfrastructureConnection_1104010);
 			KNOWN_ELEMENT_TYPES
-					.add(DeploymentComponentDeplymentComponent_1104002);
+					.add(DeploymentComponentDeploymentComponent_1104011);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_1104003);
 			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_1104004);
-			KNOWN_ELEMENT_TYPES.add(RecipeDeloyment_1104005);
+			KNOWN_ELEMENT_TYPES.add(RecipeDeployment_1104012);
 			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_1104006);
 			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_1104007);
 		}
@@ -455,14 +449,14 @@ public class DomainElementTypes {
 			return Relation_1104009;
 		case InfrastructureConnectionEditPart.VISUAL_ID:
 			return InfrastructureConnection_1104010;
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			return DeploymentComponentDeplymentComponent_1104002;
+		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
+			return DeploymentComponentDeploymentComponent_1104011;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
 			return DeploymentStarStepFirstStep_1104003;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return RecipeInfrastructures_1104004;
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return RecipeDeloyment_1104005;
+		case RecipeDeploymentEditPart.VISUAL_ID:
+			return RecipeDeployment_1104012;
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return InfrastructureRecipeConfig_1104006;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:

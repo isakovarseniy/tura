@@ -48,7 +48,7 @@ public class MetamodelDeploymentJob extends Job {
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
 		domain.DeploymentSequence deploymentSequence = infrastructure
-				.getRecipe().getDeloyment();
+				.getRecipe().getDeployment();
 		if (deploymentSequence == null) {
 			notifyError("Deployment Sequence is not defined properly");
 			return Status.OK_STATUS;
@@ -79,7 +79,7 @@ public class MetamodelDeploymentJob extends Job {
 
 			int i = 0;
 			for (; component != null; component = component
-					.getDeplymentComponent(), i++) {
+					.getDeploymentComponent(), i++) {
 			}
 
 			component = deploymentSequence.getDeploymentComponents()
@@ -126,7 +126,7 @@ public class MetamodelDeploymentJob extends Job {
 					System.err.println(component.getName()
 							+ " has empty execution string");
 				}
-				component = component.getDeplymentComponent();
+				component = component.getDeploymentComponent();
 				monitor.worked(1);
 			}
 		} catch (Exception e) {

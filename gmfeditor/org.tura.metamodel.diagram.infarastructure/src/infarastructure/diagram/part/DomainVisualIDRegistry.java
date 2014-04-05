@@ -3,15 +3,9 @@
  */
 package infarastructure.diagram.part;
 
-import infarastructure.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import infarastructure.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import infarastructure.diagram.edit.parts.DatacenterDatacenterSubsystemsCompartmentEditPart;
 import infarastructure.diagram.edit.parts.DatacenterEditPart;
 import infarastructure.diagram.edit.parts.DatacenterNameEditPart;
-import infarastructure.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
-import infarastructure.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
-import infarastructure.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
-import infarastructure.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import infarastructure.diagram.edit.parts.EnterpriseInfrastructureEditPart;
 import infarastructure.diagram.edit.parts.HubEditPart;
 import infarastructure.diagram.edit.parts.HubNameEditPart;
@@ -19,13 +13,6 @@ import infarastructure.diagram.edit.parts.InfrastructureConnectionEditPart;
 import infarastructure.diagram.edit.parts.InfrastructureLayerEditPart;
 import infarastructure.diagram.edit.parts.InfrastructureLayerInfrastructureLayerInfrastructureComponentCompartmentEditPart;
 import infarastructure.diagram.edit.parts.InfrastructureLayerNameEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
-import infarastructure.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
-import infarastructure.diagram.edit.parts.RecipeDeloymentEditPart;
-import infarastructure.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
-import infarastructure.diagram.edit.parts.RecipeInfrastructuresEditPart;
-import infarastructure.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
-import infarastructure.diagram.edit.parts.RelationEditPart;
 import infarastructure.diagram.edit.parts.RouterEditPart;
 import infarastructure.diagram.edit.parts.RouterNameEditPart;
 import infarastructure.diagram.edit.parts.Server2EditPart;
@@ -40,7 +27,6 @@ import infarastructure.diagram.edit.parts.StorageNameEditPart;
 import infarastructure.diagram.edit.parts.SubsystemEditPart;
 import infarastructure.diagram.edit.parts.SubsystemNameEditPart;
 import infarastructure.diagram.edit.parts.SubsystemSubsystemInfrastructureLayerCompartmentEditPart;
-import infarastructure.diagram.edit.parts.TypeExtensionEditPart;
 
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -327,36 +313,6 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			if (DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			if (InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			if (ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		}
 		return false;
 	}
@@ -367,14 +323,6 @@ public class DomainVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
-		}
-		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
-				domainElement.eClass())) {
-			return TypeExtensionEditPart.VISUAL_ID;
-		}
-		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
-				domainElement.eClass())) {
-			return RelationEditPart.VISUAL_ID;
 		}
 		if (DomainPackage.eINSTANCE.getInfrastructureConnection()
 				.isSuperTypeOf(domainElement.eClass())) {

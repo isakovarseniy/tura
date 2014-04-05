@@ -46,8 +46,8 @@ import org.eclipse.swt.graphics.FontData;
 
 import deployment.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import deployment.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
-import deployment.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
-import deployment.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentExternalLabelEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentNameEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentsEditPart;
@@ -58,8 +58,8 @@ import deployment.diagram.edit.parts.DeploymentStarStepNameEditPart;
 import deployment.diagram.edit.parts.InfrastructureConnectionEditPart;
 import deployment.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import deployment.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
-import deployment.diagram.edit.parts.RecipeDeloymentEditPart;
-import deployment.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
+import deployment.diagram.edit.parts.RecipeDeploymentEditPart;
+import deployment.diagram.edit.parts.RecipeDeploymentExternalLabelEditPart;
 import deployment.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import deployment.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import deployment.diagram.edit.parts.RelationEditPart;
@@ -261,8 +261,8 @@ public class DomainViewProvider extends AbstractProvider implements
 			return createInfrastructureConnection_904011(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			return createDeploymentComponentDeplymentComponent_904002(
+		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
+			return createDeploymentComponentDeploymentComponent_904012(
 					containerView, index, persisted, preferencesHint);
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
 			return createDeploymentStarStepFirstStep_904008(containerView,
@@ -270,8 +270,8 @@ public class DomainViewProvider extends AbstractProvider implements
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return createRecipeInfrastructures_904004(containerView, index,
 					persisted, preferencesHint);
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return createRecipeDeloyment_904005(containerView, index,
+		case RecipeDeploymentEditPart.VISUAL_ID:
+			return createRecipeDeployment_904013(containerView, index,
 					persisted, preferencesHint);
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return createInfrastructureRecipeConfig_904006(containerView,
@@ -523,7 +523,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createDeploymentComponentDeplymentComponent_904002(
+	public Edge createDeploymentComponentDeploymentComponent_904012(
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -538,7 +538,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge.setType(DomainVisualIDRegistry
-				.getType(DeploymentComponentDeplymentComponentEditPart.VISUAL_ID));
+				.getType(DeploymentComponentDeploymentComponentEditPart.VISUAL_ID));
 		edge.setElement(null);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
@@ -570,17 +570,17 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label906001 = createLabel(
+		Node label906008 = createLabel(
 				edge,
 				DomainVisualIDRegistry
-						.getType(DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID));
-		label906001.getStyles().add(
+						.getType(DeploymentComponentDeploymentComponentExternalLabelEditPart.VISUAL_ID));
+		label906008.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label906001.setLayoutConstraint(NotationFactory.eINSTANCE
+		label906008.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location906001 = (Location) label906001.getLayoutConstraint();
-		location906001.setX(0);
-		location906001.setY(40);
+		Location location906008 = (Location) label906008.getLayoutConstraint();
+		location906008.setX(0);
+		location906008.setY(40);
 		return edge;
 	}
 
@@ -713,7 +713,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createRecipeDeloyment_904005(View containerView, int index,
+	public Edge createRecipeDeployment_904013(View containerView, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -727,7 +727,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge.setType(DomainVisualIDRegistry
-				.getType(RecipeDeloymentEditPart.VISUAL_ID));
+				.getType(RecipeDeploymentEditPart.VISUAL_ID));
 		edge.setElement(null);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
@@ -759,17 +759,17 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label906004 = createLabel(
+		Node label906009 = createLabel(
 				edge,
 				DomainVisualIDRegistry
-						.getType(RecipeDeloymentExternalLabelEditPart.VISUAL_ID));
-		label906004.getStyles().add(
+						.getType(RecipeDeploymentExternalLabelEditPart.VISUAL_ID));
+		label906009.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label906004.setLayoutConstraint(NotationFactory.eINSTANCE
+		label906009.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location906004 = (Location) label906004.getLayoutConstraint();
-		location906004.setX(0);
-		location906004.setY(40);
+		Location location906009 = (Location) label906009.getLayoutConstraint();
+		location906009.setX(0);
+		location906009.setY(40);
 		return edge;
 	}
 

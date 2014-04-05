@@ -31,7 +31,7 @@ import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.ModelMapperModelMapperQueriesCompartmentEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.QueryEditPart;
-import recipe.diagram.edit.parts.RecipeDeloymentEditPart;
+import recipe.diagram.edit.parts.RecipeDeploymentEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
@@ -387,7 +387,7 @@ public class DomainDiagramUpdater {
 		Recipe modelElement = (Recipe) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_Infrastructures_304004(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_Deloyment_304005(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_Deployment_304013(modelElement));
 		return result;
 	}
 
@@ -533,7 +533,7 @@ public class DomainDiagramUpdater {
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Recipe_Deloyment_304005(
+		result.addAll(getIncomingFeatureModelFacetLinks_Recipe_Deployment_304013(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -610,7 +610,7 @@ public class DomainDiagramUpdater {
 		Recipe modelElement = (Recipe) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_Infrastructures_304004(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_Deloyment_304005(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Recipe_Deployment_304013(modelElement));
 		return result;
 	}
 
@@ -732,7 +732,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_Recipe_Deloyment_304005(
+	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_Recipe_Deployment_304013(
 			DeploymentSequence target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -740,10 +740,10 @@ public class DomainDiagramUpdater {
 				.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
 			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE
-					.getRecipe_Deloyment()) {
+					.getRecipe_Deployment()) {
 				result.add(new DomainLinkDescriptor(setting.getEObject(),
-						target, DomainElementTypes.RecipeDeloyment_304005,
-						RecipeDeloymentEditPart.VISUAL_ID));
+						target, DomainElementTypes.RecipeDeployment_304013,
+						RecipeDeploymentEditPart.VISUAL_ID));
 			}
 		}
 		return result;
@@ -810,16 +810,16 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Recipe_Deloyment_304005(
+	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Recipe_Deployment_304013(
 			Recipe source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		DeploymentSequence destination = source.getDeloyment();
+		DeploymentSequence destination = source.getDeployment();
 		if (destination == null) {
 			return result;
 		}
 		result.add(new DomainLinkDescriptor(source, destination,
-				DomainElementTypes.RecipeDeloyment_304005,
-				RecipeDeloymentEditPart.VISUAL_ID));
+				DomainElementTypes.RecipeDeployment_304013,
+				RecipeDeploymentEditPart.VISUAL_ID));
 		return result;
 	}
 

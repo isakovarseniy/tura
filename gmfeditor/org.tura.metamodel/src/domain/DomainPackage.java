@@ -2081,13 +2081,13 @@ public interface DomainPackage extends EPackage
   int DEPLOYMENT_COMPONENT__MAPPER = 2;
 
   /**
-   * The feature id for the '<em><b>Deplyment Component</b></em>' reference.
+   * The feature id for the '<em><b>Deployment Component</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEPLOYMENT_COMPONENT__DEPLYMENT_COMPONENT = 3;
+  int DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT = 3;
 
   /**
    * The number of structural features of the '<em>Deployment Component</em>' class.
@@ -2237,13 +2237,13 @@ public interface DomainPackage extends EPackage
   int RECIPE__INFRASTRUCTURES = USING_MAPPERS_FEATURE_COUNT + 4;
 
   /**
-   * The feature id for the '<em><b>Deloyment</b></em>' reference.
+   * The feature id for the '<em><b>Deployment</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECIPE__DELOYMENT = USING_MAPPERS_FEATURE_COUNT + 5;
+  int RECIPE__DEPLOYMENT = USING_MAPPERS_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Recipe</em>' class.
@@ -8179,15 +8179,15 @@ public interface DomainPackage extends EPackage
   EReference getDeploymentComponent_Mapper();
 
   /**
-   * Returns the meta object for the reference '{@link domain.DeploymentComponent#getDeplymentComponent <em>Deplyment Component</em>}'.
+   * Returns the meta object for the reference '{@link domain.DeploymentComponent#getDeploymentComponent <em>Deployment Component</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Deplyment Component</em>'.
-   * @see domain.DeploymentComponent#getDeplymentComponent()
+   * @return the meta object for the reference '<em>Deployment Component</em>'.
+   * @see domain.DeploymentComponent#getDeploymentComponent()
    * @see #getDeploymentComponent()
    * @generated
    */
-  EReference getDeploymentComponent_DeplymentComponent();
+  EReference getDeploymentComponent_DeploymentComponent();
 
   /**
    * Returns the meta object for class '{@link domain.DeploymentStarStep <em>Deployment Star Step</em>}'.
@@ -8319,15 +8319,15 @@ public interface DomainPackage extends EPackage
   EReference getRecipe_Infrastructures();
 
   /**
-   * Returns the meta object for the reference '{@link domain.Recipe#getDeloyment <em>Deloyment</em>}'.
+   * Returns the meta object for the reference '{@link domain.Recipe#getDeployment <em>Deployment</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Deloyment</em>'.
-   * @see domain.Recipe#getDeloyment()
+   * @return the meta object for the reference '<em>Deployment</em>'.
+   * @see domain.Recipe#getDeployment()
    * @see #getRecipe()
    * @generated
    */
-  EReference getRecipe_Deloyment();
+  EReference getRecipe_Deployment();
 
   /**
    * Returns the meta object for class '{@link domain.Ingredient <em>Ingredient</em>}'.
@@ -12192,12 +12192,12 @@ public interface DomainPackage extends EPackage
     EReference DEPLOYMENT_COMPONENT__MAPPER = eINSTANCE.getDeploymentComponent_Mapper();
 
     /**
-     * The meta object literal for the '<em><b>Deplyment Component</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Deployment Component</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DEPLOYMENT_COMPONENT__DEPLYMENT_COMPONENT = eINSTANCE.getDeploymentComponent_DeplymentComponent();
+    EReference DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT = eINSTANCE.getDeploymentComponent_DeploymentComponent();
 
     /**
      * The meta object literal for the '{@link domain.impl.DeploymentStarStepImpl <em>Deployment Star Step</em>}' class.
@@ -12302,12 +12302,12 @@ public interface DomainPackage extends EPackage
     EReference RECIPE__INFRASTRUCTURES = eINSTANCE.getRecipe_Infrastructures();
 
     /**
-     * The meta object literal for the '<em><b>Deloyment</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Deployment</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RECIPE__DELOYMENT = eINSTANCE.getRecipe_Deloyment();
+    EReference RECIPE__DEPLOYMENT = eINSTANCE.getRecipe_Deployment();
 
     /**
      * The meta object literal for the '{@link domain.impl.IngredientImpl <em>Ingredient</em>}' class.

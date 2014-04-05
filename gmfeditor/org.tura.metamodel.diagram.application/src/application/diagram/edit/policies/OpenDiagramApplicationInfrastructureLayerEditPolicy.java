@@ -50,8 +50,6 @@ import application.diagram.part.Messages;
 import domain.ApplicationInfrastructureLayer;
 import domain.DomainFactory;
 import domain.EnterpriseInfrastructure;
-import domain.Infarastructure;
-import domain.Infrastructure;
 
 /**
  * @generated

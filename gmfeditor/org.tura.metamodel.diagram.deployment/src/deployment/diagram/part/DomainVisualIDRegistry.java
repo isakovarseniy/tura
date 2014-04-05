@@ -12,8 +12,8 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import deployment.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import deployment.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
-import deployment.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
-import deployment.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentExternalLabelEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentNameEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentsEditPart;
@@ -24,8 +24,8 @@ import deployment.diagram.edit.parts.DeploymentStarStepNameEditPart;
 import deployment.diagram.edit.parts.InfrastructureConnectionEditPart;
 import deployment.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import deployment.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
-import deployment.diagram.edit.parts.RecipeDeloymentEditPart;
-import deployment.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
+import deployment.diagram.edit.parts.RecipeDeploymentEditPart;
+import deployment.diagram.edit.parts.RecipeDeploymentExternalLabelEditPart;
 import deployment.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import deployment.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import deployment.diagram.edit.parts.RelationEditPart;
@@ -195,8 +195,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
+			if (DeploymentComponentDeploymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -210,8 +210,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case RecipeDeploymentEditPart.VISUAL_ID:
+			if (RecipeDeploymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

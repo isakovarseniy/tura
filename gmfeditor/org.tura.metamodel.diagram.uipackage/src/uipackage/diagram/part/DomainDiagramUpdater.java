@@ -16,9 +16,6 @@ import uipackage.diagram.edit.parts.FormEditPart;
 import uipackage.diagram.edit.parts.FormFormDatacontrolsCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormFormViewCompartmentEditPart;
 import uipackage.diagram.edit.parts.FormViewEditPart;
-import uipackage.diagram.edit.parts.InfrastructureConnectionEditPart;
-import uipackage.diagram.edit.parts.RelationEditPart;
-import uipackage.diagram.edit.parts.TypeExtensionEditPart;
 import uipackage.diagram.edit.parts.UIPackageEditPart;
 import domain.Form;
 import domain.FormDataControls;
@@ -138,12 +135,6 @@ public class DomainDiagramUpdater {
 			return getFormView_1003001ContainedLinks(view);
 		case FormDataControlsEditPart.VISUAL_ID:
 			return getFormDataControls_1003002ContainedLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_1004001ContainedLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_1004009ContainedLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_1004010ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -159,12 +150,6 @@ public class DomainDiagramUpdater {
 			return getFormView_1003001IncomingLinks(view);
 		case FormDataControlsEditPart.VISUAL_ID:
 			return getFormDataControls_1003002IncomingLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_1004001IncomingLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_1004009IncomingLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_1004010IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -180,12 +165,6 @@ public class DomainDiagramUpdater {
 			return getFormView_1003001OutgoingLinks(view);
 		case FormDataControlsEditPart.VISUAL_ID:
 			return getFormDataControls_1003002OutgoingLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_1004001OutgoingLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_1004009OutgoingLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_1004010OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -225,30 +204,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_1004001ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_1004009ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_1004010ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getForm_1002002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -273,30 +228,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_1004001IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_1004009IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_1004010IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getForm_1002002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -314,30 +245,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getFormDataControls_1003002OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_1004001OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_1004009OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_1004010OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

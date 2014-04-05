@@ -33,8 +33,8 @@ import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DataControlNameEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
 import control.diagram.edit.parts.DeleteTriggerFakeMethodEditPart;
-import control.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
-import control.diagram.edit.parts.DeploymentComponentDeplymentComponentExternalLabelEditPart;
+import control.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
+import control.diagram.edit.parts.DeploymentComponentDeploymentComponentExternalLabelEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import control.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
 import control.diagram.edit.parts.InfrastructureConnectionEditPart;
@@ -56,8 +56,8 @@ import control.diagram.edit.parts.PREQueryTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.PREUpdateTriggerFakeMethodEditPart;
-import control.diagram.edit.parts.RecipeDeloymentEditPart;
-import control.diagram.edit.parts.RecipeDeloymentExternalLabelEditPart;
+import control.diagram.edit.parts.RecipeDeploymentEditPart;
+import control.diagram.edit.parts.RecipeDeploymentExternalLabelEditPart;
 import control.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import control.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import control.diagram.edit.parts.RelationEditPart;
@@ -481,8 +481,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			if (DeploymentComponentDeplymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
+			if (DeploymentComponentDeploymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -496,8 +496,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			if (RecipeDeloymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case RecipeDeploymentEditPart.VISUAL_ID:
+			if (RecipeDeploymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

@@ -21,7 +21,7 @@ import org.eclipse.swt.graphics.Image;
 
 import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
-import recipe.diagram.edit.parts.DeploymentComponentDeplymentComponentEditPart;
+import recipe.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
 import recipe.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import recipe.diagram.edit.parts.InfrastructureConnectionEditPart;
@@ -32,7 +32,7 @@ import recipe.diagram.edit.parts.JavaComponentEditPart;
 import recipe.diagram.edit.parts.ModelMapperEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
 import recipe.diagram.edit.parts.QueryEditPart;
-import recipe.diagram.edit.parts.RecipeDeloymentEditPart;
+import recipe.diagram.edit.parts.RecipeDeploymentEditPart;
 import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
@@ -119,11 +119,10 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType InfrastructureConnection_304011 = getElementType("org.tura.metamodel.diagram.recipe.InfrastructureConnection_304011"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
-	public static final IElementType DeploymentComponentDeplymentComponent_304002 = getElementType("org.tura.metamodel.diagram.recipe.DeploymentComponentDeplymentComponent_304002"); //$NON-NLS-1$
+	public static final IElementType DeploymentComponentDeploymentComponent_304012 = getElementType("org.tura.metamodel.diagram.recipe.DeploymentComponentDeploymentComponent_304012"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -135,7 +134,7 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecipeDeloyment_304005 = getElementType("org.tura.metamodel.diagram.recipe.RecipeDeloyment_304005"); //$NON-NLS-1$
+	public static final IElementType RecipeDeployment_304013 = getElementType("org.tura.metamodel.diagram.recipe.RecipeDeployment_304013"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -290,9 +289,9 @@ public class DomainElementTypes {
 			elements.put(InfrastructureConnection_304011,
 					DomainPackage.eINSTANCE.getInfrastructureConnection());
 
-			elements.put(DeploymentComponentDeplymentComponent_304002,
+			elements.put(DeploymentComponentDeploymentComponent_304012,
 					DomainPackage.eINSTANCE
-							.getDeploymentComponent_DeplymentComponent());
+							.getDeploymentComponent_DeploymentComponent());
 
 			elements.put(DeploymentStarStepFirstStep_304008,
 					DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep());
@@ -300,8 +299,8 @@ public class DomainElementTypes {
 			elements.put(RecipeInfrastructures_304004,
 					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
 
-			elements.put(RecipeDeloyment_304005,
-					DomainPackage.eINSTANCE.getRecipe_Deloyment());
+			elements.put(RecipeDeployment_304013,
+					DomainPackage.eINSTANCE.getRecipe_Deployment());
 
 			elements.put(InfrastructureRecipeConfig_304006,
 					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
@@ -339,10 +338,10 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Relation_304010);
 			KNOWN_ELEMENT_TYPES.add(InfrastructureConnection_304011);
 			KNOWN_ELEMENT_TYPES
-					.add(DeploymentComponentDeplymentComponent_304002);
+					.add(DeploymentComponentDeploymentComponent_304012);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_304008);
 			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_304004);
-			KNOWN_ELEMENT_TYPES.add(RecipeDeloyment_304005);
+			KNOWN_ELEMENT_TYPES.add(RecipeDeployment_304013);
 			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_304006);
 			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_304007);
 		}
@@ -380,14 +379,14 @@ public class DomainElementTypes {
 			return Relation_304010;
 		case InfrastructureConnectionEditPart.VISUAL_ID:
 			return InfrastructureConnection_304011;
-		case DeploymentComponentDeplymentComponentEditPart.VISUAL_ID:
-			return DeploymentComponentDeplymentComponent_304002;
+		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
+			return DeploymentComponentDeploymentComponent_304012;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
 			return DeploymentStarStepFirstStep_304008;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return RecipeInfrastructures_304004;
-		case RecipeDeloymentEditPart.VISUAL_ID:
-			return RecipeDeloyment_304005;
+		case RecipeDeploymentEditPart.VISUAL_ID:
+			return RecipeDeployment_304013;
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return InfrastructureRecipeConfig_304006;
 		case ConfigurationConfigExtensionEditPart.VISUAL_ID:

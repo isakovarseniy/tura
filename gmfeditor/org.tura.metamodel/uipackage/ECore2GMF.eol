@@ -145,3 +145,55 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Datacenter');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ServerClaster');
 delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeploymentStarStep');
+delete tool;
+
+
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='RecipeConfig');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='RecipeConfig');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='ConfigExtension');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ConfigExtension');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Deployment');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Deployment');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='DeploymentComponent');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeploymentComponent');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='FirstStep');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='FirstStep');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Relation');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Relation');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='TypeExtension');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TypeExtension');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Infrastructures');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Infrastructures');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='InfrastructureConnection');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InfrastructureConnection');
+delete tool;
+
+var tool = GmfTool!ToolGroup.all.selectOne(r|r.title='Connections');
+delete tool;

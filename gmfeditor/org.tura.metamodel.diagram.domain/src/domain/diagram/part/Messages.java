@@ -251,197 +251,92 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Connections2Group_title;
+	public static String ContinuousIintegration1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Configuration1CreationTool_title;
+	public static String ContinuousIintegration1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Configuration1CreationTool_desc;
+	public static String DomainApplication2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ContinuousIintegration2CreationTool_title;
+	public static String DomainApplication2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ContinuousIintegration2CreationTool_desc;
+	public static String DomainApplications3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainApplication3CreationTool_title;
+	public static String DomainApplications3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainApplication3CreationTool_desc;
+	public static String DomainArtifact4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainApplications4CreationTool_title;
+	public static String DomainArtifact4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainApplications4CreationTool_desc;
+	public static String DomainArtifacts5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact5CreationTool_title;
+	public static String DomainArtifacts5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact5CreationTool_desc;
+	public static String DomainTypes6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifacts6CreationTool_title;
+	public static String DomainTypes6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifacts6CreationTool_desc;
+	public static String EJBService7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainTypes7CreationTool_title;
+	public static String EJBService7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainTypes7CreationTool_desc;
+	public static String JPAService8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EJBService8CreationTool_title;
+	public static String JPAService8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EJBService8CreationTool_desc;
+	public static String ORMEntity9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JPAService9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String JPAService9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ORMEntity10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ORMEntity10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ConfigExtension1CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ConfigExtension1CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Deloyment2CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Deloyment2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String DeplymentComponent3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String DeplymentComponent3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String FirstStep4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String FirstStep4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureConnection5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureConnection5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Infrastructures6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Infrastructures6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String RecipeConfig7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String RecipeConfig7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Relation8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Relation8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeExtension9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeExtension9CreationTool_desc;
+	public static String ORMEntity9CreationTool_desc;
 
 	/**
 	 * @generated
@@ -457,11 +352,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Domain_501000_links;
 
 	/**
 	 * @generated

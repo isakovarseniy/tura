@@ -44,8 +44,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Deloyment"
-          description="Create new Deloyment">
+          title="Deployment"
+          description="Create new Deployment">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -53,8 +53,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="DeplymentComponent"
-          description="Create new DeplymentComponent">
+          title="DeploymentComponent"
+          description="Create new DeploymentComponent">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
