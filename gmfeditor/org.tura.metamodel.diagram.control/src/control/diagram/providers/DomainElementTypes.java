@@ -20,15 +20,10 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
 import control.diagram.edit.parts.ArtificialFieldEditPart;
-import control.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import control.diagram.edit.parts.ControlsEditPart;
 import control.diagram.edit.parts.CreateTriggerEditPart;
 import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
-import control.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
-import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
-import control.diagram.edit.parts.InfrastructureConnectionEditPart;
-import control.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
 import control.diagram.edit.parts.POSTQueryTriggerEditPart;
@@ -37,12 +32,9 @@ import control.diagram.edit.parts.PREFormTriggerEditPart;
 import control.diagram.edit.parts.PREInsertTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerEditPart;
 import control.diagram.edit.parts.PREUpdateTriggerEditPart;
-import control.diagram.edit.parts.RecipeDeploymentEditPart;
-import control.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
 import control.diagram.edit.parts.SearchTriggerEditPart;
-import control.diagram.edit.parts.TypeExtensionEditPart;
 import control.diagram.edit.parts.UpdateTriggerEditPart;
 import control.diagram.part.DomainDiagramEditorPlugin;
 import domain.DomainPackage;
@@ -140,39 +132,7 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeExtension_1104001 = getElementType("org.tura.metamodel.diagram.control.TypeExtension_1104001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
 	public static final IElementType Relation_1104009 = getElementType("org.tura.metamodel.diagram.control.Relation_1104009"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType InfrastructureConnection_1104010 = getElementType("org.tura.metamodel.diagram.control.InfrastructureConnection_1104010"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType DeploymentComponentDeploymentComponent_1104011 = getElementType("org.tura.metamodel.diagram.control.DeploymentComponentDeploymentComponent_1104011"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType DeploymentStarStepFirstStep_1104003 = getElementType("org.tura.metamodel.diagram.control.DeploymentStarStepFirstStep_1104003"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType RecipeInfrastructures_1104004 = getElementType("org.tura.metamodel.diagram.control.RecipeInfrastructures_1104004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType RecipeDeployment_1104012 = getElementType("org.tura.metamodel.diagram.control.RecipeDeployment_1104012"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType InfrastructureRecipeConfig_1104006 = getElementType("org.tura.metamodel.diagram.control.InfrastructureRecipeConfig_1104006"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType ConfigurationConfigExtension_1104007 = getElementType("org.tura.metamodel.diagram.control.ConfigurationConfigExtension_1104007"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -332,33 +292,8 @@ public class DomainElementTypes {
 			elements.put(ArtificialField_1103008,
 					DomainPackage.eINSTANCE.getArtificialField());
 
-			elements.put(TypeExtension_1104001,
-					DomainPackage.eINSTANCE.getTypeExtension());
-
 			elements.put(Relation_1104009,
 					DomainPackage.eINSTANCE.getRelation());
-
-			elements.put(InfrastructureConnection_1104010,
-					DomainPackage.eINSTANCE.getInfrastructureConnection());
-
-			elements.put(DeploymentComponentDeploymentComponent_1104011,
-					DomainPackage.eINSTANCE
-							.getDeploymentComponent_DeploymentComponent());
-
-			elements.put(DeploymentStarStepFirstStep_1104003,
-					DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep());
-
-			elements.put(RecipeInfrastructures_1104004,
-					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
-
-			elements.put(RecipeDeployment_1104012,
-					DomainPackage.eINSTANCE.getRecipe_Deployment());
-
-			elements.put(InfrastructureRecipeConfig_1104006,
-					DomainPackage.eINSTANCE.getInfrastructure_RecipeConfig());
-
-			elements.put(ConfigurationConfigExtension_1104007,
-					DomainPackage.eINSTANCE.getConfiguration_ConfigExtension());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -392,16 +327,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(DeleteTrigger_1103015);
 			KNOWN_ELEMENT_TYPES.add(SearchTrigger_1103016);
 			KNOWN_ELEMENT_TYPES.add(ArtificialField_1103008);
-			KNOWN_ELEMENT_TYPES.add(TypeExtension_1104001);
 			KNOWN_ELEMENT_TYPES.add(Relation_1104009);
-			KNOWN_ELEMENT_TYPES.add(InfrastructureConnection_1104010);
-			KNOWN_ELEMENT_TYPES
-					.add(DeploymentComponentDeploymentComponent_1104011);
-			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_1104003);
-			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_1104004);
-			KNOWN_ELEMENT_TYPES.add(RecipeDeployment_1104012);
-			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_1104006);
-			KNOWN_ELEMENT_TYPES.add(ConfigurationConfigExtension_1104007);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -443,24 +369,8 @@ public class DomainElementTypes {
 			return SearchTrigger_1103016;
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return ArtificialField_1103008;
-		case TypeExtensionEditPart.VISUAL_ID:
-			return TypeExtension_1104001;
 		case RelationEditPart.VISUAL_ID:
 			return Relation_1104009;
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return InfrastructureConnection_1104010;
-		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
-			return DeploymentComponentDeploymentComponent_1104011;
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			return DeploymentStarStepFirstStep_1104003;
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			return RecipeInfrastructures_1104004;
-		case RecipeDeploymentEditPart.VISUAL_ID:
-			return RecipeDeployment_1104012;
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			return InfrastructureRecipeConfig_1104006;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return ConfigurationConfigExtension_1104007;
 		}
 		return null;
 	}

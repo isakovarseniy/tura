@@ -91,10 +91,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		if (sourceEditPart instanceof RecipeEditPart) {
 			return ((RecipeEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
-		if (sourceEditPart instanceof ConfigurationEditPart) {
-			return ((ConfigurationEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
-		}
 		if (sourceEditPart instanceof InfrastructureEditPart) {
 			return ((InfrastructureEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
@@ -136,10 +132,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((RecipeEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
-		if (sourceEditPart instanceof ConfigurationEditPart) {
-			return ((ConfigurationEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
 		if (sourceEditPart instanceof InfrastructureEditPart) {
 			return ((InfrastructureEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
@@ -178,10 +170,6 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (sourceEditPart instanceof RecipeEditPart) {
 			return ((RecipeEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof ConfigurationEditPart) {
-			return ((ConfigurationEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof InfrastructureEditPart) {

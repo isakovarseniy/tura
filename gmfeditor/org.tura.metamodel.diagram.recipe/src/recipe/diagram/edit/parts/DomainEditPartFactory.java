@@ -101,29 +101,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 				return new ConfigurationConfigurationPropertiesCompartmentEditPart(
 						view);
 
-			case TypeExtensionEditPart.VISUAL_ID:
-				return new TypeExtensionEditPart(view);
-
-			case RelationEditPart.VISUAL_ID:
-				return new RelationEditPart(view);
-
-			case InfrastructureConnectionEditPart.VISUAL_ID:
-				return new InfrastructureConnectionEditPart(view);
-
-			case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
-				return new DeploymentComponentDeploymentComponentEditPart(view);
-
-			case DeploymentComponentDeploymentComponentExternalLabelEditPart.VISUAL_ID:
-				return new DeploymentComponentDeploymentComponentExternalLabelEditPart(
-						view);
-
-			case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-				return new DeploymentStarStepFirstStepEditPart(view);
-
-			case DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID:
-				return new DeploymentStarStepFirstStepExternalLabelEditPart(
-						view);
-
 			case RecipeInfrastructuresEditPart.VISUAL_ID:
 				return new RecipeInfrastructuresEditPart(view);
 
@@ -141,13 +118,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID:
 				return new InfrastructureRecipeConfigExternalLabelEditPart(view);
-
-			case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-				return new ConfigurationConfigExtensionEditPart(view);
-
-			case ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID:
-				return new ConfigurationConfigExtensionExternalLabelEditPart(
-						view);
 
 			}
 		}

@@ -20,11 +20,8 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import recipe.diagram.edit.commands.ConfigurationConfigExtensionCreateCommand;
-import recipe.diagram.edit.commands.ConfigurationConfigExtensionReorientCommand;
 import recipe.diagram.edit.commands.InfrastructureRecipeConfigCreateCommand;
 import recipe.diagram.edit.commands.InfrastructureRecipeConfigReorientCommand;
-import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
@@ -60,25 +57,6 @@ public class ConfigurationItemSemanticEditPolicy extends
 						incomingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
-			if (DomainVisualIDRegistry.getVisualID(incomingLink) == ConfigurationConfigExtensionEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(
-						incomingLink.getSource().getElement(), null,
-						incomingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
-		}
-		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
-			Edge outgoingLink = (Edge) it.next();
-			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == ConfigurationConfigExtensionEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(
-						outgoingLink.getSource().getElement(), null,
-						outgoingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
 		}
@@ -141,11 +119,6 @@ public class ConfigurationItemSemanticEditPolicy extends
 				.getElementType()) {
 			return null;
 		}
-		if (DomainElementTypes.ConfigurationConfigExtension_304007 == req
-				.getElementType()) {
-			return getGEFWrapper(new ConfigurationConfigExtensionCreateCommand(
-					req, req.getSource(), req.getTarget()));
-		}
 		return null;
 	}
 
@@ -157,11 +130,6 @@ public class ConfigurationItemSemanticEditPolicy extends
 		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req
 				.getElementType()) {
 			return getGEFWrapper(new InfrastructureRecipeConfigCreateCommand(
-					req, req.getSource(), req.getTarget()));
-		}
-		if (DomainElementTypes.ConfigurationConfigExtension_304007 == req
-				.getElementType()) {
-			return getGEFWrapper(new ConfigurationConfigExtensionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -178,9 +146,6 @@ public class ConfigurationItemSemanticEditPolicy extends
 		switch (getVisualID(req)) {
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
 			return getGEFWrapper(new InfrastructureRecipeConfigReorientCommand(
-					req));
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			return getGEFWrapper(new ConfigurationConfigExtensionReorientCommand(
 					req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);

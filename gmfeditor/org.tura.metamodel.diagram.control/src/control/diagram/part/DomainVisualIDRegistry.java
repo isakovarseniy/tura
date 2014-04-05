@@ -12,8 +12,6 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import control.diagram.edit.parts.ArtificialFieldEditPart;
 import control.diagram.edit.parts.ArtificialFieldNameEditPart;
-import control.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
-import control.diagram.edit.parts.ConfigurationConfigExtensionExternalLabelEditPart;
 import control.diagram.edit.parts.ControlsEditPart;
 import control.diagram.edit.parts.CreateTriggerEditPart;
 import control.diagram.edit.parts.CreateTriggerFakeMethodEditPart;
@@ -33,13 +31,6 @@ import control.diagram.edit.parts.DataControlEditPart;
 import control.diagram.edit.parts.DataControlNameEditPart;
 import control.diagram.edit.parts.DeleteTriggerEditPart;
 import control.diagram.edit.parts.DeleteTriggerFakeMethodEditPart;
-import control.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
-import control.diagram.edit.parts.DeploymentComponentDeploymentComponentExternalLabelEditPart;
-import control.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
-import control.diagram.edit.parts.DeploymentStarStepFirstStepExternalLabelEditPart;
-import control.diagram.edit.parts.InfrastructureConnectionEditPart;
-import control.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
-import control.diagram.edit.parts.InfrastructureRecipeConfigExternalLabelEditPart;
 import control.diagram.edit.parts.InsertTriggerEditPart;
 import control.diagram.edit.parts.InsertTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.POSTCreateTriggerEditPart;
@@ -56,17 +47,12 @@ import control.diagram.edit.parts.PREQueryTriggerEditPart;
 import control.diagram.edit.parts.PREQueryTriggerFakeMethodEditPart;
 import control.diagram.edit.parts.PREUpdateTriggerEditPart;
 import control.diagram.edit.parts.PREUpdateTriggerFakeMethodEditPart;
-import control.diagram.edit.parts.RecipeDeploymentEditPart;
-import control.diagram.edit.parts.RecipeDeploymentExternalLabelEditPart;
-import control.diagram.edit.parts.RecipeInfrastructuresEditPart;
-import control.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import control.diagram.edit.parts.RelationEditPart;
 import control.diagram.edit.parts.RootEditPart;
 import control.diagram.edit.parts.RootNameEditPart;
 import control.diagram.edit.parts.RootRootPreFormTriggerCompartmentEditPart;
 import control.diagram.edit.parts.SearchTriggerEditPart;
 import control.diagram.edit.parts.SearchTriggerFakeMethodEditPart;
-import control.diagram.edit.parts.TypeExtensionEditPart;
 import control.diagram.edit.parts.UpdateTriggerEditPart;
 import control.diagram.edit.parts.UpdateTriggerFakeMethodEditPart;
 import domain.Controls;
@@ -481,36 +467,6 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
-			if (DeploymentComponentDeploymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
-			if (DeploymentStarStepFirstStepExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case RecipeInfrastructuresEditPart.VISUAL_ID:
-			if (RecipeInfrastructuresExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case RecipeDeploymentEditPart.VISUAL_ID:
-			if (RecipeDeploymentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
-			if (InfrastructureRecipeConfigExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ConfigurationConfigExtensionEditPart.VISUAL_ID:
-			if (ConfigurationConfigExtensionExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		}
 		return false;
 	}
@@ -522,17 +478,9 @@ public class DomainVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
-				domainElement.eClass())) {
-			return TypeExtensionEditPart.VISUAL_ID;
-		}
 		if (DomainPackage.eINSTANCE.getRelation().isSuperTypeOf(
 				domainElement.eClass())) {
 			return RelationEditPart.VISUAL_ID;
-		}
-		if (DomainPackage.eINSTANCE.getInfrastructureConnection()
-				.isSuperTypeOf(domainElement.eClass())) {
-			return InfrastructureConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

@@ -346,92 +346,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ConfigExtension1CreationTool_title;
+	public static String Deployment1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ConfigExtension1CreationTool_desc;
+	public static String Deployment1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Deployment2CreationTool_title;
+	public static String Infrastructures2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Deployment2CreationTool_desc;
+	public static String Infrastructures2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent3CreationTool_title;
+	public static String RecipeConfig3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String FirstStep4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String FirstStep4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureConnection5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureConnection5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Infrastructures6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Infrastructures6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String RecipeConfig7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String RecipeConfig7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Relation8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Relation8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeExtension9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeExtension9CreationTool_desc;
+	public static String RecipeConfig3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -466,17 +406,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_DeploymentSequence_302004_incominglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_Configuration_302002_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Configuration_302002_outgoinglinks;
 
 	/**
 	 * @generated
@@ -491,27 +421,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
+	public static String NavigatorGroupName_DeploymentSequence_302004_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304007_target;
+	public static String NavigatorGroupName_RecipeInfrastructures_304004_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ConfigurationConfigExtension_304007_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_InfrastructureRecipeConfig_304006_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_InfrastructureRecipeConfig_304006_source;
+	public static String NavigatorGroupName_RecipeInfrastructures_304004_source;
 
 	/**
 	 * @generated
@@ -526,12 +446,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecipeInfrastructures_304004_target;
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304006_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecipeInfrastructures_304004_source;
+	public static String NavigatorGroupName_InfrastructureRecipeConfig_304006_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Recipe_302001_outgoinglinks;
 
 	/**
 	 * @generated

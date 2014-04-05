@@ -5,8 +5,6 @@ package domain.tests;
 import domain.Datacenter;
 import domain.DomainFactory;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**

@@ -276,117 +276,37 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ConfigExtension1CreationTool_title;
+	public static String Deployment1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ConfigExtension1CreationTool_desc;
+	public static String Deployment1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Deployment2CreationTool_title;
+	public static String DeploymentComponent2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Deployment2CreationTool_desc;
+	public static String DeploymentComponent2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent3CreationTool_title;
+	public static String FirstStep3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String FirstStep4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String FirstStep4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureConnection5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String InfrastructureConnection5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Infrastructures6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Infrastructures6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String RecipeConfig7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String RecipeConfig7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Relation8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Relation8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeExtension9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeExtension9CreationTool_desc;
+	public static String FirstStep3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DeploymentComponent_902001_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DeploymentComponent_902001_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DeploymentStarStepFirstStep_904008_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DeploymentStarStepFirstStep_904008_source;
 
 	/**
 	 * @generated
@@ -401,12 +321,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_DeploymentStarStepFirstStep_904008_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DeploymentStarStepFirstStep_904008_source;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_DeploymentStarStep_902002_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_DeploymentComponents_901000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DeploymentComponent_902001_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DeploymentComponent_902001_outgoinglinks;
 
 	/**
 	 * @generated

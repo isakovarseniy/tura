@@ -39,20 +39,9 @@ import recipe.diagram.part.DomainDiagramEditorPlugin;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.providers.DomainElementTypes;
 import domain.Configuration;
-import domain.Controls;
-import domain.DataControl;
-import domain.DeploymentComponent;
 import domain.DeploymentSequence;
-import domain.DeploymentStarStep;
-import domain.EnterpriseInfrastructure;
 import domain.Infrastructure;
-import domain.InfrastructureComponent;
-import domain.InfrastructureConnection;
 import domain.Recipe;
-import domain.Relation;
-import domain.Type;
-import domain.TypeElement;
-import domain.TypeExtension;
 
 /**
  * @generated
@@ -340,61 +329,6 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTypeExtension_304001(Type container,
-				TypeElement source, TypeElement target) {
-			return canExistTypeExtension_304001(container, null, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateRelation_304010(Controls container,
-				DataControl source, DataControl target) {
-			return canExistRelation_304010(container, null, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateInfrastructureConnection_304011(
-				EnterpriseInfrastructure container,
-				InfrastructureComponent source, InfrastructureComponent target) {
-			return canExistInfrastructureConnection_304011(container, null,
-					source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateDeploymentComponentDeploymentComponent_304012(
-				DeploymentComponent source, DeploymentComponent target) {
-			if (source != null) {
-				if (source.getDeploymentComponent() != null) {
-					return false;
-				}
-			}
-
-			return canExistDeploymentComponentDeploymentComponent_304012(
-					source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateDeploymentStarStepFirstStep_304008(
-				DeploymentStarStep source, DeploymentComponent target) {
-			if (source != null) {
-				if (source.getFirstStep() != null) {
-					return false;
-				}
-			}
-
-			return canExistDeploymentStarStepFirstStep_304008(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
 		public boolean canCreateRecipeInfrastructures_304004(Recipe source,
 				Infrastructure target) {
 			if (source != null) {
@@ -443,66 +377,6 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateConfigurationConfigExtension_304007(
-				Configuration source, Configuration target) {
-			if (source != null) {
-				if (source.getConfigExtension() != null) {
-					return false;
-				}
-			}
-			if (target != null && (target.getParent() != null)) {
-				return false;
-			}
-
-			return canExistConfigurationConfigExtension_304007(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistTypeExtension_304001(Type container,
-				TypeExtension linkInstance, TypeElement source,
-				TypeElement target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistRelation_304010(Controls container,
-				Relation linkInstance, DataControl source, DataControl target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistInfrastructureConnection_304011(
-				EnterpriseInfrastructure container,
-				InfrastructureConnection linkInstance,
-				InfrastructureComponent source, InfrastructureComponent target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistDeploymentComponentDeploymentComponent_304012(
-				DeploymentComponent source, DeploymentComponent target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistDeploymentStarStepFirstStep_304008(
-				DeploymentStarStep source, DeploymentComponent target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
 		public boolean canExistRecipeInfrastructures_304004(Recipe source,
 				Infrastructure target) {
 			return true;
@@ -521,14 +395,6 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		 */
 		public boolean canExistInfrastructureRecipeConfig_304006(
 				Infrastructure source, Configuration target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistConfigurationConfigExtension_304007(
-				Configuration source, Configuration target) {
 			return true;
 		}
 	}

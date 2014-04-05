@@ -16,11 +16,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
-import recipe.diagram.edit.parts.ConfigurationConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
-import recipe.diagram.edit.parts.InfrastructureConnectionEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import recipe.diagram.edit.parts.IngredientEditPart;
@@ -36,8 +34,6 @@ import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
-import recipe.diagram.edit.parts.RelationEditPart;
-import recipe.diagram.edit.parts.TypeExtensionEditPart;
 import recipe.diagram.providers.DomainElementTypes;
 import domain.Component;
 import domain.Configuration;
@@ -295,12 +291,6 @@ public class DomainDiagramUpdater {
 			return getQuery_303004ContainedLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303005ContainedLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_304001ContainedLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_304010ContainedLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_304011ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -328,12 +318,6 @@ public class DomainDiagramUpdater {
 			return getQuery_303004IncomingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303005IncomingLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_304001IncomingLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_304010IncomingLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_304011IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -361,12 +345,6 @@ public class DomainDiagramUpdater {
 			return getQuery_303004OutgoingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303005OutgoingLinks(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_304001OutgoingLinks(view);
-		case RelationEditPart.VISUAL_ID:
-			return getRelation_304010OutgoingLinks(view);
-		case InfrastructureConnectionEditPart.VISUAL_ID:
-			return getInfrastructureConnection_304011OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -396,10 +374,7 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getConfiguration_302002ContainedLinks(
 			View view) {
-		Configuration modelElement = (Configuration) view.getElement();
-		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Configuration_ConfigExtension_304007(modelElement));
-		return result;
+		return Collections.emptyList();
 	}
 
 	/**
@@ -464,30 +439,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_304001ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_304010ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_304011ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getRecipe_302001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -503,8 +454,6 @@ public class DomainDiagramUpdater {
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getIncomingFeatureModelFacetLinks_Infrastructure_RecipeConfig_304006(
-				modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_Configuration_ConfigExtension_304007(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -581,30 +530,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_304001IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_304010IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_304011IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<DomainLinkDescriptor> getRecipe_302001OutgoingLinks(
 			View view) {
 		Recipe modelElement = (Recipe) view.getElement();
@@ -619,10 +544,7 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getConfiguration_302002OutgoingLinks(
 			View view) {
-		Configuration modelElement = (Configuration) view.getElement();
-		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Configuration_ConfigExtension_304007(modelElement));
-		return result;
+		return Collections.emptyList();
 	}
 
 	/**
@@ -680,30 +602,6 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getProperty_303005OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getTypeExtension_304001OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getRelation_304010OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<DomainLinkDescriptor> getInfrastructureConnection_304011OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -773,27 +671,6 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_Configuration_ConfigExtension_304007(
-			Configuration target,
-			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences
-				.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE
-					.getConfiguration_ConfigExtension()) {
-				result.add(new DomainLinkDescriptor(setting.getEObject(),
-						target,
-						DomainElementTypes.ConfigurationConfigExtension_304007,
-						ConfigurationConfigExtensionEditPart.VISUAL_ID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Recipe_Infrastructures_304004(
 			Recipe source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -836,22 +713,6 @@ public class DomainDiagramUpdater {
 		result.add(new DomainLinkDescriptor(source, destination,
 				DomainElementTypes.InfrastructureRecipeConfig_304006,
 				InfrastructureRecipeConfigEditPart.VISUAL_ID));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_Configuration_ConfigExtension_304007(
-			Configuration source) {
-		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		Configuration destination = source.getConfigExtension();
-		if (destination == null) {
-			return result;
-		}
-		result.add(new DomainLinkDescriptor(source, destination,
-				DomainElementTypes.ConfigurationConfigExtension_304007,
-				ConfigurationConfigExtensionEditPart.VISUAL_ID));
 		return result;
 	}
 

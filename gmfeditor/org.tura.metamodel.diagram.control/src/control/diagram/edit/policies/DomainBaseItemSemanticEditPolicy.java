@@ -38,21 +38,9 @@ import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 import control.diagram.part.DomainDiagramEditorPlugin;
 import control.diagram.part.DomainVisualIDRegistry;
 import control.diagram.providers.DomainElementTypes;
-import domain.Configuration;
 import domain.Controls;
 import domain.DataControl;
-import domain.DeploymentComponent;
-import domain.DeploymentSequence;
-import domain.DeploymentStarStep;
-import domain.EnterpriseInfrastructure;
-import domain.Infrastructure;
-import domain.InfrastructureComponent;
-import domain.InfrastructureConnection;
-import domain.Recipe;
 import domain.Relation;
-import domain.Type;
-import domain.TypeElement;
-import domain.TypeExtension;
 
 /**
  * @generated
@@ -340,15 +328,6 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTypeExtension_1104001(Type container,
-				TypeElement source, TypeElement target) {
-			return canExistTypeExtension_1104001(container, null, source,
-					target);
-		}
-
-		/**
-		 * @generated
-		 */
 		public boolean canCreateRelation_1104009(Controls container,
 				DataControl source, DataControl target) {
 			return canExistRelation_1104009(container, null, source, target);
@@ -357,179 +336,8 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateInfrastructureConnection_1104010(
-				EnterpriseInfrastructure container,
-				InfrastructureComponent source, InfrastructureComponent target) {
-			return canExistInfrastructureConnection_1104010(container, null,
-					source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateDeploymentComponentDeploymentComponent_1104011(
-				DeploymentComponent source, DeploymentComponent target) {
-			if (source != null) {
-				if (source.getDeploymentComponent() != null) {
-					return false;
-				}
-			}
-
-			return canExistDeploymentComponentDeploymentComponent_1104011(
-					source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateDeploymentStarStepFirstStep_1104003(
-				DeploymentStarStep source, DeploymentComponent target) {
-			if (source != null) {
-				if (source.getFirstStep() != null) {
-					return false;
-				}
-			}
-
-			return canExistDeploymentStarStepFirstStep_1104003(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateRecipeInfrastructures_1104004(Recipe source,
-				Infrastructure target) {
-			if (source != null) {
-				if (source.getInfrastructures().contains(target)) {
-					return false;
-				}
-			}
-			if (target != null && (target.getRecipe() != null)) {
-				return false;
-			}
-
-			return canExistRecipeInfrastructures_1104004(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateRecipeDeployment_1104012(Recipe source,
-				DeploymentSequence target) {
-			if (source != null) {
-				if (source.getDeployment() != null) {
-					return false;
-				}
-			}
-
-			return canExistRecipeDeployment_1104012(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateInfrastructureRecipeConfig_1104006(
-				Infrastructure source, Configuration target) {
-			if (source != null) {
-				if (source.getRecipeConfig() != null) {
-					return false;
-				}
-			}
-			if (target != null && (target.getInfrastructure() != null)) {
-				return false;
-			}
-
-			return canExistInfrastructureRecipeConfig_1104006(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateConfigurationConfigExtension_1104007(
-				Configuration source, Configuration target) {
-			if (source != null) {
-				if (source.getConfigExtension() != null) {
-					return false;
-				}
-			}
-			if (target != null && (target.getParent() != null)) {
-				return false;
-			}
-
-			return canExistConfigurationConfigExtension_1104007(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistTypeExtension_1104001(Type container,
-				TypeExtension linkInstance, TypeElement source,
-				TypeElement target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
 		public boolean canExistRelation_1104009(Controls container,
 				Relation linkInstance, DataControl source, DataControl target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistInfrastructureConnection_1104010(
-				EnterpriseInfrastructure container,
-				InfrastructureConnection linkInstance,
-				InfrastructureComponent source, InfrastructureComponent target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistDeploymentComponentDeploymentComponent_1104011(
-				DeploymentComponent source, DeploymentComponent target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistDeploymentStarStepFirstStep_1104003(
-				DeploymentStarStep source, DeploymentComponent target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistRecipeInfrastructures_1104004(Recipe source,
-				Infrastructure target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistRecipeDeployment_1104012(Recipe source,
-				DeploymentSequence target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistInfrastructureRecipeConfig_1104006(
-				Infrastructure source, Configuration target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistConfigurationConfigExtension_1104007(
-				Configuration source, Configuration target) {
 			return true;
 		}
 	}
