@@ -16,7 +16,12 @@
   «IF self.createCommandClassName.indexOf('ApplicationInfrastructureLayerCreateCommand') > 0-»
         newElement.setName("Application Infrastructure");
   «ENDIF-»
-		
+  «IF self.createCommandClassName.indexOf('FormViewCreateCommand') > 0-»
+        newElement.setName("View");
+  «ENDIF-»
+  «IF self.createCommandClassName.indexOf('FormDataControlsCreateCommand') > 0-»
+        newElement.setName("Data control");
+  «ENDIF-»
 		
 «IF true/*FIXME boolean needsExternalConfiguration*/»
 		doConfigure(newElement, monitor, info);

@@ -39,7 +39,7 @@ public class TriggerParameterrDS extends DataSource {
 
 		editingDomain.getCommandStack().execute(
 				AddCommand.create(editingDomain,
-						((domain.Trigger) property.getEObject()),
+						((domain.Trigger) property.getModel()),
 						DomainPackage.eINSTANCE.getTrigger_Parameters(), ls));
 
 		rowList.add(rowList.size(), parameter);
@@ -57,7 +57,7 @@ public class TriggerParameterrDS extends DataSource {
 
 		editingDomain.getCommandStack().execute(
 				RemoveCommand.create(editingDomain,
-						((domain.Trigger) property.getEObject()),
+						((domain.Trigger) property.getModel()),
 						DomainPackage.eINSTANCE.getTrigger_Parameters(), ls));
 
 		rowList.remove(row);
@@ -71,7 +71,7 @@ public class TriggerParameterrDS extends DataSource {
 		try {
 			NodeImpl diagram = (NodeImpl) property.getEditPart().getModel();
 			EObject types = (EObject) diagram.getElement();
-			domain.Trigger trg = (domain.Trigger) property.getEObject();
+			domain.Trigger trg = (domain.Trigger) property.getModel();
 			EditingDomain editingDomain = ((DiagramEditor) property.getPart())
 					.getEditingDomain();
 

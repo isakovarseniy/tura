@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
@@ -32,6 +33,11 @@ import domain.DomainPackage;
 public class MappingSpecifierPropertySelection extends GridProperty {
 
 	private List<GridColumn> columnList;
+
+	@Override
+	public EObject getModel() {
+		return getEObject();
+	}
 
 	public MappingSpecifierPropertySelection() {
 		ds = new MappingSpecifierDS(this);

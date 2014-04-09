@@ -4,6 +4,7 @@ import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
@@ -31,6 +32,11 @@ public class QueryParameterPropertySelection extends GridProperty {
 
 	private List<GridColumn> columnList;
 
+	@Override
+	public EObject getModel() {
+		return getEObject();
+	}
+	
 	public QueryParameterPropertySelection() {
 		ds = new QueryParameterDS(this);
 	}

@@ -33,6 +33,12 @@ public class ParameterPropertySelection extends GridProperty {
 
 	private List<GridColumn> columnList;
 
+	@Override
+	public EObject getModel() {
+		return getEObject();
+	}
+
+	
 	public ParameterPropertySelection() {
 		ds = new ParameterDS(this);
 	}

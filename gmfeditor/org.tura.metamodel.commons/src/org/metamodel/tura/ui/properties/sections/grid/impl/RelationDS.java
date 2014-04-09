@@ -30,7 +30,7 @@ public class RelationDS extends DataSource {
 		row.setUid(UUID.randomUUID().toString());
 
 		List<domain.Attribute> choicesOptions = ((RelationPropertySelection) property).new InitOption()
-				.initOptions((Type) ((domain.Relation) (property.getEObject()))
+				.initOptions((Type) ((domain.Relation) (property.getModel()))
 						.getMaster().getCreate().getMethodRef()
 						.getReturnValue().getTypeRef());
 
@@ -39,7 +39,7 @@ public class RelationDS extends DataSource {
 		}
 
 		choicesOptions = ((RelationPropertySelection) property).new InitOption()
-				.initOptions((Type) ((domain.Relation) (property.getEObject()))
+				.initOptions((Type) ((domain.Relation) (property.getModel()))
 						.getDetail().getCreate().getMethodRef()
 						.getReturnValue().getTypeRef());
 
@@ -55,7 +55,7 @@ public class RelationDS extends DataSource {
 
 		editingDomain.getCommandStack().execute(
 				AddCommand.create(editingDomain,
-						((domain.Relation) property.getEObject()),
+						((domain.Relation) property.getModel()),
 						DomainPackage.eINSTANCE.getRelation_Links(), ls));
 
 		rowList.add(row);
@@ -73,7 +73,7 @@ public class RelationDS extends DataSource {
 
 		editingDomain.getCommandStack().execute(
 				RemoveCommand.create(editingDomain,
-						((domain.Relation) property.getEObject()),
+						((domain.Relation) property.getModel()),
 						DomainPackage.eINSTANCE.getRelation_Links(), ls));
 
 		rowList.remove(row);
@@ -84,9 +84,9 @@ public class RelationDS extends DataSource {
 	public List<Object> queryRows() {
 
 		ArrayList<Object> rows = new ArrayList<Object>();
-		if (property.getEObject() != null) {
+		if (property.getModel() != null) {
 
-			List<domain.Link> links = ((domain.Relation) property.getEObject())
+			List<domain.Link> links = ((domain.Relation) property.getModel())
 					.getLinks();
 			rows.addAll(links);
 		}

@@ -41,7 +41,7 @@ public class QueryVariableDS extends DataSource {
 
 		editingDomain.getCommandStack().execute(
 				AddCommand.create(editingDomain,
-						((domain.QueryParameter) property.getEObject()),
+						((domain.QueryParameter) property.getModel()),
 						DomainPackage.eINSTANCE.getQuery_Variables(), ls));
 
 		rowList.add(rowList.size(), queryVar);
@@ -58,7 +58,7 @@ public class QueryVariableDS extends DataSource {
 
 		editingDomain.getCommandStack().execute(
 				RemoveCommand.create(editingDomain,
-						((domain.QueryParameter) property.getEObject()),
+						((domain.QueryParameter) property.getModel()),
 						DomainPackage.eINSTANCE.getQuery_Variables(), ls));
 
 		rowList.remove(row);
@@ -77,7 +77,7 @@ public class QueryVariableDS extends DataSource {
 
 			EObject types = (EObject) diagram.getElement();
 			Object[] result = (new QueryHelper()).findMappingVariable(
-					(domain.Query) property.getEObject(), types);
+					(domain.Query) property.getModel(), types);
 
 			List<domain.QueryParameter> addVariables = (List<QueryParameter>) result[0];
 			List<domain.QueryVariable> removeVariables = (List<QueryVariable>) result[1];
@@ -91,7 +91,7 @@ public class QueryVariableDS extends DataSource {
 				ms.setQueryParamRef(Variable);
 				editingDomain.getCommandStack().execute(
 						AddCommand.create(editingDomain,
-								((domain.Query) property.getEObject()),
+								((domain.Query) property.getModel()),
 								DomainPackage.eINSTANCE
 										.getQuery_Variables(), ms));
 			}
@@ -102,12 +102,12 @@ public class QueryVariableDS extends DataSource {
 				domain.QueryVariable ms = itr.next();
 				editingDomain.getCommandStack().execute(
 						RemoveCommand.create(editingDomain,
-								((domain.Query) property.getEObject()),
+								((domain.Query) property.getModel()),
 								DomainPackage.eINSTANCE
 										.getQuery_Variables(), ms));
 			}
 			ArrayList<Object> rows = new ArrayList<Object>();
-			for (Iterator<domain.QueryVariable> i = ((domain.Query) property.getEObject())
+			for (Iterator<domain.QueryVariable> i = ((domain.Query) property.getModel())
 					.getVariables().iterator(); i.hasNext();) {
 				domain.QueryVariable p = i.next();
 				rows.add(p);

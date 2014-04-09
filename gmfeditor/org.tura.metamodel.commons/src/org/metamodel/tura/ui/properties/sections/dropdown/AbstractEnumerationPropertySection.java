@@ -48,20 +48,20 @@ public abstract class AbstractEnumerationPropertySection extends
 	protected String getFeatureAsText() {
 		if (dropDownDataSupplier == null)
 			init();
-		return dropDownDataSupplier.getFeatureAsText(eObject);
+		return dropDownDataSupplier.getFeatureAsText(getModel());
 	}
 
 	protected Object getFeatureValue(EStructuralFeature feature, Object... obj) {
 		if (dropDownDataSupplier == null)
 			init();
-		return dropDownDataSupplier.getFeatureValue(eObject,values,feature,obj);
+		return dropDownDataSupplier.getFeatureValue(getModel(),values,feature,obj);
 	}
 
 
 	protected boolean isEqual(Object key) {
 		if (dropDownDataSupplier == null)
 			init();
-		return dropDownDataSupplier.isEqual(values,key,eObject);
+		return dropDownDataSupplier.isEqual(values,key,getModel());
 	}
 	
 	
@@ -116,7 +116,7 @@ public abstract class AbstractEnumerationPropertySection extends
 			EStructuralFeature[] features = getFeature();
 			for (int i = 0; i < features.length; i++) {
 				compoundCommand.append(SetCommand.create(editingDomain,
-						eObject, features[i],
+						getModel(), features[i],
 						getFeatureValue(features[i], combo.getItem(index))));
 			}
 			editingDomain.getCommandStack().execute(compoundCommand);

@@ -48,7 +48,7 @@ public class QueryParameterDS extends DataSource {
 		editingDomain.getCommandStack()
 				.execute(
 						AddCommand.create(editingDomain,
-								((domain.ModelQuery) property.getEObject()),
+								((domain.ModelQuery) property.getModel()),
 								DomainPackage.eINSTANCE
 										.getModelQuery_Parameters(), ls));
 
@@ -68,7 +68,7 @@ public class QueryParameterDS extends DataSource {
 		editingDomain.getCommandStack()
 				.execute(
 						RemoveCommand.create(editingDomain,
-								((domain.ModelQuery) property.getEObject()),
+								((domain.ModelQuery) property.getModel()),
 								DomainPackage.eINSTANCE
 										.getModelQuery_Parameters(), ls));
 
@@ -88,9 +88,9 @@ public class QueryParameterDS extends DataSource {
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			domain.DomainArtifact domainArtifact = ((domain.ModelQuery) property
-					.getEObject()).getParent().getParent().getParent();
+					.getModel()).getParent().getParent().getParent();
 			domain.Artifact artifact = ((domain.ModelQuery) property
-					.getEObject()).getParent();
+					.getModel()).getParent();
 
 			EObject types = (EObject) diagram.getElement();
 
@@ -100,7 +100,7 @@ public class QueryParameterDS extends DataSource {
 							+ "').oclAsType(domain::DomainArtifact).artifact.artifacts-> select(r|r.oclAsType(domain::Artifact).uid ='"
 							+ artifact.getUid()
 							+ "').oclAsType(domain::Artifact).modelQuery->select(r|r.oclAsType(domain::ModelQuery).uid ='"
-							+ ((domain.ModelQuery) property.getEObject())
+							+ ((domain.ModelQuery) property.getModel())
 									.getUid()
 							+ "').oclAsType(domain::ModelQuery).parameters");
 

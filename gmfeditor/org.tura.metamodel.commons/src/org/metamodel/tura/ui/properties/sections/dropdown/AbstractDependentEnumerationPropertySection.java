@@ -36,7 +36,7 @@ public abstract class AbstractDependentEnumerationPropertySection extends
 							if (features[i].getFeatureID() != dropDownDataSupplier
 									.getWatchPointFeature().getFeatureID())
 								compoundCommand.append(SetCommand.create(
-										editingDomain, eObject, features[i],
+										editingDomain, getModel(), features[i],
 										null));
 						}
 						editingDomain.getCommandStack()
@@ -46,15 +46,15 @@ public abstract class AbstractDependentEnumerationPropertySection extends
 				}
 
 			};
-			eObject.eAdapters().add(adapter);
+			getModel().eAdapters().add(adapter);
 		}
 
 	}
 
 	public void dispose() {
 		super.dispose();
-		if (eObject != null)
-			eObject.eAdapters().remove(adapter);
+		if (getModel() != null)
+			getModel().eAdapters().remove(adapter);
 	}
 
 }

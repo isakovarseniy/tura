@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 import org.metamodel.tura.ui.properties.sections.dropdown.impl.DomainArtifactRefArtifactRef;
 
-public class ArtifactPropertySelection extends
+public abstract class ArtifactPropertySelection extends
 		AbstractDependentEnumerationPropertySection {
 
 	protected void init() {
@@ -21,10 +21,10 @@ public class ArtifactPropertySelection extends
 		if (values == null) {
 			values = new HashMap<String, Object>();
 
-			if (((domain.ArtifactRef) eObject).getDomainArtifactRef() == null)
+			if (((domain.ArtifactRef) getModel()).getDomainArtifactRef() == null)
 				return values;
 
-			for (Iterator<domain.Artifact> i = ((domain.ArtifactRef) eObject)
+			for (Iterator<domain.Artifact> i = ((domain.ArtifactRef) getModel())
 					.getDomainArtifactRef().getArtifact().getArtifacts()
 					.iterator(); i.hasNext();) {
 				domain.Artifact p = i.next();

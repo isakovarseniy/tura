@@ -25,9 +25,9 @@ public class PackageNamePropertySection extends
 	}
 
 	protected void init() {
-		if (eObject instanceof domain.TypePointer)
+		if (getModel() instanceof domain.TypePointer)
 			dropDownDataSupplier = new DomainTypePointerPackageRef();
-		if (eObject instanceof domain.Operation)
+		if (getModel() instanceof domain.Operation)
 			dropDownDataSupplier = new DomainOperationPackageRef();
 	}
 
@@ -63,5 +63,10 @@ public class PackageNamePropertySection extends
 		}
 
 		return values;
+	}
+
+	@Override
+	public EObject getModel() {
+		return getEObject();
 	}
 }

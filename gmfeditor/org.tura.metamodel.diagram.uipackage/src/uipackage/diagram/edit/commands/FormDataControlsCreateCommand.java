@@ -69,6 +69,8 @@ public class FormDataControlsCreateCommand extends EditElementCommand {
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 
+		newElement.setName("Data control");
+
 		doConfigure(newElement, monitor, info);
 
 		((CreateElementRequest) getRequest()).setNewElement(newElement);

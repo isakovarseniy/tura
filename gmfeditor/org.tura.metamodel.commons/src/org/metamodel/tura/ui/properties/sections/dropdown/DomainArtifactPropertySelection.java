@@ -61,4 +61,9 @@ public class DomainArtifactPropertySelection extends
 
 		return values;
 	}
+
+	@Override
+	public EObject getModel() {
+		return getEObject();
+	}
 }

@@ -25,9 +25,9 @@ public abstract class AbstractTypeNamePropertySection extends
 	}
 
 	protected void init() {
-		if (eObject instanceof domain.TypePointer)
+		if (getModel() instanceof domain.TypePointer)
 			dropDownDataSupplier = new DomainTypePointerTypeRef();
-		if (eObject instanceof domain.Operation)
+		if (getModel() instanceof domain.Operation)
 			dropDownDataSupplier = new DomainOperationTypeRef();
 	}
 
@@ -43,7 +43,7 @@ public abstract class AbstractTypeNamePropertySection extends
 					.getModel();
 			EObject types = (EObject) diagram.getElement();
 
-			if (dropDownDataSupplier.getWatchPointObject(eObject) == null)
+			if (dropDownDataSupplier.getWatchPointObject(getModel()) == null)
 				return values;
 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -56,7 +56,7 @@ public abstract class AbstractTypeNamePropertySection extends
 				String strQuery = getQuery().replaceAll(
 						"\\$1",
 						((domain.Package) dropDownDataSupplier
-								.getWatchPointObject(eObject)).getUid());
+								.getWatchPointObject(getModel())).getUid());
 
 				OCLExpression<EClassifier> query = helper.createQuery(strQuery);
 
@@ -75,6 +75,11 @@ public abstract class AbstractTypeNamePropertySection extends
 		}
 
 		return values;
+	}
+
+	@Override
+	public EObject getModel() {
+		return getEObject();
 	}
 
 	protected abstract String getQuery();

@@ -18,7 +18,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 public abstract class AbstractTuraPropertySection extends
 		AbstractPropertySection {
 
-	public EObject getEObject() {
+	protected EObject getEObject() {
 		return eObject;
 	}
 
@@ -35,7 +35,7 @@ public abstract class AbstractTuraPropertySection extends
 	 * The current selected object or the first object in the selection when
 	 * multiple objects are selected.
 	 */
-	protected EObject eObject;
+	private EObject eObject;
 
 	protected IGraphicalEditPart editPart;;
 	
@@ -104,4 +104,13 @@ public abstract class AbstractTuraPropertySection extends
 		if (editPart.getModel() instanceof ConnectorImpl )
 		     eObject  = ((ConnectorImpl) editPart.getModel()).basicGetElement();
 	}
+	
+	
+	/**
+	 * Get mode for selection.
+	 * 
+	 * @return the label for the text field.
+	 */
+	public abstract EObject getModel();
+	
 }

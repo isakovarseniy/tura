@@ -39,13 +39,13 @@ public abstract class AbstractMappersListDS extends DataSource {
 	@Override
 	public void addRow() {
 		Set<ApplicationMapper> set = findAvailableMappers((domain.UsingMappers) property
-				.getEObject());
+				.getModel());
 		ListSelectionDialog dlg = new ListSelectionDialog(Display.getCurrent()
 				.getActiveShell(), set, new ArrayContentProvider(),
 				new MappersLabelProvider(), "Select Mappers:");
 		dlg.setTitle("Mappers Selection");
 		dlg.setInitialElementSelections(((domain.UsingMappers) property
-				.getEObject()).getMappers());
+				.getModel()).getMappers());
 		List<Object> result = new ArrayList<>();
 		if (dlg.open() == Window.OK) {
 			result = Arrays.asList(dlg.getResult());
@@ -54,14 +54,14 @@ public abstract class AbstractMappersListDS extends DataSource {
 			for (Iterator<?> itr = result.iterator(); itr.hasNext();) {
 				domain.ApplicationMapper mapper = (domain.ApplicationMapper) itr
 						.next();
-				if (!((domain.UsingMappers) property.getEObject()).getMappers()
+				if (!((domain.UsingMappers) property.getModel()).getMappers()
 						.contains(mapper)) {
 					addMappers.add(mapper);
 				}
 			}
 
 			List<domain.ApplicationMapper> removeMappers = new ArrayList<domain.ApplicationMapper>();
-			for (Iterator<?> itr = ((domain.UsingMappers) property.getEObject())
+			for (Iterator<?> itr = ((domain.UsingMappers) property.getModel())
 					.getMappers().iterator(); itr.hasNext();) {
 				domain.ApplicationMapper mapper = (domain.ApplicationMapper) itr
 						.next();
@@ -75,13 +75,13 @@ public abstract class AbstractMappersListDS extends DataSource {
 
 			editingDomain.getCommandStack().execute(
 					AddCommand.create(editingDomain,
-							((domain.UsingMappers) property.getEObject()),
+							((domain.UsingMappers) property.getModel()),
 							DomainPackage.eINSTANCE.getUsingMappers_Mappers(),
 							addMappers));
 
 			editingDomain.getCommandStack().execute(
 					RemoveCommand.create(editingDomain,
-							((domain.UsingMappers) property.getEObject()),
+							((domain.UsingMappers) property.getModel()),
 							DomainPackage.eINSTANCE.getUsingMappers_Mappers(),
 							removeMappers));
 
@@ -113,7 +113,7 @@ public abstract class AbstractMappersListDS extends DataSource {
 		try {
 
 			List<ApplicationMapper> removeMappers = findRemovedMappers((domain.UsingMappers) property
-					.getEObject());
+					.getModel());
 
 			// Remove
 			for (Iterator<ApplicationMapper> itr = removeMappers.iterator(); itr
@@ -121,14 +121,14 @@ public abstract class AbstractMappersListDS extends DataSource {
 				ApplicationMapper ms = itr.next();
 				editingDomain.getCommandStack().execute(
 						RemoveCommand.create(editingDomain,
-								((domain.UsingMappers) property.getEObject()),
+								((domain.UsingMappers) property.getModel()),
 								DomainPackage.eINSTANCE
 										.getUsingMappers_Mappers(), ms));
 			}
 
 			ArrayList<Object> rows = new ArrayList<Object>();
 			for (Iterator<domain.ApplicationMapper> i = ((domain.UsingMappers) property
-					.getEObject()).getMappers().iterator(); i.hasNext();) {
+					.getModel()).getMappers().iterator(); i.hasNext();) {
 				domain.ApplicationMapper p = i.next();
 				rows.add(p);
 			}

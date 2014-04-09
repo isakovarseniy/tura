@@ -43,7 +43,7 @@ public class MappingSpecifierDS extends DataSource {
 		editingDomain.getCommandStack().execute(
 				RemoveCommand
 						.create(editingDomain, ((domain.ModelMapper) property
-								.getEObject()), DomainPackage.eINSTANCE
+								.getModel()), DomainPackage.eINSTANCE
 								.getModelMapper_Specifiers(), ls));
 
 		rowList.remove(row);
@@ -61,7 +61,7 @@ public class MappingSpecifierDS extends DataSource {
 
 			EObject types = (EObject) diagram.getElement();
 			Object[] result = (new QueryHelper()).findMappingSpecifiers(
-					(domain.ModelMapper) property.getEObject(), types);
+					(domain.ModelMapper) property.getModel(), types);
 
 			@SuppressWarnings("unchecked")
 			List<domain.Specifier> addSpecifiers = (List<Specifier>) result[0];
@@ -77,7 +77,7 @@ public class MappingSpecifierDS extends DataSource {
 				ms.setSpecifierRef(specifier);
 				editingDomain.getCommandStack().execute(
 						AddCommand.create(editingDomain,
-								((domain.ModelMapper) property.getEObject()),
+								((domain.ModelMapper) property.getModel()),
 								DomainPackage.eINSTANCE
 										.getModelMapper_Specifiers(), ms));
 			}
@@ -88,14 +88,14 @@ public class MappingSpecifierDS extends DataSource {
 				domain.MappingSpecifier ms = itr.next();
 				editingDomain.getCommandStack().execute(
 						RemoveCommand.create(editingDomain,
-								((domain.ModelMapper) property.getEObject()),
+								((domain.ModelMapper) property.getModel()),
 								DomainPackage.eINSTANCE
 										.getModelMapper_Specifiers(), ms));
 			}
 
 			ArrayList<Object> rows = new ArrayList<Object>();
 			for (Iterator<domain.MappingSpecifier> i = ((domain.ModelMapper) property
-					.getEObject()).getSpecifiers().iterator(); i.hasNext();) {
+					.getModel()).getSpecifiers().iterator(); i.hasNext();) {
 				domain.MappingSpecifier p = i.next();
 				rows.add(p);
 			}

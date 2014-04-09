@@ -47,7 +47,7 @@ public class OptionPropertyDS extends DataSource {
 
 		editingDomain.getCommandStack().execute(
 				AddCommand.create(editingDomain,
-						((domain.Specifier) property.getEObject()),
+						((domain.Specifier) property.getModel()),
 						DomainPackage.eINSTANCE.getSpecifier_Options(), ls));
 
 		rowList.add(rowList.size(), option);
@@ -66,7 +66,7 @@ public class OptionPropertyDS extends DataSource {
 
 		editingDomain.getCommandStack().execute(
 				RemoveCommand.create(editingDomain,
-						((domain.Specifier) property.getEObject()),
+						((domain.Specifier) property.getModel()),
 						DomainPackage.eINSTANCE.getSpecifier_Options(), ls));
 
 		rowList.remove(row);
@@ -85,9 +85,9 @@ public class OptionPropertyDS extends DataSource {
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			domain.DomainArtifact domainArtifact = ((domain.Specifier) property
-					.getEObject()).getParent().getParent().getParent();
+					.getModel()).getParent().getParent().getParent();
 			domain.Artifact artifact = ((domain.Specifier) property
-					.getEObject()).getParent();
+					.getModel()).getParent();
 
 			EObject types = (EObject) diagram.getElement();
 
@@ -97,7 +97,7 @@ public class OptionPropertyDS extends DataSource {
 							+ "').oclAsType(domain::DomainArtifact).artifact.artifacts-> select(r|r.oclAsType(domain::Artifact).uid ='"
 							+ artifact.getUid()
 							+ "').oclAsType(domain::Artifact).specifiers->select(r|r.oclAsType(domain::Specifier).uid ='"
-							+ ((domain.Specifier) property.getEObject())
+							+ ((domain.Specifier) property.getModel())
 									.getUid()
 							+ "').oclAsType(domain::Specifier).options");
 

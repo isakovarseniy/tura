@@ -30,7 +30,7 @@ public abstract class AbstractStringPropertySection extends
 	 * @see org.eclipse.ui.examples.views.properties.tabbed.hockeyleague.ui.properties.sections.AbstractTextPropertySection#getFeatureAsText()
 	 */
 	protected String getFeatureAsText() {
-		String string = (String) eObject.eGet(getFeature());
+		String string = (String) getModel().eGet(getFeature());
 		if (string == null) {
 			return "";//$NON-NLS-1$
 		}

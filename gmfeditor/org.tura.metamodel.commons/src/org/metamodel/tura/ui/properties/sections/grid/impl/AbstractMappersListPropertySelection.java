@@ -4,6 +4,7 @@ import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
@@ -23,6 +24,11 @@ import org.metamodel.tura.ui.properties.sections.grid.GridProperty;
 public class AbstractMappersListPropertySelection extends GridProperty {
 
 	private List<GridColumn> columnList;
+
+	@Override
+	public EObject getModel() {
+		return getEObject();
+	}
 
 	@Override
 	public List<GridColumn> getColumns() {
@@ -144,5 +150,5 @@ public class AbstractMappersListPropertySelection extends GridProperty {
 		}
 
 	}
-
+	
 }

@@ -37,8 +37,8 @@ public class MethodNamePropertySection extends
 					.getModel();
 			EObject types = (EObject) diagram.getElement();
 
-			if ((((domain.MethodPointer) eObject).getTypeRef() == null)
-					|| ((domain.MethodPointer) eObject).getPackageRef() == null)
+			if ((((domain.MethodPointer) getModel()).getTypeRef() == null)
+					|| ((domain.MethodPointer) getModel()).getPackageRef() == null)
 				return values;
 
 			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -49,10 +49,10 @@ public class MethodNamePropertySection extends
 			try {
 				OCLExpression<EClassifier> query = helper
 						.createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).uid='"
-								+ ((domain.TypePointer) eObject)
+								+ ((domain.TypePointer) getModel())
 										.getPackageRef().getUid()
 								+ "').oclAsType(domain::Package).typedefinition.types->select(r|r.oclIsKindOf(domain::Type) and  r.oclAsType(domain::Type).uid = '"
-								+ ((domain.MethodPointer) eObject)
+								+ ((domain.MethodPointer) getModel())
 										.getTypeRef().getUid()
 								+ "').oclAsType(domain::Type).operations");
 
@@ -70,6 +70,10 @@ public class MethodNamePropertySection extends
 		}
 
 		return values;
+	}
+	@Override
+	public EObject getModel() {
+		return getEObject();
 	}
 
 }

@@ -98,7 +98,7 @@ public abstract class AbstractTextPropertySection extends
 			if (eObjectList.size() == 1) {
 				/* apply the property change to single selected object */
 				editingDomain.getCommandStack().execute(
-						SetCommand.create(editingDomain, eObject, getFeature(),
+						SetCommand.create(editingDomain, getModel(), getFeature(),
 								value));
 			} else {
 				CompoundCommand compoundCommand = new CompoundCommand();
@@ -162,4 +162,9 @@ public abstract class AbstractTextPropertySection extends
 	 * @return the label for the text field.
 	 */
 	protected abstract String getLabelText();
+	
+	
+	
+	
+	
 }

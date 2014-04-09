@@ -37,7 +37,7 @@ public class ParameterDS extends DataSource {
 
 		editingDomain.getCommandStack().execute(
 				AddCommand.create(editingDomain,
-						((domain.ModelQuery) property.getEObject()),
+						((domain.ModelQuery) property.getModel()),
 						DomainPackage.eINSTANCE.getOperation_Parameters(), ls));
 
 		rowList.add(rowList.size(), parameter);
@@ -55,7 +55,7 @@ public class ParameterDS extends DataSource {
 
 		editingDomain.getCommandStack().execute(
 				RemoveCommand.create(editingDomain,
-						((domain.ModelQuery) property.getEObject()),
+						((domain.ModelQuery) property.getModel()),
 						DomainPackage.eINSTANCE.getOperation_Parameters(), ls));
 
 		rowList.remove(row);
@@ -67,7 +67,7 @@ public class ParameterDS extends DataSource {
 	public List<Object> queryRows() {
 		try {
 			domain.Operation operation = ((domain.Operation) property
-					.getEObject());
+					.getModel());
 
 			ArrayList<Object> rows = new ArrayList<Object>();
 			for (Iterator<domain.Parameter> i = operation.getParameters()
