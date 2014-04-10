@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.FormView#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.FormView#getName <em>Name</em>}</li>
+ *   <li>{@link domain.FormView#getView <em>View</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +75,31 @@ public interface FormView extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>View</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>View</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>View</em>' reference.
+   * @see #setView(Views)
+   * @see domain.DomainPackage#getFormView_View()
+   * @model
+   * @generated
+   */
+  Views getView();
+
+  /**
+   * Sets the value of the '{@link domain.FormView#getView <em>View</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>View</em>' reference.
+   * @see #getView()
+   * @generated
+   */
+  void setView(Views value);
 
 } // FormView

@@ -251,12 +251,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String JavaMapper1CreationTool_title;
+	public static String Canvas1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaMapper1CreationTool_desc;
+	public static String Canvas1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String JavaMapper2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String JavaMapper2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TabCanvas3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TabCanvas3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TabPage4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TabPage4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPort5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPort5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPortTrigger6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPortTrigger6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Window7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Window7CreationTool_desc;
 
 	/**
 	 * @generated

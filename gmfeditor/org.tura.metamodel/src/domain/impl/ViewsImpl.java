@@ -1,0 +1,357 @@
+/**
+ */
+package domain.impl;
+
+import domain.Canvas;
+import domain.DomainPackage;
+import domain.TabPagesInheritance;
+import domain.ViewInheritance;
+import domain.Views;
+import domain.Window;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Views</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link domain.impl.ViewsImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.impl.ViewsImpl#getCanvases <em>Canvases</em>}</li>
+ *   <li>{@link domain.impl.ViewsImpl#getWindows <em>Windows</em>}</li>
+ *   <li>{@link domain.impl.ViewsImpl#getViewInheritances <em>View Inheritances</em>}</li>
+ *   <li>{@link domain.impl.ViewsImpl#getTabPagesInheritances <em>Tab Pages Inheritances</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public class ViewsImpl extends EObjectImpl implements Views
+{
+  /**
+   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected static final String UID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUid()
+   * @generated
+   * @ordered
+   */
+  protected String uid = UID_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getCanvases() <em>Canvases</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCanvases()
+   * @generated
+   * @ordered
+   */
+  protected EList<Canvas> canvases;
+
+  /**
+   * The cached value of the '{@link #getWindows() <em>Windows</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWindows()
+   * @generated
+   * @ordered
+   */
+  protected EList<Window> windows;
+
+  /**
+   * The cached value of the '{@link #getViewInheritances() <em>View Inheritances</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getViewInheritances()
+   * @generated
+   * @ordered
+   */
+  protected EList<ViewInheritance> viewInheritances;
+
+  /**
+   * The cached value of the '{@link #getTabPagesInheritances() <em>Tab Pages Inheritances</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTabPagesInheritances()
+   * @generated
+   * @ordered
+   */
+  protected EList<TabPagesInheritance> tabPagesInheritances;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ViewsImpl()
+  {
+    super();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EClass eStaticClass()
+  {
+    return DomainPackage.Literals.VIEWS;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getUid()
+  {
+    return uid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUid(String newUid)
+  {
+    String oldUid = uid;
+    uid = newUid;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.VIEWS__UID, oldUid, uid));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Canvas> getCanvases()
+  {
+    if (canvases == null)
+    {
+      canvases = new EObjectContainmentEList<Canvas>(Canvas.class, this, DomainPackage.VIEWS__CANVASES);
+    }
+    return canvases;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Window> getWindows()
+  {
+    if (windows == null)
+    {
+      windows = new EObjectContainmentEList<Window>(Window.class, this, DomainPackage.VIEWS__WINDOWS);
+    }
+    return windows;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ViewInheritance> getViewInheritances()
+  {
+    if (viewInheritances == null)
+    {
+      viewInheritances = new EObjectContainmentEList<ViewInheritance>(ViewInheritance.class, this, DomainPackage.VIEWS__VIEW_INHERITANCES);
+    }
+    return viewInheritances;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<TabPagesInheritance> getTabPagesInheritances()
+  {
+    if (tabPagesInheritances == null)
+    {
+      tabPagesInheritances = new EObjectContainmentEList<TabPagesInheritance>(TabPagesInheritance.class, this, DomainPackage.VIEWS__TAB_PAGES_INHERITANCES);
+    }
+    return tabPagesInheritances;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.VIEWS__CANVASES:
+        return ((InternalEList<?>)getCanvases()).basicRemove(otherEnd, msgs);
+      case DomainPackage.VIEWS__WINDOWS:
+        return ((InternalEList<?>)getWindows()).basicRemove(otherEnd, msgs);
+      case DomainPackage.VIEWS__VIEW_INHERITANCES:
+        return ((InternalEList<?>)getViewInheritances()).basicRemove(otherEnd, msgs);
+      case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
+        return ((InternalEList<?>)getTabPagesInheritances()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.VIEWS__UID:
+        return getUid();
+      case DomainPackage.VIEWS__CANVASES:
+        return getCanvases();
+      case DomainPackage.VIEWS__WINDOWS:
+        return getWindows();
+      case DomainPackage.VIEWS__VIEW_INHERITANCES:
+        return getViewInheritances();
+      case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
+        return getTabPagesInheritances();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.VIEWS__UID:
+        setUid((String)newValue);
+        return;
+      case DomainPackage.VIEWS__CANVASES:
+        getCanvases().clear();
+        getCanvases().addAll((Collection<? extends Canvas>)newValue);
+        return;
+      case DomainPackage.VIEWS__WINDOWS:
+        getWindows().clear();
+        getWindows().addAll((Collection<? extends Window>)newValue);
+        return;
+      case DomainPackage.VIEWS__VIEW_INHERITANCES:
+        getViewInheritances().clear();
+        getViewInheritances().addAll((Collection<? extends ViewInheritance>)newValue);
+        return;
+      case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
+        getTabPagesInheritances().clear();
+        getTabPagesInheritances().addAll((Collection<? extends TabPagesInheritance>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.VIEWS__UID:
+        setUid(UID_EDEFAULT);
+        return;
+      case DomainPackage.VIEWS__CANVASES:
+        getCanvases().clear();
+        return;
+      case DomainPackage.VIEWS__WINDOWS:
+        getWindows().clear();
+        return;
+      case DomainPackage.VIEWS__VIEW_INHERITANCES:
+        getViewInheritances().clear();
+        return;
+      case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
+        getTabPagesInheritances().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.VIEWS__UID:
+        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+      case DomainPackage.VIEWS__CANVASES:
+        return canvases != null && !canvases.isEmpty();
+      case DomainPackage.VIEWS__WINDOWS:
+        return windows != null && !windows.isEmpty();
+      case DomainPackage.VIEWS__VIEW_INHERITANCES:
+        return viewInheritances != null && !viewInheritances.isEmpty();
+      case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
+        return tabPagesInheritances != null && !tabPagesInheritances.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (uid: ");
+    result.append(uid);
+    result.append(')');
+    return result.toString();
+  }
+
+} //ViewsImpl

@@ -15,6 +15,7 @@ import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
+import domain.Canvas;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
@@ -91,6 +92,9 @@ import domain.ServerClaster;
 import domain.Specifier;
 import domain.Storage;
 import domain.Subsystem;
+import domain.TabCanvas;
+import domain.TabPage;
+import domain.TabPagesInheritance;
 import domain.Trigger;
 import domain.TriggerParameter;
 import domain.Type;
@@ -104,14 +108,20 @@ import domain.TypesRepository;
 import domain.UIPackage;
 import domain.UpdateTrigger;
 import domain.UsingMappers;
+import domain.ViewInheritance;
+import domain.ViewPort;
+import domain.ViewPortTrigger;
+import domain.Views;
+import domain.Window;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EFactoryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import domain.*;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc -->
@@ -231,6 +241,15 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.UI_PACKAGE: return createUIPackage();
       case DomainPackage.FORM: return createForm();
       case DomainPackage.FORM_VIEW: return createFormView();
+      case DomainPackage.VIEWS: return createViews();
+      case DomainPackage.CANVAS: return createCanvas();
+      case DomainPackage.VIEW_PORT: return createViewPort();
+      case DomainPackage.VIEW_PORT_TRIGGER: return createViewPortTrigger();
+      case DomainPackage.WINDOW: return createWindow();
+      case DomainPackage.VIEW_INHERITANCE: return createViewInheritance();
+      case DomainPackage.TAB_CANVAS: return createTabCanvas();
+      case DomainPackage.TAB_PAGE: return createTabPage();
+      case DomainPackage.TAB_PAGES_INHERITANCE: return createTabPagesInheritance();
       case DomainPackage.FORM_DATA_CONTROLS: return createFormDataControls();
       case DomainPackage.CONTROLS: return createControls();
       case DomainPackage.TRIGGER: return createTrigger();
@@ -1028,6 +1047,105 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     FormViewImpl formView = new FormViewImpl();
     return formView;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Views createViews()
+  {
+    ViewsImpl views = new ViewsImpl();
+    return views;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Canvas createCanvas()
+  {
+    CanvasImpl canvas = new CanvasImpl();
+    return canvas;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ViewPort createViewPort()
+  {
+    ViewPortImpl viewPort = new ViewPortImpl();
+    return viewPort;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ViewPortTrigger createViewPortTrigger()
+  {
+    ViewPortTriggerImpl viewPortTrigger = new ViewPortTriggerImpl();
+    return viewPortTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Window createWindow()
+  {
+    WindowImpl window = new WindowImpl();
+    return window;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ViewInheritance createViewInheritance()
+  {
+    ViewInheritanceImpl viewInheritance = new ViewInheritanceImpl();
+    return viewInheritance;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TabCanvas createTabCanvas()
+  {
+    TabCanvasImpl tabCanvas = new TabCanvasImpl();
+    return tabCanvas;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TabPage createTabPage()
+  {
+    TabPageImpl tabPage = new TabPageImpl();
+    return tabPage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TabPagesInheritance createTabPagesInheritance()
+  {
+    TabPagesInheritanceImpl tabPagesInheritance = new TabPagesInheritanceImpl();
+    return tabPagesInheritance;
   }
 
   /**

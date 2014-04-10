@@ -6,8 +6,8 @@ import domain.ApplicationInfrastructureLayer;
 import domain.Datacenter;
 import domain.DomainPackage;
 import domain.EnterpriseInfrastructure;
-
 import domain.InfrastructureConnection;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

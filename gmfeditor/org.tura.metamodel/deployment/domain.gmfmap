@@ -21,7 +21,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
           href="domain.gmfgraph#DeploymentComponent"/>
     </ownedChild>
@@ -41,7 +41,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
           href="domain.gmfgraph#DeploymentStarStep"/>
     </ownedChild>
@@ -51,16 +51,16 @@
         xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
-          href="domain.gmfgraph#DeploymentComponentDeploymentComponentExternalLabel"/>
+          href="domain.gmfgraph#DeploymentComponentDeploymentComponentLinkExternalLabel"/>
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
         href="domain.gmftool#//@palette/@tools.1/@tools.1"/>
     <diagramLink
-        href="domain.gmfgraph#DeploymentComponentDeploymentComponent"/>
+        href="domain.gmfgraph#DeploymentComponentDeploymentComponentLink"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="domain.ecore#//DeploymentComponent/deploymentComponent"/>
+        href="domain.ecore#//DeploymentComponent/deploymentComponentLink"/>
   </links>
   <links>
     <labelMappings

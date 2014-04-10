@@ -67,7 +67,7 @@ public class DeploymentComponentItemProvider
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
       addMapperPropertyDescriptor(object);
-      addDeploymentComponentPropertyDescriptor(object);
+      addDeploymentComponentLinkPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -142,20 +142,20 @@ public class DeploymentComponentItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Deployment Component feature.
+   * This adds a property descriptor for the Deployment Component Link feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addDeploymentComponentPropertyDescriptor(Object object)
+  protected void addDeploymentComponentLinkPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_DeploymentComponent_deploymentComponent_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_DeploymentComponent_deploymentComponent_feature", "_UI_DeploymentComponent_type"),
-         DomainPackage.Literals.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT,
+         getString("_UI_DeploymentComponent_deploymentComponentLink_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DeploymentComponent_deploymentComponentLink_feature", "_UI_DeploymentComponent_type"),
+         DomainPackage.Literals.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK,
          true,
          false,
          true,

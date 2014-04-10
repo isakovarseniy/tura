@@ -83,7 +83,7 @@ public interface Link extends EObject
    * Returns the value of the '<em><b>Master Field</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Master Field</em>' attribute isn't clear,
+   * If the meaning of the '<em>Master Field</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
@@ -109,7 +109,7 @@ public interface Link extends EObject
    * Returns the value of the '<em><b>Detail Field</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Detail Field</em>' attribute isn't clear,
+   * If the meaning of the '<em>Detail Field</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->

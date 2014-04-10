@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.DeploymentComponentImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DeploymentComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DeploymentComponentImpl#getMapper <em>Mapper</em>}</li>
- *   <li>{@link domain.impl.DeploymentComponentImpl#getDeploymentComponent <em>Deployment Component</em>}</li>
+ *   <li>{@link domain.impl.DeploymentComponentImpl#getDeploymentComponentLink <em>Deployment Component Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,14 +83,14 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
   protected ModelMapper mapper;
 
   /**
-   * The cached value of the '{@link #getDeploymentComponent() <em>Deployment Component</em>}' reference.
+   * The cached value of the '{@link #getDeploymentComponentLink() <em>Deployment Component Link</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDeploymentComponent()
+   * @see #getDeploymentComponentLink()
    * @generated
    * @ordered
    */
-  protected DeploymentComponent deploymentComponent;
+  protected DeploymentComponent deploymentComponentLink;
 
   /**
    * <!-- begin-user-doc -->
@@ -207,19 +207,19 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
    * <!-- end-user-doc -->
    * @generated
    */
-  public DeploymentComponent getDeploymentComponent()
+  public DeploymentComponent getDeploymentComponentLink()
   {
-    if (deploymentComponent != null && deploymentComponent.eIsProxy())
+    if (deploymentComponentLink != null && deploymentComponentLink.eIsProxy())
     {
-      InternalEObject oldDeploymentComponent = (InternalEObject)deploymentComponent;
-      deploymentComponent = (DeploymentComponent)eResolveProxy(oldDeploymentComponent);
-      if (deploymentComponent != oldDeploymentComponent)
+      InternalEObject oldDeploymentComponentLink = (InternalEObject)deploymentComponentLink;
+      deploymentComponentLink = (DeploymentComponent)eResolveProxy(oldDeploymentComponentLink);
+      if (deploymentComponentLink != oldDeploymentComponentLink)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT, oldDeploymentComponent, deploymentComponent));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK, oldDeploymentComponentLink, deploymentComponentLink));
       }
     }
-    return deploymentComponent;
+    return deploymentComponentLink;
   }
 
   /**
@@ -227,9 +227,9 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
    * <!-- end-user-doc -->
    * @generated
    */
-  public DeploymentComponent basicGetDeploymentComponent()
+  public DeploymentComponent basicGetDeploymentComponentLink()
   {
-    return deploymentComponent;
+    return deploymentComponentLink;
   }
 
   /**
@@ -237,12 +237,12 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDeploymentComponent(DeploymentComponent newDeploymentComponent)
+  public void setDeploymentComponentLink(DeploymentComponent newDeploymentComponentLink)
   {
-    DeploymentComponent oldDeploymentComponent = deploymentComponent;
-    deploymentComponent = newDeploymentComponent;
+    DeploymentComponent oldDeploymentComponentLink = deploymentComponentLink;
+    deploymentComponentLink = newDeploymentComponentLink;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT, oldDeploymentComponent, deploymentComponent));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK, oldDeploymentComponentLink, deploymentComponentLink));
   }
 
   /**
@@ -262,9 +262,9 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
       case DomainPackage.DEPLOYMENT_COMPONENT__MAPPER:
         if (resolve) return getMapper();
         return basicGetMapper();
-      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT:
-        if (resolve) return getDeploymentComponent();
-        return basicGetDeploymentComponent();
+      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK:
+        if (resolve) return getDeploymentComponentLink();
+        return basicGetDeploymentComponentLink();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -288,8 +288,8 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
       case DomainPackage.DEPLOYMENT_COMPONENT__MAPPER:
         setMapper((ModelMapper)newValue);
         return;
-      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT:
-        setDeploymentComponent((DeploymentComponent)newValue);
+      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK:
+        setDeploymentComponentLink((DeploymentComponent)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -314,8 +314,8 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
       case DomainPackage.DEPLOYMENT_COMPONENT__MAPPER:
         setMapper((ModelMapper)null);
         return;
-      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT:
-        setDeploymentComponent((DeploymentComponent)null);
+      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK:
+        setDeploymentComponentLink((DeploymentComponent)null);
         return;
     }
     super.eUnset(featureID);
@@ -337,8 +337,8 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainPackage.DEPLOYMENT_COMPONENT__MAPPER:
         return mapper != null;
-      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT:
-        return deploymentComponent != null;
+      case DomainPackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK:
+        return deploymentComponentLink != null;
     }
     return super.eIsSet(featureID);
   }

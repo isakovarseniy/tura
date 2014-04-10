@@ -137,35 +137,35 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="904012"
-        editPartClassName="DeploymentComponentDeploymentComponentEditPart"
-        itemSemanticEditPolicyClassName="DeploymentComponentDeploymentComponentItemSemanticEditPolicy"
-        createCommandClassName="DeploymentComponentDeploymentComponentCreateCommand"
-        reorientCommandClassName="DeploymentComponentDeploymentComponentReorientCommand">
+        visualID="904014"
+        editPartClassName="DeploymentComponentDeploymentComponentLinkEditPart"
+        itemSemanticEditPolicyClassName="DeploymentComponentDeploymentComponentLinkItemSemanticEditPolicy"
+        createCommandClassName="DeploymentComponentDeploymentComponentLinkCreateCommand"
+        reorientCommandClassName="DeploymentComponentDeploymentComponentLinkReorientCommand">
       <diagramRunTimeClass
           href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="DeploymentComponentDeploymentComponentFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DeploymentComponentDeploymentComponentFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DeploymentComponentDeploymentComponentFigure() {&#xA;&#x9;&#x9;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="DeploymentComponentDeploymentComponentLinkFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DeploymentComponentDeploymentComponentLinkFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DeploymentComponentDeploymentComponentLinkFigure() {&#xA;&#x9;&#x9;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
           xsi:type="gmfgen:FeatureLinkModelFacet">
         <metaFeature
-            href="domain.genmodel#//domain/DeploymentComponent/deploymentComponent"/>
+            href="domain.genmodel#//domain/DeploymentComponent/deploymentComponentLink"/>
       </modelFacet>
       <labels
-          visualID="906008"
-          editPartClassName="DeploymentComponentDeploymentComponentExternalLabelEditPart"
-          itemSemanticEditPolicyClassName="DeploymentComponentDeploymentComponentExternalLabelItemSemanticEditPolicy"
+          visualID="906010"
+          editPartClassName="DeploymentComponentDeploymentComponentLinkExternalLabelEditPart"
+          itemSemanticEditPolicyClassName="DeploymentComponentDeploymentComponentLinkExternalLabelItemSemanticEditPolicy"
           readOnly="true">
         <diagramRunTimeClass
             href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
-            className="DeploymentComponentDeploymentComponentExternalLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DeploymentComponentDeploymentComponentExternalLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DeploymentComponentDeploymentComponentExternalLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&quot;);&#xA;&#xA;this.setFont(THIS_FONT);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font THIS_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+            className="DeploymentComponentDeploymentComponentLinkExternalLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DeploymentComponentDeploymentComponentLinkExternalLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DeploymentComponentDeploymentComponentLinkExternalLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&quot;);&#xA;&#xA;this.setFont(THIS_FONT);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font THIS_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedFont="true"/>
@@ -268,6 +268,10 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="Canvas"
+            description="Create new Canvas"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="DeploymentComponent"
             description="Create new DeploymentComponent"
             genNodes="//@diagram/@topLevelNodes.0"/>
@@ -276,6 +280,26 @@
             title="DeploymentStarStep"
             description="Create new DeploymentStarStep"
             genNodes="//@diagram/@topLevelNodes.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="TabCanvas"
+            description="Create new TabCanvas"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="TabPage"
+            description="Create new TabPage"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ViewPort"
+            description="Create new ViewPort"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ViewPortTrigger"
+            description="Create new ViewPortTrigger"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Window"
+            description="Create new Window"/>
       </groups>
       <groups
           title="Connections"
@@ -287,8 +311,8 @@
             genLinks="//@diagram/@links.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="DeploymentComponent"
-            description="Create new DeploymentComponent"
+            title="DeploymentComponentLink"
+            description="Create new DeploymentComponentLink"
             genLinks="//@diagram/@links.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"

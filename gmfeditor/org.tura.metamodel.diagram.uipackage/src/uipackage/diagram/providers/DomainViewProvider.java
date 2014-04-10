@@ -299,6 +299,12 @@ public class DomainViewProvider extends AbstractProvider implements
 		node.getStyles()
 				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		{
+			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
+					.createHintedDiagramLinkStyle();
+			diagramFacet.setHint("FrmView"); //$NON-NLS-1$
+			node.getStyles().add(diagramFacet);
+		}
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry.getType(FormViewEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);

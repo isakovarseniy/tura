@@ -29,7 +29,9 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import org.tura.metamodel.commons.editparts.SizeLimitedLabel;
 import uipackage.diagram.edit.policies.FormViewItemSemanticEditPolicy;
+import uipackage.diagram.edit.policies.OpenDiagramFormViewEditPolicy;
 import uipackage.diagram.part.DomainVisualIDRegistry;
 
 /**
@@ -67,6 +69,8 @@ public class FormViewEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new FormViewItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenDiagramFormViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -262,7 +266,7 @@ public class FormViewEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureFormViewLabelFigure;
+		private SizeLimitedLabel fFigureFormViewLabelFigure;
 
 		/**
 		 * @generated
@@ -283,7 +287,7 @@ public class FormViewEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureFormViewLabelFigure = new WrappingLabel();
+			fFigureFormViewLabelFigure = new SizeLimitedLabel();
 
 			fFigureFormViewLabelFigure.setText("FormView");
 
@@ -296,7 +300,7 @@ public class FormViewEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureFormViewLabelFigure() {
+		public SizeLimitedLabel getFigureFormViewLabelFigure() {
 			return fFigureFormViewLabelFigure;
 		}
 

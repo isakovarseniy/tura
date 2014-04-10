@@ -79,7 +79,7 @@ public class MetamodelDeploymentJob extends Job {
 
 			int i = 0;
 			for (; component != null; component = component
-					.getDeploymentComponent(), i++) {
+					.getDeploymentComponentLink(), i++) {
 			}
 
 			component = deploymentSequence.getDeploymentComponents()
@@ -126,7 +126,7 @@ public class MetamodelDeploymentJob extends Job {
 					System.err.println(component.getName()
 							+ " has empty execution string");
 				}
-				component = component.getDeploymentComponent();
+				component = component.getDeploymentComponentLink();
 				monitor.worked(1);
 			}
 		} catch (Exception e) {

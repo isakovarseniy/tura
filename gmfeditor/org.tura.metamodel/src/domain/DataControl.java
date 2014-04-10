@@ -3,6 +3,7 @@
 package domain;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -280,25 +281,6 @@ public interface DataControl extends EObject
   void setPreUpdateTrigger(PREUpdateTrigger value);
 
   /**
-   * Returns the value of the '<em><b>Artificial Fields</b></em>' containment reference list.
-   * The list contents are of type {@link domain.ArtificialField}.
-   * It is bidirectional and its opposite is '{@link domain.ArtificialField#getParent <em>Parent</em>}'.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Artificial Fields</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Artificial Fields</em>' containment reference list.
-   * @see domain.DomainPackage#getDataControl_ArtificialFields()
-   * @see domain.ArtificialField#getParent
-   * @model opposite="parent" containment="true"
-   *        annotation="gmf.compartment layout='list'"
-   * @generated
-   */
-  EList<ArtificialField> getArtificialFields();
-
-  /**
    * Returns the value of the '<em><b>Create</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -432,5 +414,24 @@ public interface DataControl extends EObject
    * @generated
    */
   void setSearch(SearchTrigger value);
+
+  /**
+   * Returns the value of the '<em><b>Artificial Fields</b></em>' containment reference list.
+   * The list contents are of type {@link domain.ArtificialField}.
+   * It is bidirectional and its opposite is '{@link domain.ArtificialField#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Artificial Fields</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Artificial Fields</em>' containment reference list.
+   * @see domain.DomainPackage#getDataControl_ArtificialFields()
+   * @see domain.ArtificialField#getParent
+   * @model opposite="parent" containment="true"
+   *        annotation="gmf.compartment layout='list'"
+   * @generated
+   */
+  EList<ArtificialField> getArtificialFields();
 
 } // DataControl

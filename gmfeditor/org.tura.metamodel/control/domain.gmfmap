@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.12"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.13"/>
       <diagramNode
           href="domain.gmfgraph#Root"/>
       <children
@@ -41,7 +41,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
           <diagramNode
               href="domain.gmfgraph#PREFormTrigger"/>
         </ownedChild>
@@ -69,7 +69,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="domain.gmfgraph#DataControl"/>
       <children
@@ -88,7 +88,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.11"/>
           <diagramNode
               href="domain.gmfgraph#PREQueryTrigger"/>
         </ownedChild>
@@ -109,7 +109,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
           <diagramNode
               href="domain.gmfgraph#POSTQueryTrigger"/>
         </ownedChild>
@@ -130,7 +130,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
           <diagramNode
               href="domain.gmfgraph#PREInsertTrigger"/>
         </ownedChild>
@@ -151,7 +151,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.8"/>
           <diagramNode
               href="domain.gmfgraph#PREDeleteTrigger"/>
         </ownedChild>
@@ -172,7 +172,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
               href="domain.gmfgraph#POSTCreateTrigger"/>
         </ownedChild>
@@ -193,7 +193,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.11"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.12"/>
           <diagramNode
               href="domain.gmfgraph#PREUpdateTrigger"/>
         </ownedChild>
@@ -214,7 +214,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="domain.gmfgraph#CreateTrigger"/>
         </ownedChild>
@@ -235,7 +235,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="domain.gmfgraph#InsertTrigger"/>
         </ownedChild>
@@ -256,7 +256,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.14"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.17"/>
           <diagramNode
               href="domain.gmfgraph#UpdateTrigger"/>
         </ownedChild>
@@ -277,7 +277,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="domain.gmfgraph#DeleteTrigger"/>
         </ownedChild>
@@ -298,7 +298,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.13"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.14"/>
           <diagramNode
               href="domain.gmfgraph#SearchTrigger"/>
         </ownedChild>

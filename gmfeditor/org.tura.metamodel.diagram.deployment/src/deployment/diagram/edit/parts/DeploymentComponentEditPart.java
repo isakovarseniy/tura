@@ -268,7 +268,7 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.DeploymentComponentDeploymentComponent_904012);
+		types.add(DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014);
 		return types;
 	}
 
@@ -279,7 +279,7 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof deployment.diagram.edit.parts.DeploymentComponentEditPart) {
-			types.add(DomainElementTypes.DeploymentComponentDeploymentComponent_904012);
+			types.add(DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014);
 		}
 		return types;
 	}
@@ -289,7 +289,7 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.DeploymentComponentDeploymentComponent_904012) {
+		if (relationshipType == DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014) {
 			types.add(DomainElementTypes.DeploymentComponent_902001);
 		}
 		return types;
@@ -300,7 +300,7 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(DomainElementTypes.DeploymentComponentDeploymentComponent_904012);
+		types.add(DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014);
 		types.add(DomainElementTypes.DeploymentStarStepFirstStep_904008);
 		return types;
 	}
@@ -310,7 +310,7 @@ public class DeploymentComponentEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.DeploymentComponentDeploymentComponent_904012) {
+		if (relationshipType == DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014) {
 			types.add(DomainElementTypes.DeploymentComponent_902001);
 		} else if (relationshipType == DomainElementTypes.DeploymentStarStepFirstStep_904008) {
 			types.add(DomainElementTypes.DeploymentStarStep_902002);

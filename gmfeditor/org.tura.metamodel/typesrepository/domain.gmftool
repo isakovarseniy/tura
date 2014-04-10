@@ -12,6 +12,15 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
+          title="Canvas"
+          description="Create new Canvas">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Package"
           description="Create new Package">
         <smallIcon
@@ -21,8 +30,53 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="TabCanvas"
+          description="Create new TabCanvas">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="TabPage"
+          description="Create new TabPage">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Types"
           description="Create new Types">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ViewPort"
+          description="Create new ViewPort">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ViewPortTrigger"
+          description="Create new ViewPortTrigger">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Window"
+          description="Create new Window">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

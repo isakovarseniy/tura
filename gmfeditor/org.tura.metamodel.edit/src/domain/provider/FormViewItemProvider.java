@@ -66,6 +66,7 @@ public class FormViewItemProvider
 
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
+      addViewPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -112,6 +113,29 @@ public class FormViewItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the View feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addViewPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_FormView_view_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_FormView_view_feature", "_UI_FormView_type"),
+         DomainPackage.Literals.FORM_VIEW__VIEW,
+         true,
+         false,
+         true,
+         null,
          null,
          null));
   }

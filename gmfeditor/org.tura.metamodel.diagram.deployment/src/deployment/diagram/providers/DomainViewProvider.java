@@ -44,8 +44,8 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
-import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
-import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentExternalLabelEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentLinkEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentLinkExternalLabelEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentNameEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentsEditPart;
@@ -241,8 +241,8 @@ public class DomainViewProvider extends AbstractProvider implements
 		IElementType elementType = getSemanticElementType(semanticAdapter);
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (DomainVisualIDRegistry.getVisualID(elementTypeHint)) {
-		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
-			return createDeploymentComponentDeploymentComponent_904012(
+		case DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID:
+			return createDeploymentComponentDeploymentComponentLink_904014(
 					containerView, index, persisted, preferencesHint);
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
 			return createDeploymentStarStepFirstStep_904008(containerView,
@@ -336,7 +336,7 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createDeploymentComponentDeploymentComponent_904012(
+	public Edge createDeploymentComponentDeploymentComponentLink_904014(
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -351,7 +351,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge.setType(DomainVisualIDRegistry
-				.getType(DeploymentComponentDeploymentComponentEditPart.VISUAL_ID));
+				.getType(DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID));
 		edge.setElement(null);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
@@ -383,17 +383,17 @@ public class DomainViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label906008 = createLabel(
+		Node label906010 = createLabel(
 				edge,
 				DomainVisualIDRegistry
-						.getType(DeploymentComponentDeploymentComponentExternalLabelEditPart.VISUAL_ID));
-		label906008.getStyles().add(
+						.getType(DeploymentComponentDeploymentComponentLinkExternalLabelEditPart.VISUAL_ID));
+		label906010.getStyles().add(
 				NotationFactory.eINSTANCE.createDescriptionStyle());
-		label906008.setLayoutConstraint(NotationFactory.eINSTANCE
+		label906010.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location906008 = (Location) label906008.getLayoutConstraint();
-		location906008.setX(0);
-		location906008.setY(40);
+		Location location906010 = (Location) label906010.getLayoutConstraint();
+		location906010.setX(0);
+		location906010.setY(40);
 		return edge;
 	}
 

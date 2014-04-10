@@ -2081,13 +2081,13 @@ public interface DomainPackage extends EPackage
   int DEPLOYMENT_COMPONENT__MAPPER = 2;
 
   /**
-   * The feature id for the '<em><b>Deployment Component</b></em>' reference.
+   * The feature id for the '<em><b>Deployment Component Link</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT = 3;
+  int DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK = 3;
 
   /**
    * The number of structural features of the '<em>Deployment Component</em>' class.
@@ -4057,23 +4057,32 @@ public interface DomainPackage extends EPackage
   int FORM_VIEW__NAME = 1;
 
   /**
+   * The feature id for the '<em><b>View</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_VIEW__VIEW = 2;
+
+  /**
    * The number of structural features of the '<em>Form View</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FORM_VIEW_FEATURE_COUNT = 2;
+  int FORM_VIEW_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.FormDataControlsImpl <em>Form Data Controls</em>}' class.
+   * The meta object id for the '{@link domain.impl.ViewsImpl <em>Views</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.FormDataControlsImpl
-   * @see domain.impl.DomainPackageImpl#getFormDataControls()
+   * @see domain.impl.ViewsImpl
+   * @see domain.impl.DomainPackageImpl#getViews()
    * @generated
    */
-  int FORM_DATA_CONTROLS = 66;
+  int VIEWS = 66;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4082,7 +4091,71 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FORM_DATA_CONTROLS__UID = 0;
+  int VIEWS__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Canvases</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEWS__CANVASES = 1;
+
+  /**
+   * The feature id for the '<em><b>Windows</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEWS__WINDOWS = 2;
+
+  /**
+   * The feature id for the '<em><b>View Inheritances</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEWS__VIEW_INHERITANCES = 3;
+
+  /**
+   * The feature id for the '<em><b>Tab Pages Inheritances</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEWS__TAB_PAGES_INHERITANCES = 4;
+
+  /**
+   * The number of structural features of the '<em>Views</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEWS_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link domain.impl.CanvasImpl <em>Canvas</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.CanvasImpl
+   * @see domain.impl.DomainPackageImpl#getCanvas()
+   * @generated
+   */
+  int CANVAS = 67;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CANVAS__UID = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4091,35 +4164,35 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FORM_DATA_CONTROLS__NAME = 1;
+  int CANVAS__NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Control</b></em>' reference.
+   * The feature id for the '<em><b>View Ports</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FORM_DATA_CONTROLS__CONTROL = 2;
+  int CANVAS__VIEW_PORTS = 2;
 
   /**
-   * The number of structural features of the '<em>Form Data Controls</em>' class.
+   * The number of structural features of the '<em>Canvas</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FORM_DATA_CONTROLS_FEATURE_COUNT = 3;
+  int CANVAS_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link domain.impl.ControlsImpl <em>Controls</em>}' class.
+   * The meta object id for the '{@link domain.impl.ViewPortImpl <em>View Port</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see domain.impl.ControlsImpl
-   * @see domain.impl.DomainPackageImpl#getControls()
+   * @see domain.impl.ViewPortImpl
+   * @see domain.impl.DomainPackageImpl#getViewPort()
    * @generated
    */
-  int CONTROLS = 67;
+  int VIEW_PORT = 68;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4128,43 +4201,34 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTROLS__UID = 0;
+  int VIEW_PORT__UID = 0;
 
   /**
-   * The feature id for the '<em><b>Root</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTROLS__ROOT = 1;
+  int VIEW_PORT__NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Controls</b></em>' containment reference list.
+   * The feature id for the '<em><b>View Port Trigger</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTROLS__CONTROLS = 2;
+  int VIEW_PORT__VIEW_PORT_TRIGGER = 2;
 
   /**
-   * The feature id for the '<em><b>Relations</b></em>' containment reference list.
+   * The number of structural features of the '<em>View Port</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTROLS__RELATIONS = 3;
-
-  /**
-   * The number of structural features of the '<em>Controls</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTROLS_FEATURE_COUNT = 4;
+  int VIEW_PORT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link domain.impl.TriggerImpl <em>Trigger</em>}' class.
@@ -4174,7 +4238,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTrigger()
    * @generated
    */
-  int TRIGGER = 68;
+  int TRIGGER = 77;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -4267,6 +4331,437 @@ public interface DomainPackage extends EPackage
   int TRIGGER_FEATURE_COUNT = METHOD_POINTER_FEATURE_COUNT + 3;
 
   /**
+   * The meta object id for the '{@link domain.impl.ViewPortTriggerImpl <em>View Port Trigger</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ViewPortTriggerImpl
+   * @see domain.impl.DomainPackageImpl#getViewPortTrigger()
+   * @generated
+   */
+  int VIEW_PORT_TRIGGER = 69;
+
+  /**
+   * The feature id for the '<em><b>Package Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT_TRIGGER__PACKAGE_REF = TRIGGER__PACKAGE_REF;
+
+  /**
+   * The feature id for the '<em><b>Type Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT_TRIGGER__FAKE_PACKAGE_NAME = TRIGGER__FAKE_PACKAGE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Fake Type Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT_TRIGGER__FAKE_TYPE_NAME = TRIGGER__FAKE_TYPE_NAME;
+
+  /**
+   * The feature id for the '<em><b>Method Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT_TRIGGER__METHOD_REF = TRIGGER__METHOD_REF;
+
+  /**
+   * The feature id for the '<em><b>Fake Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT_TRIGGER__FAKE_METHOD = TRIGGER__FAKE_METHOD;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT_TRIGGER__UID = TRIGGER__UID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT_TRIGGER__NAME = TRIGGER__NAME;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
+
+  /**
+   * The number of structural features of the '<em>View Port Trigger</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_PORT_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.WindowImpl <em>Window</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.WindowImpl
+   * @see domain.impl.DomainPackageImpl#getWindow()
+   * @generated
+   */
+  int WINDOW = 70;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WINDOW__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WINDOW__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Main Canvas</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WINDOW__MAIN_CANVAS = 2;
+
+  /**
+   * The number of structural features of the '<em>Window</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WINDOW_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ViewInheritanceImpl <em>View Inheritance</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ViewInheritanceImpl
+   * @see domain.impl.DomainPackageImpl#getViewInheritance()
+   * @generated
+   */
+  int VIEW_INHERITANCE = 71;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_INHERITANCE__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Source</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_INHERITANCE__SOURCE = 1;
+
+  /**
+   * The feature id for the '<em><b>Target</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_INHERITANCE__TARGET = 2;
+
+  /**
+   * The number of structural features of the '<em>View Inheritance</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_INHERITANCE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TabCanvasImpl <em>Tab Canvas</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TabCanvasImpl
+   * @see domain.impl.DomainPackageImpl#getTabCanvas()
+   * @generated
+   */
+  int TAB_CANVAS = 72;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_CANVAS__UID = CANVAS__UID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_CANVAS__NAME = CANVAS__NAME;
+
+  /**
+   * The feature id for the '<em><b>View Ports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_CANVAS__VIEW_PORTS = CANVAS__VIEW_PORTS;
+
+  /**
+   * The number of structural features of the '<em>Tab Canvas</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_CANVAS_FEATURE_COUNT = CANVAS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TabPageImpl <em>Tab Page</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TabPageImpl
+   * @see domain.impl.DomainPackageImpl#getTabPage()
+   * @generated
+   */
+  int TAB_PAGE = 73;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_PAGE__UID = CANVAS__UID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_PAGE__NAME = CANVAS__NAME;
+
+  /**
+   * The feature id for the '<em><b>View Ports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_PAGE__VIEW_PORTS = CANVAS__VIEW_PORTS;
+
+  /**
+   * The number of structural features of the '<em>Tab Page</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_PAGE_FEATURE_COUNT = CANVAS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link domain.impl.TabPagesInheritanceImpl <em>Tab Pages Inheritance</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.TabPagesInheritanceImpl
+   * @see domain.impl.DomainPackageImpl#getTabPagesInheritance()
+   * @generated
+   */
+  int TAB_PAGES_INHERITANCE = 74;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_PAGES_INHERITANCE__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Source</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_PAGES_INHERITANCE__SOURCE = 1;
+
+  /**
+   * The feature id for the '<em><b>Target</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_PAGES_INHERITANCE__TARGET = 2;
+
+  /**
+   * The number of structural features of the '<em>Tab Pages Inheritance</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_PAGES_INHERITANCE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.FormDataControlsImpl <em>Form Data Controls</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.FormDataControlsImpl
+   * @see domain.impl.DomainPackageImpl#getFormDataControls()
+   * @generated
+   */
+  int FORM_DATA_CONTROLS = 75;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_DATA_CONTROLS__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_DATA_CONTROLS__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Control</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_DATA_CONTROLS__CONTROL = 2;
+
+  /**
+   * The number of structural features of the '<em>Form Data Controls</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_DATA_CONTROLS_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link domain.impl.ControlsImpl <em>Controls</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see domain.impl.ControlsImpl
+   * @see domain.impl.DomainPackageImpl#getControls()
+   * @generated
+   */
+  int CONTROLS = 76;
+
+  /**
+   * The feature id for the '<em><b>Uid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTROLS__UID = 0;
+
+  /**
+   * The feature id for the '<em><b>Root</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTROLS__ROOT = 1;
+
+  /**
+   * The feature id for the '<em><b>Controls</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTROLS__CONTROLS = 2;
+
+  /**
+   * The feature id for the '<em><b>Relations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTROLS__RELATIONS = 3;
+
+  /**
+   * The number of structural features of the '<em>Controls</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTROLS_FEATURE_COUNT = 4;
+
+  /**
    * The meta object id for the '{@link domain.impl.TriggerParameterImpl <em>Trigger Parameter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4274,7 +4769,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getTriggerParameter()
    * @generated
    */
-  int TRIGGER_PARAMETER = 69;
+  int TRIGGER_PARAMETER = 78;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4320,7 +4815,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getContextValue()
    * @generated
    */
-  int CONTEXT_VALUE = 70;
+  int CONTEXT_VALUE = 79;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4366,7 +4861,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREFormTrigger()
    * @generated
    */
-  int PRE_FORM_TRIGGER = 71;
+  int PRE_FORM_TRIGGER = 80;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -4466,7 +4961,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREQueryTrigger()
    * @generated
    */
-  int PRE_QUERY_TRIGGER = 72;
+  int PRE_QUERY_TRIGGER = 81;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -4566,7 +5061,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPOSTQueryTrigger()
    * @generated
    */
-  int POST_QUERY_TRIGGER = 73;
+  int POST_QUERY_TRIGGER = 82;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -4666,7 +5161,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREInsertTrigger()
    * @generated
    */
-  int PRE_INSERT_TRIGGER = 74;
+  int PRE_INSERT_TRIGGER = 83;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -4766,7 +5261,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREDeleteTrigger()
    * @generated
    */
-  int PRE_DELETE_TRIGGER = 75;
+  int PRE_DELETE_TRIGGER = 84;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -4866,7 +5361,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPOSTCreateTrigger()
    * @generated
    */
-  int POST_CREATE_TRIGGER = 76;
+  int POST_CREATE_TRIGGER = 85;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -4966,7 +5461,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPREUpdateTrigger()
    * @generated
    */
-  int PRE_UPDATE_TRIGGER = 77;
+  int PRE_UPDATE_TRIGGER = 86;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5066,7 +5561,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getCreateTrigger()
    * @generated
    */
-  int CREATE_TRIGGER = 78;
+  int CREATE_TRIGGER = 87;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5166,7 +5661,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInsertTrigger()
    * @generated
    */
-  int INSERT_TRIGGER = 79;
+  int INSERT_TRIGGER = 88;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5266,7 +5761,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getUpdateTrigger()
    * @generated
    */
-  int UPDATE_TRIGGER = 80;
+  int UPDATE_TRIGGER = 89;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5366,7 +5861,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDeleteTrigger()
    * @generated
    */
-  int DELETE_TRIGGER = 81;
+  int DELETE_TRIGGER = 90;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5466,7 +5961,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSearchTrigger()
    * @generated
    */
-  int SEARCH_TRIGGER = 82;
+  int SEARCH_TRIGGER = 91;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5566,7 +6061,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRoot()
    * @generated
    */
-  int ROOT = 83;
+  int ROOT = 92;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5612,7 +6107,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDataControl()
    * @generated
    */
-  int DATA_CONTROL = 84;
+  int DATA_CONTROL = 93;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5766,7 +6261,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRelation()
    * @generated
    */
-  int RELATION = 85;
+  int RELATION = 94;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5839,7 +6334,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getArtificialField()
    * @generated
    */
-  int ARTIFICIAL_FIELD = 86;
+  int ARTIFICIAL_FIELD = 95;
 
   /**
    * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5921,7 +6416,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getLink()
    * @generated
    */
-  int LINK = 87;
+  int LINK = 96;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5976,7 +6471,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
    * @generated
    */
-  int APPLICATION_INFRASTRUCTURE_LAYER = 88;
+  int APPLICATION_INFRASTRUCTURE_LAYER = 97;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6031,7 +6526,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
    * @generated
    */
-  int ENTERPRISE_INFRASTRUCTURE = 89;
+  int ENTERPRISE_INFRASTRUCTURE = 98;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6086,7 +6581,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getDatacenter()
    * @generated
    */
-  int DATACENTER = 90;
+  int DATACENTER = 99;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -6150,7 +6645,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getSubsystem()
    * @generated
    */
-  int SUBSYSTEM = 91;
+  int SUBSYSTEM = 100;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6205,7 +6700,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
    * @generated
    */
-  int INFRASTRUCTURE_LAYER = 92;
+  int INFRASTRUCTURE_LAYER = 101;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6260,7 +6755,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
    * @generated
    */
-  int INFRASTRUCTURE_CONNECTION = 93;
+  int INFRASTRUCTURE_CONNECTION = 102;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6306,7 +6801,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
    * @generated
    */
-  int INFRASTRUCTURE_COMPONENT = 94;
+  int INFRASTRUCTURE_COMPONENT = 103;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6352,7 +6847,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServer()
    * @generated
    */
-  int SERVER = 95;
+  int SERVER = 104;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6398,7 +6893,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getRouter()
    * @generated
    */
-  int ROUTER = 96;
+  int ROUTER = 105;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6444,7 +6939,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getHub()
    * @generated
    */
-  int HUB = 97;
+  int HUB = 106;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6490,7 +6985,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getStorage()
    * @generated
    */
-  int STORAGE = 98;
+  int STORAGE = 107;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6536,7 +7031,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getServerClaster()
    * @generated
    */
-  int SERVER_CLASTER = 99;
+  int SERVER_CLASTER = 108;
 
   /**
    * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6591,7 +7086,7 @@ public interface DomainPackage extends EPackage
    * @see domain.impl.DomainPackageImpl#getPlatformLayers()
    * @generated
    */
-  int PLATFORM_LAYERS = 100;
+  int PLATFORM_LAYERS = 109;
 
 
   /**
@@ -8179,15 +8674,15 @@ public interface DomainPackage extends EPackage
   EReference getDeploymentComponent_Mapper();
 
   /**
-   * Returns the meta object for the reference '{@link domain.DeploymentComponent#getDeploymentComponent <em>Deployment Component</em>}'.
+   * Returns the meta object for the reference '{@link domain.DeploymentComponent#getDeploymentComponentLink <em>Deployment Component Link</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Deployment Component</em>'.
-   * @see domain.DeploymentComponent#getDeploymentComponent()
+   * @return the meta object for the reference '<em>Deployment Component Link</em>'.
+   * @see domain.DeploymentComponent#getDeploymentComponentLink()
    * @see #getDeploymentComponent()
    * @generated
    */
-  EReference getDeploymentComponent_DeploymentComponent();
+  EReference getDeploymentComponent_DeploymentComponentLink();
 
   /**
    * Returns the meta object for class '{@link domain.DeploymentStarStep <em>Deployment Star Step</em>}'.
@@ -9763,6 +10258,327 @@ public interface DomainPackage extends EPackage
   EAttribute getFormView_Name();
 
   /**
+   * Returns the meta object for the reference '{@link domain.FormView#getView <em>View</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>View</em>'.
+   * @see domain.FormView#getView()
+   * @see #getFormView()
+   * @generated
+   */
+  EReference getFormView_View();
+
+  /**
+   * Returns the meta object for class '{@link domain.Views <em>Views</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Views</em>'.
+   * @see domain.Views
+   * @generated
+   */
+  EClass getViews();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Views#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Views#getUid()
+   * @see #getViews()
+   * @generated
+   */
+  EAttribute getViews_Uid();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Views#getCanvases <em>Canvases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Canvases</em>'.
+   * @see domain.Views#getCanvases()
+   * @see #getViews()
+   * @generated
+   */
+  EReference getViews_Canvases();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Views#getWindows <em>Windows</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Windows</em>'.
+   * @see domain.Views#getWindows()
+   * @see #getViews()
+   * @generated
+   */
+  EReference getViews_Windows();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Views#getViewInheritances <em>View Inheritances</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>View Inheritances</em>'.
+   * @see domain.Views#getViewInheritances()
+   * @see #getViews()
+   * @generated
+   */
+  EReference getViews_ViewInheritances();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Views#getTabPagesInheritances <em>Tab Pages Inheritances</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Tab Pages Inheritances</em>'.
+   * @see domain.Views#getTabPagesInheritances()
+   * @see #getViews()
+   * @generated
+   */
+  EReference getViews_TabPagesInheritances();
+
+  /**
+   * Returns the meta object for class '{@link domain.Canvas <em>Canvas</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Canvas</em>'.
+   * @see domain.Canvas
+   * @generated
+   */
+  EClass getCanvas();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Canvas#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Canvas#getUid()
+   * @see #getCanvas()
+   * @generated
+   */
+  EAttribute getCanvas_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Canvas#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Canvas#getName()
+   * @see #getCanvas()
+   * @generated
+   */
+  EAttribute getCanvas_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.Canvas#getViewPorts <em>View Ports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>View Ports</em>'.
+   * @see domain.Canvas#getViewPorts()
+   * @see #getCanvas()
+   * @generated
+   */
+  EReference getCanvas_ViewPorts();
+
+  /**
+   * Returns the meta object for class '{@link domain.ViewPort <em>View Port</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>View Port</em>'.
+   * @see domain.ViewPort
+   * @generated
+   */
+  EClass getViewPort();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ViewPort#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ViewPort#getUid()
+   * @see #getViewPort()
+   * @generated
+   */
+  EAttribute getViewPort_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ViewPort#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.ViewPort#getName()
+   * @see #getViewPort()
+   * @generated
+   */
+  EAttribute getViewPort_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.ViewPort#getViewPortTrigger <em>View Port Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>View Port Trigger</em>'.
+   * @see domain.ViewPort#getViewPortTrigger()
+   * @see #getViewPort()
+   * @generated
+   */
+  EReference getViewPort_ViewPortTrigger();
+
+  /**
+   * Returns the meta object for class '{@link domain.ViewPortTrigger <em>View Port Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>View Port Trigger</em>'.
+   * @see domain.ViewPortTrigger
+   * @generated
+   */
+  EClass getViewPortTrigger();
+
+  /**
+   * Returns the meta object for class '{@link domain.Window <em>Window</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Window</em>'.
+   * @see domain.Window
+   * @generated
+   */
+  EClass getWindow();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Window#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.Window#getUid()
+   * @see #getWindow()
+   * @generated
+   */
+  EAttribute getWindow_Uid();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.Window#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see domain.Window#getName()
+   * @see #getWindow()
+   * @generated
+   */
+  EAttribute getWindow_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link domain.Window#getMainCanvas <em>Main Canvas</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Main Canvas</em>'.
+   * @see domain.Window#getMainCanvas()
+   * @see #getWindow()
+   * @generated
+   */
+  EReference getWindow_MainCanvas();
+
+  /**
+   * Returns the meta object for class '{@link domain.ViewInheritance <em>View Inheritance</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>View Inheritance</em>'.
+   * @see domain.ViewInheritance
+   * @generated
+   */
+  EClass getViewInheritance();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.ViewInheritance#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.ViewInheritance#getUid()
+   * @see #getViewInheritance()
+   * @generated
+   */
+  EAttribute getViewInheritance_Uid();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.ViewInheritance#getSource <em>Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Source</em>'.
+   * @see domain.ViewInheritance#getSource()
+   * @see #getViewInheritance()
+   * @generated
+   */
+  EReference getViewInheritance_Source();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.ViewInheritance#getTarget <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Target</em>'.
+   * @see domain.ViewInheritance#getTarget()
+   * @see #getViewInheritance()
+   * @generated
+   */
+  EReference getViewInheritance_Target();
+
+  /**
+   * Returns the meta object for class '{@link domain.TabCanvas <em>Tab Canvas</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tab Canvas</em>'.
+   * @see domain.TabCanvas
+   * @generated
+   */
+  EClass getTabCanvas();
+
+  /**
+   * Returns the meta object for class '{@link domain.TabPage <em>Tab Page</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tab Page</em>'.
+   * @see domain.TabPage
+   * @generated
+   */
+  EClass getTabPage();
+
+  /**
+   * Returns the meta object for class '{@link domain.TabPagesInheritance <em>Tab Pages Inheritance</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tab Pages Inheritance</em>'.
+   * @see domain.TabPagesInheritance
+   * @generated
+   */
+  EClass getTabPagesInheritance();
+
+  /**
+   * Returns the meta object for the attribute '{@link domain.TabPagesInheritance#getUid <em>Uid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Uid</em>'.
+   * @see domain.TabPagesInheritance#getUid()
+   * @see #getTabPagesInheritance()
+   * @generated
+   */
+  EAttribute getTabPagesInheritance_Uid();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.TabPagesInheritance#getSource <em>Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Source</em>'.
+   * @see domain.TabPagesInheritance#getSource()
+   * @see #getTabPagesInheritance()
+   * @generated
+   */
+  EReference getTabPagesInheritance_Source();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.TabPagesInheritance#getTarget <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Target</em>'.
+   * @see domain.TabPagesInheritance#getTarget()
+   * @see #getTabPagesInheritance()
+   * @generated
+   */
+  EReference getTabPagesInheritance_Target();
+
+  /**
    * Returns the meta object for class '{@link domain.FormDataControls <em>Form Data Controls</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -10261,17 +11077,6 @@ public interface DomainPackage extends EPackage
   EReference getDataControl_PreUpdateTrigger();
 
   /**
-   * Returns the meta object for the containment reference list '{@link domain.DataControl#getArtificialFields <em>Artificial Fields</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Artificial Fields</em>'.
-   * @see domain.DataControl#getArtificialFields()
-   * @see #getDataControl()
-   * @generated
-   */
-  EReference getDataControl_ArtificialFields();
-
-  /**
    * Returns the meta object for the containment reference '{@link domain.DataControl#getCreate <em>Create</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -10325,6 +11130,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EReference getDataControl_Search();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link domain.DataControl#getArtificialFields <em>Artificial Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Artificial Fields</em>'.
+   * @see domain.DataControl#getArtificialFields()
+   * @see #getDataControl()
+   * @generated
+   */
+  EReference getDataControl_ArtificialFields();
 
   /**
    * Returns the meta object for class '{@link domain.Relation <em>Relation</em>}'.
@@ -12192,12 +13008,12 @@ public interface DomainPackage extends EPackage
     EReference DEPLOYMENT_COMPONENT__MAPPER = eINSTANCE.getDeploymentComponent_Mapper();
 
     /**
-     * The meta object literal for the '<em><b>Deployment Component</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Deployment Component Link</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT = eINSTANCE.getDeploymentComponent_DeploymentComponent();
+    EReference DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK = eINSTANCE.getDeploymentComponent_DeploymentComponentLink();
 
     /**
      * The meta object literal for the '{@link domain.impl.DeploymentStarStepImpl <em>Deployment Star Step</em>}' class.
@@ -13434,6 +14250,264 @@ public interface DomainPackage extends EPackage
     EAttribute FORM_VIEW__NAME = eINSTANCE.getFormView_Name();
 
     /**
+     * The meta object literal for the '<em><b>View</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FORM_VIEW__VIEW = eINSTANCE.getFormView_View();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ViewsImpl <em>Views</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ViewsImpl
+     * @see domain.impl.DomainPackageImpl#getViews()
+     * @generated
+     */
+    EClass VIEWS = eINSTANCE.getViews();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEWS__UID = eINSTANCE.getViews_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Canvases</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEWS__CANVASES = eINSTANCE.getViews_Canvases();
+
+    /**
+     * The meta object literal for the '<em><b>Windows</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEWS__WINDOWS = eINSTANCE.getViews_Windows();
+
+    /**
+     * The meta object literal for the '<em><b>View Inheritances</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEWS__VIEW_INHERITANCES = eINSTANCE.getViews_ViewInheritances();
+
+    /**
+     * The meta object literal for the '<em><b>Tab Pages Inheritances</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEWS__TAB_PAGES_INHERITANCES = eINSTANCE.getViews_TabPagesInheritances();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.CanvasImpl <em>Canvas</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.CanvasImpl
+     * @see domain.impl.DomainPackageImpl#getCanvas()
+     * @generated
+     */
+    EClass CANVAS = eINSTANCE.getCanvas();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CANVAS__UID = eINSTANCE.getCanvas_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CANVAS__NAME = eINSTANCE.getCanvas_Name();
+
+    /**
+     * The meta object literal for the '<em><b>View Ports</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CANVAS__VIEW_PORTS = eINSTANCE.getCanvas_ViewPorts();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ViewPortImpl <em>View Port</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ViewPortImpl
+     * @see domain.impl.DomainPackageImpl#getViewPort()
+     * @generated
+     */
+    EClass VIEW_PORT = eINSTANCE.getViewPort();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEW_PORT__UID = eINSTANCE.getViewPort_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEW_PORT__NAME = eINSTANCE.getViewPort_Name();
+
+    /**
+     * The meta object literal for the '<em><b>View Port Trigger</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEW_PORT__VIEW_PORT_TRIGGER = eINSTANCE.getViewPort_ViewPortTrigger();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ViewPortTriggerImpl <em>View Port Trigger</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ViewPortTriggerImpl
+     * @see domain.impl.DomainPackageImpl#getViewPortTrigger()
+     * @generated
+     */
+    EClass VIEW_PORT_TRIGGER = eINSTANCE.getViewPortTrigger();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.WindowImpl <em>Window</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.WindowImpl
+     * @see domain.impl.DomainPackageImpl#getWindow()
+     * @generated
+     */
+    EClass WINDOW = eINSTANCE.getWindow();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WINDOW__UID = eINSTANCE.getWindow_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WINDOW__NAME = eINSTANCE.getWindow_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Main Canvas</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WINDOW__MAIN_CANVAS = eINSTANCE.getWindow_MainCanvas();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.ViewInheritanceImpl <em>View Inheritance</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.ViewInheritanceImpl
+     * @see domain.impl.DomainPackageImpl#getViewInheritance()
+     * @generated
+     */
+    EClass VIEW_INHERITANCE = eINSTANCE.getViewInheritance();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEW_INHERITANCE__UID = eINSTANCE.getViewInheritance_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEW_INHERITANCE__SOURCE = eINSTANCE.getViewInheritance_Source();
+
+    /**
+     * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEW_INHERITANCE__TARGET = eINSTANCE.getViewInheritance_Target();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TabCanvasImpl <em>Tab Canvas</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TabCanvasImpl
+     * @see domain.impl.DomainPackageImpl#getTabCanvas()
+     * @generated
+     */
+    EClass TAB_CANVAS = eINSTANCE.getTabCanvas();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TabPageImpl <em>Tab Page</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TabPageImpl
+     * @see domain.impl.DomainPackageImpl#getTabPage()
+     * @generated
+     */
+    EClass TAB_PAGE = eINSTANCE.getTabPage();
+
+    /**
+     * The meta object literal for the '{@link domain.impl.TabPagesInheritanceImpl <em>Tab Pages Inheritance</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see domain.impl.TabPagesInheritanceImpl
+     * @see domain.impl.DomainPackageImpl#getTabPagesInheritance()
+     * @generated
+     */
+    EClass TAB_PAGES_INHERITANCE = eINSTANCE.getTabPagesInheritance();
+
+    /**
+     * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TAB_PAGES_INHERITANCE__UID = eINSTANCE.getTabPagesInheritance_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TAB_PAGES_INHERITANCE__SOURCE = eINSTANCE.getTabPagesInheritance_Source();
+
+    /**
+     * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TAB_PAGES_INHERITANCE__TARGET = eINSTANCE.getTabPagesInheritance_Target();
+
+    /**
      * The meta object literal for the '{@link domain.impl.FormDataControlsImpl <em>Form Data Controls</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -13848,14 +14922,6 @@ public interface DomainPackage extends EPackage
     EReference DATA_CONTROL__PRE_UPDATE_TRIGGER = eINSTANCE.getDataControl_PreUpdateTrigger();
 
     /**
-     * The meta object literal for the '<em><b>Artificial Fields</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DATA_CONTROL__ARTIFICIAL_FIELDS = eINSTANCE.getDataControl_ArtificialFields();
-
-    /**
      * The meta object literal for the '<em><b>Create</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -13894,6 +14960,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EReference DATA_CONTROL__SEARCH = eINSTANCE.getDataControl_Search();
+
+    /**
+     * The meta object literal for the '<em><b>Artificial Fields</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_CONTROL__ARTIFICIAL_FIELDS = eINSTANCE.getDataControl_ArtificialFields();
 
     /**
      * The meta object literal for the '{@link domain.impl.RelationImpl <em>Relation</em>}' class.

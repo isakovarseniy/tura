@@ -48,12 +48,17 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="FormViewFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FormViewFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureFormViewLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FormViewFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureFormViewLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureFormViewLabelFigure.setText(&quot;FormView&quot;);&#xA;&#xA;fFigureFormViewLabelFigure.setFont(FFIGUREFORMVIEWLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureFormViewLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureFormViewLabelFigure() {&#xA;&#x9;&#x9;return fFigureFormViewLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREFORMVIEWLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FormViewFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.tura.metamodel.commons.editparts.SizeLimitedLabel fFigureFormViewLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FormViewFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureFormViewLabelFigure = new org.tura.metamodel.commons.editparts.SizeLimitedLabel();&#xA;&#xA;fFigureFormViewLabelFigure.setText(&quot;FormView&quot;);&#xA;&#xA;fFigureFormViewLabelFigure.setFont(FFIGUREFORMVIEWLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureFormViewLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.tura.metamodel.commons.editparts.SizeLimitedLabel getFigureFormViewLabelFigure() {&#xA;&#x9;&#x9;return fFigureFormViewLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 241, 238, 203);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREFORMVIEWLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"
             fixedForeground="true"
             fixedBackground="true"/>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"
+          editPolicyClassName="OpenDiagramFormViewEditPolicy"
+          diagramKind="FrmView"
+          editorID="frmview.diagram.part.FrmViewDiagramEditorID"/>
       <modelFacet>
         <metaClass
             href="domain.genmodel#//domain/FormView"/>
@@ -236,6 +241,10 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
+            title="Canvas"
+            description="Create new Canvas"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
             title="Form"
             description="Create new Form"
             genNodes="//@diagram/@topLevelNodes.0"/>
@@ -249,6 +258,26 @@
             title="FormView"
             description="Create new FormView"
             genNodes="//@diagram/@childNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="TabCanvas"
+            description="Create new TabCanvas"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="TabPage"
+            description="Create new TabPage"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ViewPort"
+            description="Create new ViewPort"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ViewPortTrigger"
+            description="Create new ViewPortTrigger"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Window"
+            description="Create new Window"/>
       </groups>
     </palette>
     <preferencePages

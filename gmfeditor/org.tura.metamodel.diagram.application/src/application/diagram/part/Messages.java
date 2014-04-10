@@ -321,6 +321,66 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String Canvas8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Canvas8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TabCanvas9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TabCanvas9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TabPage10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TabPage10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPort11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPort11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPortTrigger12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPortTrigger12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Window13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Window13CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String ApplicationRecipesApplicationRecipesRecipesCompartmentEditPart_title;
 
 	/**

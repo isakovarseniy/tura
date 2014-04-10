@@ -329,15 +329,15 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateDeploymentComponentDeploymentComponent_904012(
+		public boolean canCreateDeploymentComponentDeploymentComponentLink_904014(
 				DeploymentComponent source, DeploymentComponent target) {
 			if (source != null) {
-				if (source.getDeploymentComponent() != null) {
+				if (source.getDeploymentComponentLink() != null) {
 					return false;
 				}
 			}
 
-			return canExistDeploymentComponentDeploymentComponent_904012(
+			return canExistDeploymentComponentDeploymentComponentLink_904014(
 					source, target);
 		}
 
@@ -372,7 +372,7 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistDeploymentComponentDeploymentComponent_904012(
+		public boolean canExistDeploymentComponentDeploymentComponentLink_904014(
 				DeploymentComponent source, DeploymentComponent target) {
 			return true;
 		}

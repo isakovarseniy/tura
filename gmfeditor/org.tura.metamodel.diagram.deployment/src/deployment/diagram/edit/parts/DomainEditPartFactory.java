@@ -40,11 +40,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case DeploymentStarStepNameEditPart.VISUAL_ID:
 				return new DeploymentStarStepNameEditPart(view);
 
-			case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
-				return new DeploymentComponentDeploymentComponentEditPart(view);
+			case DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID:
+				return new DeploymentComponentDeploymentComponentLinkEditPart(
+						view);
 
-			case DeploymentComponentDeploymentComponentExternalLabelEditPart.VISUAL_ID:
-				return new DeploymentComponentDeploymentComponentExternalLabelEditPart(
+			case DeploymentComponentDeploymentComponentLinkExternalLabelEditPart.VISUAL_ID:
+				return new DeploymentComponentDeploymentComponentLinkExternalLabelEditPart(
 						view);
 
 			case DeploymentStarStepFirstStepEditPart.VISUAL_ID:

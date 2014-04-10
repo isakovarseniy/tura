@@ -10,8 +10,8 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
-import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
-import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentExternalLabelEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentLinkEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentLinkExternalLabelEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentNameEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentsEditPart;
@@ -186,8 +186,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
-			if (DeploymentComponentDeploymentComponentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID:
+			if (DeploymentComponentDeploymentComponentLinkExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

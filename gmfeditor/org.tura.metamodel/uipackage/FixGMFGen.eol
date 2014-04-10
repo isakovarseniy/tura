@@ -12,7 +12,7 @@ for (c in GmfGen!GenCommonBase.allInstances) {
   c.setVisualID (c.getVisualID()+1000000);
 }
 
-//Enable diagram partition for ApplicationRecipe element
+//Enable diagram partition for FormControl element
 var genTopLevelNode = GmfGen!GenChildNode.all.select(n|n.createCommandClassName = 'FormDataControlsCreateCommand').first;
 var behaviour = new GmfGen!OpenDiagramBehaviour;
 behaviour.editorID = 'control.diagram.part.ControlDiagramEditorID';
@@ -23,6 +23,20 @@ genTopLevelNode.behaviour.add(behaviour);
 
 // Change figure for ApplicationRecipe element 
 var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'FormDataControlsFigure').first;
+innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
+
+
+//Enable diagram partition for FormView element
+var genTopLevelNode = GmfGen!GenChildNode.all.select(n|n.createCommandClassName = 'FormViewCreateCommand').first;
+var behaviour = new GmfGen!OpenDiagramBehaviour;
+behaviour.editorID = 'frmview.diagram.part.FrmViewDiagramEditorID';
+behaviour.diagramKind='FrmView';
+behaviour.editPolicyClassName= 'OpenDiagramFormViewEditPolicy';
+genTopLevelNode.behaviour.add(behaviour);
+
+
+// Change figure for FormView element 
+var innerClass = GmfGen!InnerClassViewmap.all.select(n|n.ClassName = 'FormViewFigure').first;
 innerClass.classBody=innerClass.classBody.replace('org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel','org.tura.metamodel.commons.editparts.SizeLimitedLabel');
 
 

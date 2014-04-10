@@ -19,7 +19,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
-import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentLinkEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentsEditPart;
 import deployment.diagram.edit.parts.DeploymentStarStepEditPart;
@@ -69,7 +69,7 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType DeploymentComponentDeploymentComponent_904012 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentComponentDeploymentComponent_904012"); //$NON-NLS-1$
+	public static final IElementType DeploymentComponentDeploymentComponentLink_904014 = getElementType("org.tura.metamodel.diagram.deployment.DeploymentComponentDeploymentComponentLink_904014"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -199,9 +199,9 @@ public class DomainElementTypes {
 			elements.put(DeploymentStarStep_902002,
 					DomainPackage.eINSTANCE.getDeploymentStarStep());
 
-			elements.put(DeploymentComponentDeploymentComponent_904012,
+			elements.put(DeploymentComponentDeploymentComponentLink_904014,
 					DomainPackage.eINSTANCE
-							.getDeploymentComponent_DeploymentComponent());
+							.getDeploymentComponent_DeploymentComponentLink());
 
 			elements.put(DeploymentStarStepFirstStep_904008,
 					DomainPackage.eINSTANCE.getDeploymentStarStep_FirstStep());
@@ -229,7 +229,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(DeploymentComponent_902001);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStep_902002);
 			KNOWN_ELEMENT_TYPES
-					.add(DeploymentComponentDeploymentComponent_904012);
+					.add(DeploymentComponentDeploymentComponentLink_904014);
 			KNOWN_ELEMENT_TYPES.add(DeploymentStarStepFirstStep_904008);
 			KNOWN_ELEMENT_TYPES.add(RecipeDeployment_904013);
 		}
@@ -247,8 +247,8 @@ public class DomainElementTypes {
 			return DeploymentComponent_902001;
 		case DeploymentStarStepEditPart.VISUAL_ID:
 			return DeploymentStarStep_902002;
-		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
-			return DeploymentComponentDeploymentComponent_904012;
+		case DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID:
+			return DeploymentComponentDeploymentComponentLink_904014;
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
 			return DeploymentStarStepFirstStep_904008;
 		case RecipeDeploymentEditPart.VISUAL_ID:

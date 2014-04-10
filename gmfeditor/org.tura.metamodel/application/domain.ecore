@@ -401,7 +401,8 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" eType="#//ModelMapper"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentComponent" eType="#//DeploymentComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentComponentLink"
+        eType="#//DeploymentComponent">
       <eAnnotations source="gmf.link">
         <details key="target.decoration" value="arrow"/>
         <details key="style" value="dash"/>
@@ -831,6 +832,116 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//Views"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Views">
+    <eAnnotations source="gmf.diagram.view"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="canvases" upperBound="-1"
+        eType="#//Canvas" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="windows" upperBound="-1"
+        eType="#//Window" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewInheritances" upperBound="-1"
+        eType="#//ViewInheritance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tabPagesInheritances" upperBound="-1"
+        eType="#//TabPagesInheritance" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Canvas">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewPorts" upperBound="-1"
+        eType="#//ViewPort" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewPort">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewPortTrigger" eType="#//ViewPortTrigger"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewPortTrigger" eSuperTypes="#//Trigger">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakeMethod"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Window">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainCanvas" eType="#//Canvas"
+        containment="true">
+      <eAnnotations source="gmf.link">
+        <details key="color" value="57,102,249"/>
+        <details key="style" value="dash"/>
+        <details key="width" value="2"/>
+        <details key="target.decoration" value="arrow"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewInheritance">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="color" value="80,195,63"/>
+      <details key="style" value="dot"/>
+      <details key="width" value="2"/>
+      <details key="target.decoration" value="closedarrow"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//ViewPort"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Canvas"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TabCanvas" eSuperTypes="#//Canvas">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//Canvas">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="192,192,192"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TabPagesInheritance">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="style" value="dash"/>
+      <details key="color" value="238,16,16"/>
+      <details key="width" value="2"/>
+      <details key="target.decoration" value="arrow"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//TabCanvas"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TabPage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FormDataControls">
     <eAnnotations source="gmf.node">

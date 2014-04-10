@@ -18,11 +18,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelations
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import deployment.diagram.edit.commands.DeploymentComponentDeploymentComponentCreateCommand;
-import deployment.diagram.edit.commands.DeploymentComponentDeploymentComponentReorientCommand;
+import deployment.diagram.edit.commands.DeploymentComponentDeploymentComponentLinkCreateCommand;
+import deployment.diagram.edit.commands.DeploymentComponentDeploymentComponentLinkReorientCommand;
 import deployment.diagram.edit.commands.DeploymentStarStepFirstStepCreateCommand;
 import deployment.diagram.edit.commands.DeploymentStarStepFirstStepReorientCommand;
-import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentLinkEditPart;
 import deployment.diagram.edit.parts.DeploymentStarStepFirstStepEditPart;
 import deployment.diagram.part.DomainVisualIDRegistry;
 import deployment.diagram.providers.DomainElementTypes;
@@ -50,7 +50,7 @@ public class DeploymentComponentItemSemanticEditPolicy extends
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
-			if (DomainVisualIDRegistry.getVisualID(incomingLink) == DeploymentComponentDeploymentComponentEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(incomingLink) == DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						incomingLink.getSource().getElement(), null,
 						incomingLink.getTarget().getElement(), false);
@@ -69,7 +69,7 @@ public class DeploymentComponentItemSemanticEditPolicy extends
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
-			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == DeploymentComponentDeploymentComponentEditPart.VISUAL_ID) {
+			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
@@ -105,9 +105,9 @@ public class DeploymentComponentItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (DomainElementTypes.DeploymentComponentDeploymentComponent_904012 == req
+		if (DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014 == req
 				.getElementType()) {
-			return getGEFWrapper(new DeploymentComponentDeploymentComponentCreateCommand(
+			return getGEFWrapper(new DeploymentComponentDeploymentComponentLinkCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
 		if (DomainElementTypes.DeploymentStarStepFirstStep_904008 == req
@@ -122,9 +122,9 @@ public class DeploymentComponentItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (DomainElementTypes.DeploymentComponentDeploymentComponent_904012 == req
+		if (DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014 == req
 				.getElementType()) {
-			return getGEFWrapper(new DeploymentComponentDeploymentComponentCreateCommand(
+			return getGEFWrapper(new DeploymentComponentDeploymentComponentLinkCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
 		if (DomainElementTypes.DeploymentStarStepFirstStep_904008 == req
@@ -144,8 +144,8 @@ public class DeploymentComponentItemSemanticEditPolicy extends
 	protected Command getReorientReferenceRelationshipCommand(
 			ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case DeploymentComponentDeploymentComponentEditPart.VISUAL_ID:
-			return getGEFWrapper(new DeploymentComponentDeploymentComponentReorientCommand(
+		case DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID:
+			return getGEFWrapper(new DeploymentComponentDeploymentComponentLinkReorientCommand(
 					req));
 		case DeploymentStarStepFirstStepEditPart.VISUAL_ID:
 			return getGEFWrapper(new DeploymentStarStepFirstStepReorientCommand(

@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Deployment"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="902001,902002"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="904012,904008,904013"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="904014,904008,904013"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="902001,902002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="904012,904008,904013"/>
+            <method name="getType()" value="904014,904008,904013"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="905001,905002"/>
@@ -356,11 +356,11 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <specializationType
-               id="org.tura.metamodel.diagram.deployment.DeploymentComponentDeploymentComponent_904012"
-               name="%metatype.name.DeploymentComponentDeploymentComponent_904012"
+               id="org.tura.metamodel.diagram.deployment.DeploymentComponentDeploymentComponentLink_904014"
+               name="%metatype.name.DeploymentComponentDeploymentComponentLink_904014"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="904012"/>
+            <param name="semanticHint" value="904014"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -400,7 +400,7 @@
          <elementType ref="org.tura.metamodel.diagram.deployment.DeploymentComponents_901000"/>
          <elementType ref="org.tura.metamodel.diagram.deployment.DeploymentComponent_902001"/>
          <elementType ref="org.tura.metamodel.diagram.deployment.DeploymentStarStep_902002"/>
-         <elementType ref="org.tura.metamodel.diagram.deployment.DeploymentComponentDeploymentComponent_904012"/>
+         <elementType ref="org.tura.metamodel.diagram.deployment.DeploymentComponentDeploymentComponentLink_904014"/>
          <elementType ref="org.tura.metamodel.diagram.deployment.DeploymentStarStepFirstStep_904008"/>
          <elementType ref="org.tura.metamodel.diagram.deployment.RecipeDeployment_904013"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>

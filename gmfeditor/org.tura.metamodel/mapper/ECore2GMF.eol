@@ -173,9 +173,9 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Deployment');
 delete tool;
 
-var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='DeploymentComponent');
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='DeploymentComponentLink');
 delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeploymentComponent');
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeploymentComponentLink');
 delete tool;
 
 var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='FirstStep');
@@ -204,4 +204,19 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InfrastructureConnectio
 delete tool;
 
 var tool = GmfTool!ToolGroup.all.selectOne(r|r.title='Connections');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='MainCanvas');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MainCanvas');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='TabPagesInheritance');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TabPagesInheritance');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='ViewInheritance');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewInheritance');
 delete tool;

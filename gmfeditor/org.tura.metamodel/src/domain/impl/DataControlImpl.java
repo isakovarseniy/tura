@@ -2,19 +2,6 @@
  */
 package domain.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import domain.ArtificialField;
 import domain.Controls;
 import domain.CreateTrigger;
@@ -30,6 +17,23 @@ import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
 import domain.SearchTrigger;
 import domain.UpdateTrigger;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -625,41 +629,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ArtificialField> getArtificialFields()
-  {
-    if (artificialFields == null)
-    {
-      artificialFields = new EObjectContainmentWithInverseEList<ArtificialField>(ArtificialField.class, this, DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS, DomainPackage.ARTIFICIAL_FIELD__PARENT);
-    }
-    return artificialFields;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case DomainPackage.DATA_CONTROL__PARENT:
-        if (eInternalContainer() != null)
-          msgs = eBasicRemoveFromContainer(msgs);
-        return basicSetParent((Controls)otherEnd, msgs);
-      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getArtificialFields()).basicAdd(otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public CreateTrigger getCreate()
   {
     return create;
@@ -893,6 +862,41 @@ public class DataControlImpl extends EObjectImpl implements DataControl
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__SEARCH, newSearch, newSearch));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ArtificialField> getArtificialFields()
+  {
+    if (artificialFields == null)
+    {
+      artificialFields = new EObjectContainmentWithInverseEList<ArtificialField>(ArtificialField.class, this, DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS, DomainPackage.ARTIFICIAL_FIELD__PARENT);
+    }
+    return artificialFields;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.DATA_CONTROL__PARENT:
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
+        return basicSetParent((Controls)otherEnd, msgs);
+      case DomainPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getArtificialFields()).basicAdd(otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**

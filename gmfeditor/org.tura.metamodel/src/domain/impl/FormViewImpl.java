@@ -4,10 +4,12 @@ package domain.impl;
 
 import domain.DomainPackage;
 import domain.FormView;
+import domain.Views;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -21,6 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link domain.impl.FormViewImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.FormViewImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.FormViewImpl#getView <em>View</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,6 +70,16 @@ public class FormViewImpl extends EObjectImpl implements FormView
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getView() <em>View</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getView()
+   * @generated
+   * @ordered
+   */
+  protected Views view;
 
   /**
    * <!-- begin-user-doc -->
@@ -140,6 +153,49 @@ public class FormViewImpl extends EObjectImpl implements FormView
    * <!-- end-user-doc -->
    * @generated
    */
+  public Views getView()
+  {
+    if (view != null && view.eIsProxy())
+    {
+      InternalEObject oldView = (InternalEObject)view;
+      view = (Views)eResolveProxy(oldView);
+      if (view != oldView)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.FORM_VIEW__VIEW, oldView, view));
+      }
+    }
+    return view;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Views basicGetView()
+  {
+    return view;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setView(Views newView)
+  {
+    Views oldView = view;
+    view = newView;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__VIEW, oldView, view));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -149,6 +205,9 @@ public class FormViewImpl extends EObjectImpl implements FormView
         return getUid();
       case DomainPackage.FORM_VIEW__NAME:
         return getName();
+      case DomainPackage.FORM_VIEW__VIEW:
+        if (resolve) return getView();
+        return basicGetView();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -168,6 +227,9 @@ public class FormViewImpl extends EObjectImpl implements FormView
         return;
       case DomainPackage.FORM_VIEW__NAME:
         setName((String)newValue);
+        return;
+      case DomainPackage.FORM_VIEW__VIEW:
+        setView((Views)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -189,6 +251,9 @@ public class FormViewImpl extends EObjectImpl implements FormView
       case DomainPackage.FORM_VIEW__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DomainPackage.FORM_VIEW__VIEW:
+        setView((Views)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -207,6 +272,8 @@ public class FormViewImpl extends EObjectImpl implements FormView
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.FORM_VIEW__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.FORM_VIEW__VIEW:
+        return view != null;
     }
     return super.eIsSet(featureID);
   }

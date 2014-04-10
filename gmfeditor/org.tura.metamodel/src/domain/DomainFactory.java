@@ -617,6 +617,87 @@ public interface DomainFactory extends EFactory
   FormView createFormView();
 
   /**
+   * Returns a new object of class '<em>Views</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Views</em>'.
+   * @generated
+   */
+  Views createViews();
+
+  /**
+   * Returns a new object of class '<em>Canvas</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Canvas</em>'.
+   * @generated
+   */
+  Canvas createCanvas();
+
+  /**
+   * Returns a new object of class '<em>View Port</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>View Port</em>'.
+   * @generated
+   */
+  ViewPort createViewPort();
+
+  /**
+   * Returns a new object of class '<em>View Port Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>View Port Trigger</em>'.
+   * @generated
+   */
+  ViewPortTrigger createViewPortTrigger();
+
+  /**
+   * Returns a new object of class '<em>Window</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Window</em>'.
+   * @generated
+   */
+  Window createWindow();
+
+  /**
+   * Returns a new object of class '<em>View Inheritance</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>View Inheritance</em>'.
+   * @generated
+   */
+  ViewInheritance createViewInheritance();
+
+  /**
+   * Returns a new object of class '<em>Tab Canvas</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tab Canvas</em>'.
+   * @generated
+   */
+  TabCanvas createTabCanvas();
+
+  /**
+   * Returns a new object of class '<em>Tab Page</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tab Page</em>'.
+   * @generated
+   */
+  TabPage createTabPage();
+
+  /**
+   * Returns a new object of class '<em>Tab Pages Inheritance</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tab Pages Inheritance</em>'.
+   * @generated
+   */
+  TabPagesInheritance createTabPagesInheritance();
+
+  /**
    * Returns a new object of class '<em>Form Data Controls</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

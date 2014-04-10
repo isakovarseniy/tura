@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
-import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentEditPart;
+import deployment.diagram.edit.parts.DeploymentComponentDeploymentComponentLinkEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentEditPart;
 import deployment.diagram.edit.parts.DeploymentComponentsEditPart;
 import deployment.diagram.edit.parts.DeploymentStarStepEditPart;
@@ -140,7 +140,7 @@ public class DomainDiagramUpdater {
 		DeploymentComponent modelElement = (DeploymentComponent) view
 				.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponent_904012(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(modelElement));
 		return result;
 	}
 
@@ -166,7 +166,7 @@ public class DomainDiagramUpdater {
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponent_904012(
+		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(
 				modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_DeploymentStarStep_FirstStep_904008(
 				modelElement, crossReferences));
@@ -189,7 +189,7 @@ public class DomainDiagramUpdater {
 		DeploymentComponent modelElement = (DeploymentComponent) view
 				.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponent_904012(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(modelElement));
 		return result;
 	}
 
@@ -208,7 +208,7 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponent_904012(
+	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(
 			DeploymentComponent target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
@@ -216,12 +216,12 @@ public class DomainDiagramUpdater {
 				.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
 			if (setting.getEStructuralFeature() == DomainPackage.eINSTANCE
-					.getDeploymentComponent_DeploymentComponent()) {
+					.getDeploymentComponent_DeploymentComponentLink()) {
 				result.add(new DomainLinkDescriptor(
 						setting.getEObject(),
 						target,
-						DomainElementTypes.DeploymentComponentDeploymentComponent_904012,
-						DeploymentComponentDeploymentComponentEditPart.VISUAL_ID));
+						DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014,
+						DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID));
 			}
 		}
 		return result;
@@ -251,18 +251,18 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponent_904012(
+	private static Collection<DomainLinkDescriptor> getOutgoingFeatureModelFacetLinks_DeploymentComponent_DeploymentComponentLink_904014(
 			DeploymentComponent source) {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
-		DeploymentComponent destination = source.getDeploymentComponent();
+		DeploymentComponent destination = source.getDeploymentComponentLink();
 		if (destination == null) {
 			return result;
 		}
 		result.add(new DomainLinkDescriptor(
 				source,
 				destination,
-				DomainElementTypes.DeploymentComponentDeploymentComponent_904012,
-				DeploymentComponentDeploymentComponentEditPart.VISUAL_ID));
+				DomainElementTypes.DeploymentComponentDeploymentComponentLink_904014,
+				DeploymentComponentDeploymentComponentLinkEditPart.VISUAL_ID));
 		return result;
 	}
 

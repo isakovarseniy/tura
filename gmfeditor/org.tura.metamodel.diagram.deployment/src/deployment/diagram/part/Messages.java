@@ -256,22 +256,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent1CreationTool_title;
+	public static String Canvas1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent1CreationTool_desc;
+	public static String Canvas1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentStarStep2CreationTool_title;
+	public static String DeploymentComponent2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentStarStep2CreationTool_desc;
+	public static String DeploymentComponent2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String DeploymentStarStep3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String DeploymentStarStep3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TabCanvas4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TabCanvas4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TabPage5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TabPage5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPort6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPort6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPortTrigger7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewPortTrigger7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Window8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Window8CreationTool_desc;
 
 	/**
 	 * @generated
@@ -286,12 +346,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent2CreationTool_title;
+	public static String DeploymentComponentLink2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent2CreationTool_desc;
+	public static String DeploymentComponentLink2CreationTool_desc;
 
 	/**
 	 * @generated
@@ -311,12 +371,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_DeploymentComponentDeploymentComponent_904012_target;
+	public static String NavigatorGroupName_DeploymentComponent_902001_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_DeploymentComponentDeploymentComponent_904012_source;
+	public static String NavigatorGroupName_DeploymentComponent_902001_outgoinglinks;
 
 	/**
 	 * @generated
@@ -331,22 +391,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_DeploymentComponentDeploymentComponentLink_904014_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DeploymentComponentDeploymentComponentLink_904014_source;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_DeploymentStarStep_902002_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_DeploymentComponents_901000_links;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DeploymentComponent_902001_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_DeploymentComponent_902001_outgoinglinks;
 
 	/**
 	 * @generated
