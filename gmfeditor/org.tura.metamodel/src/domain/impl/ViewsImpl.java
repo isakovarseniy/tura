@@ -2,6 +2,7 @@
  */
 package domain.impl;
 
+import domain.CanvasFrame;
 import domain.Canvas;
 import domain.DomainPackage;
 import domain.TabPagesInheritance;
@@ -34,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.ViewsImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ViewsImpl#getCanvases <em>Canvases</em>}</li>
- *   <li>{@link domain.impl.ViewsImpl#getWindows <em>Windows</em>}</li>
  *   <li>{@link domain.impl.ViewsImpl#getViewInheritances <em>View Inheritances</em>}</li>
  *   <li>{@link domain.impl.ViewsImpl#getTabPagesInheritances <em>Tab Pages Inheritances</em>}</li>
  * </ul>
@@ -72,17 +72,7 @@ public class ViewsImpl extends EObjectImpl implements Views
    * @generated
    * @ordered
    */
-  protected EList<Canvas> canvases;
-
-  /**
-   * The cached value of the '{@link #getWindows() <em>Windows</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getWindows()
-   * @generated
-   * @ordered
-   */
-  protected EList<Window> windows;
+  protected EList<CanvasFrame> canvases;
 
   /**
    * The cached value of the '{@link #getViewInheritances() <em>View Inheritances</em>}' containment reference list.
@@ -153,27 +143,13 @@ public class ViewsImpl extends EObjectImpl implements Views
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Canvas> getCanvases()
+  public EList<CanvasFrame> getCanvases()
   {
     if (canvases == null)
     {
-      canvases = new EObjectContainmentEList<Canvas>(Canvas.class, this, DomainPackage.VIEWS__CANVASES);
+      canvases = new EObjectContainmentEList<CanvasFrame>(CanvasFrame.class, this, DomainPackage.VIEWS__CANVASES);
     }
     return canvases;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Window> getWindows()
-  {
-    if (windows == null)
-    {
-      windows = new EObjectContainmentEList<Window>(Window.class, this, DomainPackage.VIEWS__WINDOWS);
-    }
-    return windows;
   }
 
   /**
@@ -216,8 +192,6 @@ public class ViewsImpl extends EObjectImpl implements Views
     {
       case DomainPackage.VIEWS__CANVASES:
         return ((InternalEList<?>)getCanvases()).basicRemove(otherEnd, msgs);
-      case DomainPackage.VIEWS__WINDOWS:
-        return ((InternalEList<?>)getWindows()).basicRemove(otherEnd, msgs);
       case DomainPackage.VIEWS__VIEW_INHERITANCES:
         return ((InternalEList<?>)getViewInheritances()).basicRemove(otherEnd, msgs);
       case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
@@ -240,8 +214,6 @@ public class ViewsImpl extends EObjectImpl implements Views
         return getUid();
       case DomainPackage.VIEWS__CANVASES:
         return getCanvases();
-      case DomainPackage.VIEWS__WINDOWS:
-        return getWindows();
       case DomainPackage.VIEWS__VIEW_INHERITANCES:
         return getViewInheritances();
       case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
@@ -266,11 +238,7 @@ public class ViewsImpl extends EObjectImpl implements Views
         return;
       case DomainPackage.VIEWS__CANVASES:
         getCanvases().clear();
-        getCanvases().addAll((Collection<? extends Canvas>)newValue);
-        return;
-      case DomainPackage.VIEWS__WINDOWS:
-        getWindows().clear();
-        getWindows().addAll((Collection<? extends Window>)newValue);
+        getCanvases().addAll((Collection<? extends CanvasFrame>)newValue);
         return;
       case DomainPackage.VIEWS__VIEW_INHERITANCES:
         getViewInheritances().clear();
@@ -300,9 +268,6 @@ public class ViewsImpl extends EObjectImpl implements Views
       case DomainPackage.VIEWS__CANVASES:
         getCanvases().clear();
         return;
-      case DomainPackage.VIEWS__WINDOWS:
-        getWindows().clear();
-        return;
       case DomainPackage.VIEWS__VIEW_INHERITANCES:
         getViewInheritances().clear();
         return;
@@ -327,8 +292,6 @@ public class ViewsImpl extends EObjectImpl implements Views
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.VIEWS__CANVASES:
         return canvases != null && !canvases.isEmpty();
-      case DomainPackage.VIEWS__WINDOWS:
-        return windows != null && !windows.isEmpty();
       case DomainPackage.VIEWS__VIEW_INHERITANCES:
         return viewInheritances != null && !viewInheritances.isEmpty();
       case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:

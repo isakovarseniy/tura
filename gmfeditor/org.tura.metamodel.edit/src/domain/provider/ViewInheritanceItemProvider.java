@@ -4,8 +4,8 @@ package domain.provider;
 
 
 import domain.DomainPackage;
-
 import domain.ViewInheritance;
+
 import java.util.Collection;
 import java.util.List;
 

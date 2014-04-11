@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -36,6 +37,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import frmview.diagram.edit.policies.OpenDiagramEditPolicy;
 import frmview.diagram.edit.policies.TabPageItemSemanticEditPolicy;
 import frmview.diagram.part.DomainVisualIDRegistry;
 import frmview.diagram.providers.DomainElementTypes;
@@ -75,6 +77,8 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new TabPageItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -128,6 +132,14 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 					.getFigureTabPageLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof TabPageTabPageViewPortsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getTabPageViewPortsCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((TabPageTabPageViewPortsCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -136,6 +148,13 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof TabPageNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof TabPageTabPageViewPortsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getTabPageViewPortsCompartmentFigure();
+			pane.remove(((TabPageTabPageViewPortsCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -165,6 +184,9 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof TabPageTabPageViewPortsCompartmentEditPart) {
+			return getPrimaryShape().getTabPageViewPortsCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -267,8 +289,8 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(DomainElementTypes.ViewInheritance_1304001);
 		types.add(DomainElementTypes.TabPagesInheritance_1304002);
-		types.add(DomainElementTypes.WindowMainCanvas_1304004);
 		return types;
 	}
 
@@ -277,10 +299,10 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.TabPagesInheritance_1304002) {
-			types.add(DomainElementTypes.TabCanvas_1302001);
-		} else if (relationshipType == DomainElementTypes.WindowMainCanvas_1304004) {
-			types.add(DomainElementTypes.Window_1302004);
+		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
+			types.add(DomainElementTypes.ViewPort_1303003);
+		} else if (relationshipType == DomainElementTypes.TabPagesInheritance_1304002) {
+			types.add(DomainElementTypes.TabCanvas_1302008);
 		}
 		return types;
 	}
@@ -307,6 +329,10 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureTabPageLabelFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fTabPageViewPortsCompartmentFigure;
 
 		/**
 		 * @generated
@@ -333,7 +359,16 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 
 			fFigureTabPageLabelFigure.setFont(FFIGURETABPAGELABELFIGURE_FONT);
 
+			fFigureTabPageLabelFigure.setMaximumSize(new Dimension(getMapMode()
+					.DPtoLP(10000), getMapMode().DPtoLP(50)));
+
 			this.add(fFigureTabPageLabelFigure);
+
+			fTabPageViewPortsCompartmentFigure = new RectangleFigure();
+
+			fTabPageViewPortsCompartmentFigure.setOutline(false);
+
+			this.add(fTabPageViewPortsCompartmentFigure);
 
 		}
 
@@ -342,6 +377,13 @@ public class TabPageEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureTabPageLabelFigure() {
 			return fFigureTabPageLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getTabPageViewPortsCompartmentFigure() {
+			return fTabPageViewPortsCompartmentFigure;
 		}
 
 	}

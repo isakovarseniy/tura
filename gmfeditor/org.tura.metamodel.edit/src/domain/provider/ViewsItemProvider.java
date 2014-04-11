@@ -110,7 +110,6 @@ public class ViewsItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(DomainPackage.Literals.VIEWS__CANVASES);
-      childrenFeatures.add(DomainPackage.Literals.VIEWS__WINDOWS);
       childrenFeatures.add(DomainPackage.Literals.VIEWS__VIEW_INHERITANCES);
       childrenFeatures.add(DomainPackage.Literals.VIEWS__TAB_PAGES_INHERITANCES);
     }
@@ -176,7 +175,6 @@ public class ViewsItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.VIEWS__CANVASES:
-      case DomainPackage.VIEWS__WINDOWS:
       case DomainPackage.VIEWS__VIEW_INHERITANCES:
       case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -200,7 +198,17 @@ public class ViewsItemProvider
     newChildDescriptors.add
       (createChildParameter
         (DomainPackage.Literals.VIEWS__CANVASES,
+         DomainFactory.eINSTANCE.createCanvasFrame()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.VIEWS__CANVASES,
          DomainFactory.eINSTANCE.createCanvas()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (DomainPackage.Literals.VIEWS__CANVASES,
+         DomainFactory.eINSTANCE.createWindow()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -211,11 +219,6 @@ public class ViewsItemProvider
       (createChildParameter
         (DomainPackage.Literals.VIEWS__CANVASES,
          DomainFactory.eINSTANCE.createTabPage()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.VIEWS__WINDOWS,
-         DomainFactory.eINSTANCE.createWindow()));
 
     newChildDescriptors.add
       (createChildParameter

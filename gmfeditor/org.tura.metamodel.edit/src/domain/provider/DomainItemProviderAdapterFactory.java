@@ -1724,6 +1724,306 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.Views} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ViewsItemProvider viewsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Views}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createViewsAdapter()
+  {
+    if (viewsItemProvider == null)
+    {
+      viewsItemProvider = new ViewsItemProvider(this);
+    }
+
+    return viewsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.CanvasFrame} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CanvasFrameItemProvider canvasFrameItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.CanvasFrame}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCanvasFrameAdapter()
+  {
+    if (canvasFrameItemProvider == null)
+    {
+      canvasFrameItemProvider = new CanvasFrameItemProvider(this);
+    }
+
+    return canvasFrameItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ViewPortHolder} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ViewPortHolderItemProvider viewPortHolderItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ViewPortHolder}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createViewPortHolderAdapter()
+  {
+    if (viewPortHolderItemProvider == null)
+    {
+      viewPortHolderItemProvider = new ViewPortHolderItemProvider(this);
+    }
+
+    return viewPortHolderItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.DefaultCavas} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DefaultCavasItemProvider defaultCavasItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.DefaultCavas}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDefaultCavasAdapter()
+  {
+    if (defaultCavasItemProvider == null)
+    {
+      defaultCavasItemProvider = new DefaultCavasItemProvider(this);
+    }
+
+    return defaultCavasItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Canvas} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CanvasItemProvider canvasItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Canvas}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCanvasAdapter()
+  {
+    if (canvasItemProvider == null)
+    {
+      canvasItemProvider = new CanvasItemProvider(this);
+    }
+
+    return canvasItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.Window} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected WindowItemProvider windowItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.Window}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createWindowAdapter()
+  {
+    if (windowItemProvider == null)
+    {
+      windowItemProvider = new WindowItemProvider(this);
+    }
+
+    return windowItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.TabCanvas} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TabCanvasItemProvider tabCanvasItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TabCanvas}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTabCanvasAdapter()
+  {
+    if (tabCanvasItemProvider == null)
+    {
+      tabCanvasItemProvider = new TabCanvasItemProvider(this);
+    }
+
+    return tabCanvasItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.TabPage} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TabPageItemProvider tabPageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TabPage}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTabPageAdapter()
+  {
+    if (tabPageItemProvider == null)
+    {
+      tabPageItemProvider = new TabPageItemProvider(this);
+    }
+
+    return tabPageItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ViewPort} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ViewPortItemProvider viewPortItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ViewPort}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createViewPortAdapter()
+  {
+    if (viewPortItemProvider == null)
+    {
+      viewPortItemProvider = new ViewPortItemProvider(this);
+    }
+
+    return viewPortItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ViewPortTrigger} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ViewPortTriggerItemProvider viewPortTriggerItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ViewPortTrigger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createViewPortTriggerAdapter()
+  {
+    if (viewPortTriggerItemProvider == null)
+    {
+      viewPortTriggerItemProvider = new ViewPortTriggerItemProvider(this);
+    }
+
+    return viewPortTriggerItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.ViewInheritance} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ViewInheritanceItemProvider viewInheritanceItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ViewInheritance}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createViewInheritanceAdapter()
+  {
+    if (viewInheritanceItemProvider == null)
+    {
+      viewInheritanceItemProvider = new ViewInheritanceItemProvider(this);
+    }
+
+    return viewInheritanceItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link domain.TabPagesInheritance} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected TabPagesInheritanceItemProvider tabPagesInheritanceItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.TabPagesInheritance}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createTabPagesInheritanceAdapter()
+  {
+    if (tabPagesInheritanceItemProvider == null)
+    {
+      tabPagesInheritanceItemProvider = new TabPagesInheritanceItemProvider(this);
+    }
+
+    return tabPagesInheritanceItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.FormDataControls} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2274,231 +2574,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link domain.Views} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ViewsItemProvider viewsItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Views}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createViewsAdapter()
-  {
-    if (viewsItemProvider == null)
-    {
-      viewsItemProvider = new ViewsItemProvider(this);
-    }
-
-    return viewsItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.Canvas} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected CanvasItemProvider canvasItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Canvas}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createCanvasAdapter()
-  {
-    if (canvasItemProvider == null)
-    {
-      canvasItemProvider = new CanvasItemProvider(this);
-    }
-
-    return canvasItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.Window} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected WindowItemProvider windowItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.Window}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createWindowAdapter()
-  {
-    if (windowItemProvider == null)
-    {
-      windowItemProvider = new WindowItemProvider(this);
-    }
-
-    return windowItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.ViewPort} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ViewPortItemProvider viewPortItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.ViewPort}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createViewPortAdapter()
-  {
-    if (viewPortItemProvider == null)
-    {
-      viewPortItemProvider = new ViewPortItemProvider(this);
-    }
-
-    return viewPortItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.ViewInheritance} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ViewInheritanceItemProvider viewInheritanceItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.ViewInheritance}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createViewInheritanceAdapter()
-  {
-    if (viewInheritanceItemProvider == null)
-    {
-      viewInheritanceItemProvider = new ViewInheritanceItemProvider(this);
-    }
-
-    return viewInheritanceItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.TabCanvas} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected TabCanvasItemProvider tabCanvasItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.TabCanvas}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createTabCanvasAdapter()
-  {
-    if (tabCanvasItemProvider == null)
-    {
-      tabCanvasItemProvider = new TabCanvasItemProvider(this);
-    }
-
-    return tabCanvasItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.TabPage} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected TabPageItemProvider tabPageItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.TabPage}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createTabPageAdapter()
-  {
-    if (tabPageItemProvider == null)
-    {
-      tabPageItemProvider = new TabPageItemProvider(this);
-    }
-
-    return tabPageItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.TabPagesInheritance} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected TabPagesInheritanceItemProvider tabPagesInheritanceItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.TabPagesInheritance}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createTabPagesInheritanceAdapter()
-  {
-    if (tabPagesInheritanceItemProvider == null)
-    {
-      tabPagesInheritanceItemProvider = new TabPagesInheritanceItemProvider(this);
-    }
-
-    return tabPagesInheritanceItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link domain.ViewPortTrigger} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ViewPortTriggerItemProvider viewPortTriggerItemProvider;
-
-  /**
-   * This creates an adapter for a {@link domain.ViewPortTrigger}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createViewPortTriggerAdapter()
-  {
-    if (viewPortTriggerItemProvider == null)
-    {
-      viewPortTriggerItemProvider = new ViewPortTriggerItemProvider(this);
-    }
-
-    return viewPortTriggerItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link domain.ApplicationInfrastructureLayer} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2976,13 +3051,16 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (formItemProvider != null) formItemProvider.dispose();
     if (formViewItemProvider != null) formViewItemProvider.dispose();
     if (viewsItemProvider != null) viewsItemProvider.dispose();
+    if (canvasFrameItemProvider != null) canvasFrameItemProvider.dispose();
+    if (viewPortHolderItemProvider != null) viewPortHolderItemProvider.dispose();
+    if (defaultCavasItemProvider != null) defaultCavasItemProvider.dispose();
     if (canvasItemProvider != null) canvasItemProvider.dispose();
-    if (viewPortItemProvider != null) viewPortItemProvider.dispose();
-    if (viewPortTriggerItemProvider != null) viewPortTriggerItemProvider.dispose();
     if (windowItemProvider != null) windowItemProvider.dispose();
-    if (viewInheritanceItemProvider != null) viewInheritanceItemProvider.dispose();
     if (tabCanvasItemProvider != null) tabCanvasItemProvider.dispose();
     if (tabPageItemProvider != null) tabPageItemProvider.dispose();
+    if (viewPortItemProvider != null) viewPortItemProvider.dispose();
+    if (viewPortTriggerItemProvider != null) viewPortTriggerItemProvider.dispose();
+    if (viewInheritanceItemProvider != null) viewInheritanceItemProvider.dispose();
     if (tabPagesInheritanceItemProvider != null) tabPagesInheritanceItemProvider.dispose();
     if (formDataControlsItemProvider != null) formDataControlsItemProvider.dispose();
     if (controlsItemProvider != null) controlsItemProvider.dispose();

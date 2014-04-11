@@ -256,82 +256,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_title;
+	public static String DeploymentComponent1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_desc;
+	public static String DeploymentComponent1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent2CreationTool_title;
+	public static String DeploymentStarStep2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentComponent2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String DeploymentStarStep3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String DeploymentStarStep3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Window8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Window8CreationTool_desc;
+	public static String DeploymentStarStep2CreationTool_desc;
 
 	/**
 	 * @generated

@@ -2,7 +2,7 @@
  */
 package domain.impl;
 
-import domain.Canvas;
+import domain.CanvasFrame;
 import domain.DomainPackage;
 import domain.ViewInheritance;
 import domain.ViewPort;
@@ -70,7 +70,7 @@ public class ViewInheritanceImpl extends EObjectImpl implements ViewInheritance
    * @generated
    * @ordered
    */
-  protected Canvas target;
+  protected CanvasFrame target;
 
   /**
    * <!-- begin-user-doc -->
@@ -164,12 +164,12 @@ public class ViewInheritanceImpl extends EObjectImpl implements ViewInheritance
    * <!-- end-user-doc -->
    * @generated
    */
-  public Canvas getTarget()
+  public CanvasFrame getTarget()
   {
     if (target != null && target.eIsProxy())
     {
       InternalEObject oldTarget = (InternalEObject)target;
-      target = (Canvas)eResolveProxy(oldTarget);
+      target = (CanvasFrame)eResolveProxy(oldTarget);
       if (target != oldTarget)
       {
         if (eNotificationRequired())
@@ -184,7 +184,7 @@ public class ViewInheritanceImpl extends EObjectImpl implements ViewInheritance
    * <!-- end-user-doc -->
    * @generated
    */
-  public Canvas basicGetTarget()
+  public CanvasFrame basicGetTarget()
   {
     return target;
   }
@@ -194,9 +194,9 @@ public class ViewInheritanceImpl extends EObjectImpl implements ViewInheritance
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTarget(Canvas newTarget)
+  public void setTarget(CanvasFrame newTarget)
   {
-    Canvas oldTarget = target;
+    CanvasFrame oldTarget = target;
     target = newTarget;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.VIEW_INHERITANCE__TARGET, oldTarget, target));
@@ -241,7 +241,7 @@ public class ViewInheritanceImpl extends EObjectImpl implements ViewInheritance
         setSource((ViewPort)newValue);
         return;
       case DomainPackage.VIEW_INHERITANCE__TARGET:
-        setTarget((Canvas)newValue);
+        setTarget((CanvasFrame)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -264,7 +264,7 @@ public class ViewInheritanceImpl extends EObjectImpl implements ViewInheritance
         setSource((ViewPort)null);
         return;
       case DomainPackage.VIEW_INHERITANCE__TARGET:
-        setTarget((Canvas)null);
+        setTarget((CanvasFrame)null);
         return;
     }
     super.eUnset(featureID);

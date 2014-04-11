@@ -85,12 +85,12 @@ public interface ViewInheritance extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Target</em>' reference.
-   * @see #setTarget(Canvas)
+   * @see #setTarget(CanvasFrame)
    * @see domain.DomainPackage#getViewInheritance_Target()
    * @model
    * @generated
    */
-  Canvas getTarget();
+  CanvasFrame getTarget();
 
   /**
    * Sets the value of the '{@link domain.ViewInheritance#getTarget <em>Target</em>}' reference.
@@ -100,6 +100,6 @@ public interface ViewInheritance extends EObject
    * @see #getTarget()
    * @generated
    */
-  void setTarget(Canvas value);
+  void setTarget(CanvasFrame value);
 
 } // ViewInheritance

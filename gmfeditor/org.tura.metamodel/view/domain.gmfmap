@@ -9,6 +9,144 @@
   <nodes>
     <containmentFeature
         href="domain.ecore#//Views/canvases"/>
+    <ownedChild
+        relatedDiagrams="//@diagram">
+      <domainMetaElement
+          href="domain.ecore#//Canvas"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#CanvasLabel"/>
+        <features
+            href="domain.ecore#//CanvasFrame/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+      <diagramNode
+          href="domain.gmfgraph#Canvas"/>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//ViewPortHolder/viewPorts"/>
+        <ownedChild
+            relatedDiagrams="//@diagram">
+          <domainMetaElement
+              href="domain.ecore#//ViewPort"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#ViewPortLabel"/>
+            <features
+                href="domain.ecore#//ViewPort/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+          <diagramNode
+              href="domain.gmfgraph#ViewPort"/>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="domain.ecore#//ViewPort/viewPortTrigger"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="domain.ecore#//ViewPortTrigger"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="domain.gmfgraph#ViewPortTriggerLabel"/>
+                <features
+                    href="domain.ecore#//MethodPointer/fakeMethod"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+              <diagramNode
+                  href="domain.gmfgraph#ViewPortTrigger"/>
+            </ownedChild>
+          </children>
+          <compartments
+              children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0">
+            <compartment
+                href="domain.gmfgraph#ViewPortViewPortTriggerCompartment"/>
+          </compartments>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.0">
+        <compartment
+            href="domain.gmfgraph#CanvasViewPortsCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Views/canvases"/>
+    <ownedChild
+        relatedDiagrams="//@diagram">
+      <domainMetaElement
+          href="domain.ecore#//Window"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#WindowLabel"/>
+        <features
+            href="domain.ecore#//CanvasFrame/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
+      <diagramNode
+          href="domain.gmfgraph#Window"/>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+        <containmentFeature
+            href="domain.ecore#//ViewPortHolder/viewPorts"/>
+      </children>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.0">
+        <compartment
+            href="domain.gmfgraph#WindowViewPortsCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Views/canvases"/>
+    <ownedChild
+        relatedDiagrams="//@diagram">
+      <domainMetaElement
+          href="domain.ecore#//TabPage"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#TabPageLabel"/>
+        <features
+            href="domain.ecore#//CanvasFrame/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+      <diagramNode
+          href="domain.gmfgraph#TabPage"/>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+        <containmentFeature
+            href="domain.ecore#//ViewPortHolder/viewPorts"/>
+      </children>
+      <compartments
+          children="//@nodes.2/@ownedChild/@children.0">
+        <compartment
+            href="domain.gmfgraph#TabPageViewPortsCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Views/canvases"/>
     <ownedChild>
       <domainMetaElement
           href="domain.ecore#//TabCanvas"/>
@@ -17,73 +155,13 @@
         <diagramLabel
             href="domain.gmfgraph#TabCanvasLabel"/>
         <features
-            href="domain.ecore#//Canvas/name"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.15"/>
-      <diagramNode
-          href="domain.gmfgraph#TabCanvas"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="domain.ecore#//Views/canvases"/>
-    <ownedChild>
-      <domainMetaElement
-          href="domain.ecore#//TabPage"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="domain.gmfgraph#TabPageLabel"/>
-        <features
-            href="domain.ecore#//Canvas/name"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.16"/>
-      <diagramNode
-          href="domain.gmfgraph#TabPage"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="domain.ecore#//Views/canvases"/>
-    <ownedChild>
-      <domainMetaElement
-          href="domain.ecore#//Canvas"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="domain.gmfgraph#CanvasLabel"/>
-        <features
-            href="domain.ecore#//Canvas/name"/>
+            href="domain.ecore#//CanvasFrame/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
-          href="domain.gmfgraph#Canvas"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="domain.ecore#//Views/windows"/>
-    <ownedChild>
-      <domainMetaElement
-          href="domain.ecore#//Window"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="domain.gmfgraph#WindowLabel"/>
-        <features
-            href="domain.ecore#//Window/name"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.20"/>
-      <diagramNode
-          href="domain.gmfgraph#Window"/>
+          href="domain.gmfgraph#TabCanvas"/>
     </ownedChild>
   </nodes>
   <links>
@@ -93,7 +171,7 @@
         href="domain.ecore#//Views/viewInheritances"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.3"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.1"/>
     <diagramLink
         href="domain.gmfgraph#ViewInheritance"/>
     <sourceMetaFeature
@@ -110,7 +188,7 @@
         href="domain.ecore#//Views/tabPagesInheritances"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.2"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.0"/>
     <diagramLink
         href="domain.gmfgraph#TabPagesInheritance"/>
     <sourceMetaFeature
@@ -119,39 +197,6 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="domain.ecore#//TabPagesInheritance/target"/>
-  </links>
-  <links>
-    <domainMetaElement
-        href="domain.ecore#//Relation"/>
-    <containmentFeature
-        href="domain.ecore#//Controls/relations"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.1"/>
-    <diagramLink
-        href="domain.gmfgraph#Relation"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="domain.ecore#//Relation/master"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="domain.ecore#//Relation/detail"/>
-  </links>
-  <links>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping"
-        readOnly="true">
-      <diagramLabel
-          href="domain.gmfgraph#WindowMainCanvasExternalLabel"/>
-    </labelMappings>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.0"/>
-    <diagramLink
-        href="domain.gmfgraph#WindowMainCanvas"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="domain.ecore#//Window/mainCanvas"/>
   </links>
   <diagram>
     <diagramCanvas

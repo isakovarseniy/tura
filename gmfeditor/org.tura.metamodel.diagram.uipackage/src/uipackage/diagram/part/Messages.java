@@ -251,92 +251,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_title;
+	public static String Form1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_desc;
+	public static String Form1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Form2CreationTool_title;
+	public static String FormDataControls2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Form2CreationTool_desc;
+	public static String FormDataControls2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String FormDataControls3CreationTool_title;
+	public static String FormView3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String FormDataControls3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String FormView4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String FormView4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Window9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Window9CreationTool_desc;
+	public static String FormView3CreationTool_desc;
 
 	/**
 	 * @generated

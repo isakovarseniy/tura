@@ -4,8 +4,8 @@ package domain.provider;
 
 
 import domain.DomainPackage;
-
 import domain.TabPagesInheritance;
+
 import java.util.Collection;
 import java.util.List;
 

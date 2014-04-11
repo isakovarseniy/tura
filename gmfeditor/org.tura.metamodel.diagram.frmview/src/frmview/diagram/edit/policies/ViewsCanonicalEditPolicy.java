@@ -36,11 +36,12 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import domain.DomainPackage;
 import frmview.diagram.edit.parts.CanvasEditPart;
-import frmview.diagram.edit.parts.RelationEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
 import frmview.diagram.edit.parts.TabPagesInheritanceEditPart;
 import frmview.diagram.edit.parts.ViewInheritanceEditPart;
+import frmview.diagram.edit.parts.ViewPortEditPart;
+import frmview.diagram.edit.parts.ViewPortTriggerEditPart;
 import frmview.diagram.edit.parts.ViewsEditPart;
 import frmview.diagram.edit.parts.WindowEditPart;
 import frmview.diagram.part.DomainDiagramUpdater;
@@ -52,11 +53,6 @@ import frmview.diagram.part.DomainVisualIDRegistry;
  * @generated
  */
 public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
-
-	/**
-	 * @generated
-	 */
-	private Set<EStructuralFeature> myFeaturesToSynchronize;
 
 	/**
 	 * @generated
@@ -73,15 +69,8 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
-					.getViews_Canvases());
-			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
-					.getViews_Windows());
-		}
-		return myFeaturesToSynchronize;
+	protected EStructuralFeature getFeatureToSynchronize() {
+		return DomainPackage.eINSTANCE.getViews_Canvases();
 	}
 
 	/**
@@ -117,10 +106,10 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
-		case TabCanvasEditPart.VISUAL_ID:
-		case TabPageEditPart.VISUAL_ID:
 		case CanvasEditPart.VISUAL_ID:
 		case WindowEditPart.VISUAL_ID:
+		case TabPageEditPart.VISUAL_ID:
+		case TabCanvasEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;
@@ -292,10 +281,18 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case TabCanvasEditPart.VISUAL_ID: {
+		case CanvasEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getTabCanvas_1302001ContainedLinks(view));
+						.getCanvas_1302003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case WindowEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getWindow_1302007ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -308,18 +305,26 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case CanvasEditPart.VISUAL_ID: {
+		case TabCanvasEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getCanvas_1302003ContainedLinks(view));
+						.getTabCanvas_1302008ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case WindowEditPart.VISUAL_ID: {
+		case ViewPortEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getWindow_1302004ContainedLinks(view));
+						.getViewPort_1303003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ViewPortTriggerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getViewPortTrigger_1303002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -336,14 +341,6 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getTabPagesInheritance_1304002ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case RelationEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(DomainDiagramUpdater
-						.getRelation_1304003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

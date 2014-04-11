@@ -6,5 +6,5 @@ package frmview.diagram.edit.helpers;
 /**
  * @generated
  */
-public class RelationEditHelper extends DomainBaseEditHelper {
+public class ViewPortTriggerEditHelper extends DomainBaseEditHelper {
 }

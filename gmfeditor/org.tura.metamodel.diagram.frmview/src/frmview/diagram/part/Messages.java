@@ -256,252 +256,102 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ArtificialField1CreationTool_title;
+	public static String Canvas1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ArtificialField1CreationTool_desc;
+	public static String Canvas1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas2CreationTool_title;
+	public static String TabCanvas2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas2CreationTool_desc;
+	public static String TabCanvas2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CreateTrigger3CreationTool_title;
+	public static String TabPage3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CreateTrigger3CreationTool_desc;
+	public static String TabPage3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DataControl4CreationTool_title;
+	public static String ViewPort4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DataControl4CreationTool_desc;
+	public static String ViewPort4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeleteTrigger5CreationTool_title;
+	public static String ViewPortTrigger5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeleteTrigger5CreationTool_desc;
+	public static String ViewPortTrigger5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InsertTrigger6CreationTool_title;
+	public static String Window6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InsertTrigger6CreationTool_desc;
+	public static String Window6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTCreateTrigger7CreationTool_title;
+	public static String TabPagesInheritance1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTCreateTrigger7CreationTool_desc;
+	public static String TabPagesInheritance1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTQueryTrigger8CreationTool_title;
+	public static String ViewInheritance2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTQueryTrigger8CreationTool_desc;
+	public static String ViewInheritance2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREDeleteTrigger9CreationTool_title;
+	public static String TabPageTabPageViewPortsCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREDeleteTrigger9CreationTool_desc;
+	public static String ViewPortViewPortViewPortTriggerCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREFormTrigger10CreationTool_title;
+	public static String CanvasCanvasViewPortsCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREFormTrigger10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String PREInsertTrigger11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String PREInsertTrigger11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String PREQueryTrigger12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String PREQueryTrigger12CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String PREUpdateTrigger13CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String PREUpdateTrigger13CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Root14CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Root14CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String SearchTrigger15CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String SearchTrigger15CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas16CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas16CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage17CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage17CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String UpdateTrigger18CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String UpdateTrigger18CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort19CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort19CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger20CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger20CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Window21CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Window21CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String MainCanvas1CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String MainCanvas1CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Relation2CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Relation2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPagesInheritance3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPagesInheritance3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewInheritance4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewInheritance4CreationTool_desc;
+	public static String WindowWindowViewPortsCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -521,27 +371,37 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ViewInheritance_1304001_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Window_1302004_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_WindowMainCanvas_1304004_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_WindowMainCanvas_1304004_source;
+	public static String NavigatorGroupName_Window_1302007_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Canvas_1302003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TabCanvas_1302008_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TabCanvas_1302008_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewInheritance_1304001_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewInheritance_1304001_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewPort_1303003_outgoinglinks;
 
 	/**
 	 * @generated
@@ -552,16 +412,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Views_1301000_links;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TabCanvas_1302001_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TabCanvas_1302001_outgoinglinks;
 
 	/**
 	 * @generated

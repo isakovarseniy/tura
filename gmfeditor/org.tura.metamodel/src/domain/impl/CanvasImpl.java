@@ -3,8 +3,11 @@
 package domain.impl;
 
 import domain.Canvas;
+import domain.DefaultCavas;
 import domain.DomainPackage;
+import domain.HTMLLayerHolder;
 import domain.ViewPort;
+import domain.ViewPortHolder;
 
 import java.util.Collection;
 
@@ -17,7 +20,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -29,55 +31,35 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.CanvasImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.CanvasImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.CanvasImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link domain.impl.CanvasImpl#getViewPorts <em>View Ports</em>}</li>
+ *   <li>{@link domain.impl.CanvasImpl#isDefaultCanvas <em>Default Canvas</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CanvasImpl extends EObjectImpl implements Canvas
+public class CanvasImpl extends CanvasFrameImpl implements Canvas
 {
   /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
+   * @see #getColumns()
    * @generated
    * @ordered
    */
-  protected static final String UID_EDEFAULT = null;
+  protected static final int COLUMNS_EDEFAULT = 1;
 
   /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
+   * @see #getColumns()
    * @generated
    * @ordered
    */
-  protected String uid = UID_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected int columns = COLUMNS_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getViewPorts() <em>View Ports</em>}' containment reference list.
@@ -88,6 +70,26 @@ public class CanvasImpl extends EObjectImpl implements Canvas
    * @ordered
    */
   protected EList<ViewPort> viewPorts;
+
+  /**
+   * The default value of the '{@link #isDefaultCanvas() <em>Default Canvas</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isDefaultCanvas()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean DEFAULT_CANVAS_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isDefaultCanvas() <em>Default Canvas</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isDefaultCanvas()
+   * @generated
+   * @ordered
+   */
+  protected boolean defaultCanvas = DEFAULT_CANVAS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -115,9 +117,9 @@ public class CanvasImpl extends EObjectImpl implements Canvas
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getUid()
+  public int getColumns()
   {
-    return uid;
+    return columns;
   }
 
   /**
@@ -125,35 +127,12 @@ public class CanvasImpl extends EObjectImpl implements Canvas
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setUid(String newUid)
+  public void setColumns(int newColumns)
   {
-    String oldUid = uid;
-    uid = newUid;
+    int oldColumns = columns;
+    columns = newColumns;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CANVAS__UID, oldUid, uid));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CANVAS__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CANVAS__COLUMNS, oldColumns, columns));
   }
 
   /**
@@ -168,6 +147,29 @@ public class CanvasImpl extends EObjectImpl implements Canvas
       viewPorts = new EObjectContainmentEList<ViewPort>(ViewPort.class, this, DomainPackage.CANVAS__VIEW_PORTS);
     }
     return viewPorts;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isDefaultCanvas()
+  {
+    return defaultCanvas;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDefaultCanvas(boolean newDefaultCanvas)
+  {
+    boolean oldDefaultCanvas = defaultCanvas;
+    defaultCanvas = newDefaultCanvas;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CANVAS__DEFAULT_CANVAS, oldDefaultCanvas, defaultCanvas));
   }
 
   /**
@@ -196,12 +198,12 @@ public class CanvasImpl extends EObjectImpl implements Canvas
   {
     switch (featureID)
     {
-      case DomainPackage.CANVAS__UID:
-        return getUid();
-      case DomainPackage.CANVAS__NAME:
-        return getName();
+      case DomainPackage.CANVAS__COLUMNS:
+        return getColumns();
       case DomainPackage.CANVAS__VIEW_PORTS:
         return getViewPorts();
+      case DomainPackage.CANVAS__DEFAULT_CANVAS:
+        return isDefaultCanvas();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -217,15 +219,15 @@ public class CanvasImpl extends EObjectImpl implements Canvas
   {
     switch (featureID)
     {
-      case DomainPackage.CANVAS__UID:
-        setUid((String)newValue);
-        return;
-      case DomainPackage.CANVAS__NAME:
-        setName((String)newValue);
+      case DomainPackage.CANVAS__COLUMNS:
+        setColumns((Integer)newValue);
         return;
       case DomainPackage.CANVAS__VIEW_PORTS:
         getViewPorts().clear();
         getViewPorts().addAll((Collection<? extends ViewPort>)newValue);
+        return;
+      case DomainPackage.CANVAS__DEFAULT_CANVAS:
+        setDefaultCanvas((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -241,14 +243,14 @@ public class CanvasImpl extends EObjectImpl implements Canvas
   {
     switch (featureID)
     {
-      case DomainPackage.CANVAS__UID:
-        setUid(UID_EDEFAULT);
-        return;
-      case DomainPackage.CANVAS__NAME:
-        setName(NAME_EDEFAULT);
+      case DomainPackage.CANVAS__COLUMNS:
+        setColumns(COLUMNS_EDEFAULT);
         return;
       case DomainPackage.CANVAS__VIEW_PORTS:
         getViewPorts().clear();
+        return;
+      case DomainPackage.CANVAS__DEFAULT_CANVAS:
+        setDefaultCanvas(DEFAULT_CANVAS_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -264,14 +266,84 @@ public class CanvasImpl extends EObjectImpl implements Canvas
   {
     switch (featureID)
     {
-      case DomainPackage.CANVAS__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.CANVAS__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainPackage.CANVAS__COLUMNS:
+        return columns != COLUMNS_EDEFAULT;
       case DomainPackage.CANVAS__VIEW_PORTS:
         return viewPorts != null && !viewPorts.isEmpty();
+      case DomainPackage.CANVAS__DEFAULT_CANVAS:
+        return defaultCanvas != DEFAULT_CANVAS_EDEFAULT;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == HTMLLayerHolder.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.CANVAS__COLUMNS: return DomainPackage.HTML_LAYER_HOLDER__COLUMNS;
+        default: return -1;
+      }
+    }
+    if (baseClass == ViewPortHolder.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.CANVAS__VIEW_PORTS: return DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS;
+        default: return -1;
+      }
+    }
+    if (baseClass == DefaultCavas.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.CANVAS__DEFAULT_CANVAS: return DomainPackage.DEFAULT_CAVAS__DEFAULT_CANVAS;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == HTMLLayerHolder.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.HTML_LAYER_HOLDER__COLUMNS: return DomainPackage.CANVAS__COLUMNS;
+        default: return -1;
+      }
+    }
+    if (baseClass == ViewPortHolder.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS: return DomainPackage.CANVAS__VIEW_PORTS;
+        default: return -1;
+      }
+    }
+    if (baseClass == DefaultCavas.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.DEFAULT_CAVAS__DEFAULT_CANVAS: return DomainPackage.CANVAS__DEFAULT_CANVAS;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**
@@ -285,10 +357,10 @@ public class CanvasImpl extends EObjectImpl implements Canvas
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(", name: ");
-    result.append(name);
+    result.append(" (columns: ");
+    result.append(columns);
+    result.append(", defaultCanvas: ");
+    result.append(defaultCanvas);
     result.append(')');
     return result.toString();
   }

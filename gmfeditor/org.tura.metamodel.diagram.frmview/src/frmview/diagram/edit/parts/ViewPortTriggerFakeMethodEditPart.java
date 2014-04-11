@@ -6,7 +6,6 @@ package frmview.diagram.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.draw2d.ConnectionLocator;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -18,14 +17,13 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.DirectEditRequest;
 import org.eclipse.gef.tools.DirectEditManager;
-import org.eclipse.gmf.runtime.common.ui.services.parser.CommonParserHint;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.label.ILabelDelegate;
@@ -46,10 +44,8 @@ import org.eclipse.jface.viewers.ICellEditorValidator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.Display;
 
 import frmview.diagram.edit.policies.DomainTextSelectionEditPolicy;
 import frmview.diagram.part.DomainVisualIDRegistry;
@@ -59,13 +55,13 @@ import frmview.diagram.providers.DomainParserProvider;
 /**
  * @generated
  */
-public class WindowMainCanvasExternalLabelEditPart extends LabelEditPart
+public class ViewPortTriggerFakeMethodEditPart extends CompartmentEditPart
 		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1306001;
+	public static final int VISUAL_ID = 1305005;
 
 	/**
 	 * @generated
@@ -95,17 +91,7 @@ public class WindowMainCanvasExternalLabelEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	static {
-		registerSnapBackPosition(
-				DomainVisualIDRegistry
-						.getType(frmview.diagram.edit.parts.WindowMainCanvasExternalLabelEditPart.VISUAL_ID),
-				new Point(0, 40));
-	}
-
-	/**
-	 * @generated
-	 */
-	public WindowMainCanvasExternalLabelEditPart(View view) {
+	public ViewPortTriggerFakeMethodEditPart(View view) {
 		super(view);
 	}
 
@@ -114,19 +100,12 @@ public class WindowMainCanvasExternalLabelEditPart extends LabelEditPart
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
-				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
 				new DomainTextSelectionEditPolicy());
+		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
+				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new ViewsEditPart.LinkLabelDragPolicy());
-	}
-
-	/**
-	 * @generated
-	 */
-	public int getKeyPoint() {
-		return ConnectionLocator.MIDDLE;
+				new ViewsEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -186,7 +165,7 @@ public class WindowMainCanvasExternalLabelEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public void setLabel(IFigure figure) {
+	public void setLabel(WrappingLabel figure) {
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);
@@ -213,14 +192,18 @@ public class WindowMainCanvasExternalLabelEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-		return (View) getModel();
+		return resolveSemanticElement();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		return null;
+		EObject parserElement = getParserElement();
+		if (parserElement == null) {
+			return null;
+		}
+		return DomainElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**
@@ -266,7 +249,7 @@ public class WindowMainCanvasExternalLabelEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -328,9 +311,12 @@ public class WindowMainCanvasExternalLabelEditPart extends LabelEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = DomainParserProvider.getParser(
-					DomainElementTypes.WindowMainCanvas_1304004,
-					getParserElement(), CommonParserHint.DESCRIPTION);
+			parser = DomainParserProvider
+					.getParser(
+							DomainElementTypes.ViewPortTrigger_1303002,
+							getParserElement(),
+							DomainVisualIDRegistry
+									.getType(frmview.diagram.edit.parts.ViewPortTriggerFakeMethodEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -582,6 +568,22 @@ public class WindowMainCanvasExternalLabelEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
+	protected void addNotationalListeners() {
+		super.addNotationalListeners();
+		addListenerFilter("PrimaryView", this, getPrimaryView()); //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeNotationalListeners() {
+		super.removeNotationalListeners();
+		removeListenerFilter("PrimaryView"); //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
 		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
@@ -626,39 +628,8 @@ public class WindowMainCanvasExternalLabelEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected IFigure createFigure() {
-		IFigure label = createFigurePrim();
-		defaultText = getLabelTextHelper(label);
-		return label;
+		// Parent should assign one using setLabel() method
+		return null;
 	}
-
-	/**
-	 * @generated
-	 */
-	protected IFigure createFigurePrim() {
-		return new WindowMainCanvasExternalLabelFigure();
-	}
-
-	/**
-	 * @generated
-	 */
-	public class WindowMainCanvasExternalLabelFigure extends WrappingLabel {
-
-		/**
-		 * @generated
-		 */
-		public WindowMainCanvasExternalLabelFigure() {
-			this.setText("");
-
-			this.setFont(THIS_FONT);
-
-		}
-
-	}
-
-	/**
-	 * @generated
-	 */
-	static final Font THIS_FONT = new Font(Display.getCurrent(), "Palatino",
-			12, SWT.ITALIC);
 
 }

@@ -5,8 +5,6 @@ package domain.tests;
 import domain.DomainFactory;
 import domain.Window;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,16 +13,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WindowTest extends TestCase
+public class WindowTest extends CanvasFrameTest
 {
-
-  /**
-   * The fixture for this Window test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Window fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +38,15 @@ public class WindowTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Window test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(Window fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Window test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected Window getFixture()
   {
-    return fixture;
+    return (Window)fixture;
   }
 
   /**

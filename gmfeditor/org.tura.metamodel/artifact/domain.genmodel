@@ -367,33 +367,34 @@
     <genClasses ecoreClass="domain.ecore#//Views">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Views/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/canvases"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/windows"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/viewInheritances"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/tabPagesInheritances"/>
     </genClasses>
-    <genClasses ecoreClass="domain.ecore#//Canvas">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Canvas/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Canvas/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Canvas/viewPorts"/>
+    <genClasses ecoreClass="domain.ecore#//CanvasFrame">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//CanvasFrame/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//CanvasFrame/name"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ViewPortHolder">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ViewPortHolder/viewPorts"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//DefaultCavas">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DefaultCavas/defaultCanvas"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//Canvas"/>
+    <genClasses ecoreClass="domain.ecore#//Window"/>
+    <genClasses ecoreClass="domain.ecore#//TabCanvas"/>
+    <genClasses ecoreClass="domain.ecore#//TabPage"/>
     <genClasses ecoreClass="domain.ecore#//ViewPort">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ViewPort/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ViewPort/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ViewPort/viewPortTrigger"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ViewPortTrigger"/>
-    <genClasses ecoreClass="domain.ecore#//Window">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Window/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Window/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Window/mainCanvas"/>
-    </genClasses>
     <genClasses ecoreClass="domain.ecore#//ViewInheritance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ViewInheritance/uid"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//ViewInheritance/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//ViewInheritance/target"/>
     </genClasses>
-    <genClasses ecoreClass="domain.ecore#//TabCanvas"/>
-    <genClasses ecoreClass="domain.ecore#//TabPage"/>
     <genClasses ecoreClass="domain.ecore#//TabPagesInheritance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TabPagesInheritance/uid"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//TabPagesInheritance/source"/>

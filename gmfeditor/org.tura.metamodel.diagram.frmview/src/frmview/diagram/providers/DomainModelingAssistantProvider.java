@@ -24,11 +24,15 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
+import frmview.diagram.edit.parts.CanvasCanvasViewPortsCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
+import frmview.diagram.edit.parts.TabPageTabPageViewPortsCompartmentEditPart;
+import frmview.diagram.edit.parts.ViewPortEditPart;
 import frmview.diagram.edit.parts.ViewsEditPart;
 import frmview.diagram.edit.parts.WindowEditPart;
+import frmview.diagram.edit.parts.WindowWindowViewPortsCompartmentEditPart;
 import frmview.diagram.part.DomainDiagramEditorPlugin;
 import frmview.diagram.part.Messages;
 
@@ -45,10 +49,30 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof ViewsEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
-			types.add(DomainElementTypes.TabCanvas_1302001);
-			types.add(DomainElementTypes.TabPage_1302002);
 			types.add(DomainElementTypes.Canvas_1302003);
-			types.add(DomainElementTypes.Window_1302004);
+			types.add(DomainElementTypes.Window_1302007);
+			types.add(DomainElementTypes.TabPage_1302002);
+			types.add(DomainElementTypes.TabCanvas_1302008);
+			return types;
+		}
+		if (editPart instanceof ViewPortEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.ViewPortTrigger_1303002);
+			return types;
+		}
+		if (editPart instanceof CanvasCanvasViewPortsCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.ViewPort_1303003);
+			return types;
+		}
+		if (editPart instanceof WindowWindowViewPortsCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.ViewPort_1303003);
+			return types;
+		}
+		if (editPart instanceof TabPageTabPageViewPortsCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(DomainElementTypes.ViewPort_1303003);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
@@ -63,8 +87,8 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 		if (sourceEditPart instanceof TabCanvasEditPart) {
 			return ((TabCanvasEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
-		if (sourceEditPart instanceof WindowEditPart) {
-			return ((WindowEditPart) sourceEditPart).getMARelTypesOnSource();
+		if (sourceEditPart instanceof ViewPortEditPart) {
+			return ((ViewPortEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -75,14 +99,17 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof TabCanvasEditPart) {
-			return ((TabCanvasEditPart) targetEditPart).getMARelTypesOnTarget();
+		if (targetEditPart instanceof CanvasEditPart) {
+			return ((CanvasEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof WindowEditPart) {
+			return ((WindowEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof TabPageEditPart) {
 			return ((TabPageEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
-		if (targetEditPart instanceof CanvasEditPart) {
-			return ((CanvasEditPart) targetEditPart).getMARelTypesOnTarget();
+		if (targetEditPart instanceof TabCanvasEditPart) {
+			return ((TabCanvasEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -100,8 +127,8 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((TabCanvasEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
-		if (sourceEditPart instanceof WindowEditPart) {
-			return ((WindowEditPart) sourceEditPart)
+		if (sourceEditPart instanceof ViewPortEditPart) {
+			return ((ViewPortEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		return Collections.EMPTY_LIST;
@@ -114,16 +141,20 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof TabCanvasEditPart) {
-			return ((TabCanvasEditPart) targetEditPart)
+		if (targetEditPart instanceof CanvasEditPart) {
+			return ((CanvasEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof WindowEditPart) {
+			return ((WindowEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof TabPageEditPart) {
 			return ((TabPageEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
-		if (targetEditPart instanceof CanvasEditPart) {
-			return ((CanvasEditPart) targetEditPart)
+		if (targetEditPart instanceof TabCanvasEditPart) {
+			return ((TabCanvasEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;
@@ -140,8 +171,8 @@ public class DomainModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((TabCanvasEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
-		if (sourceEditPart instanceof WindowEditPart) {
-			return ((WindowEditPart) sourceEditPart)
+		if (sourceEditPart instanceof ViewPortEditPart) {
+			return ((ViewPortEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

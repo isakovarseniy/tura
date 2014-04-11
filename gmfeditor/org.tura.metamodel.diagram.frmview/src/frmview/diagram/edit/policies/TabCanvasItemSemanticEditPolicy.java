@@ -5,22 +5,13 @@ package frmview.diagram.edit.policies;
 
 import java.util.Iterator;
 
-import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EAnnotation;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyReferenceCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
-import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
-import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
@@ -29,11 +20,8 @@ import frmview.diagram.edit.commands.TabPagesInheritanceCreateCommand;
 import frmview.diagram.edit.commands.TabPagesInheritanceReorientCommand;
 import frmview.diagram.edit.commands.ViewInheritanceCreateCommand;
 import frmview.diagram.edit.commands.ViewInheritanceReorientCommand;
-import frmview.diagram.edit.commands.WindowMainCanvasCreateCommand;
-import frmview.diagram.edit.commands.WindowMainCanvasReorientCommand;
 import frmview.diagram.edit.parts.TabPagesInheritanceEditPart;
 import frmview.diagram.edit.parts.ViewInheritanceEditPart;
-import frmview.diagram.edit.parts.WindowMainCanvasEditPart;
 import frmview.diagram.part.DomainVisualIDRegistry;
 import frmview.diagram.providers.DomainElementTypes;
 
@@ -47,7 +35,7 @@ public class TabCanvasItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TabCanvasItemSemanticEditPolicy() {
-		super(DomainElementTypes.TabCanvas_1302001);
+		super(DomainElementTypes.TabCanvas_1302008);
 	}
 
 	/**
@@ -64,27 +52,6 @@ public class TabCanvasItemSemanticEditPolicy extends
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
-			if (DomainVisualIDRegistry.getVisualID(incomingLink) == WindowMainCanvasEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(
-						incomingLink.getSource().getElement(), null,
-						incomingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r) {
-					protected CommandResult doExecuteWithResult(
-							IProgressMonitor progressMonitor, IAdaptable info)
-							throws ExecutionException {
-						EObject referencedObject = getReferencedObject();
-						Resource resource = referencedObject.eResource();
-						CommandResult result = super.doExecuteWithResult(
-								progressMonitor, info);
-						if (resource != null) {
-							resource.getContents().add(referencedObject);
-						}
-						return result;
-					}
-				});
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
@@ -134,9 +101,6 @@ public class TabCanvasItemSemanticEditPolicy extends
 			return getGEFWrapper(new TabPagesInheritanceCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (DomainElementTypes.WindowMainCanvas_1304004 == req.getElementType()) {
-			return null;
-		}
 		return null;
 	}
 
@@ -152,10 +116,6 @@ public class TabCanvasItemSemanticEditPolicy extends
 		if (DomainElementTypes.TabPagesInheritance_1304002 == req
 				.getElementType()) {
 			return null;
-		}
-		if (DomainElementTypes.WindowMainCanvas_1304004 == req.getElementType()) {
-			return getGEFWrapper(new WindowMainCanvasCreateCommand(req,
-					req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -175,21 +135,6 @@ public class TabCanvasItemSemanticEditPolicy extends
 			return getGEFWrapper(new TabPagesInheritanceReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
-	}
-
-	/**
-	 * Returns command to reorient EReference based link. New link target or source
-	 * should be the domain model element associated with this node.
-	 * 
-	 * @generated
-	 */
-	protected Command getReorientReferenceRelationshipCommand(
-			ReorientReferenceRelationshipRequest req) {
-		switch (getVisualID(req)) {
-		case WindowMainCanvasEditPart.VISUAL_ID:
-			return getGEFWrapper(new WindowMainCanvasReorientCommand(req));
-		}
-		return super.getReorientReferenceRelationshipCommand(req);
 	}
 
 }

@@ -156,6 +156,18 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ServerClaster');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Ingredient');
 delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Canvas');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TabCanvas');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TabPage');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewPort');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewPortTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Window');
+delete tool;
 
 
 var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='RecipeConfig');
@@ -204,11 +216,6 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InfrastructureConnectio
 delete tool;
 
 var tool = GmfTool!ToolGroup.all.selectOne(r|r.title='Connections');
-delete tool;
-
-var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='MainCanvas');
-delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MainCanvas');
 delete tool;
 
 var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='TabPagesInheritance');

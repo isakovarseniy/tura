@@ -5,8 +5,6 @@ package domain.tests;
 import domain.Canvas;
 import domain.DomainFactory;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,16 +13,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CanvasTest extends TestCase
+public class CanvasTest extends CanvasFrameTest
 {
-
-  /**
-   * The fixture for this Canvas test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Canvas fixture = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -48,25 +38,15 @@ public class CanvasTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Canvas test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(Canvas fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Canvas test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected Canvas getFixture()
   {
-    return fixture;
+    return (Canvas)fixture;
   }
 
   /**

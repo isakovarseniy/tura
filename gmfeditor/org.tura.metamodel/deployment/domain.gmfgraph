@@ -70,9 +70,6 @@
           y="-2"/>
       <template/>
     </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineDecoration"
-        name="WindowMainCanvasFigureTargetDecoration"/>
     <descriptors
         name="DomainArtifactsFigure">
       <actualFigure
@@ -1765,6 +1762,96 @@
             xsi:type="gmfgraph:Label"
             name="CanvasLabelFigure"
             text="Canvas">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="CanvasViewPortsCompartmentFigure"
+            outline="false"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureCanvasLabelFigure"
+          figure="//@figures.0/@descriptors.43/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getCanvasViewPortsCompartmentFigure"
+          figure="//@figures.0/@descriptors.43/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="WindowFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="WindowFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="192"
+            green="192"
+            blue="192"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="WindowLabelFigure"
+            text="Window">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="WindowViewPortsCompartmentFigure"
+            outline="false"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureWindowLabelFigure"
+          figure="//@figures.0/@descriptors.44/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getWindowViewPortsCompartmentFigure"
+          figure="//@figures.0/@descriptors.44/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="TabCanvasFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="TabCanvasFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="192"
+            green="192"
+            blue="192"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="TabCanvasLabelFigure"
+            text="TabCanvas">
           <font
               xsi:type="gmfgraph:BasicFont"
               faceName="Palatino"
@@ -1773,8 +1860,53 @@
         </children>
       </actualFigure>
       <accessors
-          accessor="getFigureCanvasLabelFigure"
-          figure="//@figures.0/@descriptors.43/@actualFigure/@children.0"/>
+          accessor="getFigureTabCanvasLabelFigure"
+          figure="//@figures.0/@descriptors.45/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="TabPageFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="TabPageFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="192"
+            green="192"
+            blue="192"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="TabPageLabelFigure"
+            text="TabPage">
+          <maximumSize
+              dx="10000"
+              dy="50"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Palatino"
+              height="12"
+              style="ITALIC"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="TabPageViewPortsCompartmentFigure"
+            outline="false"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureTabPageLabelFigure"
+          figure="//@figures.0/@descriptors.46/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getTabPageViewPortsCompartmentFigure"
+          figure="//@figures.0/@descriptors.46/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ViewPortFigure">
@@ -1816,10 +1948,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureViewPortLabelFigure"
-          figure="//@figures.0/@descriptors.44/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.47/@actualFigure/@children.0"/>
       <accessors
           accessor="getViewPortViewPortTriggerCompartmentFigure"
-          figure="//@figures.0/@descriptors.44/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.47/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ViewPortTriggerFigure">
@@ -1854,111 +1986,6 @@
       </actualFigure>
       <accessors
           accessor="getFigureViewPortTriggerLabelFigure"
-          figure="//@figures.0/@descriptors.45/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="WindowFigure">
-      <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle"
-          name="WindowFigure">
-        <foregroundColor
-            xsi:type="gmfgraph:RGBColor"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="192"
-            green="192"
-            blue="192"/>
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="WindowLabelFigure"
-            text="Window">
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              faceName="Palatino"
-              height="12"
-              style="ITALIC"/>
-        </children>
-      </actualFigure>
-      <accessors
-          accessor="getFigureWindowLabelFigure"
-          figure="//@figures.0/@descriptors.46/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="TabCanvasFigure">
-      <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle"
-          name="TabCanvasFigure">
-        <foregroundColor
-            xsi:type="gmfgraph:RGBColor"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="192"
-            green="192"
-            blue="192"/>
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="TabCanvasLabelFigure"
-            text="TabCanvas">
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              faceName="Palatino"
-              height="12"
-              style="ITALIC"/>
-        </children>
-      </actualFigure>
-      <accessors
-          accessor="getFigureTabCanvasLabelFigure"
-          figure="//@figures.0/@descriptors.47/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="TabPageFigure">
-      <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle"
-          name="TabPageFigure">
-        <foregroundColor
-            xsi:type="gmfgraph:RGBColor"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="192"
-            green="192"
-            blue="192"/>
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="TabPageLabelFigure"
-            text="TabPage">
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              faceName="Palatino"
-              height="12"
-              style="ITALIC"/>
-        </children>
-      </actualFigure>
-      <accessors
-          accessor="getFigureTabPageLabelFigure"
           figure="//@figures.0/@descriptors.48/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
@@ -3060,33 +3087,6 @@
             style="ITALIC"/>
       </actualFigure>
     </descriptors>
-    <descriptors
-        name="WindowMainCanvasFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="WindowMainCanvasFigure"
-          lineWidth="2"
-          lineKind="LINE_DASH"
-          targetDecoration="//@figures.0/@figures.10">
-        <foregroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="57"
-            green="102"
-            blue="249"/>
-      </actualFigure>
-    </descriptors>
-    <descriptors
-        name="WindowMainCanvasExternalLabelFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Label"
-          name="WindowMainCanvasExternalLabel">
-        <font
-            xsi:type="gmfgraph:BasicFont"
-            faceName="Palatino"
-            height="12"
-            style="ITALIC"/>
-      </actualFigure>
-    </descriptors>
   </figures>
   <nodes
       name="DomainArtifacts"
@@ -3221,12 +3221,6 @@
       name="Canvas"
       figure="CanvasFigure"/>
   <nodes
-      name="ViewPort"
-      figure="ViewPortFigure"/>
-  <nodes
-      name="ViewPortTrigger"
-      figure="ViewPortTriggerFigure"/>
-  <nodes
       name="Window"
       figure="WindowFigure"/>
   <nodes
@@ -3235,6 +3229,12 @@
   <nodes
       name="TabPage"
       figure="TabPageFigure"/>
+  <nodes
+      name="ViewPort"
+      figure="ViewPortFigure"/>
+  <nodes
+      name="ViewPortTrigger"
+      figure="ViewPortTriggerFigure"/>
   <nodes
       name="FormDataControls"
       figure="FormDataControlsFigure"/>
@@ -3343,9 +3343,6 @@
   <connections
       name="ConfigurationConfigExtension"
       figure="ConfigurationConfigExtensionFigure"/>
-  <connections
-      name="WindowMainCanvas"
-      figure="WindowMainCanvasFigure"/>
   <compartments
       name="DomainArtifactsDomainArtifactCompartment"
       figure="DomainArtifactsFigure"
@@ -3442,10 +3439,25 @@
       collapsible="true"
       accessor="//@figures.0/@descriptors.41/@accessors.2"/>
   <compartments
+      name="CanvasViewPortsCompartment"
+      figure="CanvasFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.43/@accessors.1"/>
+  <compartments
+      name="WindowViewPortsCompartment"
+      figure="WindowFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.44/@accessors.1"/>
+  <compartments
+      name="TabPageViewPortsCompartment"
+      figure="TabPageFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.46/@accessors.1"/>
+  <compartments
       name="ViewPortViewPortTriggerCompartment"
       figure="ViewPortFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.44/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.47/@accessors.1"/>
   <compartments
       name="RootPreFormTriggerCompartment"
       figure="RootFigure"
@@ -3708,24 +3720,24 @@
       figure="CanvasFigure"
       accessor="//@figures.0/@descriptors.43/@accessors.0"/>
   <labels
-      name="ViewPortLabel"
-      figure="ViewPortFigure"
-      accessor="//@figures.0/@descriptors.44/@accessors.0"/>
-  <labels
-      name="ViewPortTriggerLabel"
-      figure="ViewPortTriggerFigure"
-      accessor="//@figures.0/@descriptors.45/@accessors.0"/>
-  <labels
       name="WindowLabel"
       figure="WindowFigure"
-      accessor="//@figures.0/@descriptors.46/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.44/@accessors.0"/>
   <labels
       name="TabCanvasLabel"
       figure="TabCanvasFigure"
-      accessor="//@figures.0/@descriptors.47/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.45/@accessors.0"/>
   <labels
       name="TabPageLabel"
       figure="TabPageFigure"
+      accessor="//@figures.0/@descriptors.46/@accessors.0"/>
+  <labels
+      name="ViewPortLabel"
+      figure="ViewPortFigure"
+      accessor="//@figures.0/@descriptors.47/@accessors.0"/>
+  <labels
+      name="ViewPortTriggerLabel"
+      figure="ViewPortTriggerFigure"
       accessor="//@figures.0/@descriptors.48/@accessors.0"/>
   <labels
       name="FormDataControlsLabel"
@@ -3850,9 +3862,5 @@
   <labels
       name="ConfigurationConfigExtensionExternalLabel"
       figure="ConfigurationConfigExtensionExternalLabelFigure"
-      elementIcon="false"/>
-  <labels
-      name="WindowMainCanvasExternalLabel"
-      figure="WindowMainCanvasExternalLabelFigure"
       elementIcon="false"/>
 </gmfgraph:Canvas>

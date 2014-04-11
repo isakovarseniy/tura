@@ -16,6 +16,7 @@ import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
 import domain.Canvas;
+import domain.CanvasFrame;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
@@ -25,6 +26,7 @@ import domain.Controls;
 import domain.CreateTrigger;
 import domain.DataControl;
 import domain.Datacenter;
+import domain.DefaultCavas;
 import domain.DeleteTrigger;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
@@ -108,6 +110,7 @@ import domain.UpdateTrigger;
 import domain.UsingMappers;
 import domain.ViewInheritance;
 import domain.ViewPort;
+import domain.ViewPortHolder;
 import domain.ViewPortTrigger;
 import domain.Views;
 import domain.Window;
@@ -677,10 +680,65 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainPackage.CANVAS_FRAME:
+      {
+        CanvasFrame canvasFrame = (CanvasFrame)theEObject;
+        T result = caseCanvasFrame(canvasFrame);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.VIEW_PORT_HOLDER:
+      {
+        ViewPortHolder viewPortHolder = (ViewPortHolder)theEObject;
+        T result = caseViewPortHolder(viewPortHolder);
+        if (result == null) result = caseHTMLLayerHolder(viewPortHolder);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.DEFAULT_CAVAS:
+      {
+        DefaultCavas defaultCavas = (DefaultCavas)theEObject;
+        T result = caseDefaultCavas(defaultCavas);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainPackage.CANVAS:
       {
         Canvas canvas = (Canvas)theEObject;
         T result = caseCanvas(canvas);
+        if (result == null) result = caseCanvasFrame(canvas);
+        if (result == null) result = caseViewPortHolder(canvas);
+        if (result == null) result = caseDefaultCavas(canvas);
+        if (result == null) result = caseHTMLLayerHolder(canvas);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.WINDOW:
+      {
+        Window window = (Window)theEObject;
+        T result = caseWindow(window);
+        if (result == null) result = caseCanvasFrame(window);
+        if (result == null) result = caseViewPortHolder(window);
+        if (result == null) result = caseHTMLLayerHolder(window);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.TAB_CANVAS:
+      {
+        TabCanvas tabCanvas = (TabCanvas)theEObject;
+        T result = caseTabCanvas(tabCanvas);
+        if (result == null) result = caseCanvasFrame(tabCanvas);
+        if (result == null) result = caseDefaultCavas(tabCanvas);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.TAB_PAGE:
+      {
+        TabPage tabPage = (TabPage)theEObject;
+        T result = caseTabPage(tabPage);
+        if (result == null) result = caseCanvasFrame(tabPage);
+        if (result == null) result = caseViewPortHolder(tabPage);
+        if (result == null) result = caseHTMLLayerHolder(tabPage);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -701,33 +759,10 @@ public class DomainSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainPackage.WINDOW:
-      {
-        Window window = (Window)theEObject;
-        T result = caseWindow(window);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DomainPackage.VIEW_INHERITANCE:
       {
         ViewInheritance viewInheritance = (ViewInheritance)theEObject;
         T result = caseViewInheritance(viewInheritance);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.TAB_CANVAS:
-      {
-        TabCanvas tabCanvas = (TabCanvas)theEObject;
-        T result = caseTabCanvas(tabCanvas);
-        if (result == null) result = caseCanvas(tabCanvas);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainPackage.TAB_PAGE:
-      {
-        TabPage tabPage = (TabPage)theEObject;
-        T result = caseTabPage(tabPage);
-        if (result == null) result = caseCanvas(tabPage);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2098,6 +2133,54 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Canvas Frame</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Canvas Frame</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCanvasFrame(CanvasFrame object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>View Port Holder</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>View Port Holder</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseViewPortHolder(ViewPortHolder object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Default Cavas</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Default Cavas</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDefaultCavas(DefaultCavas object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Canvas</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2109,6 +2192,54 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCanvas(Canvas object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Window</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Window</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWindow(Window object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tab Canvas</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tab Canvas</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTabCanvas(TabCanvas object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tab Page</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tab Page</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTabPage(TabPage object)
   {
     return null;
   }
@@ -2146,22 +2277,6 @@ public class DomainSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Window</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Window</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseWindow(Window object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>View Inheritance</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2173,38 +2288,6 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseViewInheritance(ViewInheritance object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Tab Canvas</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Tab Canvas</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTabCanvas(TabCanvas object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Tab Page</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Tab Page</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTabPage(TabPage object)
   {
     return null;
   }

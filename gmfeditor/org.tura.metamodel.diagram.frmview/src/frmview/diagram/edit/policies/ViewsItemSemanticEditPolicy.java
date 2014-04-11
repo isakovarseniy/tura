@@ -33,17 +33,17 @@ public class ViewsItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (DomainElementTypes.TabCanvas_1302001 == req.getElementType()) {
-			return getGEFWrapper(new TabCanvasCreateCommand(req));
+		if (DomainElementTypes.Canvas_1302003 == req.getElementType()) {
+			return getGEFWrapper(new CanvasCreateCommand(req));
+		}
+		if (DomainElementTypes.Window_1302007 == req.getElementType()) {
+			return getGEFWrapper(new WindowCreateCommand(req));
 		}
 		if (DomainElementTypes.TabPage_1302002 == req.getElementType()) {
 			return getGEFWrapper(new TabPageCreateCommand(req));
 		}
-		if (DomainElementTypes.Canvas_1302003 == req.getElementType()) {
-			return getGEFWrapper(new CanvasCreateCommand(req));
-		}
-		if (DomainElementTypes.Window_1302004 == req.getElementType()) {
-			return getGEFWrapper(new WindowCreateCommand(req));
+		if (DomainElementTypes.TabCanvas_1302008 == req.getElementType()) {
+			return getGEFWrapper(new TabCanvasCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

@@ -626,6 +626,33 @@ public interface DomainFactory extends EFactory
   Views createViews();
 
   /**
+   * Returns a new object of class '<em>Canvas Frame</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Canvas Frame</em>'.
+   * @generated
+   */
+  CanvasFrame createCanvasFrame();
+
+  /**
+   * Returns a new object of class '<em>View Port Holder</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>View Port Holder</em>'.
+   * @generated
+   */
+  ViewPortHolder createViewPortHolder();
+
+  /**
+   * Returns a new object of class '<em>Default Cavas</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Default Cavas</em>'.
+   * @generated
+   */
+  DefaultCavas createDefaultCavas();
+
+  /**
    * Returns a new object of class '<em>Canvas</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -633,6 +660,33 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   Canvas createCanvas();
+
+  /**
+   * Returns a new object of class '<em>Window</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Window</em>'.
+   * @generated
+   */
+  Window createWindow();
+
+  /**
+   * Returns a new object of class '<em>Tab Canvas</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tab Canvas</em>'.
+   * @generated
+   */
+  TabCanvas createTabCanvas();
+
+  /**
+   * Returns a new object of class '<em>Tab Page</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tab Page</em>'.
+   * @generated
+   */
+  TabPage createTabPage();
 
   /**
    * Returns a new object of class '<em>View Port</em>'.
@@ -653,15 +707,6 @@ public interface DomainFactory extends EFactory
   ViewPortTrigger createViewPortTrigger();
 
   /**
-   * Returns a new object of class '<em>Window</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Window</em>'.
-   * @generated
-   */
-  Window createWindow();
-
-  /**
    * Returns a new object of class '<em>View Inheritance</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -669,24 +714,6 @@ public interface DomainFactory extends EFactory
    * @generated
    */
   ViewInheritance createViewInheritance();
-
-  /**
-   * Returns a new object of class '<em>Tab Canvas</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Tab Canvas</em>'.
-   * @generated
-   */
-  TabCanvas createTabCanvas();
-
-  /**
-   * Returns a new object of class '<em>Tab Page</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Tab Page</em>'.
-   * @generated
-   */
-  TabPage createTabPage();
 
   /**
    * Returns a new object of class '<em>Tab Pages Inheritance</em>'.

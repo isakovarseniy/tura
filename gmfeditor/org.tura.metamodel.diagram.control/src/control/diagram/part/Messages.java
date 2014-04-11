@@ -266,202 +266,142 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Canvas2CreationTool_title;
+	public static String CreateTrigger2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas2CreationTool_desc;
+	public static String CreateTrigger2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CreateTrigger3CreationTool_title;
+	public static String DataControl3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CreateTrigger3CreationTool_desc;
+	public static String DataControl3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DataControl4CreationTool_title;
+	public static String DeleteTrigger4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DataControl4CreationTool_desc;
+	public static String DeleteTrigger4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeleteTrigger5CreationTool_title;
+	public static String InsertTrigger5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeleteTrigger5CreationTool_desc;
+	public static String InsertTrigger5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InsertTrigger6CreationTool_title;
+	public static String POSTCreateTrigger6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InsertTrigger6CreationTool_desc;
+	public static String POSTCreateTrigger6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTCreateTrigger7CreationTool_title;
+	public static String POSTQueryTrigger7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTCreateTrigger7CreationTool_desc;
+	public static String POSTQueryTrigger7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTQueryTrigger8CreationTool_title;
+	public static String PREDeleteTrigger8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String POSTQueryTrigger8CreationTool_desc;
+	public static String PREDeleteTrigger8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREDeleteTrigger9CreationTool_title;
+	public static String PREFormTrigger9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREDeleteTrigger9CreationTool_desc;
+	public static String PREFormTrigger9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREFormTrigger10CreationTool_title;
+	public static String PREInsertTrigger10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREFormTrigger10CreationTool_desc;
+	public static String PREInsertTrigger10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREInsertTrigger11CreationTool_title;
+	public static String PREQueryTrigger11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREInsertTrigger11CreationTool_desc;
+	public static String PREQueryTrigger11CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREQueryTrigger12CreationTool_title;
+	public static String PREUpdateTrigger12CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREQueryTrigger12CreationTool_desc;
+	public static String PREUpdateTrigger12CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PREUpdateTrigger13CreationTool_title;
+	public static String Root13CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PREUpdateTrigger13CreationTool_desc;
+	public static String Root13CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Root14CreationTool_title;
+	public static String SearchTrigger14CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Root14CreationTool_desc;
+	public static String SearchTrigger14CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String SearchTrigger15CreationTool_title;
+	public static String UpdateTrigger15CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SearchTrigger15CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas16CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas16CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage17CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage17CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String UpdateTrigger18CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String UpdateTrigger18CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort19CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort19CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger20CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger20CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Window21CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Window21CreationTool_desc;
+	public static String UpdateTrigger15CreationTool_desc;
 
 	/**
 	 * @generated

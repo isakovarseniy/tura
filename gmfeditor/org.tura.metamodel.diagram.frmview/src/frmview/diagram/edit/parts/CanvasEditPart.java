@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -37,6 +38,7 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
 import frmview.diagram.edit.policies.CanvasItemSemanticEditPolicy;
+import frmview.diagram.edit.policies.OpenDiagramEditPolicy;
 import frmview.diagram.part.DomainVisualIDRegistry;
 import frmview.diagram.providers.DomainElementTypes;
 
@@ -75,6 +77,8 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new CanvasItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -128,6 +132,14 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 					.getFigureCanvasLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof CanvasCanvasViewPortsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getCanvasViewPortsCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((CanvasCanvasViewPortsCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -136,6 +148,13 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof CanvasNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof CanvasCanvasViewPortsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getCanvasViewPortsCompartmentFigure();
+			pane.remove(((CanvasCanvasViewPortsCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -165,6 +184,9 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof CanvasCanvasViewPortsCompartmentEditPart) {
+			return getPrimaryShape().getCanvasViewPortsCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -267,7 +289,7 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.WindowMainCanvas_1304004);
+		types.add(DomainElementTypes.ViewInheritance_1304001);
 		return types;
 	}
 
@@ -276,8 +298,8 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.WindowMainCanvas_1304004) {
-			types.add(DomainElementTypes.Window_1302004);
+		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
+			types.add(DomainElementTypes.ViewPort_1303003);
 		}
 		return types;
 	}
@@ -304,6 +326,10 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureCanvasLabelFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fCanvasViewPortsCompartmentFigure;
 
 		/**
 		 * @generated
@@ -330,7 +356,16 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 
 			fFigureCanvasLabelFigure.setFont(FFIGURECANVASLABELFIGURE_FONT);
 
+			fFigureCanvasLabelFigure.setMaximumSize(new Dimension(getMapMode()
+					.DPtoLP(10000), getMapMode().DPtoLP(50)));
+
 			this.add(fFigureCanvasLabelFigure);
+
+			fCanvasViewPortsCompartmentFigure = new RectangleFigure();
+
+			fCanvasViewPortsCompartmentFigure.setOutline(false);
+
+			this.add(fCanvasViewPortsCompartmentFigure);
 
 		}
 
@@ -339,6 +374,13 @@ public class CanvasEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureCanvasLabelFigure() {
 			return fFigureCanvasLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getCanvasViewPortsCompartmentFigure() {
+			return fCanvasViewPortsCompartmentFigure;
 		}
 
 	}

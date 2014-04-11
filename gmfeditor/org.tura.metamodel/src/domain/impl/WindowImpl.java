@@ -2,18 +2,25 @@
  */
 package domain.impl;
 
-import domain.Canvas;
 import domain.DomainPackage;
+import domain.HTMLLayerHolder;
+import domain.ViewPort;
+import domain.ViewPortHolder;
 import domain.Window;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,65 +29,42 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.WindowImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.WindowImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.WindowImpl#getMainCanvas <em>Main Canvas</em>}</li>
+ *   <li>{@link domain.impl.WindowImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link domain.impl.WindowImpl#getViewPorts <em>View Ports</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class WindowImpl extends EObjectImpl implements Window
+public class WindowImpl extends CanvasFrameImpl implements Window
 {
   /**
-   * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
+   * @see #getColumns()
    * @generated
    * @ordered
    */
-  protected static final String UID_EDEFAULT = null;
-
+  protected static final int COLUMNS_EDEFAULT = 1;
   /**
-   * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+   * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUid()
+   * @see #getColumns()
    * @generated
    * @ordered
    */
-  protected String uid = UID_EDEFAULT;
-
+  protected int columns = COLUMNS_EDEFAULT;
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getViewPorts() <em>View Ports</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getViewPorts()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getMainCanvas() <em>Main Canvas</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMainCanvas()
-   * @generated
-   * @ordered
-   */
-  protected Canvas mainCanvas;
+  protected EList<ViewPort> viewPorts;
 
   /**
    * <!-- begin-user-doc -->
@@ -108,9 +92,9 @@ public class WindowImpl extends EObjectImpl implements Window
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getUid()
+  public int getColumns()
   {
-    return uid;
+    return columns;
   }
 
   /**
@@ -118,12 +102,12 @@ public class WindowImpl extends EObjectImpl implements Window
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setUid(String newUid)
+  public void setColumns(int newColumns)
   {
-    String oldUid = uid;
-    uid = newUid;
+    int oldColumns = columns;
+    columns = newColumns;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.WINDOW__UID, oldUid, uid));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.WINDOW__COLUMNS, oldColumns, columns));
   }
 
   /**
@@ -131,70 +115,13 @@ public class WindowImpl extends EObjectImpl implements Window
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EList<ViewPort> getViewPorts()
   {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.WINDOW__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Canvas getMainCanvas()
-  {
-    return mainCanvas;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetMainCanvas(Canvas newMainCanvas, NotificationChain msgs)
-  {
-    Canvas oldMainCanvas = mainCanvas;
-    mainCanvas = newMainCanvas;
-    if (eNotificationRequired())
+    if (viewPorts == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.WINDOW__MAIN_CANVAS, oldMainCanvas, newMainCanvas);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      viewPorts = new EObjectContainmentEList<ViewPort>(ViewPort.class, this, DomainPackage.WINDOW__VIEW_PORTS);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMainCanvas(Canvas newMainCanvas)
-  {
-    if (newMainCanvas != mainCanvas)
-    {
-      NotificationChain msgs = null;
-      if (mainCanvas != null)
-        msgs = ((InternalEObject)mainCanvas).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.WINDOW__MAIN_CANVAS, null, msgs);
-      if (newMainCanvas != null)
-        msgs = ((InternalEObject)newMainCanvas).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.WINDOW__MAIN_CANVAS, null, msgs);
-      msgs = basicSetMainCanvas(newMainCanvas, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.WINDOW__MAIN_CANVAS, newMainCanvas, newMainCanvas));
+    return viewPorts;
   }
 
   /**
@@ -207,8 +134,8 @@ public class WindowImpl extends EObjectImpl implements Window
   {
     switch (featureID)
     {
-      case DomainPackage.WINDOW__MAIN_CANVAS:
-        return basicSetMainCanvas(null, msgs);
+      case DomainPackage.WINDOW__VIEW_PORTS:
+        return ((InternalEList<?>)getViewPorts()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -223,12 +150,10 @@ public class WindowImpl extends EObjectImpl implements Window
   {
     switch (featureID)
     {
-      case DomainPackage.WINDOW__UID:
-        return getUid();
-      case DomainPackage.WINDOW__NAME:
-        return getName();
-      case DomainPackage.WINDOW__MAIN_CANVAS:
-        return getMainCanvas();
+      case DomainPackage.WINDOW__COLUMNS:
+        return getColumns();
+      case DomainPackage.WINDOW__VIEW_PORTS:
+        return getViewPorts();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -238,19 +163,18 @@ public class WindowImpl extends EObjectImpl implements Window
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case DomainPackage.WINDOW__UID:
-        setUid((String)newValue);
+      case DomainPackage.WINDOW__COLUMNS:
+        setColumns((Integer)newValue);
         return;
-      case DomainPackage.WINDOW__NAME:
-        setName((String)newValue);
-        return;
-      case DomainPackage.WINDOW__MAIN_CANVAS:
-        setMainCanvas((Canvas)newValue);
+      case DomainPackage.WINDOW__VIEW_PORTS:
+        getViewPorts().clear();
+        getViewPorts().addAll((Collection<? extends ViewPort>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -266,14 +190,11 @@ public class WindowImpl extends EObjectImpl implements Window
   {
     switch (featureID)
     {
-      case DomainPackage.WINDOW__UID:
-        setUid(UID_EDEFAULT);
+      case DomainPackage.WINDOW__COLUMNS:
+        setColumns(COLUMNS_EDEFAULT);
         return;
-      case DomainPackage.WINDOW__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case DomainPackage.WINDOW__MAIN_CANVAS:
-        setMainCanvas((Canvas)null);
+      case DomainPackage.WINDOW__VIEW_PORTS:
+        getViewPorts().clear();
         return;
     }
     super.eUnset(featureID);
@@ -289,14 +210,66 @@ public class WindowImpl extends EObjectImpl implements Window
   {
     switch (featureID)
     {
-      case DomainPackage.WINDOW__UID:
-        return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-      case DomainPackage.WINDOW__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.WINDOW__MAIN_CANVAS:
-        return mainCanvas != null;
+      case DomainPackage.WINDOW__COLUMNS:
+        return columns != COLUMNS_EDEFAULT;
+      case DomainPackage.WINDOW__VIEW_PORTS:
+        return viewPorts != null && !viewPorts.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == HTMLLayerHolder.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.WINDOW__COLUMNS: return DomainPackage.HTML_LAYER_HOLDER__COLUMNS;
+        default: return -1;
+      }
+    }
+    if (baseClass == ViewPortHolder.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case DomainPackage.WINDOW__VIEW_PORTS: return DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == HTMLLayerHolder.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.HTML_LAYER_HOLDER__COLUMNS: return DomainPackage.WINDOW__COLUMNS;
+        default: return -1;
+      }
+    }
+    if (baseClass == ViewPortHolder.class)
+    {
+      switch (baseFeatureID)
+      {
+        case DomainPackage.VIEW_PORT_HOLDER__VIEW_PORTS: return DomainPackage.WINDOW__VIEW_PORTS;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**
@@ -310,10 +283,8 @@ public class WindowImpl extends EObjectImpl implements Window
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (uid: ");
-    result.append(uid);
-    result.append(", name: ");
-    result.append(name);
+    result.append(" (columns: ");
+    result.append(columns);
     result.append(')');
     return result.toString();
   }

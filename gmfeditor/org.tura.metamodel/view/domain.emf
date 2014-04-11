@@ -544,18 +544,41 @@ class FormView{
 @gmf.diagram
 class Views{
     id attr EString uid;
-   val Canvas[*]  canvases;
-   val Window[*] windows;
+   val CanvasFrame[*]  canvases;
    val ViewInheritance[*] viewInheritances;
    val TabPagesInheritance[*] tabPagesInheritances;
 }
 
 
-@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class Canvas{
+class CanvasFrame{
     id attr EString uid;
    attr EString name;
+}
+
+class ViewPortHolder extends HTMLLayerHolder{
+   @gmf.compartment
    val ViewPort[*] viewPorts;
+}
+
+class DefaultCavas{
+   attr boolean defaultCanvas;
+}
+
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas{
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class Window extends CanvasFrame,ViewPortHolder{
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class TabCanvas extends CanvasFrame,DefaultCavas{
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
+class TabPage extends CanvasFrame,ViewPortHolder{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
@@ -570,30 +593,14 @@ class ViewPort{
 class ViewPortTrigger extends Trigger {
  }
 
-
-@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class Window {
-    id attr EString uid;
-   attr EString name;
-
-@gmf.link(color="57,102,249",style="dash", width="2",target.decoration="arrow")
-  val Canvas mainCanvas;
-}
-
 @gmf.link(source="source", target="target", color = "80,195,63" ,style="dot", width="2" , target.decoration="closedarrow")
 class ViewInheritance{
     id attr EString uid;
    ref ViewPort source;
-   ref Canvas target;
+   ref CanvasFrame target;
 }
 
-@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class TabCanvas extends Canvas{
-}
 
-@gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class TabPage extends Canvas{
-}
 
 @gmf.link(source="source", target="target", style="dash", color = "238,16,16" ,width="2" , target.decoration="arrow")
 class TabPagesInheritance{

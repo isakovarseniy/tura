@@ -61,7 +61,7 @@ public class WindowNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1305004;
+	public static final int VISUAL_ID = 1305010;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class WindowNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.Window_1302004,
+							DomainElementTypes.Window_1302007,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(frmview.diagram.edit.parts.WindowNameEditPart.VISUAL_ID));

@@ -28,18 +28,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ViewsEditPart.VISUAL_ID:
 				return new ViewsEditPart(view);
 
-			case TabCanvasEditPart.VISUAL_ID:
-				return new TabCanvasEditPart(view);
-
-			case TabCanvasNameEditPart.VISUAL_ID:
-				return new TabCanvasNameEditPart(view);
-
-			case TabPageEditPart.VISUAL_ID:
-				return new TabPageEditPart(view);
-
-			case TabPageNameEditPart.VISUAL_ID:
-				return new TabPageNameEditPart(view);
-
 			case CanvasEditPart.VISUAL_ID:
 				return new CanvasEditPart(view);
 
@@ -52,20 +40,48 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case WindowNameEditPart.VISUAL_ID:
 				return new WindowNameEditPart(view);
 
+			case TabPageEditPart.VISUAL_ID:
+				return new TabPageEditPart(view);
+
+			case TabPageNameEditPart.VISUAL_ID:
+				return new TabPageNameEditPart(view);
+
+			case TabCanvasEditPart.VISUAL_ID:
+				return new TabCanvasEditPart(view);
+
+			case TabCanvasNameEditPart.VISUAL_ID:
+				return new TabCanvasNameEditPart(view);
+
+			case ViewPortEditPart.VISUAL_ID:
+				return new ViewPortEditPart(view);
+
+			case ViewPortNameEditPart.VISUAL_ID:
+				return new ViewPortNameEditPart(view);
+
+			case ViewPortTriggerEditPart.VISUAL_ID:
+				return new ViewPortTriggerEditPart(view);
+
+			case ViewPortTriggerFakeMethodEditPart.VISUAL_ID:
+				return new ViewPortTriggerFakeMethodEditPart(view);
+
+			case CanvasCanvasViewPortsCompartmentEditPart.VISUAL_ID:
+				return new CanvasCanvasViewPortsCompartmentEditPart(view);
+
+			case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
+				return new ViewPortViewPortViewPortTriggerCompartmentEditPart(
+						view);
+
+			case WindowWindowViewPortsCompartmentEditPart.VISUAL_ID:
+				return new WindowWindowViewPortsCompartmentEditPart(view);
+
+			case TabPageTabPageViewPortsCompartmentEditPart.VISUAL_ID:
+				return new TabPageTabPageViewPortsCompartmentEditPart(view);
+
 			case ViewInheritanceEditPart.VISUAL_ID:
 				return new ViewInheritanceEditPart(view);
 
 			case TabPagesInheritanceEditPart.VISUAL_ID:
 				return new TabPagesInheritanceEditPart(view);
-
-			case RelationEditPart.VISUAL_ID:
-				return new RelationEditPart(view);
-
-			case WindowMainCanvasEditPart.VISUAL_ID:
-				return new WindowMainCanvasEditPart(view);
-
-			case WindowMainCanvasExternalLabelEditPart.VISUAL_ID:
-				return new WindowMainCanvasExternalLabelEditPart(view);
 
 			}
 		}

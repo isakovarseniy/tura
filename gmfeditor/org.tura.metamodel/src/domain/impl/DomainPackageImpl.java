@@ -16,6 +16,7 @@ import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
 import domain.Canvas;
+import domain.CanvasFrame;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
@@ -25,6 +26,7 @@ import domain.Controls;
 import domain.CreateTrigger;
 import domain.DataControl;
 import domain.Datacenter;
+import domain.DefaultCavas;
 import domain.DeleteTrigger;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
@@ -110,6 +112,7 @@ import domain.UpdateTrigger;
 import domain.UsingMappers;
 import domain.ViewInheritance;
 import domain.ViewPort;
+import domain.ViewPortHolder;
 import domain.ViewPortTrigger;
 import domain.Views;
 import domain.Window;
@@ -604,7 +607,49 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass canvasFrameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass viewPortHolderEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass defaultCavasEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass canvasEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass windowEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass tabCanvasEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass tabPageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -625,28 +670,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass windowEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass viewInheritanceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass tabCanvasEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass tabPageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -3948,7 +3972,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getViews_Windows()
+  public EReference getViews_ViewInheritances()
   {
     return (EReference)viewsEClass.getEStructuralFeatures().get(2);
   }
@@ -3958,7 +3982,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getViews_ViewInheritances()
+  public EReference getViews_TabPagesInheritances()
   {
     return (EReference)viewsEClass.getEStructuralFeatures().get(3);
   }
@@ -3968,9 +3992,69 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getViews_TabPagesInheritances()
+  public EClass getCanvasFrame()
   {
-    return (EReference)viewsEClass.getEStructuralFeatures().get(4);
+    return canvasFrameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCanvasFrame_Uid()
+  {
+    return (EAttribute)canvasFrameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCanvasFrame_Name()
+  {
+    return (EAttribute)canvasFrameEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getViewPortHolder()
+  {
+    return viewPortHolderEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getViewPortHolder_ViewPorts()
+  {
+    return (EReference)viewPortHolderEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDefaultCavas()
+  {
+    return defaultCavasEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDefaultCavas_DefaultCanvas()
+  {
+    return (EAttribute)defaultCavasEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3988,9 +4072,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCanvas_Uid()
+  public EClass getWindow()
   {
-    return (EAttribute)canvasEClass.getEStructuralFeatures().get(0);
+    return windowEClass;
   }
 
   /**
@@ -3998,9 +4082,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCanvas_Name()
+  public EClass getTabCanvas()
   {
-    return (EAttribute)canvasEClass.getEStructuralFeatures().get(1);
+    return tabCanvasEClass;
   }
 
   /**
@@ -4008,9 +4092,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCanvas_ViewPorts()
+  public EClass getTabPage()
   {
-    return (EReference)canvasEClass.getEStructuralFeatures().get(2);
+    return tabPageEClass;
   }
 
   /**
@@ -4068,46 +4152,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getWindow()
-  {
-    return windowEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWindow_Uid()
-  {
-    return (EAttribute)windowEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWindow_Name()
-  {
-    return (EAttribute)windowEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getWindow_MainCanvas()
-  {
-    return (EReference)windowEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getViewInheritance()
   {
     return viewInheritanceEClass;
@@ -4141,26 +4185,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
   public EReference getViewInheritance_Target()
   {
     return (EReference)viewInheritanceEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getTabCanvas()
-  {
-    return tabCanvasEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getTabPage()
-  {
-    return tabPageEClass;
   }
 
   /**
@@ -5687,14 +5711,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     viewsEClass = createEClass(VIEWS);
     createEAttribute(viewsEClass, VIEWS__UID);
     createEReference(viewsEClass, VIEWS__CANVASES);
-    createEReference(viewsEClass, VIEWS__WINDOWS);
     createEReference(viewsEClass, VIEWS__VIEW_INHERITANCES);
     createEReference(viewsEClass, VIEWS__TAB_PAGES_INHERITANCES);
 
+    canvasFrameEClass = createEClass(CANVAS_FRAME);
+    createEAttribute(canvasFrameEClass, CANVAS_FRAME__UID);
+    createEAttribute(canvasFrameEClass, CANVAS_FRAME__NAME);
+
+    viewPortHolderEClass = createEClass(VIEW_PORT_HOLDER);
+    createEReference(viewPortHolderEClass, VIEW_PORT_HOLDER__VIEW_PORTS);
+
+    defaultCavasEClass = createEClass(DEFAULT_CAVAS);
+    createEAttribute(defaultCavasEClass, DEFAULT_CAVAS__DEFAULT_CANVAS);
+
     canvasEClass = createEClass(CANVAS);
-    createEAttribute(canvasEClass, CANVAS__UID);
-    createEAttribute(canvasEClass, CANVAS__NAME);
-    createEReference(canvasEClass, CANVAS__VIEW_PORTS);
+
+    windowEClass = createEClass(WINDOW);
+
+    tabCanvasEClass = createEClass(TAB_CANVAS);
+
+    tabPageEClass = createEClass(TAB_PAGE);
 
     viewPortEClass = createEClass(VIEW_PORT);
     createEAttribute(viewPortEClass, VIEW_PORT__UID);
@@ -5703,19 +5739,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     viewPortTriggerEClass = createEClass(VIEW_PORT_TRIGGER);
 
-    windowEClass = createEClass(WINDOW);
-    createEAttribute(windowEClass, WINDOW__UID);
-    createEAttribute(windowEClass, WINDOW__NAME);
-    createEReference(windowEClass, WINDOW__MAIN_CANVAS);
-
     viewInheritanceEClass = createEClass(VIEW_INHERITANCE);
     createEAttribute(viewInheritanceEClass, VIEW_INHERITANCE__UID);
     createEReference(viewInheritanceEClass, VIEW_INHERITANCE__SOURCE);
     createEReference(viewInheritanceEClass, VIEW_INHERITANCE__TARGET);
-
-    tabCanvasEClass = createEClass(TAB_CANVAS);
-
-    tabPageEClass = createEClass(TAB_PAGE);
 
     tabPagesInheritanceEClass = createEClass(TAB_PAGES_INHERITANCE);
     createEAttribute(tabPagesInheritanceEClass, TAB_PAGES_INHERITANCE__UID);
@@ -5923,9 +5950,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
     returnValueEClass.getESuperTypes().add(this.getTypePointer());
     enumaratorEClass.getESuperTypes().add(this.getTypeElement());
     typesEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+    viewPortHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+    canvasEClass.getESuperTypes().add(this.getCanvasFrame());
+    canvasEClass.getESuperTypes().add(this.getViewPortHolder());
+    canvasEClass.getESuperTypes().add(this.getDefaultCavas());
+    windowEClass.getESuperTypes().add(this.getCanvasFrame());
+    windowEClass.getESuperTypes().add(this.getViewPortHolder());
+    tabCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
+    tabCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
+    tabPageEClass.getESuperTypes().add(this.getCanvasFrame());
+    tabPageEClass.getESuperTypes().add(this.getViewPortHolder());
     viewPortTriggerEClass.getESuperTypes().add(this.getTrigger());
-    tabCanvasEClass.getESuperTypes().add(this.getCanvas());
-    tabPageEClass.getESuperTypes().add(this.getCanvas());
     triggerEClass.getESuperTypes().add(this.getMethodPointer());
     preFormTriggerEClass.getESuperTypes().add(this.getTrigger());
     preQueryTriggerEClass.getESuperTypes().add(this.getTrigger());
@@ -6311,15 +6346,27 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(viewsEClass, Views.class, "Views", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getViews_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getViews_Canvases(), this.getCanvas(), null, "canvases", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getViews_Windows(), this.getWindow(), null, "windows", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getViews_Canvases(), this.getCanvasFrame(), null, "canvases", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getViews_ViewInheritances(), this.getViewInheritance(), null, "viewInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getViews_TabPagesInheritances(), this.getTabPagesInheritance(), null, "tabPagesInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(canvasFrameEClass, CanvasFrame.class, "CanvasFrame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCanvasFrame_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CanvasFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCanvasFrame_Name(), ecorePackage.getEString(), "name", null, 0, 1, CanvasFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(viewPortHolderEClass, ViewPortHolder.class, "ViewPortHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getViewPortHolder_ViewPorts(), this.getViewPort(), null, "viewPorts", null, 0, -1, ViewPortHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(defaultCavasEClass, DefaultCavas.class, "DefaultCavas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDefaultCavas_DefaultCanvas(), ecorePackage.getEBoolean(), "defaultCanvas", null, 0, 1, DefaultCavas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(canvasEClass, Canvas.class, "Canvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCanvas_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Canvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCanvas_Name(), ecorePackage.getEString(), "name", null, 0, 1, Canvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCanvas_ViewPorts(), this.getViewPort(), null, "viewPorts", null, 0, -1, Canvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(windowEClass, Window.class, "Window", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(tabCanvasEClass, TabCanvas.class, "TabCanvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(tabPageEClass, TabPage.class, "TabPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(viewPortEClass, ViewPort.class, "ViewPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getViewPort_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ViewPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6328,19 +6375,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
 
     initEClass(viewPortTriggerEClass, ViewPortTrigger.class, "ViewPortTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(windowEClass, Window.class, "Window", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getWindow_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Window.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWindow_Name(), ecorePackage.getEString(), "name", null, 0, 1, Window.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWindow_MainCanvas(), this.getCanvas(), null, "mainCanvas", null, 0, 1, Window.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(viewInheritanceEClass, ViewInheritance.class, "ViewInheritance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getViewInheritance_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ViewInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getViewInheritance_Source(), this.getViewPort(), null, "source", null, 0, 1, ViewInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getViewInheritance_Target(), this.getCanvas(), null, "target", null, 0, 1, ViewInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(tabCanvasEClass, TabCanvas.class, "TabCanvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(tabPageEClass, TabPage.class, "TabPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getViewInheritance_Target(), this.getCanvasFrame(), null, "target", null, 0, 1, ViewInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(tabPagesInheritanceEClass, TabPagesInheritance.class, "TabPagesInheritance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTabPagesInheritance_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TabPagesInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6957,9 +6995,36 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "name",
        "border.color", "0,0,0",
        "color", "241,238,203"
-       });			
+       });				
     addAnnotation
       (canvasEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
+       });		
+    addAnnotation
+      (windowEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
+       });		
+    addAnnotation
+      (tabCanvasEClass, 
+       source, 
+       new String[] 
+       {
+       "label", "name",
+       "border.color", "0,0,0",
+       "color", "192,192,192"
+       });		
+    addAnnotation
+      (tabPageEClass, 
        source, 
        new String[] 
        {
@@ -6984,34 +7049,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "label", "fakeMethod",
        "border.color", "0,0,0",
        "color", "241,238,203"
-       });		
-    addAnnotation
-      (windowEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "name",
-       "border.color", "0,0,0",
-       "color", "192,192,192"
        });				
-    addAnnotation
-      (tabCanvasEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "name",
-       "border.color", "0,0,0",
-       "color", "192,192,192"
-       });		
-    addAnnotation
-      (tabPageEClass, 
-       source, 
-       new String[] 
-       {
-       "label", "name",
-       "border.color", "0,0,0",
-       "color", "192,192,192"
-       });			
     addAnnotation
       (formDataControlsEClass, 
        source, 
@@ -7384,14 +7422,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        new String[] 
        {
        "layout", "list"
-       });						
+       });				
+    addAnnotation
+      (getViewPortHolder_ViewPorts(), 
+       source, 
+       new String[] 
+       {
+       });							
     addAnnotation
       (getViewPort_ViewPortTrigger(), 
        source, 
        new String[] 
        {
        "layout", "list"
-       });																								
+       });																				
     addAnnotation
       (getRoot_PreFormTrigger(), 
        source, 
@@ -7663,17 +7707,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "style", "dot",
        "width", "2",
        "target.decoration", "closedarrow"
-       });																						
-    addAnnotation
-      (getWindow_MainCanvas(), 
-       source, 
-       new String[] 
-       {
-       "color", "57,102,249",
-       "style", "dash",
-       "width", "2",
-       "target.decoration", "arrow"
-       });		
+       });																									
     addAnnotation
       (viewInheritanceEClass, 
        source, 
@@ -7685,7 +7719,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage
        "style", "dot",
        "width", "2",
        "target.decoration", "closedarrow"
-       });				
+       });		
     addAnnotation
       (tabPagesInheritanceEClass, 
        source, 

@@ -61,7 +61,7 @@ public class TabCanvasNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1305001;
+	public static final int VISUAL_ID = 1305011;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class TabCanvasNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.TabCanvas_1302001,
+							DomainElementTypes.TabCanvas_1302008,
 							getParserElement(),
 							DomainVisualIDRegistry
 									.getType(frmview.diagram.edit.parts.TabCanvasNameEditPart.VISUAL_ID));

@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TabPageTest extends CanvasTest
+public class TabPageTest extends CanvasFrameTest
 {
 
   /**

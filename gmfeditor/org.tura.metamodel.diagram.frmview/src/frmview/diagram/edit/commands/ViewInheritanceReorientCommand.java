@@ -11,7 +11,7 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import domain.Canvas;
+import domain.CanvasFrame;
 import domain.ViewInheritance;
 import domain.ViewPort;
 import domain.Views;
@@ -70,7 +70,7 @@ public class ViewInheritanceReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof ViewPort && newEnd instanceof ViewPort)) {
 			return false;
 		}
-		Canvas target = getLink().getTarget();
+		CanvasFrame target = getLink().getTarget();
 		if (!(getLink().eContainer() instanceof Views)) {
 			return false;
 		}
@@ -84,7 +84,7 @@ public class ViewInheritanceReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof Canvas && newEnd instanceof Canvas)) {
+		if (!(oldEnd instanceof CanvasFrame && newEnd instanceof CanvasFrame)) {
 			return false;
 		}
 		ViewPort source = getLink().getSource();
@@ -155,14 +155,14 @@ public class ViewInheritanceReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Canvas getOldTarget() {
-		return (Canvas) oldEnd;
+	protected CanvasFrame getOldTarget() {
+		return (CanvasFrame) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Canvas getNewTarget() {
-		return (Canvas) newEnd;
+	protected CanvasFrame getNewTarget() {
+		return (CanvasFrame) newEnd;
 	}
 }

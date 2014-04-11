@@ -251,152 +251,92 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_title;
+	public static String ContinuousIintegration1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_desc;
+	public static String ContinuousIintegration1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ContinuousIintegration2CreationTool_title;
+	public static String DomainApplication2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ContinuousIintegration2CreationTool_desc;
+	public static String DomainApplication2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainApplication3CreationTool_title;
+	public static String DomainApplications3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainApplication3CreationTool_desc;
+	public static String DomainApplications3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainApplications4CreationTool_title;
+	public static String DomainArtifact4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainApplications4CreationTool_desc;
+	public static String DomainArtifact4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact5CreationTool_title;
+	public static String DomainArtifacts5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifact5CreationTool_desc;
+	public static String DomainArtifacts5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifacts6CreationTool_title;
+	public static String DomainTypes6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainArtifacts6CreationTool_desc;
+	public static String DomainTypes6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainTypes7CreationTool_title;
+	public static String EJBService7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DomainTypes7CreationTool_desc;
+	public static String EJBService7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EJBService8CreationTool_title;
+	public static String JPAService8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EJBService8CreationTool_desc;
+	public static String JPAService8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JPAService9CreationTool_title;
+	public static String ORMEntity9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JPAService9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ORMEntity10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ORMEntity10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage12CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort13CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort13CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger14CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger14CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Window15CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Window15CreationTool_desc;
+	public static String ORMEntity9CreationTool_desc;
 
 	/**
 	 * @generated

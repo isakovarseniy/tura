@@ -16,6 +16,7 @@ import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
 import domain.Canvas;
+import domain.CanvasFrame;
 import domain.Component;
 import domain.ConfigVariable;
 import domain.Configuration;
@@ -25,6 +26,7 @@ import domain.Controls;
 import domain.CreateTrigger;
 import domain.DataControl;
 import domain.Datacenter;
+import domain.DefaultCavas;
 import domain.DeleteTrigger;
 import domain.DeploymentComponent;
 import domain.DeploymentComponents;
@@ -108,6 +110,7 @@ import domain.UpdateTrigger;
 import domain.UsingMappers;
 import domain.ViewInheritance;
 import domain.ViewPort;
+import domain.ViewPortHolder;
 import domain.ViewPortTrigger;
 import domain.Views;
 import domain.Window;
@@ -518,9 +521,39 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createViewsAdapter();
       }
       @Override
+      public Adapter caseCanvasFrame(CanvasFrame object)
+      {
+        return createCanvasFrameAdapter();
+      }
+      @Override
+      public Adapter caseViewPortHolder(ViewPortHolder object)
+      {
+        return createViewPortHolderAdapter();
+      }
+      @Override
+      public Adapter caseDefaultCavas(DefaultCavas object)
+      {
+        return createDefaultCavasAdapter();
+      }
+      @Override
       public Adapter caseCanvas(Canvas object)
       {
         return createCanvasAdapter();
+      }
+      @Override
+      public Adapter caseWindow(Window object)
+      {
+        return createWindowAdapter();
+      }
+      @Override
+      public Adapter caseTabCanvas(TabCanvas object)
+      {
+        return createTabCanvasAdapter();
+      }
+      @Override
+      public Adapter caseTabPage(TabPage object)
+      {
+        return createTabPageAdapter();
       }
       @Override
       public Adapter caseViewPort(ViewPort object)
@@ -533,24 +566,9 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
         return createViewPortTriggerAdapter();
       }
       @Override
-      public Adapter caseWindow(Window object)
-      {
-        return createWindowAdapter();
-      }
-      @Override
       public Adapter caseViewInheritance(ViewInheritance object)
       {
         return createViewInheritanceAdapter();
-      }
-      @Override
-      public Adapter caseTabCanvas(TabCanvas object)
-      {
-        return createTabCanvasAdapter();
-      }
-      @Override
-      public Adapter caseTabPage(TabPage object)
-      {
-        return createTabPageAdapter();
       }
       @Override
       public Adapter caseTabPagesInheritance(TabPagesInheritance object)
@@ -1755,6 +1773,51 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link domain.CanvasFrame <em>Canvas Frame</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.CanvasFrame
+   * @generated
+   */
+  public Adapter createCanvasFrameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ViewPortHolder <em>View Port Holder</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ViewPortHolder
+   * @generated
+   */
+  public Adapter createViewPortHolderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.DefaultCavas <em>Default Cavas</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.DefaultCavas
+   * @generated
+   */
+  public Adapter createDefaultCavasAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link domain.Canvas <em>Canvas</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1765,6 +1828,51 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCanvasAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.Window <em>Window</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.Window
+   * @generated
+   */
+  public Adapter createWindowAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.TabCanvas <em>Tab Canvas</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.TabCanvas
+   * @generated
+   */
+  public Adapter createTabCanvasAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.TabPage <em>Tab Page</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.TabPage
+   * @generated
+   */
+  public Adapter createTabPageAdapter()
   {
     return null;
   }
@@ -1800,21 +1908,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link domain.Window <em>Window</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.Window
-   * @generated
-   */
-  public Adapter createWindowAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link domain.ViewInheritance <em>View Inheritance</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1825,36 +1918,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createViewInheritanceAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.TabCanvas <em>Tab Canvas</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.TabCanvas
-   * @generated
-   */
-  public Adapter createTabCanvasAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link domain.TabPage <em>Tab Page</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see domain.TabPage
-   * @generated
-   */
-  public Adapter createTabPageAdapter()
   {
     return null;
   }

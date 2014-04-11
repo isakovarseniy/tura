@@ -48,7 +48,7 @@ public class TabCanvasEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1302001;
+	public static final int VISUAL_ID = 1302008;
 
 	/**
 	 * @generated
@@ -299,7 +299,7 @@ public class TabCanvasEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.WindowMainCanvas_1304004);
+		types.add(DomainElementTypes.ViewInheritance_1304001);
 		return types;
 	}
 
@@ -308,8 +308,8 @@ public class TabCanvasEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.WindowMainCanvas_1304004) {
-			types.add(DomainElementTypes.Window_1302004);
+		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
+			types.add(DomainElementTypes.ViewPort_1303003);
 		}
 		return types;
 	}

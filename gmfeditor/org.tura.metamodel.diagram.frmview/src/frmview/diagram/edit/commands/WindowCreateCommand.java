@@ -60,7 +60,7 @@ public class WindowCreateCommand extends EditElementCommand {
 		Window newElement = DomainFactory.eINSTANCE.createWindow();
 
 		Views owner = (Views) getElementToEdit();
-		owner.getWindows().add(newElement);
+		owner.getCanvases().add(newElement);
 
 		newElement.setUid(java.util.UUID.randomUUID().toString());
 

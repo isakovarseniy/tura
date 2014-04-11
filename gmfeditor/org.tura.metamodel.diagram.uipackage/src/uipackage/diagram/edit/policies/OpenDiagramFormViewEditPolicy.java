@@ -7,7 +7,12 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
 
+import java.util.List;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -31,6 +36,9 @@ import org.eclipse.gmf.runtime.notation.HintedDiagramLinkStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.Style;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
@@ -39,6 +47,9 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import uipackage.diagram.part.DomainDiagramEditorPlugin;
 import uipackage.diagram.part.DomainDiagramEditorUtil;
 import uipackage.diagram.part.Messages;
+import domain.DomainFactory;
+import domain.FormView;
+import domain.Views;
 
 /**
  * @generated
@@ -121,19 +132,97 @@ public class OpenDiagramFormViewEditPolicy extends OpenEditPolicy {
 		 * @generated
 		 */
 		protected Diagram intializeNewDiagram() throws ExecutionException {
-			Diagram d = ViewService.createDiagram(getDiagramDomainElement(),
-					getDiagramKind(), getPreferencesHint());
+
+			FormView
+
+			sourceObject = (FormView
+
+			) ((NodeImpl) (diagramFacet.eContainer())).basicGetElement();
+			if (sourceObject.getName() == null) {
+
+				MessageDialog dialog = new MessageDialog(Display.getCurrent()
+						.getActiveShell(), "Error", null, "Name is undefined",
+						MessageDialog.ERROR, new String[] { "ok" }, 0);
+				dialog.open();
+				throw new ExecutionException("Can't create diagram of '"
+						+ getDiagramKind() + "' kind");
+
+			}
+
+			Views
+
+			obj = sourceObject.getView
+
+			();
+			if (obj == null)
+				obj = DomainFactory.eINSTANCE.createViews()
+
+				;
+
+			Diagram d = ViewService.createDiagram(obj, getDiagramKind(),
+					getPreferencesHint());
 			if (d == null) {
 				throw new ExecutionException("Can't create diagram of '"
 						+ getDiagramKind() + "' kind");
 			}
-			diagramFacet.setDiagramLink(d);
-			assert diagramFacet.eResource() != null;
-			diagramFacet.eResource().getContents().add(d);
-			EObject container = diagramFacet.eContainer();
-			while (container instanceof View) {
-				((View) container).persist();
-				container = container.eContainer();
+
+			String filename = sourceObject.getName();
+
+			List<String> segments = diagramFacet.eResource().getURI()
+					.segmentsList();
+			String projectName = segments.get(1);
+			IProject project = ResourcesPlugin.getWorkspace().getRoot()
+					.getProject(projectName);
+
+			try {
+				IFolder folder = project.getFolder("model");
+				folder = folder.getFolder("frmview"
+
+				);
+				if (!folder.exists()) {
+					folder.create(true, true, null);
+				}
+
+				IFile diagramFile = folder.getFile(filename + "." + "frmview"
+
+				+ "_diagram");
+
+				URI diagramURI = URI.createFileURI(diagramFile.getLocation()
+						.toOSString());
+				Resource diagramResource = null;
+
+				if (diagramFile.exists())
+					diagramFile.delete(true, null);
+
+				diagramResource = diagramFacet.eResource().getResourceSet()
+						.createResource(diagramURI);
+
+				diagramFacet.setDiagramLink(d);
+				diagramResource.getContents().add(d);
+
+				Views
+
+				targetObject = (Views
+
+				) d.getElement();
+				if (sourceObject.getView
+
+				() == null) {
+					sourceObject.setView
+
+					(targetObject);
+					sourceObject.eResource().getContents().add(targetObject);
+				}
+				EObject container = diagramFacet.eContainer();
+				while (container instanceof View) {
+					((View) container).persist();
+					container = container.eContainer();
+				}
+
+			} catch (Exception e) {
+				throw new ExecutionException("Can't create diagram of '"
+						+ getDiagramKind() + "' kind", e);
+
 			}
 
 			try {

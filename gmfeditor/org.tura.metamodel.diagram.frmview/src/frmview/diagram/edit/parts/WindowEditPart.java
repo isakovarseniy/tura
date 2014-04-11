@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -36,6 +37,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import frmview.diagram.edit.policies.OpenDiagramEditPolicy;
 import frmview.diagram.edit.policies.WindowItemSemanticEditPolicy;
 import frmview.diagram.part.DomainVisualIDRegistry;
 import frmview.diagram.providers.DomainElementTypes;
@@ -48,7 +50,7 @@ public class WindowEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1302004;
+	public static final int VISUAL_ID = 1302007;
 
 	/**
 	 * @generated
@@ -75,6 +77,8 @@ public class WindowEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new WindowItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenDiagramEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -128,6 +132,14 @@ public class WindowEditPart extends ShapeNodeEditPart {
 					.getFigureWindowLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof WindowWindowViewPortsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getWindowViewPortsCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((WindowWindowViewPortsCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -136,6 +148,13 @@ public class WindowEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof WindowNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof WindowWindowViewPortsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getWindowViewPortsCompartmentFigure();
+			pane.remove(((WindowWindowViewPortsCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -165,6 +184,9 @@ public class WindowEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof WindowWindowViewPortsCompartmentEditPart) {
+			return getPrimaryShape().getWindowViewPortsCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -265,39 +287,19 @@ public class WindowEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSource() {
+	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(DomainElementTypes.WindowMainCanvas_1304004);
+		types.add(DomainElementTypes.ViewInheritance_1304001);
 		return types;
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof TabCanvasEditPart) {
-			types.add(DomainElementTypes.WindowMainCanvas_1304004);
-		}
-		if (targetEditPart instanceof TabPageEditPart) {
-			types.add(DomainElementTypes.WindowMainCanvas_1304004);
-		}
-		if (targetEditPart instanceof CanvasEditPart) {
-			types.add(DomainElementTypes.WindowMainCanvas_1304004);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == DomainElementTypes.WindowMainCanvas_1304004) {
-			types.add(DomainElementTypes.TabCanvas_1302001);
-			types.add(DomainElementTypes.TabPage_1302002);
-			types.add(DomainElementTypes.Canvas_1302003);
+		if (relationshipType == DomainElementTypes.ViewInheritance_1304001) {
+			types.add(DomainElementTypes.ViewPort_1303003);
 		}
 		return types;
 	}
@@ -324,6 +326,10 @@ public class WindowEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureWindowLabelFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fWindowViewPortsCompartmentFigure;
 
 		/**
 		 * @generated
@@ -350,7 +356,16 @@ public class WindowEditPart extends ShapeNodeEditPart {
 
 			fFigureWindowLabelFigure.setFont(FFIGUREWINDOWLABELFIGURE_FONT);
 
+			fFigureWindowLabelFigure.setMaximumSize(new Dimension(getMapMode()
+					.DPtoLP(10000), getMapMode().DPtoLP(50)));
+
 			this.add(fFigureWindowLabelFigure);
+
+			fWindowViewPortsCompartmentFigure = new RectangleFigure();
+
+			fWindowViewPortsCompartmentFigure.setOutline(false);
+
+			this.add(fWindowViewPortsCompartmentFigure);
 
 		}
 
@@ -359,6 +374,13 @@ public class WindowEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureWindowLabelFigure() {
 			return fFigureWindowLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getWindowViewPortsCompartmentFigure() {
+			return fWindowViewPortsCompartmentFigure;
 		}
 
 	}

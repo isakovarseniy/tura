@@ -317,10 +317,6 @@
             genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Canvas"
-            description="Create new Canvas"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="ConfigVariable"
             description="Create new ConfigVariable"
             genNodes="//@diagram/@childNodes.0"/>
@@ -334,26 +330,6 @@
             title="Specifier"
             description="Create new Specifier"
             genNodes="//@diagram/@childNodes.2"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="TabCanvas"
-            description="Create new TabCanvas"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="TabPage"
-            description="Create new TabPage"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ViewPort"
-            description="Create new ViewPort"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ViewPortTrigger"
-            description="Create new ViewPortTrigger"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Window"
-            description="Create new Window"/>
       </groups>
     </palette>
     <preferencePages

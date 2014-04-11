@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.Views#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Views#getCanvases <em>Canvases</em>}</li>
- *   <li>{@link domain.Views#getWindows <em>Windows</em>}</li>
  *   <li>{@link domain.Views#getViewInheritances <em>View Inheritances</em>}</li>
  *   <li>{@link domain.Views#getTabPagesInheritances <em>Tab Pages Inheritances</em>}</li>
  * </ul>
@@ -56,7 +55,7 @@ public interface Views extends EObject
 
   /**
    * Returns the value of the '<em><b>Canvases</b></em>' containment reference list.
-   * The list contents are of type {@link domain.Canvas}.
+   * The list contents are of type {@link domain.CanvasFrame}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Canvases</em>' containment reference list isn't clear,
@@ -68,23 +67,7 @@ public interface Views extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Canvas> getCanvases();
-
-  /**
-   * Returns the value of the '<em><b>Windows</b></em>' containment reference list.
-   * The list contents are of type {@link domain.Window}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Windows</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Windows</em>' containment reference list.
-   * @see domain.DomainPackage#getViews_Windows()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Window> getWindows();
+  EList<CanvasFrame> getCanvases();
 
   /**
    * Returns the value of the '<em><b>View Inheritances</b></em>' containment reference list.

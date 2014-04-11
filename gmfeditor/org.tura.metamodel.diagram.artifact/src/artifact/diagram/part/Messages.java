@@ -261,92 +261,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Canvas2CreationTool_title;
+	public static String ConfigVariable2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas2CreationTool_desc;
+	public static String ConfigVariable2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ConfigVariable3CreationTool_title;
+	public static String ModelQuery3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ConfigVariable3CreationTool_desc;
+	public static String ModelQuery3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelQuery4CreationTool_title;
+	public static String Specifier4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelQuery4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Specifier5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Specifier5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Window10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Window10CreationTool_desc;
+	public static String Specifier4CreationTool_desc;
 
 	/**
 	 * @generated

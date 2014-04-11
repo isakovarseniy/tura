@@ -13,8 +13,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -25,7 +23,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -35,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class CanvasItemProvider
-  extends ItemProviderAdapter
+  extends CanvasFrameItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -67,54 +64,54 @@ public class CanvasItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
+      addColumnsPropertyDescriptor(object);
+      addDefaultCanvasPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Uid feature.
+   * This adds a property descriptor for the Columns feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addUidPropertyDescriptor(Object object)
+  protected void addColumnsPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Canvas_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Canvas_uid_feature", "_UI_Canvas_type"),
-         DomainPackage.Literals.CANVAS__UID,
+         getString("_UI_HTMLLayerHolder_columns_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
+         DomainPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
          true,
          false,
          false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
          null,
          null));
   }
 
   /**
-   * This adds a property descriptor for the Name feature.
+   * This adds a property descriptor for the Default Canvas feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addNamePropertyDescriptor(Object object)
+  protected void addDefaultCanvasPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Canvas_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Canvas_name_feature", "_UI_Canvas_type"),
-         DomainPackage.Literals.CANVAS__NAME,
+         getString("_UI_DefaultCavas_defaultCanvas_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DefaultCavas_defaultCanvas_feature", "_UI_DefaultCavas_type"),
+         DomainPackage.Literals.DEFAULT_CAVAS__DEFAULT_CANVAS,
          true,
          false,
          false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
          null,
          null));
   }
@@ -133,7 +130,7 @@ public class CanvasItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.CANVAS__VIEW_PORTS);
+      childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_PORTS);
     }
     return childrenFeatures;
   }
@@ -193,8 +190,8 @@ public class CanvasItemProvider
 
     switch (notification.getFeatureID(Canvas.class))
     {
-      case DomainPackage.CANVAS__UID:
-      case DomainPackage.CANVAS__NAME:
+      case DomainPackage.CANVAS__COLUMNS:
+      case DomainPackage.CANVAS__DEFAULT_CANVAS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case DomainPackage.CANVAS__VIEW_PORTS:
@@ -218,20 +215,8 @@ public class CanvasItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.CANVAS__VIEW_PORTS,
+        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_PORTS,
          DomainFactory.eINSTANCE.createViewPort()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return DomainEditPlugin.INSTANCE;
   }
 
 }

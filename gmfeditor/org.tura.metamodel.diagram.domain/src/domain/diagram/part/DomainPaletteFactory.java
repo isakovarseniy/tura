@@ -36,45 +36,28 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createCanvas1CreationTool());
-		paletteContainer.add(createContinuousIintegration2CreationTool());
-		paletteContainer.add(createDomainApplication3CreationTool());
-		paletteContainer.add(createDomainApplications4CreationTool());
-		paletteContainer.add(createDomainArtifact5CreationTool());
-		paletteContainer.add(createDomainArtifacts6CreationTool());
-		paletteContainer.add(createDomainTypes7CreationTool());
-		paletteContainer.add(createEJBService8CreationTool());
-		paletteContainer.add(createJPAService9CreationTool());
-		paletteContainer.add(createORMEntity10CreationTool());
-		paletteContainer.add(createTabCanvas11CreationTool());
-		paletteContainer.add(createTabPage12CreationTool());
-		paletteContainer.add(createViewPort13CreationTool());
-		paletteContainer.add(createViewPortTrigger14CreationTool());
-		paletteContainer.add(createWindow15CreationTool());
+		paletteContainer.add(createContinuousIintegration1CreationTool());
+		paletteContainer.add(createDomainApplication2CreationTool());
+		paletteContainer.add(createDomainApplications3CreationTool());
+		paletteContainer.add(createDomainArtifact4CreationTool());
+		paletteContainer.add(createDomainArtifacts5CreationTool());
+		paletteContainer.add(createDomainTypes6CreationTool());
+		paletteContainer.add(createEJBService7CreationTool());
+		paletteContainer.add(createJPAService8CreationTool());
+		paletteContainer.add(createORMEntity9CreationTool());
 		return paletteContainer;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCanvas1CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Canvas1CreationTool_title,
-				Messages.Canvas1CreationTool_desc, null, null) {
-		};
-		entry.setId("createCanvas1CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createContinuousIintegration2CreationTool() {
+	private ToolEntry createContinuousIintegration1CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ContinuousIintegration2CreationTool_title,
-				Messages.ContinuousIintegration2CreationTool_desc,
+				Messages.ContinuousIintegration1CreationTool_title,
+				Messages.ContinuousIintegration1CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.ContinuousIintegration_503006));
-		entry.setId("createContinuousIintegration2CreationTool"); //$NON-NLS-1$
+		entry.setId("createContinuousIintegration1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ContinuousIintegration_503006));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -84,13 +67,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainApplication3CreationTool() {
+	private ToolEntry createDomainApplication2CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DomainApplication3CreationTool_title,
-				Messages.DomainApplication3CreationTool_desc,
+				Messages.DomainApplication2CreationTool_title,
+				Messages.DomainApplication2CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DomainApplication_503001));
-		entry.setId("createDomainApplication3CreationTool"); //$NON-NLS-1$
+		entry.setId("createDomainApplication2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DomainApplication_503001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -100,13 +83,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainApplications4CreationTool() {
+	private ToolEntry createDomainApplications3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DomainApplications4CreationTool_title,
-				Messages.DomainApplications4CreationTool_desc,
+				Messages.DomainApplications3CreationTool_title,
+				Messages.DomainApplications3CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DomainApplications_502003));
-		entry.setId("createDomainApplications4CreationTool"); //$NON-NLS-1$
+		entry.setId("createDomainApplications3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DomainApplications_502003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -116,13 +99,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainArtifact5CreationTool() {
+	private ToolEntry createDomainArtifact4CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DomainArtifact5CreationTool_title,
-				Messages.DomainArtifact5CreationTool_desc,
+				Messages.DomainArtifact4CreationTool_title,
+				Messages.DomainArtifact4CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DomainArtifact_503002));
-		entry.setId("createDomainArtifact5CreationTool"); //$NON-NLS-1$
+		entry.setId("createDomainArtifact4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DomainArtifact_503002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -132,13 +115,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainArtifacts6CreationTool() {
+	private ToolEntry createDomainArtifacts5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DomainArtifacts6CreationTool_title,
-				Messages.DomainArtifacts6CreationTool_desc,
+				Messages.DomainArtifacts5CreationTool_title,
+				Messages.DomainArtifacts5CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DomainArtifacts_502001));
-		entry.setId("createDomainArtifacts6CreationTool"); //$NON-NLS-1$
+		entry.setId("createDomainArtifacts5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DomainArtifacts_502001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -148,13 +131,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomainTypes7CreationTool() {
+	private ToolEntry createDomainTypes6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DomainTypes7CreationTool_title,
-				Messages.DomainTypes7CreationTool_desc,
+				Messages.DomainTypes6CreationTool_title,
+				Messages.DomainTypes6CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.DomainTypes_502002));
-		entry.setId("createDomainTypes7CreationTool"); //$NON-NLS-1$
+		entry.setId("createDomainTypes6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.DomainTypes_502002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -164,12 +147,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createEJBService8CreationTool() {
+	private ToolEntry createEJBService7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.EJBService8CreationTool_title,
-				Messages.EJBService8CreationTool_desc,
+				Messages.EJBService7CreationTool_title,
+				Messages.EJBService7CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.EJBService_503005));
-		entry.setId("createEJBService8CreationTool"); //$NON-NLS-1$
+		entry.setId("createEJBService7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.EJBService_503005));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -179,12 +162,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createJPAService9CreationTool() {
+	private ToolEntry createJPAService8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.JPAService9CreationTool_title,
-				Messages.JPAService9CreationTool_desc,
+				Messages.JPAService8CreationTool_title,
+				Messages.JPAService8CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.JPAService_503004));
-		entry.setId("createJPAService9CreationTool"); //$NON-NLS-1$
+		entry.setId("createJPAService8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.JPAService_503004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -194,71 +177,15 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createORMEntity10CreationTool() {
+	private ToolEntry createORMEntity9CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ORMEntity10CreationTool_title,
-				Messages.ORMEntity10CreationTool_desc,
+				Messages.ORMEntity9CreationTool_title,
+				Messages.ORMEntity9CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.ORMEntity_503003));
-		entry.setId("createORMEntity10CreationTool"); //$NON-NLS-1$
+		entry.setId("createORMEntity9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.ORMEntity_503003));
 		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createTabCanvas11CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.TabCanvas11CreationTool_title,
-				Messages.TabCanvas11CreationTool_desc, null, null) {
-		};
-		entry.setId("createTabCanvas11CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createTabPage12CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.TabPage12CreationTool_title,
-				Messages.TabPage12CreationTool_desc, null, null) {
-		};
-		entry.setId("createTabPage12CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createViewPort13CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.ViewPort13CreationTool_title,
-				Messages.ViewPort13CreationTool_desc, null, null) {
-		};
-		entry.setId("createViewPort13CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createViewPortTrigger14CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.ViewPortTrigger14CreationTool_title,
-				Messages.ViewPortTrigger14CreationTool_desc, null, null) {
-		};
-		entry.setId("createViewPortTrigger14CreationTool"); //$NON-NLS-1$
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createWindow15CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Window15CreationTool_title,
-				Messages.Window15CreationTool_desc, null, null) {
-		};
-		entry.setId("createWindow15CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

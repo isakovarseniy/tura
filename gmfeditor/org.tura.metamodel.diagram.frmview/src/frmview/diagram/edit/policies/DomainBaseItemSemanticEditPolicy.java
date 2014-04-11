@@ -35,17 +35,13 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
-import domain.Canvas;
-import domain.Controls;
-import domain.DataControl;
-import domain.Relation;
+import domain.CanvasFrame;
 import domain.TabCanvas;
 import domain.TabPage;
 import domain.TabPagesInheritance;
 import domain.ViewInheritance;
 import domain.ViewPort;
 import domain.Views;
-import domain.Window;
 import frmview.diagram.part.DomainDiagramEditorPlugin;
 import frmview.diagram.part.DomainVisualIDRegistry;
 import frmview.diagram.providers.DomainElementTypes;
@@ -337,7 +333,7 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		 * @generated
 		 */
 		public boolean canCreateViewInheritance_1304001(Views container,
-				ViewPort source, Canvas target) {
+				ViewPort source, CanvasFrame target) {
 			return canExistViewInheritance_1304001(container, null, source,
 					target);
 		}
@@ -354,33 +350,9 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateRelation_1304003(Controls container,
-				DataControl source, DataControl target) {
-			return canExistRelation_1304003(container, null, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateWindowMainCanvas_1304004(Window source,
-				Canvas target) {
-			if (source != null) {
-				if (source.getMainCanvas() != null) {
-					return false;
-				}
-				if (source == target) {
-					return false;
-				}
-			}
-
-			return canExistWindowMainCanvas_1304004(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
 		public boolean canExistViewInheritance_1304001(Views container,
-				ViewInheritance linkInstance, ViewPort source, Canvas target) {
+				ViewInheritance linkInstance, ViewPort source,
+				CanvasFrame target) {
 			return true;
 		}
 
@@ -390,22 +362,6 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		public boolean canExistTabPagesInheritance_1304002(Views container,
 				TabPagesInheritance linkInstance, TabCanvas source,
 				TabPage target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistRelation_1304003(Controls container,
-				Relation linkInstance, DataControl source, DataControl target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistWindowMainCanvas_1304004(Window source,
-				Canvas target) {
 			return true;
 		}
 	}

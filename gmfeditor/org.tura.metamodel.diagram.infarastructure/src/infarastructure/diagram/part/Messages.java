@@ -256,142 +256,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_title;
+	public static String Datacenter1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_desc;
+	public static String Datacenter1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter2CreationTool_title;
+	public static String Hub2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Datacenter2CreationTool_desc;
+	public static String Hub2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Hub3CreationTool_title;
+	public static String InfrastructureLayer3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Hub3CreationTool_desc;
+	public static String InfrastructureLayer3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InfrastructureLayer4CreationTool_title;
+	public static String Router4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InfrastructureLayer4CreationTool_desc;
+	public static String Router4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Router5CreationTool_title;
+	public static String Server5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Router5CreationTool_desc;
+	public static String Server5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Server6CreationTool_title;
+	public static String ServerClaster6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Server6CreationTool_desc;
+	public static String ServerClaster6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ServerClaster7CreationTool_title;
+	public static String Storage7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ServerClaster7CreationTool_desc;
+	public static String Storage7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Storage8CreationTool_title;
+	public static String Subsystem8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Storage8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Subsystem9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort12CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger13CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger13CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Window14CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Window14CreationTool_desc;
+	public static String Subsystem8CreationTool_desc;
 
 	/**
 	 * @generated

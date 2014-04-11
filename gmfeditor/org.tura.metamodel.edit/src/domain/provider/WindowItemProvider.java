@@ -13,8 +13,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -25,7 +23,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -35,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class WindowItemProvider
-  extends ItemProviderAdapter
+  extends CanvasFrameItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -67,54 +64,30 @@ public class WindowItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addUidPropertyDescriptor(object);
-      addNamePropertyDescriptor(object);
+      addColumnsPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Uid feature.
+   * This adds a property descriptor for the Columns feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addUidPropertyDescriptor(Object object)
+  protected void addColumnsPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Window_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Window_uid_feature", "_UI_Window_type"),
-         DomainPackage.Literals.WINDOW__UID,
+         getString("_UI_HTMLLayerHolder_columns_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
+         DomainPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
          true,
          false,
          false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Window_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Window_name_feature", "_UI_Window_type"),
-         DomainPackage.Literals.WINDOW__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
          null,
          null));
   }
@@ -133,7 +106,7 @@ public class WindowItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.WINDOW__MAIN_CANVAS);
+      childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_PORTS);
     }
     return childrenFeatures;
   }
@@ -193,11 +166,10 @@ public class WindowItemProvider
 
     switch (notification.getFeatureID(Window.class))
     {
-      case DomainPackage.WINDOW__UID:
-      case DomainPackage.WINDOW__NAME:
+      case DomainPackage.WINDOW__COLUMNS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case DomainPackage.WINDOW__MAIN_CANVAS:
+      case DomainPackage.WINDOW__VIEW_PORTS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -218,30 +190,8 @@ public class WindowItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (DomainPackage.Literals.WINDOW__MAIN_CANVAS,
-         DomainFactory.eINSTANCE.createCanvas()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.WINDOW__MAIN_CANVAS,
-         DomainFactory.eINSTANCE.createTabCanvas()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.WINDOW__MAIN_CANVAS,
-         DomainFactory.eINSTANCE.createTabPage()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return DomainEditPlugin.INSTANCE;
+        (DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_PORTS,
+         DomainFactory.eINSTANCE.createViewPort()));
   }
 
 }

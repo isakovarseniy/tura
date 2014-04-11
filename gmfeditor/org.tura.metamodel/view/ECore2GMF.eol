@@ -132,7 +132,36 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Datacenter');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ServerClaster');
 delete tool;
-
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREFormTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREQueryTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREInsertTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREDeleteTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Root');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='POSTQueryTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='POSTCreateTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREUpdateTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='CreateTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InsertTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='UpdateTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeleteTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='SearchTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DataControl');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ArtificialField');
+delete tool;
 
 
 var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='RecipeConfig');
@@ -173,5 +202,10 @@ delete tool;
 var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='InfrastructureConnection');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InfrastructureConnection');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Relation');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Relation');
 delete tool;
 

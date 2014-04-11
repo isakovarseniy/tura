@@ -256,152 +256,92 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_title;
+	public static String Configuration1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Canvas1CreationTool_desc;
+	public static String Configuration1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Configuration2CreationTool_title;
+	public static String DeploymentSequence2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Configuration2CreationTool_desc;
+	public static String DeploymentSequence2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentSequence3CreationTool_title;
+	public static String Infrastructure3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DeploymentSequence3CreationTool_desc;
+	public static String Infrastructure3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure4CreationTool_title;
+	public static String Ingredient4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure4CreationTool_desc;
+	public static String Ingredient4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient5CreationTool_title;
+	public static String JavaComponent5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient5CreationTool_desc;
+	public static String JavaComponent5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaComponent6CreationTool_title;
+	public static String ModelMapper6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaComponent6CreationTool_desc;
+	public static String ModelMapper6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelMapper7CreationTool_title;
+	public static String Property7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelMapper7CreationTool_desc;
+	public static String Property7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Property8CreationTool_title;
+	public static String Query8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Property8CreationTool_desc;
+	public static String Query8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Query9CreationTool_title;
+	public static String Recipe9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Query9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Recipe10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Recipe10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabCanvas11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TabPage12CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort13CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPort13CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger14CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ViewPortTrigger14CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Window15CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Window15CreationTool_desc;
+	public static String Recipe9CreationTool_desc;
 
 	/**
 	 * @generated

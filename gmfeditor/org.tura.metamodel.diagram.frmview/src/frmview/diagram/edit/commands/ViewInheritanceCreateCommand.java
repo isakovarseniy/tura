@@ -15,7 +15,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import domain.Canvas;
+import domain.CanvasFrame;
 import domain.DomainFactory;
 import domain.ViewInheritance;
 import domain.ViewPort;
@@ -63,7 +63,7 @@ public class ViewInheritanceCreateCommand extends EditElementCommand {
 		if (source != null && false == source instanceof ViewPort) {
 			return false;
 		}
-		if (target != null && false == target instanceof Canvas) {
+		if (target != null && false == target instanceof CanvasFrame) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -141,8 +141,8 @@ public class ViewInheritanceCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Canvas getTarget() {
-		return (Canvas) target;
+	protected CanvasFrame getTarget() {
+		return (CanvasFrame) target;
 	}
 
 	/**
