@@ -251,7 +251,7 @@
           «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationUIPackageEditPolicy'-» 
           setUipackage
            «ELSEIF  editPolicyClassName = 'OpenDiagramFormDataControlsEditPolicy'-» 
-           setControl
+           setFormControl
            «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationInfrastructureLayerEditPolicy'-» 
            setInfarastructure
           «ELSEIF  editPolicyClassName = 'OpenDiagramFormViewEditPolicy'-» 
@@ -290,7 +290,7 @@
          «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationUIPackageEditPolicy'-» 
           getUipackage
            «ELSEIF  editPolicyClassName = 'OpenDiagramFormDataControlsEditPolicy'-» 
-           getControl
+           getFormControl
            «ELSEIF  editPolicyClassName = 'OpenDiagramApplicationInfrastructureLayerEditPolicy'-» 
            getInfarastructure
           «ELSEIF  editPolicyClassName = 'OpenDiagramFormViewEditPolicy'-» 

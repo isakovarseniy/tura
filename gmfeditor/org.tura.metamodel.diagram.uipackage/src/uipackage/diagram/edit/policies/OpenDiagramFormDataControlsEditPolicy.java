@@ -151,7 +151,7 @@ public class OpenDiagramFormDataControlsEditPolicy extends OpenEditPolicy {
 
 			Controls
 
-			obj = sourceObject.getControl
+			obj = sourceObject.getFormControl
 
 			();
 			if (obj == null)
@@ -205,10 +205,10 @@ public class OpenDiagramFormDataControlsEditPolicy extends OpenEditPolicy {
 				targetObject = (Controls
 
 				) d.getElement();
-				if (sourceObject.getControl
+				if (sourceObject.getFormControl
 
 				() == null) {
-					sourceObject.setControl
+					sourceObject.setFormControl
 
 					(targetObject);
 					sourceObject.eResource().getContents().add(targetObject);

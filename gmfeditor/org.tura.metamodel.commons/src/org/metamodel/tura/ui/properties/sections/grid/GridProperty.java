@@ -22,6 +22,11 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 	private GridContentProvider gridContentProvider;
 	protected DataSource ds;
 
+	
+	public TableViewer getTableViewer() {
+		return tableViewer;
+	}
+
 	public void createControls(Composite parent,
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
 

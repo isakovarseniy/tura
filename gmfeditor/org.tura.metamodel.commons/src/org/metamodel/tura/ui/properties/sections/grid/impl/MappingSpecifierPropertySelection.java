@@ -163,7 +163,7 @@ public class MappingSpecifierPropertySelection extends GridProperty {
 		}
 
 		@Override
-		public boolean isModify() {
+		public boolean isModify(Object element, String property) {
 			return false;
 		}
 
@@ -292,7 +292,7 @@ public class MappingSpecifierPropertySelection extends GridProperty {
 		}
 
 		@Override
-		public boolean isModify() {
+		public boolean isModify(Object element, String property) {
 			return true;
 		}
 

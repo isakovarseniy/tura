@@ -66,7 +66,7 @@ public class FormDataControlsItemProvider
 
       addUidPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
-      addControlPropertyDescriptor(object);
+      addFormControlPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -118,20 +118,20 @@ public class FormDataControlsItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Control feature.
+   * This adds a property descriptor for the Form Control feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addControlPropertyDescriptor(Object object)
+  protected void addFormControlPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_FormDataControls_control_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_FormDataControls_control_feature", "_UI_FormDataControls_type"),
-         DomainPackage.Literals.FORM_DATA_CONTROLS__CONTROL,
+         getString("_UI_FormDataControls_formControl_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_FormDataControls_formControl_feature", "_UI_FormDataControls_type"),
+         DomainPackage.Literals.FORM_DATA_CONTROLS__FORM_CONTROL,
          true,
          false,
          true,

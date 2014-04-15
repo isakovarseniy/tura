@@ -366,6 +366,7 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Views">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Views/uid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Views/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/canvases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/viewInheritances"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Views/tabPagesInheritances"/>
@@ -403,10 +404,11 @@
     <genClasses ecoreClass="domain.ecore#//FormDataControls">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormDataControls/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//FormDataControls/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//FormDataControls/control"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//FormDataControls/formControl"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Controls">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Controls/uid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/root"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/controls"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Controls/relations"/>

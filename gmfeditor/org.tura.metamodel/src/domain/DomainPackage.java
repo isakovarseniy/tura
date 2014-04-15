@@ -4094,13 +4094,22 @@ public interface DomainPackage extends EPackage
   int VIEWS__UID = 0;
 
   /**
+   * The feature id for the '<em><b>Parent</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEWS__PARENT = 1;
+
+  /**
    * The feature id for the '<em><b>Canvases</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEWS__CANVASES = 1;
+  int VIEWS__CANVASES = 2;
 
   /**
    * The feature id for the '<em><b>View Inheritances</b></em>' containment reference list.
@@ -4109,7 +4118,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEWS__VIEW_INHERITANCES = 2;
+  int VIEWS__VIEW_INHERITANCES = 3;
 
   /**
    * The feature id for the '<em><b>Tab Pages Inheritances</b></em>' containment reference list.
@@ -4118,7 +4127,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEWS__TAB_PAGES_INHERITANCES = 3;
+  int VIEWS__TAB_PAGES_INHERITANCES = 4;
 
   /**
    * The number of structural features of the '<em>Views</em>' class.
@@ -4127,7 +4136,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEWS_FEATURE_COUNT = 4;
+  int VIEWS_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link domain.impl.CanvasFrameImpl <em>Canvas Frame</em>}' class.
@@ -4818,13 +4827,13 @@ public interface DomainPackage extends EPackage
   int FORM_DATA_CONTROLS__NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Control</b></em>' reference.
+   * The feature id for the '<em><b>Form Control</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FORM_DATA_CONTROLS__CONTROL = 2;
+  int FORM_DATA_CONTROLS__FORM_CONTROL = 2;
 
   /**
    * The number of structural features of the '<em>Form Data Controls</em>' class.
@@ -4855,13 +4864,22 @@ public interface DomainPackage extends EPackage
   int CONTROLS__UID = 0;
 
   /**
+   * The feature id for the '<em><b>Parent</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTROLS__PARENT = 1;
+
+  /**
    * The feature id for the '<em><b>Root</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTROLS__ROOT = 1;
+  int CONTROLS__ROOT = 2;
 
   /**
    * The feature id for the '<em><b>Controls</b></em>' containment reference list.
@@ -4870,7 +4888,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTROLS__CONTROLS = 2;
+  int CONTROLS__CONTROLS = 3;
 
   /**
    * The feature id for the '<em><b>Relations</b></em>' containment reference list.
@@ -4879,7 +4897,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTROLS__RELATIONS = 3;
+  int CONTROLS__RELATIONS = 4;
 
   /**
    * The number of structural features of the '<em>Controls</em>' class.
@@ -4888,7 +4906,7 @@ public interface DomainPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTROLS_FEATURE_COUNT = 4;
+  int CONTROLS_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link domain.impl.TriggerParameterImpl <em>Trigger Parameter</em>}' class.
@@ -10419,6 +10437,17 @@ public interface DomainPackage extends EPackage
   EAttribute getViews_Uid();
 
   /**
+   * Returns the meta object for the reference '{@link domain.Views#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Parent</em>'.
+   * @see domain.Views#getParent()
+   * @see #getViews()
+   * @generated
+   */
+  EReference getViews_Parent();
+
+  /**
    * Returns the meta object for the containment reference list '{@link domain.Views#getCanvases <em>Canvases</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -10737,15 +10766,15 @@ public interface DomainPackage extends EPackage
   EAttribute getFormDataControls_Name();
 
   /**
-   * Returns the meta object for the reference '{@link domain.FormDataControls#getControl <em>Control</em>}'.
+   * Returns the meta object for the reference '{@link domain.FormDataControls#getFormControl <em>Form Control</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Control</em>'.
-   * @see domain.FormDataControls#getControl()
+   * @return the meta object for the reference '<em>Form Control</em>'.
+   * @see domain.FormDataControls#getFormControl()
    * @see #getFormDataControls()
    * @generated
    */
-  EReference getFormDataControls_Control();
+  EReference getFormDataControls_FormControl();
 
   /**
    * Returns the meta object for class '{@link domain.Controls <em>Controls</em>}'.
@@ -10767,6 +10796,17 @@ public interface DomainPackage extends EPackage
    * @generated
    */
   EAttribute getControls_Uid();
+
+  /**
+   * Returns the meta object for the reference '{@link domain.Controls#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Parent</em>'.
+   * @see domain.Controls#getParent()
+   * @see #getControls()
+   * @generated
+   */
+  EReference getControls_Parent();
 
   /**
    * Returns the meta object for the containment reference '{@link domain.Controls#getRoot <em>Root</em>}'.
@@ -14402,6 +14442,14 @@ public interface DomainPackage extends EPackage
     EAttribute VIEWS__UID = eINSTANCE.getViews_Uid();
 
     /**
+     * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEWS__PARENT = eINSTANCE.getViews_Parent();
+
+    /**
      * The meta object literal for the '<em><b>Canvases</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -14666,12 +14714,12 @@ public interface DomainPackage extends EPackage
     EAttribute FORM_DATA_CONTROLS__NAME = eINSTANCE.getFormDataControls_Name();
 
     /**
-     * The meta object literal for the '<em><b>Control</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Form Control</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FORM_DATA_CONTROLS__CONTROL = eINSTANCE.getFormDataControls_Control();
+    EReference FORM_DATA_CONTROLS__FORM_CONTROL = eINSTANCE.getFormDataControls_FormControl();
 
     /**
      * The meta object literal for the '{@link domain.impl.ControlsImpl <em>Controls</em>}' class.
@@ -14690,6 +14738,14 @@ public interface DomainPackage extends EPackage
      * @generated
      */
     EAttribute CONTROLS__UID = eINSTANCE.getControls_Uid();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTROLS__PARENT = eINSTANCE.getControls_Parent();
 
     /**
      * The meta object literal for the '<em><b>Root</b></em>' containment reference feature.

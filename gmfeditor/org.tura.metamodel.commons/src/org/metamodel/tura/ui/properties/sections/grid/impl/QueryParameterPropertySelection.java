@@ -179,7 +179,7 @@ public class QueryParameterPropertySelection extends GridProperty {
 		}
 
 		@Override
-		public boolean isModify() {
+		public boolean isModify(Object element, String property) {
 			return true;
 		}
 		

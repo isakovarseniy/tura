@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.FormDataControls#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.FormDataControls#getName <em>Name</em>}</li>
- *   <li>{@link domain.FormDataControls#getControl <em>Control</em>}</li>
+ *   <li>{@link domain.FormDataControls#getFormControl <em>Form Control</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,29 +77,31 @@ public interface FormDataControls extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Control</b></em>' reference.
+   * Returns the value of the '<em><b>Form Control</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.Controls#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Control</em>' reference isn't clear,
+   * If the meaning of the '<em>Form Control</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Control</em>' reference.
-   * @see #setControl(Controls)
-   * @see domain.DomainPackage#getFormDataControls_Control()
-   * @model
+   * @return the value of the '<em>Form Control</em>' reference.
+   * @see #setFormControl(Controls)
+   * @see domain.DomainPackage#getFormDataControls_FormControl()
+   * @see domain.Controls#getParent
+   * @model opposite="parent"
    * @generated
    */
-  Controls getControl();
+  Controls getFormControl();
 
   /**
-   * Sets the value of the '{@link domain.FormDataControls#getControl <em>Control</em>}' reference.
+   * Sets the value of the '{@link domain.FormDataControls#getFormControl <em>Form Control</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Control</em>' reference.
-   * @see #getControl()
+   * @param value the new value of the '<em>Form Control</em>' reference.
+   * @see #getFormControl()
    * @generated
    */
-  void setControl(Controls value);
+  void setFormControl(Controls value);
 
 } // FormDataControls

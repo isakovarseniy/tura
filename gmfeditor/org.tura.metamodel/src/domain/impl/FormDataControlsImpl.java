@@ -8,6 +8,7 @@ import domain.FormDataControls;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -23,7 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link domain.impl.FormDataControlsImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.FormDataControlsImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.FormDataControlsImpl#getControl <em>Control</em>}</li>
+ *   <li>{@link domain.impl.FormDataControlsImpl#getFormControl <em>Form Control</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,14 +73,14 @@ public class FormDataControlsImpl extends EObjectImpl implements FormDataControl
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getControl() <em>Control</em>}' reference.
+   * The cached value of the '{@link #getFormControl() <em>Form Control</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getControl()
+   * @see #getFormControl()
    * @generated
    * @ordered
    */
-  protected Controls control;
+  protected Controls formControl;
 
   /**
    * <!-- begin-user-doc -->
@@ -153,19 +154,19 @@ public class FormDataControlsImpl extends EObjectImpl implements FormDataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Controls getControl()
+  public Controls getFormControl()
   {
-    if (control != null && control.eIsProxy())
+    if (formControl != null && formControl.eIsProxy())
     {
-      InternalEObject oldControl = (InternalEObject)control;
-      control = (Controls)eResolveProxy(oldControl);
-      if (control != oldControl)
+      InternalEObject oldFormControl = (InternalEObject)formControl;
+      formControl = (Controls)eResolveProxy(oldFormControl);
+      if (formControl != oldFormControl)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.FORM_DATA_CONTROLS__CONTROL, oldControl, control));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL, oldFormControl, formControl));
       }
     }
-    return control;
+    return formControl;
   }
 
   /**
@@ -173,9 +174,9 @@ public class FormDataControlsImpl extends EObjectImpl implements FormDataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Controls basicGetControl()
+  public Controls basicGetFormControl()
   {
-    return control;
+    return formControl;
   }
 
   /**
@@ -183,12 +184,71 @@ public class FormDataControlsImpl extends EObjectImpl implements FormDataControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setControl(Controls newControl)
+  public NotificationChain basicSetFormControl(Controls newFormControl, NotificationChain msgs)
   {
-    Controls oldControl = control;
-    control = newControl;
+    Controls oldFormControl = formControl;
+    formControl = newFormControl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_DATA_CONTROLS__CONTROL, oldControl, control));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL, oldFormControl, newFormControl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFormControl(Controls newFormControl)
+  {
+    if (newFormControl != formControl)
+    {
+      NotificationChain msgs = null;
+      if (formControl != null)
+        msgs = ((InternalEObject)formControl).eInverseRemove(this, DomainPackage.CONTROLS__PARENT, Controls.class, msgs);
+      if (newFormControl != null)
+        msgs = ((InternalEObject)newFormControl).eInverseAdd(this, DomainPackage.CONTROLS__PARENT, Controls.class, msgs);
+      msgs = basicSetFormControl(newFormControl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL, newFormControl, newFormControl));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL:
+        if (formControl != null)
+          msgs = ((InternalEObject)formControl).eInverseRemove(this, DomainPackage.CONTROLS__PARENT, Controls.class, msgs);
+        return basicSetFormControl((Controls)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL:
+        return basicSetFormControl(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -205,9 +265,9 @@ public class FormDataControlsImpl extends EObjectImpl implements FormDataControl
         return getUid();
       case DomainPackage.FORM_DATA_CONTROLS__NAME:
         return getName();
-      case DomainPackage.FORM_DATA_CONTROLS__CONTROL:
-        if (resolve) return getControl();
-        return basicGetControl();
+      case DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL:
+        if (resolve) return getFormControl();
+        return basicGetFormControl();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -228,8 +288,8 @@ public class FormDataControlsImpl extends EObjectImpl implements FormDataControl
       case DomainPackage.FORM_DATA_CONTROLS__NAME:
         setName((String)newValue);
         return;
-      case DomainPackage.FORM_DATA_CONTROLS__CONTROL:
-        setControl((Controls)newValue);
+      case DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL:
+        setFormControl((Controls)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -251,8 +311,8 @@ public class FormDataControlsImpl extends EObjectImpl implements FormDataControl
       case DomainPackage.FORM_DATA_CONTROLS__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DomainPackage.FORM_DATA_CONTROLS__CONTROL:
-        setControl((Controls)null);
+      case DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL:
+        setFormControl((Controls)null);
         return;
     }
     super.eUnset(featureID);
@@ -272,8 +332,8 @@ public class FormDataControlsImpl extends EObjectImpl implements FormDataControl
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
       case DomainPackage.FORM_DATA_CONTROLS__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainPackage.FORM_DATA_CONTROLS__CONTROL:
-        return control != null;
+      case DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL:
+        return formControl != null;
     }
     return super.eIsSet(featureID);
   }

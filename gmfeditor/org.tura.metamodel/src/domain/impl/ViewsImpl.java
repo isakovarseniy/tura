@@ -5,6 +5,7 @@ package domain.impl;
 import domain.CanvasFrame;
 import domain.Canvas;
 import domain.DomainPackage;
+import domain.FormView;
 import domain.TabPagesInheritance;
 import domain.ViewInheritance;
 import domain.Views;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.ViewsImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.impl.ViewsImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ViewsImpl#getCanvases <em>Canvases</em>}</li>
  *   <li>{@link domain.impl.ViewsImpl#getViewInheritances <em>View Inheritances</em>}</li>
  *   <li>{@link domain.impl.ViewsImpl#getTabPagesInheritances <em>Tab Pages Inheritances</em>}</li>
@@ -63,6 +65,16 @@ public class ViewsImpl extends EObjectImpl implements Views
    * @ordered
    */
   protected String uid = UID_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParent()
+   * @generated
+   * @ordered
+   */
+  protected FormView parent;
 
   /**
    * The cached value of the '{@link #getCanvases() <em>Canvases</em>}' containment reference list.
@@ -143,6 +155,74 @@ public class ViewsImpl extends EObjectImpl implements Views
    * <!-- end-user-doc -->
    * @generated
    */
+  public FormView getParent()
+  {
+    if (parent != null && parent.eIsProxy())
+    {
+      InternalEObject oldParent = (InternalEObject)parent;
+      parent = (FormView)eResolveProxy(oldParent);
+      if (parent != oldParent)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.VIEWS__PARENT, oldParent, parent));
+      }
+    }
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FormView basicGetParent()
+  {
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(FormView newParent, NotificationChain msgs)
+  {
+    FormView oldParent = parent;
+    parent = newParent;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.VIEWS__PARENT, oldParent, newParent);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(FormView newParent)
+  {
+    if (newParent != parent)
+    {
+      NotificationChain msgs = null;
+      if (parent != null)
+        msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.FORM_VIEW__VIEW, FormView.class, msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.FORM_VIEW__VIEW, FormView.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.VIEWS__PARENT, newParent, newParent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<CanvasFrame> getCanvases()
   {
     if (canvases == null)
@@ -186,10 +266,30 @@ public class ViewsImpl extends EObjectImpl implements Views
    * @generated
    */
   @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.VIEWS__PARENT:
+        if (parent != null)
+          msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.FORM_VIEW__VIEW, FormView.class, msgs);
+        return basicSetParent((FormView)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case DomainPackage.VIEWS__PARENT:
+        return basicSetParent(null, msgs);
       case DomainPackage.VIEWS__CANVASES:
         return ((InternalEList<?>)getCanvases()).basicRemove(otherEnd, msgs);
       case DomainPackage.VIEWS__VIEW_INHERITANCES:
@@ -212,6 +312,9 @@ public class ViewsImpl extends EObjectImpl implements Views
     {
       case DomainPackage.VIEWS__UID:
         return getUid();
+      case DomainPackage.VIEWS__PARENT:
+        if (resolve) return getParent();
+        return basicGetParent();
       case DomainPackage.VIEWS__CANVASES:
         return getCanvases();
       case DomainPackage.VIEWS__VIEW_INHERITANCES:
@@ -235,6 +338,9 @@ public class ViewsImpl extends EObjectImpl implements Views
     {
       case DomainPackage.VIEWS__UID:
         setUid((String)newValue);
+        return;
+      case DomainPackage.VIEWS__PARENT:
+        setParent((FormView)newValue);
         return;
       case DomainPackage.VIEWS__CANVASES:
         getCanvases().clear();
@@ -265,6 +371,9 @@ public class ViewsImpl extends EObjectImpl implements Views
       case DomainPackage.VIEWS__UID:
         setUid(UID_EDEFAULT);
         return;
+      case DomainPackage.VIEWS__PARENT:
+        setParent((FormView)null);
+        return;
       case DomainPackage.VIEWS__CANVASES:
         getCanvases().clear();
         return;
@@ -290,6 +399,8 @@ public class ViewsImpl extends EObjectImpl implements Views
     {
       case DomainPackage.VIEWS__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+      case DomainPackage.VIEWS__PARENT:
+        return parent != null;
       case DomainPackage.VIEWS__CANVASES:
         return canvases != null && !canvases.isEmpty();
       case DomainPackage.VIEWS__VIEW_INHERITANCES:

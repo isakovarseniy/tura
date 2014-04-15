@@ -19,5 +19,5 @@ public interface GridColumn {
 
 	public abstract void modify(Object element, Object value);
 	
-	public abstract boolean isModify();
+	public abstract boolean isModify(Object element, String property);
 }

@@ -5,6 +5,7 @@ package domain.impl;
 import domain.Controls;
 import domain.DataControl;
 import domain.DomainPackage;
+import domain.FormDataControls;
 import domain.Relation;
 import domain.Root;
 
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.ControlsImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.impl.ControlsImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ControlsImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link domain.impl.ControlsImpl#getControls <em>Controls</em>}</li>
  *   <li>{@link domain.impl.ControlsImpl#getRelations <em>Relations</em>}</li>
@@ -62,6 +64,16 @@ public class ControlsImpl extends EObjectImpl implements Controls
    * @ordered
    */
   protected String uid = UID_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParent()
+   * @generated
+   * @ordered
+   */
+  protected FormDataControls parent;
 
   /**
    * The cached value of the '{@link #getRoot() <em>Root</em>}' containment reference.
@@ -135,6 +147,74 @@ public class ControlsImpl extends EObjectImpl implements Controls
     uid = newUid;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTROLS__UID, oldUid, uid));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FormDataControls getParent()
+  {
+    if (parent != null && parent.eIsProxy())
+    {
+      InternalEObject oldParent = (InternalEObject)parent;
+      parent = (FormDataControls)eResolveProxy(oldParent);
+      if (parent != oldParent)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CONTROLS__PARENT, oldParent, parent));
+      }
+    }
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FormDataControls basicGetParent()
+  {
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParent(FormDataControls newParent, NotificationChain msgs)
+  {
+    FormDataControls oldParent = parent;
+    parent = newParent;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CONTROLS__PARENT, oldParent, newParent);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParent(FormDataControls newParent)
+  {
+    if (newParent != parent)
+    {
+      NotificationChain msgs = null;
+      if (parent != null)
+        msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL, FormDataControls.class, msgs);
+      if (newParent != null)
+        msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL, FormDataControls.class, msgs);
+      msgs = basicSetParent(newParent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONTROLS__PARENT, newParent, newParent));
   }
 
   /**
@@ -224,6 +304,10 @@ public class ControlsImpl extends EObjectImpl implements Controls
   {
     switch (featureID)
     {
+      case DomainPackage.CONTROLS__PARENT:
+        if (parent != null)
+          msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.FORM_DATA_CONTROLS__FORM_CONTROL, FormDataControls.class, msgs);
+        return basicSetParent((FormDataControls)otherEnd, msgs);
       case DomainPackage.CONTROLS__CONTROLS:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getControls()).basicAdd(otherEnd, msgs);
     }
@@ -240,6 +324,8 @@ public class ControlsImpl extends EObjectImpl implements Controls
   {
     switch (featureID)
     {
+      case DomainPackage.CONTROLS__PARENT:
+        return basicSetParent(null, msgs);
       case DomainPackage.CONTROLS__ROOT:
         return basicSetRoot(null, msgs);
       case DomainPackage.CONTROLS__CONTROLS:
@@ -262,6 +348,9 @@ public class ControlsImpl extends EObjectImpl implements Controls
     {
       case DomainPackage.CONTROLS__UID:
         return getUid();
+      case DomainPackage.CONTROLS__PARENT:
+        if (resolve) return getParent();
+        return basicGetParent();
       case DomainPackage.CONTROLS__ROOT:
         return getRoot();
       case DomainPackage.CONTROLS__CONTROLS:
@@ -285,6 +374,9 @@ public class ControlsImpl extends EObjectImpl implements Controls
     {
       case DomainPackage.CONTROLS__UID:
         setUid((String)newValue);
+        return;
+      case DomainPackage.CONTROLS__PARENT:
+        setParent((FormDataControls)newValue);
         return;
       case DomainPackage.CONTROLS__ROOT:
         setRoot((Root)newValue);
@@ -314,6 +406,9 @@ public class ControlsImpl extends EObjectImpl implements Controls
       case DomainPackage.CONTROLS__UID:
         setUid(UID_EDEFAULT);
         return;
+      case DomainPackage.CONTROLS__PARENT:
+        setParent((FormDataControls)null);
+        return;
       case DomainPackage.CONTROLS__ROOT:
         setRoot((Root)null);
         return;
@@ -339,6 +434,8 @@ public class ControlsImpl extends EObjectImpl implements Controls
     {
       case DomainPackage.CONTROLS__UID:
         return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+      case DomainPackage.CONTROLS__PARENT:
+        return parent != null;
       case DomainPackage.CONTROLS__ROOT:
         return root != null;
       case DomainPackage.CONTROLS__CONTROLS:

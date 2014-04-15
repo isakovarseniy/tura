@@ -832,12 +832,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//Views"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//Views"
+        eOpposite="#//Views/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Views">
     <eAnnotations source="gmf.diagram.view"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//FormView"
+        eOpposite="#//FormView/view"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="canvases" upperBound="-1"
         eType="#//CanvasFrame" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewInheritances" upperBound="-1"
@@ -947,12 +950,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="control" eType="#//Controls"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formControl" eType="#//Controls"
+        eOpposite="#//Controls/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Controls">
     <eAnnotations source="gmf.diagram.control"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//FormDataControls"
+        eOpposite="#//FormDataControls/formControl"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//Root" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
         eType="#//DataControl" containment="true" eOpposite="#//DataControl/parent"/>

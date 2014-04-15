@@ -27,7 +27,7 @@ public class CellModifier implements ICellModifier {
 
 	public boolean canModify(Object element, String property) {
 		int columnIndex = columnNames.indexOf(property);
-		return columnsList.get(columnIndex).isModify();
+		return columnsList.get(columnIndex).isModify(element, property);
 	}
 	
 	public Object getValue(Object element, String property) {

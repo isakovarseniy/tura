@@ -8,6 +8,7 @@ import domain.Views;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -183,12 +184,71 @@ public class FormViewImpl extends EObjectImpl implements FormView
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setView(Views newView)
+  public NotificationChain basicSetView(Views newView, NotificationChain msgs)
   {
     Views oldView = view;
     view = newView;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__VIEW, oldView, view));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__VIEW, oldView, newView);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setView(Views newView)
+  {
+    if (newView != view)
+    {
+      NotificationChain msgs = null;
+      if (view != null)
+        msgs = ((InternalEObject)view).eInverseRemove(this, DomainPackage.VIEWS__PARENT, Views.class, msgs);
+      if (newView != null)
+        msgs = ((InternalEObject)newView).eInverseAdd(this, DomainPackage.VIEWS__PARENT, Views.class, msgs);
+      msgs = basicSetView(newView, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.FORM_VIEW__VIEW, newView, newView));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.FORM_VIEW__VIEW:
+        if (view != null)
+          msgs = ((InternalEObject)view).eInverseRemove(this, DomainPackage.VIEWS__PARENT, Views.class, msgs);
+        return basicSetView((Views)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.FORM_VIEW__VIEW:
+        return basicSetView(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**

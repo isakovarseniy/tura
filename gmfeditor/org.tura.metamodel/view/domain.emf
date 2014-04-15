@@ -538,12 +538,13 @@ class Form{
 class FormView{
     id attr EString uid;
    attr EString name;
-   ref Views view;
+   ref Views#parent view;
 }
 
 @gmf.diagram
 class Views{
     id attr EString uid;
+   ref FormView#view parent; 
    val CanvasFrame[*]  canvases;
    val ViewInheritance[*] viewInheritances;
    val TabPagesInheritance[*] tabPagesInheritances;
@@ -613,12 +614,13 @@ class TabPagesInheritance{
 class FormDataControls{
     id attr EString uid;
    attr EString name;
-   ref Controls control;
+   ref Controls#parent formControl;
 }
 
 @gmf.diagram.control
 class Controls{
     id attr EString uid;
+    ref FormDataControls#formControl parent; 
     val Root root;
     val DataControl [*]#parent controls;
     val Relation[*] relations;

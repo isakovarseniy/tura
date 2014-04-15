@@ -78,6 +78,7 @@ public interface FormView extends EObject
 
   /**
    * Returns the value of the '<em><b>View</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.Views#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>View</em>' reference isn't clear,
@@ -87,7 +88,8 @@ public interface FormView extends EObject
    * @return the value of the '<em>View</em>' reference.
    * @see #setView(Views)
    * @see domain.DomainPackage#getFormView_View()
-   * @model
+   * @see domain.Views#getParent
+   * @model opposite="parent"
    * @generated
    */
   Views getView();

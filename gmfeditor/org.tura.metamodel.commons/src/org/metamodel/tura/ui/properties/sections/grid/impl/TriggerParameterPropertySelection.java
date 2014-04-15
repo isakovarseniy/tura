@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CheckboxCellEditor;
 import org.eclipse.jface.viewers.TextCellEditor;
@@ -40,9 +41,9 @@ public class TriggerParameterPropertySelection extends GridProperty {
 	public List<GridColumn> getColumns() {
 		if (columnList == null) {
 			columnList = new ArrayList<GridColumn>();
-			columnList.add(new ParameterColumn(table, this));
-			columnList.add(new IsExpressioinColumn(table, this));
-			columnList.add(new ValueColumn(table, this));
+			columnList.add(new ParameterColumn(table, this,0));
+			columnList.add(new IsExpressioinColumn(table, this,1));
+			columnList.add(new ValueColumn(table, this,2));
 		}
 		return columnList;
 	}
@@ -63,19 +64,21 @@ public class TriggerParameterPropertySelection extends GridProperty {
 
 		// Set the table column property names
 		private final String PARAMETER_COLUMN = "Parameter";
+		private int col;
 
 		private Table table;
 		@SuppressWarnings("unused")
 		private GridProperty property;
 
-		public ParameterColumn(Table table, GridProperty property) {
+		public ParameterColumn(Table table, GridProperty property,int col) {
 			this.table = table;
 			this.property = property;
+			this.col=col;
 		}
 
 		@Override
 		public TableColumn createColumn() {
-			TableColumn column = new TableColumn(table, SWT.LEFT, 0);
+			TableColumn column = new TableColumn(table, SWT.LEFT, col);
 			column.setText(PARAMETER_COLUMN);
 			column.setWidth(100);
 			return column;
@@ -127,7 +130,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 		}
 
 		@Override
-		public boolean isModify() {
+		public boolean isModify(Object element, String property) {
 			return false;
 		}
 
@@ -142,19 +145,21 @@ public class TriggerParameterPropertySelection extends GridProperty {
 
 		// Set the table column property names
 		private final String ISEXPRESSIOIN_COLUMN = "IsExpression";
+		private int col;
 
 		private Table table;
 		@SuppressWarnings("unused")
 		private GridProperty property;
 
-		public IsExpressioinColumn(Table table, GridProperty property) {
+		public IsExpressioinColumn(Table table, GridProperty property,int col) {
 			this.table = table;
 			this.property = property;
+			this.col=col;
 		}
 
 		@Override
 		public TableColumn createColumn() {
-			TableColumn column = new TableColumn(table, SWT.LEFT, 1);
+			TableColumn column = new TableColumn(table, SWT.LEFT, col);
 			column.setText(ISEXPRESSIOIN_COLUMN);
 			column.setWidth(80);
 			return column;
@@ -200,7 +205,7 @@ public class TriggerParameterPropertySelection extends GridProperty {
 		}
 
 		@Override
-		public boolean isModify() {
+		public boolean isModify(Object element, String property) {
 			return true;
 		}
 
@@ -214,19 +219,21 @@ public class TriggerParameterPropertySelection extends GridProperty {
 	class ValueColumn implements GridColumn {
 
 		public static final String COLUMN_NAME = "Value";
+		private int col;
 
 		private Table table;
 		private GridProperty property;
 
-		public ValueColumn(Table table, GridProperty property) {
+		public ValueColumn(Table table, GridProperty property,int col) {
 			this.table = table;
 			this.property = property;
+			this.col=col;
 		}
 
 		@Override
 		public TableColumn createColumn() {
 			// 1 nd column with task Option
-			TableColumn column = new TableColumn(table, SWT.LEFT, 2);
+			TableColumn column = new TableColumn(table, SWT.LEFT, col);
 			column.setText(COLUMN_NAME);
 			column.setWidth(400);
 			return column;
@@ -239,9 +246,8 @@ public class TriggerParameterPropertySelection extends GridProperty {
 
 		@Override
 		public CellEditor getEditor() {
-			TextCellEditor textEditor = new TextCellEditor(table);
-			((Text) textEditor.getControl()).setTextLimit(100);
-			return textEditor;
+		    CellEditor editor = new TextAndDialogCellEditor(table);
+			return editor;
 		}
 
 		@Override
@@ -280,7 +286,26 @@ public class TriggerParameterPropertySelection extends GridProperty {
 		}
 
 		@Override
-		public boolean isModify() {
+		public boolean isModify(Object element, String property) {
+			domain.TriggerParameter obj = (domain.TriggerParameter)element;
+			CellEditor editor;
+			if (obj.getValue().isIsExpression()){
+				TreeRoot rootOfTree = new TreeRoot();
+				DiagramImpl root = (DiagramImpl) this.property.getEditPart().getRoot().getContents().getModel();
+				if (root.getElement() instanceof domain.Controls){
+					rootOfTree.addChild( ((domain.Controls)root.getElement()).getParent().getFormControl());
+				}
+				if (root.getElement() instanceof domain.Views){
+					rootOfTree.addChild(((domain.Form)(((domain.Views)root.getElement()).getParent().eContainer())).getDatacontrols().getFormControl());	
+				}
+				editor = this.getEditor();
+				((TextAndDialogCellEditor)editor).setRootObject(rootOfTree);
+			}else
+			{
+				editor = new TextCellEditor(table);
+				((Text) editor.getControl()).setTextLimit(60);
+			}
+			this.property.getTableViewer().getCellEditors()[col]=editor;
 			return true;
 		}
 

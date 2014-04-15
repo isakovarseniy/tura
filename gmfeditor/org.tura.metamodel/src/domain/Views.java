@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.Views#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.Views#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Views#getCanvases <em>Canvases</em>}</li>
  *   <li>{@link domain.Views#getViewInheritances <em>View Inheritances</em>}</li>
  *   <li>{@link domain.Views#getTabPagesInheritances <em>Tab Pages Inheritances</em>}</li>
@@ -52,6 +53,34 @@ public interface Views extends EObject
    * @generated
    */
   void setUid(String value);
+
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link domain.FormView#getView <em>View</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parent</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' reference.
+   * @see #setParent(FormView)
+   * @see domain.DomainPackage#getViews_Parent()
+   * @see domain.FormView#getView
+   * @model opposite="view"
+   * @generated
+   */
+  FormView getParent();
+
+  /**
+   * Sets the value of the '{@link domain.Views#getParent <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(FormView value);
 
   /**
    * Returns the value of the '<em><b>Canvases</b></em>' containment reference list.

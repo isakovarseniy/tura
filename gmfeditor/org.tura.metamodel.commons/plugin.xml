@@ -433,5 +433,23 @@
    </extension>
 
 
+   <extension   point="org.eclipse.core.runtime.adapters">
+      <factory  adaptableType="org.metamodel.tura.ui.properties.sections.grid.impl.TreeRoot"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+      </factory>
+      <factory  adaptableType="domain.Controls"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+      </factory>
+      <factory  adaptableType="domain.DataControl"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+      </factory>
+      <factory  adaptableType="domain.Trigger"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+      </factory>
+</extension>
 
 </plugin>
