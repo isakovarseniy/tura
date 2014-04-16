@@ -1,20 +1,28 @@
 package org.metamodel.tura.ui.properties.sections.adapters;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
-import org.metamodel.tura.ui.properties.sections.adapters.helper.TriggerHolder;
 
-public class TriggerProvider implements IWorkbenchAdapter  {
+import domain.Package;
+
+public class PackageProvider implements IWorkbenchAdapter {
 
 	@Override
 	public Object[] getChildren(Object o) {
-		
+		domain.Package pack = (Package) o;
 		ArrayList<domain.TypeElement> ls = new ArrayList<>();
-		TriggerHolder trg =  (TriggerHolder) o;
-		if (trg.getTrigger().getMethodRef().getReturnValue() != null)
-			ls.add(trg.getTrigger().getMethodRef().getReturnValue().getTypeRef());
+
+		for (Iterator<domain.TypeElement> itr = pack.getTypedefinition()
+				.getTypes().iterator(); itr.hasNext();) {
+			domain.TypeElement t = itr.next();
+
+			if (!(t instanceof domain.TypeReference))
+				ls.add(t);
+
+		}
 		return ls.toArray();
 	}
 
@@ -25,8 +33,8 @@ public class TriggerProvider implements IWorkbenchAdapter  {
 
 	@Override
 	public String getLabel(Object o) {
-		TriggerHolder trg =  (TriggerHolder) o;
-		return trg.getType()+" -- "+  trg.getTrigger().getPackageRef().getName()+"::"+trg.getTrigger().getTypeRef().getName()+"::"+trg.getTrigger().getMethodRef().getName();
+		domain.Package pack = (Package) o;
+		return pack.getName();
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package org.metamodel.tura.ui.properties.sections.grid.impl;
+package org.metamodel.tura.ui.properties.sections.adapters.helper;
 
 import java.util.ArrayList;
 import java.util.List;

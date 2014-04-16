@@ -27,6 +27,7 @@ import domain.DomainFactory;
 import domain.DomainPackage;
 import domain.Parameter;
 import domain.TriggerParameter;
+import domain.Types;
 
 public class QueryHelper {
 
@@ -378,6 +379,24 @@ public class QueryHelper {
 		ArrayList<Object> rows = new ArrayList<>();
 		rows.addAll(trgParameters);
 		return rows;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public domain.Types getTypesRepository(EObject obj) throws Exception{
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+		OCLExpression<EClassifier> query = helper
+				.createQuery("domain::Types.allInstances()");
+
+		Collection<domain.Types> map = (Collection<domain.Types>) ocl
+				.evaluate(obj, query);
+		if (map != null && map.size() != 0)
+			return (Types) map.toArray()[0];
+		
+		return null;
+		
 	}
 	
 	class ParameterComparator implements Comparator<domain.Parameter>{

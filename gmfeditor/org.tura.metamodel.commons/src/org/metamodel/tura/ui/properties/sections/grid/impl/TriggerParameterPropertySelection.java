@@ -19,6 +19,8 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.metamodel.tura.ui.properties.sections.QueryHelper;
+import org.metamodel.tura.ui.properties.sections.adapters.helper.TreeRoot;
 import org.metamodel.tura.ui.properties.sections.grid.GridColumn;
 import org.metamodel.tura.ui.properties.sections.grid.GridProperty;
 
@@ -298,6 +300,12 @@ public class TriggerParameterPropertySelection extends GridProperty {
 				if (root.getElement() instanceof domain.Views){
 					rootOfTree.addChild(((domain.Form)(((domain.Views)root.getElement()).getParent().eContainer())).getDatacontrols().getFormControl());	
 				}
+				try {
+					rootOfTree.addChild(new QueryHelper().getTypesRepository(root.getElement()));
+				} catch (Exception e) {
+					// ignore
+				}
+				
 				editor = this.getEditor();
 				((TextAndDialogCellEditor)editor).setRootObject(rootOfTree);
 			}else

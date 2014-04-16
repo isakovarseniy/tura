@@ -434,7 +434,7 @@
 
 
    <extension   point="org.eclipse.core.runtime.adapters">
-      <factory  adaptableType="org.metamodel.tura.ui.properties.sections.grid.impl.TreeRoot"
+      <factory  adaptableType="org.metamodel.tura.ui.properties.sections.adapters.helper.TreeRoot"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
       </factory>
@@ -446,10 +446,31 @@
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
       </factory>
-      <factory  adaptableType="domain.Trigger"
+      <factory  adaptableType="org.metamodel.tura.ui.properties.sections.adapters.helper.TriggerHolder"
              class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
       </factory>
+      <factory  adaptableType="domain.TypeElement"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+      </factory>
+     <factory  adaptableType="domain.Attribute"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+      </factory>
+     <factory  adaptableType="domain.Operation"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+      </factory>
+     <factory  adaptableType="domain.Types"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+      </factory>
+     <factory  adaptableType="domain.Package"
+             class="org.metamodel.tura.ui.properties.sections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+      </factory>
+
 </extension>
 
 </plugin>

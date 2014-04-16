@@ -1,14 +1,20 @@
 package org.metamodel.tura.ui.properties.sections.adapters;
 
+import java.util.ArrayList;
+
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
-import org.metamodel.tura.ui.properties.sections.adapters.helper.TreeRoot;
 
-public class TreeRootProvider implements IWorkbenchAdapter {
+public class OperationProvider implements IWorkbenchAdapter{
 
 	@Override
 	public Object[] getChildren(Object o) {
-		return ((TreeRoot)o).getChildren().toArray();
+		ArrayList<Object> ls = new ArrayList<>();
+		domain.Operation opr = (domain.Operation) o;
+		if (opr.getReturnValue() != null) {
+			ls.add(opr.getReturnValue().getTypeRef());
+		}
+		return ls.toArray();
 	}
 
 	@Override
@@ -18,7 +24,8 @@ public class TreeRootProvider implements IWorkbenchAdapter {
 
 	@Override
 	public String getLabel(Object o) {
-		return null;
+		domain.Operation opr = (domain.Operation) o;
+		return opr.getName()+"()";
 	}
 
 	@Override
