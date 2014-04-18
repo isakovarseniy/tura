@@ -43,6 +43,7 @@ import domain.EJBService;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.ExpressionPart;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
@@ -807,6 +808,13 @@ public class DomainSwitch<T> extends Switch<T>
       {
         ContextValue contextValue = (ContextValue)theEObject;
         T result = caseContextValue(contextValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainPackage.EXPRESSION_PART:
+      {
+        ExpressionPart expressionPart = (ExpressionPart)theEObject;
+        T result = caseExpressionPart(expressionPart);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2384,6 +2392,22 @@ public class DomainSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseContextValue(ContextValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression Part</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression Part</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpressionPart(ExpressionPart object)
   {
     return null;
   }

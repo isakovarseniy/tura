@@ -770,6 +770,15 @@ public interface DomainFactory extends EFactory
   ContextValue createContextValue();
 
   /**
+   * Returns a new object of class '<em>Expression Part</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression Part</em>'.
+   * @generated
+   */
+  ExpressionPart createExpressionPart();
+
+  /**
    * Returns a new object of class '<em>PRE Form Trigger</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

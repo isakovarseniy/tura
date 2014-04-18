@@ -44,6 +44,7 @@ import domain.EJBService;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.ExpressionPart;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
@@ -261,6 +262,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
       case DomainPackage.TRIGGER: return createTrigger();
       case DomainPackage.TRIGGER_PARAMETER: return createTriggerParameter();
       case DomainPackage.CONTEXT_VALUE: return createContextValue();
+      case DomainPackage.EXPRESSION_PART: return createExpressionPart();
       case DomainPackage.PRE_FORM_TRIGGER: return createPREFormTrigger();
       case DomainPackage.PRE_QUERY_TRIGGER: return createPREQueryTrigger();
       case DomainPackage.POST_QUERY_TRIGGER: return createPOSTQueryTrigger();
@@ -1240,6 +1242,17 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory
   {
     ContextValueImpl contextValue = new ContextValueImpl();
     return contextValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExpressionPart createExpressionPart()
+  {
+    ExpressionPartImpl expressionPart = new ExpressionPartImpl();
+    return expressionPart;
   }
 
   /**

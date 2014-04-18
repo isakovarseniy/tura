@@ -5,12 +5,19 @@ package domain.impl;
 import domain.ContextValue;
 import domain.DomainPackage;
 
+import domain.ExpressionPart;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.ContextValueImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ContextValueImpl#isIsExpression <em>Is Expression</em>}</li>
  *   <li>{@link domain.impl.ContextValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link domain.impl.ContextValueImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,6 +96,16 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
    * @ordered
    */
   protected String value = VALUE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpression()
+   * @generated
+   * @ordered
+   */
+  protected EList<ExpressionPart> expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -184,6 +202,36 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<ExpressionPart> getExpression()
+  {
+    if (expression == null)
+    {
+      expression = new EObjectContainmentEList<ExpressionPart>(ExpressionPart.class, this, DomainPackage.CONTEXT_VALUE__EXPRESSION);
+    }
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainPackage.CONTEXT_VALUE__EXPRESSION:
+        return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -195,6 +243,8 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
         return isIsExpression();
       case DomainPackage.CONTEXT_VALUE__VALUE:
         return getValue();
+      case DomainPackage.CONTEXT_VALUE__EXPRESSION:
+        return getExpression();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -204,6 +254,7 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -217,6 +268,10 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
         return;
       case DomainPackage.CONTEXT_VALUE__VALUE:
         setValue((String)newValue);
+        return;
+      case DomainPackage.CONTEXT_VALUE__EXPRESSION:
+        getExpression().clear();
+        getExpression().addAll((Collection<? extends ExpressionPart>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -241,6 +296,9 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
       case DomainPackage.CONTEXT_VALUE__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
+      case DomainPackage.CONTEXT_VALUE__EXPRESSION:
+        getExpression().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -261,6 +319,8 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue
         return isExpression != IS_EXPRESSION_EDEFAULT;
       case DomainPackage.CONTEXT_VALUE__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case DomainPackage.CONTEXT_VALUE__EXPRESSION:
+        return expression != null && !expression.isEmpty();
     }
     return super.eIsSet(featureID);
   }

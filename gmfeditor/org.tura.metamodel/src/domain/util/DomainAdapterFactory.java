@@ -43,6 +43,7 @@ import domain.EJBService;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.ExpressionPart;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormView;
@@ -599,6 +600,11 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
       public Adapter caseContextValue(ContextValue object)
       {
         return createContextValueAdapter();
+      }
+      @Override
+      public Adapter caseExpressionPart(ExpressionPart object)
+      {
+        return createExpressionPartAdapter();
       }
       @Override
       public Adapter casePREFormTrigger(PREFormTrigger object)
@@ -2008,6 +2014,21 @@ public class DomainAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createContextValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link domain.ExpressionPart <em>Expression Part</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see domain.ExpressionPart
+   * @generated
+   */
+  public Adapter createExpressionPartAdapter()
   {
     return null;
   }

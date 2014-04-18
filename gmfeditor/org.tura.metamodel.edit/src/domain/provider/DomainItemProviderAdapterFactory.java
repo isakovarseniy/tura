@@ -2149,6 +2149,31 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link domain.ExpressionPart} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ExpressionPartItemProvider expressionPartItemProvider;
+
+  /**
+   * This creates an adapter for a {@link domain.ExpressionPart}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createExpressionPartAdapter()
+  {
+    if (expressionPartItemProvider == null)
+    {
+      expressionPartItemProvider = new ExpressionPartItemProvider(this);
+    }
+
+    return expressionPartItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link domain.PREFormTrigger} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3067,6 +3092,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
     if (triggerItemProvider != null) triggerItemProvider.dispose();
     if (triggerParameterItemProvider != null) triggerParameterItemProvider.dispose();
     if (contextValueItemProvider != null) contextValueItemProvider.dispose();
+    if (expressionPartItemProvider != null) expressionPartItemProvider.dispose();
     if (preFormTriggerItemProvider != null) preFormTriggerItemProvider.dispose();
     if (preQueryTriggerItemProvider != null) preQueryTriggerItemProvider.dispose();
     if (postQueryTriggerItemProvider != null) postQueryTriggerItemProvider.dispose();

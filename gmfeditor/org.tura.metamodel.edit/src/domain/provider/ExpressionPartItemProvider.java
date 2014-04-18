@@ -3,9 +3,8 @@
 package domain.provider;
 
 
-import domain.ContextValue;
-import domain.DomainFactory;
 import domain.DomainPackage;
+import domain.ExpressionPart;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,7 +14,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link domain.ContextValue} object.
+ * This is the item provider adapter for a {@link domain.ExpressionPart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContextValueItemProvider
+public class ExpressionPartItemProvider
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -48,7 +46,7 @@ public class ContextValueItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public ContextValueItemProvider(AdapterFactory adapterFactory)
+  public ExpressionPartItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -67,8 +65,8 @@ public class ContextValueItemProvider
       super.getPropertyDescriptors(object);
 
       addUidPropertyDescriptor(object);
-      addIsExpressionPropertyDescriptor(object);
-      addValuePropertyDescriptor(object);
+      addObjRefPropertyDescriptor(object);
+      addOrderPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -85,9 +83,9 @@ public class ContextValueItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_ContextValue_uid_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ContextValue_uid_feature", "_UI_ContextValue_type"),
-         DomainPackage.Literals.CONTEXT_VALUE__UID,
+         getString("_UI_ExpressionPart_uid_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ExpressionPart_uid_feature", "_UI_ExpressionPart_type"),
+         DomainPackage.Literals.EXPRESSION_PART__UID,
          true,
          false,
          false,
@@ -97,86 +95,53 @@ public class ContextValueItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Is Expression feature.
+   * This adds a property descriptor for the Obj Ref feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addIsExpressionPropertyDescriptor(Object object)
+  protected void addObjRefPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_ContextValue_isExpression_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ContextValue_isExpression_feature", "_UI_ContextValue_type"),
-         DomainPackage.Literals.CONTEXT_VALUE__IS_EXPRESSION,
+         getString("_UI_ExpressionPart_objRef_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ExpressionPart_objRef_feature", "_UI_ExpressionPart_type"),
+         DomainPackage.Literals.EXPRESSION_PART__OBJ_REF,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
 
   /**
-   * This adds a property descriptor for the Value feature.
+   * This adds a property descriptor for the Order feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addValuePropertyDescriptor(Object object)
+  protected void addOrderPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_ContextValue_value_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ContextValue_value_feature", "_UI_ContextValue_type"),
-         DomainPackage.Literals.CONTEXT_VALUE__VALUE,
+         getString("_UI_ExpressionPart_order_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ExpressionPart_order_feature", "_UI_ExpressionPart_type"),
+         DomainPackage.Literals.EXPRESSION_PART__ORDER,
          true,
          false,
          false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
          null,
          null));
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
-  {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(DomainPackage.Literals.CONTEXT_VALUE__EXPRESSION);
-    }
-    return childrenFeatures;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
-  {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
-  }
-
-  /**
-   * This returns ContextValue.gif.
+   * This returns ExpressionPart.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -184,7 +149,7 @@ public class ContextValueItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/ContextValue"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/ExpressionPart"));
   }
 
   /**
@@ -196,10 +161,10 @@ public class ContextValueItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((ContextValue)object).getUid();
+    String label = ((ExpressionPart)object).getUid();
     return label == null || label.length() == 0 ?
-      getString("_UI_ContextValue_type") :
-      getString("_UI_ContextValue_type") + " " + label;
+      getString("_UI_ExpressionPart_type") :
+      getString("_UI_ExpressionPart_type") + " " + label;
   }
 
   /**
@@ -214,15 +179,11 @@ public class ContextValueItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(ContextValue.class))
+    switch (notification.getFeatureID(ExpressionPart.class))
     {
-      case DomainPackage.CONTEXT_VALUE__UID:
-      case DomainPackage.CONTEXT_VALUE__IS_EXPRESSION:
-      case DomainPackage.CONTEXT_VALUE__VALUE:
+      case DomainPackage.EXPRESSION_PART__UID:
+      case DomainPackage.EXPRESSION_PART__ORDER:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-      case DomainPackage.CONTEXT_VALUE__EXPRESSION:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
     super.notifyChanged(notification);
@@ -239,11 +200,6 @@ public class ContextValueItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (DomainPackage.Literals.CONTEXT_VALUE__EXPRESSION,
-         DomainFactory.eINSTANCE.createExpressionPart()));
   }
 
   /**

@@ -38,6 +38,8 @@ public class CellModifier implements ICellModifier {
 	}
 
 	public void modify(Object element, String property, Object value) {
+		if ( element  == null )
+			return;
 		int columnIndex = columnNames.indexOf(property);
 		columnsList.get(columnIndex).modify(element,value);
 		TableItem item = (TableItem) element;

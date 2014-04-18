@@ -639,10 +639,19 @@ class TriggerParameter{
    val ContextValue value;
 }
 
+
+
 class ContextValue{
    id attr EString uid;
    attr boolean isExpression;
    attr EString value;
+   val ExpressionPart[*] expression;
+}
+
+class ExpressionPart{
+   id attr EString uid;
+   ref EObject objRef;
+   attr EInt order;   
 }
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")

@@ -2,6 +2,7 @@
  */
 package domain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.ContextValue#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.ContextValue#isIsExpression <em>Is Expression</em>}</li>
  *   <li>{@link domain.ContextValue#getValue <em>Value</em>}</li>
+ *   <li>{@link domain.ContextValue#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +103,21 @@ public interface ContextValue extends EObject
    * @generated
    */
   void setValue(String value);
+
+  /**
+   * Returns the value of the '<em><b>Expression</b></em>' containment reference list.
+   * The list contents are of type {@link domain.ExpressionPart}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression</em>' containment reference list.
+   * @see domain.DomainPackage#getContextValue_Expression()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ExpressionPart> getExpression();
 
 } // ContextValue
