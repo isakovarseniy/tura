@@ -1,6 +1,7 @@
 package org.metamodel.tura.ui.properties.sections.grid.impl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.runtime.Platform;
@@ -10,6 +11,7 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CheckboxCellEditor;
 import org.eclipse.jface.viewers.TextCellEditor;
@@ -17,6 +19,7 @@ import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
@@ -29,8 +32,13 @@ import org.metamodel.tura.ui.properties.sections.adapters.helper.TriggerHolder;
 import org.metamodel.tura.ui.properties.sections.grid.GridColumn;
 import org.metamodel.tura.ui.properties.sections.grid.GridProperty;
 
+import domain.Attribute;
 import domain.DomainFactory;
 import domain.DomainPackage;
+import domain.Operation;
+import domain.Type;
+import domain.TypeElement;
+import domain.TypeReference;
 
 public class TriggerParameterPropertySelection extends GridProperty {
 
@@ -210,8 +218,8 @@ public class TriggerParameterPropertySelection extends GridProperty {
 							DomainPackage.eINSTANCE
 									.getContextValue_IsExpression(), value));
 
-		removeExpession(editingDomain, opt);
-		   updateConstantValue(editingDomain, opt, null);
+			removeExpession(editingDomain, opt);
+			updateConstantValue(editingDomain, opt, null);
 		}
 
 		@Override
@@ -280,12 +288,13 @@ public class TriggerParameterPropertySelection extends GridProperty {
 
 		@Override
 		public void modify(Object element, Object value) {
-			if (element == null )
+			if (element == null)
 				return;
 			TableItem item = (TableItem) element;
 			domain.TriggerParameter opt = (domain.TriggerParameter) item
 					.getData();
-			EditingDomain editingDomain = this.property.getEditPart().getEditingDomain();
+			EditingDomain editingDomain = this.property.getEditPart()
+					.getEditingDomain();
 			if (value instanceof String)
 				updateConstantValue(editingDomain, opt, (String) value);
 			if (value instanceof TreePath)
@@ -334,9 +343,59 @@ public class TriggerParameterPropertySelection extends GridProperty {
 
 	}
 
-	public void updateExpressionValue(EditingDomain editingDomain, domain.TriggerParameter param,
-			TreePath path) {
+	public void updateExpressionValue(EditingDomain editingDomain,
+			domain.TriggerParameter param, TreePath path) {
 		String value = "";
+
+		if (param.getParameter().getTypeRef() == null) {
+
+			Display.getDefault().asyncExec(new Runnable() {
+				public void run() {
+					MessageDialog dialog = new MessageDialog(Display
+							.getDefault().getActiveShell(), "Tura", null,
+							"Parameter type is undefined", MessageDialog.ERROR,
+							new String[] { "Ok" }, 0);
+					dialog.open();
+				}
+			});
+			return;
+		}
+		Object obj = path.getLastSegment();
+		domain.TypeElement type = null;
+
+		if (obj instanceof Attribute)
+			type = ((Attribute) obj).getTypeRef();
+
+		if (obj instanceof Operation) {
+			if (((Operation) obj).getReturnValue() != null) {
+				type = ((Operation) obj).getReturnValue().getTypeRef();
+			}
+		}
+
+		if (type == null) {
+			Display.getDefault().asyncExec(new Runnable() {
+				public void run() {
+					MessageDialog dialog = new MessageDialog(Display
+							.getDefault().getActiveShell(), "Tura", null,
+							"Choosen type missmarch of parameter type",
+							MessageDialog.ERROR, new String[] { "Ok" }, 0);
+					dialog.open();
+				}
+			});
+			return;
+		}
+		if (!checkType(param,type)){
+			Display.getDefault().asyncExec(new Runnable() {
+				public void run() {
+					MessageDialog dialog = new MessageDialog(Display
+							.getDefault().getActiveShell(), "Tura", null,
+							"Choosen type missmarch of parameter type",
+							MessageDialog.ERROR, new String[] { "Ok" }, 0);
+					dialog.open();
+				}
+			});
+			return;
+		}
 
 		removeExpession(editingDomain, param);
 		ArrayList<domain.ExpressionPart> ls = new ArrayList<>();
@@ -363,17 +422,42 @@ public class TriggerParameterPropertySelection extends GridProperty {
 
 		editingDomain.getCommandStack().execute(
 				SetCommand.create(editingDomain, param.getValue(),
-						DomainPackage.eINSTANCE
-								.getContextValue_Expression(), ls));
-		updateConstantValue(editingDomain,param, value);
+						DomainPackage.eINSTANCE.getContextValue_Expression(),
+						ls));
+		updateConstantValue(editingDomain, param, value);
 
 	}
-	
-	public void updateConstantValue(EditingDomain editingDomain,domain.TriggerParameter param,
-			String value) {
+
+	private boolean checkType(domain.TriggerParameter param,
+			domain.TypeElement type) {
+
+		if (type.getUid().equals(param.getParameter().getTypeRef().getUid()))
+			return true;
+		else {
+			if (type instanceof TypeReference)
+				type = ((TypeReference) type).getTypeRef();
+
+			if (type instanceof Type) {
+				for (Iterator<domain.TypeExtension> itr = ((Type) type)
+						.getExtension().iterator(); itr.hasNext();) {
+					TypeElement typeElement = itr.next().getTarget();
+					if (typeElement instanceof Type) {
+						if (checkType(param, typeElement)) {
+							return true;
+						}
+					}
+				}
+			} else
+				return false;
+		}
+		return false;
+	}
+
+	public void updateConstantValue(EditingDomain editingDomain,
+			domain.TriggerParameter param, String value) {
 		String valueString = null;
 		if (value != null)
-		   valueString = ((String) value).trim();
+			valueString = ((String) value).trim();
 
 		/* apply the property change to single selected object */
 		editingDomain.getCommandStack().execute(
@@ -395,6 +479,5 @@ public class TriggerParameterPropertySelection extends GridProperty {
 									.getValue().getExpression()));
 		}
 	}
-	
-	
+
 }

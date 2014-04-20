@@ -54,6 +54,7 @@ public class TextAndDialogCellEditor extends DialogCellEditor {
 		textField = new Text(cell, SWT.NONE);
 		textField.setFont(cell.getFont());
 		textField.setBackground(cell.getBackground());
+		textField.setEnabled(false);
 		textField.addFocusListener(new FocusAdapter() {
 			public void focusLost(FocusEvent event) {
 				setValueToModel();
